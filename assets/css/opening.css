@@ -9,6 +9,7 @@
   top: 0;
   height: 100vh;
   overflow: hidden;
+  clip-path: inset(var(--opening-exit-clip, 0px) 0 0);
   background: var(--bg);
 }
 #opening-canvas {
@@ -22,6 +23,7 @@
   position: absolute;
   inset: 0;
   z-index: 3;
+  opacity: var(--opening-exit-opacity, 1);
   pointer-events: none;
 }
 .eao-opening [data-opening] {
@@ -145,7 +147,7 @@
   color: #f7f9fb;
   font: 500 13px/1 var(--mono);
   font-variant-numeric: tabular-nums;
-  opacity: 0;
+  opacity: calc(var(--opening-score-opacity, 0) * var(--opening-exit-opacity, 1));
   pointer-events: none;
   transform-origin: top right;
 }
@@ -188,7 +190,7 @@
   overflow: hidden;
   border-radius: 16px;
   box-shadow: var(--shadow-soft);
-  opacity: 0;
+  opacity: calc(var(--opening-inset-opacity, 0) * var(--opening-exit-opacity, 1));
   pointer-events: none;
 }
 .eao-opening-inset figcaption {
@@ -222,6 +224,7 @@
   text-transform: uppercase;
   white-space: nowrap;
   pointer-events: none;
+  opacity: var(--opening-exit-opacity, 1);
 }
 .eao-opening-hud b { color: var(--ink-2); font-weight: 500; }
 .eao-opening-sep { padding: 0 7px; opacity: .6; }

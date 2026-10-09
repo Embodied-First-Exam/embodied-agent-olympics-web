@@ -34,6 +34,26 @@ function cameraFrom(def, width, height) {
   c.lookAt(new THREE.Vector3().fromArray(y?.lookat ?? fromMJ(def.lookat)));
   c.updateMatrixWorld(true); return c;
 }
+function containExit(section) {
+  const sticky = section.querySelector('.eao-opening-sticky');
+  const copy = section.querySelector('.eao-opening-copy');
+  const nav = document.querySelector('.nav');
+  const update = () => {
+    // Scroll progress clamps at 1 before the sticky stage leaves. Use its real
+    // viewport position, independently of replay easing and render scheduling.
+    const top = sticky.getBoundingClientRect().top, released = Math.max(0, -top);
+    const staticMode = section.matches('.is-overview, .is-fallback');
+    const alpha = staticMode ? 1 : 1 - smooth(0, Math.min(96, innerHeight * 0.12), released);
+    const clipTop = released && nav ? Math.max(0, nav.getBoundingClientRect().bottom + 8 - top) : 0;
+    section.style.setProperty('--opening-exit-opacity', alpha.toFixed(4));
+    sticky.style.setProperty('--opening-exit-clip', `${clipTop.toFixed(2)}px`);
+    copy.inert = alpha < 0.001;
+  };
+  addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update, { passive: true });
+  new MutationObserver(update).observe(section, { attributes: true, attributeFilter: ['class'] });
+  update();
+}
 function fallback(section) {
   section.classList.add('is-fallback', 'is-overview');
   section.querySelector('#opening-fallback').hidden = false;
@@ -47,6 +67,7 @@ function fallback(section) {
 }
 export async function initOpening(section = document.getElementById('opening')) {
   if (!section) return null;
+  containExit(section);
   const canvas = section.querySelector('#opening-canvas'), params = new URLSearchParams(location.search);
   const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
   let reduced = motionPreference.matches;
@@ -102,6 +123,7 @@ export async function initOpening(section = document.getElementById('opening')) 
       if (ball.y > -0.3) { ball.x = clamp(ball.x, -0.8, 0.8); ball.y = clamp(ball.y, 0.12, 0.6); ball.z = clamp(ball.z, -1.4, 1.4); look.lerp(ball, 0.22 * Math.sin((s - 0.56) / 0.2 * Math.PI)); }
     }
     const portraitScreen = camera.aspect < 0.8;
+    const desktopCameras = wide ? smooth(0.31, 0.36, s) * (1 - smooth(0.54, 0.58, s)) : 0;
     const side2 = portraitScreen ? smooth(0.13, 0.14, s) * (1 - smooth(0.31, 0.36, s)) : 0;
     const side4 = portraitScreen ? smooth(0.56, 0.61, s) * (1 - smooth(0.73, 0.80, s)) : 0;
     const sideAmount = side2 + side4;
@@ -125,13 +147,14 @@ export async function initOpening(section = document.getElementById('opening')) 
       look.lerp(new THREE.Vector3(-1.0,0.50,0.0),cameraShot);
       camera.fov = lerp(camera.fov,65,cameraShot);
     }
+    camera.fov -= 6 * desktopCameras;
     if (driftTime && !reduced && !override) eye.sub(look).applyAxisAngle(new THREE.Vector3(0,1,0), Math.sin(driftTime / 9000) * 0.035).add(look);
     if (override?.length >= 6 && override.every(Number.isFinite)) { eye.fromArray(override); look.fromArray(override.slice(3)); camera.fov = override[6] ?? camera.fov; }
     camera.position.copy(eye); camera.lookAt(look);
     const w = canvas.clientWidth, h = canvas.clientHeight;
     const lateralReveal = smooth(0.73, 0.80, s);
-    const shift = override ? 0 : wide ? w * (0.025 * (1 - lateralReveal) + 0.225 * lateralReveal) : w * 0.10 * cameraShot;
-    const rise = override ? 0 : wide ? h * (0.055 * (1 - reveal) + 0.025 * reveal) : h * (0.08 + 0.08 * smooth(0.13,0.18,s) + 0.08 * portraitReveal);
+    const shift = override ? 0 : wide ? w * (0.025 * (1 - lateralReveal) + 0.225 * lateralReveal) * (1 - desktopCameras) : w * 0.10 * cameraShot;
+    const rise = override ? 0 : wide ? h * lerp(0.055 * (1 - reveal) + 0.025 * reveal, 0.025, desktopCameras) : h * (0.08 + 0.08 * smooth(0.13,0.18,s) + 0.08 * portraitReveal);
     if (shift || rise) camera.setViewOffset(w, h, -shift, rise, w, h); else camera.clearViewOffset();
     camera.updateProjectionMatrix(); camera.updateMatrixWorld(true);
     cameraRig.resize(w,h);
@@ -155,12 +178,12 @@ export async function initOpening(section = document.getElementById('opening')) 
     hud.shot.textContent = `${count} / ${contacts.length}`;
     hud.clock.textContent = `${fmt(f / meta.fps)} / ${fmt(duration)}`;
     hud.bar.style.width = `${100 * f / (replay.frames - 1)}%`;
-    scorebug.style.opacity = smooth(0.14, 0.18, s);
+    scorebug.style.setProperty('--opening-score-opacity', smooth(0.14, 0.18, s));
     scorebug.style.right = s > 0.76 && camera.aspect > 1.2 ? `calc(var(--gutter) + ${smooth(0.76,0.88,s) * canvas.clientWidth * 0.20}px)` : '';
     scorebug.style.left = s > 0.76 && camera.aspect < 0.8 ? 'var(--gutter)' : '';
     if (s > 0.76 && camera.aspect < 0.8) scorebug.style.right = 'auto';
     const insetAlpha = smooth(0.34, 0.38, s) * (1 - smooth(0.52, 0.56, s));
-    inset.style.opacity = insetAlpha; inset.style.visibility = insetAlpha > 0.001 ? 'visible' : 'hidden';
+    inset.style.setProperty('--opening-inset-opacity', insetAlpha); inset.style.visibility = insetAlpha > 0.001 ? 'visible' : 'hidden';
     helpers.visible = insetAlpha > 0.02;
   }
   function render(s) {
