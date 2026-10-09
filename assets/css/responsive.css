@@ -1,0 +1,188 @@
+/* Shared responsive components and readable media identity. */
+.renderer-short,.control-caption-short{display:none}
+.control-caption-full{display:flex;align-items:center;flex-wrap:wrap;gap:5px 8px}
+.control-description{margin:10px 0 0;color:var(--ink-2);font-size:13px;line-height:1.55}
+.pilot-grid{align-items:start}
+.control-prototype{position:absolute;top:48px;left:14px;z-index:3}
+.control-prototype .chip{background:#0f141acc;color:#F0C27A;border-color:#e0a24355}
+.media-cell-labels{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));pointer-events:none}
+.media-cell-label{align-self:start;justify-self:start;margin:10px;padding:4px 7px;border-radius:5px;background:#0f141acc;color:#fff;font:500 12px/1.4 var(--body)}
+.video-play:empty::before{content:"";width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:12px solid currentColor;margin-left:3px}
+
+@media(max-width:720px){
+  .renderer-full,.control-caption-full{display:none}
+  .renderer-short{display:inline}
+  .renderer-label,.media-frame:has(video[controls]) .renderer-label,.media-frame.has-controls .renderer-label{font-size:12px;max-width:52%;top:8px;right:8px;padding:4px 6px}
+  .control-monitor .lower-third{left:8px;right:8px;bottom:8px;max-width:none;padding:4px 6px;line-height:1.5}
+  .control-caption-short{display:flex;align-items:center;gap:4px;white-space:nowrap;font:500 12px/1.5 var(--body)}
+  .control-caption-short strong{font:600 12px/1.5 var(--body);letter-spacing:0;text-transform:none}
+  .control-room-caption .footage-result{display:none}
+  .control-caption p{white-space:normal;overflow:visible;text-overflow:clip}
+  .sport-broadcast .media-frame.has-controls{aspect-ratio:auto;min-height:0}
+  .sport-broadcast .media-frame.has-controls video{height:auto;aspect-ratio:16/9;object-fit:contain}
+  .sport-broadcast .media-frame.has-controls .lower-third{position:static;display:block;max-width:none;border-radius:0;padding:12px;background:#0f141a;opacity:1;font-size:12px;line-height:1.55}
+  .sport-broadcast .lower-third>i{margin-inline:5px;font-style:normal}
+  .sport-broadcast .footage-result{display:block;margin-top:8px;font-weight:600}
+  .sport-broadcast .media-frame>[data-video-play]{top:calc((100vw - 2 * var(--gutter)) * 9 / 32)}
+  .control-prototype{top:42px;left:8px}
+  .control-prototype .chip{font-size:12px;padding:4px 7px}
+  .control-channel>span{font-size:12px;line-height:1.35;padding:7px;min-height:44px}
+  .control-channel .icon{width:16px;height:16px}
+  .on-air{font-size:12px;letter-spacing:0}
+  .statement-section .score-tile dd{font-size:12px;letter-spacing:0;overflow-wrap:anywhere}
+  .statement-section .score-tile{padding-right:6px}
+  .statement-section .score-tile+.score-tile{padding-left:8px}
+  .lap-hint,.lap-infield{font-size:22px}
+  .figure-narrow :is(.F1-narrow-small,.F1-narrow-mono,.F4-narrow-small,.F4-narrow-mono,.formats-label,.F2n-mono,.F3n-mono){font-size:13px!important}
+  .arc-node{font-size:12px;white-space:normal;max-width:72px;text-align:center}
+  .arc-node[data-arc-stage="2"]{max-width:78px}
+  .arc-return-wrap>span{font-size:12px;letter-spacing:0}
+  .frame-status .chip{font-size:12px}
+  .media-frame[data-grid-columns]{aspect-ratio:auto;min-height:0}
+  .media-frame[data-grid-columns] video{position:static;height:auto;aspect-ratio:var(--media-ratio);object-fit:contain}
+  .media-frame[data-grid-columns] .lower-third{position:static;border-radius:0;max-width:none;opacity:1;padding:10px 12px;background:#0f141a;font-size:12px}
+  .media-frame[data-grid-columns] .lower-third strong{font-size:12px}
+  .media-cell-labels{position:relative;display:grid;grid-template-rows:auto;gap:12px 10px;padding:12px;background:var(--surface)}
+  .media-cell-label{margin:0;padding:0;background:none;color:var(--ink-2);font-size:12px;overflow-wrap:anywhere}
+  .media-frame[data-grid-columns]>.video-play{top:calc((100vw - 2 * var(--gutter)) * 448 / 2560)}
+  .home-podiums summary{font-size:18px;min-height:44px;min-width:44px}
+  :is(.podium-name,.podium-medal,.podium-table-name,.podium-table th>a,.record-table tbody th>a,.heat-sheet tbody th>a,.body-sport-matrix a,.body-sports .chip,.limit-sources a,.footer-nav a,.matrix-ability,.arc-node){min-width:44px;min-height:44px}
+  :is(.podium-name,.podium-medal,.body-sport-matrix tbody th>a,.limit-sources a){display:flex;align-items:center}
+  .podium-name{line-height:1.45}
+  .podium-name .model-dot{margin-top:0;flex:none}
+  .podium-medal{gap:5px}
+  .setting summary,.limit-sources summary{min-height:44px;min-width:44px;display:list-item;padding-block:12px}
+  .body-sport-matrix thead a{min-width:44px}
+  .results-matches>.table-wrap,.home-podiums .table-wrap{overflow:visible;border-radius:0}
+  .heat-sheet,.podium-table{display:block;min-width:0;width:100%;font-size:14px;table-layout:auto}
+  .heat-sheet thead,.podium-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .heat-sheet tbody,.podium-table tbody{display:grid;gap:14px}
+  .heat-sheet tbody tr,.podium-table tbody tr{display:grid;position:relative;padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--surface);gap:16px 18px}
+  .heat-sheet tbody tr{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .heat-sheet tbody th,.heat-sheet tbody td,.podium-table tbody th,.podium-table tbody td{display:block;min-width:0;width:auto;padding:0;border:0;white-space:normal;vertical-align:top}
+  .heat-sheet tbody td::before,.podium-table tbody td::before{content:attr(data-label);display:block;margin-bottom:6px;color:var(--ink-3);font:500 12px/1.4 var(--mono)}
+  .heat-sheet [data-column="sport"]{grid-column:1;grid-row:1;font-size:18px;line-height:1.3}
+  .heat-sheet [data-column="format"]{grid-column:1;grid-row:2}
+  .heat-sheet [data-column="replay"]{grid-column:2;grid-row:1 / 3;justify-self:end;position:static;border:0;background:none}
+  .heat-sheet tbody td:last-child{position:static;right:auto;background:none;border:0}
+  .heat-sheet [data-column="side-a"]{grid-column:1;grid-row:3}
+  .heat-sheet [data-column="side-b"]{grid-column:2;grid-row:3}
+  .heat-sheet [data-column="score"]{grid-column:1;grid-row:4;font-size:22px}
+  .heat-sheet [data-column="winner"]{grid-column:2;grid-row:4}
+  .heat-sheet [data-column="seed"]{grid-column:1;grid-row:5}
+  .heat-sheet [data-column="minutes"]{grid-column:2;grid-row:5}
+  .heat-sheet [data-column="n"]{grid-column:1 / -1;grid-row:6}
+  .heat-sheet :is([data-column="format"],[data-column="replay"],[data-column="n"])::before,.podium-table [data-column="format"]::before{display:none}
+  .heat-side{line-height:1.5;align-items:baseline}
+  .heat-side .side-dot{flex:none}
+  .unavailable-replay{display:grid;place-items:center;min-height:44px;min-width:44px}
+  .podium-table tbody tr{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 10px}
+  .podium-table [data-column="sport"]{grid-column:1 / -1;padding-right:52px}
+  .podium-table tbody th:first-child{width:auto;padding-left:0}
+  .podium-table [data-column="format"]{position:absolute;right:18px;top:18px}
+  .podium-table-name{align-items:center;overflow-wrap:anywhere;font-size:12px;line-height:1.45}
+  .podium-table-name .medal-disc{flex:none}
+  .match-wall .media-frame{aspect-ratio:auto;min-height:0}
+  .match-wall .media-frame video{height:auto;aspect-ratio:16/9}
+  .match-wall .lower-third{position:static;opacity:1;max-width:none;border-radius:0;min-height:74px;padding:8px;background:#0f141a}
+  .match-wall .video-play{top:calc((100vw - 2 * var(--gutter) - 8px) * 9 / 64)}
+  .match-wall .scorebug{font-size:12px}
+  .match-wall .scorebug-sport,.match-wall .scorebug-n,.match-wall .scorebug-score{font-size:12px}
+  .match-wall .scorebug-n{white-space:normal}
+  .replay-modal .media-frame{aspect-ratio:auto;min-height:0}
+  .replay-modal .media-frame video{height:auto;aspect-ratio:16/9}
+  .replay-modal .media-frame .lower-third{position:static;border-radius:0;max-width:none;padding:12px;opacity:1}
+  .replay-modal .scorebug,.replay-modal .scorebug-sport,.replay-modal .scorebug-score,.replay-modal .scorebug-n{font-size:12px}
+  .docs-prose pre code{font-size:12px}
+}
+
+@media(max-width:720px){
+  .label,
+  .mono,
+  .preview,
+  .btn small,
+  .chip i,
+  .score-tile dd,
+  .hero-fact-line,
+  .lower-third .sport,
+  .lower-third strong,
+  .control-fixed,
+  .format-card .format-count,
+  .medal-table th,
+  .podium-head>.chip,
+  .podium-place,
+  .podium-place .place-label,
+  .finding .finding-n,
+  .sport-card .physics,
+  .ability-matrix thead th,
+  .ability-matrix .family-row th,
+  .record-card small,
+  .revision,
+  .heat-sheet th,
+  .medal-table td[data-label]::before,
+  .lower-third,
+  .matrix-ability,
+  .renderer-label,
+  .sample-note,
+  .podium-medal,
+  .pager-link .label,
+  .rules-revision,
+  .media-frame:has(video[controls]) .lower-third,
+  .media-frame:has(video[controls]) .lower-third strong,
+  .media-frame:has(video[controls]) .renderer-label,
+  .framework-frame .lower-third,
+  .framework-frame .lower-third strong,
+  .statement-section .score-tile dd,
+  .arc-return-wrap>span,
+  .scorebug-sport,
+  .scorebug-n,
+  .match-wall .scorebug,
+  .match-wall .scorebug-score,
+  .match-wall .scorebug-sport,
+  .match-wall .scorebug-n,
+  .podium-table thead th,
+  .podium-table .sample-note,
+  .podium-table .chip,
+  .closing-lanes span,
+  .footer-meta,
+  .result-model-chip .number,
+  .record-table thead th,
+  .record-table thead .model-name,
+  .record-table td small,
+  .results-filters label,
+  .results-filters [data-results-count],
+  .heat-sheet thead th,
+  .heat-sheet .chip,
+  .heat-sheet .sample-note,
+  .match-meta,
+  .changelog time,
+  .body-content .chip,
+  .body-stats dt,
+  .limit-sources,
+  .body-swap-labels .chip,
+  .body-sport-matrix thead th,
+  .body-sport-matrix .chip,
+  .compare-labels,
+  .renderer-compare .chip,
+  .statement-section .hero-fact-line,
+  .arc-node,
+  .compare-row small,
+  .frame-status .chip,
+  .framework-tag,
+  .closing-roadmap .chip,
+  .replay-modal .lower-third,
+  .replay-modal .scorebug,
+  .replay-modal .scorebug-sport,
+  .replay-modal .scorebug-score,
+  .body-sport-matrix,
+  .docs-mobile-toc label,
+  .docs-prose pre code,
+  .night-band .format-card p,
+  .heat-sheet,
+  .media-frame.has-controls .renderer-label,
+  .on-air,
+  .control-monitor .lower-third,
+  .control-hint,
+  .control-channel>span,
+  .control-monitor .lower-third .sport{font-size:12px}
+}

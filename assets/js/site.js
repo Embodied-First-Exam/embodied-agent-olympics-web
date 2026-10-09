@@ -31,7 +31,15 @@ $('#theme-toggle')?.addEventListener('click', () => applyTheme(document.document
 
 const nav = $('.nav');
 const menu = $('#menu-toggle');
+const menuLinks = $('#nav-links');
 const narrowNav = matchMedia('(max-width: 860px)');
+function menuOrder() {
+  if (!menuLinks) return;
+  // Keep the disclosure's links next in forward Tab order on phones.
+  if (narrowNav.matches) menu?.after(menuLinks);
+  else $('.wordmark', nav || document)?.after(menuLinks);
+}
+menuOrder();
 function openMenu(open) {
   nav?.classList.toggle('open', open);
   menu?.setAttribute('aria-expanded', String(open));
@@ -43,11 +51,12 @@ addEventListener('pointerdown', (event) => {
 });
 addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && nav?.classList.contains('open')) {
+    event.preventDefault();
     openMenu(false);
     menu?.focus();
   }
 });
-narrowNav.addEventListener('change', () => openMenu(false));
+narrowNav.addEventListener('change', () => { openMenu(false); menuOrder(); });
 
 const revealElements = $$('.reveal');
 if (reducedMotion.matches || !('IntersectionObserver' in window)) {
@@ -162,6 +171,7 @@ $$('[data-control-room]').forEach((room) => {
   const progress = $('[data-control-progress]', room);
   const caption = $('[data-control-caption]', room), renderer = $('[data-control-renderer]', room);
   const title = $('[data-control-title]', room), summary = $('[data-control-summary]', room);
+  const description = $('[data-control-description]', room);
   const link = $('[data-control-link]', room);
   let current = -1, inView = false, holdUntil = 0, timer = 0;
   const available = (channel) => !channel.classList.contains('is-dim') && !channel.hidden && !!channel.dataset.src;
@@ -194,20 +204,22 @@ $$('[data-control-room]').forEach((room) => {
     strip.scrollTo({ left: strip.scrollLeft + item.left - bounds.left - (strip.clientWidth - item.width) / 2,
       behavior: reducedMotion.matches ? 'instant' : 'smooth' });
   }
-  function show(index, manual = false) {
+  function show(index, manual = false, userTriggered = false) {
     if (!available(channels[index])) return;
     clearTimeout(timer);
     current = index;
     if (manual) holdUntil = performance.now() + 30000;
     const channel = channels[index], data = $('[data-control-meta]', channel)?.content;
     const lower = data && $('.lower-third', data), tag = data && $('.renderer-label', data);
-    if (caption) caption.replaceChildren(...(lower ? [lower.cloneNode(true)] : []));
+    const prototype = data && $('.control-prototype', data);
+    if (caption) caption.replaceChildren(...[lower, prototype].filter(Boolean).map((node) => node.cloneNode(true)));
     if (renderer) renderer.replaceChildren(...(tag ? [tag.cloneNode(true)] : []));
     if (title) title.textContent = channel.dataset.title || '';
     if (summary) {
       summary.textContent = channel.dataset.summary || '';
       summary.title = channel.dataset.summary || '';
     }
+    if (description) description.textContent = channel.dataset.description || '';
     if (link && channel.dataset.href) link.href = channel.dataset.href;
     if (channel.dataset.title) video.setAttribute('aria-label', channel.dataset.title);
     video.loop = false;
@@ -216,7 +228,7 @@ $$('[data-control-room]').forEach((room) => {
     window.eaoSetVideoSource(video, {
       src: channel.dataset.src, poster: channel.dataset.poster,
       width: channel.dataset.width, height: channel.dataset.height,
-      explicit: manual && !reducedMotion.matches,
+      explicit: userTriggered && !reducedMotion.matches,
     });
     updateProgress();
     dispatchEvent(new Event('eaocontrolchange'));
@@ -238,11 +250,11 @@ $$('[data-control-room]').forEach((room) => {
     if (index >= 0) show(index);
   }
   channels.forEach((channel, index) => {
-    channel.addEventListener('click', () => show(index, true));
+    channel.addEventListener('click', (event) => show(index, true, event.isTrusted));
     channel.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
         event.preventDefault();
-        show(index, true);
+        show(index, true, event.isTrusted);
         return;
       }
       const grid = strip && getComputedStyle(strip);
@@ -254,7 +266,7 @@ $$('[data-control-room]').forEach((room) => {
       else if (steps[event.key]) target = nextIndex(index, steps[event.key]);
       else return;
       event.preventDefault();
-      if (target >= 0) { show(target, true); channels[target].focus({ preventScroll: true }); }
+      if (target >= 0) { show(target, true, event.isTrusted); channels[target].focus({ preventScroll: true }); }
     });
   });
   addEventListener('eaofilterchange', () => {
@@ -696,7 +708,7 @@ if (replayModal) {
     if (!replayModal.open) return;
     replayModal.close();
   }
-  function openReplay(id, trigger = null) {
+  function openReplay(id, trigger = null, userTriggered = false) {
     const data = $$('template[data-replay-data]').find((template) => template.dataset.replayData === id);
     if (!data?.dataset.src || !video) return;
     if (replayModal.open && current === id) return;
@@ -704,15 +716,10 @@ if (replayModal) {
       returnFocus = trigger || document.activeElement;
       previousHash = location.hash.startsWith('#match-') ? '#matches' : location.hash;
     }
-    video.pause();
-    video.src = data.dataset.src;
-    video.preload = 'none';
-    video.muted = true;
-    video.playsInline = true;
-    if (data.dataset.poster) video.poster = data.dataset.poster;
-    else video.removeAttribute('poster');
-    if (data.dataset.width) video.width = Number(data.dataset.width);
-    if (data.dataset.height) video.height = Number(data.dataset.height);
+    window.eaoSetVideoSource(video, {
+      src: data.dataset.src, poster: data.dataset.poster,
+      width: data.dataset.width, height: data.dataset.height,
+    });
     if (title) title.textContent = data.dataset.title || '';
     if (data.dataset.title) video.setAttribute('aria-label', data.dataset.title);
     const score = $('.scorebug', data.content), detail = $('.match-meta', data.content);
@@ -725,11 +732,11 @@ if (replayModal) {
     history.replaceState(null, '', '#match-' + encodeURIComponent(id));
     $('[data-replay-close]', replayModal)?.focus({ preventScroll: true });
     dispatchEvent(new Event('eaoreplaychange'));
-    if (trigger) window.eaoPlayVideo?.(video);
+    if (userTriggered) window.eaoPlayVideo?.(video);
   }
   $$('[data-replay-open]').forEach((button) => button.addEventListener('click', (event) => {
     event.preventDefault();
-    openReplay(button.dataset.replayOpen, button);
+    openReplay(button.dataset.replayOpen, button, event.isTrusted);
   }));
   $$('[data-replay-close]', replayModal).forEach((button) => button.addEventListener('click', closeReplay));
   replayModal.addEventListener('cancel', (event) => { event.preventDefault(); closeReplay(); });

@@ -43,7 +43,10 @@ function containExit(section) {
     // viewport position, independently of replay easing and render scheduling.
     const top = sticky.getBoundingClientRect().top, released = Math.max(0, -top);
     const staticMode = section.matches('.is-overview, .is-fallback');
-    const alpha = staticMode ? 1 : 1 - smooth(0, Math.min(96, innerHeight * 0.12), released);
+    // Portrait content leaves with the stage. Fading it at the start of the
+    // release otherwise leaves almost a viewport of paper before the statement.
+    const phone = matchMedia('(max-width: 760px), (pointer: coarse) and (max-aspect-ratio: 4/5)').matches;
+    const alpha = staticMode || phone ? 1 : 1 - smooth(0, Math.min(96, innerHeight * 0.12), released);
     const clipTop = released && nav ? Math.max(0, nav.getBoundingClientRect().bottom + 8 - top) : 0;
     section.style.setProperty('--opening-exit-opacity', alpha.toFixed(4));
     sticky.style.setProperty('--opening-exit-clip', `${clipTop.toFixed(2)}px`);
@@ -54,12 +57,82 @@ function containExit(section) {
   new MutationObserver(update).observe(section, { attributes: true, attributeFilter: ['class'] });
   update();
 }
-function fallback(section) {
+function fallback(section, motionPreference = matchMedia('(prefers-reduced-motion: reduce)')) {
   section.classList.add('is-fallback', 'is-overview');
   section.querySelector('#opening-fallback').hidden = false;
   section.querySelector('#opening-canvas').hidden = true;
   const video = section.querySelector('#opening-fallback-video');
-  if (video && !matchMedia('(prefers-reduced-motion: reduce)').matches) video.play().catch(() => {});
+  if (video && !video.dataset.openingFallbackBound) {
+    video.dataset.openingFallbackBound = 'true';
+    let explicit = false, automaticRequest = false, playRequest = 0;
+    const play = video.play.bind(video);
+    // Native media controls bypass this instance method. Flag every JS start,
+    // including the manager's scheduled starts, before its play event arrives.
+    video.play = (...args) => {
+      const request = ++playRequest;
+      automaticRequest = true;
+      const clear = () => { if (request === playRequest) automaticRequest = false; };
+      try {
+        const promise = play(...args);
+        Promise.resolve(promise).then(clear, clear);
+        return promise;
+      } catch (error) { clear(); throw error; }
+    };
+    const managed = () => typeof window.eaoPlaybackStatus === 'function';
+    const poster = () => {
+      video.pause(); video.preload = 'none'; video.load();
+      video.dataset.playbackIntent = 'paused';
+    };
+    const reconcile = () => {
+      if (managed()) {
+        // The reel is idle/manual while WebGL works. Request automatic
+        // scheduling only for visible fallback, within the manager's budget.
+        if (typeof window.eaoStartAutomaticVideo === 'function') window.eaoStartAutomaticVideo(video);
+        else dispatchEvent(new Event('eaoviewchange'));
+        if (motionPreference.matches) requestAnimationFrame(() => {
+          if (motionPreference.matches && video.paused) poster();
+        });
+        return;
+      }
+      if (motionPreference.matches) {
+        if (!explicit) poster();
+        return;
+      }
+      if (!video.paused) return;
+      explicit = false; automaticRequest = true; video.dataset.playbackIntent = 'automatic';
+      video.preload = 'auto';
+      video.play().then(() => {
+        if (motionPreference.matches && !explicit) poster();
+      }).catch(() => { automaticRequest = false; });
+    };
+    const userStart = event => {
+      if (event.isTrusted && video.paused) { explicit = true; video.dataset.playbackIntent = 'explicit'; }
+    };
+    video.addEventListener('pointerdown', userStart, true);
+    video.addEventListener('keydown', event => {
+      if ([' ', 'Enter', 'k', 'MediaPlayPause'].includes(event.key)) userStart(event);
+    }, true);
+    video.addEventListener('play', () => {
+      // Chrome's native controls can consume their pointer event inside the
+      // user-agent shadow tree. A native play still carries user activation;
+      // our own guarded automatic request never becomes an explicit start.
+      if (!video.paused && !automaticRequest && navigator.userActivation?.isActive) {
+        explicit = true;
+        // Bridge the native UA control before C1's bubbling play listener.
+        // This is a deliberate user start and still consumes its shared budget.
+        if (managed()) window.eaoPlayVideo?.(video);
+      }
+      automaticRequest = false;
+      video.dataset.playbackIntent = explicit ? 'explicit' : 'automatic';
+    }, true);
+    video.addEventListener('pause', () => {
+      explicit = false; video.dataset.playbackIntent = 'paused';
+    });
+    // Installed here before init's early failure return, and only once even
+    // if a successfully created context is later lost.
+    motionPreference.addEventListener('change', reconcile);
+    reconcile();
+  }
   if (new URLSearchParams(location.search).has('selftest')) {
     const report = () => { let data = {}; try { data = JSON.parse(document.body.dataset.selftest || '{}'); } catch {} document.body.dataset.selftest = JSON.stringify({ ...data, opening: { ready: true, webgl: false, fallback: true } }); };
     report(); retainSelftest(report);
@@ -78,12 +151,12 @@ export async function initOpening(section = document.getElementById('opening')) 
   if (overview) section.classList.add('is-overview');
   let stage;
   try { stage = createStage(canvas, { span: 2.4, cell: 0.1, every: 5, coarse, maxDpr: coarse ? 1.5 : 1.25 }); }
-  catch { fallback(section); return null; }
+  catch { fallback(section, motionPreference); return null; }
   const { scene, camera, renderer } = stage;
   camera.near = 0.1;
   stage.floor.position.y = -0.76; stage.grid.position.y = -0.7595;
   let replay;
-  try { replay = createReplay(await loadReplay()); } catch (error) { console.error(error); fallback(section); return null; }
+  try { replay = createReplay(await loadReplay()); } catch (error) { console.error(error); fallback(section, motionPreference); return null; }
   stage.root.add(replay.root);
   const meta = replay.meta, duration = (replay.frames - 1) / meta.fps;
   const seats = Object.keys(meta.score_timeline[0].score);
@@ -102,8 +175,9 @@ export async function initOpening(section = document.getElementById('opening')) 
   const renderTimes = [], rafTimes = [];
   let scoreFrame = null, scoreTotal = 0, pulseTimer;
   const eye = new THREE.Vector3(), look = new THREE.Vector3(), ball = new THREE.Vector3();
-  // Integrate the storyboard's replay rate: S4 gets half speed, preserving monotonic match time.
-  const timeAt = s => duration * (s <= 0.14 ? 1.2 * s : s <= 0.56 ? s + 0.028 : s <= 0.76 ? 0.588 + (s - 0.56) * 0.5 : 0.688 + s - 0.76) / 0.928;
+  // Give the first ball beat time to read, then reach the same B strike before
+  // S1 ends. Match time remains monotonic; S4 retains its half-speed interval.
+  const timeAt = s => duration * (s <= 0.04 ? 0.3 * s : s <= 0.14 ? 0.012 + 1.56 * (s - 0.04) : s <= 0.56 ? s + 0.028 : s <= 0.76 ? 0.588 + (s - 0.56) * 0.5 : 0.688 + s - 0.76) / 0.928;
   const pointStarts = meta.point_starts ?? meta.pointStarts ?? [];
   const finalStart = typeof pointStarts.at(-1) === 'number' ? pointStarts.at(-1) : pointStarts.at(-1)?.launch_frame ?? pointStarts.at(-1)?.frame ?? Math.round(replay.frames * 0.55);
   function progress() {
@@ -131,14 +205,15 @@ export async function initOpening(section = document.getElementById('opening')) 
     // Portrait broadcast angles keep depth in the table and a large foreground arm.
     eye.lerp(new THREE.Vector3(1.3, 1.5, 3.4), side2);
     eye.lerp(new THREE.Vector3(1.6, 0.72, 3.4), side4);
-    const portraitBase = wide ? 1 : Math.min(2.6, Math.max(1, lerp(0.78,1.17,portraitReveal) / camera.aspect));
+    const portraitBase = wide ? 1 : Math.min(2.85, Math.max(1, lerp(0.78,1.30,portraitReveal) / camera.aspect));
     const portrait = lerp(portraitBase, 1.55, sideAmount);
     eye.sub(look).multiplyScalar(portrait).add(look);
     camera.fov = lerp(a.fov, b.fov, u) + 4 * sideAmount;
     if (portraitScreen && s < 0.14) {
       const close = 1 - smooth(0.13, 0.14, s);
       eye.lerp(new THREE.Vector3(1.70, 0.34, 0.65), close);
-      look.lerp(new THREE.Vector3(0.0, 0.29, -1.30), close);
+      const firstBeat = 1 - smooth(0.04, 0.07, s);
+      look.lerp(new THREE.Vector3(-0.10 * firstBeat, 0.29, -1.30 + 0.05 * firstBeat), close);
       camera.fov = lerp(camera.fov, 49, close);
     }
     const cameraShot = portraitScreen ? smooth(0.34,0.38,s) * (1 - smooth(0.52,0.56,s)) : 0;
@@ -154,7 +229,7 @@ export async function initOpening(section = document.getElementById('opening')) 
     const w = canvas.clientWidth, h = canvas.clientHeight;
     const lateralReveal = smooth(0.73, 0.80, s);
     const shift = override ? 0 : wide ? w * (0.025 * (1 - lateralReveal) + 0.225 * lateralReveal) * (1 - desktopCameras) : w * 0.10 * cameraShot;
-    const rise = override ? 0 : wide ? h * lerp(0.055 * (1 - reveal) + 0.025 * reveal, 0.025, desktopCameras) : h * (0.08 + 0.08 * smooth(0.13,0.18,s) + 0.08 * portraitReveal);
+    const rise = override ? 0 : wide ? h * lerp(0.055 * (1 - reveal) + 0.025 * reveal, 0.025, desktopCameras) : h * (0.08 + 0.08 * smooth(0.13,0.18,s) + 0.085 * portraitReveal);
     if (shift || rise) camera.setViewOffset(w, h, -shift, rise, w, h); else camera.clearViewOffset();
     camera.updateProjectionMatrix(); camera.updateMatrixWorld(true);
     cameraRig.resize(w,h);
@@ -207,7 +282,7 @@ export async function initOpening(section = document.getElementById('opening')) 
     }
   }
   function draw(now = performance.now(), force = false) {
-    if (testActive) return;
+    if (testActive || section.classList.contains('is-fallback')) return;
     const target = progress(), before = shown;
     const easing = 1 - Math.exp(-Math.min(100, Math.max(0, now - lastTick)) * 0.009); lastTick = now;
     shown = frozen != null || overview ? target : shown + (target - shown) * easing;
@@ -228,9 +303,15 @@ export async function initOpening(section = document.getElementById('opening')) 
     renderTimes.push(performance.now() - begin); if (renderTimes.length > 240) renderTimes.shift();
     rafTimes.push(now - previous); if (rafTimes.length > 240) rafTimes.shift(); previous = now;
   }
-  function loop(now) { if (!visible) { running = false; return; } draw(now); requestAnimationFrame(loop); }
-  function start() { if (!running) { running = true; previous = performance.now(); requestAnimationFrame(loop); } }
+  function loop(now) { if (!visible || section.classList.contains('is-fallback')) { running = false; return; } draw(now); requestAnimationFrame(loop); }
+  function start() { if (!running && !section.classList.contains('is-fallback')) { running = true; previous = performance.now(); requestAnimationFrame(loop); } }
   function selftest() {
+    if (section.classList.contains('is-fallback')) {
+      let previous = {}; try { previous = JSON.parse(document.body.dataset.selftest || '{}'); } catch {}
+      const result = { ready: true, webgl: false, fallback: true };
+      document.body.dataset.selftest = JSON.stringify({ ...previous, opening: result });
+      return result;
+    }
     const timeline = meta.score_timeline ?? meta.scoreTimeline;
     const result = { ready: true, revision: meta.source_revision ?? meta.source?.revision, frames: replay.frames, fps: meta.fps, golden: meta.replay,
       pointEnds: timeline.filter(e => e.point), score: replay.score(replay.frame), scoreTimelineValid: timeline.every(e => { const a = replay.score(e.frame); return a.A === (e.score ?? e.scores).A && a.B === (e.score ?? e.scores).B; }),
@@ -279,11 +360,13 @@ export async function initOpening(section = document.getElementById('opening')) 
   addEventListener('resize', () => { stage.resize(); dirty = true; if (!running) draw(); });
   addEventListener('themechange', () => { cameraRig.theme(); dirty = true; if (!running) draw(); if (params.has('selftest')) setTimeout(selftest, 0); });
   motionPreference.addEventListener('change', () => {
-    reduced = motionPreference.matches; overview = params.get('overview') === '1' || reduced;
+    reduced = motionPreference.matches;
+    if (section.classList.contains('is-fallback')) return;
+    overview = params.get('overview') === '1' || reduced;
     section.classList.toggle('is-overview', overview); dirty = true; loopStart = null;
     draw(performance.now(), true); start(); if (params.has('selftest')) selftest();
   });
-  canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); visible = false; fallback(section); });
+  canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); visible = false; fallback(section, motionPreference); });
   stage.resize(); draw(performance.now(), true); renderer.getContext().finish(); readyAt = performance.now(); section.dataset.ready = 'true';
   if (params.has('selftest')) { selftest(); retainSelftest(selftest); } start();
   return window.__opening;

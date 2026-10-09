@@ -78,17 +78,17 @@
 .eao-opening-title {
   position: absolute;
   left: var(--gutter);
-  top: clamp(118px, 17vh, 174px);
+  top: clamp(160px, 24vh, 236px);
   width: min(46vw, 620px);
   pointer-events: auto;
 }
 .eao-opening-title h1 {
   margin: 0;
   color: var(--ink);
-  font: 800 clamp(52px, 8vw, 120px)/.92 var(--display);
+  font: 800 clamp(48px, 5.8vw, 84px)/.96 var(--display);
   letter-spacing: -.035em;
 }
-.eao-opening-title h1 span { display: block; }
+.eao-opening-title h1 .eao-opening-name-line { display: block; white-space: nowrap; }
 .eao-opening-tagline {
   margin: 20px 0 0;
   color: var(--team-a);
@@ -108,7 +108,7 @@
   gap: 10px;
   margin-top: 24px;
 }
-.eao-opening-actions .btn { pointer-events: auto; }
+.eao-opening-actions .btn { min-width: 44px; min-height: 44px; pointer-events: auto; }
 .eao-opening-cue {
   position: absolute;
   left: 50%;
@@ -288,7 +288,7 @@
 .eao-opening.is-fallback .eao-opening-fallback { display: block; }
 @media (max-width: 1100px) and (min-width: 721px) {
   .eao-opening-title { width: min(51vw, 560px); }
-  .eao-opening-title h1 { font-size: clamp(64px, 8.6vw, 96px); }
+  .eao-opening-title h1 { font-size: clamp(48px, 5.8vw, 84px); }
   .eao-opening-tagline { font-size: 27px; }
   .eao-opening-lead { font-size: 16px; }
 }
@@ -296,71 +296,94 @@
   .eao-opening-kicker {
     top: 102px;
     max-width: 310px;
-    font-size: 10px;
+    font-size: 12px;
   }
   .eao-opening-line {
     left: var(--gutter);
-    bottom: 96px;
+    bottom: 100px;
     max-width: calc(100% - 2 * var(--gutter));
     padding: 16px 18px 18px;
     font-size: 23px;
   }
-  .eao-opening-line small { font-size: 10px; }
+  .eao-opening-line small { font-size: 12px; }
   .eao-opening-title {
     top: auto;
-    bottom: 68px;
+    bottom: 84px;
     width: calc(100% - 2 * var(--gutter));
   }
-  .eao-opening-title h1 { font-size: clamp(52px, 9vw, 70px); line-height: .92; }
+  .eao-opening-title h1 { font-size: clamp(48px, 9vw, 64px); font-weight: 700; line-height: .96; }
+  .eao-opening-title h1 .eao-opening-name-word { display: block; }
   .eao-opening-tagline { margin-top: 16px; max-width: 420px; font-size: 23px; }
   .eao-opening-lead { margin-top: 12px; max-width: 440px; font-size: 15px; line-height: 1.45; }
   .eao-opening-actions { gap: 8px; margin-top: 18px; }
-  .eao-opening-actions .btn { min-height: 40px; padding: 10px 14px; font-size: 13px; }
-  .eao-opening-actions .btn small { font-size: 9px; }
-  .eao-opening-hud { left: var(--gutter); right: var(--gutter); bottom: 20px; justify-content: space-between; gap: 8px; padding: 8px 10px; font-size: 9px; }
-  .eao-opening-shot { display: none; }
-  .eao-opening-replay { letter-spacing: 0; }
-  .eao-opening-progress { width: 46px; flex: none; }
-  .eao-opening-score { top: 92px; padding: 10px 11px; font-size: 11px; }
-  .eao-opening-score-label { margin-bottom: 7px; font-size: 9px; }
+  .eao-opening-actions .btn { min-height: 44px; padding: 10px 14px; font-size: 13px; }
+  .eao-opening-actions .btn small { font-size: 12px; }
+  .eao-opening-hud {
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: 16px;
+    display: grid;
+    grid-template-columns: auto auto minmax(34px, 1fr);
+    grid-template-areas: "identity identity identity" "shot clock progress";
+    gap: 6px 12px;
+    padding: 8px 12px;
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+  .eao-opening-replay { grid-area: identity; letter-spacing: 0; }
+  .eao-opening-shot { display: block; grid-area: shot; }
+  #opening-clock { grid-area: clock; }
+  .eao-opening-progress { grid-area: progress; justify-self: end; width: 46px; }
+  .eao-opening-sep { padding: 0 5px; }
+  .eao-opening-score { top: 92px; padding: 10px 11px; font-size: 12px; }
+  .eao-opening-score-label { margin-bottom: 7px; font-size: 12px; }
   .eao-opening-score-line { gap: 8px; }
   .eao-opening-score strong { font-size: 22px; }
-  .eao-opening-side { width: 22px; height: 22px; font-size: 11px; }
+  .eao-opening-side { width: 22px; height: 22px; font-size: 12px; }
   .eao-opening-inset { top: 92px; width: min(45vw, 250px); min-width: 178px; padding: 6px; border-radius: 12px; }
-  .eao-opening-inset figcaption { margin: 0 3px 5px; font-size: 8px; }
+  .eao-opening-inset figcaption { margin: 0 3px 5px; font-size: 12px; }
   #opening-inset-canvas { border-radius: 6px; }
-  .eao-opening-cue { bottom: 70px; font-size: 10px; }
+  .eao-opening-cue { bottom: 70px; font-size: 12px; }
+  .eao-opening-cue::after { height: 8px; margin-top: 4px; }
   .eao-opening.is-overview,
   .eao-opening.is-fallback { height: 100svh; min-height: 740px; }
   .eao-opening-fallback { left: var(--gutter); right: var(--gutter); top: 100px; width: auto; transform: none; }
   .eao-opening-fallback video { border-radius: 16px; }
-  .eao-opening-fallback figcaption { font-size: 9px; margin-top: 8px; }
-  .eao-opening.is-fallback { height: auto; min-height: 100svh; }
+  .eao-opening-fallback figcaption { font-size: 12px; margin-top: 8px; }
+  .eao-opening.is-fallback { height: auto; min-height: 0; }
   .eao-opening.is-fallback .eao-opening-sticky {
     display: flex;
     flex-direction: column;
     gap: 26px;
     height: auto;
-    min-height: 100svh;
-    padding: 96px var(--gutter) 52px;
+    min-height: 0;
+    padding: 96px var(--gutter) 16px;
   }
   .eao-opening.is-fallback .eao-opening-copy { position: relative; inset: auto; order: 2; }
   .eao-opening.is-fallback .eao-opening-title { position: relative; top: auto; bottom: auto; left: auto; width: 100%; }
   .eao-opening.is-fallback .eao-opening-fallback { position: relative; top: auto; left: auto; right: auto; width: 100%; order: 1; }
 }
 @media (max-width: 400px) {
-  .eao-opening-hud { font-size: 8px; gap: 6px; }
-  .eao-opening-sep { padding: 0 5px; }
   .eao-opening-progress { width: 34px; }
-  .eao-opening-title h1 { font-size: 52px; }
+  .eao-opening-title h1 { font-size: 48px; }
   .eao-opening-tagline { font-size: 22px; }
 }
 @media (max-height: 740px) and (min-width: 761px) {
   .eao-opening-title { top: 104px; width: min(44vw, 550px); }
-  .eao-opening-title h1 { font-size: clamp(52px, 7vw, 96px); }
+  .eao-opening-title h1 { font-size: clamp(48px, 5.4vw, 80px); }
   .eao-opening-tagline { margin-top: 14px; font-size: 26px; }
   .eao-opening-lead { font-size: 15px; margin-top: 12px; }
   .eao-opening-actions { margin-top: 18px; }
+}
+@media (pointer: coarse) {
+  .eao-opening-kicker,
+  .eao-opening-line small,
+  .eao-opening-score-label,
+  .eao-opening-inset figcaption,
+  .eao-opening-hud,
+  .eao-opening-cue,
+  .eao-opening-fallback figcaption,
+  .eao-opening-actions .btn small { font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .eao-opening-cue::after { animation: none; }

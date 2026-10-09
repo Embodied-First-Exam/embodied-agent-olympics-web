@@ -6,6 +6,48 @@ const get = async (name, json = false) => {
   if (!r.ok) throw new Error(`Opening asset ${name}: ${r.status}`);
   return json ? r.json() : r.arrayBuffer();
 };
+// The pinned LOD OBJ files have no authored normals. A single averaged normal
+// across a shell cap and its curved wall makes triangular bands at that seam.
+// Split NORMAL groups at 60 degree creases; retain each triangle's exact XYZ
+// and order. Re-index equal groups to keep the smooth surfaces GPU-efficient.
+function presentationNormals(source) {
+  const p = source.attributes.position, ids = source.index.array;
+  const faces = new Float32Array(ids.length), incident = Array.from({ length: p.count }, () => []);
+  for (let f = 0; f < ids.length / 3; f++) {
+    const a = ids[3*f], b = ids[3*f+1], c = ids[3*f+2];
+    const ax = p.getX(b)-p.getX(a), ay = p.getY(b)-p.getY(a), az = p.getZ(b)-p.getZ(a);
+    const bx = p.getX(c)-p.getX(a), by = p.getY(c)-p.getY(a), bz = p.getZ(c)-p.getZ(a);
+    let x = ay*bz-az*by, y = az*bx-ax*bz, z = ax*by-ay*bx;
+    const length = Math.hypot(x,y,z);
+    if (length > 1e-16) { x /= length; y /= length; z /= length; } else { x = y = z = 0; }
+    faces.set([x,y,z],3*f);
+    for (const vertex of [a,b,c]) incident[vertex].push(f);
+  }
+  const positions = [], normals = [], indices = [], groups = new Map();
+  for (let corner = 0; corner < ids.length; corner++) {
+    const f = Math.floor(corner/3), vertex = ids[corner];
+    const nx = faces[3*f], ny = faces[3*f+1], nz = faces[3*f+2];
+    let x = 0, y = 0, z = 0, key = `${vertex}:`;
+    for (const adjacent of incident[vertex]) {
+      const j = 3*adjacent;
+      if (nx*faces[j]+ny*faces[j+1]+nz*faces[j+2] > 0.5) {
+        x += faces[j]; y += faces[j+1]; z += faces[j+2]; key += `${adjacent},`;
+      }
+    }
+    if (!groups.has(key)) {
+      const length = Math.hypot(x,y,z);
+      if (length > 1e-12) { x /= length; y /= length; z /= length; } else { x = nx; y = ny; z = nz; }
+      groups.set(key,positions.length/3);
+      positions.push(p.getX(vertex),p.getY(vertex),p.getZ(vertex)); normals.push(x,y,z);
+    }
+    indices.push(groups.get(key));
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));
+  g.setAttribute('normal',new THREE.Float32BufferAttribute(normals,3));
+  g.setIndex(indices);
+  return g;
+}
 export async function loadReplay() {
   const [meta, motion, meshes, buffer] = await Promise.all([get('rally.json', true), get('rally.bin'), get('meshes.json', true), get('meshes.bin')]);
   const list = meshes.meshes ?? meshes;
@@ -17,8 +59,7 @@ export async function loadReplay() {
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.BufferAttribute(p, 3));
     g.setIndex(new THREE.BufferAttribute(new Uint16Array(buffer, m.index_offset ?? ((m.position_offset) + packed.byteLength), m.index_count), 1));
-    g.computeVertexNormals();
-    return g;
+    return presentationNormals(g);
   });
   return { meta, poses: new Int16Array(motion), geometries };
 }

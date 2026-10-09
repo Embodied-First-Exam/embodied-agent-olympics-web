@@ -13,10 +13,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/site.css?v=77b42af54e11">
+  <link rel="stylesheet" href="../assets/css/site.css?v=fc8e97a4af67">
+  <link rel="stylesheet" href="../assets/css/responsive.css?v=66239f786f4f">
   
-  <script type="module" src="../assets/js/video.js?v=5f01f6a9a82c"></script>
-  <script type="module" src="../assets/js/site.js?v=cada3fcf6537"></script>
+  <script type="module" src="../assets/js/video.js?v=f2dec02688ff"></script>
+  <script type="module" src="../assets/js/site.js?v=7f3d20760a3b"></script>
   
 </head>
 <body data-page="docs">
@@ -62,7 +63,7 @@
 <p>Predicting the ball’s flight is physical understanding and putting the ball where you want it is execution; neither counts as reading the game. Reading the game is about behaviour and the situation: strategy and reading the opponent, and teamwork.</p>
 <h3>Program play and review</h3>
 <ul>
-  <li><strong>Program play (during play, real time).</strong> The program must carry an opponent model and switch plans with the situation.</li>
+  <li><strong>Program play (during play).</strong> The program must carry an opponent model and switch plans with the situation.</li>
   <li><strong>Review (between points).</strong> The agent looks at the footage and match record, sums up the opponent and edits its program.</li>
 </ul>
 <p>In Athlete mode, the platform supplies the motor skill. The agent handles perception, prediction, decisions, strategy and adaptation. Robotics Engineer mode adds building the motor skill itself. Strategy and teamwork are tested in both modes.</p>
@@ -74,7 +75,7 @@
     <tr><td>Where the skill lives</td><td>network weights</td><td>a readable program, plus the agent&#x27;s written reviews</td></tr>
     <tr><td>Adapting within a match</td><td>none (or retraining offline)</td><td>review after every point and revise the program</td></tr>
     <tr><td>Opponent</td><td>the environment or opponents seen in training</td><td>an opponent the agent has not seen: scripted levels or another agent</td></tr>
-    <tr><td>Time scale</td><td>millisecond reflexes of the learned controller</td><td>the program runs in real time; deliberation happens between points</td></tr>
+    <tr><td>Time scale</td><td>millisecond reflexes of the learned controller</td><td>during real-time play, the program runs while the world continues; turn-based sports use a chess clock; between-point reviews allow deliberation and program edits</td></tr>
     <tr><td>Evaluation</td><td>success rate on a task</td><td>match results plus component diagnostics (score ladder, ground-truth checks, API and competition tests)</td></tr>
     <tr><td>Explanation</td><td>none</td><td>the review states a reason, which we can check against the match record</td></tr>
   </tbody>
@@ -86,7 +87,7 @@
     <tr><td>Situation awareness (perception)</td><td><strong>Yes, in one diagnostic.</strong></td><td>Table tennis, ground truth: the program logs its estimates and we replay the match. Ball position median error 0.7–0.8 cm, opponent paddle 3–4 mm (n = 3 models x 3 matches with logging). This part overlaps spatial understanding and physical dynamics.</td></tr>
     <tr><td>Pattern recognition / comprehension</td><td>Partly, from reviews.</td><td>LLM-judged reviews (Endsley levels): only 3% of 2,525 model-written reviews (n = 2,525 reviews) identify a pattern in the opponent. Judge is lenient: upper bound.</td></tr>
     <tr><td>Anticipation (of the opponent)</td><td>Partly.</td><td>Scouting-report diagnostic in table tennis: predictions about the opponent were no better than a constant-probability baseline (Brier score). Contact-point prediction error was 3.6–4.6 cm (n = 3 models x 3 logged matches); this is ball physics.</td></tr>
-    <tr><td>Reading the opponent</td><td>Not directly; shows in results and reviews only.</td><td>12% of 2,525 reviews are opponent-directed (passive analysis, n = 2,525 reviews); prompted to read the game, 80% (diagnostic, n = 14 matches). Adaptation effect not significant (n = 17 seats, win rate 0.59 → 0.66, p = 0.21). Behavioural test with scripted opponents that have plantable habits: planned.</td></tr>
+    <tr><td>Reading the opponent</td><td>Not directly; shows in results and reviews only.</td><td>12% of 2,525 reviews are opponent-directed (passive analysis, n = 2,525 reviews). A separate prompting/scouting diagnostic used 14 valid matches across 5 conditions (n = 192 reviews across all conditions). Adaptation effect not significant (n = 17 seats, win rate 0.59 → 0.66, p = 0.21). Behavioural test with scripted opponents that have plantable habits: planned.</td></tr>
     <tr><td>Reading teammates and space</td><td>Not yet.</td><td>Only soccer 2 v 2 has a team format (one agent per robot, team channel). Metrics (passes into space, space controlled) are planned.</td></tr>
     <tr><td>Game management</td><td>Not directly.</td><td>Visible only in match results.</td></tr>
     <tr><td>Decisions under time pressure</td><td>Indirectly.</td><td>Real-time sports, and the slow-down factor S as a setting; no dedicated metric yet.</td></tr>
@@ -104,6 +105,7 @@
 </ul>
 </section><section class="docs-section" id="abilities"><div class="docs-section-heading"><h2>Nine abilities</h2></div><p>We name nine abilities in three groups: physical intelligence, game intelligence and coding intelligence.</p>
 <p>We mark, for every sport, which abilities it mainly tests.</p>
+<p>During play, the 10 real-time sports keep running while the player thinks. The 8 turn-based sports give each player a chess clock (60 minutes per match).</p>
 <figure class="responsive-figure"><div class="figure-wide"><svg class="inline-figure" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 976" role="img" aria-labelledby="svg-6-F3-title" aria-label="Nine declared abilities in three groups. Understanding the physical world is the core: 3D spatial understanding, physical dynamics, embodiment and execution, time and latency. Understanding the game builds on it: rules, strategy and reading the opponent, teamwork. The coding agent uses real-time programming and learning during the match in every sport.">
 <title id="svg-6-F3-title">Nine abilities in three groups</title>
 <style>
@@ -441,11 +443,11 @@
 <div class="table-wrap"><table>
   <thead><tr><th>Ability</th><th>Definition</th><th>How it shows</th></tr></thead>
   <tbody>
-    <tr><td>Real-time programming</td><td>Write perception, prediction and strategy as a program that runs in real time; debug it during the match; fix it quickly when it breaks</td><td>program ready at the start; crashes and timeouts</td></tr>
+    <tr><td>Real-time programming</td><td>Write perception, prediction and strategy as a program; debug it during the match; fix it quickly when it breaks</td><td>program ready at the start; crashes and timeouts</td></tr>
     <tr><td>Learning during the match</td><td>After each point, find why it was lost and change the program or the plan</td><td>scoring before and after a review; what was changed and whether it helped</td></tr>
   </tbody>
 </table></div>
-<p>Real-time programming and learning during the match are tested by every sport.</p>
+<p>Programming and learning during the match are tested by every sport.</p>
 <h3>Coverage</h3>
 <div class="table-wrap"><table>
   <thead><tr><th>Ability</th><th>Sports with primary focus</th></tr></thead>
@@ -466,7 +468,7 @@
 <h3>Physics tags</h3>
 <p>Collisions 7 · rolling and friction 7 · air drag 6 · spin and bounce 4 · ballistics 4 · wind 3 · inertia and actuator lag 2 · contact 2 · walking 1.</p>
 </section><section class="docs-section" id="modes"><div class="docs-section-heading"><h2>How a match works</h2></div><h3>Watch, code, play, revise, grade</h3>
-<p>The world never waits: thinking costs game time. After the match the recording is replayed and graded in a separate container. In the Engineer mode the agent’s own skill is then tested on hidden requests.</p>
+<p>During real-time play, the world never waits: thinking costs game time. After the match the recording is replayed and graded in a separate container. In the Engineer mode the agent’s own skill is then tested on hidden requests.</p>
 <ol>
   <li><strong>Watch.</strong> The agent sees the game only through the sport’s cameras, with no coordinates. It reads the rule constants and its robot’s specification (<code>game spec</code>).</li>
   <li><strong>Code.</strong> It writes perception, prediction, strategy and the commands for its robot.</li>
@@ -476,7 +478,7 @@
 </ol>
 <p>Every match is recorded and replays bit-exactly, so any match can be checked, analysed or re-rendered later.</p>
 <h3>Athlete and Robotics Engineer</h3>
-<p><strong>Athlete.</strong> The agent has the basic motor skills of the sport. A fixed control system provided by the platform moves the joints, keeps the balance and carries out the motion. This mode mainly evaluates perception, prediction, planning, real-time decisions and competitive strategy.</p>
+<p><strong>Athlete.</strong> The agent has the basic motor skills of the sport. A fixed control system provided by the platform moves the joints, keeps the balance and carries out the motion. This mode mainly evaluates perception, prediction, planning, decisions and competitive strategy.</p>
 <p><strong>Robotics Engineer.</strong> The agent receives the robot’s physical model, a low-level control interface and general-purpose basic capabilities, such as an IK library or the vendor’s walking policy. It may implement, combine or improve control methods. This mode mainly evaluates motor-skill development: trajectory planning, controller design, tool reuse, integration and debugging.</p>
 <div class="table-wrap"><table>
   <thead><tr><th></th><th>Athlete</th><th>Robotics Engineer</th></tr></thead>
@@ -967,7 +969,7 @@
 <p>Three contracts connect them: the <strong>player protocol</strong> (player ↔ core), the <strong>sport interface</strong> (core → sport), and the <strong>match record</strong> (core → tools). The middle is narrow and versioned; both sides grow freely.</p>
 <h3>One core, 18 sports</h3>
 <ul>
-  <li>Every sport runs under the same match flow, clock, review and judging.</li>
+  <li>Every sport uses the same core for match flow, clocks, review and judging.</li>
   <li>Single, duel, team and multi-party are core rules: a sport declares which ones it supports.</li>
   <li>A shared robot library uses real robot models and real limits.</li>
   <li>Grading replays the recording in a separate container and checks state hashes. Every match replays bit-exactly.</li>

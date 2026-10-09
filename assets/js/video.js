@@ -3,6 +3,7 @@ const videos = [...document.querySelectorAll('video')];
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const pointer = matchMedia('(pointer: coarse)');
 const states = new Map();
+const playLabel = document.querySelector('[data-video-play][aria-label]')?.getAttribute('aria-label');
 let scheduled = false;
 
 const isTouch = () => pointer.matches || navigator.maxTouchPoints > 0;
@@ -29,17 +30,63 @@ function syncControls(state) {
 function showButton(state, show) {
   syncControls(state);
   if (!state.button) return;
-  state.button.hidden = !show;
+  state.button.hidden = !show || !state.video.paused;
   state.button.setAttribute('aria-pressed', String(!state.video.paused));
 }
 
-function stop(state) {
+function ensureButton(state) {
+  if (state.button || !state.frame || !playLabel) return;
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'video-play';
+  button.dataset.videoPlay = '';
+  button.setAttribute('aria-label', playLabel);
+  button.hidden = true;
+  state.frame.append(button);
+  state.button = button;
+}
+
+function bindButton(state) {
+  if (!state.button || state.buttonBound) return;
+  state.buttonBound = true;
+  state.button.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!event.isTrusted) return;
+    if (!state.video.paused) {
+      state.userPaused = true;
+      stop(state);
+      showButton(state, true);
+    } else {
+      state.explicit = true;
+      state.blocked = false;
+      state.userPaused = false;
+      state.clicked = performance.now();
+      reconcile();
+    }
+  });
+}
+
+function stop(state, poster = false) {
   state.wanted = false;
   state.explicit = false;
+  if (poster) state.userPlayUntil = 0;
+  state.userPauseUntil = 0;
+  if (!state.video.paused || state.pending || poster) state.playOrigin = null;
+  if (state.pending || poster) {
+    state.playRequest++;
+    state.pending = false;
+  }
   if (!state.video.paused) state.video.pause();
+  // Pausing leaves the last frame visible. load() restores the poster without
+  // fetching a clip whose preload policy is none.
+  if (poster) {
+    state.video.preload = 'none';
+    state.video.load();
+  }
   clearTimeout(state.captionTimer);
   state.frame?.classList.remove('caption-faded');
-  showButton(state, motion.matches || state.blocked);
+  showButton(state, motion.matches || state.blocked || state.userPaused);
 }
 
 function fadeCaption(state) {
@@ -62,6 +109,7 @@ function start(state, explicit = false) {
   state.pending = true;
   const request = ++state.playRequest;
   let promise;
+  state.managedStart = true;
   try { promise = state.video.play(); }
   catch (_) {
     state.pending = false;
@@ -69,6 +117,8 @@ function start(state, explicit = false) {
     state.explicit = false;
     showButton(state, true);
     return;
+  } finally {
+    state.managedStart = false;
   }
   Promise.resolve(promise).then(() => {
     if (request !== state.playRequest) return;
@@ -117,7 +167,7 @@ function reconcile() {
   if (!motion.matches && !document.hidden) {
     const candidates = all.filter((s) => {
       if (selected.includes(s) || s.blocked || s.userPaused || !visible(s)) return false;
-      if (s.kind === 'manual') return false;
+      if (s.kind === 'manual') return s.automaticRequested && s.ratio >= .15;
       if (s.kind === 'control-room') return s.ratio >= .35 && !s.video.ended;
       if (s.kind === 'hero') return s.ratio >= .15;
       if (s.kind === 'hover' || s.kind === 'wall') return touch ? s.ratio >= .25 : s.hovered || s.focused;
@@ -138,7 +188,9 @@ function reconcile() {
   }
   if (document.hidden) selected.length = 0;
   // Pause before starting another clip, so the cap holds during handovers.
-  for (const state of all) if (!selected.includes(state)) stop(state);
+  for (const state of all) if (!selected.includes(state)) {
+    stop(state, motion.matches && (!state.video.paused || state.pending));
+  }
   for (const state of selected) start(state, state.explicit);
 }
 
@@ -157,9 +209,28 @@ for (const video of videos) {
     heroControl: frame?.querySelector('[data-hero-control]'), userPaused: false,
     hovered: false, focused: false, wanted: false, explicit: false,
     pending: false, blocked: false, clicked: 0, started: 0, captionTimer: null,
-    playRequest: 0,
+    playRequest: 0, userPlayUntil: 0, userPauseUntil: 0, automaticRequested: false, managedStart: false, playOrigin: null, originRequest: 0,
   };
   states.set(video, state);
+  const nativePlay = video.play.bind(video);
+  video.play = () => {
+    // Native controls bypass this method and can swallow pointer events. Keep
+    // the origin of JavaScript starts until their trusted play event arrives.
+    if (!video.paused) return nativePlay();
+    const originRequest = ++state.originRequest;
+    state.playOrigin = state.managedStart && state.explicit ? 'user' : 'automatic';
+    if (!state.managedStart) {
+      state.userPlayUntil = 0;
+      state.explicit = false;
+    }
+    let promise;
+    try { promise = nativePlay(); }
+    catch (error) { state.playOrigin = null; throw error; }
+    Promise.resolve(promise).catch(() => {
+      if (originRequest === state.originRequest && video.paused) state.playOrigin = null;
+    });
+    return promise;
+  };
   video.muted = true;
   video.defaultMuted = true;
   video.playsInline = true;
@@ -168,25 +239,13 @@ for (const video of videos) {
   // The scheduler also handles the hero's declarative autoplay attribute.
   video.removeAttribute('autoplay');
   if (!video.paused) video.pause();
+  if (state.kind !== 'manual') ensureButton(state);
+  bindButton(state);
   showButton(state, motion.matches);
-  state.button?.addEventListener('click', (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    if (!video.paused) {
-      state.userPaused = true;
-      stop(state);
-      showButton(state, true);
-    } else {
-      state.explicit = true;
-      state.blocked = false;
-      state.userPaused = false;
-      state.clicked = performance.now();
-      reconcile();
-    }
-  });
   state.heroControl?.addEventListener('click', (event) => {
     event.preventDefault();
     event.stopPropagation();
+    if (!event.isTrusted) return;
     if (!video.paused) {
       state.userPaused = true;
       stop(state);
@@ -222,22 +281,47 @@ for (const video of videos) {
     if (!state.focused && !state.hovered && !video.paused && performance.now() - state.started >= 3000) frame.classList.add('caption-faded');
     schedule();
   });
-  video.addEventListener('play', () => {
-    if (!state.wanted) {
+  const nativeIntent = (event) => {
+    if (!event.isTrusted || !video.controls) return;
+    const intent = video.paused ? 'userPlayUntil' : 'userPauseUntil';
+    state[intent] = performance.now() + 1500;
+  };
+  video.addEventListener('pointerdown', nativeIntent, true);
+  video.addEventListener('keydown', (event) => {
+    if ([' ', 'Enter', 'k', 'MediaPlayPause'].includes(event.key)) nativeIntent(event);
+  }, true);
+  video.addEventListener('play', (event) => {
+    const origin = state.playOrigin;
+    state.playOrigin = null;
+    // A canceled play can leave its queued event behind after load()/pause().
+    if (video.paused) { showButton(state, motion.matches || state.blocked || state.userPaused); return; }
+    const native = origin === null && video.controls && event.isTrusted;
+    if (origin === 'user' || native || (origin !== 'automatic' && state.userPlayUntil > performance.now())) {
       state.explicit = true;
-      state.wanted = true;
       state.clicked = performance.now();
+      state.userPaused = false;
+      state.blocked = false;
+    } else if (origin === 'automatic' || !state.wanted) {
+      state.explicit = false;
     }
+    state.wanted = true;
+    state.userPlayUntil = 0;
+    state.userPauseUntil = 0;
     // Native controls enter through this path, and consume the same budget.
     reconcile();
-    showButton(state, false);
+    showButton(state, motion.matches || state.blocked || state.userPaused);
   });
   video.addEventListener('playing', () => { syncControls(state); fadeCaption(state); });
   video.addEventListener('pause', () => {
     clearTimeout(state.captionTimer);
     frame?.classList.remove('caption-faded');
-    if (state.explicit && video.paused) state.explicit = false;
-    showButton(state, motion.matches || state.blocked);
+    if (video.paused && (state.explicit || state.wanted || state.userPauseUntil > performance.now())) {
+      state.explicit = false;
+      state.wanted = false;
+      state.userPaused = true;
+    }
+    state.userPauseUntil = 0;
+    showButton(state, motion.matches || state.blocked || state.userPaused);
   });
   video.addEventListener('ended', () => {
     state.explicit = false;
@@ -266,7 +350,7 @@ pointer.addEventListener('change', schedule);
 motion.addEventListener('change', () => {
   states.forEach((state) => {
     state.video.preload = state.kind === 'hero' && !motion.matches ? 'auto' : 'none';
-    if (motion.matches && !state.explicit) stop(state);
+    if (motion.matches && !state.explicit) stop(state, true);
     showButton(state, motion.matches || state.blocked);
   });
   schedule();
@@ -289,10 +373,24 @@ export function playbackStatus() {
   };
 }
 window.eaoPlaybackStatus = playbackStatus;
+// C5 and other automatic callers request the scheduler; they never impersonate
+// a deliberate user through eaoPlayVideo or a bare video.play().
+window.eaoStartAutomaticVideo = (video) => {
+  const state = states.get(video);
+  if (!state || state.explicit) return;
+  state.automaticRequested = true;
+  ensureButton(state);
+  bindButton(state);
+  if (motion.matches) stop(state, true);
+  else schedule();
+};
 window.eaoPlayVideo = (video) => {
   const state = states.get(video);
   if (!state) return;
   state.explicit = true;
+  state.userPlayUntil = 0;
+  state.userPauseUntil = 0;
+  state.playOrigin = null;
   state.userPaused = false;
   state.blocked = false;
   state.clicked = performance.now();
@@ -308,6 +406,9 @@ window.eaoSetVideoSource = (video, source) => {
   state.explicit = false;
   state.blocked = false;
   state.userPaused = false;
+  state.userPlayUntil = 0;
+  state.userPauseUntil = 0;
+  state.playOrigin = null;
   video.pause();
   video.preload = 'none';
   video.loop = false;
