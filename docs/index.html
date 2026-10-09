@@ -13,27 +13,1125 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/site.css?v=da02620361d6">
-  <script type="module" src="../assets/js/video.js?v=36a0b56d88e6"></script>
-  <script type="module" src="../assets/js/site.js?v=c46ee2e51a80"></script>
+  <link rel="stylesheet" href="../assets/css/site.css?v=849d8d79a756">
+  
+  <script type="module" src="../assets/js/video.js?v=5f01f6a9a82c"></script>
+  <script type="module" src="../assets/js/site.js?v=cada3fcf6537"></script>
+  
 </head>
 <body data-page="docs">
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="nav" aria-label="Embodied Agent Olympics">
-  <a class="wordmark" href="../" aria-label="Embodied Agent Olympics"><span class="mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Embodied Agent Olympics: ball in flight" style="color:var(--ink,#0f141a)"><title>Embodied Agent Olympics: ball in flight</title><path d="M4 25Q16-10 28 25" stroke-dasharray="2.5 3.5"/><path d="M19 26h10"/><circle cx="16" cy="7.5" r="4.25" style="fill:var(--ball,#FFD447)"/></svg></span><span class="wordmark-long">Embodied Agent Olympics</span><span class="wordmark-short">EAO</span></a>
+  <a class="wordmark" href="../" aria-label="Embodied Agent Olympics"><span class="mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Embodied Agent Olympics: two paddles and a ball" style="color:var(--ink,#0f141a)"><title>Embodied Agent Olympics: exact paddles</title><rect x="3.75" y="9" width="4.5" height="14" rx="2.25" style="fill:var(--team-a,#E8573A)"/><rect x="23.75" y="9" width="4.5" height="14" rx="2.25" style="fill:var(--team-b,#2F7BEA)"/><circle cx="17" cy="13.5" r="3.4" stroke="currentColor" stroke-width="1.4" style="fill:var(--ball,#FFD447)"/></svg></span><span class="wordmark-long">Embodied Agent Olympics</span><span class="wordmark-short">EAO</span></a>
   <div class="nav-links" id="nav-links"><a href="../sports/">Sports</a><a href="../results/">Results</a><a href="../robots/">Robots</a><a href="../docs/" class="active" aria-current="page">Docs</a></div>
   <span class="preview label">Preview</span>
   <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Open menu"><title>Open menu</title><path d="M4 6h16M4 12h16M4 18h16"/></svg></span></button>
   <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark theme" data-light-label="Switch to light theme" data-dark-label="Switch to dark theme"><span class="moon"><span class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Dark theme"><title>Dark theme</title><path d="M20.5 14a8.5 8.5 0 0 1-10.5-10.5A8.5 8.5 0 1 0 20.5 14Z"/></svg></span></span><span class="sun"><span class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Light theme"><title>Light theme</title><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg></span></span></button>
 </nav>
 
-<main id="main"><section class="section stub-page stub"><span id="reading-the-game"></span><span id="abilities"></span><span id="modes"></span><span id="formats"></span><span id="games-rules"></span><span id="framework"></span><span id="add-a-sport"></span><h1 class="page-title">Docs</h1><p class="lead">Coming next.</p><a class="btn primary" href="../">Home<span class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Arrow right"><title>Arrow right</title><path d="M3 12h18M14 5l7 7-7 7"/></svg></span></a></section></main>
-<footer class="footer">
+<main id="main"><section class="section page-head docs-head"><h1 class="page-title">Docs</h1></section><section class="section docs-content"><div class="docs-mobile-toc"><label for="docs-section-select">Choose a section</label><select id="docs-section-select" data-docs-select><option value="reading-the-game">Reading the game</option><option value="abilities">Nine abilities</option><option value="modes">How a match works</option><option value="formats">Four formats</option><option value="games-rules">Games rules</option><option value="framework">One framework</option><option value="add-a-sport">How to add a sport</option></select></div><div class="docs-layout"><nav class="docs-toc" aria-label="On this page"><p class="label">On this page</p><a href="#reading-the-game">Reading the game</a><a href="#abilities">Nine abilities</a><a href="#modes">How a match works</a><a href="#formats">Four formats</a><a href="#games-rules">Games rules</a><a href="#framework">One framework</a><a href="#add-a-sport">How to add a sport</a></nav><div class="docs-prose"><section class="docs-section" id="reading-the-game"><div class="docs-section-heading"><h2>Reading the game</h2></div><p>Game intelligence is one of three groups, alongside physical intelligence and coding intelligence.</p><figure class="frame intelligence-visual" aria-label="Reading the game"><div class="intelligence-arc" data-intelligence-arc><svg class="arc-flight" viewBox="0 0 760 280" aria-hidden="true"><path data-arc-path d="M80 180 Q380 -60 680 180"/></svg><svg class="arc-ball-layer" viewBox="0 0 760 280" aria-hidden="true"><circle data-arc-ball cx="680" cy="180" r="7"/></svg><button class="arc-node " type="button" data-arc-step="0" data-hint="Rebuild the state of play from camera images." style="--node-x:10.5263%;--node-y:64.2857%"><span class="node-icon"><span class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Perceive: camera images"><title>Perceive: camera images</title><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M8 6l1.5-3h5L16 6"/><circle cx="12" cy="13" r="3.5"/></svg></span></span><span class="node-label">Perceive</span></button><button class="arc-node " type="button" data-arc-step="1" data-hint="Where the space is, who is unmarked, what the score and the clock imply." style="--node-x:30.2632%;--node-y:32.1429%"><span class="node-icon"><span class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Understand: connect observations"><title>Understand: connect observations</title><path d="M3 7l9-4 9 4-9 4-9-4ZM3 12l9 4 9-4M3 17l9 4 9-4"/></svg></span></span><span class="node-label">Understand</span></button><button class="arc-node " type="button" data-arc-step="2" data-hint="Predict the opponent&#x27;s next action." style="--node-x:50.0000%;--node-y:21.4286%"><span class="node-icon"><span class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Anticipate: predict the next position"><title>Anticipate: predict the next position</title><path d="M3 19Q9-4 20 18" stroke-dasharray="2 3"/><circle cx="10" cy="7" r="2.5" style="fill:var(--ball,#FFD447)"/><path d="M17 21h5M20 18v3"/></svg></span></span><span class="node-label">Anticipate</span></button><button class="arc-node " type="button" data-arc-step="3" data-hint="Choose the strategy that fits the situation." style="--node-x:69.7368%;--node-y:32.1429%"><span class="node-icon"><span class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Decide: choose an action"><title>Decide: choose an action</title><path d="M4 20v-6a4 4 0 0 1 4-4h11M15 6l4 4-4 4M8 10V5M5 7l3-3 3 3"/></svg></span></span><span class="node-label">Decide</span></button><button class="arc-node is-active" type="button" data-arc-step="4" data-hint="Summarise the opponent&#x27;s habits from earlier points and exploit them." style="--node-x:89.4737%;--node-y:64.2857%"><span class="node-icon"><span class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Adapt: revise the plan"><title>Adapt: revise the plan</title><path d="M20 8a8 8 0 0 0-14-2L3 9M3 4v5h5M4 16a8 8 0 0 0 14 2l3-3M16 15h5v 5"/></svg></span></span><span class="node-label">Adapt</span></button></div><div class="arc-return-wrap"><svg class="arc-return" viewBox="0 0 760 54" aria-hidden="true"><path d="M680 1 V12 Q680 35 655 35 H105 Q80 35 80 12 V1"/><path d="M73 10 L80 1 L87 10"/></svg><span>during the match</span></div><p class="chain-hint" data-chain-hint aria-live="polite">Summarise the opponent&#x27;s habits from earlier points and exploit them.</p></figure>
+<p>In sport science the ability to read a game is called <strong>game intelligence</strong> or <strong>perceptual-cognitive skill</strong>: understanding what is happening on the field, anticipating what comes next, and choosing the action that serves you best. Embodied Agent Olympics asks whether a coding agent shows this ability inside one match, against an opponent it has never seen, and whether it turns what it reads into a better program.</p>
+<p>We borrow the classification from sport science.</p>
+<p>Robot policies learn motor skills in training and keep them fixed in their weights. Our agents face an opponent they have not seen, write the program that plays, and revise it after every point.</p>
+<h3>What it means in people</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>Part</th><th>Meaning</th><th>Example from sport</th></tr></thead>
+  <tbody>
+    <tr><td>Situation awareness</td><td>Keep scanning the whole field, not just the ball: where teammates, opponents and open space are</td><td>elite soccer midfielders turn their heads often before receiving the ball</td></tr>
+    <tr><td>Pattern recognition</td><td>Recognise the current situation as a familiar pattern</td><td>experts recall a real game position after a few seconds of viewing, but not a randomly shuffled one</td></tr>
+    <tr><td>Anticipation</td><td>Judge from early cues what the opponent is about to do</td><td>a tennis receiver reads the serve direction from the toss and the backswing</td></tr>
+    <tr><td>Reading the opponent</td><td>Remember and exploit the opponent&#x27;s habits and weaknesses; see through feints</td><td>keep playing to a weak backhand; spot a feint in fencing</td></tr>
+    <tr><td>Reading teammates and space</td><td>Know where a teammate will go and when you outnumber the defence</td><td>a pass played before the teammate starts the run</td></tr>
+    <tr><td>Game management</td><td>Adapt the plan to the score and the time left</td><td>keep possession when ahead, take risks when behind</td></tr>
+    <tr><td>Decisions under time pressure</td><td>Pick the best of several options in very little time</td><td>a ball handler deciding to drive, pass or shoot</td></tr>
+  </tbody>
+</table></div>
+<p>Endsley’s three levels of situation awareness: <strong>perception</strong> (what is there) → <strong>comprehension</strong> (what it means) → <strong>projection</strong> (what happens next); then comes the decision.</p>
+<h3>What it means for an agent</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>Part</th><th>For the agent</th></tr></thead>
+  <tbody>
+    <tr><td>Situation awareness</td><td>Rebuild the state of play from camera images: positions and velocities of players and ball (perception and state estimation)</td></tr>
+    <tr><td>Pattern recognition and comprehension</td><td>Turn the state into game meaning: where the space is, who is unmarked, what the score and the clock imply</td></tr>
+    <tr><td>Anticipation</td><td>Predict the opponent&#x27;s next action, not only the ball&#x27;s physical flight</td></tr>
+    <tr><td>Reading the opponent</td><td>Summarise the opponent&#x27;s habits from earlier points and exploit them (in-context learning, theory of mind)</td></tr>
+    <tr><td>Reading teammates</td><td>Model teammates; coordinate through the team channel</td></tr>
+    <tr><td>Game management and decisions</td><td>Choose the strategy that fits the situation; trade thinking time against acting time</td></tr>
+  </tbody>
+</table></div>
+<p>Predicting the ball’s flight is physical understanding and putting the ball where you want it is execution; neither counts as reading the game. Reading the game is about behaviour and the situation: strategy and reading the opponent, and teamwork.</p>
+<h3>Program play and review</h3>
+<ul>
+  <li><strong>Program play (during play, real time).</strong> The program must carry an opponent model and switch plans with the situation.</li>
+  <li><strong>Review (between points).</strong> The agent looks at the footage and match record, sums up the opponent and edits its program.</li>
+</ul>
+<p>In Athlete mode, the platform supplies the motor skill. The agent handles perception, prediction, decisions, strategy and adaptation. Robotics Engineer mode adds building the motor skill itself. Strategy and teamwork are tested in both modes.</p>
+<h3>Compared with learned robot policies</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th></th><th>Learned policy (RL, imitation, VLA)</th><th>Embodied Agent Olympics</th></tr></thead>
+  <tbody>
+    <tr><td>How the skill is acquired</td><td>large-scale training before deployment</td><td>no task-specific training; the agent writes its program during the match</td></tr>
+    <tr><td>Where the skill lives</td><td>network weights</td><td>a readable program, plus the agent&#x27;s written reviews</td></tr>
+    <tr><td>Adapting within a match</td><td>none (or retraining offline)</td><td>review after every point and revise the program</td></tr>
+    <tr><td>Opponent</td><td>the environment or opponents seen in training</td><td>an opponent the agent has not seen: scripted levels or another agent</td></tr>
+    <tr><td>Time scale</td><td>millisecond reflexes of the learned controller</td><td>the program runs in real time; deliberation happens between points</td></tr>
+    <tr><td>Evaluation</td><td>success rate on a task</td><td>match results plus component diagnostics (score ladder, ground-truth checks, API and competition tests)</td></tr>
+    <tr><td>Explanation</td><td>none</td><td>the review states a reason, which we can check against the match record</td></tr>
+  </tbody>
+</table></div>
+<h3>Current evidence: Preliminary</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>Part</th><th>Current evidence</th><th>How, and with what n</th></tr></thead>
+  <tbody>
+    <tr><td>Situation awareness (perception)</td><td><strong>Yes, in one diagnostic.</strong></td><td>Table tennis, ground truth: the program logs its estimates and we replay the match. Ball position median error 0.7–0.8 cm, opponent paddle 3–4 mm (n = 3 models x 3 matches with logging). This part overlaps spatial understanding and physical dynamics.</td></tr>
+    <tr><td>Pattern recognition / comprehension</td><td>Partly, from reviews.</td><td>LLM-judged reviews (Endsley levels): only 3% of 2,525 model-written reviews (n = 2,525 reviews) identify a pattern in the opponent. Judge is lenient: upper bound.</td></tr>
+    <tr><td>Anticipation (of the opponent)</td><td>Partly.</td><td>Scouting-report diagnostic in table tennis: predictions about the opponent were no better than a constant-probability baseline (Brier score). Contact-point prediction error was 3.6–4.6 cm (n = 3 models x 3 logged matches); this is ball physics.</td></tr>
+    <tr><td>Reading the opponent</td><td>Not directly; shows in results and reviews only.</td><td>12% of 2,525 reviews are opponent-directed (passive analysis, n = 2,525 reviews); prompted to read the game, 80% (diagnostic, n = 14 matches). Adaptation effect not significant (n = 17 seats, win rate 0.59 → 0.66, p = 0.21). Behavioural test with scripted opponents that have plantable habits: planned.</td></tr>
+    <tr><td>Reading teammates and space</td><td>Not yet.</td><td>Only soccer 2 v 2 has a team format (one agent per robot, team channel). Metrics (passes into space, space controlled) are planned.</td></tr>
+    <tr><td>Game management</td><td>Not directly.</td><td>Visible only in match results.</td></tr>
+    <tr><td>Decisions under time pressure</td><td>Indirectly.</td><td>Real-time sports, and the slow-down factor S as a setting; no dedicated metric yet.</td></tr>
+    <tr><td>Learning during the match</td><td>Yes, as an analysis.</td><td>Each review can edit the program; program snapshots at every review. Per-edit effect on the next points: not distinguishable from zero so far (n = 807 edits).</td></tr>
+  </tbody>
+</table></div>
+<h3>Seeing is not winning: Preliminary diagnostic</h3>
+<p>Checked against the simulator’s ground truth, the models located the ball to within 0.7–0.8 cm (median) and predicted the contact point to within 3.6–4.6 cm. Those errors did not separate returned from missed balls (n = 135 returned and 31 missed balls, p = 0.92), and the model that saw most accurately won 1 of 6 matches (n = 6). Points are lost in execution and placement.</p>
+<p>Setting: table tennis against the scripted opponent, L1 seeds 101 and 111, L2 seed 202, slowed x10, cameras only. GPT-6.1 SOL, Claude Opus 5.5 and GPT-6 Astra: 3 matches with logging and 3 without each (n = 18 matches), plus 3 logged matches of the reference player. The diagnostic measures perception and physical prediction.</p>
+<h3>Sport-science references</h3>
+<ul>
+  <li>A. M. Williams and K. A. Ericsson (2005). Perceptual-cognitive expertise in sport: some considerations when applying the expert performance approach. <em>Human Movement Science</em>.</li>
+  <li>D. T. Y. Mann, A. M. Williams, P. Ward and C. M. Janelle (2007). Perceptual-cognitive expertise in sport: a meta-analysis. <em>Journal of Sport &amp; Exercise Psychology</em>.</li>
+  <li>M. R. Endsley (1995). Toward a theory of situation awareness in dynamic systems. <em>Human Factors</em>.</li>
+</ul>
+</section><section class="docs-section" id="abilities"><div class="docs-section-heading"><h2>Nine abilities</h2></div><p>We name nine abilities in three groups: physical intelligence, game intelligence and coding intelligence.</p>
+<p>We mark, for every sport, which abilities it mainly tests.</p>
+<figure class="responsive-figure"><div class="figure-wide"><svg class="inline-figure" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 976" role="img" aria-labelledby="svg-6-F3-title" aria-label="Nine declared abilities in three groups. Understanding the physical world is the core: 3D spatial understanding, physical dynamics, embodiment and execution, time and latency. Understanding the game builds on it: rules, strategy and reading the opponent, teamwork. The coding agent uses real-time programming and learning during the match in every sport.">
+<title id="svg-6-F3-title">Nine abilities in three groups</title>
+<style>
+.F3-heading{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:700;fill:var(--ink,#0f141a)}
+.F3-text{font-family:Inter,sans-serif;fill:var(--ink,#0f141a)}
+.F3-muted{font-family:Inter,sans-serif;fill:var(--ink-2,#444e5b)}
+.F3-mono{font-family:"JetBrains Mono",ui-monospace,monospace;fill:var(--ink-2,#444e5b);font-size:12px}
+.F3-card{fill:var(--surface,#ffffff);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F3-panel{fill:var(--bg-2,#eaeef3);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F3-line{fill:none;stroke:var(--ink-2,#444e5b);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<text x="16" y="29" font-size="26" class="F3-heading">
+<tspan x="16" dy="0">Nine abilities, three groups</tspan>
+</text>
+<text x="16" y="56" font-size="15" class="F3-muted">
+<tspan x="16" dy="0">The physical world is the core. Game understanding builds on it.</tspan>
+</text>
+<text x="16" y="78" font-size="15" class="F3-muted">
+<tspan x="16" dy="0">Programming is how the agent does both.</tspan>
+</text>
+<rect x="16" y="98" width="688" height="364" rx="20" class="F3-panel"/>
+<text x="36" y="129" font-size="22" class="F3-heading">
+<tspan x="36" dy="0">Understanding the physical world</tspan>
+</text>
+<text x="684" y="129" font-size="12" class="F3-mono" text-anchor="end">
+<tspan x="684" dy="0">CORE</tspan>
+</text>
+<text x="36" y="153" font-size="14" class="F3-muted">
+<tspan x="36" dy="0">Camera images, real physics and a body that takes time to act.</tspan>
+</text>
+<rect x="32" y="170" width="320" height="130" rx="14" class="F3-card"/>
+<text x="48" y="197" font-size="16" class="F3-heading">
+<tspan x="48" dy="0">3D spatial understanding</tspan>
+</text>
+<text x="48" y="230" font-size="13" class="F3-muted">
+<tspan x="48" dy="0">Recover position, depth and orientation</tspan>
+<tspan x="48" dy="19">from camera images. Reason about</tspan>
+<tspan x="48" dy="19">3D lines and slopes.</tspan>
+</text>
+<text x="48" y="286" font-size="12" class="F3-mono">
+<tspan x="48" dy="0">Primary: 14 of 18 sports</tspan>
+</text>
+<rect x="368" y="170" width="320" height="130" rx="14" class="F3-card"/>
+<text x="384" y="197" font-size="16" class="F3-heading">
+<tspan x="384" dy="0">Physical dynamics</tspan>
+</text>
+<text x="384" y="230" font-size="13" class="F3-muted">
+<tspan x="384" dy="0">Predict flight, spin, bounce, friction</tspan>
+<tspan x="384" dy="19">and collisions. Infer parameters</tspan>
+<tspan x="384" dy="19">such as friction and wind.</tspan>
+</text>
+<text x="384" y="286" font-size="12" class="F3-mono">
+<tspan x="384" dy="0">Primary: 14 of 18 sports</tspan>
+</text>
+<rect x="32" y="316" width="320" height="130" rx="14" class="F3-card"/>
+<text x="48" y="343" font-size="16" class="F3-heading">
+<tspan x="48" dy="0">Embodiment and execution</tspan>
+</text>
+<text x="48" y="376" font-size="13" class="F3-muted">
+<tspan x="48" dy="0">Know the body’s reach, speed and torque.</tspan>
+<tspan x="48" dy="19">Turn intent into accurate action.</tspan>
+<tspan x="48" dy="19">Engineer mode: build the control stack.</tspan>
+</text>
+<text x="48" y="432" font-size="12" class="F3-mono">
+<tspan x="48" dy="0">Primary: every sport</tspan>
+</text>
+<rect x="368" y="316" width="320" height="130" rx="14" class="F3-card"/>
+<text x="384" y="343" font-size="16" class="F3-heading">
+<tspan x="384" dy="0">Time and latency</tspan>
+</text>
+<text x="384" y="376" font-size="13" class="F3-muted">
+<tspan x="384" dy="0">Account for image age, thinking time</tspan>
+<tspan x="384" dy="19">and arm response. Act for the world</tspan>
+<tspan x="384" dy="19">when the action will take effect.</tspan>
+</text>
+<text x="384" y="432" font-size="12" class="F3-mono">
+<tspan x="384" dy="0">Primary: 8 of 18 sports</tspan>
+</text>
+<rect x="16" y="482" width="688" height="226" rx="20" class="F3-panel"/>
+<text x="36" y="514" font-size="22" class="F3-heading">
+<tspan x="36" dy="0">Understanding the game</tspan>
+</text>
+<text x="36" y="538" font-size="14" class="F3-muted">
+<tspan x="36" dy="0">Built on physical understanding.</tspan>
+</text>
+<rect x="32" y="556" width="208" height="136" rx="14" class="F3-card"/>
+<text x="48" y="583" font-size="16" class="F3-heading">
+<tspan x="48" dy="0">Rules</tspan>
+</text>
+<text x="48" y="616" font-size="13" class="F3-muted">
+<tspan x="48" dy="0">Know, use and obey</tspan>
+<tspan x="48" dy="19">the scoring and foul rules.</tspan>
+</text>
+<text x="48" y="678" font-size="12" class="F3-mono">
+<tspan x="48" dy="0">Primary: 6 of 18 sports</tspan>
+</text>
+<rect x="256" y="556" width="208" height="136" rx="14" class="F3-card"/>
+<text x="272" y="583" font-size="16" class="F3-heading">
+<tspan x="272" dy="0">Strategy and reading</tspan>
+<tspan x="272" dy="21">the opponent</tspan>
+</text>
+<text x="272" y="630" font-size="13" class="F3-muted">
+<tspan x="272" dy="0">Judge risk and plan ahead.</tspan>
+<tspan x="272" dy="19">Exploit opponent habits.</tspan>
+</text>
+<text x="272" y="678" font-size="12" class="F3-mono">
+<tspan x="272" dy="0">Primary: 9 of 18 sports</tspan>
+</text>
+<rect x="480" y="556" width="208" height="136" rx="14" class="F3-card"/>
+<text x="496" y="583" font-size="16" class="F3-heading">
+<tspan x="496" dy="0">Teamwork</tspan>
+</text>
+<text x="496" y="616" font-size="13" class="F3-muted">
+<tspan x="496" dy="0">Share roles, pass into space,</tspan>
+<tspan x="496" dy="19">move and communicate.</tspan>
+</text>
+<text x="496" y="678" font-size="12" class="F3-mono">
+<tspan x="496" dy="0">Primary: 1 of 18 sports</tspan>
+</text>
+<rect x="16" y="728" width="688" height="184" rx="20" class="F3-panel"/>
+<text x="36" y="760" font-size="22" class="F3-heading">
+<tspan x="36" dy="0">The coding agent</tspan>
+</text>
+<text x="684" y="760" font-size="12" class="F3-mono" text-anchor="end">
+<tspan x="684" dy="0">EVERY SPORT</tspan>
+</text>
+<rect x="32" y="779" width="320" height="117" rx="14" class="F3-card"/>
+<text x="48" y="806" font-size="16" class="F3-heading">
+<tspan x="48" dy="0">Real-time programming</tspan>
+</text>
+<text x="48" y="839" font-size="13" class="F3-muted">
+<tspan x="48" dy="0">Write perception, prediction and strategy</tspan>
+<tspan x="48" dy="19">as a real-time program. Debug in the match.</tspan>
+</text>
+<text x="48" y="882" font-size="12" class="F3-mono">
+<tspan x="48" dy="0">Primary: every sport</tspan>
+</text>
+<rect x="368" y="779" width="320" height="117" rx="14" class="F3-card"/>
+<text x="384" y="806" font-size="16" class="F3-heading">
+<tspan x="384" dy="0">Learning during the match</tspan>
+</text>
+<text x="384" y="839" font-size="13" class="F3-muted">
+<tspan x="384" dy="0">After each point, find why it was lost.</tspan>
+<tspan x="384" dy="19">Change the program or the plan.</tspan>
+</text>
+<text x="384" y="882" font-size="12" class="F3-mono">
+<tspan x="384" dy="0">Primary: every sport</tspan>
+</text>
+<text x="16" y="937" font-size="14" class="F3-muted">
+<tspan x="16" dy="0">Marks are declared by the authors from each sport’s rules and play.</tspan>
+</text>
+<text x="16" y="961" font-size="14" class="F3-muted">
+<tspan x="16" dy="0">Teamwork: soccer 2 v 2 only. Basketball 3x3 is in development.</tspan>
+</text>
+</svg></div><div class="figure-narrow"><svg class="inline-figure" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1864" role="img" aria-labelledby="svg-7-F3n-title" aria-label="The same nine declared abilities, stacked for a phone. Understanding the physical world is the core, understanding the game builds on it, and the coding agent uses programming and learning in every sport. Teamwork is covered by soccer two versus two; basketball three versus three is in development.">
+<title id="svg-7-F3n-title">Nine abilities in three groups</title>
+<style>
+.F3n-heading{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:700;fill:var(--ink,#0f141a)}
+.F3n-text{font-family:Inter,sans-serif;fill:var(--ink,#0f141a)}
+.F3n-muted{font-family:Inter,sans-serif;fill:var(--ink-2,#444e5b)}
+.F3n-mono{font-family:"JetBrains Mono",ui-monospace,monospace;fill:var(--ink-2,#444e5b);font-size:12px}
+.F3n-card{fill:var(--surface,#ffffff);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F3n-panel{fill:var(--bg-2,#eaeef3);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F3n-line{fill:none;stroke:var(--ink-2,#444e5b);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<text x="16" y="29" font-size="25" class="F3n-heading">
+<tspan x="16" dy="0">Nine abilities,</tspan>
+<tspan x="16" dy="28">three groups</tspan>
+</text>
+<text x="16" y="83" font-size="14" class="F3n-muted">
+<tspan x="16" dy="0">The physical world is the core.</tspan>
+<tspan x="16" dy="21">Game understanding builds on it.</tspan>
+<tspan x="16" dy="21">Programming is how the agent does both.</tspan>
+</text>
+<rect x="16" y="150" width="328" height="684" rx="20" class="F3n-panel"/>
+<text x="32" y="181" font-size="21" class="F3n-heading">
+<tspan x="32" dy="0">Understanding</tspan>
+<tspan x="32" dy="24">the physical world</tspan>
+</text>
+<text x="32" y="231" font-size="12" class="F3n-mono">
+<tspan x="32" dy="0">CORE · CAMERAS AND REAL PHYSICS</tspan>
+</text>
+<rect x="28" y="248" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="275" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">3D spatial understanding</tspan>
+</text>
+<text x="44" y="308" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Recover position, depth and orientation</tspan>
+<tspan x="44" dy="19">from images. Reason about 3D lines</tspan>
+<tspan x="44" dy="19">and slopes.</tspan>
+</text>
+<text x="44" y="366" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: 14 of 18 sports</tspan>
+</text>
+<rect x="28" y="394" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="421" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Physical dynamics</tspan>
+</text>
+<text x="44" y="454" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Predict flight, spin, bounce, friction</tspan>
+<tspan x="44" dy="19">and collisions. Infer parameters</tspan>
+<tspan x="44" dy="19">such as friction and wind.</tspan>
+</text>
+<text x="44" y="512" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: 14 of 18 sports</tspan>
+</text>
+<rect x="28" y="540" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="567" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Embodiment and execution</tspan>
+</text>
+<text x="44" y="600" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Know the body’s reach, speed and torque.</tspan>
+<tspan x="44" dy="19">Turn intent into accurate action.</tspan>
+<tspan x="44" dy="19">Engineer mode: build the control stack.</tspan>
+</text>
+<text x="44" y="658" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: every sport</tspan>
+</text>
+<rect x="28" y="686" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="713" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Time and latency</tspan>
+</text>
+<text x="44" y="746" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Account for image age, thinking time</tspan>
+<tspan x="44" dy="19">and arm response. Act for the world</tspan>
+<tspan x="44" dy="19">when the action will take effect.</tspan>
+</text>
+<text x="44" y="804" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: 8 of 18 sports</tspan>
+</text>
+<rect x="16" y="854" width="328" height="504" rx="20" class="F3n-panel"/>
+<text x="32" y="886" font-size="21" class="F3n-heading">
+<tspan x="32" dy="0">Understanding</tspan>
+<tspan x="32" dy="24">the game</tspan>
+</text>
+<text x="32" y="935" font-size="14" class="F3n-muted">
+<tspan x="32" dy="0">Built on physical understanding.</tspan>
+</text>
+<rect x="28" y="952" width="304" height="112" rx="14" class="F3n-card"/>
+<text x="44" y="979" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Rules</tspan>
+</text>
+<text x="44" y="1012" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Know, use and obey the scoring</tspan>
+<tspan x="44" dy="19">and foul rules.</tspan>
+</text>
+<text x="44" y="1050" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: 6 of 18 sports</tspan>
+</text>
+<rect x="28" y="1080" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="1107" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Strategy and reading</tspan>
+<tspan x="44" dy="21">the opponent</tspan>
+</text>
+<text x="44" y="1155" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Judge the situation, trade risk for reward,</tspan>
+<tspan x="44" dy="19">plan ahead and exploit opponent habits.</tspan>
+</text>
+<text x="44" y="1198" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: 9 of 18 sports</tspan>
+</text>
+<rect x="28" y="1228" width="304" height="112" rx="14" class="F3n-card"/>
+<text x="44" y="1255" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Teamwork</tspan>
+</text>
+<text x="44" y="1288" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Share roles, pass into space,</tspan>
+<tspan x="44" dy="19">move and communicate.</tspan>
+</text>
+<text x="44" y="1326" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: 1 of 18 sports</tspan>
+</text>
+<rect x="16" y="1378" width="328" height="378" rx="20" class="F3n-panel"/>
+<text x="32" y="1410" font-size="21" class="F3n-heading">
+<tspan x="32" dy="0">The coding agent</tspan>
+</text>
+<text x="32" y="1434" font-size="12" class="F3n-mono">
+<tspan x="32" dy="0">EVERY SPORT</tspan>
+</text>
+<rect x="28" y="1452" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="1479" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Real-time programming</tspan>
+</text>
+<text x="44" y="1512" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Write perception, prediction and strategy</tspan>
+<tspan x="44" dy="19">as a real-time program. Debug and fix it</tspan>
+<tspan x="44" dy="19">during the match.</tspan>
+</text>
+<text x="44" y="1570" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: every sport</tspan>
+</text>
+<rect x="28" y="1598" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="1625" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Learning during the match</tspan>
+</text>
+<text x="44" y="1658" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">After each point, find why it was lost.</tspan>
+<tspan x="44" dy="19">Change the program or the plan.</tspan>
+</text>
+<text x="44" y="1716" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: every sport</tspan>
+</text>
+<text x="16" y="1781" font-size="14" class="F3n-muted">
+<tspan x="16" dy="0">Marks are declared by the authors from</tspan>
+<tspan x="16" dy="20">each sport’s rules and play.</tspan>
+</text>
+<text x="16" y="1826" font-size="14" class="F3n-muted">
+<tspan x="16" dy="0">Teamwork: soccer 2 v 2 only.</tspan>
+</text>
+<text x="16" y="1846" font-size="14" class="F3n-muted">
+<tspan x="16" dy="0">Basketball 3x3 is in development.</tspan>
+</text>
+</svg></div></figure>
+<h3>Physical intelligence</h3>
+<p>Only cameras, no coordinates; physics computed by a real engine; actions carried out by a robot with real joints, torques and tracking lag. During real-time play, the world never waits.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>Ability</th><th>Definition</th><th>Typical sports</th><th>How it shows</th></tr></thead>
+  <tbody>
+    <tr><td>3D spatial understanding</td><td>Recover 3D from camera images only: position, depth and orientation, camera geometry, occlusion, fusing several views; reason about angles, lines and slopes in 3D</td><td>table tennis (triangulating from two cameras), billiards (bank lines), putting (slopes), foosball (figures hide the ball)</td><td>points lost to misjudged positions; score gap in a perception ablation (planned)</td></tr>
+    <tr><td>Physical dynamics</td><td>Predict how things move (flight, drag, spin, bounce, friction, collisions, wind) and infer parameters (how fast this table is, how strong the wind is) from observation</td><td>table tennis and tennis (spin, bounce), badminton (heavy drag), curling and bowling (friction, collision chains), archery and disc golf (wind)</td><td>landing-point prediction error; stability when physics parameters vary (planned)</td></tr>
+    <tr><td>Embodiment and execution</td><td>Know what one&#x27;s own robot can do (reach, speed, torque) and turn intent into accurate action; in the Robotics Engineer mode, also build the control stack (trajectories, inverse kinematics, tracking)</td><td>all sports</td><td>hit rate and precision; points lost as out of reach</td></tr>
+    <tr><td>Time and latency</td><td>Know how old the image is, how long one&#x27;s own thinking and program take, and how long the arm needs; act for the world as it will be when the action lands</td><td>all real-time sports</td><td>timing error at contact; points lost as late; score versus slow-down factor</td></tr>
+  </tbody>
+</table></div>
+<h3>Game intelligence</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>Ability</th><th>Definition</th><th>How it shows</th></tr></thead>
+  <tbody>
+    <tr><td>Rules</td><td>Know how points are scored and what is a foul, and use the rules (walks in baseball, the hammer in curling)</td><td>fouls; choices on key points</td></tr>
+    <tr><td>Strategy and reading the opponent</td><td>Judge the situation, trade risk against reward, prepare several moves ahead; recognise an opponent&#x27;s habits and exploit them</td><td>more wins later in a match against an opponent with habits; quality of the position after a shot</td></tr>
+    <tr><td>Teamwork</td><td>Share roles, pass into space, move to the right place, talk through the team channel</td><td>passes to an open teammate; space controlled; team-channel use</td></tr>
+  </tbody>
+</table></div>
+<h3>Coding intelligence</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>Ability</th><th>Definition</th><th>How it shows</th></tr></thead>
+  <tbody>
+    <tr><td>Real-time programming</td><td>Write perception, prediction and strategy as a program that runs in real time; debug it during the match; fix it quickly when it breaks</td><td>program ready at the start; crashes and timeouts</td></tr>
+    <tr><td>Learning during the match</td><td>After each point, find why it was lost and change the program or the plan</td><td>scoring before and after a review; what was changed and whether it helped</td></tr>
+  </tbody>
+</table></div>
+<p>Real-time programming and learning during the match are tested by every sport.</p>
+<h3>Coverage</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>Ability</th><th>Sports with primary focus</th></tr></thead>
+  <tbody>
+    <tr><td>3D spatial understanding</td><td>14</td></tr>
+    <tr><td>Physical dynamics</td><td>14</td></tr>
+    <tr><td>Embodiment and execution</td><td>18</td></tr>
+    <tr><td>Time and latency</td><td>8</td></tr>
+    <tr><td>Rules</td><td>6</td></tr>
+    <tr><td>Strategy and reading the opponent</td><td>9</td></tr>
+    <tr><td>Teamwork</td><td>1</td></tr>
+    <tr><td>Real-time programming</td><td>18</td></tr>
+    <tr><td>Learning during the match</td><td>18</td></tr>
+  </tbody>
+</table></div>
+<p>Teamwork is covered by one sport today (soccer 2 v 2); basketball 3x3 is in development.</p>
+<p>Marks are declared per sport by the authors from the rules and the play. Filled dot = 2 (primary focus), open dot = 1 (involved), empty = 0 (hardly involved).</p>
+<h3>Physics tags</h3>
+<p>Collisions 7 · rolling and friction 7 · air drag 6 · spin and bounce 4 · ballistics 4 · wind 3 · inertia and actuator lag 2 · contact 2 · walking 1.</p>
+</section><section class="docs-section" id="modes"><div class="docs-section-heading"><h2>How a match works</h2></div><h3>Watch, code, play, revise, grade</h3>
+<p>The world never waits: thinking costs game time. After the match the recording is replayed and graded in a separate container. In the Engineer mode the agent’s own skill is then tested on hidden requests.</p>
+<ol>
+  <li><strong>Watch.</strong> The agent sees the game only through the sport’s cameras, with no coordinates. It reads the rule constants and its robot’s specification (<code>game spec</code>).</li>
+  <li><strong>Code.</strong> It writes perception, prediction, strategy and the commands for its robot.</li>
+  <li><strong>Play.</strong> Real-time sports never wait for the player: the world runs at a declared slow-down factor and thinking costs game time. Turn-based sports give each player a chess clock (60 minutes per match).</li>
+  <li><strong>Revise.</strong> After every point the world freezes for a review (<code>game ready WHY PLAN</code>, at most 5 minutes in real-time sports): the agent reads what happened, edits its program, and says why.</li>
+  <li><strong>Grade.</strong> The recording is replayed in a separate grading container, its state hashes are checked, and the winner is decided there. Players cannot touch the grader.</li>
+</ol>
+<p>Every match is recorded and replays bit-exactly, so any match can be checked, analysed or re-rendered later.</p>
+<h3>Athlete and Robotics Engineer</h3>
+<p><strong>Athlete.</strong> The agent has the basic motor skills of the sport. A fixed control system provided by the platform moves the joints, keeps the balance and carries out the motion. This mode mainly evaluates perception, prediction, planning, real-time decisions and competitive strategy.</p>
+<p><strong>Robotics Engineer.</strong> The agent receives the robot’s physical model, a low-level control interface and general-purpose basic capabilities, such as an IK library or the vendor’s walking policy. It may implement, combine or improve control methods. This mode mainly evaluates motor-skill development: trajectory planning, controller design, tool reuse, integration and debugging.</p>
+<div class="table-wrap"><table>
+  <thead><tr><th></th><th>Athlete</th><th>Robotics Engineer</th></tr></thead>
+  <tbody>
+    <tr><td>Platform provides</td><td>the sport&#x27;s skill API (table tennis: <code>hit(t, pos, normal, vel)</code>)</td><td>robot model, joint interface, basic tools (IK, walking policy)</td></tr>
+    <tr><td>Agent delivers</td><td>a match program</td><td>a match program <strong>and</strong> its own implementation of the same skill API</td></tr>
+    <tr><td>Tested by</td><td>matches (against scripted opponents, or duels)</td><td>the match itself, then two post-match tests of the final implementation in an isolated container: an <strong>API test</strong> (hidden requests: timing, position, orientation, velocity errors) and a <strong>competition test</strong> (our fixed reference strategy plays levels L1–L4 on top of the agent&#x27;s implementation)</td></tr>
+    <tr><td>The robot</td><td>fixed: one body per sport for every agent</td><td>a research variable: compare agents on one body, then repeat on others</td></tr>
+  </tbody>
+</table></div>
+<figure class="responsive-figure"><div class="figure-wide"><svg class="inline-figure" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 718" role="img" aria-labelledby="svg-8-F2-title" aria-label="Five-stage table-tennis control chain. The Athlete owns the hit decision; the Engineer owns stages one through four. Joint servos and physics are shared, with real limits. The Engineer can use public inverse-kinematics tools and an offline debugging loop.">
+<title id="svg-8-F2-title">Table-tennis control chain and the two modes</title>
+<style>
+.F2-heading{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:700;fill:var(--ink,#0f141a)}
+.F2-text{font-family:Inter,sans-serif;fill:var(--ink,#0f141a)}
+.F2-muted{font-family:Inter,sans-serif;fill:var(--ink-2,#444e5b)}
+.F2-mono{font-family:"JetBrains Mono",ui-monospace,monospace;fill:var(--ink-2,#444e5b);font-size:12px}
+.F2-card{fill:var(--surface,#ffffff);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F2-panel{fill:var(--bg-2,#eaeef3);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F2-line{fill:none;stroke:var(--ink-2,#444e5b);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<text x="16" y="30" font-size="26" class="F2-heading">
+<tspan x="16" dy="0">Table-tennis control chain</tspan>
+</text>
+<text x="16" y="56" font-size="16" class="F2-muted">
+<tspan x="16" dy="0">Two modes, different responsibilities.</tspan>
+</text>
+<rect x="16" y="78" width="688" height="70" rx="14" class="F2-panel" stroke-dasharray="5 5"/>
+<text x="32" y="104" font-size="16" class="F2-heading">
+<tspan x="32" dy="0">“Play a forehand”</tspan>
+</text>
+<text x="32" y="128" font-size="14" class="F2-muted">
+<tspan x="32" dy="0">Not offered: it would make the hard decisions for the agent.</tspan>
+</text>
+<rect x="16" y="170" width="192" height="134" rx="14" class="F2-card"/>
+<text x="32" y="198" font-size="20" class="F2-heading">
+<tspan x="32" dy="0">Athlete</tspan>
+</text>
+<text x="32" y="224" font-size="14" class="F2-text" font-weight="600">
+<tspan x="32" dy="0">Owns stage 1</tspan>
+</text>
+<text x="32" y="250" font-size="14" class="F2-muted">
+<tspan x="32" dy="0">Stages 2–4 are</tspan>
+<tspan x="32" dy="21">platform motor skills.</tspan>
+</text>
+<rect x="16" y="342" width="192" height="155" rx="14" class="F2-card"/>
+<text x="32" y="370" font-size="20" class="F2-heading">
+<tspan x="32" dy="0">Engineer</tspan>
+</text>
+<text x="32" y="396" font-size="14" class="F2-text" font-weight="600">
+<tspan x="32" dy="0">Owns stages 1–4</tspan>
+</text>
+<text x="32" y="422" font-size="14" class="F2-muted">
+<tspan x="32" dy="0">Builds the motor skills.</tspan>
+<tspan x="32" dy="21">May use public tools,</tspan>
+<tspan x="32" dy="21">such as an IK library.</tspan>
+</text>
+<path d="M238 170H229V280H238" class="F2-line"/>
+<path d="M223 170H216V564H223" class="F2-line" stroke-dasharray="5 5"/>
+<rect x="244" y="170" width="284" height="110" rx="14" class="F2-card"/>
+<circle cx="270" cy="197" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="270" y="201" font-size="12" class="F2-mono" text-anchor="middle">
+<tspan x="270" dy="0">1</tspan>
+</text>
+<text x="291" y="202" font-size="16" class="F2-heading">
+<tspan x="291" dy="0">Hit decision</tspan>
+</text>
+<text x="262" y="228" font-size="14" class="F2-muted">
+<tspan x="262" dy="0">When, paddle pose and velocity</tspan>
+</text>
+<text x="262" y="253" font-size="12" class="F2-mono">
+<tspan x="262" dy="0">Example: hit in 0.24 s</tspan>
+<tspan x="262" dy="18">at pose X, velocity V.</tspan>
+</text>
+<path d="M386 283V293m-4 -4 4 4 4 -4" class="F2-line"/>
+<rect x="244" y="298" width="284" height="74" rx="14" class="F2-card"/>
+<circle cx="270" cy="325" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="270" y="329" font-size="12" class="F2-mono" text-anchor="middle">
+<tspan x="270" dy="0">2</tspan>
+</text>
+<text x="291" y="330" font-size="16" class="F2-heading">
+<tspan x="291" dy="0">Trajectory</tspan>
+</text>
+<text x="262" y="356" font-size="14" class="F2-muted">
+<tspan x="262" dy="0">Paddle motion over time</tspan>
+</text>
+<path d="M386 375V385m-4 -4 4 4 4 -4" class="F2-line"/>
+<rect x="244" y="390" width="284" height="74" rx="14" class="F2-card"/>
+<circle cx="270" cy="417" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="270" y="421" font-size="12" class="F2-mono" text-anchor="middle">
+<tspan x="270" dy="0">3</tspan>
+</text>
+<text x="291" y="422" font-size="16" class="F2-heading">
+<tspan x="291" dy="0">Inverse kinematics</tspan>
+</text>
+<text x="262" y="448" font-size="14" class="F2-muted">
+<tspan x="262" dy="0">Paddle pose → 7 joint angles</tspan>
+</text>
+<path d="M386 467V477m-4 -4 4 4 4 -4" class="F2-line"/>
+<rect x="244" y="482" width="284" height="82" rx="14" class="F2-card"/>
+<circle cx="270" cy="509" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="270" y="513" font-size="12" class="F2-mono" text-anchor="middle">
+<tspan x="270" dy="0">4</tspan>
+</text>
+<text x="291" y="514" font-size="16" class="F2-heading">
+<tspan x="291" dy="0">Control and tracking</tspan>
+</text>
+<text x="262" y="540" font-size="14" class="F2-muted">
+<tspan x="262" dy="0">Joint targets corrected</tspan>
+<tspan x="262" dy="19">from feedback</tspan>
+</text>
+<path d="M386 567V601m-4 -4 4 4 4 -4" class="F2-line"/>
+<rect x="244" y="606" width="284" height="96" rx="14" class="F2-panel"/>
+<circle cx="270" cy="633" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="270" y="637" font-size="12" class="F2-mono" text-anchor="middle">
+<tspan x="270" dy="0">5</tspan>
+</text>
+<text x="291" y="638" font-size="16" class="F2-heading">
+<tspan x="291" dy="0">Joint servos and physics</tspan>
+</text>
+<text x="262" y="664" font-size="14" class="F2-muted">
+<tspan x="262" dy="0">MuJoCo; same for both modes.</tspan>
+<tspan x="262" dy="19">Real limits enforced.</tspan>
+</text>
+<rect x="556" y="326" width="148" height="208" rx="14" class="F2-panel"/>
+<text x="572" y="355" font-size="18" class="F2-heading">
+<tspan x="572" dy="0">Engineer</tspan>
+<tspan x="572" dy="23">debug loop</tspan>
+</text>
+<text x="572" y="414" font-size="14" class="F2-muted">
+<tspan x="572" dy="0">Offline tests</tspan>
+<tspan x="572" dy="29">Inspect failures</tspan>
+<tspan x="572" dy="29">Tune parameters</tspan>
+</text>
+<path d="M529 530H546V334H531m5 -4 -5 4 5 4" class="F2-line" stroke-dasharray="5 5"/>
+</svg></div><div class="figure-narrow"><svg class="inline-figure" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1140" role="img" aria-labelledby="svg-9-F2n-title" aria-label="The same five-stage table-tennis control chain, stacked for a phone. The Athlete owns stage one. The Engineer owns stages one through four. Joint servos and physics are shared, with real limits. Public inverse-kinematics tools and an offline debugging loop are available to the Engineer.">
+<title id="svg-9-F2n-title">Table-tennis control chain and the two modes</title>
+<style>
+.F2n-heading{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:700;fill:var(--ink,#0f141a)}
+.F2n-text{font-family:Inter,sans-serif;fill:var(--ink,#0f141a)}
+.F2n-muted{font-family:Inter,sans-serif;fill:var(--ink-2,#444e5b)}
+.F2n-mono{font-family:"JetBrains Mono",ui-monospace,monospace;fill:var(--ink-2,#444e5b);font-size:12px}
+.F2n-card{fill:var(--surface,#ffffff);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F2n-panel{fill:var(--bg-2,#eaeef3);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F2n-line{fill:none;stroke:var(--ink-2,#444e5b);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<text x="16" y="29" font-size="25" class="F2n-heading">
+<tspan x="16" dy="0">Table-tennis</tspan>
+<tspan x="16" dy="28">control chain</tspan>
+</text>
+<text x="16" y="81" font-size="14" class="F2n-muted">
+<tspan x="16" dy="0">Two modes, different responsibilities.</tspan>
+</text>
+<rect x="16" y="102" width="328" height="98" rx="14" class="F2n-panel" stroke-dasharray="5 5"/>
+<text x="32" y="129" font-size="16" class="F2n-heading">
+<tspan x="32" dy="0">“Play a forehand”</tspan>
+</text>
+<text x="32" y="153" font-size="14" class="F2n-muted">
+<tspan x="32" dy="0">Not offered: it would make the hard</tspan>
+<tspan x="32" dy="21">decisions for the agent.</tspan>
+</text>
+<rect x="16" y="218" width="328" height="105" rx="14" class="F2n-card"/>
+<text x="32" y="246" font-size="20" class="F2n-heading">
+<tspan x="32" dy="0">Athlete</tspan>
+</text>
+<text x="32" y="272" font-size="14" class="F2n-text" font-weight="600">
+<tspan x="32" dy="0">Owns stage 1</tspan>
+</text>
+<text x="32" y="298" font-size="14" class="F2n-muted">
+<tspan x="32" dy="0">Stages 2–4 are platform motor skills.</tspan>
+</text>
+<rect x="16" y="337" width="328" height="126" rx="14" class="F2n-card"/>
+<text x="32" y="365" font-size="20" class="F2n-heading">
+<tspan x="32" dy="0">Engineer</tspan>
+</text>
+<text x="32" y="391" font-size="14" class="F2n-text" font-weight="600">
+<tspan x="32" dy="0">Owns stages 1–4</tspan>
+</text>
+<text x="32" y="417" font-size="14" class="F2n-muted">
+<tspan x="32" dy="0">Builds the motor skills. May use public</tspan>
+<tspan x="32" dy="21">tools, such as an IK library.</tspan>
+</text>
+<rect x="16" y="493" width="328" height="110" rx="14" class="F2n-card"/>
+<circle cx="42" cy="520" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="42" y="524" font-size="12" class="F2n-mono" text-anchor="middle">
+<tspan x="42" dy="0">1</tspan>
+</text>
+<text x="63" y="525" font-size="16" class="F2n-heading">
+<tspan x="63" dy="0">Hit decision</tspan>
+</text>
+<text x="34" y="551" font-size="14" class="F2n-muted">
+<tspan x="34" dy="0">When, paddle pose and velocity</tspan>
+</text>
+<text x="34" y="576" font-size="12" class="F2n-mono">
+<tspan x="34" dy="0">Example: hit in 0.24 s</tspan>
+<tspan x="34" dy="18">at pose X, velocity V.</tspan>
+</text>
+<path d="M180 606V618m-4 -4 4 4 4 -4" class="F2n-line"/>
+<rect x="16" y="623" width="328" height="74" rx="14" class="F2n-card"/>
+<circle cx="42" cy="650" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="42" y="654" font-size="12" class="F2n-mono" text-anchor="middle">
+<tspan x="42" dy="0">2</tspan>
+</text>
+<text x="63" y="655" font-size="16" class="F2n-heading">
+<tspan x="63" dy="0">Trajectory</tspan>
+</text>
+<text x="34" y="681" font-size="14" class="F2n-muted">
+<tspan x="34" dy="0">Paddle motion over time</tspan>
+</text>
+<path d="M180 700V712m-4 -4 4 4 4 -4" class="F2n-line"/>
+<rect x="16" y="717" width="328" height="74" rx="14" class="F2n-card"/>
+<circle cx="42" cy="744" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="42" y="748" font-size="12" class="F2n-mono" text-anchor="middle">
+<tspan x="42" dy="0">3</tspan>
+</text>
+<text x="63" y="749" font-size="16" class="F2n-heading">
+<tspan x="63" dy="0">Inverse kinematics</tspan>
+</text>
+<text x="34" y="775" font-size="14" class="F2n-muted">
+<tspan x="34" dy="0">Paddle pose → 7 joint angles</tspan>
+</text>
+<path d="M180 794V806m-4 -4 4 4 4 -4" class="F2n-line"/>
+<rect x="16" y="811" width="328" height="82" rx="14" class="F2n-card"/>
+<circle cx="42" cy="838" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="42" y="842" font-size="12" class="F2n-mono" text-anchor="middle">
+<tspan x="42" dy="0">4</tspan>
+</text>
+<text x="63" y="843" font-size="16" class="F2n-heading">
+<tspan x="63" dy="0">Control and tracking</tspan>
+</text>
+<text x="34" y="869" font-size="14" class="F2n-muted">
+<tspan x="34" dy="0">Joint targets corrected</tspan>
+<tspan x="34" dy="19">from feedback</tspan>
+</text>
+<path d="M180 896V908m-4 -4 4 4 4 -4" class="F2n-line"/>
+<rect x="16" y="913" width="328" height="96" rx="14" class="F2n-panel"/>
+<circle cx="42" cy="940" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="42" y="944" font-size="12" class="F2n-mono" text-anchor="middle">
+<tspan x="42" dy="0">5</tspan>
+</text>
+<text x="63" y="945" font-size="16" class="F2n-heading">
+<tspan x="63" dy="0">Joint servos and physics</tspan>
+</text>
+<text x="34" y="971" font-size="14" class="F2n-muted">
+<tspan x="34" dy="0">MuJoCo; same for both modes.</tspan>
+<tspan x="34" dy="19">Real limits enforced.</tspan>
+</text>
+<rect x="16" y="1029" width="328" height="95" rx="14" class="F2n-panel"/>
+<text x="32" y="1056" font-size="17" class="F2n-heading">
+<tspan x="32" dy="0">Engineer debug loop</tspan>
+</text>
+<text x="32" y="1083" font-size="14" class="F2n-muted">
+<tspan x="32" dy="0">Offline tests → inspect failures</tspan>
+<tspan x="32" dy="21">→ tune parameters</tspan>
+</text>
+</svg></div></figure>
+<p>Table-tennis control chain: hit decision (when, paddle pose, velocity) → trajectory → inverse kinematics → control and tracking → joint servos and physics. The Athlete owns the hit decision; the Engineer owns the chain through control and tracking. Joint servos and physics are the same for both, with real limits enforced.</p>
+<p>Reference lines: the reference player built only from public tools; a boundary baseline that uses the tools but develops no skill (for example, holding the paddle in the ball’s path with IK, which must score about 0); and doing nothing (0).</p>
+<h3>Where the modes exist today</h3>
+<ul>
+  <li>Current tasks for table tennis, tennis, badminton and fencing declare both action levels: skill API and joint targets. The other 14 sports have one action level, their own native commands.</li>
+  <li>The full Robotics Engineer protocol, including post-match API and competition tests, is a shared library with a minimal example sport. For real sports it has run in <strong>pilots</strong>: air hockey, fencing, a Unitree G1 shooting drill, table tennis on Unitree G1 and on Rainbow RB-Y1.</li>
+  <li>Both modes are defined for every sport and have been validated in pilots.</li>
+</ul>
+<p>Air hockey has a separate two-mode pilot with Athlete skills and Engineer joint plans. It uses simulator state as a pilot simplification. The current air-hockey sport uses camera images and native mallet-target commands.</p>
+<p>Racket sports get both modes. Soccer gets Athlete only; sprint and hurdles (planned) get Engineer only. Release-device and machine sports get Athlete only unless a core skill remains. A sport gets Engineer mode only if the boundary baseline scores about 0.</p>
+<h3>Program play and direct play</h3>
+<p>In <strong>program play</strong>, the default everywhere, the player writes a program. In <strong>direct play</strong>, with code execution switched off, the model issues one action per reply. Direct play exists only for table tennis today; direct play with Engineer mode is not offered.</p>
+</section><section class="docs-section" id="formats"><div class="docs-section-heading"><h2>Four formats</h2></div><p>A format defines who plays whom, seats per side, side rotation and ranking. Points, sets and fouls belong to the sport’s referee. Each sport declares the formats it supports.</p>
+<figure class="responsive-figure"><div class="figure-wide"><svg class="inline-figure" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 652" role="img" aria-label="Four match formats: single, duel, team and multi-party"><title>Four match formats</title><style>
+.formats-card{fill:var(--surface,#ffffff);stroke:var(--line-2,rgba(15,23,42,.22));stroke-width:1}
+.formats-heading{font-family:var(--display,'Bricolage Grotesque',Inter,system-ui,sans-serif);font-size:23px;font-weight:700;fill:var(--ink,#0f141a)}
+.formats-body{font-family:var(--body,Inter,system-ui,sans-serif);font-size:16px;fill:var(--ink-2,#444e5b)}
+.formats-label{font-family:var(--mono,'JetBrains Mono',monospace);font-size:12px;letter-spacing:1px;fill:var(--ink-3,#69727f)}
+.formats-ink{fill:none;stroke:var(--ink,#0f141a);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.formats-a{fill:var(--team-a,#E8573A)}.formats-b{fill:var(--team-b,#2F7BEA)}
+.formats-status{fill:var(--prelim-ink,#8A5A12);font-family:var(--body,Inter,system-ui,sans-serif);font-size:14px}
+</style><g transform="translate(12 12)"><rect width="340" height="300" rx="20" class="formats-card"/><text x="24" y="40" class="formats-heading">Single</text><text x="24" y="61" class="formats-label">1 SEAT</text><rect x="24" y="76" width="32" height="32" rx="8" class="formats-ink formats-a"/><path d="M67 92h18" class="formats-ink"/><rect x="96" y="76" width="32" height="32" rx="8" class="formats-ink" stroke-dasharray="3 4"/><text x="24" y="143" class="formats-body">A scripted opponent, or no opponent.</text><text x="24" y="166" class="formats-body">Scripted levels vary by sport.</text><text x="24" y="201" class="formats-body">Archery, bowling, putting</text><text x="24" y="260" class="formats-label">RANKED BY</text><text x="24" y="283" class="formats-body">Result per level or score</text></g><g transform="translate(368 12)"><rect width="340" height="300" rx="20" class="formats-card"/><text x="24" y="40" class="formats-heading">Duel</text><text x="24" y="61" class="formats-label">2 SIDES × 1 SEAT</text><rect x="24" y="76" width="32" height="32" rx="8" class="formats-ink formats-a"/><path d="M67 92h18" class="formats-ink"/><rect x="96" y="76" width="32" height="32" rx="8" class="formats-ink formats-b"/><text x="24" y="143" class="formats-body">Two players head to head.</text><text x="24" y="166" class="formats-body">Play both sides on fixed seeds.</text><text x="24" y="201" class="formats-body">Table tennis, tennis, fencing, billiards</text><text x="24" y="260" class="formats-label">RANKED BY</text><text x="24" y="283" class="formats-body">Wins</text></g><g transform="translate(12 328)"><rect width="340" height="300" rx="20" class="formats-card"/><text x="24" y="40" class="formats-heading">Team</text><text x="24" y="61" class="formats-label">2 SIDES × k SEATS</text><rect x="24" y="72" width="22" height="22" rx="6" class="formats-ink formats-a"/><rect x="53" y="88" width="22" height="22" rx="6" class="formats-ink formats-a"/><rect x="99" y="72" width="22" height="22" rx="6" class="formats-ink formats-b"/><rect x="128" y="88" width="22" height="22" rx="6" class="formats-ink formats-b"/><text x="24" y="143" class="formats-body">One player per robot.</text><text x="24" y="166" class="formats-body">Teammates use a team channel.</text><text x="24" y="201" class="formats-body">Soccer 2v2</text><text x="24" y="224" class="formats-status">Basketball 3x3: in development</text><text x="24" y="260" class="formats-label">RANKED BY</text><text x="24" y="283" class="formats-body">Team wins</text></g><g transform="translate(368 328)"><rect width="340" height="300" rx="20" class="formats-card"/><text x="24" y="40" class="formats-heading">Multi-party</text><text x="24" y="61" class="formats-label">N SIDES × 1 SEAT</text><path d="M24 72v40M58 72v40M92 72v40M126 72v40" class="formats-ink"/><rect x="15" y="79" width="18" height="20" rx="5" class="formats-ink formats-a"/><rect x="49" y="88" width="18" height="20" rx="5" class="formats-ink formats-b"/><rect x="83" y="72" width="18" height="20" rx="5" class="formats-ink formats-a"/><rect x="117" y="84" width="18" height="20" rx="5" class="formats-ink formats-b"/><text x="24" y="143" class="formats-body">All players in the same event</text><text x="24" y="166" class="formats-body">at the same time.</text><text x="24" y="201" class="formats-body">Robot racing: 4 cars</text><text x="24" y="260" class="formats-label">RANKED BY</text><text x="24" y="283" class="formats-body">Places converted to points</text></g></svg></div><div class="figure-narrow"><svg class="inline-figure" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1276" role="img" aria-label="Four match formats: single, duel, team and multi-party"><title>Four match formats</title><style>
+.formats-card{fill:var(--surface,#ffffff);stroke:var(--line-2,rgba(15,23,42,.22));stroke-width:1}
+.formats-heading{font-family:var(--display,'Bricolage Grotesque',Inter,system-ui,sans-serif);font-size:23px;font-weight:700;fill:var(--ink,#0f141a)}
+.formats-body{font-family:var(--body,Inter,system-ui,sans-serif);font-size:16px;fill:var(--ink-2,#444e5b)}
+.formats-label{font-family:var(--mono,'JetBrains Mono',monospace);font-size:12px;letter-spacing:1px;fill:var(--ink-3,#69727f)}
+.formats-ink{fill:none;stroke:var(--ink,#0f141a);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.formats-a{fill:var(--team-a,#E8573A)}.formats-b{fill:var(--team-b,#2F7BEA)}
+.formats-status{fill:var(--prelim-ink,#8A5A12);font-family:var(--body,Inter,system-ui,sans-serif);font-size:14px}
+</style><g transform="translate(12 12)"><rect width="336" height="300" rx="20" class="formats-card"/><text x="24" y="40" class="formats-heading">Single</text><text x="24" y="61" class="formats-label">1 SEAT</text><rect x="24" y="76" width="32" height="32" rx="8" class="formats-ink formats-a"/><path d="M67 92h18" class="formats-ink"/><rect x="96" y="76" width="32" height="32" rx="8" class="formats-ink" stroke-dasharray="3 4"/><text x="24" y="143" class="formats-body">A scripted opponent, or no opponent.</text><text x="24" y="166" class="formats-body">Scripted levels vary by sport.</text><text x="24" y="201" class="formats-body">Archery, bowling, putting</text><text x="24" y="260" class="formats-label">RANKED BY</text><text x="24" y="283" class="formats-body">Result per level or score</text></g><g transform="translate(12 328)"><rect width="336" height="300" rx="20" class="formats-card"/><text x="24" y="40" class="formats-heading">Duel</text><text x="24" y="61" class="formats-label">2 SIDES × 1 SEAT</text><rect x="24" y="76" width="32" height="32" rx="8" class="formats-ink formats-a"/><path d="M67 92h18" class="formats-ink"/><rect x="96" y="76" width="32" height="32" rx="8" class="formats-ink formats-b"/><text x="24" y="143" class="formats-body">Two players head to head.</text><text x="24" y="166" class="formats-body">Play both sides on fixed seeds.</text><text x="24" y="201" class="formats-body">Table tennis, tennis, fencing, billiards</text><text x="24" y="260" class="formats-label">RANKED BY</text><text x="24" y="283" class="formats-body">Wins</text></g><g transform="translate(12 644)"><rect width="336" height="300" rx="20" class="formats-card"/><text x="24" y="40" class="formats-heading">Team</text><text x="24" y="61" class="formats-label">2 SIDES × k SEATS</text><rect x="24" y="72" width="22" height="22" rx="6" class="formats-ink formats-a"/><rect x="53" y="88" width="22" height="22" rx="6" class="formats-ink formats-a"/><rect x="99" y="72" width="22" height="22" rx="6" class="formats-ink formats-b"/><rect x="128" y="88" width="22" height="22" rx="6" class="formats-ink formats-b"/><text x="24" y="143" class="formats-body">One player per robot.</text><text x="24" y="166" class="formats-body">Teammates use a team channel.</text><text x="24" y="201" class="formats-body">Soccer 2v2</text><text x="24" y="224" class="formats-status">Basketball 3x3: in development</text><text x="24" y="260" class="formats-label">RANKED BY</text><text x="24" y="283" class="formats-body">Team wins</text></g><g transform="translate(12 960)"><rect width="336" height="300" rx="20" class="formats-card"/><text x="24" y="40" class="formats-heading">Multi-party</text><text x="24" y="61" class="formats-label">N SIDES × 1 SEAT</text><path d="M24 72v40M58 72v40M92 72v40M126 72v40" class="formats-ink"/><rect x="15" y="79" width="18" height="20" rx="5" class="formats-ink formats-a"/><rect x="49" y="88" width="18" height="20" rx="5" class="formats-ink formats-b"/><rect x="83" y="72" width="18" height="20" rx="5" class="formats-ink formats-a"/><rect x="117" y="84" width="18" height="20" rx="5" class="formats-ink formats-b"/><text x="24" y="143" class="formats-body">All players in the same event</text><text x="24" y="166" class="formats-body">at the same time.</text><text x="24" y="201" class="formats-body">Robot racing: 4 cars</text><text x="24" y="260" class="formats-label">RANKED BY</text><text x="24" y="283" class="formats-body">Places converted to points</text></g></svg></div></figure>
+<div class="table-wrap"><table>
+  <thead><tr><th>Format</th><th>Seats</th><th>How it is played</th><th>How it is ranked</th><th>Current sports</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Single</strong></td><td>1</td><td>against a scripted opponent at levels L1–L4 (L1–L2 or L1–L3 in some sports), or with no opponent at all</td><td>by the result at each level, or by the score</td><td>all 18; the only format of archery, basketball shooting, bowling, disc golf and putting</td></tr>
+    <tr><td><strong>Duel</strong></td><td>2 sides x 1 seat</td><td>two players head to head; each pairing plays both sides / both first-player orders, on fixed seeds</td><td>wins</td><td>13: the 10 real-time sports, billiards, curling, darts</td></tr>
+    <tr><td><strong>Team</strong></td><td>2 sides x k seats</td><td>one player per robot; each sees only its own robot&#x27;s cameras; teammates talk only through a logged, rate-limited team channel the opponents cannot see (it can be switched off to compare)</td><td>team wins</td><td>soccer 2 v 2 (basketball 3x3 in development)</td></tr>
+    <tr><td><strong>Multi-party</strong></td><td>N sides x 1 seat</td><td>all players in one event at the same time</td><td>places converted to points</td><td>robot racing (4 cars)</td></tr>
+  </tbody>
+</table></div>
+<ul>
+  <li>A coach layout, with one player commanding the whole team, is formally a duel. Soccer’s duel format uses this layout.</li>
+  <li>Sports where players do not interact keep only the single format; darts keeps a duel because racing to finish has strategy.</li>
+</ul>
+</section><section class="docs-section" id="games-rules"><div class="docs-section-heading"><h2>Games rules</h2><span class="chip status-chip">Draft</span></div><p><strong>Draft.</strong> These medal rules are not decided.</p>
+<p>Single, duel, team and multi-party formats each have their own ranking. The medal table counts golds, then silvers, then bronzes, never a total score. Reference players and baselines run alongside but take no medals.</p>
+<ul>
+  <li>Each Games is a frozen version. An <strong>event</strong> is one sport, one format, one mode.</li>
+  <li>Every event awards <strong>gold, silver and bronze</strong>. The medal table is ordered by golds, then silvers, then bronzes.</li>
+  <li><strong>Athlete events and Engineer events award medals separately</strong>, in two medal tables. Body-swap matches are demonstration events without medals.</li>
+  <li>Reference players and baselines never take medals; they are shown alongside to mark what is possible and where zero is.</li>
+</ul>
+<h3>Open decisions</h3>
+<ul>
+  <li>Knockout rounds for duels or round-robin only.</li>
+  <li>Medals for single events against scripted levels.</li>
+  <li>Engineer events ranked mainly by the competition test.</li>
+</ul>
+<h3>Season 1: Exhibition season</h3>
+<p>Exhibition season · earlier rules · 100 of 300 planned matches · ties share medals.</p>
+<p>Four models, 11 sports, 100 valid matches (n = 100 matches).</p>
+</section><section class="docs-section" id="framework"><div class="docs-section-heading"><h2>One framework</h2></div><p>Embodied Agent Olympics tests physical intelligence, game intelligence and coding intelligence.</p>
+<p>One small core runs every sport. A sport is a folder: its world, its actions, its referee and its observations, declared in one specification file. Players, a model plus its harness, talk to the core through one protocol. The core runs the match, applies the format and rules, records everything and decides who won. Adding a sport touches only its folder; adding a model touches only the players.</p>
+<figure class="responsive-figure"><div class="figure-wide"><svg class="inline-figure" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 712" role="img" aria-label="Players connect through the player protocol to a narrow core. The core calls sports through the sport interface and writes a match record for tools. Sports may reference a shared robot library. Matches run on Harbor, and grading replays in a separate container." aria-labelledby="svg-12-F1-title">
+<title id="svg-12-F1-title">One framework: four parts, three contracts</title>
+<style>
+.F1-card{fill:var(--surface,#ffffff);stroke:var(--line-2,rgba(15,23,42,.22));stroke-width:1}
+.F1-soft{fill:var(--bg-2,#eaeef3);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F1-fan{fill:var(--bg-2,#eaeef3)}
+.F1-core{fill:var(--primary-bg,#0f141a)}
+.F1-h{font:700 22px "Bricolage Grotesque",Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F1-t{font:400 16px Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F1-s{font:400 14px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F1-small{font:400 12px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F1-mono{font:500 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;fill:var(--ink-2,#444e5b)}
+.F1-inverse{fill:var(--primary-ink,#f7f9fb)}
+.F1-arrow{fill:none;stroke:var(--ink-2,#444e5b);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<defs><marker id="svg-12-F1-arrowhead" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 7 4 1 7" fill="none" stroke="var(--ink-2,#444e5b)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<path d="M226 66 276 128V272L226 302Z M494 66 444 128V272L494 302Z" class="F1-fan"/>
+<rect x="16" y="24" width="210" height="282" rx="20" class="F1-card"/>
+<text x="32" y="57" class="F1-h">Players</text>
+<text x="32" y="82" class="F1-t">Model + harness</text>
+<text x="32" y="102" class="F1-s">+ play setting</text>
+<rect x="32" y="122" width="178" height="42" rx="14" class="F1-soft"/>
+<text x="44" y="141" class="F1-t">Opus 5.5</text>
+<text x="44" y="157" class="F1-small">Claude Code</text>
+<rect x="32" y="172" width="178" height="42" rx="14" class="F1-soft"/>
+<text x="44" y="191" class="F1-t">Fable 5.1</text>
+<text x="44" y="207" class="F1-small">Claude Code</text>
+<rect x="32" y="222" width="178" height="42" rx="14" class="F1-soft"/>
+<text x="44" y="241" class="F1-t">GPT-6</text>
+<text x="44" y="257" class="F1-small">Codex</text>
+<rect x="32" y="274" width="178" height="24" rx="14" class="F1-card" stroke-dasharray="5 4"/>
+<text x="121.0" y="291" class="F1-small" text-anchor="middle">More players can be added</text>
+<rect x="494" y="24" width="210" height="282" rx="20" class="F1-card"/>
+<text x="510" y="57" class="F1-h">Sports</text>
+<text x="510" y="82" class="F1-s">World · actions · referee</text>
+<text x="510" y="102" class="F1-s">+ observations</text>
+<rect x="510" y="122" width="178" height="42" rx="14" class="F1-soft"/>
+<text x="599.0" y="149" class="F1-t" text-anchor="middle">Table tennis</text>
+<rect x="510" y="172" width="178" height="42" rx="14" class="F1-soft"/>
+<text x="599.0" y="199" class="F1-t" text-anchor="middle">Soccer 2 v 2</text>
+<rect x="510" y="222" width="178" height="42" rx="14" class="F1-soft"/>
+<text x="599.0" y="249" class="F1-t" text-anchor="middle">Fencing</text>
+<rect x="510" y="274" width="178" height="24" rx="14" class="F1-card" stroke-dasharray="5 4"/>
+<text x="599.0" y="291" class="F1-small" text-anchor="middle">More sports can be added</text>
+<text x="251" y="64" class="F1-mono" text-anchor="middle">01</text>
+<text x="251" y="85" class="F1-s" text-anchor="middle">Player</text>
+<text x="251" y="103" class="F1-s" text-anchor="middle">protocol</text>
+<path d="M232 198H270" class="F1-arrow" marker-end="url(#svg-12-F1-arrowhead)" marker-start="url(#svg-12-F1-arrowhead)"/>
+<text x="469" y="64" class="F1-mono" text-anchor="middle">02</text>
+<text x="469" y="85" class="F1-s" text-anchor="middle">Sport</text>
+<text x="469" y="103" class="F1-s" text-anchor="middle">interface</text>
+<path d="M450 198H488" class="F1-arrow" marker-end="url(#svg-12-F1-arrowhead)"/>
+<rect x="276" y="128" width="168" height="144" rx="20" class="F1-core"/>
+<text x="360" y="166" class="F1-h F1-inverse" text-anchor="middle">Core</text>
+<text x="360" y="196" class="F1-t F1-inverse" text-anchor="middle">Match flow</text>
+<text x="360" y="220" class="F1-t F1-inverse" text-anchor="middle">Rules · recording</text>
+<text x="360" y="244" class="F1-t F1-inverse" text-anchor="middle">Judging</text>
+<path d="M360 272V416" class="F1-arrow" marker-end="url(#svg-12-F1-arrowhead)"/>
+<rect x="279" y="328" width="162" height="30" rx="14" class="F1-card"/>
+<text x="360" y="348" class="F1-s" text-anchor="middle">03 · Match record</text>
+<rect x="494" y="326" width="210" height="76" rx="14" class="F1-card" stroke-dasharray="5 4"/>
+<text x="599" y="353" class="F1-t" text-anchor="middle">Shared robot library</text>
+<text x="599" y="376" class="F1-small" text-anchor="middle">Sports may reference it</text>
+<text x="599" y="393" class="F1-small" text-anchor="middle">Separate from the framework</text>
+<rect x="16" y="424" width="688" height="124" rx="20" class="F1-card"/>
+<text x="32" y="458" class="F1-h">Tools</text>
+<text x="112" y="457" class="F1-s">Files only; never changes a result</text>
+<rect x="32" y="482" width="152" height="46" rx="14" class="F1-soft"/>
+<text x="108" y="511" class="F1-t" text-anchor="middle" style="font-size:14px">Generate + check</text>
+<rect x="200" y="482" width="152" height="46" rx="14" class="F1-soft"/>
+<text x="276" y="511" class="F1-t" text-anchor="middle" style="font-size:14px">Run + schedule</text>
+<rect x="368" y="482" width="152" height="46" rx="14" class="F1-soft"/>
+<text x="444" y="511" class="F1-t" text-anchor="middle" style="font-size:14px">Watch</text>
+<rect x="536" y="482" width="152" height="46" rx="14" class="F1-soft"/>
+<text x="612" y="511" class="F1-t" text-anchor="middle" style="font-size:14px">Analyse</text>
+<rect x="16" y="570" width="688" height="122" rx="20" class="F1-soft"/>
+<text x="32" y="605" class="F1-h">Runs on Harbor</text>
+<text x="32" y="637" class="F1-t">Single-player: stock Harbor</text>
+<text x="32" y="663" class="F1-t">Duels: multi-seat extension</text>
+<text x="376" y="637" class="F1-t">Separate grading container</text>
+<text x="376" y="663" class="F1-t">Replay + state-hash check</text>
+</svg></div><div class="figure-narrow"><svg class="inline-figure" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1424" role="img" aria-label="Players connect through the player protocol to a narrow core. The core calls sports through the sport interface and writes a match record for tools. Sports may reference a shared robot library. Matches run on Harbor, and grading replays in a separate container." aria-labelledby="svg-13-F1-narrow-title">
+<title id="svg-13-F1-narrow-title">One framework: four parts, three contracts</title>
+<style>
+.F1-narrow-card{fill:var(--surface,#ffffff);stroke:var(--line-2,rgba(15,23,42,.22));stroke-width:1}
+.F1-narrow-soft{fill:var(--bg-2,#eaeef3);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F1-narrow-fan{fill:var(--bg-2,#eaeef3)}
+.F1-narrow-core{fill:var(--primary-bg,#0f141a)}
+.F1-narrow-h{font:700 22px "Bricolage Grotesque",Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F1-narrow-t{font:400 16px Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F1-narrow-s{font:400 14px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F1-narrow-small{font:400 12px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F1-narrow-mono{font:500 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;fill:var(--ink-2,#444e5b)}
+.F1-narrow-inverse{fill:var(--primary-ink,#f7f9fb)}
+.F1-narrow-arrow{fill:none;stroke:var(--ink-2,#444e5b);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<defs><marker id="svg-13-F1-narrow-arrowhead" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 7 4 1 7" fill="none" stroke="var(--ink-2,#444e5b)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<path d="M66 450H12V1007H180V1025" class="F1-narrow-arrow" marker-end="url(#svg-13-F1-narrow-arrowhead)"/>
+<rect x="24" y="24" width="312" height="282" rx="20" class="F1-narrow-card"/>
+<text x="40" y="59" class="F1-narrow-h">Players</text>
+<text x="40" y="84" class="F1-narrow-t">Model + harness</text>
+<text x="40" y="104" class="F1-narrow-s">+ play setting</text>
+<rect x="40" y="124" width="280" height="42" rx="14" class="F1-narrow-soft"/>
+<text x="52" y="143" class="F1-narrow-t">Opus 5.5</text>
+<text x="52" y="159" class="F1-narrow-small">Claude Code</text>
+<rect x="40" y="174" width="280" height="42" rx="14" class="F1-narrow-soft"/>
+<text x="52" y="193" class="F1-narrow-t">Fable 5.1</text>
+<text x="52" y="209" class="F1-narrow-small">Claude Code</text>
+<rect x="40" y="224" width="280" height="42" rx="14" class="F1-narrow-soft"/>
+<text x="52" y="243" class="F1-narrow-t">GPT-6</text>
+<text x="52" y="259" class="F1-narrow-small">Codex</text>
+<rect x="40" y="276" width="280" height="24" rx="14" class="F1-narrow-card" stroke-dasharray="5 4"/>
+<text x="180.0" y="293" class="F1-narrow-small" text-anchor="middle">More players can be added</text>
+<path d="M180 306V370" class="F1-narrow-arrow" marker-end="url(#svg-13-F1-narrow-arrowhead)" marker-start="url(#svg-13-F1-narrow-arrowhead)"/>
+<rect x="88" y="328" width="184" height="30" rx="14" class="F1-narrow-card"/>
+<text x="180" y="348" class="F1-narrow-s" text-anchor="middle">01 · Player protocol</text>
+<rect x="66" y="378" width="228" height="144" rx="20" class="F1-narrow-core"/>
+<text x="180" y="418" class="F1-narrow-h F1-narrow-inverse" text-anchor="middle" style="font-size:24px">Core</text>
+<text x="180" y="446" class="F1-narrow-t F1-narrow-inverse" text-anchor="middle">Match flow</text>
+<text x="180" y="470" class="F1-narrow-t F1-narrow-inverse" text-anchor="middle">Rules · recording</text>
+<text x="180" y="494" class="F1-narrow-t F1-narrow-inverse" text-anchor="middle">Judging</text>
+<path d="M180 522V586" class="F1-narrow-arrow" marker-end="url(#svg-13-F1-narrow-arrowhead)"/>
+<rect x="88" y="548" width="184" height="30" rx="14" class="F1-narrow-card"/>
+<text x="180" y="568" class="F1-narrow-s" text-anchor="middle">02 · Sport interface</text>
+<rect x="24" y="594" width="312" height="276" rx="20" class="F1-narrow-card"/>
+<text x="40" y="629" class="F1-narrow-h">Sports</text>
+<text x="40" y="654" class="F1-narrow-s">World · actions · referee</text>
+<text x="40" y="674" class="F1-narrow-s">+ observations</text>
+<rect x="40" y="694" width="280" height="42" rx="14" class="F1-narrow-soft"/>
+<text x="180.0" y="721" class="F1-narrow-t" text-anchor="middle">Table tennis</text>
+<rect x="40" y="738" width="280" height="42" rx="14" class="F1-narrow-soft"/>
+<text x="180.0" y="765" class="F1-narrow-t" text-anchor="middle">Soccer 2 v 2</text>
+<rect x="40" y="782" width="280" height="42" rx="14" class="F1-narrow-soft"/>
+<text x="180.0" y="809" class="F1-narrow-t" text-anchor="middle">Fencing</text>
+<rect x="40" y="834" width="280" height="24" rx="14" class="F1-narrow-card" stroke-dasharray="5 4"/>
+<text x="180.0" y="851" class="F1-narrow-small" text-anchor="middle">More sports can be added</text>
+<rect x="24" y="892" width="312" height="86" rx="14" class="F1-narrow-card" stroke-dasharray="5 4"/>
+<text x="180" y="921" class="F1-narrow-t" text-anchor="middle" style="font-weight:600">Shared robot library</text>
+<text x="180" y="944" class="F1-narrow-s" text-anchor="middle">Sports may reference it</text>
+<text x="180" y="963" class="F1-narrow-small" text-anchor="middle">Separate from the framework</text>
+<rect x="94" y="992" width="172" height="30" rx="14" class="F1-narrow-card"/>
+<text x="180" y="1012" class="F1-narrow-s" text-anchor="middle">03 · Match record</text>
+<rect x="24" y="1032" width="312" height="180" rx="20" class="F1-narrow-card"/>
+<text x="40" y="1067" class="F1-narrow-h">Tools</text>
+<text x="40" y="1093" class="F1-narrow-s">Files only; never changes a result</text>
+<rect x="40" y="1114" width="132" height="34" rx="14" class="F1-narrow-soft"/>
+<text x="106" y="1137" class="F1-narrow-s" text-anchor="middle">Generate + check</text>
+<rect x="188" y="1114" width="132" height="34" rx="14" class="F1-narrow-soft"/>
+<text x="254" y="1137" class="F1-narrow-s" text-anchor="middle">Run + schedule</text>
+<rect x="40" y="1160" width="132" height="34" rx="14" class="F1-narrow-soft"/>
+<text x="106" y="1183" class="F1-narrow-s" text-anchor="middle">Watch</text>
+<rect x="188" y="1160" width="132" height="34" rx="14" class="F1-narrow-soft"/>
+<text x="254" y="1183" class="F1-narrow-s" text-anchor="middle">Analyse</text>
+<rect x="24" y="1236" width="312" height="164" rx="20" class="F1-narrow-soft"/>
+<text x="40" y="1272" class="F1-narrow-h">Runs on Harbor</text>
+<text x="40" y="1304" class="F1-narrow-t">Single-player: stock Harbor</text>
+<text x="40" y="1328" class="F1-narrow-t">Duels: multi-seat extension</text>
+<text x="40" y="1354" class="F1-narrow-t">Separate grading container</text>
+<text x="40" y="1378" class="F1-narrow-t">Replay + state-hash check</text>
+</svg></div></figure>
+<div class="table-wrap"><table>
+  <thead><tr><th>Part</th><th>One line</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Players</strong></td><td>a model plus its harness and play setting; knows no sport, cannot reach match internals</td></tr>
+    <tr><td><strong>Sports</strong></td><td>a world, its actions, a referee and the observations; never imports another sport or changes the core</td></tr>
+    <tr><td><strong>Core</strong></td><td>runs every match the same way: flow, rules, recording, judging; contains no sport or harness name</td></tr>
+    <tr><td><strong>Tools</strong></td><td>turn sports and players into tasks, matches and seasons, and recordings into videos and reports; never affect a result</td></tr>
+  </tbody>
+</table></div>
+<p>Three contracts connect them: the <strong>player protocol</strong> (player ↔ core), the <strong>sport interface</strong> (core → sport), and the <strong>match record</strong> (core → tools). The middle is narrow and versioned; both sides grow freely.</p>
+<h3>One core, 18 sports</h3>
+<ul>
+  <li>Every sport runs under the same match flow, clock, review and judging.</li>
+  <li>Single, duel, team and multi-party are core rules: a sport declares which ones it supports.</li>
+  <li>A shared robot library uses real robot models and real limits.</li>
+  <li>Grading replays the recording in a separate container and checks state hashes. Every match replays bit-exactly.</li>
+</ul>
+<h3>Harbor</h3>
+<p>Matches run on Harbor. Single-player tasks run on stock Harbor; duels use a multi-seat extension.</p>
+<p>Each seat has its own container, network and account. The multi-seat extension is separate from stock Harbor. Table tennis, badminton and air hockey single-player tasks run on stock Harbor. Grading runs in a separate verifier container.</p>
+<h3>Bit-exact replay</h3>
+<p>Physics is deterministic and the core records every command with its time step. Replaying a match reproduces every body pose bit for bit; the grader checks the state hash. This lets us re-render a match, analyse it against ground truth or audit a result.</p>
+<p>The physics engine is fixed per sport: MuJoCo, pooltool, or a validated sport-specific model. Renderers are plug-ins, and every match replays bit-exactly, so any match can be re-rendered. Isaac Sim RTX is used for spectators’ offline re-renders.</p>
+<h3>Real limits and physical feasibility</h3>
+<ul>
+  <li><strong>Real limits (B0).</strong> Every body obeys the real robot’s joint position, velocity and acceleration limits; where the vendor SDK and URDF disagree, the SDK wins; unpublished values are marked as estimates. Platform skills and scripted opponents obey the same limits.</li>
+  <li><strong>Physical feasibility (B9).</strong> Before a sport-and-body pair counts, an upper-bound player that knows the true state must be able to do the sport’s basic actions under real limits. In racket sports, it must return at least 90% of legal serves. Pairs that fail change the setting or move to a challenge track.</li>
+</ul>
+<p>Fencing, air hockey and badminton now enforce arm limits through the shared limits module. Table tennis and tennis have joint-target range and speed checks; their arm controllers do not yet use that module.</p>
+<p>Air hockey uses KUKA’s joint ranges, velocities and torques, Air Hockey Challenge acceleration limits, and estimated jerk limits. A KUKA torque-rate limit is not published and is not enforced.</p>
+<p>Badminton uses BWF court lengths × 0.4 and a 1.524 m net. Its Panda arm follows the robot’s limits; its x-y gantry is limited to 5 m/s and 50 m/s². The rules declare 9 deviations.</p>
+<p>Held to real-robot limits is the rule of the benchmark; this does not mean every sport already passes the audit.</p>
+<figure class="responsive-figure"><div class="figure-wide"><svg class="inline-figure" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 848" role="img" aria-label="Each sport fixes its physics engine and provides world geometry and camera definitions. One replay log preserves timed commands, state hashes and bit-exact body poses. Real-time player views and offline spectator renderers use the same geometry and cameras. Renderers never change physics." aria-labelledby="svg-14-F4-title">
+<title id="svg-14-F4-title">Fixed physics, one replay log, renderer plug-ins</title>
+<style>
+.F4-card{fill:var(--surface,#ffffff);stroke:var(--line-2,rgba(15,23,42,.22));stroke-width:1}
+.F4-soft{fill:var(--bg-2,#eaeef3);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F4-fan{fill:var(--bg-2,#eaeef3)}
+.F4-core{fill:var(--primary-bg,#0f141a)}
+.F4-h{font:700 22px "Bricolage Grotesque",Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F4-t{font:400 16px Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F4-s{font:400 14px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F4-small{font:400 12px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F4-mono{font:500 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;fill:var(--ink-2,#444e5b)}
+.F4-inverse{fill:var(--primary-ink,#f7f9fb)}
+.F4-arrow{fill:none;stroke:var(--ink-2,#444e5b);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<defs><marker id="svg-14-F4-arrowhead" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 7 4 1 7" fill="none" stroke="var(--ink-2,#444e5b)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<path d="M136 208V384" class="F4-arrow" marker-end="url(#svg-14-F4-arrowhead)"/>
+<path d="M492 208V232" class="F4-arrow" marker-end="url(#svg-14-F4-arrowhead)"/>
+<path d="M492 350V384" class="F4-arrow" marker-end="url(#svg-14-F4-arrowhead)"/>
+<rect x="16" y="20" width="240" height="188" rx="20" class="F4-card"/>
+<text x="32" y="54" class="F4-h">Sport provides</text>
+<text x="32" y="84" class="F4-t">World geometry</text>
+<text x="32" y="108" class="F4-t">Camera definitions</text>
+<text x="32" y="133" class="F4-small">Position · field of view</text>
+<text x="32" y="153" class="F4-small">Size · frame count</text>
+<text x="32" y="180" class="F4-s">Optional presentation assets</text>
+<rect x="280" y="20" width="424" height="188" rx="20" class="F4-card"/>
+<text x="296" y="54" class="F4-h">Physics fixed per sport</text>
+<text x="296" y="87" class="F4-t">MuJoCo · pooltool</text>
+<text x="296" y="112" class="F4-t">Validated sport-specific models</text>
+<text x="296" y="145" class="F4-s">Changing physics changes the match.</text>
+<text x="296" y="180" class="F4-s">World motion is recorded, then replayed.</text>
+<rect x="50" y="258" width="172" height="58" rx="14" class="F4-card"/>
+<text x="136" y="282" class="F4-s" text-anchor="middle">Scene + cameras</text>
+<text x="136" y="303" class="F4-small" text-anchor="middle">Shared by every renderer</text>
+<rect x="280" y="240" width="424" height="110" rx="20" class="F4-core"/>
+<text x="300" y="277" class="F4-h F4-inverse">One replay log</text>
+<text x="300" y="303" class="F4-t F4-inverse">Commands + time steps + state hashes</text>
+<text x="300" y="329" class="F4-t F4-inverse">Bit-exact body poses</text>
+<text x="508" y="374" class="F4-mono">REPLAY</text>
+<rect x="16" y="392" width="688" height="362" rx="20" class="F4-card"/>
+<text x="32" y="429" class="F4-h">Renderer plug-ins</text>
+<text x="32" y="454" class="F4-s">Same geometry and cameras; light, materials and image quality can change.</text>
+<rect x="32" y="482" width="314" height="246" rx="14" class="F4-soft"/>
+<text x="48" y="507" class="F4-mono">DURING THE MATCH</text>
+<text x="48" y="535" class="F4-h" style="font-size:20px">Player views</text>
+<text x="48" y="563" class="F4-t">MuJoCo (default)</text>
+<text x="48" y="588" class="F4-s">Shadows · materials · multisampling</text>
+<text x="48" y="613" class="F4-s">Billiards: pinhole renderer</text>
+<text x="48" y="648" class="F4-small">Core chooses by task configuration.</text>
+<text x="48" y="670" class="F4-small">Per-frame time budget applies.</text>
+<text x="48" y="692" class="F4-small">Renderer recorded in the result.</text>
+<rect x="366" y="482" width="322" height="246" rx="14" class="F4-soft"/>
+<text x="382" y="507" class="F4-mono">OFFLINE RE-RENDER</text>
+<text x="382" y="535" class="F4-h" style="font-size:20px">Spectator views</text>
+<text x="382" y="563" class="F4-t">Blender Cycles · Isaac Sim RTX</text>
+<text x="382" y="588" class="F4-s">Path tracing and GPU rendering</text>
+<text x="382" y="613" class="F4-small">Viewing tools replay, then draw.</text>
+<text x="382" y="638" class="F4-small">Switch renderers for any replay.</text>
+<text x="382" y="660" class="F4-small">Every frame names its renderer.</text>
+<text x="382" y="692" class="F4-small">Presentation meshes: spectators only.</text>
+<text x="382" y="714" class="F4-small">Kinematics checked before drawing.</text>
+<rect x="16" y="778" width="688" height="50" rx="14" class="F4-soft"/>
+<text x="360" y="809" class="F4-t" text-anchor="middle" style="font-weight:600">Renderers never change physics.</text>
+</svg></div><div class="figure-narrow"><svg class="inline-figure" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1422" role="img" aria-label="Each sport fixes its physics engine and provides world geometry and camera definitions. One replay log preserves timed commands, state hashes and bit-exact body poses. Real-time player views and offline spectator renderers use the same geometry and cameras. Renderers never change physics." aria-labelledby="svg-15-F4-narrow-title">
+<title id="svg-15-F4-narrow-title">Fixed physics, one replay log, renderer plug-ins</title>
+<style>
+.F4-narrow-card{fill:var(--surface,#ffffff);stroke:var(--line-2,rgba(15,23,42,.22));stroke-width:1}
+.F4-narrow-soft{fill:var(--bg-2,#eaeef3);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F4-narrow-fan{fill:var(--bg-2,#eaeef3)}
+.F4-narrow-core{fill:var(--primary-bg,#0f141a)}
+.F4-narrow-h{font:700 22px "Bricolage Grotesque",Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F4-narrow-t{font:400 16px Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F4-narrow-s{font:400 14px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F4-narrow-small{font:400 12px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F4-narrow-mono{font:500 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;fill:var(--ink-2,#444e5b)}
+.F4-narrow-inverse{fill:var(--primary-ink,#f7f9fb)}
+.F4-narrow-arrow{fill:none;stroke:var(--ink-2,#444e5b);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<defs><marker id="svg-15-F4-narrow-arrowhead" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 7 4 1 7" fill="none" stroke="var(--ink-2,#444e5b)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<path d="M24 114H12V625H76V632" class="F4-narrow-arrow" marker-end="url(#svg-15-F4-narrow-arrowhead)"/>
+<path d="M180 424V468" class="F4-narrow-arrow" marker-end="url(#svg-15-F4-narrow-arrowhead)"/>
+<path d="M180 596V632" class="F4-narrow-arrow" marker-end="url(#svg-15-F4-narrow-arrowhead)"/>
+<rect x="24" y="24" width="312" height="188" rx="20" class="F4-narrow-card"/>
+<text x="40" y="58" class="F4-narrow-h">Sport provides</text>
+<text x="40" y="88" class="F4-narrow-t">World geometry</text>
+<text x="40" y="112" class="F4-narrow-t">Camera definitions</text>
+<text x="40" y="137" class="F4-narrow-small">Position · field of view</text>
+<text x="40" y="157" class="F4-narrow-small">Size · frame count</text>
+<text x="40" y="184" class="F4-narrow-s">Optional presentation assets</text>
+<rect x="24" y="236" width="312" height="188" rx="20" class="F4-narrow-card"/>
+<text x="40" y="270" class="F4-narrow-h">Physics fixed per sport</text>
+<text x="40" y="303" class="F4-narrow-t">MuJoCo · pooltool</text>
+<text x="40" y="328" class="F4-narrow-t">Validated sport-specific models</text>
+<text x="40" y="361" class="F4-narrow-s">Changing physics changes the match.</text>
+<text x="40" y="391" class="F4-narrow-s">World motion is recorded,</text>
+<text x="40" y="410" class="F4-narrow-s">then replayed.</text>
+<rect x="24" y="476" width="312" height="120" rx="20" class="F4-narrow-core"/>
+<text x="40" y="514" class="F4-narrow-h F4-narrow-inverse">One replay log</text>
+<text x="40" y="543" class="F4-narrow-s F4-narrow-inverse">Commands + time steps + state hashes</text>
+<text x="40" y="571" class="F4-narrow-t F4-narrow-inverse">Bit-exact body poses</text>
+<rect x="27" y="606" width="127" height="28" rx="14" class="F4-narrow-card"/>
+<text x="90.5" y="624" class="F4-narrow-small" text-anchor="middle">Scene + cameras</text>
+<text x="196" y="622" class="F4-narrow-mono">REPLAY</text>
+<rect x="24" y="640" width="312" height="674" rx="20" class="F4-narrow-card"/>
+<text x="40" y="674" class="F4-narrow-h">Renderer plug-ins</text>
+<text x="40" y="700" class="F4-narrow-s">Same scene and camera geometry.</text>
+<text x="40" y="720" class="F4-narrow-s">Light, materials and quality can change.</text>
+<rect x="40" y="742" width="280" height="246" rx="14" class="F4-narrow-soft"/>
+<text x="56" y="767" class="F4-narrow-mono">DURING THE MATCH</text>
+<text x="56" y="795" class="F4-narrow-h" style="font-size:20px">Player views</text>
+<text x="56" y="823" class="F4-narrow-t">MuJoCo (default)</text>
+<text x="56" y="848" class="F4-narrow-s">Shadows · materials · multisampling</text>
+<text x="56" y="873" class="F4-narrow-s">Billiards: pinhole renderer</text>
+<text x="56" y="908" class="F4-narrow-small">Core chooses by task configuration.</text>
+<text x="56" y="930" class="F4-narrow-small">Per-frame time budget applies.</text>
+<text x="56" y="952" class="F4-narrow-small">Renderer recorded in the result.</text>
+<rect x="40" y="1008" width="280" height="282" rx="14" class="F4-narrow-soft"/>
+<text x="56" y="1034" class="F4-narrow-mono">OFFLINE RE-RENDER</text>
+<text x="56" y="1062" class="F4-narrow-h" style="font-size:20px">Spectator views</text>
+<text x="56" y="1090" class="F4-narrow-t">Blender Cycles</text>
+<text x="56" y="1114" class="F4-narrow-t">Isaac Sim RTX</text>
+<text x="56" y="1140" class="F4-narrow-s">Path tracing and GPU rendering</text>
+<text x="56" y="1167" class="F4-narrow-small">Viewing tools replay, then draw.</text>
+<text x="56" y="1189" class="F4-narrow-small">Switch renderers for any replay.</text>
+<text x="56" y="1211" class="F4-narrow-small">Every frame names its renderer.</text>
+<text x="56" y="1245" class="F4-narrow-small">Presentation meshes: spectators only.</text>
+<text x="56" y="1267" class="F4-narrow-small">Kinematics checked before drawing.</text>
+<rect x="24" y="1338" width="312" height="60" rx="14" class="F4-narrow-soft"/>
+<text x="180" y="1364" class="F4-narrow-t" text-anchor="middle" style="font-weight:600">Renderers never change</text>
+<text x="180" y="1387" class="F4-narrow-t" text-anchor="middle" style="font-weight:600">physics.</text>
+</svg></div></figure></section><section class="docs-section" id="add-a-sport"><div class="docs-section-heading"><h2>How to add a sport</h2></div><p>Adding a sport touches only its folder.</p>
+<ol>
+  <li>Write the sport folder: world, actions, referee, observations, built-in players and <code>sport.toml</code>.</li>
+  <li>Run the generator and the checks: specification, generic tests, golden replay and fairness of both seats.</li>
+  <li>Submit the sport for review.</li>
+</ol>
+<p>A sport never imports another sport or changes the core.</p>
+</section></div></div></section></main>
+<footer class="footer paper-footer">
   <div class="section footer-inner">
-    <div class="footer-roadmap"><div class="footer-head"><h3>Roadmap</h3><span class="chip status-chip">In development</span></div><p>Basketball 3x3 (wheeled players) · Volleyball · Throwing · Sprint and hurdles (Engineer mode only)</p></div>
-    <div class="footer-grid"><a class="text-link" href="../docs/#add-a-sport">How to add a sport <span class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Arrow right"><title>Arrow right</title><path d="M3 12h18M14 5l7 7-7 7"/></svg></span></a><div><h3>Citation</h3><p>Coming with the paper.</p></div><div><h3>Team</h3><p>Coming soon.</p></div></div>
-    <div class="footer-bottom"><a class="wordmark" href="../"><span class="mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Embodied Agent Olympics: ball in flight" style="color:var(--ink,#0f141a)"><title>Embodied Agent Olympics: ball in flight</title><path d="M4 25Q16-10 28 25" stroke-dasharray="2.5 3.5"/><path d="M19 26h10"/><circle cx="16" cy="7.5" r="4.25" style="fill:var(--ball,#FFD447)"/></svg></span><span>Embodied Agent Olympics</span></a><p class="label">Data as of 2026-10-09</p></div>
-    <svg class="footer-lanes" viewBox="0 0 1240 78" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="var(--lane)" stroke-width="1.25"><path d="M0 12H1240M0 23H1240M0 34H1240M0 45H1240M0 56H1240M0 67H1240"/></g></svg>
+    <a class="wordmark" href="../"><span class="mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Embodied Agent Olympics: two paddles and a ball" style="color:var(--ink,#0f141a)"><title>Embodied Agent Olympics: exact paddles</title><rect x="3.75" y="9" width="4.5" height="14" rx="2.25" style="fill:var(--team-a,#E8573A)"/><rect x="23.75" y="9" width="4.5" height="14" rx="2.25" style="fill:var(--team-b,#2F7BEA)"/><circle cx="17" cy="13.5" r="3.4" stroke="currentColor" stroke-width="1.4" style="fill:var(--ball,#FFD447)"/></svg></span><span><span class="wordmark-long">Embodied Agent Olympics</span><span class="wordmark-short">EAO</span></span></a>
+    <nav class="footer-nav" aria-label="Embodied Agent Olympics"><a href="../sports/">Sports</a><a href="../results/">Results</a><a href="../robots/">Robots</a><a href="../docs/">Docs</a></nav>
+    <div class="footer-meta"><p class="label">Data as of 2026-10-09</p><span class="preview label">Preview</span></div>
+    
   </div>
 </footer>
 

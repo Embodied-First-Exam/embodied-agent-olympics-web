@@ -6,7 +6,7 @@
     },
     {
       "file": "favicon.svg",
-      "description": "The Apex mark on a dark rounded square for browser and app use."
+      "description": "The Exact paddles mark on a #0f141a rounded square for browser and app use."
     },
     {
       "file": "figures/F1-narrow.svg",
@@ -192,7 +192,7 @@
     },
     {
       "file": "icons/sport-darts.svg",
-      "description": "Dart and target board."
+      "description": "Single diagonal dart with flights, barrel and point."
     },
     {
       "file": "icons/sport-discgolf.svg",
@@ -224,7 +224,7 @@
     },
     {
       "file": "icons/sport-tabletennis.svg",
-      "description": "Table tennis paddle and ball."
+      "description": "Table tennis: solid rounded paddle blade, short angled handle and a separate yellow ball."
     },
     {
       "file": "icons/sport-tennis.svg",
@@ -288,7 +288,7 @@
     },
     {
       "file": "logo.svg",
-      "description": "Chosen Apex logo: yellow ball above a dashed parabolic flight and short court line."
+      "description": "Exact paddles logo: parallel 14px orange-red and blue bars and a separate yellow ball."
     },
     {
       "file": "manifest.json",
