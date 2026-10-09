@@ -42,11 +42,11 @@ export function createCameraRig(cameras) {
     const faces = new THREE.Mesh(new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute(triangles,3)),
       new THREE.MeshBasicMaterial({color:colour,transparent:true,opacity:0.06,depthWrite:false,side:THREE.DoubleSide,toneMapped:false}));
     const wire = edges(far.flatMap((p,i)=>[[apex,p],[p,far[(i+1)%4]]]),colour,index===0?0.8:0.4);
-    const body = new THREE.Mesh(new THREE.BoxGeometry(0.09,0.06,0.075),new THREE.MeshStandardMaterial({color:colour,roughness:0.5,metalness:0.08}));
+    const body = new THREE.Mesh(new THREE.BoxGeometry(0.09,0.06,0.075),new THREE.MeshStandardMaterial({color:colour,roughness:0.5,metalness:0.08,transparent:true,depthWrite:false}));
     body.position.z = 0.045;
-    const lens = new THREE.Mesh(new THREE.CylinderGeometry(0.024,0.024,0.035,16),new THREE.MeshStandardMaterial({color:'#1f2937',roughness:0.7}));
+    const lens = new THREE.Mesh(new THREE.CylinderGeometry(0.024,0.024,0.035,16),new THREE.MeshStandardMaterial({color:'#1f2937',roughness:0.7,transparent:true,depthWrite:false}));
     lens.rotation.x=Math.PI/2; lens.position.z=-0.01;
-    rig.add(faces,wire,body,lens); group.add(rig); diagrams.push({rig,faces,wire,body,index});
+    rig.add(faces,wire,body,lens); group.add(rig); diagrams.push({rig,faces,wire,body,lens,index});
   });
   function theme() {
     for (const d of diagrams) {
@@ -55,5 +55,13 @@ export function createCameraRig(cameras) {
     }
   }
   function resize(w,h) { for (const d of diagrams) d.wire.material.uniforms.resolution.value.set(w,h); }
-  theme(); return {group,theme,resize,diagrams};
+  function setOpacity(alpha) {
+    alpha = THREE.MathUtils.clamp(alpha, 0, 1);
+    for (const d of diagrams) {
+      d.faces.material.opacity = 0.06 * alpha;
+      d.wire.material.uniforms.alpha.value = (d.index === 0 ? 0.8 : 0.4) * alpha;
+      d.body.material.opacity = d.lens.material.opacity = alpha;
+    }
+  }
+  theme(); return {group,theme,resize,setOpacity,diagrams};
 }

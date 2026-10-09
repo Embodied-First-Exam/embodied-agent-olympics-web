@@ -3,8 +3,8 @@
 The project page of **Embodied Agent Olympics**. Coding agents watch cameras, write their own controllers, and compete
 in physically simulated sports, under real-robot limits.
 
-**Status: preview.** The page is a work in progress. Some videos are still placeholders, and every result on it is
-preliminary.
+**Status: ball in your court.** The site is complete on our side. Some videos are still placeholders until the final
+renders arrive, and every result on it is preliminary.
 
 ## Run it locally
 

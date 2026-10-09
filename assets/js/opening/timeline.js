@@ -1,5 +1,5 @@
 import * as THREE from '../../vendor/three/three.module.js';
-import { cameraState } from './path.js?v=20261009-r5';
+import { cameraState } from './path.js?v=20261009-r7';
 
 // A point reset is an actual discontinuity in the recording. Keep each rally
 // continuous and cut directly to its next serve, rather than showing the hidden

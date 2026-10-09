@@ -1,9 +1,9 @@
 import * as THREE from '../../vendor/three/three.module.js';
 import { createStage } from './stage.js?v=20261009-r5';
 import { loadReplay, createReplay } from './replay.js?v=20261009-r6';
-import { createCameraRig } from './cameras.js?v=20261009-r5';
-import { cameraState, dampScroll, CAMERA_TRANSITIONS, DAMPING_MS } from './path.js?v=20261009-r5';
-import { createTimeline } from './timeline.js?v=20261009-r5';
+import { createCameraRig } from './cameras.js?v=20261009-r7';
+import { cameraState, dampScroll, CAMERA_TRANSITIONS, DAMPING_MS } from './path.js?v=20261009-r7';
+import { createTimeline } from './timeline.js?v=20261009-r7';
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a)); return t * t * (3 - 2 * t); };
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -246,11 +246,17 @@ export async function initOpening(section = document.getElementById('opening')) 
     hud.bar.style.width = `${100 * f / (replay.frames - 1)}%`;
     scorebug.style.setProperty('--opening-score-opacity', smooth(0.195, 0.220, s));
     scorebug.style.right = s > 0.800 && camera.aspect > 1.2 ? `calc(var(--gutter) + ${smooth(0.800,0.900,s) * canvas.clientWidth * 0.20}px)` : '';
-    scorebug.style.left = camera.aspect < 0.8 ? 'var(--gutter)' : '';
-    if (camera.aspect < 0.8) scorebug.style.right = 'auto';
+    // Keep the phone score on the left during the rally's wide B-side flights.
+    // While the player inset is present, reserve the opposite corner for it.
+    const phone = camera.aspect < 0.8, playerView = s > 0.460 && s < 0.645;
+    scorebug.style.left = phone && !playerView ? 'var(--gutter)' : '';
+    if (phone) scorebug.style.right = playerView ? 'var(--gutter)' : 'auto';
     const insetAlpha = smooth(0.460, 0.485, s) * (1 - smooth(0.620, 0.645, s));
     inset.style.setProperty('--opening-inset-opacity', insetAlpha); inset.style.visibility = insetAlpha > 0.001 ? 'visible' : 'hidden';
-    helpers.visible = insetAlpha > 0.02;
+    // The two diagrams explain the held shoulder view. Fade them together as
+    // the crane leaves, before either native camera body crosses the frame.
+    const diagramAlpha = insetAlpha * (1 - smooth(0.535, 0.555, s));
+    cameraRig.setOpacity(diagramAlpha); helpers.visible = diagramAlpha > 0.001;
   }
   function render(s) {
     // Main and player inset share the exact posed scene and one shadow pass.
@@ -259,6 +265,7 @@ export async function initOpening(section = document.getElementById('opening')) 
     renderer.setViewport(0, 0, w, h); renderer.setScissorTest(false); renderer.render(scene, camera);
     if (s > 0.460 && s < 0.645) {
       const r = insetCanvas.getBoundingClientRect(), base = canvas.getBoundingClientRect();
+      const diagramsVisible = helpers.visible;
       helpers.visible = false; stage.grid.visible = false; replay.trail.visible = false;
       const x = r.left - base.left, y = h - (r.bottom - base.top);
       // A player's native 4:3 image fits the required 16:9 screen without changing its intrinsics.
@@ -271,7 +278,7 @@ export async function initOpening(section = document.getElementById('opening')) 
       const ctx = insetCanvas.getContext('2d'), dpr = renderer.getPixelRatio();
       ctx.drawImage(canvas, x * dpr, (r.top - base.top) * dpr, r.width * dpr, r.height * dpr, 0, 0, insetCanvas.width, insetCanvas.height);
       renderer.setScissorTest(false); renderer.setViewport(0, 0, w, h);
-      helpers.visible = true; stage.grid.visible = true; replay.updateTrail(reduced);
+      helpers.visible = diagramsVisible; stage.grid.visible = true; replay.updateTrail(reduced);
     }
   }
   function poseReplay(f) {

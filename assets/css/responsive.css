@@ -2,6 +2,7 @@
 .renderer-short,.control-caption-short{display:none}
 .control-caption-full{display:flex;align-items:center;flex-wrap:wrap;gap:5px 8px}
 .control-description{margin:10px 0 0;color:var(--ink-2);font-size:13px;line-height:1.55}
+.footage-match-link{min-width:44px;min-height:44px;margin-top:4px}
 .pilot-grid{align-items:start}
 .control-prototype{position:absolute;top:48px;left:14px;z-index:3}
 .control-prototype .chip{background:#0f141acc;color:#F0C27A;border-color:#e0a24355}

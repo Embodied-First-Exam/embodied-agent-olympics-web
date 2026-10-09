@@ -173,6 +173,7 @@ $$('[data-control-room]').forEach((room) => {
   const title = $('[data-control-title]', room), summary = $('[data-control-summary]', room);
   const description = $('[data-control-description]', room);
   const link = $('[data-control-link]', room);
+  const replay = $('[data-control-replay]', room);
   let current = -1, inView = false, holdUntil = 0, timer = 0;
   const available = (channel) => !channel.classList.contains('is-dim') && !channel.hidden && !!channel.dataset.src;
   function updateProgress() {
@@ -221,6 +222,11 @@ $$('[data-control-room]').forEach((room) => {
     }
     if (description) description.textContent = channel.dataset.description || '';
     if (link && channel.dataset.href) link.href = channel.dataset.href;
+    if (replay) {
+      replay.hidden = !channel.dataset.replayHref;
+      if (channel.dataset.replayHref) replay.href = channel.dataset.replayHref;
+      else replay.removeAttribute('href');
+    }
     if (channel.dataset.title) video.setAttribute('aria-label', channel.dataset.title);
     video.loop = false;
     reflect();
