@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 718" role="img" aria-labelledby="F2-title" aria-label="Five-stage table-tennis control chain. The Athlete owns the hit decision; the Engineer owns stages one through four. Joint servos and physics are shared, with real limits. The Engineer can use public inverse-kinematics tools and an offline debugging loop.">
+<title id="F2-title">Table-tennis control chain and the two modes</title>
+<style>
+.F2-heading{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:700;fill:var(--ink,#0f141a)}
+.F2-text{font-family:Inter,sans-serif;fill:var(--ink,#0f141a)}
+.F2-muted{font-family:Inter,sans-serif;fill:var(--ink-2,#444e5b)}
+.F2-mono{font-family:"JetBrains Mono",ui-monospace,monospace;fill:var(--ink-2,#444e5b);font-size:12px}
+.F2-card{fill:var(--surface,#ffffff);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F2-panel{fill:var(--bg-2,#eaeef3);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F2-line{fill:none;stroke:var(--ink-2,#444e5b);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<text x="16" y="30" font-size="26" class="F2-heading">
+<tspan x="16" dy="0">Table-tennis control chain</tspan>
+</text>
+<text x="16" y="56" font-size="16" class="F2-muted">
+<tspan x="16" dy="0">Two modes, different responsibilities.</tspan>
+</text>
+<rect x="16" y="78" width="688" height="70" rx="14" class="F2-panel" stroke-dasharray="5 5"/>
+<text x="32" y="104" font-size="16" class="F2-heading">
+<tspan x="32" dy="0">“Play a forehand”</tspan>
+</text>
+<text x="32" y="128" font-size="14" class="F2-muted">
+<tspan x="32" dy="0">Not offered: it would make the hard decisions for the agent.</tspan>
+</text>
+<rect x="16" y="170" width="192" height="134" rx="14" class="F2-card"/>
+<text x="32" y="198" font-size="20" class="F2-heading">
+<tspan x="32" dy="0">Athlete</tspan>
+</text>
+<text x="32" y="224" font-size="14" class="F2-text" font-weight="600">
+<tspan x="32" dy="0">Owns stage 1</tspan>
+</text>
+<text x="32" y="250" font-size="14" class="F2-muted">
+<tspan x="32" dy="0">Stages 2–4 are</tspan>
+<tspan x="32" dy="21">platform motor skills.</tspan>
+</text>
+<rect x="16" y="342" width="192" height="155" rx="14" class="F2-card"/>
+<text x="32" y="370" font-size="20" class="F2-heading">
+<tspan x="32" dy="0">Engineer</tspan>
+</text>
+<text x="32" y="396" font-size="14" class="F2-text" font-weight="600">
+<tspan x="32" dy="0">Owns stages 1–4</tspan>
+</text>
+<text x="32" y="422" font-size="14" class="F2-muted">
+<tspan x="32" dy="0">Builds the motor skills.</tspan>
+<tspan x="32" dy="21">May use public tools,</tspan>
+<tspan x="32" dy="21">such as an IK library.</tspan>
+</text>
+<path d="M238 170H229V280H238" class="F2-line"/>
+<path d="M223 170H216V564H223" class="F2-line" stroke-dasharray="5 5"/>
+<rect x="244" y="170" width="284" height="110" rx="14" class="F2-card"/>
+<circle cx="270" cy="197" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="270" y="201" font-size="12" class="F2-mono" text-anchor="middle">
+<tspan x="270" dy="0">1</tspan>
+</text>
+<text x="291" y="202" font-size="16" class="F2-heading">
+<tspan x="291" dy="0">Hit decision</tspan>
+</text>
+<text x="262" y="228" font-size="14" class="F2-muted">
+<tspan x="262" dy="0">When, paddle pose and velocity</tspan>
+</text>
+<text x="262" y="253" font-size="12" class="F2-mono">
+<tspan x="262" dy="0">Example: hit in 0.24 s</tspan>
+<tspan x="262" dy="18">at pose X, velocity V.</tspan>
+</text>
+<path d="M386 283V293m-4 -4 4 4 4 -4" class="F2-line"/>
+<rect x="244" y="298" width="284" height="74" rx="14" class="F2-card"/>
+<circle cx="270" cy="325" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="270" y="329" font-size="12" class="F2-mono" text-anchor="middle">
+<tspan x="270" dy="0">2</tspan>
+</text>
+<text x="291" y="330" font-size="16" class="F2-heading">
+<tspan x="291" dy="0">Trajectory</tspan>
+</text>
+<text x="262" y="356" font-size="14" class="F2-muted">
+<tspan x="262" dy="0">Paddle motion over time</tspan>
+</text>
+<path d="M386 375V385m-4 -4 4 4 4 -4" class="F2-line"/>
+<rect x="244" y="390" width="284" height="74" rx="14" class="F2-card"/>
+<circle cx="270" cy="417" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="270" y="421" font-size="12" class="F2-mono" text-anchor="middle">
+<tspan x="270" dy="0">3</tspan>
+</text>
+<text x="291" y="422" font-size="16" class="F2-heading">
+<tspan x="291" dy="0">Inverse kinematics</tspan>
+</text>
+<text x="262" y="448" font-size="14" class="F2-muted">
+<tspan x="262" dy="0">Paddle pose → 7 joint angles</tspan>
+</text>
+<path d="M386 467V477m-4 -4 4 4 4 -4" class="F2-line"/>
+<rect x="244" y="482" width="284" height="82" rx="14" class="F2-card"/>
+<circle cx="270" cy="509" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="270" y="513" font-size="12" class="F2-mono" text-anchor="middle">
+<tspan x="270" dy="0">4</tspan>
+</text>
+<text x="291" y="514" font-size="16" class="F2-heading">
+<tspan x="291" dy="0">Control and tracking</tspan>
+</text>
+<text x="262" y="540" font-size="14" class="F2-muted">
+<tspan x="262" dy="0">Joint targets corrected</tspan>
+<tspan x="262" dy="19">from feedback</tspan>
+</text>
+<path d="M386 567V601m-4 -4 4 4 4 -4" class="F2-line"/>
+<rect x="244" y="606" width="284" height="96" rx="14" class="F2-panel"/>
+<circle cx="270" cy="633" r="12" fill="var(--bg-2,#eaeef3)" stroke="var(--line-2,rgba(15,23,42,.22))"/>
+<text x="270" y="637" font-size="12" class="F2-mono" text-anchor="middle">
+<tspan x="270" dy="0">5</tspan>
+</text>
+<text x="291" y="638" font-size="16" class="F2-heading">
+<tspan x="291" dy="0">Joint servos and physics</tspan>
+</text>
+<text x="262" y="664" font-size="14" class="F2-muted">
+<tspan x="262" dy="0">MuJoCo; same for both modes.</tspan>
+<tspan x="262" dy="19">Real limits enforced.</tspan>
+</text>
+<rect x="556" y="326" width="148" height="208" rx="14" class="F2-panel"/>
+<text x="572" y="355" font-size="18" class="F2-heading">
+<tspan x="572" dy="0">Engineer</tspan>
+<tspan x="572" dy="23">debug loop</tspan>
+</text>
+<text x="572" y="414" font-size="14" class="F2-muted">
+<tspan x="572" dy="0">Offline tests</tspan>
+<tspan x="572" dy="29">Inspect failures</tspan>
+<tspan x="572" dy="29">Tune parameters</tspan>
+</text>
+<path d="M529 530H546V334H531m5 -4 -5 4 5 4" class="F2-line" stroke-dasharray="5 5"/>
+</svg>

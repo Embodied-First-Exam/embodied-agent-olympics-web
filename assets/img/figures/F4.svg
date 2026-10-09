@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 848" role="img" aria-label="Each sport fixes its physics engine and provides world geometry and camera definitions. One replay log preserves timed commands, state hashes and bit-exact body poses. Real-time player views and offline spectator renderers use the same geometry and cameras. Renderers never change physics." aria-labelledby="F4-title">
+<title id="F4-title">Fixed physics, one replay log, renderer plug-ins</title>
+<style>
+.F4-card{fill:var(--surface,#ffffff);stroke:var(--line-2,rgba(15,23,42,.22));stroke-width:1}
+.F4-soft{fill:var(--bg-2,#eaeef3);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F4-fan{fill:var(--bg-2,#eaeef3)}
+.F4-core{fill:var(--primary-bg,#0f141a)}
+.F4-h{font:700 22px "Bricolage Grotesque",Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F4-t{font:400 16px Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F4-s{font:400 14px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F4-small{font:400 12px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F4-mono{font:500 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;fill:var(--ink-2,#444e5b)}
+.F4-inverse{fill:var(--primary-ink,#f7f9fb)}
+.F4-arrow{fill:none;stroke:var(--ink-2,#444e5b);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<defs><marker id="F4-arrowhead" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 7 4 1 7" fill="none" stroke="var(--ink-2,#444e5b)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<path d="M136 208V384" class="F4-arrow" marker-end="url(#F4-arrowhead)"/>
+<path d="M492 208V232" class="F4-arrow" marker-end="url(#F4-arrowhead)"/>
+<path d="M492 350V384" class="F4-arrow" marker-end="url(#F4-arrowhead)"/>
+<rect x="16" y="20" width="240" height="188" rx="20" class="F4-card"/>
+<text x="32" y="54" class="F4-h">Sport provides</text>
+<text x="32" y="84" class="F4-t">World geometry</text>
+<text x="32" y="108" class="F4-t">Camera definitions</text>
+<text x="32" y="133" class="F4-small">Position · field of view</text>
+<text x="32" y="153" class="F4-small">Size · frame count</text>
+<text x="32" y="180" class="F4-s">Optional presentation assets</text>
+<rect x="280" y="20" width="424" height="188" rx="20" class="F4-card"/>
+<text x="296" y="54" class="F4-h">Physics fixed per sport</text>
+<text x="296" y="87" class="F4-t">MuJoCo · pooltool</text>
+<text x="296" y="112" class="F4-t">Validated sport-specific models</text>
+<text x="296" y="145" class="F4-s">Changing physics changes the match.</text>
+<text x="296" y="180" class="F4-s">World motion is recorded, then replayed.</text>
+<rect x="50" y="258" width="172" height="58" rx="14" class="F4-card"/>
+<text x="136" y="282" class="F4-s" text-anchor="middle">Scene + cameras</text>
+<text x="136" y="303" class="F4-small" text-anchor="middle">Shared by every renderer</text>
+<rect x="280" y="240" width="424" height="110" rx="20" class="F4-core"/>
+<text x="300" y="277" class="F4-h F4-inverse">One replay log</text>
+<text x="300" y="303" class="F4-t F4-inverse">Commands + time steps + state hashes</text>
+<text x="300" y="329" class="F4-t F4-inverse">Bit-exact body poses</text>
+<text x="508" y="374" class="F4-mono">REPLAY</text>
+<rect x="16" y="392" width="688" height="362" rx="20" class="F4-card"/>
+<text x="32" y="429" class="F4-h">Renderer plug-ins</text>
+<text x="32" y="454" class="F4-s">Same geometry and cameras; light, materials and image quality can change.</text>
+<rect x="32" y="482" width="314" height="246" rx="14" class="F4-soft"/>
+<text x="48" y="507" class="F4-mono">DURING THE MATCH</text>
+<text x="48" y="535" class="F4-h" style="font-size:20px">Player views</text>
+<text x="48" y="563" class="F4-t">MuJoCo (default)</text>
+<text x="48" y="588" class="F4-s">Shadows · materials · multisampling</text>
+<text x="48" y="613" class="F4-s">Billiards: pinhole renderer</text>
+<text x="48" y="648" class="F4-small">Core chooses by task configuration.</text>
+<text x="48" y="670" class="F4-small">Per-frame time budget applies.</text>
+<text x="48" y="692" class="F4-small">Renderer recorded in the result.</text>
+<rect x="366" y="482" width="322" height="246" rx="14" class="F4-soft"/>
+<text x="382" y="507" class="F4-mono">OFFLINE RE-RENDER</text>
+<text x="382" y="535" class="F4-h" style="font-size:20px">Spectator views</text>
+<text x="382" y="563" class="F4-t">Blender Cycles · Isaac Sim RTX</text>
+<text x="382" y="588" class="F4-s">Path tracing and GPU rendering</text>
+<text x="382" y="613" class="F4-small">Viewing tools replay, then draw.</text>
+<text x="382" y="638" class="F4-small">Switch renderers for any replay.</text>
+<text x="382" y="660" class="F4-small">Every frame names its renderer.</text>
+<text x="382" y="692" class="F4-small">Presentation meshes: spectators only.</text>
+<text x="382" y="714" class="F4-small">Kinematics checked before drawing.</text>
+<rect x="16" y="778" width="688" height="50" rx="14" class="F4-soft"/>
+<text x="360" y="809" class="F4-t" text-anchor="middle" style="font-weight:600">Renderers never change physics.</text>
+</svg>

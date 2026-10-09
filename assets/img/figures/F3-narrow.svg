@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1864" role="img" aria-labelledby="F3n-title" aria-label="The same nine declared abilities, stacked for a phone. Understanding the physical world is the core, understanding the game builds on it, and the coding agent uses programming and learning in every sport. Teamwork is covered by soccer two versus two; basketball three versus three is in development.">
+<title id="F3n-title">Nine abilities in three groups</title>
+<style>
+.F3n-heading{font-family:"Bricolage Grotesque",Inter,sans-serif;font-weight:700;fill:var(--ink,#0f141a)}
+.F3n-text{font-family:Inter,sans-serif;fill:var(--ink,#0f141a)}
+.F3n-muted{font-family:Inter,sans-serif;fill:var(--ink-2,#444e5b)}
+.F3n-mono{font-family:"JetBrains Mono",ui-monospace,monospace;fill:var(--ink-2,#444e5b);font-size:12px}
+.F3n-card{fill:var(--surface,#ffffff);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F3n-panel{fill:var(--bg-2,#eaeef3);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F3n-line{fill:none;stroke:var(--ink-2,#444e5b);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<text x="16" y="29" font-size="25" class="F3n-heading">
+<tspan x="16" dy="0">Nine abilities,</tspan>
+<tspan x="16" dy="28">three groups</tspan>
+</text>
+<text x="16" y="83" font-size="14" class="F3n-muted">
+<tspan x="16" dy="0">The physical world is the core.</tspan>
+<tspan x="16" dy="21">Game understanding builds on it.</tspan>
+<tspan x="16" dy="21">Programming is how the agent does both.</tspan>
+</text>
+<rect x="16" y="150" width="328" height="684" rx="20" class="F3n-panel"/>
+<text x="32" y="181" font-size="21" class="F3n-heading">
+<tspan x="32" dy="0">Understanding</tspan>
+<tspan x="32" dy="24">the physical world</tspan>
+</text>
+<text x="32" y="231" font-size="12" class="F3n-mono">
+<tspan x="32" dy="0">CORE · CAMERAS AND REAL PHYSICS</tspan>
+</text>
+<rect x="28" y="248" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="275" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">3D spatial understanding</tspan>
+</text>
+<text x="44" y="308" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Recover position, depth and orientation</tspan>
+<tspan x="44" dy="19">from images. Reason about 3D lines</tspan>
+<tspan x="44" dy="19">and slopes.</tspan>
+</text>
+<text x="44" y="366" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: 14 of 18 sports</tspan>
+</text>
+<rect x="28" y="394" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="421" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Physical dynamics</tspan>
+</text>
+<text x="44" y="454" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Predict flight, spin, bounce, friction</tspan>
+<tspan x="44" dy="19">and collisions. Infer parameters</tspan>
+<tspan x="44" dy="19">such as friction and wind.</tspan>
+</text>
+<text x="44" y="512" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: 14 of 18 sports</tspan>
+</text>
+<rect x="28" y="540" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="567" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Embodiment and execution</tspan>
+</text>
+<text x="44" y="600" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Know the body’s reach, speed and torque.</tspan>
+<tspan x="44" dy="19">Turn intent into accurate action.</tspan>
+<tspan x="44" dy="19">Engineer mode: build the control stack.</tspan>
+</text>
+<text x="44" y="658" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: every sport</tspan>
+</text>
+<rect x="28" y="686" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="713" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Time and latency</tspan>
+</text>
+<text x="44" y="746" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Account for image age, thinking time</tspan>
+<tspan x="44" dy="19">and arm response. Act for the world</tspan>
+<tspan x="44" dy="19">when the action will take effect.</tspan>
+</text>
+<text x="44" y="804" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: 8 of 18 sports</tspan>
+</text>
+<rect x="16" y="854" width="328" height="504" rx="20" class="F3n-panel"/>
+<text x="32" y="886" font-size="21" class="F3n-heading">
+<tspan x="32" dy="0">Understanding</tspan>
+<tspan x="32" dy="24">the game</tspan>
+</text>
+<text x="32" y="935" font-size="14" class="F3n-muted">
+<tspan x="32" dy="0">Built on physical understanding.</tspan>
+</text>
+<rect x="28" y="952" width="304" height="112" rx="14" class="F3n-card"/>
+<text x="44" y="979" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Rules</tspan>
+</text>
+<text x="44" y="1012" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Know, use and obey the scoring</tspan>
+<tspan x="44" dy="19">and foul rules.</tspan>
+</text>
+<text x="44" y="1050" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: 6 of 18 sports</tspan>
+</text>
+<rect x="28" y="1080" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="1107" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Strategy and reading</tspan>
+<tspan x="44" dy="21">the opponent</tspan>
+</text>
+<text x="44" y="1155" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Judge the situation, trade risk for reward,</tspan>
+<tspan x="44" dy="19">plan ahead and exploit opponent habits.</tspan>
+</text>
+<text x="44" y="1198" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: 9 of 18 sports</tspan>
+</text>
+<rect x="28" y="1228" width="304" height="112" rx="14" class="F3n-card"/>
+<text x="44" y="1255" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Teamwork</tspan>
+</text>
+<text x="44" y="1288" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Share roles, pass into space,</tspan>
+<tspan x="44" dy="19">move and communicate.</tspan>
+</text>
+<text x="44" y="1326" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: 1 of 18 sports</tspan>
+</text>
+<rect x="16" y="1378" width="328" height="378" rx="20" class="F3n-panel"/>
+<text x="32" y="1410" font-size="21" class="F3n-heading">
+<tspan x="32" dy="0">The coding agent</tspan>
+</text>
+<text x="32" y="1434" font-size="12" class="F3n-mono">
+<tspan x="32" dy="0">EVERY SPORT</tspan>
+</text>
+<rect x="28" y="1452" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="1479" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Real-time programming</tspan>
+</text>
+<text x="44" y="1512" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">Write perception, prediction and strategy</tspan>
+<tspan x="44" dy="19">as a real-time program. Debug and fix it</tspan>
+<tspan x="44" dy="19">during the match.</tspan>
+</text>
+<text x="44" y="1570" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: every sport</tspan>
+</text>
+<rect x="28" y="1598" width="304" height="132" rx="14" class="F3n-card"/>
+<text x="44" y="1625" font-size="16" class="F3n-heading">
+<tspan x="44" dy="0">Learning during the match</tspan>
+</text>
+<text x="44" y="1658" font-size="13" class="F3n-muted">
+<tspan x="44" dy="0">After each point, find why it was lost.</tspan>
+<tspan x="44" dy="19">Change the program or the plan.</tspan>
+</text>
+<text x="44" y="1716" font-size="12" class="F3n-mono">
+<tspan x="44" dy="0">Primary: every sport</tspan>
+</text>
+<text x="16" y="1781" font-size="14" class="F3n-muted">
+<tspan x="16" dy="0">Marks are declared by the authors from</tspan>
+<tspan x="16" dy="20">each sport’s rules and play.</tspan>
+</text>
+<text x="16" y="1826" font-size="14" class="F3n-muted">
+<tspan x="16" dy="0">Teamwork: soccer 2 v 2 only.</tspan>
+</text>
+<text x="16" y="1846" font-size="14" class="F3n-muted">
+<tspan x="16" dy="0">Basketball 3x3 is in development.</tspan>
+</text>
+</svg>

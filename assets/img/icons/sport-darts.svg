@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Dart and target board">
+<title>Dart and target board</title>
+<circle cx="9.5" cy="13.5" r="7"/>
+<circle cx="9.5" cy="13.5" r="3"/>
+<path d="m10.5 12.5 7-7M10.5 9.5v3h3M17.5 5.5V3h3v3H18"/>
+</svg>

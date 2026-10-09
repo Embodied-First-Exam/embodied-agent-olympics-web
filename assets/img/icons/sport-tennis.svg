@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Tennis racket and ball">
+<title>Tennis racket and ball</title>
+<g transform="rotate(-35 9 8)">
+<ellipse cx="9" cy="8" rx="4.5" ry="6"/>
+<path d="M5 6h8M5 10h8M9 2v12"/>
+</g>
+<path d="m12.4 12.9 2.8 4M14.2 16.3l3.5 4.7 2-1.4-3.5-4.7Z"/>
+<circle cx="18.5" cy="5.5" r="2.5" style="fill:var(--ball,#FFD447)"/>
+</svg>

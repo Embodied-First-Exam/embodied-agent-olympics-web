@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Basketball and hoop">
+<title>Basketball and hoop</title>
+<circle cx="7.5" cy="7.5" r="4.5" style="fill:var(--ball,#FFD447)"/>
+<path d="M3 7.5h9M7.5 3c-2 2.5-2 6.5 0 9M15 3h6v8M13.5 13.5l1.5 6h4l1.5-6M17 15v4.5"/>
+<ellipse cx="17" cy="13" rx="4" ry="1.5"/>
+</svg>

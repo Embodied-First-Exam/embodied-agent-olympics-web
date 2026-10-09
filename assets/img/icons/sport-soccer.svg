@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Soccer ball and goal">
+<title>Soccer ball and goal</title>
+<path d="M10 4h11v16h-6M10 4v6M21 4l-4 4h-7M17 8v12M17 14h4"/>
+<circle cx="7" cy="17" r="4" style="fill:var(--ball,#FFD447)"/>
+<path d="m7 14 2.5 1.8-.9 2.9H5.4l-.9-2.9ZM7 14v-1M8.6 18.7l1 1.3M5.4 18.7l-1 1.3"/>
+</svg>

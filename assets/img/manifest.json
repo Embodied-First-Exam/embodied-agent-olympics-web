@@ -1,0 +1,298 @@
+{
+  "files": [
+    {
+      "file": "apple-touch-icon.png",
+      "description": "A 180 by 180 PNG of the favicon rendered by headless Chrome."
+    },
+    {
+      "file": "favicon.svg",
+      "description": "The Apex mark on a dark rounded square for browser and app use."
+    },
+    {
+      "file": "figures/F1-narrow.svg",
+      "description": "Phone composition: four-part hourglass framework, three contracts, shared bodies and the Harbor base.",
+      "source_figure": "figures/zh/framework_fig01.svg"
+    },
+    {
+      "file": "figures/F1.svg",
+      "description": "Four-part hourglass framework, three contracts, shared bodies and the Harbor base.",
+      "source_figure": "figures/zh/framework_fig01.svg"
+    },
+    {
+      "file": "figures/F2-narrow.svg",
+      "description": "Phone composition: table-tennis control chain and the Athlete and Engineer responsibilities.",
+      "source_figure": "figures/zh/framework_fig10.svg"
+    },
+    {
+      "file": "figures/F2.svg",
+      "description": "Table-tennis control chain and the Athlete and Engineer responsibilities.",
+      "source_figure": "figures/zh/framework_fig10.svg"
+    },
+    {
+      "file": "figures/F3-narrow.svg",
+      "description": "Phone composition: nine declared abilities in three groups, with the physical world as the core.",
+      "source_figure": "figures/zh/capabilities_fig01.svg"
+    },
+    {
+      "file": "figures/F3.svg",
+      "description": "Nine declared abilities in three groups, with the physical world as the core.",
+      "source_figure": "figures/zh/capabilities_fig01.svg"
+    },
+    {
+      "file": "figures/F4-narrow.svg",
+      "description": "Phone composition: fixed per-sport physics, a bit-exact replay log and plug-in renderers.",
+      "source_figure": "figures/zh/framework_fig02.svg"
+    },
+    {
+      "file": "figures/F4.svg",
+      "description": "Fixed per-sport physics, a bit-exact replay log and plug-in renderers.",
+      "source_figure": "figures/zh/framework_fig02.svg"
+    },
+    {
+      "file": "figures/formats-narrow.svg",
+      "description": "Phone composition: single, duel, team and multi-party formats with abstract seat blocks.",
+      "source_figure": "figures/formats.svg"
+    },
+    {
+      "file": "figures/formats.svg",
+      "description": "Single, duel, team and multi-party formats with abstract seat blocks.",
+      "source_figure": "figures/formats.svg"
+    },
+    {
+      "file": "icons/ability-dynamics.svg",
+      "description": "Physical dynamics."
+    },
+    {
+      "file": "icons/ability-embodiment.svg",
+      "description": "Embodiment and execution: robot joints."
+    },
+    {
+      "file": "icons/ability-learning.svg",
+      "description": "Learning during the match."
+    },
+    {
+      "file": "icons/ability-realtime-programming.svg",
+      "description": "Real-time programming."
+    },
+    {
+      "file": "icons/ability-rules.svg",
+      "description": "Rules."
+    },
+    {
+      "file": "icons/ability-spatial.svg",
+      "description": "3D spatial understanding."
+    },
+    {
+      "file": "icons/ability-strategy.svg",
+      "description": "Strategy and reading the opponent."
+    },
+    {
+      "file": "icons/ability-teamwork.svg",
+      "description": "Teamwork: connected seats."
+    },
+    {
+      "file": "icons/ability-timing.svg",
+      "description": "Time and latency."
+    },
+    {
+      "file": "icons/chain-adapt.svg",
+      "description": "Adapt: revise the plan."
+    },
+    {
+      "file": "icons/chain-anticipate.svg",
+      "description": "Anticipate: predict the next position."
+    },
+    {
+      "file": "icons/chain-decide.svg",
+      "description": "Decide: choose an action."
+    },
+    {
+      "file": "icons/chain-perceive.svg",
+      "description": "Perceive: camera images."
+    },
+    {
+      "file": "icons/chain-understand.svg",
+      "description": "Understand: connect observations."
+    },
+    {
+      "file": "icons/cmp-program.svg",
+      "description": "Agent: a readable program."
+    },
+    {
+      "file": "icons/cmp-weights.svg",
+      "description": "Learned policy: network weights."
+    },
+    {
+      "file": "icons/format-duel.svg",
+      "description": "Duel: two opposing seats."
+    },
+    {
+      "file": "icons/format-multi-party.svg",
+      "description": "Multi-party: four separate lanes."
+    },
+    {
+      "file": "icons/format-single.svg",
+      "description": "Single: one seat and a scripted opponent."
+    },
+    {
+      "file": "icons/format-team.svg",
+      "description": "Team: two seats on each side."
+    },
+    {
+      "file": "icons/loop-code.svg",
+      "description": "Code: write the controller."
+    },
+    {
+      "file": "icons/loop-grade.svg",
+      "description": "Grade: verify the replay."
+    },
+    {
+      "file": "icons/loop-play.svg",
+      "description": "Play: run the controller."
+    },
+    {
+      "file": "icons/loop-revise.svg",
+      "description": "Revise: edit after a point."
+    },
+    {
+      "file": "icons/loop-watch.svg",
+      "description": "Watch: cameras only."
+    },
+    {
+      "file": "icons/sport-airhockey.svg",
+      "description": "Air hockey mallet and puck."
+    },
+    {
+      "file": "icons/sport-archery.svg",
+      "description": "Archery target and arrow."
+    },
+    {
+      "file": "icons/sport-badminton.svg",
+      "description": "Badminton shuttlecock."
+    },
+    {
+      "file": "icons/sport-baseball.svg",
+      "description": "Baseball bat and ball."
+    },
+    {
+      "file": "icons/sport-basketball.svg",
+      "description": "Basketball and hoop."
+    },
+    {
+      "file": "icons/sport-billiards.svg",
+      "description": "Billiards cue and balls."
+    },
+    {
+      "file": "icons/sport-bowling.svg",
+      "description": "Bowling pin and ball."
+    },
+    {
+      "file": "icons/sport-curling.svg",
+      "description": "Curling stone."
+    },
+    {
+      "file": "icons/sport-darts.svg",
+      "description": "Dart and target board."
+    },
+    {
+      "file": "icons/sport-discgolf.svg",
+      "description": "Disc golf disc and basket."
+    },
+    {
+      "file": "icons/sport-drone.svg",
+      "description": "Drone racing quadrotor."
+    },
+    {
+      "file": "icons/sport-fencing.svg",
+      "description": "Fencing epee."
+    },
+    {
+      "file": "icons/sport-foosball.svg",
+      "description": "Foosball rod, player block and ball."
+    },
+    {
+      "file": "icons/sport-golf.svg",
+      "description": "Mini-golf putter, ball and hole flag."
+    },
+    {
+      "file": "icons/sport-racing.svg",
+      "description": "Robot racing car."
+    },
+    {
+      "file": "icons/sport-soccer.svg",
+      "description": "Soccer ball and goal."
+    },
+    {
+      "file": "icons/sport-tabletennis.svg",
+      "description": "Table tennis paddle and ball."
+    },
+    {
+      "file": "icons/sport-tennis.svg",
+      "description": "Tennis racket and ball."
+    },
+    {
+      "file": "icons/tag-any-body.svg",
+      "description": "Any body: a shared robot library."
+    },
+    {
+      "file": "icons/tag-any-renderer.svg",
+      "description": "Any renderer: views of one scene."
+    },
+    {
+      "file": "icons/tag-any-sport.svg",
+      "description": "Any sport: interchangeable equipment."
+    },
+    {
+      "file": "icons/tag-bit-exact-replay.svg",
+      "description": "Bit-exact replay: repeat and verify."
+    },
+    {
+      "file": "icons/ui-arrow-right.svg",
+      "description": "Arrow right."
+    },
+    {
+      "file": "icons/ui-close.svg",
+      "description": "Close."
+    },
+    {
+      "file": "icons/ui-external.svg",
+      "description": "Open external link."
+    },
+    {
+      "file": "icons/ui-filter.svg",
+      "description": "Filter."
+    },
+    {
+      "file": "icons/ui-lock.svg",
+      "description": "Locked."
+    },
+    {
+      "file": "icons/ui-menu.svg",
+      "description": "Open menu."
+    },
+    {
+      "file": "icons/ui-moon.svg",
+      "description": "Dark theme."
+    },
+    {
+      "file": "icons/ui-pause.svg",
+      "description": "Pause."
+    },
+    {
+      "file": "icons/ui-play.svg",
+      "description": "Play."
+    },
+    {
+      "file": "icons/ui-sun.svg",
+      "description": "Light theme."
+    },
+    {
+      "file": "logo.svg",
+      "description": "Chosen Apex logo: yellow ball above a dashed parabolic flight and short court line."
+    },
+    {
+      "file": "manifest.json",
+      "description": "Complete asset inventory with one-line descriptions and figure sources."
+    }
+  ]
+}

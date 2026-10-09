@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Robot racing car">
+<title>Robot racing car</title>
+<path d="M3 15v-4h3l3-5h6l4 5h2v4h-1.5M4.5 15H3M9.5 15h5M9 6l-2 5h12"/>
+<circle cx="7" cy="16" r="2.5"/>
+<circle cx="17" cy="16" r="2.5"/>
+</svg>

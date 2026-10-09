@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Mini-golf putter, ball and hole flag">
+<title>Mini-golf putter, ball and hole flag</title>
+<path d="M4 3 8 17M6.5 17H11v3H7.5ZM19.5 3v13M19.5 3 14 5.5l5.5 2"/>
+<ellipse cx="19.5" cy="16" rx="2" ry="1"/>
+<circle cx="15" cy="19" r="1.8" style="fill:var(--ball,#FFD447)"/>
+</svg>

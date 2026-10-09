@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 1422" role="img" aria-label="Each sport fixes its physics engine and provides world geometry and camera definitions. One replay log preserves timed commands, state hashes and bit-exact body poses. Real-time player views and offline spectator renderers use the same geometry and cameras. Renderers never change physics." aria-labelledby="F4-narrow-title">
+<title id="F4-narrow-title">Fixed physics, one replay log, renderer plug-ins</title>
+<style>
+.F4-narrow-card{fill:var(--surface,#ffffff);stroke:var(--line-2,rgba(15,23,42,.22));stroke-width:1}
+.F4-narrow-soft{fill:var(--bg-2,#eaeef3);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F4-narrow-fan{fill:var(--bg-2,#eaeef3)}
+.F4-narrow-core{fill:var(--primary-bg,#0f141a)}
+.F4-narrow-h{font:700 22px "Bricolage Grotesque",Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F4-narrow-t{font:400 16px Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F4-narrow-s{font:400 14px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F4-narrow-small{font:400 12px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F4-narrow-mono{font:500 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;fill:var(--ink-2,#444e5b)}
+.F4-narrow-inverse{fill:var(--primary-ink,#f7f9fb)}
+.F4-narrow-arrow{fill:none;stroke:var(--ink-2,#444e5b);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<defs><marker id="F4-narrow-arrowhead" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 7 4 1 7" fill="none" stroke="var(--ink-2,#444e5b)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<path d="M24 114H12V625H76V632" class="F4-narrow-arrow" marker-end="url(#F4-narrow-arrowhead)"/>
+<path d="M180 424V468" class="F4-narrow-arrow" marker-end="url(#F4-narrow-arrowhead)"/>
+<path d="M180 596V632" class="F4-narrow-arrow" marker-end="url(#F4-narrow-arrowhead)"/>
+<rect x="24" y="24" width="312" height="188" rx="20" class="F4-narrow-card"/>
+<text x="40" y="58" class="F4-narrow-h">Sport provides</text>
+<text x="40" y="88" class="F4-narrow-t">World geometry</text>
+<text x="40" y="112" class="F4-narrow-t">Camera definitions</text>
+<text x="40" y="137" class="F4-narrow-small">Position · field of view</text>
+<text x="40" y="157" class="F4-narrow-small">Size · frame count</text>
+<text x="40" y="184" class="F4-narrow-s">Optional presentation assets</text>
+<rect x="24" y="236" width="312" height="188" rx="20" class="F4-narrow-card"/>
+<text x="40" y="270" class="F4-narrow-h">Physics fixed per sport</text>
+<text x="40" y="303" class="F4-narrow-t">MuJoCo · pooltool</text>
+<text x="40" y="328" class="F4-narrow-t">Validated sport-specific models</text>
+<text x="40" y="361" class="F4-narrow-s">Changing physics changes the match.</text>
+<text x="40" y="391" class="F4-narrow-s">World motion is recorded,</text>
+<text x="40" y="410" class="F4-narrow-s">then replayed.</text>
+<rect x="24" y="476" width="312" height="120" rx="20" class="F4-narrow-core"/>
+<text x="40" y="514" class="F4-narrow-h F4-narrow-inverse">One replay log</text>
+<text x="40" y="543" class="F4-narrow-s F4-narrow-inverse">Commands + time steps + state hashes</text>
+<text x="40" y="571" class="F4-narrow-t F4-narrow-inverse">Bit-exact body poses</text>
+<rect x="27" y="606" width="127" height="28" rx="14" class="F4-narrow-card"/>
+<text x="90.5" y="624" class="F4-narrow-small" text-anchor="middle">Scene + cameras</text>
+<text x="196" y="622" class="F4-narrow-mono">REPLAY</text>
+<rect x="24" y="640" width="312" height="674" rx="20" class="F4-narrow-card"/>
+<text x="40" y="674" class="F4-narrow-h">Renderer plug-ins</text>
+<text x="40" y="700" class="F4-narrow-s">Same scene and camera geometry.</text>
+<text x="40" y="720" class="F4-narrow-s">Light, materials and quality can change.</text>
+<rect x="40" y="742" width="280" height="246" rx="14" class="F4-narrow-soft"/>
+<text x="56" y="767" class="F4-narrow-mono">DURING THE MATCH</text>
+<text x="56" y="795" class="F4-narrow-h" style="font-size:20px">Player views</text>
+<text x="56" y="823" class="F4-narrow-t">MuJoCo (default)</text>
+<text x="56" y="848" class="F4-narrow-s">Shadows · materials · multisampling</text>
+<text x="56" y="873" class="F4-narrow-s">Billiards: pinhole renderer</text>
+<text x="56" y="908" class="F4-narrow-small">Core chooses by task configuration.</text>
+<text x="56" y="930" class="F4-narrow-small">Per-frame time budget applies.</text>
+<text x="56" y="952" class="F4-narrow-small">Renderer recorded in the result.</text>
+<rect x="40" y="1008" width="280" height="282" rx="14" class="F4-narrow-soft"/>
+<text x="56" y="1034" class="F4-narrow-mono">OFFLINE RE-RENDER</text>
+<text x="56" y="1062" class="F4-narrow-h" style="font-size:20px">Spectator views</text>
+<text x="56" y="1090" class="F4-narrow-t">Blender Cycles</text>
+<text x="56" y="1114" class="F4-narrow-t">Isaac Sim RTX</text>
+<text x="56" y="1140" class="F4-narrow-s">Path tracing and GPU rendering</text>
+<text x="56" y="1167" class="F4-narrow-small">Viewing tools replay, then draw.</text>
+<text x="56" y="1189" class="F4-narrow-small">Switch renderers for any replay.</text>
+<text x="56" y="1211" class="F4-narrow-small">Every frame names its renderer.</text>
+<text x="56" y="1245" class="F4-narrow-small">Presentation meshes: spectators only.</text>
+<text x="56" y="1267" class="F4-narrow-small">Kinematics checked before drawing.</text>
+<rect x="24" y="1338" width="312" height="60" rx="14" class="F4-narrow-soft"/>
+<text x="180" y="1364" class="F4-narrow-t" text-anchor="middle" style="font-weight:600">Renderers never change</text>
+<text x="180" y="1387" class="F4-narrow-t" text-anchor="middle" style="font-weight:600">physics.</text>
+</svg>

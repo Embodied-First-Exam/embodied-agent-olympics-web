@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Billiards cue and balls">
+<title>Billiards cue and balls</title>
+<path d="m3.5 3.5 11 11M2.5 5.5 13 15.5M2.5 5.5l1-2"/>
+<circle cx="18" cy="17.5" r="3.5" style="fill:var(--ball,#FFD447)"/>
+<circle cx="7.5" cy="19" r="2.5" style="fill:var(--ball,#FFD447)"/>
+</svg>

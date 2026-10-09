@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 712" role="img" aria-label="Players connect through the player protocol to a narrow core. The core calls sports through the sport interface and writes a match record for tools. Sports may reference a shared robot library. Matches run on Harbor, and grading replays in a separate container." aria-labelledby="F1-title">
+<title id="F1-title">One framework: four parts, three contracts</title>
+<style>
+.F1-card{fill:var(--surface,#ffffff);stroke:var(--line-2,rgba(15,23,42,.22));stroke-width:1}
+.F1-soft{fill:var(--bg-2,#eaeef3);stroke:var(--line,rgba(15,23,42,.10));stroke-width:1}
+.F1-fan{fill:var(--bg-2,#eaeef3)}
+.F1-core{fill:var(--primary-bg,#0f141a)}
+.F1-h{font:700 22px "Bricolage Grotesque",Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F1-t{font:400 16px Inter,system-ui,sans-serif;fill:var(--ink,#0f141a)}
+.F1-s{font:400 14px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F1-small{font:400 12px Inter,system-ui,sans-serif;fill:var(--ink-2,#444e5b)}
+.F1-mono{font:500 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;fill:var(--ink-2,#444e5b)}
+.F1-inverse{fill:var(--primary-ink,#f7f9fb)}
+.F1-arrow{fill:none;stroke:var(--ink-2,#444e5b);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<defs><marker id="F1-arrowhead" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 7 4 1 7" fill="none" stroke="var(--ink-2,#444e5b)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<path d="M226 66 276 128V272L226 302Z M494 66 444 128V272L494 302Z" class="F1-fan"/>
+<rect x="16" y="24" width="210" height="282" rx="20" class="F1-card"/>
+<text x="32" y="57" class="F1-h">Players</text>
+<text x="32" y="82" class="F1-t">Model + harness</text>
+<text x="32" y="102" class="F1-s">+ play setting</text>
+<rect x="32" y="122" width="178" height="42" rx="14" class="F1-soft"/>
+<text x="44" y="141" class="F1-t">Opus 5.5</text>
+<text x="44" y="157" class="F1-small">Claude Code</text>
+<rect x="32" y="172" width="178" height="42" rx="14" class="F1-soft"/>
+<text x="44" y="191" class="F1-t">Fable 5.1</text>
+<text x="44" y="207" class="F1-small">Claude Code</text>
+<rect x="32" y="222" width="178" height="42" rx="14" class="F1-soft"/>
+<text x="44" y="241" class="F1-t">GPT-6</text>
+<text x="44" y="257" class="F1-small">Codex</text>
+<rect x="32" y="274" width="178" height="24" rx="14" class="F1-card" stroke-dasharray="5 4"/>
+<text x="121.0" y="291" class="F1-small" text-anchor="middle">More players can be added</text>
+<rect x="494" y="24" width="210" height="282" rx="20" class="F1-card"/>
+<text x="510" y="57" class="F1-h">Sports</text>
+<text x="510" y="82" class="F1-s">World · actions · referee</text>
+<text x="510" y="102" class="F1-s">+ observations</text>
+<rect x="510" y="122" width="178" height="42" rx="14" class="F1-soft"/>
+<text x="599.0" y="149" class="F1-t" text-anchor="middle">Table tennis</text>
+<rect x="510" y="172" width="178" height="42" rx="14" class="F1-soft"/>
+<text x="599.0" y="199" class="F1-t" text-anchor="middle">Soccer 2 v 2</text>
+<rect x="510" y="222" width="178" height="42" rx="14" class="F1-soft"/>
+<text x="599.0" y="249" class="F1-t" text-anchor="middle">Fencing</text>
+<rect x="510" y="274" width="178" height="24" rx="14" class="F1-card" stroke-dasharray="5 4"/>
+<text x="599.0" y="291" class="F1-small" text-anchor="middle">More sports can be added</text>
+<text x="251" y="64" class="F1-mono" text-anchor="middle">01</text>
+<text x="251" y="85" class="F1-s" text-anchor="middle">Player</text>
+<text x="251" y="103" class="F1-s" text-anchor="middle">protocol</text>
+<path d="M232 198H270" class="F1-arrow" marker-end="url(#F1-arrowhead)" marker-start="url(#F1-arrowhead)"/>
+<text x="469" y="64" class="F1-mono" text-anchor="middle">02</text>
+<text x="469" y="85" class="F1-s" text-anchor="middle">Sport</text>
+<text x="469" y="103" class="F1-s" text-anchor="middle">interface</text>
+<path d="M450 198H488" class="F1-arrow" marker-end="url(#F1-arrowhead)"/>
+<rect x="276" y="128" width="168" height="144" rx="20" class="F1-core"/>
+<text x="360" y="166" class="F1-h F1-inverse" text-anchor="middle">Core</text>
+<text x="360" y="196" class="F1-t F1-inverse" text-anchor="middle">Match flow</text>
+<text x="360" y="220" class="F1-t F1-inverse" text-anchor="middle">Rules · recording</text>
+<text x="360" y="244" class="F1-t F1-inverse" text-anchor="middle">Judging</text>
+<path d="M360 272V416" class="F1-arrow" marker-end="url(#F1-arrowhead)"/>
+<rect x="279" y="328" width="162" height="30" rx="14" class="F1-card"/>
+<text x="360" y="348" class="F1-s" text-anchor="middle">03 · Match record</text>
+<rect x="494" y="326" width="210" height="76" rx="14" class="F1-card" stroke-dasharray="5 4"/>
+<text x="599" y="353" class="F1-t" text-anchor="middle">Shared robot library</text>
+<text x="599" y="376" class="F1-small" text-anchor="middle">Sports may reference it</text>
+<text x="599" y="393" class="F1-small" text-anchor="middle">Separate from the framework</text>
+<rect x="16" y="424" width="688" height="124" rx="20" class="F1-card"/>
+<text x="32" y="458" class="F1-h">Tools</text>
+<text x="112" y="457" class="F1-s">Files only; never changes a result</text>
+<rect x="32" y="482" width="152" height="46" rx="14" class="F1-soft"/>
+<text x="108" y="511" class="F1-t" text-anchor="middle" style="font-size:14px">Generate + check</text>
+<rect x="200" y="482" width="152" height="46" rx="14" class="F1-soft"/>
+<text x="276" y="511" class="F1-t" text-anchor="middle" style="font-size:14px">Run + schedule</text>
+<rect x="368" y="482" width="152" height="46" rx="14" class="F1-soft"/>
+<text x="444" y="511" class="F1-t" text-anchor="middle" style="font-size:14px">Watch</text>
+<rect x="536" y="482" width="152" height="46" rx="14" class="F1-soft"/>
+<text x="612" y="511" class="F1-t" text-anchor="middle" style="font-size:14px">Analyse</text>
+<rect x="16" y="570" width="688" height="122" rx="20" class="F1-soft"/>
+<text x="32" y="605" class="F1-h">Runs on Harbor</text>
+<text x="32" y="637" class="F1-t">Single-player: stock Harbor</text>
+<text x="32" y="663" class="F1-t">Duels: multi-seat extension</text>
+<text x="376" y="637" class="F1-t">Separate grading container</text>
+<text x="376" y="663" class="F1-t">Replay + state-hash check</text>
+</svg>
