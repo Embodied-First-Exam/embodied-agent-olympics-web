@@ -1,3 +1,4 @@
 Franka Emika Panda visual meshes: MuJoCo Menagerie, Apache License 2.0.
-The committed 25k mesh level was converted into shared, y-up, bbox-quantized binary geometry for this website.
-The robot geometry and kinematics are unchanged apart from numerical quantization.
+Full visual meshes from pinned commit f054586a8e90465d49ee5be15335c4a0c7f57caf; every source file verified by sha256.
+Shared y-up Float32 geometry with 60 degree crease normals; every triangle retains its source XYZ and order.
+Robot kinematics and recorded poses are unchanged.

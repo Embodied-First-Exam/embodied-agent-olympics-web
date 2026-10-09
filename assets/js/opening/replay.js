@@ -1,9 +1,8 @@
 // Recorded world poses only. No simulation or joint kinematics run in the browser.
 import * as THREE from '../../vendor/three/three.module.js';
-const BASE = new URL('../../opening/', import.meta.url);
-const get = async (name, json = false) => {
-  const r = await fetch(new URL(name, BASE));
-  if (!r.ok) throw new Error(`Opening asset ${name}: ${r.status}`);
+const get = async (response, json = false) => {
+  const r = await response;
+  if (!r.ok) throw new Error(`Opening asset ${r.url}: ${r.status}`);
   return json ? r.json() : r.arrayBuffer();
 };
 // The pinned LOD OBJ files have no authored normals. A single averaged normal
@@ -49,9 +48,26 @@ function presentationNormals(source) {
   return g;
 }
 export async function loadReplay() {
-  const [meta, motion, meshes, buffer] = await Promise.all([get('rally.json', true), get('rally.bin'), get('meshes.json', true), get('meshes.bin')]);
+  // Keep the complete fetch graph literal for the site's payload checker.
+  // These URLs are relative to this module, including on a subpath deployment.
+  const [meta, motion, meshes, buffer] = await Promise.all([
+    get(fetch(new URL('../../opening/rally.json?v=20261009-r5', import.meta.url)), true),
+    get(fetch(new URL('../../opening/rally.bin?v=20261009-r5', import.meta.url))),
+    get(fetch(new URL('../../opening/meshes.json?v=20261009-r5', import.meta.url)), true),
+    get(fetch(new URL('../../opening/meshes.bin?v=20261009-r5', import.meta.url))),
+  ]);
+  const native = meta.native ? new Float32Array(await get(
+    fetch(new URL('../../opening/native.bin?v=20261009-r5', import.meta.url)))) : null;
   const list = meshes.meshes ?? meshes;
   const geometries = list.map(m => {
+    if (m.position_type === 'float32') {
+      const g = new THREE.BufferGeometry();
+      g.setAttribute('position',new THREE.BufferAttribute(new Float32Array(buffer,m.position_offset,m.vertex_count*3),3));
+      g.setAttribute('normal',new THREE.BufferAttribute(new Float32Array(buffer,m.normal_offset,m.vertex_count*3),3));
+      const Index = m.index_type === 'uint32' ? Uint32Array : Uint16Array;
+      g.setIndex(new THREE.BufferAttribute(new Index(buffer,m.index_offset,m.index_count),1));
+      return g;
+    }
     const packed = new Uint16Array(buffer, m.position_offset, m.vertex_count * 3);
     const p = new Float32Array(packed.length);
     const lo = m.min, step = m.extent.map(x => x / 65535);
@@ -61,9 +77,9 @@ export async function loadReplay() {
     g.setIndex(new THREE.BufferAttribute(new Uint16Array(buffer, m.index_offset ?? ((m.position_offset) + packed.byteLength), m.index_count), 1));
     return presentationNormals(g);
   });
-  return { meta, poses: new Int16Array(motion), geometries };
+  return { meta, poses: new Int16Array(motion), native, geometries };
 }
-export function createReplay({ meta, poses, geometries }) {
+export function createReplay({ meta, poses, native, geometries }) {
   const coarse = matchMedia('(pointer: coarse)').matches;
   const root = new THREE.Group(), materials = new Map(), nodes = meta.bodies.map(b => {
     const o = new THREE.Group(); o.name = b.name; root.add(o); return o;
@@ -119,7 +135,7 @@ export function createReplay({ meta, poses, geometries }) {
     const s = g.size;
     if (g.type === 'mesh') return geometries[g.mesh];
     if (g.type === 'box') return new THREE.BoxGeometry(s[0] * 2, s[1] * 2, s[2] * 2);
-    if (g.type === 'sphere') return new THREE.SphereGeometry(s[0], 20, 12);
+    if (g.type === 'sphere') return new THREE.SphereGeometry(s[0], 32, 20);
     if (g.type === 'cylinder') return new THREE.CylinderGeometry(s[0], s[0], s[1] * 2, 32);
     if (g.type === 'capsule') return new THREE.CapsuleGeometry(s[0], s[1] * 2, 6, 16);
     return null;
@@ -175,41 +191,117 @@ export function createReplay({ meta, poses, geometries }) {
   const width = nodes.length * 7, positionStep = meta.quantization?.position_step ?? meta.position_step ?? 0.0001;
   const quatStep = meta.quantization?.quaternion_step ?? 1 / 32767;
   const frames = typeof meta.frames === 'number' ? meta.frames : meta.frames.count;
+  const nativeMeta = meta.native, nativeStride = nativeMeta?.stride ?? 27;
+  const nativeRatio = (nativeMeta?.fps ?? meta.fps) / meta.fps;
+  const nativeResets = new Set(nativeMeta?.resets?.map(reset => reset.native_frame) ?? []);
+  const controlResets = new Map(nativeMeta?.resets?.map(reset => [reset.frame,reset]) ?? []);
+  const nativeBallPosition0 = new THREE.Vector3(), nativeBallPosition1 = new THREE.Vector3();
+  const nativeBallVelocity0 = new THREE.Vector3(), nativeBallVelocity1 = new THREE.Vector3();
   let frame = 0;
   function rawPose(i, b, p, q) {
     const off = i * width + b * 7;
     p.set(poses[off] * positionStep, poses[off + 1] * positionStep, poses[off + 2] * positionStep);
     q.set(poses[off + 3] * quatStep, poses[off + 4] * quatStep, poses[off + 5] * quatStep, poses[off + 6] * quatStep).normalize();
   }
+  function nativePose(i, offset, p, q) {
+    const off = i*nativeStride+offset;
+    p.fromArray(native,off); q.fromArray(native,off+3).normalize();
+  }
+  function interpolateBall(f, position, velocity = null) {
+    if (!native) {
+      const i = Math.floor(f), j = Math.min(i+1,frames-1);
+      rawPose(i,meta.ball_body,nativeBallPosition0,q0); rawPose(j,meta.ball_body,nativeBallPosition1,q1);
+      position.copy(nativeBallPosition0).lerp(nativeBallPosition1,f-i);
+      if (velocity) velocity.copy(nativeBallPosition1).sub(nativeBallPosition0).multiplyScalar(meta.fps);
+      return position;
+    }
+    const n = THREE.MathUtils.clamp(f*nativeRatio,0,nativeMeta.frames-1);
+    const i = Math.floor(n), j = Math.min(i+1,nativeMeta.frames-1), u = n-i;
+    const ai = i*nativeStride, aj = j*nativeStride;
+    nativeBallPosition0.fromArray(native,ai); nativeBallPosition1.fromArray(native,aj);
+    nativeBallVelocity0.fromArray(native,ai+7); nativeBallVelocity1.fromArray(native,aj+10);
+    if (nativeResets.has(j) && i !== j) {
+      // A point commit teleports the source scene to its next ready state.
+      // Retain the last physical pose until that exact endpoint/cut; never
+      // create an unrecorded ball flight across the reset.
+      position.copy(nativeBallPosition0);
+      if (velocity) velocity.copy(nativeBallVelocity0).multiplyScalar(u === 0 ? 1 : 0);
+      return position;
+    }
+    const u2 = u*u, u3 = u2*u, dt = nativeMeta.dt_s;
+    // Each endpoint is an actual source substep. Use its outgoing velocity and
+    // the next endpoint's incoming velocity, so a collision never smooths over
+    // the recorded impulse or moves the exact bounce/contact sample.
+    position.copy(nativeBallPosition0).multiplyScalar(2*u3-3*u2+1)
+      .addScaledVector(nativeBallVelocity0,(u3-2*u2+u)*dt)
+      .addScaledVector(nativeBallPosition1,-2*u3+3*u2)
+      .addScaledVector(nativeBallVelocity1,(u3-u2)*dt);
+    if (velocity) {
+      velocity.copy(nativeBallPosition0).multiplyScalar((6*u2-6*u)/dt)
+        .addScaledVector(nativeBallVelocity0,3*u2-4*u+1)
+        .addScaledVector(nativeBallPosition1,(-6*u2+6*u)/dt)
+        .addScaledVector(nativeBallVelocity1,3*u2-2*u);
+    }
+    return position;
+  }
+  function sampleBall(f) {
+    const position = new THREE.Vector3(), velocity = new THREE.Vector3();
+    f = THREE.MathUtils.clamp(f,0,frames-1); interpolateBall(f,position,velocity);
+    return { position, velocity, frame:f, inPlay:meta.in_play_ranges.some(([a,b]) => f>=a-1 && f<=b+1) };
+  }
+  function ballAt(seconds, target = new THREE.Vector3()) {
+    return interpolateBall(THREE.MathUtils.clamp(seconds*meta.fps,0,frames-1),target);
+  }
   function pose(f) {
     frame = THREE.MathUtils.clamp(f, 0, frames - 1);
     const i = Math.floor(frame), j = Math.min(i + 1, frames - 1), u = frame - i;
+    const reset = controlResets.get(j);
+    const beforeReset = i !== j && reset?.pre_reset_poses;
+    const controlU = beforeReset ? THREE.MathUtils.clamp((frame-i)/(reset.pre_reset_native_frame/nativeRatio-i),0,1) : u;
     for (let b = 0; b < nodes.length; b++) {
       rawPose(i, b, p0, q0); rawPose(j, b, p1, q1);
-      nodes[b].position.copy(p0).lerp(p1, u); nodes[b].quaternion.copy(q0).slerp(q1, u);
+      if (beforeReset) { p1.fromArray(reset.pre_reset_poses[b]); q1.fromArray(reset.pre_reset_poses[b],3).normalize(); }
+      nodes[b].position.copy(p0).lerp(p1, controlU); nodes[b].quaternion.copy(q0).slerp(q1, controlU);
+    }
+    if (native) {
+      const n = frame*nativeRatio, ni = Math.floor(n), nj = Math.min(ni+1,nativeMeta.frames-1);
+      const nu = nativeResets.has(nj) && ni !== nj ? 0 : n-ni;
+      for (const track of nativeMeta.bodies) {
+        nativePose(ni,track.offset,p0,q0); nativePose(nj,track.offset,p1,q1);
+        const node = nodes[track.body]; node.position.copy(p0).lerp(p1,nu); node.quaternion.copy(q0).slerp(q1,nu);
+        if (track.body === meta.ball_body) interpolateBall(frame,node.position);
+      }
     }
     root.updateMatrixWorld(true);
   }
   const ball = geomNodes.find(g => g.name === 'geom_ball');
+  ball.frustumCulled = false;
   const ballBody = meta.bodies.findIndex(b => b.name === 'ball');
   // Trail is a presentation aid only. The recorded ball remains radius 0.02 m.
   const trailN = 25, trail = new THREE.Group(), ballGeo = new THREE.SphereGeometry(coarse ? 0.014 : 0.009, 8, 5);
   for (let k = 0; k < trailN; k++) {
     const mat = new THREE.MeshBasicMaterial({ color: '#FFD447', transparent: true, opacity: (coarse ? 0.46 : 0.38) * (1 - k / trailN), depthWrite: false });
-    const dot = new THREE.Mesh(ballGeo, mat); trail.add(dot);
+    const dot = new THREE.Mesh(ballGeo, mat); dot.frustumCulled = false; trail.add(dot);
   }
+  trail.frustumCulled = false;
   root.add(trail);
   function updateTrail(rest = false) {
-    const inPlay = meta.in_play_ranges.find(([a, b]) => frame >= a && frame <= b);
+    const inPlay = meta.in_play_ranges.find(([a, b]) => frame >= a-1 && frame <= b+1);
     // The sport's player view hides the ball between serves. Never trail across a point reset.
     ball.visible = rest || Boolean(inPlay);
-    trail.visible = !rest && Boolean(inPlay) && ball?.getWorldPosition(p0).y > -0.5;
+    trail.visible = !rest && Boolean(inPlay);
     if (!trail.visible || ballBody < 0) return;
+    let trailStart = Math.max(0,inPlay[0]-1);
+    for (const resetFrame of controlResets.keys()) {
+      if (resetFrame <= frame) trailStart = Math.max(trailStart,resetFrame);
+    }
     const stride = meta.fps * 0.25 / trailN;
     for (let k = 0; k < trailN; k++) {
-      rawPose(Math.max(0, Math.floor(frame - k * stride)), ballBody, p0, q0);
-      const d = trail.children[k]; d.position.copy(p0); d.visible = p0.y > -0.5;
-      d.visible &&= frame - k * stride >= inPlay[0];
+      const sample = frame-k*stride, d = trail.children[k];
+      d.visible = sample >= trailStart;
+      if (!d.visible) continue;
+      interpolateBall(sample,p0);
+      d.position.copy(p0);
       d.scale.setScalar(1 - 0.65 * k / trailN);
     }
   }
@@ -228,5 +320,5 @@ export function createReplay({ meta, poses, geometries }) {
     return out;
   }
   pose(0);
-  return { root, nodes, geomNodes, meta, frames, pose, updateTrail, trail, ball, points, score, get frame() { return frame; } };
+  return { root, nodes, geomNodes, meta, frames, pose, updateTrail, trail, ball, sampleBall, ballAt, points, score, get frame() { return frame; } };
 }

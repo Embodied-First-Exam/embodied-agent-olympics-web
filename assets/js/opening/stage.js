@@ -41,13 +41,17 @@ function makeGrid(size, cell, every) {
 
 export function createStage(canvas, opts = {}) {
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, opts.maxDpr ?? 1.5));
+  const initialDpr = Math.min(window.devicePixelRatio || 1, opts.maxDpr ?? 2);
+  renderer.setPixelRatio(initialDpr);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.shadowMap.enabled = !opts.coarse;
-  // PCF respects the light's filter radius. A broad filter softens the venue's
-  // long table and arm shadows; touch still disables shadow rendering entirely.
-  renderer.shadowMap.type = THREE.PCFShadowMap;
+  // One key is the only shadow caster, including on phones. The soft filter
+  // matches the sibling venues; phones keep the same light at half resolution.
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  // The opening marks needsUpdate once before its main render. The inset then
+  // reuses that pose's light-space map instead of repeating the shadow pass.
+  renderer.shadowMap.autoUpdate = false;
 
   const scene = new THREE.Scene();
   scene.background = new THREE.Color();
@@ -62,8 +66,8 @@ export function createStage(canvas, opts = {}) {
   // Lower the studio key's elevation to lengthen floor shadows. Background,
   // dim room environment and theme light intensities retain the series values.
   key.position.set(-1.05 * span, 1.35 * span, 1.6 * span);
-  key.castShadow = !opts.coarse;
-  key.shadow.mapSize.set(1024, 1024);
+  key.castShadow = true;
+  key.shadow.mapSize.set(opts.coarse ? 1024 : 2048, opts.coarse ? 1024 : 2048);
   key.shadow.bias = -0.0002;
   key.shadow.normalBias = 0.004 * span;
   Object.assign(key.shadow.camera, { left: -span, right: span, top: span, bottom: -span, near: 0.1 * span, far: 6 * span });
@@ -86,6 +90,93 @@ export function createStage(canvas, opts = {}) {
   scene.add(root);
 
   const stage = { renderer, scene, camera, root, key, floor, grid, theme: 'light' };
+
+  // Delivered intervals from consecutive active RAF frames drive adaptation.
+  // GPU timers remain nonblocking diagnostics, including time spent drawing
+  // the shadow map. Screenshot/CDP delays must never be passed as RAF time.
+  // Callers without an active interval can fall back to GPU/CPU render timing.
+  // Adaptive resolution never changes geometry, camera projection or the
+  // shadow map, and ignores temporary test resolutions.
+  const gl = renderer.getContext();
+  const timer = gl.getExtension('EXT_disjoint_timer_query_webgl2');
+  const quality = stage.quality = {
+    initialDpr, dpr: initialDpr, source: timer ? 'gpu' : 'cpu-submit',
+    thresholdMs: 22, sampleCount: 30, warmupFrames: 5, samples: 0, history: [],
+    gpuSamples: 0, gpuLastMs: null, gpuHistory: [],
+  };
+  const lowerDprs = [1.75, 1.5].filter(dpr => dpr < initialDpr);
+  const timings = [];
+  const gpuTimings = [];
+  const pending = [];
+  let activeQuery = null, warmup = 0, presentationTiming = false;
+  function recordFrame(ms, source = 'external') {
+    if (!Number.isFinite(ms) || ms <= 0 || gl.isContextLost()) return;
+    if (Math.abs(renderer.getPixelRatio() - quality.dpr) > 1e-6) return;
+    if (source === 'active-raf') presentationTiming = true;
+    // A completed GPU query and the RAF interval describe the same frame, so
+    // they must not become two adaptive samples or mix timing methods.
+    if (presentationTiming && (source === 'gpu' || source === 'cpu-submit')) return;
+    if (source !== quality.source) {
+      timings.length = 0; quality.samples = 0; warmup = 0;
+      quality.source = source;
+    }
+    if (warmup++ < quality.warmupFrames) return;
+    timings.push(ms); quality.samples = timings.length;
+    if (timings.length < quality.sampleCount) return;
+    const meanMs = timings.reduce((sum, value) => sum + value, 0) / timings.length;
+    const p95Ms = [...timings].sort((a, b) => a - b)[Math.floor((timings.length - 1) * 0.95)];
+    const next = meanMs > quality.thresholdMs ? lowerDprs.shift() : null;
+    quality.history.push({ dpr: quality.dpr, source, meanMs, p95Ms, nextDpr: next ?? quality.dpr });
+    if (quality.history.length > 12) quality.history.shift();
+    timings.length = 0; quality.samples = 0;
+    if (next != null) {
+      quality.dpr = next;
+      gpuTimings.length = 0; quality.gpuSamples = 0;
+      renderer.setPixelRatio(next);
+      resize();
+    }
+  }
+  function collectTimers() {
+    if (!timer || gl.isContextLost()) return;
+    if (gl.getParameter(timer.GPU_DISJOINT_EXT)) {
+      for (const entry of pending) gl.deleteQuery(entry.query);
+      pending.length = 0; gpuTimings.length = 0; quality.gpuSamples = 0;
+      if (!presentationTiming) { timings.length = 0; quality.samples = 0; }
+      return;
+    }
+    while (pending.length && gl.getQueryParameter(pending[0].query, gl.QUERY_RESULT_AVAILABLE)) {
+      const entry = pending.shift();
+      const ms = gl.getQueryParameter(entry.query, gl.QUERY_RESULT) / 1e6;
+      gl.deleteQuery(entry.query);
+      // Results arrive later. A queued frame from the previous resolution must
+      // not enter the new resolution's 30-frame batch after a quality step.
+      if (Math.abs(entry.dpr - quality.dpr) < 1e-6) {
+        quality.gpuLastMs = ms; gpuTimings.push(ms); quality.gpuSamples = gpuTimings.length;
+        if (gpuTimings.length === quality.sampleCount) {
+          const meanMs = gpuTimings.reduce((sum, value) => sum + value, 0) / gpuTimings.length;
+          const p95Ms = [...gpuTimings].sort((a, b) => a - b)[Math.floor((gpuTimings.length - 1) * 0.95)];
+          quality.gpuHistory.push({ dpr: entry.dpr, meanMs, p95Ms });
+          if (quality.gpuHistory.length > 12) quality.gpuHistory.shift();
+          gpuTimings.length = 0; quality.gpuSamples = 0;
+        }
+        recordFrame(ms, 'gpu');
+      }
+    }
+  }
+  function beginFrame(activeRafIntervalMs = null) {
+    if (activeRafIntervalMs != null) recordFrame(activeRafIntervalMs, 'active-raf');
+    collectTimers();
+    if (!timer || activeQuery || pending.length >= 5 || gl.isContextLost()) return;
+    activeQuery = { query: gl.createQuery(), dpr: renderer.getPixelRatio() };
+    gl.beginQuery(timer.TIME_ELAPSED_EXT, activeQuery.query);
+  }
+  function endFrame(cpuMs) {
+    if (activeQuery && !gl.isContextLost()) {
+      gl.endQuery(timer.TIME_ELAPSED_EXT);
+      pending.push(activeQuery); activeQuery = null;
+      collectTimers();
+    } else if (!timer) recordFrame(cpuMs, 'cpu-submit');
+  }
   function setTheme(name) {
     const t = STAGE_THEMES[name] || STAGE_THEMES.light;
     stage.theme = name;
@@ -107,5 +198,5 @@ export function createStage(canvas, opts = {}) {
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
   }
-  return Object.assign(stage, { resize, setTheme, update() {} });
+  return Object.assign(stage, { resize, setTheme, beginFrame, endFrame, recordFrame, update() {} });
 }

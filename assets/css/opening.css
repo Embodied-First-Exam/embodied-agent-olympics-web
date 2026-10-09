@@ -1,7 +1,7 @@
 /* The series studio opening: a recorded duel, caption cards, then the title. */
 .eao-opening {
   position: relative;
-  height: 420vh;
+  height: 2900vh;
   isolation: isolate;
 }
 .eao-opening-sticky {
@@ -227,6 +227,25 @@
   opacity: var(--opening-exit-opacity, 1);
 }
 .eao-opening-hud b { color: var(--ink-2); font-weight: 500; }
+.eao-opening-skip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px;
+  border-radius: 10px;
+  color: var(--ink-2);
+  font: 500 12px/1.2 var(--mono);
+  letter-spacing: 0;
+  text-transform: none;
+  pointer-events: auto;
+}
+.eao-opening-skip:hover { background: var(--bg-2); color: var(--ink); }
+.eao-opening-skip:focus-visible { outline: 3px solid var(--team-b); outline-offset: 2px; }
+.eao-opening.is-overview .eao-opening-skip,
+.eao-opening.is-fallback .eao-opening-skip { display: none; }
 .eao-opening-sep { padding: 0 7px; opacity: .6; }
 .eao-opening-progress {
   width: 120px;
@@ -323,8 +342,8 @@
     right: var(--gutter);
     bottom: 16px;
     display: grid;
-    grid-template-columns: auto auto minmax(34px, 1fr);
-    grid-template-areas: "identity identity identity" "shot clock progress";
+    grid-template-columns: auto auto minmax(0, 1fr);
+    grid-template-areas: "identity identity identity" "shot clock skip";
     gap: 6px 12px;
     padding: 8px 12px;
     font-size: 12px;
@@ -333,7 +352,8 @@
   .eao-opening-replay { grid-area: identity; letter-spacing: 0; }
   .eao-opening-shot { display: block; grid-area: shot; }
   #opening-clock { grid-area: clock; }
-  .eao-opening-progress { grid-area: progress; justify-self: end; width: 46px; }
+  .eao-opening-progress { display: none; }
+  .eao-opening-skip { grid-area: skip; justify-self: end; }
   .eao-opening-sep { padding: 0 5px; }
   .eao-opening-score { top: 92px; padding: 10px 11px; font-size: 12px; }
   .eao-opening-score-label { margin-bottom: 7px; font-size: 12px; }
