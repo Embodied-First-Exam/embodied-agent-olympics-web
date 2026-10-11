@@ -1,5 +1,6 @@
 // One playback budget for the whole page, including native-control clips.
-const videos = [...document.querySelectorAll('video')];
+// The film keeps its sound and native controls, outside the muted-clip budget.
+const videos = [...document.querySelectorAll('video:not([data-video="film"])')];
 const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const pointer = matchMedia('(pointer: coarse)');
 const states = new Map();

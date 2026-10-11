@@ -187,3 +187,18 @@
   .control-channel>span,
   .control-monitor .lower-third .sport{font-size:12px}
 }
+
+/* Recorded feature clips beside their captions (agent view, code + play) and the film page */
+.clip-feature{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(20px,3vw,36px);align-items:center;margin:clamp(28px,4vw,44px) 0 0;padding:clamp(10px,1.2vw,16px)}
+.clip-feature .media-frame{border-radius:14px}
+.clip-feature figcaption{padding:4px 12px 4px 0}
+.clip-feature h3{margin:10px 0 0;font:700 clamp(24px,2.4vw,30px)/1.15 var(--display);letter-spacing:-.01em}
+.clip-feature p:not(.label){margin:12px 0 0;color:var(--ink-2);font-size:15px;line-height:1.6}
+.clip-feature .clip-note{color:var(--ink-3);font-size:13px}
+.film-frame{max-width:1120px;margin:0 auto}
+.film-frame video{display:block;width:100%;height:auto;aspect-ratio:var(--media-ratio,16/9);border-radius:20px;background:#000}
+.film-notes,.film-links{max-width:1120px;margin:16px auto 0;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.film-notes .note{margin:0}
+@media(max-width:860px){.clip-feature{grid-template-columns:minmax(0,1fr)}.clip-feature figcaption{padding:0 6px 8px}}
+@media(max-width:720px){.clip-feature .label{font-size:12px}.film-frame video{border-radius:14px}}
+.section.film-section{padding-top:8px}

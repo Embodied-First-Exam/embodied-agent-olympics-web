@@ -14,9 +14,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/site.css?v=fc8e97a4af67">
-  <link rel="stylesheet" href="../assets/css/responsive.css?v=81c765dfe9eb">
+  <link rel="stylesheet" href="../assets/css/responsive.css?v=a4630c0d08f1">
   
-  <script type="module" src="../assets/js/video.js?v=f2dec02688ff"></script>
+  <script type="module" src="../assets/js/video.js?v=ea45c7915dcb"></script>
   <script type="module" src="../assets/js/site.js?v=f0dfe881a287"></script>
   
 </head>
@@ -741,12 +741,12 @@
 <ul>
   <li>Current tasks for table tennis, tennis, badminton and fencing declare both action levels: skill API and joint targets. The other 14 sports have one action level, their own native commands.</li>
   <li>The full Robotics Engineer protocol, including post-match API and competition tests, is a shared library with a minimal example sport. For real sports it has run in <strong>pilots</strong>: air hockey, fencing, a Unitree G1 shooting drill, table tennis on Unitree G1 and on Rainbow RB-Y1.</li>
-  <li>Both modes are defined for every sport and have been validated in pilots.</li>
+  <li>Both modes are defined and have been validated in pilots. Not every sport needs both: a mode is set only where it measures something.</li>
 </ul>
 <p>Air hockey has a separate two-mode pilot with Athlete skills and Engineer joint plans. It uses simulator state as a pilot simplification. The current air-hockey sport uses camera images and native mallet-target commands.</p>
 <p>Racket sports get both modes. Soccer gets Athlete only; sprint and hurdles (planned) get Engineer only. Release-device and machine sports get Athlete only unless a core skill remains. A sport gets Engineer mode only if the boundary baseline scores about 0.</p>
-<h3>Program play and direct play</h3>
-<p>In <strong>program play</strong>, the default everywhere, the player writes a program. In <strong>direct play</strong>, with code execution switched off, the model issues one action per reply. Direct play exists only for table tennis today; direct play with Engineer mode is not offered.</p>
+<h3>Program play</h3>
+<p>Every current task uses <strong>program play</strong>: the player writes a program that runs during the match. Direct play, in which the model issues one action per reply with code execution switched off, has been removed from the benchmark.</p>
 </section><section class="docs-section" id="formats"><div class="docs-section-heading"><h2>Four formats</h2></div><p>A format defines who plays whom, seats per side, side rotation and ranking. Points, sets and fouls belong to the sport’s referee. Each sport declares the formats it supports.</p>
 <figure class="responsive-figure"><div class="figure-wide"><svg class="inline-figure" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 652" role="img" aria-label="Four match formats: single, duel, team and multi-party"><title>Four match formats</title><style>
 .formats-card{fill:var(--surface,#ffffff);stroke:var(--line-2,rgba(15,23,42,.22));stroke-width:1}
@@ -985,7 +985,7 @@
   <li><strong>Real limits (B0).</strong> Every body obeys the real robot’s joint position, velocity and acceleration limits; where the vendor SDK and URDF disagree, the SDK wins; unpublished values are marked as estimates. Platform skills and scripted opponents obey the same limits.</li>
   <li><strong>Physical feasibility (B9).</strong> Before a sport-and-body pair counts, an upper-bound player that knows the true state must be able to do the sport’s basic actions under real limits. In racket sports, it must return at least 90% of legal serves. Pairs that fail change the setting or move to a challenge track.</li>
 </ul>
-<p>Fencing, air hockey and badminton now enforce arm limits through the shared limits module. Table tennis and tennis have joint-target range and speed checks; their arm controllers do not yet use that module.</p>
+<p>Table tennis, fencing, air hockey and badminton hold their arms to the real limits through the shared limits module; soccer does the same for the Booster T1’s legs. Tennis has joint-target range and speed checks; its arm controller does not yet use that module. Fencing, badminton and tennis also stop an arm from passing through its own robot (self-collision).</p>
 <p>Air hockey uses KUKA’s joint ranges, velocities and torques, Air Hockey Challenge acceleration limits, and estimated jerk limits. A KUKA torque-rate limit is not published and is not enforced.</p>
 <p>Badminton uses BWF court lengths × 0.4 and a 1.524 m net. Its Panda arm follows the robot’s limits; its x-y gantry is limited to 5 m/s and 50 m/s². The rules declare 9 deviations.</p>
 <p>Held to real-robot limits is the rule of the benchmark; this does not mean every sport already passes the audit.</p>
@@ -1120,11 +1120,11 @@
 <rect x="24" y="1338" width="312" height="60" rx="14" class="F4-narrow-soft"/>
 <text x="180" y="1364" class="F4-narrow-t" text-anchor="middle" style="font-weight:600">Renderers never change</text>
 <text x="180" y="1387" class="F4-narrow-t" text-anchor="middle" style="font-weight:600">physics.</text>
-</svg></div></figure></section><section class="docs-section" id="add-a-sport"><div class="docs-section-heading"><h2>How to add a sport</h2></div><p>Adding a sport touches only its folder.</p>
+</svg></div></figure></section><section class="docs-section" id="add-a-sport"><div class="docs-section-heading"><h2>How to add a sport</h2></div><p>Adding a sport touches only its folder. A sport enters the benchmark in six steps, each ending with a check: define the sport, choose the robot and venue, design the interface, validate it without a model, run model trials, freeze.</p>
 <ol>
   <li>Write the sport folder: world, actions, referee, observations, built-in players and <code>sport.toml</code>.</li>
   <li>Run the generator and the checks: specification, generic tests, golden replay and fairness of both seats.</li>
-  <li>Submit the sport for review.</li>
+  <li>Open one pull request per sport, with its screening report.</li>
 </ol>
 <p>A sport never imports another sport or changes the core.</p>
 </section></div></div></section></main>
@@ -1132,7 +1132,7 @@
   <div class="section footer-inner">
     <a class="wordmark" href="../"><span class="mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Embodied Agent Olympics: two paddles and a ball" style="color:var(--ink,#0f141a)"><title>Embodied Agent Olympics: exact paddles</title><rect x="3.75" y="9" width="4.5" height="14" rx="2.25" style="fill:var(--team-a,#E8573A)"/><rect x="23.75" y="9" width="4.5" height="14" rx="2.25" style="fill:var(--team-b,#2F7BEA)"/><circle cx="17" cy="13.5" r="3.4" stroke="currentColor" stroke-width="1.4" style="fill:var(--ball,#FFD447)"/></svg></span><span><span class="wordmark-long">Embodied Agent Olympics</span><span class="wordmark-short">EAO</span></span></a>
     <nav class="footer-nav" aria-label="Embodied Agent Olympics"><a href="../sports/">Sports</a><a href="../results/">Results</a><a href="../robots/">Robots</a><a href="../docs/">Docs</a></nav>
-    <div class="footer-meta"><p class="label">Data as of 2026-10-09</p><span class="preview label">Preview</span></div>
+    <div class="footer-meta"><p class="label">Data as of 2026-10-11</p><span class="preview label">Preview</span></div>
     
   </div>
 </footer>
