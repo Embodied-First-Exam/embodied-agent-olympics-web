@@ -1,4 +1,4 @@
-/* RoboOlympics First Exam release page: additions on top of site.css / responsive.css. */
+/* Embodied Olympics First Exam release page: additions on top of site.css / responsive.css. */
 .rx-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(28px,4vw,56px);align-items:center;padding-top:clamp(120px,14vw,160px)}
 .rx-hero h1{margin:6px 0 0;font:800 clamp(40px,5.2vw,72px)/1 var(--display);letter-spacing:-.04em;overflow-wrap:anywhere}
 .rx-kicker{display:block;margin:0;color:var(--ink-3)}

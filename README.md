@@ -1,9 +1,9 @@
-# RoboOlympics
+# Embodied Olympics
 
-The project page of **RoboOlympics**: physical sports for coding agents. Published at
+The project page of **Embodied Olympics**: physical sports for coding agents. Published at
 <https://olympics.embodied-first-exam.ai/> by GitHub Pages from `main` (`CNAME`).
 
-**Status (2026-10-19): First Exam release.** Two RoboOlympics suites are part of the
+**Status (2026-10-19): First Exam release.** Two Embodied Olympics suites are part of the
 [Embodied First Exam](https://www.embodied-first-exam.ai/): RoboOlympics-Fun and RoboOlympics-Match. The home page
 shows them; the full benchmark is not released yet. Pages of the earlier preview (sports, results, robots, docs, film)
 keep their URLs and show a short "returns with the full release" page. Earlier versions are in the git history.
@@ -27,5 +27,5 @@ Then open http://localhost:8780. `?theme=dark` forces the dark theme.
 
 ## Credits
 
-Text, figures and videos: the RoboOlympics team. Fonts: Bricolage Grotesque, Inter and JetBrains Mono from Google
+Text, figures and videos: the Embodied Olympics team. Fonts: Bricolage Grotesque, Inter and JetBrains Mono from Google
 Fonts (SIL Open Font License).
