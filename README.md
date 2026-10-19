@@ -4,7 +4,7 @@ The project page of **Embodied Olympics**: physical sports for coding agents. Pu
 <https://olympics.embodied-first-exam.ai/> by GitHub Pages from `main` (`CNAME`).
 
 **Status (2026-10-19): First Exam release.** Two Embodied Olympics suites are part of the
-[Embodied First Exam](https://www.embodied-first-exam.ai/): RoboOlympics-Fun and RoboOlympics-Match. The home page
+[Embodied First Exam](https://www.embodied-first-exam.ai/): Embodied Olympics – Fun and Embodied Olympics – Match. The home page
 shows them; the full benchmark is not released yet. Pages of the earlier preview (sports, results, robots, docs, film)
 keep their URLs and show a short "returns with the full release" page. Earlier versions are in the git history.
 
@@ -23,7 +23,7 @@ Then open http://localhost:8780. `?theme=dark` forces the dark theme.
 - `index.html`: the release page. `404.html`: not found.
 - `sports/`, `results/`, `robots/`, `docs/`, `film/`: placeholders for the full release.
 - `assets/css/site.css`, `responsive.css`: the site's look; `release.css`: the release page.
-- `assets/media/release/`: web clips (H.264, muted) and posters of RoboOlympics-Match and RoboOlympics-Fun tasks.
+- `assets/media/release/`: web clips (H.264, muted) and posters of Embodied Olympics – Match and Embodied Olympics – Fun tasks.
 
 ## Credits
 
