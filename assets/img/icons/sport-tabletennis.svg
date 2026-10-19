@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Table tennis paddle and ball">
-<title>Table tennis paddle and ball</title>
-<path d="m12 13 4.5 4.5" stroke-width="4"/>
-<path d="M4.2 4.7c2.5-2.5 5.9-2.4 8.3 0 2.6 2.6 2.8 5.5.5 7.8l-1.3 1.3c-2.3 2.3-5.2 2.1-7.8-.5-2.4-2.4-2.3-6.1.3-8.6Z" fill="currentColor"/>
-<circle cx="18.5" cy="5.5" r="2.5" style="fill:var(--ball,#FFD447)"/>
-</svg>
