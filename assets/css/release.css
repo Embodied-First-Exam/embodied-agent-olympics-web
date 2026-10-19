@@ -38,3 +38,5 @@
 .rx-preview .media-frame{border-color:rgba(255,255,255,.06)}
 .rx-tag{display:inline-block;margin-left:8px;padding:3px 7px;border:1px solid var(--line-2);border-radius:999px;font:500 10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);vertical-align:2px}
 @media(max-width:960px){.rx-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.rx-badge-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:0 0 18px}.rx-badge{display:inline-block;padding:8px 16px;border:2px solid var(--prelim-ink);border-radius:999px;font:700 clamp(15px,1.4vw,18px)/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--prelim-ink)}.rx-soon{font:600 clamp(15px,1.4vw,18px)/1.2 var(--display);color:var(--prelim-ink)}
