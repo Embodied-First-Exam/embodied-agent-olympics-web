@@ -405,8 +405,8 @@ def growth2() -> str:
   <div class="sw">
     <div class="sw-matches">{tiles}</div>
     <div class="sw-carry"><span class="sw-carry-line"><i></i></span></div>
-    <div class="sw-foot"><span class="sw-carry-lab">Carried to the next match<b>programs · weights · notes · match video</b></span>
-      <span class="sw-key">The world resets every match.</span></div>
+    <div class="sw-foot"><span class="sw-carry-lab">Season memory<b>code · weights · notes · match video</b></span>
+      <span class="sw-key">Each match starts in a fresh world.</span></div>
   </div>
   <div class="g2-panels">
     <div class="g2-p">
@@ -470,7 +470,7 @@ def season_screen() -> str:
 <section class="chap pg pgs" data-inview id="season">
   <div class="wrap">
     <header class="ch-head"><span class="ch-n"></span><h2>One season.</h2>
-      <p>Programs, weights, notes and the match video carry over; the world and the seed reset. Saved programs are re-tested after every match.</p></header>
+      <p>Across a season, the agent keeps learning. What it builds and learns in one match carries into the next, and every version it deploys is re-tested to measure its growth.</p></header>
     {growth2()}
   </div>
 </section>"""
