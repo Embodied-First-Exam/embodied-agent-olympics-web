@@ -1502,7 +1502,7 @@ a.doc-row:hover{background:var(--bg-2)}
 .mt-all{font-size:16px}
 
 /* ================= variant: section nav as a slim left rail (wide screens only; the top-bar pill below that) */
-@media (min-width:1280px){
+@media (min-width:900px){
   .snav--left{left:clamp(10px,calc((100vw - var(--wrap)) / 2 - 150px),40px);top:50%;transform:translate(-8px,-50%);flex-direction:column;align-items:flex-start;gap:2px;
     padding:6px;border-radius:12px;background:transparent;border:0;backdrop-filter:none}
   .snav--left.on{transform:translate(0,-50%)}
@@ -1527,7 +1527,7 @@ a.doc-row:hover{background:var(--bg-2)}
 .ii-row{max-width:none;flex-wrap:nowrap}.ii{grid-template-columns:auto auto auto auto auto;justify-content:space-between}.ii-s{width:46px;height:46px}
 
 /* ================= round 21: the left rail is the chapter nav on wide screens; chapter screens keep a column free for it */
-@media (min-width:1280px){
+@media (min-width:900px){
   .snav--left{left:clamp(12px,calc((100vw - var(--wrap)) / 2 - 140px),60px)}
   .snav--left a{font-size:12px;padding:5px 8px 5px 16px}
   .pgr2 .wrap,.pgmt .wrap,.pgl .wrap,.pg3 .wrap,.pgm .wrap,.pgs .wrap{
@@ -1543,7 +1543,7 @@ a.doc-row:hover{background:var(--bg-2)}
 .pg .ch-head{grid-template-columns:1fr}
 .pg .ch-head>*{grid-column:1!important}
 .snav-t{display:none}
-@media (min-width:1280px){
+@media (min-width:900px){
   .snav--left{gap:0;padding:4px 0}
   .snav--left a{display:flex;align-items:center;height:22px;padding:0 8px;font-size:12px}
   .snav--left a::before{display:none}

@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import functools
+import hashlib
 import http.server
 import json
 import re
@@ -57,6 +58,11 @@ def build(base: str | None = None) -> int:
     if base:
         cfg["base"] = base
     cfg["_sprite"] = icon_sprite()
+    # build version for cache busting: content of the stylesheets and scripts plus the build time (changes every build)
+    h = hashlib.sha1(str(time.time()).encode())
+    for f in sorted((ROOT / "assets").glob("css/*.css")) + sorted((ROOT / "assets").glob("js/*.js")):
+        h.update(f.read_bytes())
+    cfg["_v"] = h.hexdigest()[:10]
     site = layout.Site(cfg, load("data/sports.json")["sports"], load("data/models.json")["models"],
                 load("data/media.json"), load("data/results.json"))
 

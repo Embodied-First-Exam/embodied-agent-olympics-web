@@ -47,7 +47,10 @@ class Site:
         return self.url(rel) if (ROOT / rel).is_file() else None
 
     def asset(self, path: str) -> str:
-        return self.url("assets/" + path)
+        """An asset URL; stylesheets and scripts carry the build version (?v=) so browsers fetch each new build."""
+        v = self.cfg.get("_v")
+        q = f"?v={v}" if v and path.endswith((".css", ".js")) else ""
+        return self.url("assets/" + path) + q
 
     def sport_url(self, s: dict) -> str:
         return self.url(f"sports/{slug(s)}/")
