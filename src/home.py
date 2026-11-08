@@ -187,7 +187,10 @@ def physloop(site: Site, arena_mode: str = "figures") -> str:
                  f'<text class="pl-s pl-s--a" x="{X(130)}" y="242">Model × Harness</text></g>')
         s.append(f'<g class="pl-sys"><rect x="{R(30, 200)}" y="318" width="200" height="104" rx="12"/>'
                  f'<text class="pl-t pl-t--s" x="{X(130)}" y="356">Code it builds</text>'
-                 f'<text class="pl-s" x="{X(130)}" y="388">programs · weights</text></g>')
+                 f'<text class="pl-s" x="{X(130)}" y="388">programs · trained weights</text></g>')
+        # GPU training kit beside the practice link (in most sports' seats; per sport on the sport pages)
+        s.append(f'<g class="pl-gpu"><rect x="{R(156, 104)}" y="119" width="104" height="22" rx="11"/>'
+                 f'<text x="{X(208)}" y="134">GPU training</text></g>')
         return "".join(s)
     flows = {  # id: (path, arrow head)
         "bA": ("M70 260 V318", "M64 310 L70 318 L76 310"), "bB": ("M1130 260 V318", "M1124 310 L1130 318 L1136 310"),

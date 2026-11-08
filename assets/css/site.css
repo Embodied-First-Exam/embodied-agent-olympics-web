@@ -148,7 +148,7 @@ a:hover .arr{transform:translateX(4px)}
 .shero .display{font-size:clamp(52px,9.4vw,152px)}
 .shero-pitch{margin-top:22px;font-size:clamp(18px,1.7vw,24px);line-height:1.4;color:var(--fg-2);max-width:760px;letter-spacing:-.005em}
 .shero-tag{position:absolute;right:var(--gut);bottom:clamp(40px,7vh,72px);z-index:1}
-.spec{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.spec{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
 .spec div{padding:28px 24px 30px 0;display:grid;gap:10px;align-content:start}
 .spec div+div{border-left:1px solid var(--hair);padding-left:24px}
 .spec dd{font-size:clamp(18px,1.6vw,23px);font-weight:500;letter-spacing:-.01em;line-height:1.25}

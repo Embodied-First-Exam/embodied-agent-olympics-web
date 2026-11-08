@@ -1650,3 +1650,6 @@ a.doc-row:hover{background:var(--bg-2)}
 .jl:hover{color:var(--fg)}.jl:hover::after,.jl:focus-visible::after{opacity:1}
 .jl-back{margin-left:12px;font-size:13px;font-weight:500;letter-spacing:0;color:var(--fg-3);vertical-align:middle}
 .jl-back:hover{color:var(--accent)}
+/* round 37: GPU training chip on the practice link */
+.pl-gpu rect{fill:var(--bg-2);stroke:var(--fg-3);stroke-width:1}
+.pl-gpu text{font:500 11px var(--f-mono);letter-spacing:.06em;fill:var(--fg-2);text-anchor:middle}

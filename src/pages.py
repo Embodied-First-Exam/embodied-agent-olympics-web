@@ -10,6 +10,14 @@ from layout import E, Site, icon, model_logo, model_name, page, slug, todo
 
 CATEGORIES = ["Team ball", "Racket", "Precision", "Athletics", "Speed"]
 
+# GPU training kit per sport, from the official release run's seat instructions ("### GPU training kit" and the seat's
+# "Compute and workspace" line; stunt car from the release task tasks/stuntcar-trickopen-engineer-*/instruction.md)
+_KIT_GPU, _KIT_CPU = "GPU training kit, GPU in the seat", "GPU training kit, runs on the CPU (no GPU in the seat)"
+GPU_KIT = {**{k: _KIT_GPU for k in ("amfootball", "badminton", "baseball", "basketball", "beachvolleyball", "hurdles", "javelin",
+                                     "soccer_hsl", "soccer_hsl_team", "sprint", "tabletennis", "tennis")},
+           **{k: _KIT_CPU for k in ("billiards", "curling", "soccer_ssl")},
+           **{k: "No GPU training kit" for k in ("drone", "racing", "stuntcar")}}
+
 
 # ---------------------------------------------------------------- helpers
 def short_body(s: dict) -> str:
@@ -75,7 +83,7 @@ def sport_page(site: Site, i: int):
     prev_s, next_s = site.sports[i - 1], site.sports[(i + 1) % len(site.sports)]
     tick = story.tick_ms(s)
     facts = [("Body", short_body(s)), ("Format", short(s["team"])), ("Sees", short(s["sees"])),
-             ("Control", f"Every {tick}" if tick else short(s["control"]))]
+             ("Control", f"Every {tick}" if tick else short(s["control"])), ("Training", GPU_KIT.get(s["id"]))]
     spec = "".join(f'<div><dt class="kicker">{k}</dt><dd>{E(v) if v else "At release"}</dd></div>' for k, v in facts)
     tests = "".join(f"<li>{E(h)}</li>" for h in s["hard"])
 
