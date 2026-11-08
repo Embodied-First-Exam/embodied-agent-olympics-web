@@ -73,15 +73,13 @@ def hero(site: Site, clips: dict) -> str:
 
 
 def statement(site: Site, clips: dict) -> str:
-    """Layer 2 of the hero: the project in one sentence, the research question verbatim beneath it."""
+    """Layer 2 of the hero: the research statement, one sentence."""
     lines = " ".join(f'<span class="ql ql--hi" style="--k:{k}">{E(l)}</span>' for k, l in enumerate(site.cfg["statement_lines"]))
-    n = len(site.cfg["statement_lines"])
     return f"""
 <section class="qx2 qx3" data-inview>
   <div class="wrap qx2-in">
     <span class="ql kicker qx3-k" style="--k:0">The research</span>
     <h2 class="qx2-text qx3-text">{lines}</h2>
-    <p class="ql qx2-full" style="--k:{n}">{E(site.cfg['question'])}</p>
   </div>
 </section>"""
 
@@ -104,24 +102,52 @@ def reel(site: Site, clips: dict) -> str:
     return f'<section class="reel" aria-label="The sports in motion">{rows}</section>'
 
 
-JOINT = ('<svg class="facts-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2.4"/><circle cx="12" cy="9" r="2.4"/>'
-         '<circle cx="19" cy="5" r="1.8"/><path d="M7.4 16 10.6 11M13.8 7.8 17.4 5.8"/></svg>')
+FACTS = ["18 sports", "Real-time interaction", "Real-world constraints", "Direct body control"]
+
+# light joint overlay for the "direct body control" tile, in the 1280x720 frame of the baseball still
+SKEL_J = {"head": (760, 212), "neck": (765, 256), "pelvis": (788, 398), "shL": (700, 286), "shR": (826, 280),
+          "elL": (686, 336), "elR": (850, 302), "hand": (872, 306), "hipL": (746, 440), "hipR": (824, 442),
+          "knL": (722, 522), "knR": (786, 560), "anL": (702, 640), "anR": (806, 682)}
+SKEL_B = [("head", "neck"), ("neck", "pelvis"), ("shL", "shR"), ("shL", "elL"), ("elL", "hand"), ("shR", "elR"), ("elR", "hand"),
+          ("pelvis", "hipL"), ("pelvis", "hipR"), ("hipL", "knL"), ("knL", "anL"), ("hipR", "knR"), ("knR", "anR")]
 
 
-def facts(site: Site, clips: dict) -> str:
-    """Three facts over the drifting reel of all 18 sports, and the one interface every sport shares."""
-    cells = [(f"{len(site.sports)} sports", "Four formats, from the 100 m to 11-a-side soccer."),
-             ("Real time", "The match clock never stops for the agent."),
-             ("Real robot limits", "Motor torque, sensor noise and latency of real robots.")]
-    nums = "".join(f'<div class="num fact" data-inview><strong>{E(n)}</strong><span>{E(l)}</span></div>' for n, l in cells)
-    return f"""<section class="numreel">
+def facts(site: Site, clips: dict, variant: str = "a") -> str:
+    """The four facts. A: one band of big labels laid over the drifting reel of all 18 sports.
+    B: four tiles, each label paired with a muted clip or still that shows the point."""
+    if variant == "b":
+        return facts_tiles(site, clips)
+    cells = "".join(f'<div class="fa-c" data-inview><strong>{E(n)}</strong></div>' for n in FACTS)
+    return f"""<section class="numreel fa">
   {reel(site, clips)}
   <div class="numreel-scrim"></div>
-  <div class="nums"><div class="wrap">
-    <div class="nums-grid facts-grid">{nums}</div>
-    <p class="facts-joint">{JOINT}<span>Every sport is controlled through the robot&rsquo;s joint interface.</span></p>
-  </div></div>
+  <div class="fa-band"><div class="wrap"><div class="fa-grid">{cells}</div></div></div>
 </section>"""
+
+
+def facts_tiles(site: Site, clips: dict) -> str:
+    def tile(cls, media, label):
+        return f'<figure class="fb-t {cls}" data-inview>{media}<figcaption>{E(label)}</figcaption></figure>'
+    posters = []
+    for s in site.sports:
+        c = clips.get(s["clips"][0]["id"]) if s["clips"] else None
+        posters.append(c["poster"] if c else site.murl(s["thumb"]["url"]))
+    mosaic = '<div class="fb-mos">' + "".join(f'<img src="{E(u)}" alt="" loading="lazy">' for u in posters[:9]) + "</div>"
+    rt = clips.get("badminton_g1")
+    live = (vid(rt, "cover", "data-autoplay") + '<span class="fb-live" aria-hidden="true"><i class="rec"></i>LIVE '
+            '<b data-vclock>00:00.0</b></span>') if rt else ""
+    lim = clips.get("soccer_hsl_3v3")
+    gauge = (vid(lim, "cover fb-crop", "data-autoplay") +
+             '<span class="fb-gauge" aria-hidden="true"><em>knee torque</em><span class="fb-barw"><span class="fb-bar"><i></i><b></b></span>'
+             '<em class="fb-lim">limit</em></span></span>') if lim else ""
+    bones = "".join(f'<line x1="{SKEL_J[a][0]}" y1="{SKEL_J[a][1]}" x2="{SKEL_J[b][0]}" y2="{SKEL_J[b][1]}"/>' for a, b in SKEL_B)
+    dots = "".join(f'<circle cx="{x}" cy="{y}" r="7"/>' for x, y in SKEL_J.values())
+    still = site.murl("/eo/img/poster/baseball_g1.jpg")
+    body = (f'<div class="fb-frame"><img src="{E(still)}" alt="" loading="lazy">'
+            f'<svg viewBox="0 0 1280 720" aria-hidden="true"><g class="fb-bones">{bones}</g><g class="fb-joints">{dots}</g></svg></div>')
+    tiles = (tile("fb-1", mosaic, FACTS[0]) + tile("fb-2", live, FACTS[1]) + tile("fb-3", gauge, FACTS[2])
+             + tile("fb-4", body, FACTS[3]))
+    return f"""<section class="fb"><div class="wrap"><div class="fb-grid">{tiles}</div></div></section>"""
 
 
 def chap_head(n: str, title: str, line: str = "", total: str = "04") -> str:
@@ -568,9 +594,9 @@ def results_compact(site: Site) -> str:
 # ---------------------------------------------------------------- page
 
 
-def home(site: Site):
+def home(site: Site, facts_variant: str = "a"):
     clips = clip_index(site)
-    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + statement(site, clips) + facts(site, clips) + '</div>'
+    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + statement(site, clips) + facts(site, clips, facts_variant) + '</div>'
             + measure(site, clips) + season(site, clips) + competition(site, clips) + results_compact(site)
             + '<nav class="crail" aria-label="Chapters" data-crail></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')

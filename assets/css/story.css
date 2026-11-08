@@ -1052,3 +1052,90 @@
 .cap5-more{gap:4px}
 .cap5-more strong{font-size:clamp(22px,1.9vw,30px)}
 .cap5-more li{padding:6px 0;font-size:14px}
+/* five facts, big type only */
+.facts-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+.facts-grid .num{padding:clamp(28px,4vw,56px) clamp(12px,1.4vw,22px);align-content:end}
+.facts-grid .num:first-child{padding-left:0}
+.fact strong{font-size:clamp(28px,2.9vw,50px);line-height:1;letter-spacing:-.025em;color:#fff}
+.num.fact:last-child strong{color:var(--accent)}
+@media (max-width:900px){
+  .facts-grid{grid-template-columns:1fr}
+  .facts-grid .num{padding:16px 0;border-left:0;border-top:1px solid rgba(255,255,255,.18)}
+  .facts-grid .num:first-child{border-top:0}
+  .fact strong{font-size:clamp(30px,8.4vw,44px)}
+}
+.numreel .nums>.wrap{width:100%}
+.facts-grid .num{padding-left:clamp(10px,1.1vw,18px);padding-right:clamp(10px,1.1vw,18px)}
+.fact strong{font-size:clamp(22px,2.25vw,40px)}
+@media (max-width:900px){.facts-grid .num{padding:16px 0}.fact strong{font-size:clamp(30px,8.4vw,44px)}}
+/* five facts: one stacked list of big lines at every width */
+.facts-grid{grid-template-columns:1fr;max-width:1000px}
+.facts-grid .num{padding:clamp(10px,1.4vh,16px) 0;border-left:0;border-top:1px solid rgba(255,255,255,.18)}
+.facts-grid .num:first-child{border-top:0}
+.fact strong{font-size:clamp(30px,4.6vw,72px);line-height:1.02}
+.numreel .facts-grid{padding-bottom:0}
+
+/* ================= the four facts, variant A: one band of big labels over the drifting reel */
+.fa{min-height:clamp(460px,66vh,640px);display:flex;align-items:center}
+.fa .reel{opacity:1}
+.fa-band{position:relative;z-index:2;width:100%;padding:clamp(40px,6vh,72px) 0;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(8,9,11,0) 0%,rgba(8,9,11,.82) 22%,rgba(8,9,11,.82) 78%,rgba(8,9,11,0) 100%)}
+.fa-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.fa-c{padding:6px clamp(14px,1.8vw,28px);border-left:1px solid rgba(255,255,255,.22);display:flex;align-items:flex-end}
+.fa-c:first-child{border-left:0;padding-left:0}
+.fa-c strong{font-weight:600;font-size:clamp(28px,3.3vw,56px);line-height:1;letter-spacing:-.03em;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+.fa-c:last-child strong{color:var(--accent)}
+[data-inview].fa-c{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+[data-inview].fa-c.is-in{opacity:1;transform:none}
+.fa-c:nth-child(2){transition-delay:.1s}.fa-c:nth-child(3){transition-delay:.2s}.fa-c:nth-child(4){transition-delay:.3s}
+@media (max-width:900px){
+  .fa-grid{grid-template-columns:1fr 1fr;row-gap:0}
+  .fa-c{padding:18px 14px;min-height:110px}
+  .fa-c:nth-child(3){border-left:0;padding-left:0}
+  .fa-c:nth-child(n+3){border-top:1px solid rgba(255,255,255,.22)}
+  .fa-c strong{font-size:clamp(24px,7vw,36px)}
+}
+
+/* ================= the four facts, variant B: four tiles, label + the footage that shows it */
+.fb{position:relative;z-index:1;padding:clamp(48px,7vh,96px) 0 clamp(64px,9vh,120px);background:linear-gradient(to bottom,rgba(8,9,11,.78),var(--page) 60%)}
+.fb-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.fb-t{position:relative;aspect-ratio:3/4;border-radius:var(--r);overflow:hidden;background:#000;--fg:#F2F1EC;color:#fff}
+.fb-t>video,.fb-t>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fb-t::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(8,9,11,.92) 0%,rgba(8,9,11,.25) 45%,rgba(8,9,11,0) 70%);pointer-events:none}
+.fb-t figcaption{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:clamp(16px,1.6vw,24px);
+  font-weight:600;font-size:clamp(26px,2.5vw,42px);line-height:1;letter-spacing:-.03em}
+.fb-4 figcaption{color:var(--accent)}
+[data-inview].fb-t{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+[data-inview].fb-t.is-in{opacity:1;transform:none}
+.fb-2{transition-delay:.08s}.fb-3{transition-delay:.16s}.fb-4{transition-delay:.24s}
+/* 18 sports: a mosaic of nine sports */
+.fb-mos{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:3px}
+.fb-mos img{width:100%;height:100%;object-fit:cover}
+/* real time: a running match clock */
+.fb-live{position:absolute;left:14px;top:14px;z-index:3;display:inline-flex;align-items:center;gap:7px;padding:5px 9px;border-radius:4px;
+  background:rgba(8,9,11,.7);font:500 11.5px var(--f-mono);letter-spacing:.1em;color:#fff}
+.fb-live b{font-weight:500;font-variant-numeric:tabular-nums}
+/* real-world constraints: a torque gauge pushing against its limit */
+.fb-crop{transform:scale(1.3);transform-origin:50% 25%}
+.fb-gauge{position:absolute;right:16px;top:16px;bottom:34%;z-index:3;display:grid;grid-template-rows:auto 1fr auto;justify-items:center;gap:8px;
+  font:500 9.5px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.fb-gauge em{font-style:normal;writing-mode:vertical-rl;transform:rotate(180deg)}
+.fb-gauge em:first-child{writing-mode:horizontal-tb;transform:none}
+.fb-lim{color:var(--accent)!important;writing-mode:horizontal-tb!important;transform:none!important}
+.fb-bar{position:relative;width:12px;border-radius:6px;background:rgba(255,255,255,.14);overflow:hidden}
+.fb-bar i{position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to top,#E9C94A,var(--accent));animation:fbTorque 3.2s ease-in-out infinite}
+.fb-bar b{position:absolute;left:-2px;right:-2px;top:12%;height:2px;background:var(--accent)}
+@keyframes fbTorque{0%,100%{height:34%}45%{height:86%}55%{height:88%}70%{height:60%}}
+/* direct body control: a light joint overlay on the robot */
+.fb-frame{position:absolute;top:0;bottom:0;left:50%;aspect-ratio:16/9;height:100%;transform:translateX(-61.5%)}
+.fb-frame img,.fb-frame svg{position:absolute;inset:0;width:100%;height:100%}
+.fb-bones line{stroke:#7FD8FF;stroke-width:4;stroke-linecap:round;opacity:.85}
+.fb-joints circle{fill:rgba(8,9,11,.5);stroke:#fff;stroke-width:3}
+@media (prefers-reduced-motion:reduce){.fb-bar i{animation:none;height:86%}}
+@media (max-width:900px){.fb-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.fb-t figcaption{font-size:24px}.fb-gauge{right:10px;top:10px}}
+.fb-gauge{grid-template-rows:auto 1fr}
+.fb-barw{position:relative;display:flex}
+.fb-barw .fb-bar{height:100%}
+.fb-lim{position:absolute;right:calc(100% + 6px);top:calc(12% - 5px);white-space:nowrap}
+@media (max-width:900px){.fa-band{background:linear-gradient(to bottom,rgba(8,9,11,0) 0%,rgba(8,9,11,.62) 18%,rgba(8,9,11,.62) 82%,rgba(8,9,11,0) 100%)}}
