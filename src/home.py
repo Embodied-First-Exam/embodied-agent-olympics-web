@@ -98,7 +98,7 @@ GLANCE_IC = {  # 24x24 line icons, stroke = currentColor
     "control": '<circle cx="6" cy="18" r="2.2"/><circle cx="12" cy="10" r="2.2"/><circle cx="19" cy="5" r="1.8"/><path d="M7.3 16.2 10.7 11.8M13.8 8.8 17.4 6"/>',
 }
 GLANCE = [("sports", "18 Sports", "Diverse physical competition tasks."),
-          ("time", "Real-Time Interaction", "The world runs in real time and never waits."),
+          ("time", "Real-Time Interaction", "The world runs in real time."),
           ("limits", "Real Robot Constraints", "Bodies, joints, actuators and physics."),
           ("control", "Direct Body Control", "Agents control the embodied system through low-level interfaces.")]
 
@@ -157,7 +157,9 @@ def physloop(site: Site) -> str:
         "pB1": ("M1062 110 V150", "M1056 142 L1062 150 L1068 142"), "pB2": ("M1078 150 V110", "M1072 118 L1078 110 L1084 118"),
     }
     lines = "".join(f'<path id="pl-{k}" class="pl-flow" d="{d}"/><path class="pl-head" d="{h}"/>' for k, (d, h) in flows.items())
-    pulses = "".join(f'<circle class="pl-pulse" r="4.5"><animateMotion dur="{d}s" begin="{b}s" repeatCount="indefinite"><mpath href="#pl-{k}"/></animateMotion></circle>'
+    # hidden until its motion starts: an SVG circle sits at the origin (0, 0) before a delayed animateMotion begins
+    pulses = "".join(f'<circle class="pl-pulse" r="4.5" opacity="0"><set attributeName="opacity" to="1" begin="{b}s"/>'
+                     f'<animateMotion dur="{d}s" begin="{b}s" repeatCount="indefinite"><mpath href="#pl-{k}"/></animateMotion></circle>'
                      for k, d, b in (("obsA", 3.2, 0), ("actA", 3.2, 1.6), ("obsB", 3.2, .8), ("actB", 3.2, 2.4),
 ))
     def io(cx):
@@ -452,7 +454,7 @@ def match_loop() -> str:
                           for j, s in enumerate(sub.split("|"))) + '</g>')
     nodes_svg = "".join(node(k) for k in range(4))
     ring = f'<circle id="ml-ring" class="ml-ring" cx="{cx}" cy="{cy}" r="{r}"/>'
-    pulse = ('<circle class="pl-pulse" r="5"><animateMotion dur="9s" repeatCount="indefinite" '
+    pulse = ('<circle class="pl-pulse" r="5" opacity="0"><set attributeName="opacity" to="1" begin="0s"/><animateMotion dur="9s" repeatCount="indefinite" '
              f'path="M{cx} {cy - r} A{r} {r} 0 1 1 {cx - .1} {cy - r}"/></circle>')
     box = lambda x, t1, t2, cls: (f'<g class="ml-box {cls}"><rect x="{x}" y="150" width="230" height="110" rx="16"/>'  # noqa: E731
                                   f'<text class="pl-t pl-t--s" x="{x + 115}" y="196">{t1}</text>'
