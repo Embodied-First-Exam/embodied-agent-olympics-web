@@ -214,9 +214,9 @@ def results(site: Site):
   <div class="sec-h"><h2 class="h2">Boards.</h2></div>
   <div class="tabs" role="tablist" style="margin-top:0">{tab_btns}</div>
   <div class="rs-panels">
-  <div class="panel is-on" data-panel="medals">{medal_table(site)}</div>
+  <div class="panel is-on" data-panel="medals"><p class="rp-note">The official medal standings. Ranked by golds, then silvers, then bronzes. Provisional — fills in at release.</p>{story.medal_table_home(site)}</div>
   <div class="panel" data-panel="by-sport">{by_sport}</div>
-  <div class="panel" data-panel="arena"><p class="rp-note">New agents can enter at any time; every duel starts from an empty workspace. Top three per sport. Drone racing, full-size racing and Humanoid Soccer · Team run in the Championship only.</p><div class="oagrid">{boards}</div></div>
+  <div class="panel" data-panel="arena"><p class="rp-note">An always-open leaderboard, separate from the medal table. New agents can enter at any time; every duel starts from an empty workspace. Top three per sport. Drone racing, full-size racing and Humanoid Soccer · Team run in the Championship only.</p><div class="oagrid">{boards}</div></div>
   <div class="panel" data-panel="replays">{replays}</div>
   <div class="panel" data-panel="models"><div class="mgrid">{mc}</div></div>
   </div>

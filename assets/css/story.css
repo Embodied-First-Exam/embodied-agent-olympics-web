@@ -1479,3 +1479,49 @@ a.doc-row:hover{background:var(--bg-2)}
 .rm-more b{color:var(--accent);font-weight:500}
 .pgr2 .tm-others .tm-o{padding-top:8px;padding-bottom:8px}
 @media (max-width:900px){.rm-cards{grid-template-columns:1fr}}
+
+/* ================= round 20: three medal forms on the home page, medal table screen */
+.tm--home .tm-others{grid-template-columns:repeat(3,minmax(0,1fr));margin:0 0 10px}
+.tm--home .tm-card{position:relative}
+.tm-sch{position:absolute;right:18px;bottom:12px}
+.tm-h--n{font:600 13px var(--f-mono);color:var(--fg-2);display:grid;place-items:center}
+.tm-lanes{display:grid;gap:22px;padding:14px 4px 22px}
+.tm-lane{display:grid;grid-template-columns:200px 1fr;gap:8px 24px;align-items:center}
+.tm-lane-h{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:600;letter-spacing:-.01em}
+.tm-lane-h .pic{width:30px;height:30px;color:var(--accent)}
+.tm-lane-r{grid-column:2;font-size:14px;color:var(--fg-3)}
+.pgmt{padding:calc(var(--top) + 18px) 0 28px}
+.mt-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+.mt-home .mt td{padding:12px 10px}
+.mt-links{display:flex;align-items:center;gap:28px;margin-top:clamp(14px,2.4vh,26px)}
+.rm-card--s{flex:0 1 560px}
+@media (max-width:900px){.tm--home .tm-others{grid-template-columns:1fr}.tm-lane{grid-template-columns:1fr}.tm-lane-r{grid-column:1}.mt-links{flex-wrap:wrap}}
+.ch-head--k .ch-lede{grid-column:2;margin-top:10px;max-width:880px;font-size:clamp(16px,1.3vw,19px);color:var(--fg-2)}
+.mt-rule{font-size:14px;color:var(--fg-3)}
+.mt--home th:nth-child(n+3),.mt--home td:nth-child(n+3){width:14%}
+.mt-all{font-size:16px}
+
+/* ================= variant: section nav as a slim left rail (wide screens only; the top-bar pill below that) */
+@media (min-width:1280px){
+  .snav--left{left:clamp(10px,calc((100vw - var(--wrap)) / 2 - 150px),40px);top:50%;transform:translate(-8px,-50%);flex-direction:column;align-items:flex-start;gap:2px;
+    padding:6px;border-radius:12px;background:transparent;border:0;backdrop-filter:none}
+  .snav--left.on{transform:translate(0,-50%)}
+  .snav--left a{position:relative;padding:5px 10px 5px 16px;border-radius:6px;font-size:12.5px;background:transparent!important}
+  .snav--left a::before{content:"";position:absolute;left:4px;top:50%;width:3px;height:3px;border-radius:50%;background:var(--fg-3);transform:translateY(-50%);transition:all .25s}
+  .snav--left a.is-on{color:var(--fg)}
+  .snav--left a.is-on::before{height:14px;border-radius:2px;background:var(--accent)}
+}
+/* ================= variant: intro sports as pictograms grouped by format */
+.ii{display:grid;grid-template-columns:auto repeat(4,auto);align-items:start;gap:10px clamp(18px,2.4vw,36px)}
+.ii-total{font-weight:600;font-size:clamp(28px,2.6vw,40px);letter-spacing:-.03em;line-height:1;align-self:center;color:var(--accent)}
+.ii-g{display:grid;gap:8px}
+.ii-h{font:500 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3)}
+.ii-h b{color:var(--accent);font-weight:500}
+.ii-row{display:flex;flex-wrap:wrap;gap:4px;max-width:330px}
+.ii-s{position:relative;display:grid;place-items:center;width:50px;height:50px;border-radius:10px;border:1px solid var(--hair);color:var(--fg-2);transition:all .2s}
+.ii-s .pic{width:30px;height:30px}
+.ii-s span{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;font-size:12px;background:var(--bg-3);color:var(--fg);padding:4px 8px;border-radius:6px;opacity:0;pointer-events:none;transition:opacity .15s}
+.ii-s:hover{color:var(--accent);border-color:var(--accent)}
+.ii-s:hover span{opacity:1}
+@media (max-width:900px){.ii{grid-template-columns:1fr 1fr}.ii-total{grid-column:1/-1}}
+.ii-row{max-width:none;flex-wrap:nowrap}.ii{grid-template-columns:auto auto auto auto auto;justify-content:space-between}.ii-s{width:46px;height:46px}

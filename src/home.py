@@ -103,12 +103,23 @@ GLANCE = [("sports", "18 Sports", "Diverse physical competition tasks."),
           ("control", "Direct Body Control", "Agents control the embodied system through low-level interfaces.")]
 
 
-def page2(site: Site, clips: dict) -> str:
+def intro_icons(site: Site) -> str:
+    """Variant of the intro's sport strip: the 18 sport pictograms, grouped by the four formats."""
+    groups = []
+    for f in site.cfg["formats"]:
+        ss = [site.sport_by_id[x] for x in f["sports"] if x in site.sport_by_id]
+        ics = "".join(f'<a class="ii-s" href="{site.sport_url(s)}" title="{E(s["name"])}">{icon(s["id"])}<span>{E(s["name"])}</span></a>' for s in ss)
+        groups.append(f'<div class="ii-g"><span class="ii-h">{E(f["name"])} <b>{len(ss)}</b></span><div class="ii-row">{ics}</div></div>')
+    return f'<div class="wrap ii"><span class="ii-total">{len(site.sports)} sports</span>{"".join(groups)}</div>'
+
+
+def page2(site: Site, clips: dict, intro: str = "strip") -> str:
     """Screen 2: what Embodied Olympics is, a thin strip of all 18 sports, and the benchmark at a glance."""
     c = site.cfg
     mods = "".join(f'<li class="gl-m" data-inview><svg class="gl-ic" viewBox="0 0 24 24" aria-hidden="true">{GLANCE_IC[k]}</svg>'
                    f'<strong>{E(t)}</strong><span>{E(l)}</span></li>' for k, t, l in GLANCE)
-    strip = reel(site, clips).replace('class="reel"', 'class="reel reel--plain reel--thin"', 1)
+    strip = (intro_icons(site) if intro == "icons"
+             else reel(site, clips).replace('class="reel"', 'class="reel reel--plain reel--thin"', 1))
     return f"""
 <section class="pg pg2" id="about">
   <div class="wrap pg2-def">
@@ -487,19 +498,21 @@ def _stepper(names: list, static: bool = False) -> str:
             + "".join(f'<li data-st="{keys[i]}"><b>{i + 1:02d}</b><strong>{n}</strong></li>' for i, n in enumerate(names)) + "</ol>")
 
 
-def tournament(site: Site, head: bool = True) -> str:
+def tournament(site: Site, head: bool = True, home: bool = False) -> str:
     """The four formats of the edition (research page, section 03), one panel each, chosen with the buttons below.
     Head-to-head (12 sports): round robin -> semifinals -> final + bronze. Drone: time trials -> heats -> final.
     Full-size racing: 3 races, F1 points. Solo (4 sports): 3 runs, ranked by the mean. Cells never show invented results."""
     ms = site.models
     pairs = [(i, j) for i in range(len(ms)) for j in range(i + 1, len(ms))]
     order = {p: k for k, p in enumerate(sorted(pairs, key=lambda p: ((p[1] - p[0]) % 3, p)))}
-    hdr = "".join(f'<span class="tm-h" title="{E(model_name(m))}" style="--c:{E(m["colour"])}">{model_logo(site, m)}</span>' for m in ms)
+    seat = (lambda k, m: f'<span class="tm-h tm-h--n">{"ABCDEFGH"[k]}</span>') if home else \
+        (lambda k, m: f'<span class="tm-h" title="{E(model_name(m))}" style="--c:{E(m["colour"])}">{model_logo(site, m)}</span>')
+    hdr = "".join(seat(k, m) for k, m in enumerate(ms))
     rows = ""
     for i, mi in enumerate(ms):
         cells = "".join('<i class="tm-x"></i>' if i == j else f'<i class="tm-c" style="--k:{order[(min(i, j), max(i, j))]}"></i>'
                         for j in range(len(ms)))
-        rows += f'<span class="tm-h" title="{E(model_name(mi))}" style="--c:{E(mi["colour"])}">{model_logo(site, mi)}</span>{cells}'
+        rows += seat(i, mi) + cells
     tag = lambda m: f'<span class="tm-h tm-h--s" style="--c:{E(m["colour"])}">{model_logo(site, m)}</span>'  # noqa: E731
 
     h2h = f"""<div class="tm-pan" data-fmt-panel="h2h">
@@ -585,10 +598,44 @@ def tournament(site: Site, head: bool = True) -> str:
                   f'<span class="tm-o-ic">{"".join(icon(s) for s in ids)}</span><strong>{n}</strong><span>{d}</span></button>'
                   for k, ids, n, d in btns)
     title = '<header class="sec-head"><h2>How medals<br>are won.</h2></header>' if head else ""
+    if home:
+        return _medal_forms_home(h2h, solo)
     return f"""<div class="tm" data-tm data-fmt="h2h">
   {title}
   <div class="tm-card">{h2h}{drone}{racing}{solo}</div>
   <div class="tm-others" role="tablist" aria-label="Formats">{oth}</div>
+</div>"""
+
+
+def _medal_forms_home(h2h: str, solo: str) -> str:
+    """Home version of the format chart: three forms, Solo first. Racing shows drone and full-size racing as two lanes."""
+    def lane(sid, name, steps, rule):
+        chips = []
+        for k, s in enumerate(steps):
+            last = k == len(steps) - 1
+            chips.append(f'<li class="mf-step{" mf-step--m" if last else ""}" style="--k:{k}">{E(s)}</li>')
+            if not last:
+                chips.append(f'<li class="mf-arr" aria-hidden="true" style="--k:{k}">→</li>')
+        return (f'<div class="tm-lane"><span class="tm-lane-h">{icon(sid)}{E(name)}</span><ol class="mf-flow">{"".join(chips)}</ol>'
+                f'<p class="tm-lane-r">{E(rule)}</p></div>')
+    race = f"""<div class="tm-pan" data-fmt-panel="race" hidden>
+    {_stepper(["Qualify", "Race", "Medals"], static=True)}
+    <div class="tm-lanes">
+      {lane("drone", "Drone racing", ["Time trial", "2 heats of 3", "Final of 4", "Medals"], "Fastest of 3 solo laps sets the seeding · top 2 of each heat reach the final")}
+      {lane("racing", "Full-size racing", ["Race 1", "Race 2", "Race 3", "F1 points", "Medals"], "All cars on one track · 25-18-15-12-10-8 points, summed over the three races")}
+    </div>
+  </div>"""
+    h2h = h2h.replace('data-fmt-panel="h2h">', 'data-fmt-panel="h2h" hidden>', 1)
+    solo = solo.replace('data-fmt-panel="solo" hidden>', 'data-fmt-panel="solo">', 1)
+    btns = [("solo", ["sprint", "hurdles", "javelin", "stuntcar"], "Solo events", "4 sports · 3 runs, averaged"),
+            ("h2h", ["badminton", "tennis", "soccer_hsl", "basketball"], "Team events", "12 duels and team duels · round robin, knockout"),
+            ("race", ["drone", "racing"], "Racing", "Drone and full-size racing")]
+    oth = "".join(f'<button type="button" class="tm-o{" is-on" if k == "solo" else ""}" data-fmt="{k}" aria-pressed="{str(k == "solo").lower()}">'
+                  f'<span class="tm-o-ic">{"".join(icon(s) for s in ids)}</span><strong>{n}</strong><span>{d}</span></button>'
+                  for k, ids, n, d in btns)
+    return f"""<div class="tm tm--home" data-tm data-fmt="solo">
+  <div class="tm-others" role="tablist" aria-label="Formats">{oth}</div>
+  <div class="tm-card">{solo}{h2h}{race}<span class="note tm-sch">Schematic · seats A–F</span></div>
 </div>"""
 
 
@@ -646,20 +693,46 @@ MEDAL_FLOWS = [  # id, name, sports, steps, one line
 ]
 
 
+def medal_table_home(site: Site) -> str:
+    """The Olympics Championship medal table as the GPT design chat specifies: Rank · AI agent · Gold · Silver · Bronze,
+    ranked by golds, then silvers, then bronzes; dashes until release (layout.model_name drops TODO notes)."""
+    rows = {r["model"]: r for r in site.results.get("medal_table", [])}
+    released = any(r.get("gold") is not None for r in rows.values())
+    models = list(site.models)
+    if released:
+        models.sort(key=lambda m: tuple(-(rows.get(m["name"], {}).get(k) or 0) for k in ("gold", "silver", "bronze")))
+    cell = lambda v: "—" if v is None else E(str(v))  # noqa: E731
+    body = "".join(
+        f'<tr><td class="mt-rank">{k + 1 if released else "—"}</td>'
+        f'<td><span class="mt-model"><i class="flag" style="--c:{E(m["colour"])}"></i>{model_logo(site, m)}<strong>{E(model_name(m))}</strong></span></td>'
+        + "".join(f'<td class="mt-n">{cell(rows.get(m["name"], {}).get(c))}</td>' for c in ("gold", "silver", "bronze")) + "</tr>"
+        for k, m in enumerate(models))
+    head = "".join(f"<th>{h}</th>" for h in ["Rank", "AI agent", '<i class="medal medal--g"></i>Gold',
+                                           '<i class="medal medal--s"></i>Silver', '<i class="medal medal--b"></i>Bronze'])
+    return f'<div class="mt-wrap"><table class="mt mt--home{"" if released else " is-empty"}"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
+
+
 def results_medals(site: Site) -> str:
-    """01 Championship: how medals are won (the format chart), then the medal table and the Open Arena."""
+    """01 Championship. Screen 1: what the Olympics Championship is (the official medal standings; the Open Arena is a
+    separate board) and how medals are won (three forms). Screen 2: the medal table, the Open Arena entry, all results."""
     lb = site.url("leaderboard/")
     return f"""
 <section class="chap pg pgr2" data-inview id="championship" data-snav="Championship">
   <div class="wrap">
-    <header class="ch-head ch-head--k"><span class="ch-n">01<i>/04</i></span><span class="kicker ch-k">Championship</span><h2>A persistent competition.</h2></header>
+    <header class="ch-head ch-head--k"><span class="ch-n">01<i>/04</i></span><span class="kicker ch-k">Championship</span><h2>A persistent competition.</h2>
+      <p class="ch-lede">The Olympics Championship is the official medal standings. The Open Arena is a separate, always-open leaderboard and never counts toward medals.</p></header>
     <h3 class="rm-h">How medals are won</h3>
-    {tournament(site, head=False)}
-    <div class="rm-cards">
-      <a class="rm-card" href="{lb}#medals"><span class="tag tag--pending">Provisional</span><strong>Medal table</strong>
-        <em>Fills in at release.</em><span class="rm-more">By sport <b class="arr">→</b></span></a>
-      <a class="rm-card" href="{lb}#arena"><span class="kicker">Always open</span><strong>Open Arena</strong>
-        <em>New agents can enter at any time.</em><span class="rm-more">Replays <b class="arr">→</b></span></a>
+    {tournament(site, head=False, home=True)}
+  </div>
+</section>
+<section class="pg pgmt" data-inview id="medal-table">
+  <div class="wrap">
+    <div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">Provisional — fills in at release</span>
+      <span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>
+    <div class="mt-home">{medal_table_home(site)}</div>
+    <div class="mt-links">
+      <a class="rm-card rm-card--s" href="{lb}#arena"><span class="kicker">Always open</span><strong>Open Arena</strong><em>A separate leaderboard, per sport.</em><span class="rm-more"><b class="arr">→</b></span></a>
+      <a class="link mt-all" href="{lb}">Explore all results <span class="arr">→</span></a>
     </div>
   </div>
 </section>"""
@@ -668,11 +741,11 @@ def results_medals(site: Site) -> str:
 # ---------------------------------------------------------------- page
 
 
-def home(site: Site, measure_variant: str = "a"):
+def home(site: Site, measure_variant: str = "a", nav: str = "top", intro: str = "strip"):
     clips = clip_index(site)
-    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips)
+    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips, intro)
             + results_medals(site) + physloop(site)
             + measure(site, clips, measure_variant) + match_screen() + season_screen()
-            + '<nav class="snav" aria-label="Sections" data-snav-bar></nav>'
+            + f'<nav class="snav{" snav--left" if nav == "left" else ""}" aria-label="Sections" data-snav-bar></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')
     return "", page(site, path="", title=None, body=body, dark_top=True)
