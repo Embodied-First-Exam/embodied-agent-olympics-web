@@ -1403,3 +1403,28 @@
 .sw-tip:hover::after,.sw-tip:focus-visible::after{opacity:1;transform:none}
 .pgs .sw-carry-lab{color:var(--fg-2)}
 .sw-chain{color:var(--fg)!important;font-weight:500}.sw-chain b{color:var(--fg-2);font-weight:400;margin-left:4px}
+
+/* ================= round 17: results right after the intro */
+.pgl .ch-head{grid-template-columns:auto 1fr;margin-bottom:clamp(8px,1.6vh,18px)}
+.pgl .ch-head h2{font-size:clamp(34px,4.4vw,68px)}
+.pgl .ch-head .pl-lede{grid-column:2;margin-top:10px}
+.pgr2{padding:calc(var(--top) + 14px) 0 24px}
+.rm-head{display:flex;align-items:baseline;gap:16px;margin-bottom:clamp(10px,1.8vh,18px)}
+.rm-head h3{font-weight:600;font-size:clamp(28px,3vw,44px);letter-spacing:-.03em;line-height:1}
+.rm-sub{font-size:15px;color:var(--fg-3)}
+.pgr2 .tm{margin-top:0}
+.pgr2 .tm-card{padding:clamp(14px,1.8vw,24px)}
+.pgr2 .tm-others{margin-top:10px}
+.rm-row{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:10px;margin-top:clamp(10px,1.8vh,18px)}
+.rm-table{min-height:0!important;flex-direction:column;align-items:flex-start;justify-content:center;gap:6px;padding:14px 20px}
+.rm-table strong{margin-left:0!important;font-size:20px;color:var(--fg)!important}
+.rm-table em{font-style:normal;font-size:14px;color:var(--fg-3)}
+.pgr2 .rlink{padding:16px 46px 16px 18px}
+@media (max-width:900px){.rm-row{grid-template-columns:1fr}}
+.pgl .ch-head .pl-lede{max-width:860px}
+.pgr2{padding-top:calc(var(--top) + 8px);padding-bottom:16px}
+.pgr2 .tm-card{padding:clamp(12px,1.4vw,20px)}
+.pgr2 .tm-steps{margin-bottom:8px}
+.pgr2 .tm-rule{margin-top:6px}
+.pgr2 .rm-row{margin-top:10px}
+.pgr2 .rlink,.pgr2 .rm-table{padding-top:12px;padding-bottom:12px}
