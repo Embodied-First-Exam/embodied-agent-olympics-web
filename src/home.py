@@ -296,7 +296,7 @@ def measure(site: Site, clips: dict, variant: str = "a") -> str:
       <div class="ma-arrow ma-back"><span class="ma-line"><i class="flow-dot flow-dot--b"></i></span><span class="ma-lab">{E(back)}</span></div>
     </div>"""
     return f"""
-<section class="chap chap--m pg pg3 pg3--{variant}" data-inview id="measure" data-snav="Measure">
+<section class="chap chap--m pg pg3 pg3--{variant}" data-inview id="measure" data-snav="What we measure">
   <div class="wrap">
     {chap_head('03', 'What we measure.', 'We evaluate both the capabilities of the embodied system and the agent&rsquo;s ability to build and improve it.')}
     {body}
@@ -507,7 +507,7 @@ def match_timeline() -> str:
 
 def match_screen() -> str:
     return f"""
-<section class="chap pg pgm" data-inview id="lifecycle" data-snav="Lifecycle">
+<section class="chap pg pgm" data-inview id="lifecycle" data-snav="One match">
   <div class="wrap">
     <header class="ch-head lc-head"><span class="ch-n">04<i>/04</i></span><h2>Agent Lifecycle &amp; Learning</h2>
       <div class="lc-sub"><h3>One match</h3><p>Preparation, continuous competition, and event-triggered review.</p></div></header>
@@ -518,7 +518,7 @@ def match_screen() -> str:
 
 def season_screen() -> str:
     return f"""
-<section class="pg pgs" data-inview id="season">
+<section class="pg pgs" data-inview id="season" data-snav="One season">
   <div class="wrap">
     <header class="ch-head lc-head lc-head--s"><span class="ch-n"></span><div class="lc-sub"><h3>One season</h3>
       <p>Across a season, the agent keeps learning. What it builds and learns in one match carries into the next, and its saved versions are re-tested at checkpoints to measure its growth.</p></div></header>
@@ -758,7 +758,7 @@ def results_medals(site: Site) -> str:
     medal allocation (three forms), then one quiet line on the Open Arena."""
     lb = site.url("leaderboard/")
     return f"""
-<section class="chap pg pgr2" data-inview id="championship" data-snav="Championship">
+<section class="chap pg pgr2" data-inview id="championship" data-snav="Medal table">
   <div class="wrap">
     <header class="ch-head ch-head--k"><span class="ch-n">01<i>/04</i></span><h2>Embodied Olympics Championship</h2>
       <p class="ch-lede">Six AI agents compete across 18 sports in a season-long championship. Each agent carries its programs, weights, and experience forward, continuously improving from match to match.</p></header>
@@ -767,7 +767,7 @@ def results_medals(site: Site) -> str:
     <div class="mt-home">{medal_table_home(site)}</div>
   </div>
 </section>
-<section class="pg pgmt" data-inview id="medal-allocation">
+<section class="pg pgmt" data-inview id="medal-allocation" data-snav="Competition format">
   <div class="wrap">
     <h3 class="rm-h">Competition Format and Medal Allocation</h3>
     {tournament(site, head=False, home=True)}

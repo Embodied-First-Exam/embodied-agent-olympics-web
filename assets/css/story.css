@@ -1636,3 +1636,11 @@ a.doc-row:hover{background:var(--bg-2)}
 .pl-ws--a rect{stroke:var(--accent)}.pl-ws--a .pl-wsl{fill:var(--accent-ink)}
 .pl-ws--b rect{stroke:#6E9CF2}.pl-ws--b .pl-wsl{fill:#8FB2F5}
 .pl-arena>rect{stroke:var(--fg-3);stroke-width:1.4}
+/* round 35: a rail jump lands each screen exactly at the top; the screen's own padding clears the top bar */
+.pg{scroll-margin-top:0!important}
+@media (min-width:900px) and (max-width:1080px){
+  .pgmt .tm-body,.pgmt .tm-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .pgmt .tm-steps li:not(:first-child){display:flex}
+  .pgmt .tm-grid{grid-template-columns:repeat(calc(var(--n) + 1),28px)}.pgmt .tm-h,.pgmt .tm-c,.pgmt .tm-x{width:28px;height:28px}
+  .pgmt .tm-others{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
