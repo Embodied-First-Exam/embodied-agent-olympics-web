@@ -1338,3 +1338,14 @@
 .pl-svg{max-height:calc(100svh - 240px)}
 .pl-lede{max-width:760px;font-size:clamp(17px,1.4vw,20px);line-height:1.45;color:var(--fg-2);letter-spacing:-.005em}
 .pgl .pl-svg{max-height:calc(100svh - 290px)}
+/* round 10: workspace container, system box */
+.pl-ws rect{fill:none;stroke:var(--fg-3);stroke-width:1.2}
+.pl-wsl{font:500 11.5px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;fill:var(--fg-3)}
+.pl-sys rect{fill:var(--bg-2);stroke:var(--accent);stroke-width:1.5}
+.pl-bl{font:400 14.5px var(--f-sans);fill:var(--fg-2)}
+.pl-agent .pl-t--s{font-size:18px}
+.pl-s--xs{font-size:12.5px;fill:var(--fg-3)}
+/* round 10b: the outer box is the system; inner boxes neutral */
+.pl-ws rect{stroke:var(--accent);stroke-width:1.5}
+.pl-wsl{fill:var(--accent-ink);font-size:12px}
+.pl-sys rect{fill:var(--bg-2);stroke:var(--hair);stroke-width:1}
