@@ -124,9 +124,9 @@ MARK = (
 )
 
 def brand_mark(site: "Site") -> str:
-    """Chi's 01 Arena mark, always silver: the light silver on the dark bar, a darker silver in the light theme."""
+    """Chi's 01 Arena mark: silver on the dark bar (dark theme), the black ink version in the light theme (CSS swaps them)."""
     return (f'<img class="mark mark--light" src="{site.asset("brand/mark-light.png")}" alt="" width="50" height="22">'
-            f'<img class="mark mark--ink" src="{site.asset("brand/mark-silver-dark.png")}" alt="" width="50" height="22">')
+            f'<img class="mark mark--ink" src="{site.asset("brand/mark-ink.png")}" alt="" width="50" height="22">')
 
 
 THEME_ICONS = (
