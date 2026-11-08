@@ -741,7 +741,7 @@ def results_medals(site: Site) -> str:
 # ---------------------------------------------------------------- page
 
 
-def home(site: Site, measure_variant: str = "a", nav: str = "top", intro: str = "strip"):
+def home(site: Site, measure_variant: str = "a", nav: str = "left", intro: str = "strip"):
     clips = clip_index(site)
     body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips, intro)
             + results_medals(site) + physloop(site)

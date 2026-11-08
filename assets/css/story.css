@@ -1525,3 +1525,11 @@ a.doc-row:hover{background:var(--bg-2)}
 .ii-s:hover span{opacity:1}
 @media (max-width:900px){.ii{grid-template-columns:1fr 1fr}.ii-total{grid-column:1/-1}}
 .ii-row{max-width:none;flex-wrap:nowrap}.ii{grid-template-columns:auto auto auto auto auto;justify-content:space-between}.ii-s{width:46px;height:46px}
+
+/* ================= round 21: the left rail is the chapter nav on wide screens; chapter screens keep a column free for it */
+@media (min-width:1280px){
+  .snav--left{left:clamp(12px,calc((100vw - var(--wrap)) / 2 - 140px),60px)}
+  .snav--left a{font-size:12px;padding:5px 8px 5px 16px}
+  .pgr2 .wrap,.pgmt .wrap,.pgl .wrap,.pg3 .wrap,.pgm .wrap,.pgs .wrap{
+    padding-left:max(var(--gut),calc(156px - max(0px,(100vw - var(--wrap)) / 2)))}
+}
