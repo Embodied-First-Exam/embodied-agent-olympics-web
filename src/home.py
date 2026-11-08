@@ -5,6 +5,7 @@ import json
 import re
 
 from layout import E, Site, icon, ink_on, model_logo, model_name, page
+import medals
 
 # ---------------------------------------------------------------- helpers
 
@@ -746,7 +747,7 @@ def medal_table_home(site: Site) -> str:
         models.sort(key=lambda m: tuple(-(rows.get(m["name"], {}).get(k) or 0) for k in ("gold", "silver", "bronze")))
     cell = lambda v: "—" if v is None else E(str(v))  # noqa: E731
     body = "".join(
-        f'<tr><td class="mt-rank">{k + 1 if released else "—"}</td>'
+        f'<tr><td class="mt-rank">{medals.rank_of(site, m["name"], k + 1) if released else "—"}</td>'
         f'<td><span class="mt-model"><i class="flag" style="--c:{E(m["colour"])}"></i>{model_logo(site, m)}<span class="mt-who"><strong>{E(model_name(m))}</strong>'
         f'<small>{E(m.get("harness", ""))} · {E(m.get("effort", ""))} effort</small></span></span></td>'
         + "".join(f'<td class="mt-n">{cell(rows.get(m["name"], {}).get(c))}</td>' for c in ("gold", "silver", "bronze")) + "</tr>"
@@ -765,9 +766,9 @@ def results_medals(site: Site) -> str:
   <div class="wrap">
     <header class="ch-head ch-head--k"><span class="ch-n">01<i>/04</i></span><h2>Embodied Olympics Championship</h2>
       <p class="ch-lede">Six AI agents compete across 18 sports in a season-long championship. Each agent carries its programs, weights, and experience forward, <a class="jl" href="#season" data-jl>continuously improving from match to match</a>.</p></header>
-    <div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">Provisional — fills in at release</span>
+    <div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">{E(medals.status_line(site, "Provisional — fills in at release"))}</span>
       <span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>
-    <div class="mt-home">{medal_table_home(site)}</div>
+    <div class="mt-home">{medal_table_home(site)}</div>{medals.flag_foot(site)}
   </div>
 </section>
 <section class="pg pgmt" data-inview id="medal-allocation" data-snav="Competition format">

@@ -6,6 +6,7 @@ import json
 import re
 
 import home as story
+import medals
 from layout import E, Site, icon, model_logo, model_name, page, slug, todo
 
 CATEGORIES = ["Team ball", "Racket", "Precision", "Athletics", "Speed"]
@@ -191,13 +192,14 @@ def results(site: Site):
     tags = site.cfg.get("sport_tags", {})
     for f in site.cfg["formats"]:  # grouped by format, as on the home page
         rows = "".join(
-            f'<tr><td><a class="bs-sport" href="{site.sport_url(s)}">{icon(s["id"])}{E(s["name"])}</a></td><td>{E((tags.get(s["id"]) or [""])[0])}</td>'
-            + "".join(f'<td>{E(model_name(by.get(s["id"], {})[k])) if by.get(s["id"], {}).get(k) else "—"}</td>' for k in ("gold", "silver", "bronze"))
+            f'<tr><td><a class="bs-sport" href="{site.sport_url(s)}">{icon(s["id"])}{E(s["name"])}</a>{medals.dagger(site, s["id"])}</td><td>{E((tags.get(s["id"]) or [""])[0])}</td>'
+            + medals.podium_cells(site, s["id"])
             + "</tr>" for s in (site.sport_by_id[x] for x in f["sports"] if x in site.sport_by_id) if s.get("medals"))
         if rows:
             groups.append(f'<tbody><tr class="bs-cat"><th colspan="5">{E(f["name"])}</th></tr>{rows}</tbody>')
     by_sport = ('<table class="bs"><thead><tr><th>Sport</th><th>Body</th><th><i class="medal medal--g"></i>Gold</th>'
-                f'<th><i class="medal medal--s"></i>Silver</th><th><i class="medal medal--b"></i>Bronze</th></tr></thead>{"".join(groups)}</table>')
+                f'<th><i class="medal medal--s"></i>Silver</th><th><i class="medal medal--b"></i>Bronze</th></tr></thead>{"".join(groups)}</table>'
+                + medals.flag_foot(site, full=True))
     oa = site.results.get("open_arena")
     oa = oa if isinstance(oa, dict) else {}
     boards = "".join(
@@ -216,13 +218,13 @@ def results(site: Site):
     tabs = [("medals", "Olympics Championship"), ("by-sport", "By sport"), ("arena", "Open Arena"), ("replays", "Replays"), ("models", "Models")]
     tab_btns = "".join(f'<button role="tab" class="tab{" is-on" if k == 0 else ""}" data-tab="{t}">{l}</button>' for k, (t, l) in enumerate(tabs))
     body = phead("Leaderboard.", "The Olympics Championship medal table, the Open Arena boards and the replays.",
-                 '<div class="phead-row" style="margin-top:28px"><span class="tag tag--pending">Results at release</span></div>')
+                 f'<div class="phead-row" style="margin-top:28px"><span class="tag tag--pending">{E(medals.status_line(site, "Results at release"))}</span></div>')
     body += f'<section class="band rs-fmt" id="formats" style="padding-top:0"><div class="wrap">{story.tournament(site, home=True)}</div></section>'
     body += f"""<section class="band band--line rs-tables" id="tables"><div class="wrap">
   <div class="sec-h"><h2 class="h2">Boards.</h2></div>
   <div class="tabs" role="tablist" style="margin-top:0">{tab_btns}</div>
   <div class="rs-panels">
-  <div class="panel is-on" data-panel="medals"><p class="rp-note">The official medal standings. Ranked by golds, then silvers, then bronzes. Provisional — fills in at release.</p>{story.medal_table_home(site)}</div>
+  <div class="panel is-on" data-panel="medals"><p class="rp-note">The official medal standings. Ranked by golds, then silvers, then bronzes. {E(medals.status_line(site, "Provisional — fills in at release."))}</p>{story.medal_table_home(site)}{medals.flag_foot(site)}</div>
   <div class="panel" data-panel="by-sport">{by_sport}</div>
   <div class="panel" data-panel="arena"><p class="rp-note">An always-open leaderboard, separate from the medal table. New agents can enter at any time; every duel starts from an empty workspace. Top three per sport. Drone racing, full-size racing and Humanoid Soccer · Team run in the Championship only.</p><div class="oagrid">{boards}</div></div>
   <div class="panel" data-panel="replays">{replays}</div>

@@ -313,3 +313,8 @@ a:hover .arr{transform:translateX(4px)}
   -webkit-mask-image:linear-gradient(#000 40%,transparent);mask-image:linear-gradient(#000 40%,transparent)}
 :root[data-theme="light"] .btn--light{background:var(--fg);color:var(--bg)}
 :root[data-theme="light"] .stagebg .btn--light,:root[data-theme="light"] .shero .btn--light{background:#fff;color:#0F141A}
+/* medal table filled from the official run (medals_sync.py): in-progress sports, dagger notes */
+.bs-wait{color:var(--fg-3);font-style:italic}
+.mt-dag{color:var(--accent-ink);font-size:.72em;margin-left:4px;line-height:0}
+.mt-flags{font-size:13px;color:var(--fg-3);margin-top:12px;max-width:900px;line-height:1.5}
+.mt-flags ul{margin:6px 0 0;padding-left:18px}.mt-flags b{color:var(--fg-2);font-weight:600}
