@@ -124,3 +124,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+/* how medals are won (home): a format tab shows its flow */
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.querySelector("[data-mf]"); if (!root) return;
+  const tabs = [...root.querySelectorAll("[data-mf-tab]")], pans = [...root.querySelectorAll("[data-mf-pan]")];
+  tabs.forEach((b) => b.addEventListener("click", () => {
+    tabs.forEach((x) => { x.classList.toggle("is-on", x === b); x.setAttribute("aria-pressed", x === b); });
+    pans.forEach((p) => { p.hidden = p.dataset.mfPan !== b.dataset.mfTab; });
+  }));
+});
