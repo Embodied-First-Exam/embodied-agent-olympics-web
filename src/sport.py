@@ -55,9 +55,13 @@ def _m(site: Site, name: str) -> dict:
     return next((m for m in site.models if m["name"] == name), {"name": name, "colour": "#888", "harness": "", "effort": ""})
 
 
-def who(site: Site, name: str, cls: str = "", sub: bool = False) -> str:
+def who(site: Site, name: str, cls: str = "", sub: bool = False, note: str = "") -> str:
+    if not name:
+        return '<span class="sp-who is-tbd"><span class="sp-who-t"><strong>To be decided</strong></span></span>'
     m = _m(site, name)
     s = f'<small>{E(m.get("harness", ""))} · {E(m.get("effort", ""))} effort</small>' if sub else ""
+    if note:
+        s += f'<small class="seats">{E(note)}</small>'
     return (f'<span class="sp-who {cls}"><i class="flag" style="--c:{E(m["colour"])}"></i>{model_logo(site, m)}'
             f'<span class="sp-who-t"><strong><span class="nm-f">{E(model_name(m))}</span><span class="nm-s">{E(SHORT.get(m["name"], model_name(m)))}</span></strong>{s}</span></span>')
 
@@ -94,27 +98,35 @@ def score_of(m: dict, model: str):
     return next((s["score"] for s in m["sides"] if s["model"] == model), None)
 
 
+def seat_note(side: dict) -> str:
+    """Team duel with one agent per robot: '3 agents · A1 A2 A3'."""
+    s = side.get("seats")
+    return f'{len(s)} agents · {" ".join(s)}' if s else ""
+
+
 def card_match(site: Site, m: dict, title: str) -> str:
     """One knockout match as a small score card: two rows, winner bright, the replay slot under it."""
+    pend = m.get("status") == "pending"
     rows = "".join(
-        f'<div class="kc-r{" is-w" if s["model"] == m["winner"] else ""}">{who(site, s["model"])}'
+        f'<div class="kc-r{" is-w" if s["model"] == m["winner"] or pend else ""}">{who(site, s["model"], note=seat_note(s))}'
         f'<b class="kc-s">{E(str(s["score"])) if s["score"] is not None else "–"}</b></div>' for s in m["sides"])
     note = f'<p class="kc-note">{E(m["note"])}</p>' if m.get("note") else ""
     return (f'<article class="kc"><header><span class="kicker">{E(title)}</span><span class="mx-id">{E(m["id"])}</span></header>'
-            f'{rows}{note}<footer>{replay(site, m.get("replay"))}</footer></article>')
+            f'{rows}{note}<footer>{"" if pend else replay(site, m.get("replay"))}</footer></article>')
 
 
 def row_match(site: Site, m: dict, tag: str = "") -> str:
     """One match as a list row: tag, side A, score, side B, note, replay."""
     a, b = (m["sides"] + [{"model": "", "score": None}] * 2)[:2]
     sa, sb = ("–" if a["score"] is None else a["score"]), ("–" if b["score"] is None else b["score"])
-    wa, wb = a["model"] == m["winner"], b["model"] == m["winner"]
-    return (f'<li class="mx"><span class="mx-tag">{E(tag)}</span>'
-            f'<span class="mx-a{" is-w" if wa else ""}">{who(site, a["model"])}</span>'
+    pend = m.get("status") == "pending"
+    wa, wb = (a["model"] == m["winner"] or pend), (b["model"] == m["winner"] or pend)
+    return (f'<li class="mx{" is-pend" if pend else ""}"><span class="mx-tag">{E(tag)}</span>'
+            f'<span class="mx-a{" is-w" if wa else ""}">{who(site, a["model"], note=seat_note(a))}</span>'
             f'<span class="mx-sc"><b{" class=is-w" if wa else ""}>{E(str(sa))}</b><i>:</i><b{" class=is-w" if wb else ""}>{E(str(sb))}</b></span>'
-            f'<span class="mx-b{" is-w" if wb else ""}">{who(site, b["model"])}</span>'
+            f'<span class="mx-b{" is-w" if wb else ""}">{who(site, b["model"], note=seat_note(b))}</span>'
             f'<span class="mx-n">{E(m.get("note") or "")}</span><span class="mx-id">{E(m["id"])}</span>'
-            f'<span class="mx-r">{replay(site, m.get("replay"), compact=True)}</span></li>')
+            f'<span class="mx-r">{"" if pend else replay(site, m.get("replay"), compact=True)}</span></li>')
 
 
 def standings(site: Site, rows: list, qualify: int = 0) -> str:
@@ -137,6 +149,10 @@ def overview(site: Site, s: dict, d: dict) -> str:
     team = (s.get("team") or "").split(";")[0]
     if (d.get("championship") or {}).get("trial"):  # race with a time trial: the stages are the format
         team = "time trial, heats, final"
+    elif (d.get("championship") or {}).get("series") is not None:
+        team = "series of six-car races"
+    elif d.get("format") == "solo":
+        team = "three-match series"
     facts = [("Body", short_body(s)), ("Format", f'{fmt.get("name", "")} · {team}' if team else fmt.get("name")),
              ("Observation", sees), ("Action", action), ("Control", hz), ("Training", GPU_KIT.get(s["id"]))]
     spec = "".join(f'<div><dt class="kicker">{k}</dt><dd>{E(v) if v else "At release"}</dd></div>' for k, v in facts)
@@ -175,7 +191,8 @@ def head(n: str, title: str, lede: str = "", extra: str = "") -> str:
 def podium(site: Site, d: dict) -> str:
     p = d.get("podium") or {}
     if not any(p.values()):
-        return '<div class="sp-pod is-empty"><span class="tag tag--pending">Medals at release</span></div>'
+        txt = "Medals when the Championship ends" if d.get("status") == "in_progress" else "Medals at release"
+        return f'<div class="sp-pod is-empty"><span class="tag tag--pending">{txt}</span></div>'
     cells = "".join(
         f'<div class="sp-pd sp-pd--{k}"><span class="kicker"><i class="medal medal--{k[0]}"></i>{k}</span>{who(site, p[k], sub=True)}</div>'
         for k in ("gold", "silver", "bronze") if p.get(k))
@@ -189,6 +206,12 @@ def duel_champ(site: Site, ch: dict) -> str:
     for sid in ("final", "bronze", "semi_final"):
         for m in (st.get(sid) or {}).get("matches", []):
             ko.append(card_match(site, m, m.get("label") or sid))
+    if not ko and rr:
+        ko = [f'<article class="kc kc--tbd"><header><span class="kicker">{n}</span></header><p class="kc-note kc-wait">{w}</p></article>'
+              for n, w in (("Final", "After the semifinals"), ("Bronze match", "After the semifinals"),
+                           ("Semifinal 1", "1st v 4th of the round robin"), ("Semifinal 2", "2nd v 3rd of the round robin"))]
+    played = sum(1 for m in (rr or {}).get("matches", []) if m.get("status") != "pending")
+    total = len((rr or {}).get("matches", []))
     rr_list = ""
     if rr:
         by_round = {}
@@ -198,10 +221,10 @@ def duel_champ(site: Site, ch: dict) -> str:
     return f"""
 <div class="cr-grid">
   <div class="cr-ko"><h3 class="cr-h">Playoffs</h3><div class="kc-grid">{"".join(ko)}</div></div>
-  <div class="cr-rr"><h3 class="cr-h">Round robin <span>top four to the semifinals</span></h3>{standings(site, rr["standings"], 4) if rr else ""}
+  <div class="cr-rr"><h3 class="cr-h">Round robin <span>{"top four to the semifinals" if played == total else f"{played} of {total} played · top four to the semifinals"}</span></h3>{standings(site, rr["standings"], 4) if rr else ""}
     <p class="cr-rule">{E(rr["rule"]) if rr else ""}</p></div>
 </div>
-<details class="cr-all"><summary>All {len(rr["matches"]) if rr else 0} round-robin matches <span class="arr">↓</span></summary><ol class="mxl">{rr_list}</ol></details>"""
+<details class="cr-all"><summary>All {total} round-robin matches{f" · {played} played" if played < total else ""} <span class="arr">↓</span></summary><ol class="mxl">{rr_list}</ol></details>"""
 
 
 def race_champ(site: Site, ch: dict) -> str:
@@ -234,6 +257,45 @@ def race_champ(site: Site, ch: dict) -> str:
 </details>"""
 
 
+def solo_champ(site: Site, ch: dict) -> str:
+    u = ch.get("unit") or ""
+    fmtv = (lambda v: f"{v:.2f}") if u in ("m/s", "m") else (lambda v: f"{v:.1f}")  # noqa: E731
+    body = []
+    for r in ch["rows"]:
+        vals = [m["value"] for m in r["matches"] if m["value"] is not None]
+        top = max(vals) if vals else None
+        cells = "".join(
+            (f'<td class="st-n tt{" is-best" if m["value"] == top else ""}">{fmtv(m["value"])}{replay(site, m.get("replay"), compact=True)}</td>'
+             if m["value"] is not None else '<td class="st-n tt is-pend">Pending</td>') for m in r["matches"])
+        body.append(f'<tr><td class="st-r">{r["rank"]}</td><td>{who(site, r["model"])}</td>{cells}'
+                    f'<td class="st-n st-p">{fmtv(r["mean"]) if r["mean"] is not None else "–"}</td></tr>')
+    how = "Mean" if ch.get("rank_by") == "mean" else "Best"
+    return f"""
+<div class="cr-solo"><h3 class="cr-h">Three-match series <span>ranked by the {E(ch.get("rank_by") or "")} · {E(u)}</span></h3>
+  <table class="st st--tt st--solo"><thead><tr><th>#</th><th>AI agent</th><th>Match 1</th><th>Match 2</th><th>Match 3</th><th>{how} ({E(u)})</th></tr></thead>
+  <tbody>{"".join(body)}</tbody></table>
+  <p class="cr-rule">{E(ch.get("scoring") or "")}</p></div>"""
+
+
+def points_race_champ(site: Site, ch: dict) -> str:
+    races = ch.get("series") or []
+    hd = "".join(f'<th>Race {r["race"]}<span class="th-rp">{replay(site, r.get("replay"), compact=True) if not r["pending"] else "Pending"}</span></th>' for r in races)
+    body = []
+    for row in ch["rows"]:
+        n = row["model"]
+        cells = "".join(
+            ('<td class="st-n is-pend">–</td>' if r["pending"] else
+             f'<td class="st-n"><b class="pl pl-{r["ranks"].get(n)}">{r["ranks"].get(n, "–")}</b><small>{E(str(r["points"].get(n, "")))} pts</small></td>')
+            for r in races)
+        body.append(f'<tr><td class="st-r">{row["rank"]}</td><td>{who(site, n)}</td>{cells}<td class="st-n st-p">{row["points"]:g}</td></tr>')
+    pend = [r for r in races if r["pending"]]
+    note = (f' Race {pend[0]["race"]} is being re-run; the table and the medals settle when it lands.' if pend else "")
+    return f"""
+<div class="cr-solo"><h3 class="cr-h">Series of races <span>{"standings after " + str(len(races) - len(pend)) + " of " + str(len(races)) if pend else "final standings"}</span></h3>
+  <table class="st st--race"><thead><tr><th>#</th><th>AI agent</th>{hd}<th>Points</th></tr></thead><tbody>{"".join(body)}</tbody></table>
+  <p class="cr-rule">{E(ch.get("scoring") or "")}{E(note)} Each cell: place, then points.</p></div>"""
+
+
 def arena(site: Site, oa: dict) -> str:
     rr = next(x for x in oa["stages"] if x["id"] == "round_robin")
     rows = "".join(row_match(site, m, f'#{k + 1}') for k, m in enumerate(rr["matches"]))
@@ -250,13 +312,21 @@ def records(site: Site, d: dict) -> str:
     ch, oa = d.get("championship") or {}, d.get("open_arena")
     if ch.get("races"):
         champ = race_champ(site, ch)
+    elif ch.get("series") is not None:
+        champ = points_race_champ(site, ch)
+    elif ch.get("rows") is not None and ch.get("unit") is not None:
+        champ = solo_champ(site, ch)
     elif ch.get("stages"):
         champ = duel_champ(site, ch)
     else:
         champ = '<p class="cr-rule">Records at release.</p>'
     status = "Final" if d.get("status") == "final" else "In progress"
     prov = " · provisional" if d.get("provisional") else ""
-    tabs = [("champ", "Olympics Championship", "Persistent · medals", champ)]
+    team_note = ""
+    if any(s.get("seats") for st in ch.get("stages", []) for m in st.get("matches", []) for s in m["sides"]):
+        team_note = '<p class="cr-rule cr-team">Each robot is its own agent: a side is three agents of the same model, one per seat.</p>'
+    champ_sub = "Persistent · medals" if d.get("format") != "solo" else "Persistent · 3-match series · medals"
+    tabs = [("champ", "Olympics Championship" if d.get("format") != "solo" else "Medal series", champ_sub, team_note + champ)]
     if oa:
         tabs.append(("arena", "Open Arena", "Fresh · always open", arena(site, oa)))
     btns = "".join(f'<button type="button" class="tab{" is-on" if k == 0 else ""}" data-sptab="{t}" role="tab">{l}<small>{E(sub)}</small></button>'
@@ -304,8 +374,8 @@ def capabilities(site: Site, s: dict, d: dict) -> str:
                                  f'<span class="sk-at">{E(r.get("reading") or "")}{" · " if r.get("reading") else ""}{E(r["checkpoint"])}</span></li>')
             badge = '<em class="sk-v" title="Passes all three test checks">Validated test</em>' if sk.get("three_checks") else ""
             sec = '<em class="sk-2">Secondary</em>' if sk.get("secondary") else ""
-            det = "".join(f'<div><dt class="kicker">{k}</dt><dd>{E(v)}</dd></div>' for k, v in
-                          (("In the real sport", sk.get("real")), ("Test", sk.get("measure")), ("Pass line", sk.get("line"))) if v)
+            det = "".join(f'<div><dt class="kicker">{k}</dt><dd>{E(v) if v else "At release"}</dd></div>' for k, v in
+                          (("In the real sport", sk.get("real")), ("Test", sk.get("measure")), ("Pass line", sk.get("line"))))
             reads_html = (f'<ul class="sk-reads">{"".join(reads)}</ul>' if reads
                           else '<p class="sk-none">No model program tested on this skill yet.</p>')
             rows.append(f'<details class="sk"><summary><span class="sk-name">{E(sk["name"])}{badge}{sec}</span>'
@@ -320,7 +390,9 @@ def capabilities(site: Site, s: dict, d: dict) -> str:
         if rows:
             groups.append(f'<div class="sk-g"><h3 class="sk-gh">{gname}<span>{len(sks)} skill{"s" if len(sks) != 1 else ""}</span></h3>{"".join(rows)}</div>')
     legend = "".join(f'<span><b class="sk-c sk-c--{k}">{v[0]}</b>{v[1]}</span>' for k, v in mark.items())
-    how = ("Pass marks apply each test's stated line to the published readings." if cap.get("pass_marks") == "derived"
+    any_mark = any(r.get("status") in ("pass", "fail") for mm in res.values() for r in mm.values())
+    how = ("Pass marks at release." if not any_mark else
+           "Pass marks apply each test's stated line to the published readings." if cap.get("pass_marks") == "derived"
            else "Pass marks as published by the skill tests.")
     cov = (f"Programs tested: {', '.join(model_name(_m(site, m)) for m in tested)}." if tested and len(tested) < len(models)
            else "")
@@ -426,7 +498,11 @@ def growth(site: Site, d: dict) -> str:
     ck = (d.get("agents") or {}).get("checkpoint")
     if not ck:
         return '<div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3><p class="cr-rule">Curves at release.</p></div>'
-    lines = ck["lines"]
+    lines = {k: v for k, v in (ck.get("lines") or {}).items() if v}
+    if not lines:
+        cnt = ck.get("count") or {}
+        return ('<div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3>'
+                f'<p class="cr-rule">Curves at release: {cnt.get("ok", 0)} of {cnt.get("planned", 0)} replays done.</p></div>')
     vmax = max([p["mean"] for pts in lines.values() for p in pts] + [ck.get("ref") or 0])
     duel = ck.get("kind") == "duel"
     ymax = 0.5 if duel and vmax <= 0.5 else (1.0 if vmax <= 1.0 else round(vmax + 0.25, 1))

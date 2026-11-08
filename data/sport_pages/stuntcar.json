@@ -1,0 +1,1153 @@
+{
+ "schema": "eo-sportpage/1",
+ "sport": "stuntcar",
+ "key": "stuntcar",
+ "format": "solo",
+ "made": "2026-11-08T19:11Z",
+ "status": "final",
+ "provisional": true,
+ "podium": {
+  "gold": "GPT-6 Astra",
+  "silver": "Claude Opus 5.5",
+  "bronze": "Gemini 4 Argon"
+ },
+ "flag": null,
+ "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
+ "championship": {
+  "rule": "mean_round@1",
+  "final": true,
+  "unit": "pts",
+  "rank_by": "mean",
+  "rows": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra",
+    "mean": 169.61,
+    "best": 220.588,
+    "matches": [
+     {
+      "match": 1,
+      "id": "STUA-F0051",
+      "value": 144.523,
+      "replay": {
+       "kind": "full",
+       "seconds": 50.8,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STUA-F0051/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "STU2-F0052",
+      "value": 143.719,
+      "replay": {
+       "kind": "full",
+       "seconds": 51.8,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0052/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "STU2-F0053",
+      "value": 220.588,
+      "replay": {
+       "kind": "full",
+       "seconds": 53.8,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0053/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 2,
+    "model": "Claude Opus 5.5",
+    "mean": 132.541,
+    "best": 181.071,
+    "matches": [
+     {
+      "match": 1,
+      "id": "STUA-F0001",
+      "value": 73.591,
+      "replay": {
+       "kind": "full",
+       "seconds": 62.6,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STUA-F0001/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "STU2-F0002",
+      "value": 142.961,
+      "replay": {
+       "kind": "full",
+       "seconds": 61.9,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0002/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "STU2-F0003",
+      "value": 181.071,
+      "replay": {
+       "kind": "full",
+       "seconds": 57.2,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0003/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 3,
+    "model": "Gemini 4 Argon",
+    "mean": 114.309333333,
+    "best": 276.709,
+    "matches": [
+     {
+      "match": 1,
+      "id": "STU2-F0101",
+      "value": 66.219,
+      "replay": {
+       "kind": "full",
+       "seconds": 61.2,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0101/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "STU2-F0102",
+      "value": 0.0,
+      "replay": {
+       "kind": "full",
+       "seconds": 0.0,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0102/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "STU2-F0103",
+      "value": 276.709,
+      "replay": {
+       "kind": "full",
+       "seconds": 58.2,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0103/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 4,
+    "model": "Kimi 3.1 Pro",
+    "mean": 36.814333333,
+    "best": 45.238,
+    "matches": [
+     {
+      "match": 1,
+      "id": "STUA-F0251",
+      "value": 40.925,
+      "replay": {
+       "kind": "full",
+       "seconds": 49.9,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STUA-F0251/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "STU2-F0252",
+      "value": 45.238,
+      "replay": {
+       "kind": "full",
+       "seconds": 49.3,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0252/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "STU2-F0253",
+      "value": 24.28,
+      "replay": {
+       "kind": "full",
+       "seconds": 35.9,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0253/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 5,
+    "model": "DeepSeek V4.1 Flash",
+    "mean": 18.365333333,
+    "best": 27.05,
+    "matches": [
+     {
+      "match": 1,
+      "id": "STU2-F0211",
+      "value": 27.05,
+      "replay": {
+       "kind": "full",
+       "seconds": 40.8,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0211/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "STU2-F0212",
+      "value": 13.244,
+      "replay": {
+       "kind": "full",
+       "seconds": 38.0,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0212/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "STU2-F0213",
+      "value": 14.802,
+      "replay": {
+       "kind": "full",
+       "seconds": 37.4,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0213/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "mean": 3.904666667,
+    "best": 11.714,
+    "matches": [
+     {
+      "match": 1,
+      "id": "STUA-F0151",
+      "value": 0.0,
+      "replay": {
+       "kind": "full",
+       "seconds": 95.9,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STUA-F0151/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "STU2-F0152",
+      "value": 0.0,
+      "replay": {
+       "kind": "full",
+       "seconds": 25.7,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0152/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "STU2-F0153",
+      "value": 11.714,
+      "replay": {
+       "kind": "full",
+       "seconds": 22.0,
+       "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0153/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720"
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   }
+  ],
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra"
+   },
+   {
+    "rank": 2,
+    "model": "Claude Opus 5.5"
+   },
+   {
+    "rank": 3,
+    "model": "Gemini 4 Argon"
+   },
+   {
+    "rank": 4,
+    "model": "Kimi 3.1 Pro"
+   },
+   {
+    "rank": 5,
+    "model": "DeepSeek V4.1 Flash"
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash"
+   }
+  ],
+  "scoring": "Each match: the trick show's points (best two different tricks of three scored runs). Ranked by the mean of three matches; the workspace carries over between matches.",
+  "as_of": "2026-11-07T21:54:29Z",
+  "board": "rel-stuntcar-arena2"
+ },
+ "open_arena": null,
+ "agents": {
+  "per_model": {
+   "Claude Opus 5.5": {
+    "championship_place": "2 (Silver)",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 3,
+    "switches": 0,
+    "model_calls": 110,
+    "output_tokens": 91369,
+    "reviews": "12/12",
+    "gpu": null,
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 7
+   },
+   "GPT-6 Astra": {
+    "championship_place": "1 (Gold)",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 11,
+    "switches": 8,
+    "model_calls": 223,
+    "output_tokens": 134181,
+    "reviews": "12/12",
+    "gpu": null,
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 16
+   },
+   "Gemini 4 Argon": {
+    "championship_place": "3 (Bronze)",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 6,
+    "switches": 4,
+    "model_calls": 408,
+    "output_tokens": 319530,
+    "reviews": "6/8",
+    "gpu": null,
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 29
+   },
+   "Kimi 3.1 Pro": {
+    "championship_place": "4",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 3,
+    "switches": 0,
+    "model_calls": 203,
+    "output_tokens": 134734,
+    "reviews": "12/12",
+    "gpu": null,
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 13
+   },
+   "DeepSeek V4.1 Flash": {
+    "championship_place": "5",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 12,
+    "switches": 9,
+    "model_calls": 207,
+    "output_tokens": 275269,
+    "reviews": "12/12",
+    "gpu": null,
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 3,
+    "median_prep_min": 9
+   },
+   "GLM 5.3 Flash": {
+    "championship_place": "6",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 12,
+    "switches": 9,
+    "model_calls": 192,
+    "output_tokens": 200023,
+    "reviews": "9/12",
+    "gpu": null,
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 1,
+    "median_prep_min": 9
+   }
+  },
+  "checkpoint": {
+   "kind": "solo",
+   "board": "rel-stuntcar-arena2",
+   "made": "2026-11-08 12:43 CST",
+   "measure": "Event points, ratio to the reference program (1.0 = reference)",
+   "opponents": [],
+   "ref": 1.0,
+   "count": {
+    "planned": 72,
+    "ok": 69,
+    "invalid": 0,
+    "never_acted": 3,
+    "model_called": 0,
+    "pending": 0
+   },
+   "lines": {
+    "GPT-6 Astra": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 1.5021,
+      "lo": 0.549,
+      "hi": 2.8705,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 1.5298,
+      "lo": 0.6349,
+      "hi": 2.087,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 3.0564,
+      "lo": 2.9299,
+      "hi": 3.1355,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 4.4387,
+      "lo": 4.334,
+      "hi": 4.4956,
+      "n": 3
+     }
+    ],
+    "GLM 5.3 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.3312,
+      "lo": 0.3195,
+      "hi": 0.3477,
+      "n": 3
+     }
+    ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.7718,
+      "lo": 0.4768,
+      "hi": 0.9732,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.4818,
+      "lo": 0.4564,
+      "hi": 0.4997,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.9273,
+      "lo": 0.8452,
+      "hi": 1.0425,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.9283,
+      "lo": 0.8974,
+      "hi": 0.9794,
+      "n": 3
+     }
+    ],
+    "Claude Opus 5.5": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 1.4959,
+      "lo": 1.4175,
+      "hi": 1.5776,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 1.52,
+      "lo": 1.4849,
+      "hi": 1.5827,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 2.725,
+      "lo": 2.1421,
+      "hi": 3.1136,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 2.9926,
+      "lo": 1.4586,
+      "hi": 4.717,
+      "n": 3
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.7182,
+      "lo": 0.6285,
+      "hi": 0.7992,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.3251,
+      "lo": 0.3075,
+      "hi": 0.3428,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.4824,
+      "lo": 0.3074,
+      "hi": 0.7969,
+      "n": 3
+     }
+    ],
+    "Gemini 4 Argon": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.7586,
+      "lo": 0.3422,
+      "hi": 1.1971,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 1.0715,
+      "lo": 0.9547,
+      "hi": 1.2445,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.0714,
+      "lo": 0.9547,
+      "hi": 1.2441,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 5.1843,
+      "lo": 4.2457,
+      "hi": 5.6875,
+      "n": 3
+     }
+    ]
+   },
+   "verdict": {
+    "GPT-6 Astra": "improve",
+    "Claude Opus 5.5": "improve",
+    "Gemini 4 Argon": "improve",
+    "Kimi 3.1 Pro": "improve",
+    "GLM 5.3 Flash": "improve",
+    "DeepSeek V4.1 Flash": "one point only"
+   },
+   "capability": {
+    "n": 3,
+    "names": [
+     "Attitude manoeuvres in the air",
+     "Powered soft landing",
+     "Designing varied manoeuvres"
+    ],
+    "ref": null,
+    "lines": {
+     "GPT-6 Astra": [
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 3,
+       "valid": 3
+      }
+     ],
+     "DeepSeek V4.1 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 2
+      }
+     ],
+     "Kimi 3.1 Pro": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 12
+      }
+     ],
+     "Claude Opus 5.5": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 1,
+       "valid": 9
+      }
+     ]
+    },
+    "status": "proposal"
+   }
+  }
+ },
+ "capabilities": {
+  "source": "g5-stuntcar",
+  "skills": [
+   {
+    "id": "lands",
+    "group": "phys",
+    "name": "Lands the scored jumps",
+    "real": "After clearing a row of parked cars the car must come down on four wheels: the real jet car brakes and rights itself with downward thrust, without tipping or leaving the arena.",
+    "measure": "the match record runs (3-5): the jump cleared the cars, the jump has no fail and the run has no fail (tip-over, 8 m corridor, hard landing). Checkpoint Evaluation seeds pooled: landed jumps / scored jumps.",
+    "line": "≥ 2/3 (pooled, ≥ 3 jumps)",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "lands_soft",
+    "group": "phys",
+    "name": "Lands softly",
+    "real": "A low sink rate and a level attitude at touchdown give a high execution mark; a hard landing damages the car (rules: sink over 5 m/s is a crash).",
+    "measure": "Of the scored jumps, landed ones with |sink_m_s| ≤ 3 m/s and execution ≥ 7 / scored jumps.",
+    "line": "≥ 1/2",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "rotates",
+    "group": "phys",
+    "name": "Lands a full rotation",
+    "real": "The basic Big Air trick: a full turn about any axis in the air, then a clean landing.",
+    "measure": "the match record jumps: (the judge's turns about any axis, integrated in the air) ≥ 330/360 and landed as in lands; per event, whether one such jump exists.",
+    "line": "≥ 2/3 of events",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "multi_turn",
+    "group": "phys",
+    "name": "Two turns or an axis change",
+    "real": "A harder trick: two turns in a row, or a change of rotation axis in the air.",
+    "measure": "A landed scored jump with ≥ 690/360 or axis_changes ≥ 1; per event.",
+    "line": "≥ 1/2 of events",
+    "secondary": true,
+    "three_checks": false
+   },
+   {
+    "id": "combo",
+    "group": "phys",
+    "name": "A combination",
+    "real": "An axis change with two or more turns, or a combo turn (a roll into a flip).",
+    "measure": "A landed scored jump with axis_changes ≥ 1 and turns ≥ 690/360, or combo_turns ≥ 1.",
+    "line": "≥ 1/3 of events",
+    "secondary": true,
+    "three_checks": false
+   },
+   {
+    "id": "two_tricks",
+    "group": "comp",
+    "name": "Lands two different tricks",
+    "real": "Big Air counts two different tricks: a repeat earns no novelty, so the athlete designs and flies two.",
+    "measure": "Two landed scored jumps that are each a trick (≥ 1 turn or a substantial hold) with the rules' trajectory distance ≥ novelty_full 0.4 (; a left-right mirror is the same trick).",
+    "line": "≥ 2/3 of events",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "recovers",
+    "group": "phys",
+    "name": "Recovers from a disturbance in the air and lands",
+    "real": "In the air a real car meets gusts and nozzle errors; attitude control must take out an unexpected rotation and still land.",
+    "measure": "Scenario tumble: at each scored jump's apex (first vz ≤ 0 after lift-off) the body rates get a kick of 1.5 rad/s about body × and 0.75 rad/s about body y (sign alternating per run). Reading: the share of kicked jumps landed as in lands.",
+    "line": "≥ 1/2 (gate: ≥ 3 kicked jumps)",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "holds_line",
+    "group": "phys",
+    "name": "Holds its line in a cross wind",
+    "real": "The landing corridor is 8 m wide; a cross wind pushes the car sideways, and in the air it tilts its lift to take the drift out.",
+    "measure": "Scenario crosswind: each scored run's steady cross wind is 4 m/s (the L3 maximum, direction alternating; head wind and gusts as drawn). Reading: the share of scored runs landed as in lands; the corridor exits and the touchdown's distance off the centreline are recorded too.",
+    "line": "≥ 2/3",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "air_budget",
+    "group": "phys",
+    "name": "Budgets its air",
+    "real": "The real car's tanks are finite and harder tricks use more gas; without gas there is no braking for the landing. Read the gauges and pick a trick the air can pay for.",
+    "measure": "Scenario lowair: the scored runs are filled to 450 bar only (official 690; practice as official); the observation's pressure and air readings are as usual. Reading: the share of scored runs landed as in lands; hard landings and the least air left are recorded.",
+    "line": "≥ 2/3 (a proposal)",
+    "secondary": true,
+    "three_checks": false
+   },
+   {
+    "id": "air_loop",
+    "group": "eng",
+    "name": "The control loop keeps commanding in the air",
+    "real": "The valves lag 20 ms plus a 5 ms dead band; a loop slower than 30 ms falls behind its own actuators.",
+    "measure": "In each scored run's airborne stretch (the scenario record: ≥ 5 free steps, ≥ 0.5 s), the p95 gap between own commands; flights with ≤ 3 steps / all flights.",
+    "line": "≥ 80 % of flights (≥ 3 flights)",
+    "secondary": false,
+    "three_checks": false
+   }
+  ],
+  "off": [
+   {
+    "name": "Take-off trajectory planning (candidate)",
+    "group": "phys",
+    "why": "The card's controlled result argues against it: the reference's lift model wrong by x0.8-1.6 leaves the score unchanged; no reading isolates it."
+   },
+   {
+    "name": "Finding hidden errors from practice (candidate)",
+    "group": "adap",
+    "why": "The card's controlled result is significant but small (about 5 % of the total); practice and scoring share one event and the reference calibrates too, so there is no separate reading."
+   },
+   {
+    "name": "Visual perception (excluded)",
+    "group": "phys",
+    "why": "Excluded by design: the reference never uses the camera; it is optional."
+   }
+  ],
+  "results": {
+   "Claude Opus 5.5": {
+    "lands": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "lands_soft": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "rotates": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "multi_turn": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "combo": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "two_tricks": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "recovers": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "holds_line": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "air_budget": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "air_loop": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
+   },
+   "GPT-6 Astra": {
+    "lands": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "lands_soft": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "rotates": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "multi_turn": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "combo": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "two_tricks": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "recovers": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "holds_line": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "air_budget": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "air_loop": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
+   },
+   "Gemini 4 Argon": {
+    "lands": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "lands_soft": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "rotates": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "multi_turn": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "combo": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "two_tricks": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "recovers": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "holds_line": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "air_budget": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "air_loop": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "lands": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "lands_soft": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "rotates": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "multi_turn": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "combo": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "two_tricks": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "recovers": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "holds_line": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "air_budget": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "air_loop": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "lands": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "lands_soft": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "rotates": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "multi_turn": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "combo": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "two_tricks": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "recovers": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "holds_line": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "air_budget": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "air_loop": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
+   },
+   "DeepSeek V4.1 Flash": {
+    "lands": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "lands_soft": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "rotates": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "multi_turn": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "combo": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "two_tricks": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "recovers": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "holds_line": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "air_budget": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "air_loop": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
+   }
+  },
+  "reference": {
+   "passed": [],
+   "failed": []
+  },
+  "open_questions": [],
+  "pass_marks": "page"
+ },
+ "notes": {
+  "_source": "analysis/drafts/stuntcar/findings.md items 1, 2, 3, 4, 5; analysis/drafts/overall/findings.md item 10 (Checkpoint Evaluation); challenge from sports.json. Owner: edit or replace with your analysis.",
+  "_status": "draft from the analysis drafts, for the sport owner to edit",
+  "challenge": "A car with ten cold-gas thrusters takes off from a flat floor, flips over a row of vehicles and has to land softly on one fill of air; a repeated trick scores a tenth.",
+  "achieved": [
+   {
+    "text": "The top programs climbed one trick ladder, each rung worth about twice the last: single-axis tricks (20-40 points), roll-stop-flip (about 72), then roll-flip-roll (138-149). No model earned the third-link bonus.",
+    "evidence": [
+     "STUA-F0001",
+     "STU2-F0002",
+     "STU2-F0003",
+     "STU2-F0053",
+     "STU2-F0103"
+    ]
+   },
+   {
+    "text": "Reversing the order of the same rotations counts as a new trick: Gemini 4 Argon scored 138.8 and 137.9 with two orderings of a flip and two rolls, 276.7 in all, the best match of the sport.",
+    "evidence": [
+     "STU2-F0002",
+     "STU2-F0103"
+    ]
+   },
+   {
+    "text": "The last scored run cannot lower the total, and the agents said so and used it for risky tries: Claude Opus 5.5 flew its first roll-flip-roll there, GPT-6 Astra its 149.1-point jump, the best of the series.",
+    "evidence": [
+     "STU2-F0002",
+     "STU2-F0053"
+    ]
+   },
+   {
+    "text": "Checkpoint Evaluation: Gemini's program went from 0.76 to 5.18 times the reference score, the largest gain of the season.",
+    "evidence": [
+     "Checkpoint Evaluation"
+    ]
+   }
+  ],
+  "built": {
+   "GPT-6 Astra": [
+    "Found that no practice world matched the pressures it saw in its official runs, built its own with a weaker regulator and a biased gauge, retuned its triple there (9 of 10 trials above 130) and landed 149.1 in the match."
+   ],
+   "GLM 5.3 Flash": [
+    "One wrong formula zeroed its attitude correction in every flight; it blamed friction for two matches and found the bug before the third."
+   ]
+  }
+ }
+}

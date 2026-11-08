@@ -3,7 +3,7 @@
  "sport": "tennis",
  "key": "tennis_g1",
  "format": "duel",
- "made": "2026-11-08T18:48Z",
+ "made": "2026-11-08T19:11Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -778,6 +778,9 @@
     ]
    }
   ],
+  "played": 19,
+  "pending": 0,
+  "knockout_planned": true,
   "ranking": [
    {
     "rank": 1,
@@ -1386,6 +1389,9 @@
     "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
    }
   ],
+  "played": 15,
+  "pending": 0,
+  "knockout_planned": false,
   "ranking": [
    {
     "rank": 1,
@@ -2096,7 +2102,7 @@
     "group": "phys",
     "name": "Strikes the incoming ball with the strings",
     "real": "Only the strings play the ball; the frame, handle or body loses the point.",
-    "measure": "Checkpoint Evaluation: share of incoming balls the strings strike. Scenario recv: the same reading.",
+    "measure": "Checkpoint Evaluation: share of incoming balls the strings strike. Scenario recv: the same reading (the scenario record, hit).",
     "line": "≥ 50 % (pooled, ≥ 5 incoming)",
     "secondary": false,
     "three_checks": true

@@ -1,0 +1,1918 @@
+{
+ "schema": "eo-sportpage/1",
+ "sport": "basketball",
+ "key": "basketball_g1",
+ "format": "team",
+ "made": "2026-11-08T19:11Z",
+ "status": "in_progress",
+ "provisional": true,
+ "podium": {
+  "gold": null,
+  "silver": null,
+  "bronze": null
+ },
+ "flag": null,
+ "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
+ "championship": {
+  "rule": "round_robin_knockout_serial@1",
+  "final": false,
+  "stages": [
+   {
+    "id": "round_robin",
+    "name": "Round robin",
+    "standings": [
+     {
+      "rank": 1,
+      "model": "GPT-6 Astra",
+      "played": 5,
+      "won": 5,
+      "drawn": 0,
+      "lost": 0,
+      "points": 15,
+      "for": 58,
+      "against": 6,
+      "note": "5-0-0, score 58:6"
+     },
+     {
+      "rank": 2,
+      "model": "Claude Opus 5.5",
+      "played": 5,
+      "won": 4,
+      "drawn": 0,
+      "lost": 1,
+      "points": 12,
+      "for": 53,
+      "against": 22,
+      "note": "4-0-1, score 53:22"
+     },
+     {
+      "rank": 3,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 0,
+      "against": 22,
+      "note": "2-0-3, score 0:22"
+     },
+     {
+      "rank": 4,
+      "model": "Kimi 3.1 Pro",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 0,
+      "against": 24,
+      "note": "2-0-3, score 0:24"
+     },
+     {
+      "rank": 5,
+      "model": "Gemini 4 Argon",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 16,
+      "against": 30,
+      "note": "1-0-4, score 16:30, 1 no-show"
+     },
+     {
+      "rank": 6,
+      "model": "GLM 5.3 Flash",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 0,
+      "against": 23,
+      "note": "1-0-4, score 0:23, 1 won by forfeit"
+     }
+    ],
+    "matches": [
+     {
+      "id": "BSK2-F02",
+      "labels": {
+       "pair": "astra-sub vs deepseek-flash-sh",
+       "replaces": "BSKC-F02",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 106.7,
+       "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F02/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKC-F01",
+      "labels": {
+       "pair": "opus vs kimi",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 8
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 85.6,
+       "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSKC-F01/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKC-F03",
+      "labels": {
+       "pair": "gemini vs glm-flash-sh",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "GLM 5.3 Flash",
+      "decided_by": null,
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "full",
+       "seconds": 0.0,
+       "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSKC-F03/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSK2-F04",
+      "labels": {
+       "pair": "deepseek-flash-sh vs opus",
+       "replaces": "BSKC-F04",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 12
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 84.4,
+       "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F04/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSK2-F06",
+      "labels": {
+       "pair": "astra-sub vs gemini",
+       "replaces": "BSKC-F06",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 14
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 64.3,
+       "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F06/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKC-F05",
+      "labels": {
+       "pair": "glm-flash-sh vs kimi",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 101.3,
+       "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSKC-F05/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSK2-F07",
+      "labels": {
+       "pair": "opus vs glm-flash-sh",
+       "replaces": "BSKC-F07",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 11
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 114.9,
+       "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F07/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSK2-F08",
+      "labels": {
+       "pair": "gemini vs deepseek-flash-sh",
+       "replaces": "BSKC-F08",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 162.5,
+       "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F08/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSK2-F09",
+      "labels": {
+       "pair": "kimi vs astra-sub",
+       "replaces": "BSKC-F09",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 8
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 81.8,
+       "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F09/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSK2-F10",
+      "labels": {
+       "pair": "opus vs gemini",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 16
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 8
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 78.4,
+       "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F10/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSK2-F11",
+      "labels": {
+       "pair": "glm-flash-sh vs astra-sub",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 12
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 130.4,
+       "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F11/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSK2-F12",
+      "labels": {
+       "pair": "deepseek-flash-sh vs kimi",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": null,
+      "note": null,
+      "replay": null,
+      "status": "resolved"
+     },
+     {
+      "id": "BSK2-F13",
+      "labels": {
+       "pair": "astra-sub vs opus",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 14
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 6
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": null,
+      "note": null,
+      "replay": null,
+      "status": "resolved"
+     },
+     {
+      "id": "BSK2-F14",
+      "labels": {
+       "pair": "kimi vs gemini",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 8
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": null,
+      "note": null,
+      "replay": null,
+      "status": "resolved"
+     },
+     {
+      "id": "BSK2-F15",
+      "labels": {
+       "pair": "glm-flash-sh vs deepseek-flash-sh",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": null,
+      "note": null,
+      "replay": null,
+      "status": "resolved"
+     }
+    ],
+    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+   },
+   {
+    "id": "semi_final",
+    "name": "Semifinal",
+    "matches": [
+     {
+      "id": "BSK2-F16",
+      "labels": {
+       "match": "SF1",
+       "pair": "kimi vs astra-sub",
+       "round": 6,
+       "seeds": "1v4",
+       "stage": "semi_final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": null
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": null
+       }
+      ],
+      "winner": null,
+      "decided_by": null,
+      "note": "Pending",
+      "replay": null,
+      "status": "pending",
+      "seeds": [
+       4,
+       1
+      ],
+      "label": "Semifinal 1"
+     },
+     {
+      "id": "BSK2-F17",
+      "labels": {
+       "match": "SF2",
+       "pair": "opus vs deepseek-flash-sh",
+       "round": 6,
+       "seeds": "2v3",
+       "stage": "semi_final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": null
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": null
+       }
+      ],
+      "winner": null,
+      "decided_by": null,
+      "note": "Pending",
+      "replay": null,
+      "status": "pending",
+      "seeds": [
+       2,
+       3
+      ],
+      "label": "Semifinal 2"
+     }
+    ]
+   }
+  ],
+  "played": 15,
+  "pending": 2,
+  "knockout_planned": true,
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra",
+    "note": "round robin 1st"
+   },
+   {
+    "rank": 2,
+    "model": "Claude Opus 5.5",
+    "note": "round robin 2nd"
+   },
+   {
+    "rank": 3,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "round robin 3rd"
+   },
+   {
+    "rank": 4,
+    "model": "Kimi 3.1 Pro",
+    "note": "round robin 4th"
+   },
+   {
+    "rank": 5,
+    "model": "Gemini 4 Argon",
+    "note": "round robin 5th"
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "note": "round robin 6th"
+   }
+  ],
+  "notes": [
+   "1 result(s) by forfeit (counted as a win, not played): glm-flash-sh beat gemini by forfeit (no-show), BSKC-F03/run-1"
+  ],
+  "as_of": "2026-11-08T17:29:54Z",
+  "board": "rel-basketball-g1-champ2"
+ },
+ "open_arena": {
+  "rule": "points_table@1",
+  "final": false,
+  "stages": [
+   {
+    "id": "round_robin",
+    "name": "Round robin",
+    "standings": [
+     {
+      "rank": 1,
+      "model": "GPT-6 Astra",
+      "played": 5,
+      "won": 5,
+      "drawn": 0,
+      "lost": 0,
+      "points": 15,
+      "for": 76,
+      "against": 4,
+      "note": "5-0-0, score 76:4"
+     },
+     {
+      "rank": 2,
+      "model": "Claude Opus 5.5",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 15,
+      "against": 12,
+      "note": "3-0-2, score 15:12, 1 won by forfeit"
+     },
+     {
+      "rank": 3,
+      "model": "Kimi 3.1 Pro",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 2,
+      "against": 22,
+      "note": "3-0-2, score 2:22, 1 won by forfeit"
+     },
+     {
+      "rank": 4,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 0,
+      "against": 10,
+      "note": "2-0-3, score 0:10, 1 won by forfeit, 1 no-show"
+     },
+     {
+      "rank": 5,
+      "model": "Gemini 4 Argon",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 0,
+      "against": 10,
+      "note": "1-0-4, score 0:10, 2 no-show"
+     },
+     {
+      "rank": 6,
+      "model": "GLM 5.3 Flash",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 0,
+      "against": 35,
+      "note": "1-0-4, score 0:35"
+     }
+    ],
+    "matches": [
+     {
+      "id": "BSKA-F01",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 12
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 4
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKA-F02",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKA-F03",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 3
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKA-F04",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": null,
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKA-F05",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 8
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKA-F06",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 10
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKA-F07",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 30
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKA-F08",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKA-F09",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 14
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKA-F11",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs gemini",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": null,
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKA-F13",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKA-F14",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 2
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKA-F15",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKQ-F10",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs gemini",
+       "replaces": "BSKA-F10",
+       "replay_cause": "quota_no_show",
+       "replay_reason": "quota-caused no-show, approved by Chi 11-07",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       }
+      ],
+      "winner": "GLM 5.3 Flash",
+      "decided_by": null,
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSKQ-F12",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs kimi",
+       "replaces": "BSKA-F12",
+       "replay_cause": "quota_no_show",
+       "replay_reason": "quota-caused no-show, approved by Chi 11-07",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": null,
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     }
+    ],
+    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+   }
+  ],
+  "played": 15,
+  "pending": 0,
+  "knockout_planned": false,
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra",
+    "note": "5-0-0, score 76:4"
+   },
+   {
+    "rank": 2,
+    "model": "Claude Opus 5.5",
+    "note": "3-0-2, score 15:12, 1 won by forfeit"
+   },
+   {
+    "rank": 3,
+    "model": "Kimi 3.1 Pro",
+    "note": "3-0-2, score 2:22, 1 won by forfeit"
+   },
+   {
+    "rank": 4,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "2-0-3, score 0:10, 1 won by forfeit, 1 no-show"
+   },
+   {
+    "rank": 5,
+    "model": "Gemini 4 Argon",
+    "note": "1-0-4, score 0:10, 2 no-show"
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "note": "1-0-4, score 0:35"
+   }
+  ],
+  "notes": [],
+  "as_of": "2026-11-08T09:00:28Z",
+  "board": "rel-basketball-g1-arena",
+  "complete": true,
+  "status_line": "Complete"
+ },
+ "agents": {
+  "per_model": {
+   "Claude Opus 5.5": {
+    "championship_place": "2 (provisional: round robin 2nd)",
+    "open_arena": "2 (9 pts, 3-0-2)",
+    "matches": 10,
+    "versions": 36,
+    "switches": 27,
+    "model_calls": 1349,
+    "output_tokens": 997766,
+    "reviews": "152/152",
+    "gpu": "yes in 3/9 (max 57 GPU-min)",
+    "seat_matches": 10,
+    "train_code": 5,
+    "weights": 2,
+    "practice_world": 6,
+    "realtime_rehearsal": 6,
+    "median_prep_min": 73
+   },
+   "GPT-6 Astra": {
+    "championship_place": "1 (provisional: round robin 1st)",
+    "open_arena": "1 (15 pts, 5-0-0)",
+    "matches": 10,
+    "versions": 26,
+    "switches": 16,
+    "model_calls": 2383,
+    "output_tokens": 1079978,
+    "reviews": "179/181",
+    "gpu": "yes in 6/9 (max 76 GPU-min)",
+    "seat_matches": 10,
+    "train_code": 3,
+    "weights": 1,
+    "practice_world": 3,
+    "realtime_rehearsal": 3,
+    "median_prep_min": 80
+   },
+   "Gemini 4 Argon": {
+    "championship_place": "5 (provisional: round robin 5th)",
+    "open_arena": "5 (3 pts, 1-0-4)",
+    "matches": 10,
+    "versions": 37,
+    "switches": 30,
+    "model_calls": 4715,
+    "output_tokens": 3472616,
+    "reviews": "92/117",
+    "gpu": "yes in 1/9 (max 22 GPU-min)",
+    "seat_matches": 10,
+    "train_code": 1,
+    "weights": 0,
+    "practice_world": 8,
+    "realtime_rehearsal": 1,
+    "median_prep_min": 116
+   },
+   "Kimi 3.1 Pro": {
+    "championship_place": "4 (provisional: round robin 4th)",
+    "open_arena": "3 (9 pts, 3-0-2)",
+    "matches": 10,
+    "versions": 39,
+    "switches": 30,
+    "model_calls": 3978,
+    "output_tokens": 2255646,
+    "reviews": "135/145",
+    "gpu": "yes in 6/9 (max 61 GPU-min)",
+    "seat_matches": 10,
+    "train_code": 0,
+    "weights": 3,
+    "practice_world": 3,
+    "realtime_rehearsal": 3,
+    "median_prep_min": 84
+   },
+   "DeepSeek V4.1 Flash": {
+    "championship_place": "3 (provisional: round robin 3rd)",
+    "open_arena": "4 (6 pts, 2-0-3)",
+    "matches": 10,
+    "versions": 37,
+    "switches": 29,
+    "model_calls": 2391,
+    "output_tokens": 2548686,
+    "reviews": "111/122",
+    "gpu": "yes in 7/10 (max 106 GPU-min)",
+    "seat_matches": 10,
+    "train_code": 2,
+    "weights": 1,
+    "practice_world": 4,
+    "realtime_rehearsal": 3,
+    "median_prep_min": 88
+   },
+   "GLM 5.3 Flash": {
+    "championship_place": "6 (provisional: round robin 6th)",
+    "open_arena": "6 (3 pts, 1-0-4)",
+    "matches": 10,
+    "versions": 54,
+    "switches": 45,
+    "model_calls": 1733,
+    "output_tokens": 1279792,
+    "reviews": "77/175",
+    "gpu": "yes in 2/10 (max 46 GPU-min)",
+    "seat_matches": 10,
+    "train_code": 0,
+    "weights": 1,
+    "practice_world": 7,
+    "realtime_rehearsal": 5,
+    "median_prep_min": 65
+   }
+  },
+  "checkpoint": {
+   "kind": "duel",
+   "board": "rel-basketball-g1-champ2",
+   "made": "2026-11-08 12:43 CST",
+   "measure": "Score share against fixed practice opponents (0.5 = even)",
+   "opponents": [
+    {
+     "id": "L2",
+     "tier": "middle"
+    },
+    {
+     "id": "PP",
+     "tier": "strongest"
+    }
+   ],
+   "ref": 0.125,
+   "count": {
+    "planned": 48,
+    "ok": 44,
+    "invalid": 0,
+    "never_acted": 4,
+    "model_called": 0,
+    "pending": 0
+   },
+   "lines": {
+    "GLM 5.3 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     }
+    ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.125,
+      "lo": 0.0,
+      "hi": 0.25,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     }
+    ],
+    "Claude Opus 5.5": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.6362,
+      "lo": 0.5417,
+      "hi": 0.7308,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.6088,
+      "lo": 0.539,
+      "hi": 0.6786,
+      "n": 2
+     }
+    ],
+    "GPT-6 Astra": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.2474,
+      "lo": 0.1027,
+      "hi": 0.3921,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.1613,
+      "lo": 0.0674,
+      "hi": 0.2552,
+      "n": 2
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     }
+    ]
+   },
+   "verdict": {
+    "GPT-6 Astra": "regress",
+    "Claude Opus 5.5": "flat",
+    "Gemini 4 Argon": null,
+    "Kimi 3.1 Pro": "unclear (seeds disagree)",
+    "GLM 5.3 Flash": "flat",
+    "DeepSeek V4.1 Flash": "flat"
+   },
+   "capability": {
+    "n": 3,
+    "names": [
+     "The walk-in shot",
+     "Balance and fouls in contact",
+     "Real-time control and timing"
+    ],
+    "ref": 0.0,
+    "lines": {
+     "GPT-6 Astra": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 1,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 1,
+       "valid": 4
+      }
+     ],
+     "DeepSeek V4.1 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 4
+      }
+     ],
+     "Gemini 4 Argon": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 4
+      }
+     ],
+     "GLM 5.3 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 4
+      }
+     ],
+     "Kimi 3.1 Pro": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 4
+      }
+     ],
+     "Claude Opus 5.5": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 1,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 1,
+       "valid": 4
+      }
+     ]
+    },
+    "status": "proposal"
+   }
+  }
+ },
+ "capabilities": {
+  "source": "g3-bsk",
+  "skills": [
+   {
+    "id": "takes_shots",
+    "group": "comp",
+    "name": "Takes a shot each possession",
+    "real": "A 3x3 possession has a 12 s shot clock. A team with the ball has to get a shot off; running out the clock is a violation.",
+    "measure": "Scenario shot (every check ball the program's): the scenario record check balls; Checkpoint Evaluation: the match record fga / own check balls.",
+    "line": "≥ 0.5 (pooled, ≥ 6 own check balls)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "shoots",
+    "group": "phys",
+    "name": "Makes shots",
+    "real": "A joint-level shot: release speed, angle and timing come from the program's own joint trajectories; the ring, the ball and the hand are physics.",
+    "measure": "Scenario shot: field goals made / attempted, seeds pooled; Checkpoint Evaluation: field goals made / attempted.",
+    "line": "≥ 20 % (pooled, ≥ 5 shots)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "walk_in",
+    "group": "phys",
+    "name": "Walks in with the ball before the shot",
+    "real": "The card's C1 claim: from the 8.5 m check-ball spot a standing shot does not score; the holder walks towards the ring with the ball (walking is dribbling, D19) and then shoots.",
+    "measure": "Scenario shot: share of the holder's shots released ≥ 1 m closer to the ring than its placement.",
+    "line": "≥ 50 % of shots (≥ 3 shots)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "view_loose",
+    "group": "phys",
+    "name": "Keeps a loose ball in view",
+    "real": "Rebounds, steals and floor balls rely on seeing the ball. The robot has only a head camera: a ball behind it has to be looked for.",
+    "measure": "Scenario floor: the ball lies still 1.5 m in front of the holder, 20-35 deg off its facing (it starts in its image); over live steps with nobody holding it, the share in which the ball is inside some upright own robot's head-camera frustum. Scenario loose puts it 1.3 m behind-beside (in nobody's image), recorded as the hard search version.",
+    "line": "≥ 25 % (pooled)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "loose_ball",
+    "group": "phys",
+    "name": "Recovers a loose ball",
+    "real": "A ball on the floor belongs to whoever gets there first: find it, walk to it, squat and pick it up (a joint-level squat takes about 2.9 s) while the opponent goes for it too.",
+    "measure": "Scenario floor (loose read the same way): share of check balls in which an own robot holds the ball before the opponent and before the 10 s held-ball rule.",
+    "line": "≥ 1/3 of check balls (≥ 6)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "push_up",
+    "group": "phys",
+    "name": "Stays up after a knock",
+    "real": "Bumps are routine in a contact game. A robot that stays up keeps playing; a fallen one lies until the next check ball (rule D).",
+    "measure": "Scenario push: 1.5 s and 5 s after the ball is live each upright own robot gets 0.8 m/s sideways at the pelvis; each robot at each push time is a slot, the share of slots still up 2 s later (a robot already down at the push counts as not up; the scenario record, / k_end). Gate: the same program shoots on every check ball in scenario shot (it plays).",
+    "line": "≥ 2/3 of pushes without a fall",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "stays_up",
+    "group": "phys",
+    "name": "Stays up while moving",
+    "real": "The G1 has no platform gait here; balance is the program's own.",
+    "measure": "Checkpoint Evaluation: the match record (upright walking from replay); gate: the team walks ≥ 40 m upright.",
+    "line": "≤ 2 falls per robot in 2/3 of matches",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "clean",
+    "group": "comp",
+    "name": "No gain from contact",
+    "real": "Pushing and charging are fouls; from the 7th team foul each one gives the other team a point.",
+    "measure": "Checkpoint Evaluation: the match record; gate: body contact (≥ 1 s, replay).",
+    "line": "Team fouls ≤ 6 in 2/3 of matches",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "on_time",
+    "group": "phys",
+    "name": "Acts on time",
+    "real": "Within a 12 s possession the robot walks, sets and releases; a late step throws the shot off.",
+    "measure": "Checkpoint Evaluation episode cmd rows: share of acts in effect at the step they answer (x1).",
+    "line": "≥ 95 % (≥ 50 acts)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "walks",
+    "group": "eng",
+    "name": "Walks on its own controller",
+    "real": "The Engineer seat has no platform gait: walking is the program's own trained or written controller.",
+    "measure": "Checkpoint Evaluation: replayed pelvis, upright, from 1.5 s after a placement; scenarios: the scenario record",
+    "line": "The team walks ≥ 40 m upright a match (16 check balls)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "defends",
+    "group": "comp",
+    "name": "Holds the opponent's shooting",
+    "real": "3x3 has one basket; the defence stands between the holder and the ring.",
+    "measure": "Checkpoint Evaluation: opponent field goals made / attempted (pooled).",
+    "line": "≤ 50 % (pooled, ≥ 5)",
+    "secondary": false,
+    "three_checks": false
+   }
+  ],
+  "off": [
+   {
+    "name": "Gets up by itself",
+    "group": "phys",
+    "why": "Off the list for now: the reference has no get-up (rule D: a fallen robot lies until the next check ball), so no ablation can move it; in Checkpoint Evaluations almost nobody gets up (reference 1 of 6). Add once a reference gets up."
+   },
+   {
+    "name": "Teamwork (passes, screens)",
+    "group": "comp",
+    "why": "Excluded on the card: no program passes, nothing to measure."
+   }
+  ],
+  "results": {
+   "GPT-6 Astra": {
+    "takes_shots": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "shoots": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "walk_in": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "view_loose": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "loose_ball": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "push_up": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "clean": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "on_time": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "defends": {
+     "status": "na",
+     "checkpoint": "final:2"
+    }
+   },
+   "Claude Opus 5.5": {
+    "takes_shots": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "shoots": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "walk_in": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "view_loose": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "loose_ball": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "push_up": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "clean": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "on_time": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "defends": {
+     "status": "na",
+     "checkpoint": "final:2"
+    }
+   }
+  },
+  "reference": {
+   "passed": [],
+   "failed": []
+  },
+  "open_questions": [
+   "Standing long shot, then a fall. Both models shoot standing from the 8.3-8.5 m check-ball spot (scenario shot: Astra 12/12 made with about 4 acts a check ball; Opus 8/12). The shooter falls after every release. The next check ball re-places every robot, so the fall costs nothing. The card says a standing 8.5 m shot needs >= 11.9 m/s, above the upper-bound thrower probe, yet the models score. Should a fall between the release and the ball's landing be a violation or cost something? Until that is decided, 'Makes shots' has c = partly.",
+   "Should 'Walks in with the ball' stay a required skill? The reference shoots by walking in (5/5 shots after >= 1 m) but makes only 1/5 at x1. The standing-shot models read 0 and make more. It could stay as a reading that describes the shot style, without a pass line.",
+   "No positive control for seeing and recovering a loose ball. The reference does not go for a floor ball during its own check ball: 0/6 with the ball in front (floor), 0/6 with it behind (loose), and its blind version reads the same, so b cannot move. Astra standing still reads 1.0 in floor, so c fails too. Proposal: read 'Keeps a loose ball in view' only from match play (live ball, nobody holding it: reference 0.40-0.47, Opus 0.26-0.47, Astra 0.02-0.05), and add 'Recovers a loose ball' once a reference does it.",
+   "'Stays up after a knock' passes all three checks: reference 39/39, stance-only reference 0/36 (down before the push), do-nothing 0/18. Models: Opus 10/18 at both checkpoints, Astra 0/33 at both (down at every push time, or down at the push). Keep the 2/3 line?"
+  ],
+  "pass_marks": "page"
+ },
+ "notes": {
+  "_source": "analysis/drafts/overall/findings.md items 4 and 12; analysis/drafts/dim/physical/final.md item 8 (field goals, release angles); analysis/drafts/dim/adaptive/final.md item 10 (GLM plan); challenge from sports.json. Owner: edit or replace with your analysis.",
+  "_status": "draft from the analysis drafts, for the sport owner to edit",
+  "challenge": "Three humanoids a side on a half court. The program walks the ball in, stays up in contact and shoots under joint noise, and the check ball starts beyond any standing throw.",
+  "achieved": [
+   {
+    "text": "Eight matches ended 0:0: two humanoid teams played a whole game and nobody scored.",
+    "evidence": [
+     "BSKA-F02",
+     "BSKA-F13",
+     "BSKA-F15",
+     "BSKQ-F10",
+     "BSK2-F08",
+     "BSK2-F12",
+     "BSK2-F15",
+     "BSKC-F05"
+    ]
+   },
+   {
+    "text": "Shooting separated the field: GPT-6 Astra made 60 of 87 field goals, Claude Opus 5.5 32 of 71, Gemini 4 Argon 8 of 36, Kimi 3.1 Pro 1 of 43.",
+    "evidence": [
+     "all valid matches"
+    ]
+   },
+   {
+    "text": "Seven of Kimi's shots left 13 to 33 degrees off the line to the hoop and all missed; Astra's eight shots were within 3.2 degrees and seven went in.",
+    "evidence": [
+     "BSK2-F14",
+     "BSK2-F13"
+    ]
+   },
+   {
+    "text": "GLM 5.3 Flash's plan was to \"farm their fouls legally by standing still\".",
+    "evidence": [
+     "BSKA-F13"
+    ]
+   }
+  ],
+  "built": {
+   "DeepSeek V4.1 Flash": [
+    "Its parameter search started a worker on every CPU core and brought down its own seat."
+   ]
+  }
+ }
+}

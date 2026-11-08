@@ -1,0 +1,2199 @@
+{
+ "schema": "eo-sportpage/1",
+ "sport": "curling",
+ "key": "curling_g1",
+ "format": "duel",
+ "made": "2026-11-08T19:11Z",
+ "status": "final",
+ "provisional": true,
+ "podium": {
+  "gold": "Gemini 4 Argon",
+  "silver": "Kimi 3.1 Pro",
+  "bronze": "GPT-6 Astra"
+ },
+ "flag": "GLM's round-robin no-shows trace to a platform fault (its harness sent a video block the model endpoint refuses); a re-run of its line is under review, and that would replay the Kimi and Opus lines too. Seeds 1-3 were tied on points and ordered by score difference (tiebreak rule under review).",
+ "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
+ "championship": {
+  "rule": "round_robin_knockout_serial@1",
+  "final": true,
+  "stages": [
+   {
+    "id": "round_robin",
+    "name": "Round robin",
+    "standings": [
+     {
+      "rank": 1,
+      "model": "GPT-6 Astra",
+      "played": 5,
+      "won": 4,
+      "drawn": 0,
+      "lost": 1,
+      "points": 12,
+      "for": 18,
+      "against": 7,
+      "note": "4-0-1, score 18:7, 1 won by forfeit"
+     },
+     {
+      "rank": 2,
+      "model": "Claude Opus 5.5",
+      "played": 5,
+      "won": 4,
+      "drawn": 0,
+      "lost": 1,
+      "points": 12,
+      "for": 18,
+      "against": 9,
+      "note": "4-0-1, score 18:9, 1 won by forfeit"
+     },
+     {
+      "rank": 3,
+      "model": "Gemini 4 Argon",
+      "played": 5,
+      "won": 4,
+      "drawn": 0,
+      "lost": 1,
+      "points": 12,
+      "for": 16,
+      "against": 12,
+      "note": "4-0-1, score 16:12"
+     },
+     {
+      "rank": 4,
+      "model": "Kimi 3.1 Pro",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 10,
+      "against": 12,
+      "note": "2-0-3, score 10:12, 1 won by forfeit"
+     },
+     {
+      "rank": 5,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 6,
+      "against": 24,
+      "note": "1-0-4, score 6:24, 1 won by forfeit"
+     },
+     {
+      "rank": 6,
+      "model": "GLM 5.3 Flash",
+      "played": 5,
+      "won": 0,
+      "drawn": 0,
+      "lost": 5,
+      "points": 0,
+      "for": 1,
+      "against": 5,
+      "note": "0-0-5, score 1:5, 4 no-show"
+     }
+    ],
+    "matches": [
+     {
+      "id": "CUR2-F02",
+      "labels": {
+       "pair": "astra-sub vs deepseek-flash-sh",
+       "replaces": "CURC-F02",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 1
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 159.6,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F02/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURC-F01",
+      "labels": {
+       "pair": "opus vs kimi",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 4
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 3
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 159.8,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CURC-F01/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURC-F03",
+      "labels": {
+       "pair": "gemini vs glm-flash-sh",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 5
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 1
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 156.6,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CURC-F03/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CUR2-F04",
+      "labels": {
+       "pair": "deepseek-flash-sh vs opus",
+       "replaces": "CURC-F04",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 7
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 162.0,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F04/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CUR2-F06",
+      "labels": {
+       "pair": "astra-sub vs gemini",
+       "replaces": "CURC-F06",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 2
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 157.5,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F06/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURC-F05",
+      "labels": {
+       "pair": "glm-flash-sh vs kimi",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "forfeit",
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "full",
+       "seconds": 1.0,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CURC-F05/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CUR2-F07",
+      "labels": {
+       "pair": "opus vs glm-flash-sh",
+       "replaces": "CURC-F07",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "forfeit",
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "full",
+       "seconds": 1.0,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F07/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CUR2-F08",
+      "labels": {
+       "pair": "gemini vs deepseek-flash-sh",
+       "replaces": "CURC-F08",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 4
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 3
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 158.3,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F08/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CUR2-F09",
+      "labels": {
+       "pair": "kimi vs astra-sub",
+       "replaces": "CURC-F09",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 2
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 4
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 162.9,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F09/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CUR2-F10",
+      "labels": {
+       "pair": "opus vs gemini",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 5
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 2
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 159.0,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F10/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CUR2-F11",
+      "labels": {
+       "pair": "glm-flash-sh vs astra-sub",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "forfeit",
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "full",
+       "seconds": 1.0,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F11/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CUR2-F12",
+      "labels": {
+       "pair": "deepseek-flash-sh vs kimi",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 3
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 157.8,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F12/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CUR2-F13",
+      "labels": {
+       "pair": "astra-sub vs opus",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 3
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 2
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 161.5,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F13/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CUR2-F14",
+      "labels": {
+       "pair": "kimi vs gemini",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 2
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 3
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 158.8,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F14/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CUR2-F15",
+      "labels": {
+       "pair": "glm-flash-sh vs deepseek-flash-sh",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "forfeit",
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "full",
+       "seconds": 1.0,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F15/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
+     }
+    ],
+    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+   },
+   {
+    "id": "semi_final",
+    "name": "Semifinal",
+    "matches": [
+     {
+      "id": "CUR2-F16",
+      "labels": {
+       "match": "SF1",
+       "pair": "astra-sub vs kimi",
+       "round": 6,
+       "seeds": "1v4",
+       "stage": "semi_final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 3
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 5
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 163.6,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F16/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved",
+      "seeds": [
+       1,
+       4
+      ],
+      "label": "Semifinal 1"
+     },
+     {
+      "id": "CUR2-F17",
+      "labels": {
+       "match": "SF2",
+       "pair": "gemini vs opus",
+       "round": 6,
+       "seeds": "2v3",
+       "stage": "semi_final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 3
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 2
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 157.8,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F17/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved",
+      "seeds": [
+       3,
+       2
+      ],
+      "label": "Semifinal 2"
+     }
+    ]
+   },
+   {
+    "id": "final",
+    "name": "Final",
+    "matches": [
+     {
+      "id": "CUR2-F18",
+      "labels": {
+       "match": "F",
+       "pair": "kimi vs gemini",
+       "round": 7,
+       "seeds": "3v4",
+       "stage": "final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 6
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 163.6,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F18/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved",
+      "seeds": [
+       4,
+       3
+      ],
+      "label": "Final"
+     }
+    ]
+   },
+   {
+    "id": "bronze",
+    "name": "Bronze match",
+    "matches": [
+     {
+      "id": "CUR2-F19",
+      "labels": {
+       "match": "B",
+       "pair": "astra-sub vs opus",
+       "round": 7,
+       "seeds": "1v2",
+       "stage": "bronze"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 4
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 2
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 164.2,
+       "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F19/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved",
+      "seeds": [
+       1,
+       2
+      ],
+      "label": "Bronze match"
+     }
+    ]
+   }
+  ],
+  "played": 19,
+  "pending": 0,
+  "knockout_planned": true,
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "Gemini 4 Argon",
+    "note": "final winner"
+   },
+   {
+    "rank": 2,
+    "model": "Kimi 3.1 Pro",
+    "note": "final loser"
+   },
+   {
+    "rank": 3,
+    "model": "GPT-6 Astra",
+    "note": "bronze winner"
+   },
+   {
+    "rank": 4,
+    "model": "Claude Opus 5.5",
+    "note": "bronze loser"
+   },
+   {
+    "rank": 5,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "round robin 5th"
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "note": "round robin 6th"
+   }
+  ],
+  "notes": [
+   "4 result(s) by forfeit (counted as a win, not played): kimi beat glm-flash-sh by forfeit (no-show), CURC-F05/run-1; opus beat glm-flash-sh by forfeit (no-show), CUR2-F07/run-1; astra-sub beat glm-flash-sh by forfeit (no-show), CUR2-F11/run-1; deepseek-flash-sh beat glm-flash-sh by forfeit (no-show), CUR2-F15/run-1"
+  ],
+  "as_of": "2026-11-08T10:26:19Z",
+  "board": "rel-curling-g1-champ2"
+ },
+ "open_arena": {
+  "rule": "points_table@1",
+  "final": false,
+  "stages": [
+   {
+    "id": "round_robin",
+    "name": "Round robin",
+    "standings": [
+     {
+      "rank": 1,
+      "model": "Claude Opus 5.5",
+      "played": 5,
+      "won": 5,
+      "drawn": 0,
+      "lost": 0,
+      "points": 15,
+      "for": 25,
+      "against": 9,
+      "note": "5-0-0, score 25:9"
+     },
+     {
+      "rank": 2,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 15,
+      "against": 12,
+      "note": "3-0-2, score 15:12"
+     },
+     {
+      "rank": 3,
+      "model": "GPT-6 Astra",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 13,
+      "against": 12,
+      "note": "3-0-2, score 13:12"
+     },
+     {
+      "rank": 4,
+      "model": "Kimi 3.1 Pro",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 17,
+      "against": 12,
+      "note": "2-0-3, score 17:12"
+     },
+     {
+      "rank": 5,
+      "model": "Gemini 4 Argon",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 11,
+      "against": 11,
+      "note": "2-0-3, score 11:11"
+     },
+     {
+      "rank": 6,
+      "model": "GLM 5.3 Flash",
+      "played": 5,
+      "won": 0,
+      "drawn": 0,
+      "lost": 5,
+      "points": 0,
+      "for": 7,
+      "against": 32,
+      "note": "0-0-5, score 7:32"
+     }
+    ],
+    "matches": [
+     {
+      "id": "CURA-F01",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 5
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 3
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F02",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs gemini",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 3
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 2
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F03",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 9
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "forfeit",
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F04",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 2
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 5
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F05",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 2
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 3
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F06",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs gemini",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "forfeit",
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F07",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 5
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 2
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F08",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 2
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 4
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F09",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 3
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F10",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 5
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 2
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F11",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 3
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "forfeit",
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F12",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 4
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 3
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F13",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 2
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 5
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F14",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 8
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "CURA-F15",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 3
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
+     }
+    ],
+    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+   }
+  ],
+  "played": 15,
+  "pending": 0,
+  "knockout_planned": false,
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "Claude Opus 5.5",
+    "note": "5-0-0, score 25:9"
+   },
+   {
+    "rank": 2,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "3-0-2, score 15:12"
+   },
+   {
+    "rank": 3,
+    "model": "GPT-6 Astra",
+    "note": "3-0-2, score 13:12"
+   },
+   {
+    "rank": 4,
+    "model": "Kimi 3.1 Pro",
+    "note": "2-0-3, score 17:12"
+   },
+   {
+    "rank": 5,
+    "model": "Gemini 4 Argon",
+    "note": "2-0-3, score 11:11"
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "note": "0-0-5, score 7:32"
+   }
+  ],
+  "notes": [],
+  "as_of": "2026-11-08T09:43:03Z",
+  "board": "rel-curling-g1-arena",
+  "complete": true,
+  "status_line": "Complete"
+ },
+ "agents": {
+  "per_model": {
+   "Claude Opus 5.5": {
+    "championship_place": "4",
+    "open_arena": "1 (15 pts, 5-0-0)",
+    "matches": 12,
+    "versions": 22,
+    "switches": 11,
+    "model_calls": 966,
+    "output_tokens": 545052,
+    "reviews": "219/219",
+    "gpu": null,
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 10,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 35
+   },
+   "GPT-6 Astra": {
+    "championship_place": "3 (Bronze)",
+    "open_arena": "3 (9 pts, 3-0-2)",
+    "matches": 12,
+    "versions": 45,
+    "switches": 34,
+    "model_calls": 1698,
+    "output_tokens": 633714,
+    "reviews": "207/207",
+    "gpu": null,
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 8,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 26
+   },
+   "Gemini 4 Argon": {
+    "championship_place": "1 (Gold)",
+    "open_arena": "5 (6 pts, 2-0-3)",
+    "matches": 12,
+    "versions": 19,
+    "switches": 8,
+    "model_calls": 2334,
+    "output_tokens": 1453421,
+    "reviews": "193/206",
+    "gpu": null,
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 12,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 46
+   },
+   "Kimi 3.1 Pro": {
+    "championship_place": "2 (Silver)",
+    "open_arena": "4 (6 pts, 2-0-3)",
+    "matches": 12,
+    "versions": 23,
+    "switches": 12,
+    "model_calls": 1913,
+    "output_tokens": 1026493,
+    "reviews": "224/224",
+    "gpu": null,
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 9,
+    "realtime_rehearsal": 1,
+    "median_prep_min": 29
+   },
+   "DeepSeek V4.1 Flash": {
+    "championship_place": "5",
+    "open_arena": "2 (9 pts, 3-0-2)",
+    "matches": 10,
+    "versions": 34,
+    "switches": 25,
+    "model_calls": 1755,
+    "output_tokens": 1607023,
+    "reviews": "165/165",
+    "gpu": null,
+    "seat_matches": 10,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 4,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 47
+   },
+   "GLM 5.3 Flash": {
+    "championship_place": "6",
+    "open_arena": "6 (0 pts, 0-0-5)",
+    "matches": 10,
+    "versions": 33,
+    "switches": 27,
+    "model_calls": 1292,
+    "output_tokens": 897544,
+    "reviews": "105/119",
+    "gpu": null,
+    "seat_matches": 10,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 8,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 53
+   }
+  },
+  "checkpoint": {
+   "kind": "duel",
+   "board": "rel-curling-g1-champ2",
+   "made": "2026-11-08 12:43 CST",
+   "measure": "Score share against fixed practice opponents (0.5 = even)",
+   "opponents": [
+    {
+     "id": "L2",
+     "tier": "middle"
+    },
+    {
+     "id": "PP",
+     "tier": "strongest"
+    }
+   ],
+   "ref": 0.5167,
+   "count": {
+    "planned": 168,
+    "ok": 140,
+    "invalid": 0,
+    "never_acted": 28,
+    "model_called": 0,
+    "pending": 0
+   },
+   "lines": {
+    "GPT-6 Astra": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.5,
+      "lo": 0.5,
+      "hi": 0.5,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.2125,
+      "lo": 0.2,
+      "hi": 0.225,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.2125,
+      "lo": 0.2,
+      "hi": 0.225,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.2125,
+      "lo": 0.2,
+      "hi": 0.225,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.2625,
+      "lo": 0.225,
+      "hi": 0.3,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.2625,
+      "lo": 0.225,
+      "hi": 0.3,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.2542,
+      "lo": 0.2083,
+      "hi": 0.3,
+      "n": 2
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0312,
+      "lo": 0.0,
+      "hi": 0.0625,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.1429,
+      "lo": 0.0,
+      "hi": 0.2857,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.2458,
+      "lo": 0.1667,
+      "hi": 0.325,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.2917,
+      "lo": 0.2917,
+      "hi": 0.2917,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.2173,
+      "lo": 0.1429,
+      "hi": 0.2917,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.3373,
+      "lo": 0.2222,
+      "hi": 0.4524,
+      "n": 2
+     }
+    ],
+    "Gemini 4 Argon": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.4062,
+      "lo": 0.3125,
+      "hi": 0.5,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.4062,
+      "lo": 0.3125,
+      "hi": 0.5,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.3778,
+      "lo": 0.3667,
+      "hi": 0.3889,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.4167,
+      "lo": 0.3667,
+      "hi": 0.4667,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.4299,
+      "lo": 0.3182,
+      "hi": 0.5417,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.5875,
+      "lo": 0.5,
+      "hi": 0.675,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.7,
+      "lo": 0.5833,
+      "hi": 0.8167,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.5896,
+      "lo": 0.5125,
+      "hi": 0.6667,
+      "n": 2
+     }
+    ],
+    "GLM 5.3 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.1571,
+      "lo": 0.0,
+      "hi": 0.3143,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.3758,
+      "lo": 0.3333,
+      "hi": 0.4182,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.3758,
+      "lo": 0.3333,
+      "hi": 0.4182,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.3758,
+      "lo": 0.3333,
+      "hi": 0.4182,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.3758,
+      "lo": 0.3333,
+      "hi": 0.4182,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.3758,
+      "lo": 0.3333,
+      "hi": 0.4182,
+      "n": 2
+     }
+    ],
+    "Claude Opus 5.5": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.5,
+      "lo": 0.5,
+      "hi": 0.5,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.5863,
+      "lo": 0.3393,
+      "hi": 0.8333,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.5729,
+      "lo": 0.3125,
+      "hi": 0.8333,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.5729,
+      "lo": 0.3125,
+      "hi": 0.8333,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.5729,
+      "lo": 0.3125,
+      "hi": 0.8333,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.5729,
+      "lo": 0.3125,
+      "hi": 0.8333,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.5625,
+      "lo": 0.4583,
+      "hi": 0.6667,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.5625,
+      "lo": 0.4583,
+      "hi": 0.6667,
+      "n": 2
+     }
+    ]
+   },
+   "verdict": {
+    "GPT-6 Astra": "regress",
+    "Claude Opus 5.5": "unclear (seeds disagree)",
+    "Gemini 4 Argon": "improve",
+    "Kimi 3.1 Pro": null,
+    "GLM 5.3 Flash": "improve",
+    "DeepSeek V4.1 Flash": "improve"
+   },
+   "capability": {
+    "n": 4,
+    "names": [
+     "Shot selection",
+     "Reading the ice",
+     "Delivery calibration",
+     "Spin"
+    ],
+    "ref": null,
+    "lines": {
+     "GPT-6 Astra": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 2,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 1,
+       "valid": 4
+      }
+     ],
+     "DeepSeek V4.1 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 2,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 1,
+       "valid": 4
+      }
+     ],
+     "Gemini 4 Argon": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 3,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 2,
+       "valid": 9
+      }
+     ],
+     "GLM 5.3 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 2,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 2,
+       "valid": 4
+      }
+     ],
+     "Kimi 3.1 Pro": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 1
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 4
+      }
+     ],
+     "Claude Opus 5.5": [
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 3,
+       "valid": 2
+      }
+     ]
+    },
+    "status": "proposal"
+   }
+  }
+ },
+ "capabilities": {
+  "source": "g4-cur",
+  "skills": [
+   {
+    "id": "legal",
+    "group": "eng",
+    "name": "Delivers legal stones",
+    "real": "A fall in the slide, a stone still held at the near hog line, a release that is too fast or a touch after the release all remove the stone (WCF R5, R9).",
+    "measure": "Match Checkpoint Evaluation: the match record, the of each own stone; legal = no fault. Drills: the scenario record",
+    "line": "Legal / own deliveries ≥ 90 % (≥ 10 stones)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "spins",
+    "group": "phys",
+    "name": "Puts spin on the stone",
+    "real": "Turning the handle gives the stone spin and a predictable curl; a stone without spin curls a random way.",
+    "measure": "The spin the world records at the release ( in ccw / cw: the wrist turns the handle ≥ 0.5 rad/s) / legal deliveries. The same field in Checkpoint Evaluations and drills.",
+    "line": "≥ 90 % (≥ 10 stones)",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "both_turns",
+    "group": "phys",
+    "name": "Turns both ways",
+    "real": "Curling around a guard on the left or the right needs the other turn.",
+    "measure": "Match Checkpoint Evaluation: the less used turn / legal deliveries (minor_turn).",
+    "line": "≥ 10 % in 2/3 of matches",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "reach_play",
+    "group": "phys",
+    "name": "Stones reach play",
+    "real": "The release speed decides where the stone stops: a stone short of the far hog line is removed.",
+    "measure": "Match Checkpoint Evaluation: legal deliveries that stop in play or strike a stone (reached_play / delivered).",
+    "line": "≥ 80 % (≥ 10 stones)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "draw",
+    "group": "phys",
+    "name": "Draws into the house for the win (weight)",
+    "real": "Last end, tied, own hammer: one stone closer than theirs wins. A release 0.1 m/s off stops about 2 m off.",
+    "measure": "Drill draw: each of 8 ends starts with one opponent stone at the back of the 12-foot (about 1.45 m from the tee) and the program throws the last stone; ends with the scenario record = 0 / ends (seeds pooled). Side reading: the own stone's distance to the tee (own_dist).",
+    "line": "Wins ≥ 50 % of the ends (pooled, ≥ 8 ends)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "ice",
+    "group": "adap",
+    "name": "Reads the ice: learns the weight on the fastest / slowest ice",
+    "real": "Every sheet has its own speed; teams find the weight from their first stones. The ice scale kd is hidden and can only be learnt from one's own throws.",
+    "measure": "Drill ice: as draw on the ends of the documented range (seed 9101 -> kd 0.80, 9102 -> kd 1.10), the same ice for all 8 ends; reading = ends 5-8 won / ends (ends 1-4 are for learning). Side reading: rest distance in ends 1-4 against 5-8.",
+    "line": "Ends 5-8 won ≥ 50 % (pooled)",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "takeout",
+    "group": "phys",
+    "name": "Hits and stays (takeout)",
+    "real": "Their stone on the button, nothing in front: only a hit that removes it and stays in the house wins. A hit needs 2.4-3.2 m/s and an accurate line.",
+    "measure": "Drill takeout: one opponent stone on the button (+-5 cm) each end, the program throws the last stone; ends won / ends. Side readings: the target left the house (target_out), the stone hit something (contact).",
+    "line": "Wins ≥ 50 % of the ends (pooled, ≥ 8 ends)",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "around",
+    "group": "phys",
+    "name": "Comes around a guard",
+    "real": "A centre guard blocks the straight line; the stone has to curl around it and stop inside: what spin and a predicted path are for.",
+    "measure": "Drill guard: an opponent centre guard (about 1.4 m in front of the house) and an opponent stone 0.45 m from the tee behind it, the program throws the last stone; ends won / ends. Side reading: the guard left untouched (guard_kept).",
+    "line": "Wins ≥ 50 % of the ends (pooled, ≥ 8 ends)",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "choose",
+    "group": "comp",
+    "name": "Picks the right kind of shot",
+    "real": "With their stone on the button a draw cannot win, only a hit; behind a guard a straight hit runs into the guard.",
+    "measure": "Drill takeout: ends in which the target on the button left the house / ends (target_out; an end not thrown counts as not done); drill guard: ends that left the guard untouched / ends (guard_kept). Both must pass.",
+    "line": "Both ≥ 75 %",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "hammer",
+    "group": "comp",
+    "name": "Converts the hammer",
+    "real": "An end with the hammer should score 2+ or be blanked to keep it.",
+    "measure": "Match Checkpoint Evaluation: hammer ends scoring 2+ or blanked (hammer_conv / hammer_ends).",
+    "line": "≥ 50 % (≥ 4 ends)",
+    "secondary": true,
+    "three_checks": false
+   }
+  ],
+  "off": [
+   {
+    "name": "No fall while delivering",
+    "group": "phys",
+    "why": "The legs are locked in the slide and the platform pushes; no scripted variant or Checkpoint Evaluation ever fell, so there is no falling control: a rule check, kept off the list."
+   },
+   {
+    "name": "Stone positions from images",
+    "group": "phys",
+    "why": "Secondary; positions a program reports are its own statements, never a criterion. Its effect shows in the draw / takeout / guard results."
+   }
+  ],
+  "results": {
+   "Claude Opus 5.5": {
+    "legal": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "spins": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "both_turns": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "reach_play": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "draw": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "ice": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "takeout": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "around": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "choose": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "hammer": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    }
+   },
+   "GPT-6 Astra": {
+    "legal": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "spins": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "both_turns": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "takeout": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "choose": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "reach_play": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "draw": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "ice": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "around": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "hammer": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    }
+   }
+  },
+  "reference": {
+   "passed": [
+    "legal",
+    "spins",
+    "both_turns",
+    "reach_play",
+    "draw",
+    "ice",
+    "takeout",
+    "around",
+    "choose",
+    "hammer"
+   ],
+   "failed": []
+  },
+  "open_questions": [
+   "Every drill end is the same situation, last end, tied, own hammer, last stone: only scoring wins, so the program’s best shot is the skill the drill reads. Keep this, or use other score situations?",
+   "Proposed lines: draw / takeout / guard won >= 50 %, ice ends 5-8 won >= 50 %, right kind >= 75 %. The reference’s readings are in the results table.",
+   "Shot selection (C1) still has no match-record measure passing the checks; the drills’ “right kind of shot” reads only the intent (hit or come around): enough as C1’s criterion?"
+  ],
+  "pass_marks": "page"
+ },
+ "notes": {
+  "_source": "analysis/drafts/dim/competitive/final.md items 9 and 10; analysis/drafts/dim/adaptive/final.md stuck-vs-adapts table (Astra curling checkpoint); challenge from sports.json. Owner: edit or replace with your analysis.",
+  "_status": "draft from the analysis drafts, for the sport owner to edit",
+  "challenge": "An ice surface the program is never told about. It locates the stones, chooses the shot and delivers a 20 kg stone with the right weight and spin.",
+  "achieved": [
+   {
+    "text": "Gemini 4 Argon tuned its opening on Claude Opus 5.5's no-hammer openings from their round-robin match and turned a 2:5 loss into a 3:2 win in the rematch.",
+    "evidence": [
+     "CUR2-F17"
+    ]
+   },
+   {
+    "text": "Checkpoint Evaluation: GPT-6 Astra's program scored lower late in the season (score share 0.50 to 0.25).",
+    "evidence": [
+     "Checkpoint Evaluation"
+    ]
+   }
+  ],
+  "built": {
+   "Gemini 4 Argon": [
+    "Wrote an opponent profile into its program; the opponents made 0 to 1 errors in 20 throws, so the profile never changed a decision."
+   ]
+  }
+ }
+}
