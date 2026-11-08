@@ -1134,3 +1134,8 @@
 }
 .pg>.wrap{width:100%}
 .pg2 .gl{padding-top:0;padding-bottom:0;padding-left:var(--gut);padding-right:var(--gut)}
+/* page 2: the two-row poster carousel, sized to keep the page in one screen */
+.reel--thin{gap:10px}
+.reel--thin .rl-track{gap:10px}
+.reel--thin .rl-t{width:clamp(140px,calc((100svh - 560px) * 1.6 / 2),220px)}
+@keyframes rl{to{transform:translateX(calc(-50% - 5px))}}

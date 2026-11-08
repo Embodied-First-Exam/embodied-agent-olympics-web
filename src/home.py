@@ -108,7 +108,7 @@ def page2(site: Site, clips: dict) -> str:
     c = site.cfg
     mods = "".join(f'<li class="gl-m" data-inview><svg class="gl-ic" viewBox="0 0 24 24" aria-hidden="true">{GLANCE_IC[k]}</svg>'
                    f'<strong>{E(t)}</strong><span>{E(l)}</span></li>' for k, t, l in GLANCE)
-    strip = reel(site, clips, rows=1).replace('class="reel"', 'class="reel reel--plain reel--thin"', 1)
+    strip = reel(site, clips).replace('class="reel"', 'class="reel reel--plain reel--thin"', 1)
     return f"""
 <section class="pg pg2" id="about">
   <div class="wrap pg2-def">
@@ -146,7 +146,7 @@ def measure(site: Site, clips: dict) -> str:
         media = vid(c, "cover", "data-autoplay") if c else ""
         lis = "".join(f"<li>{E(s)}</li>" for s in subs)
         return (f'<button type="button" class="cap5 {cls}" data-cap aria-expanded="false">{media}<span class="cap4-grid"></span>'
-                f'<span class="cap5-face"><strong>{name}</strong><span>{E(" · ".join(subs))}</span></span>'
+                f'<span class="cap5-face"><strong>{name}</strong></span>'
                 f'<span class="cap5-more"><strong>{name}</strong><ul>{lis}</ul></span>'
                 f'<i class="cap5-plus" aria-hidden="true"></i></button>')
     layers = [("sys", "What the System Can Do", "The running system, which can change at any time."),
@@ -154,7 +154,7 @@ def measure(site: Site, clips: dict) -> str:
     rows = []
     for key, name, sub in layers:
         cards = "".join(card(n, cid, cls, subs) for n, lay, cid, cls, subs in CAPS if lay == key)
-        rows.append(f'<div class="lay"><div class="lay-h"><strong>{name}</strong><span>{sub}</span></div><div class="lay-cards">{cards}</div></div>')
+        rows.append(f'<div class="lay"><div class="lay-h"><strong>{name}</strong></div><div class="lay-cards">{cards}</div></div>')
     link = ('<div class="lay-link" aria-hidden="true"><span><b>↑</b> develops and deploys new versions</span>'
             '<span><b>↓</b> match statistics and replays</span></div>')
     return f"""
