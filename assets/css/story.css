@@ -1402,3 +1402,4 @@
   opacity:0;pointer-events:none;transform:translateY(4px);transition:opacity .2s,transform .2s;z-index:5}
 .sw-tip:hover::after,.sw-tip:focus-visible::after{opacity:1;transform:none}
 .pgs .sw-carry-lab{color:var(--fg-2)}
+.sw-chain{color:var(--fg)!important;font-weight:500}.sw-chain b{color:var(--fg-2);font-weight:400;margin-left:4px}

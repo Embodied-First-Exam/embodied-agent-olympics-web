@@ -402,7 +402,7 @@ def growth2() -> str:
   <div class="sw">
     <div class="sw-matches">{tiles}</div>
     <div class="sw-carry"><span class="sw-carry-line"><i></i></span></div>
-    <div class="sw-foot"><span class="sw-carry-lab"><span class="sw-tip" tabindex="0" data-tip="Code and weights, notes, the agent&rsquo;s memory and session history, and every earlier match&rsquo;s video and records. Up to 20 GB per entrant.">Season memory:</span> everything the agent built and learned carries over.</span>
+    <div class="sw-foot"><span class="sw-carry-lab sw-chain">Code · Weights · Notes · Memory · Match videos <b>→ carried into every next match</b></span>
       <span class="sw-key">Each match starts in a fresh world.</span></div>
   </div>
   <div class="g2-panels">
