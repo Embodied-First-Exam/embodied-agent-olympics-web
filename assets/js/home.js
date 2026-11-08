@@ -124,12 +124,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-/* facts tiles: a running clock that follows its clip */
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("[data-vclock]").forEach((el) => {
-    const v = el.closest("figure").querySelector("video");
-    if (!v) return;
-    const f = () => { const t = v.currentTime || 0; el.textContent = `${String(Math.floor(t / 60)).padStart(2, "0")}:${(t % 60).toFixed(1).padStart(4, "0")}`; requestAnimationFrame(f); };
-    requestAnimationFrame(f);
-  });
-});

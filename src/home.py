@@ -72,82 +72,43 @@ def hero(site: Site, clips: dict) -> str:
 <script type="application/json" data-hero2-clips>{json.dumps(seq)}</script>"""
 
 
-def statement(site: Site, clips: dict) -> str:
-    """Layer 2 of the hero: the research statement, one sentence."""
-    lines = " ".join(f'<span class="ql ql--hi" style="--k:{k}">{E(l)}</span>' for k, l in enumerate(site.cfg["statement_lines"]))
+def definition(site: Site, clips: dict) -> str:
+    """Layer 2 of the hero: what Embodied Olympics is, in one big line and one short line."""
+    c = site.cfg
     return f"""
 <section class="qx2 qx3" data-inview>
   <div class="wrap qx2-in">
-    <span class="ql kicker qx3-k" style="--k:0">The research</span>
-    <h2 class="qx2-text qx3-text">{lines}</h2>
+    <span class="ql kicker qx3-k" style="--k:0">{E(c['definition_label'])}</span>
+    <h2 class="qx2-text qx3-text"><span class="ql ql--hi" style="--k:1">{E(c['definition'])}</span></h2>
+    <p class="ql qx2-full" style="--k:2">{E(c['definition_line'])}</p>
   </div>
 </section>"""
 
 
-def reel(site: Site, clips: dict) -> str:
-    """Two rows of match stills drifting in opposite directions; hover pauses the row and plays that clip."""
-    def tile(s, poster, web):
-        v = f'<video muted loop playsinline preload="none" data-hover-src="{E(web)}"></video>' if web else ""
-        return (f'<a class="rl-t" href="{site.sport_url(s)}" data-hover tabindex="-1">'
-                f'<img src="{E(poster)}" alt="" loading="lazy">{v}{icon(s["id"], "pic rl-pic")}'
-                f'<span class="rl-name">{E(s["name"])}</span></a>')
-    row1, row2 = [], []
-    for k, s in enumerate(site.sports):
-        c = s["clips"][0] if s["clips"] else None
-        poster = site.murl(c["poster"]["url"]) if c else site.murl(s["thumb"]["url"])
-        web = site.murl(c["web_720p"]["url"]) if c else None
-        (row1 if k % 2 == 0 else row2).append(tile(s, poster, web))
-    rows = "".join(f'<div class="rl-row rl-row--{d}"><div class="rl-track">{"".join(r) * 2}</div></div>'
-                   for d, r in (("l", row1), ("r", row2)))
-    return f'<section class="reel" aria-label="The sports in motion">{rows}</section>'
+GLANCE_IC = {  # 24x24 line icons, stroke = currentColor
+    "sports": '<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/>'
+              '<rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>',
+    "time": '<circle cx="12" cy="13" r="8"/><path d="M12 9v4.5l3 2M9.5 2.5h5"/>',
+    "limits": '<circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/>',
+    "control": '<circle cx="6" cy="18" r="2.2"/><circle cx="12" cy="10" r="2.2"/><circle cx="19" cy="5" r="1.8"/><path d="M7.3 16.2 10.7 11.8M13.8 8.8 17.4 6"/>',
+}
+GLANCE = [("sports", "18 Sports", "Diverse physical competition tasks."),
+          ("time", "Real-Time Interaction", "The world keeps moving."),
+          ("limits", "Real Robot Constraints", "Bodies, joints, actuators and physics."),
+          ("control", "Direct Body Control", "Agents control the embodied system through low-level interfaces.")]
 
 
-FACTS = ["18 sports", "Real-time interaction", "Real-world constraints", "Direct body control"]
-
-# light joint overlay for the "direct body control" tile, in the 1280x720 frame of the baseball still
-SKEL_J = {"head": (760, 212), "neck": (765, 256), "pelvis": (788, 398), "shL": (700, 286), "shR": (826, 280),
-          "elL": (686, 336), "elR": (850, 302), "hand": (872, 306), "hipL": (746, 440), "hipR": (824, 442),
-          "knL": (722, 522), "knR": (786, 560), "anL": (702, 640), "anR": (806, 682)}
-SKEL_B = [("head", "neck"), ("neck", "pelvis"), ("shL", "shR"), ("shL", "elL"), ("elL", "hand"), ("shR", "elR"), ("elR", "hand"),
-          ("pelvis", "hipL"), ("pelvis", "hipR"), ("hipL", "knL"), ("knL", "anL"), ("hipR", "knR"), ("knR", "anR")]
-
-
-def facts(site: Site, clips: dict, variant: str = "a") -> str:
-    """The four facts. A: one band of big labels laid over the drifting reel of all 18 sports.
-    B: four tiles, each label paired with a muted clip or still that shows the point."""
-    if variant == "b":
-        return facts_tiles(site, clips)
-    cells = "".join(f'<div class="fa-c" data-inview><strong>{E(n)}</strong></div>' for n in FACTS)
-    return f"""<section class="numreel fa">
-  {reel(site, clips)}
-  <div class="numreel-scrim"></div>
-  <div class="fa-band"><div class="wrap"><div class="fa-grid">{cells}</div></div></div>
+def glance(site: Site) -> str:
+    """Layer 3: the benchmark at a glance, four small modules."""
+    mods = "".join(f'<li class="gl-m" data-inview><svg class="gl-ic" viewBox="0 0 24 24" aria-hidden="true">{GLANCE_IC[k]}</svg>'
+                   f'<strong>{E(t)}</strong><span>{E(l)}</span></li>' for k, t, l in GLANCE)
+    return f"""
+<section class="gl" aria-labelledby="gl-h">
+  <div class="wrap">
+    <h2 class="gl-h" id="gl-h">The Benchmark at a Glance</h2>
+    <ul class="gl-row">{mods}</ul>
+  </div>
 </section>"""
-
-
-def facts_tiles(site: Site, clips: dict) -> str:
-    def tile(cls, media, label):
-        return f'<figure class="fb-t {cls}" data-inview>{media}<figcaption>{E(label)}</figcaption></figure>'
-    posters = []
-    for s in site.sports:
-        c = clips.get(s["clips"][0]["id"]) if s["clips"] else None
-        posters.append(c["poster"] if c else site.murl(s["thumb"]["url"]))
-    mosaic = '<div class="fb-mos">' + "".join(f'<img src="{E(u)}" alt="" loading="lazy">' for u in posters[:9]) + "</div>"
-    rt = clips.get("badminton_g1")
-    live = (vid(rt, "cover", "data-autoplay") + '<span class="fb-live" aria-hidden="true"><i class="rec"></i>LIVE '
-            '<b data-vclock>00:00.0</b></span>') if rt else ""
-    lim = clips.get("soccer_hsl_3v3")
-    gauge = (vid(lim, "cover fb-crop", "data-autoplay") +
-             '<span class="fb-gauge" aria-hidden="true"><em>knee torque</em><span class="fb-barw"><span class="fb-bar"><i></i><b></b></span>'
-             '<em class="fb-lim">limit</em></span></span>') if lim else ""
-    bones = "".join(f'<line x1="{SKEL_J[a][0]}" y1="{SKEL_J[a][1]}" x2="{SKEL_J[b][0]}" y2="{SKEL_J[b][1]}"/>' for a, b in SKEL_B)
-    dots = "".join(f'<circle cx="{x}" cy="{y}" r="7"/>' for x, y in SKEL_J.values())
-    still = site.murl("/eo/img/poster/baseball_g1.jpg")
-    body = (f'<div class="fb-frame"><img src="{E(still)}" alt="" loading="lazy">'
-            f'<svg viewBox="0 0 1280 720" aria-hidden="true"><g class="fb-bones">{bones}</g><g class="fb-joints">{dots}</g></svg></div>')
-    tiles = (tile("fb-1", mosaic, FACTS[0]) + tile("fb-2", live, FACTS[1]) + tile("fb-3", gauge, FACTS[2])
-             + tile("fb-4", body, FACTS[3]))
-    return f"""<section class="fb"><div class="wrap"><div class="fb-grid">{tiles}</div></div></section>"""
 
 
 def chap_head(n: str, title: str, line: str = "", total: str = "04") -> str:
@@ -156,34 +117,30 @@ def chap_head(n: str, title: str, line: str = "", total: str = "04") -> str:
             f'{f"<p>{line}</p>" if line else ""}</header>')
 
 
-CAPS = [  # name, layer, clip, card class, one line, sub-skills
-    ("Physical", "sys", "tabletennis_g1", "", "Sense, predict and act while the world keeps moving.",
-     ["P1 State estimation", "P2 Physical prediction", "P3 Embodied execution",
-      "P4 Real-time dynamic interaction: the first three combined"]),
-    ("Competitive", "sys", "soccer_hsl_3v3", "cap4--crop", "Win against opponents who adapt.",
-     ["Strategy", "Opponent modeling", "Multi-agent collaboration"]),
-    ("Engineering", "build", "stuntcar_replica", "cap4--build", "Develop a system that works, and keeps working.",
-     ["System development", "Testing and debugging", "Efficiency and reliability"]),
-    ("Adaptive", "build", "drone_race_4", "", "Use feedback to improve, match after match.",
-     ["Feedback utilization", "Continual improvement", "The agent decides whether and when to change anything"]),
+CAPS = [  # name, layer, clip, card class, skills
+    ("Physical", "sys", "tabletennis_g1", "", ["State Estimation", "Prediction", "Execution", "Real-time Interaction"]),
+    ("Competitive", "sys", "soccer_hsl_3v3", "cap4--crop", ["Strategy", "Opponent Modeling", "Collaboration"]),
+    ("Engineering", "build", "stuntcar_replica", "cap4--build", ["Development", "Testing", "Debugging"]),
+    ("Adaptive", "build", "drone_race_4", "", ["Feedback", "Continual Improvement"]),
 ]
 
 
 def measure(site: Site, clips: dict) -> str:
-    """01 What we measure: four core capabilities in two layers. Static stills; hover, focus or click shows the details."""
-    def card(name, cid, cls, line, subs):
+    """01 What we measure: four core capabilities in two layers, as large video cards.
+    The clip plays while the card is on screen; hover, focus or click lists the skills."""
+    def card(name, cid, cls, subs):
         c = clips.get(cid)
-        img = f'<img src="{E(c["poster"])}" alt="" loading="lazy">' if c else ""
+        media = vid(c, "cover", "data-autoplay") if c else ""
         lis = "".join(f"<li>{E(s)}</li>" for s in subs)
-        return (f'<button type="button" class="cap5 {cls}" data-cap aria-expanded="false">{img}<span class="cap4-grid"></span>'
-                f'<span class="cap5-face"><strong>{name}</strong><span>{E(line)}</span></span>'
+        return (f'<button type="button" class="cap5 {cls}" data-cap aria-expanded="false">{media}<span class="cap4-grid"></span>'
+                f'<span class="cap5-face"><strong>{name}</strong><span>{E(" · ".join(subs))}</span></span>'
                 f'<span class="cap5-more"><strong>{name}</strong><ul>{lis}</ul></span>'
                 f'<i class="cap5-plus" aria-hidden="true"></i></button>')
     layers = [("sys", "What the System Can Do", "The running system, which can change at any time."),
               ("build", "How the Agent Builds It", "Building includes improving, for as long as it competes.")]
     rows = []
     for key, name, sub in layers:
-        cards = "".join(card(n, cid, cls, line, subs) for n, lay, cid, cls, line, subs in CAPS if lay == key)
+        cards = "".join(card(n, cid, cls, subs) for n, lay, cid, cls, subs in CAPS if lay == key)
         rows.append(f'<div class="lay"><div class="lay-h"><strong>{name}</strong><span>{sub}</span></div><div class="lay-cards">{cards}</div></div>')
     link = ('<div class="lay-link" aria-hidden="true"><span><b>↑</b> develops and deploys new versions</span>'
             '<span><b>↓</b> match statistics and replays</span></div>')
@@ -191,8 +148,7 @@ def measure(site: Site, clips: dict) -> str:
 <section class="chap chap--m" data-inview id="measure">
   <div class="wrap">
     {chap_head('01', 'What we<br>measure.', 'Four core capabilities in two layers. Results describe the whole agent system: the model, its harness and the code it writes.')}
-    <div class="lays">{rows[0]}{link}{rows[1]}</div>
-    <p class="note lays-note">Hover or tap a card for its skills</p>
+    <div class="lays lays--big">{rows[0]}{link}{rows[1]}</div>
   </div>
 </section>"""
 
@@ -557,7 +513,6 @@ MEDAL_FORMATS = [  # id (results page tab), name, sports covered, the path in on
 
 def results_compact(site: Site) -> str:
     """04 Results, home version: how medals are won (four chips), a provisional medal table, links to /results/."""
-    import pages  # local import: pages imports this module
     chips = "".join(
         f'<a class="mchip" href="{site.url("results/")}#fmt-{k}" data-mchip="{k}" aria-expanded="false">'
         f'<span class="mchip-top"><strong>{E(name)}</strong><em>{E(n)}</em></span><span class="mchip-path">{E(path)}</span></a>'
@@ -582,8 +537,8 @@ def results_compact(site: Site) -> str:
         {details}
       </div>
       <div class="rx-table">
-        <div class="rx-hrow"><h3 class="rx-h">Medal table</h3><span class="tag tag--pending">Provisional · at release</span></div>
-        {pages.medal_table(site)}
+        <h3 class="rx-h">Medal table</h3>
+        <div class="rx-ph"><i class="medal medal--g"></i><i class="medal medal--s"></i><i class="medal medal--b"></i><strong>Medal table at release</strong></div>
       </div>
     </div>
     <nav class="rlinks" aria-label="Full results">{row}</nav>
@@ -594,9 +549,9 @@ def results_compact(site: Site) -> str:
 # ---------------------------------------------------------------- page
 
 
-def home(site: Site, facts_variant: str = "a"):
+def home(site: Site):
     clips = clip_index(site)
-    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + statement(site, clips) + facts(site, clips, facts_variant) + '</div>'
+    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + definition(site, clips) + '</div>' + glance(site)
             + measure(site, clips) + season(site, clips) + competition(site, clips) + results_compact(site)
             + '<nav class="crail" aria-label="Chapters" data-crail></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')
