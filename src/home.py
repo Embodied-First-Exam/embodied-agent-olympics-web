@@ -195,14 +195,19 @@ CAPS = [  # name, layer, still, card class, one line, skills (shown on hover / c
     ("Adaptive", "build", "drone_race_4", "", "Learn from feedback and improve continuously.",
      ["Feedback", "Continual Improvement"]),
 ]
-MEASURE_LAYERS = [("sys", "System capabilities", "What the System Can Do"),
-                  ("build", "Agent capabilities", "How the Agent Builds It")]
+MEASURE_GROUPS = [("build", "How the Agent Builds It", ["Engineering", "Adaptive"]),
+                  ("sys", "What the System Can Do", ["Physical", "Competitive"])]
+MEASURE_FLOW = ("builds and deploys the system", "match results and replays feed back")
 
 
-def measure(site: Site, clips: dict) -> str:
-    """01 What we measure: two layers, each a kicker + title in its own column beside two capability cards.
-    A card is a still from our footage with the name and one line below; the skills appear on hover or click."""
-    def card(name, cid, cls, line, subs):
+def measure(site: Site, clips: dict, variant: str = "a") -> str:
+    """01 What we measure: four equal capabilities in two light groups, joined by a loop.
+    A: 2 x 2 (agent group left, system group right) with the two flow arrows between the columns.
+    B: one row of four, a thin bracket above each pair and the loop drawn under the row."""
+    by = {c[0]: c for c in CAPS}
+
+    def card(name):
+        _, _, cid, cls, line, subs = by[name]
         c = clips.get(cid)
         img = f'<img src="{E(c["poster"])}" alt="" loading="lazy">' if c else ""
         skills = "".join(f"<li>{E(s)}</li>" for s in subs)
@@ -210,18 +215,28 @@ def measure(site: Site, clips: dict) -> str:
                 f'<span class="mc-img">{img}<span class="mc-grid"></span><ul class="mc-skills">{skills}</ul>'
                 f'<i class="mc-plus" aria-hidden="true"></i></span>'
                 f'<strong class="mc-name">{name}</strong><span class="mc-line">{E(line)}</span></button>')
-    rows = []
-    for key, kicker, title in MEASURE_LAYERS:
-        cards = "".join(card(n, cid, cls, line, subs) for n, lay, cid, cls, line, subs in CAPS if lay == key)
-        rows.append(f'<div class="ms-lay"><div class="ms-txt"><span class="kicker">{kicker}</span><h2>{title}</h2></div>'
-                    f'<div class="ms-cards">{cards}</div></div>')
-    rel = ('<p class="ms-rel"><i aria-hidden="true">↕</i>Development · Deployment · Feedback · Improvement</p>')
+    fwd, back = MEASURE_FLOW
+    if variant == "b":
+        groups = "".join(f'<div class="mb-g"><span class="mb-br kicker">{E(g)}</span><div class="mb-cards">{card(n1)}{card(n2)}</div></div>'
+                         for _, g, (n1, n2) in MEASURE_GROUPS)
+        body = (f'<div class="mb">{groups}</div>'
+                f'<div class="mb-loop" aria-label="Loop: the agent {fwd}; {back}">'
+                f'<p class="mb-fwd"><span>{E(fwd)}</span></p><p class="mb-back"><span>{E(back)}</span></p>'
+                f'<i class="flow-dot flow-dot--a"></i><i class="flow-dot flow-dot--b"></i></div>')
+    else:
+        (k1, g1, (a1, a2)), (k2, g2, (b1, b2)) = MEASURE_GROUPS
+        body = f"""<div class="ma">
+      <span class="kicker ma-tag ma-tag--l">{E(g1)}</span><span class="kicker ma-tag ma-tag--r">{E(g2)}</span>
+      <div class="ma-c ma-l1">{card(a1)}</div><div class="ma-c ma-l2">{card(a2)}</div>
+      <div class="ma-c ma-r1">{card(b1)}</div><div class="ma-c ma-r2">{card(b2)}</div>
+      <div class="ma-arrow ma-fwd"><span class="ma-lab">{E(fwd)}</span><span class="ma-line"><i class="flow-dot flow-dot--a"></i></span></div>
+      <div class="ma-arrow ma-back"><span class="ma-line"><i class="flow-dot flow-dot--b"></i></span><span class="ma-lab">{E(back)}</span></div>
+    </div>"""
     return f"""
-<section class="chap chap--m pg pg3" data-inview id="measure">
+<section class="chap chap--m pg pg3 pg3--{variant}" data-inview id="measure">
   <div class="wrap">
-    <header class="ch-head ms-head"><span class="ch-n">01<i>/04</i></span>
-      <p>We evaluate both the capabilities of the embodied system and the agent&rsquo;s ability to build and improve it.</p></header>
-    {rows[0]}{rel}{rows[1]}
+    {chap_head('01', 'What we measure.', 'We evaluate both the capabilities of the embodied system and the agent&rsquo;s ability to build and improve it.')}
+    {body}
   </div>
 </section>"""
 
@@ -675,10 +690,10 @@ def results_compact(site: Site) -> str:
 # ---------------------------------------------------------------- page
 
 
-def home(site: Site):
+def home(site: Site, measure_variant: str = "a"):
     clips = clip_index(site)
     body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips) + physloop()
-            + measure(site, clips) + match_screen() + season_screen() + competition(site, clips) + results_compact(site)
+            + measure(site, clips, measure_variant) + match_screen() + season_screen() + competition(site, clips) + results_compact(site)
             + '<nav class="crail" aria-label="Chapters" data-crail></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')
     return "", page(site, path="", title=None, body=body, dark_top=True)

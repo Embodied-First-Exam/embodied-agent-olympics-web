@@ -1275,3 +1275,58 @@
 .pgs .g2-panels{margin-top:10px}
 .mc--build .mc-img img{object-position:50% 45%}
 @media (max-width:900px){.pl-svg,.ml-svg{min-width:640px}}
+
+/* ================= 01 what we measure, round 8: four equal capabilities, two light groups, one loop */
+.pg3 .ch-head h2{font-size:clamp(34px,4.4vw,68px)}
+.pg3 .ch-head p{margin-top:12px;max-width:760px;font-size:clamp(17px,1.4vw,20px)}
+.pg3 .mc-img{height:clamp(130px,calc((100svh - 410px) / 2),280px)}
+.pg3 .mc-name{font-size:clamp(20px,1.6vw,24px)}
+/* the two flow labels: readable text, a thin arrow, one dot travelling the loop */
+.flow-dot{position:absolute;top:50%;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--accent);opacity:0;box-shadow:0 0 0 4px var(--accent-soft)}
+.flow-dot--a{animation:flowA 6s linear infinite}
+.flow-dot--b{animation:flowB 6s linear infinite}
+@keyframes flowA{0%{left:0;opacity:0}4%{opacity:1}44%{left:100%;opacity:1}48%,100%{left:100%;opacity:0}}
+@keyframes flowB{0%,50%{left:100%;opacity:0}54%{opacity:1}94%{left:0;opacity:1}98%,100%{left:0;opacity:0}}
+@media (prefers-reduced-motion:reduce){.flow-dot{display:none}}
+/* A: 2 x 2 with the arrows between the columns */
+.ma{display:grid;grid-template-columns:minmax(0,1fr) clamp(170px,15vw,230px) minmax(0,1fr);grid-template-rows:auto auto auto;column-gap:clamp(12px,1.4vw,20px);row-gap:12px;align-items:center}
+.ma-tag{align-self:end;padding-bottom:2px;border-bottom:1px solid var(--hair);padding-bottom:8px}
+.ma-tag--l{grid-column:1;grid-row:1}.ma-tag--r{grid-column:3;grid-row:1}
+.ma-l1{grid-column:1;grid-row:2}.ma-l2{grid-column:1;grid-row:3}.ma-r1{grid-column:3;grid-row:2}.ma-r2{grid-column:3;grid-row:3}
+.ma-fwd{grid-column:2;grid-row:2}.ma-back{grid-column:2;grid-row:3}
+.ma-c .mc{width:100%}
+.ma-arrow{display:grid;gap:10px;text-align:center}
+.ma-lab{font-size:clamp(15px,1.15vw,17px);line-height:1.35;color:var(--fg-2)}
+.ma-line{position:relative;display:block;height:2px;background:var(--fg-3)}
+.ma-line::after{content:"";position:absolute;top:-5px;width:10px;height:10px;border-top:2px solid var(--fg-3);border-right:2px solid var(--fg-3)}
+.ma-fwd .ma-line::after{right:0;transform:rotate(45deg)}
+.ma-back .ma-line::after{left:0;transform:rotate(-135deg)}
+/* B: one row of four, brackets above the pairs, the loop under the row */
+.mb{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,36px)}
+.mb-g{display:grid;gap:12px}
+.mb-br{position:relative;display:block;text-align:center;padding-bottom:12px}
+.mb-br::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;border:1.5px solid var(--fg-3);border-bottom:0;border-radius:6px 6px 0 0}
+.mb-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pg3--b .mc-img{height:clamp(150px,calc(100svh - 560px),300px)}
+.mb-loop{position:relative;margin:clamp(14px,2.4vh,24px) auto 0;width:min(78%,900px);height:74px;border:1.5px solid var(--fg-3);border-radius:37px}
+.mb-loop p{position:absolute;left:0;right:0;display:flex;justify-content:center;font-size:clamp(15px,1.15vw,17px);color:var(--fg-2)}
+.mb-loop p span{background:var(--bg);padding:0 14px}
+.mb-fwd{top:-12px}.mb-back{bottom:-12px}
+.mb-loop::before,.mb-loop::after{content:"";position:absolute;width:10px;height:10px;border-top:2px solid var(--fg-3);border-right:2px solid var(--fg-3)}
+.mb-loop::before{top:-6.5px;right:22%;transform:rotate(45deg)}
+.mb-loop::after{bottom:-6.5px;left:22%;transform:rotate(-135deg)}
+.mb-loop .flow-dot{top:-1px}
+.mb-loop .flow-dot--b{top:auto;bottom:-5.5px}
+.mb-loop .flow-dot--a{animation-name:flowA2}
+.mb-loop .flow-dot--b{animation-name:flowB2}
+@keyframes flowA2{0%{left:8%;opacity:0}4%{opacity:1}44%{left:92%;opacity:1}48%,100%{left:92%;opacity:0}}
+@keyframes flowB2{0%,50%{left:92%;opacity:0}54%{opacity:1}94%{left:8%;opacity:1}98%,100%{left:8%;opacity:0}}
+@media (max-width:900px){
+  .ma{grid-template-columns:1fr;row-gap:14px}
+  .ma-tag--l,.ma-tag--r,.ma-l1,.ma-l2,.ma-r1,.ma-r2,.ma-fwd,.ma-back{grid-column:1;grid-row:auto}
+  .ma-tag--l{order:1}.ma-l1{order:2}.ma-l2{order:3}.ma-fwd{order:4}.ma-tag--r{order:5}.ma-r1{order:6}.ma-r2{order:7}.ma-back{order:8}
+  .pg3 .mc-img{height:auto;aspect-ratio:16/10}
+  .mb,.mb-cards{grid-template-columns:1fr}
+  .mb-loop{width:100%;height:96px}
+}
+.pg3--a .mc-img{height:clamp(120px,calc((100svh - 450px) / 2),260px)}
