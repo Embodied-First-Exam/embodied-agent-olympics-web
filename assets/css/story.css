@@ -1538,3 +1538,20 @@ a.doc-row:hover{background:var(--bg-2)}
 .mt-foot a{color:var(--fg-2);margin-left:6px;border-bottom:1px solid var(--hair)}
 .mt-foot a:hover{color:var(--accent)}
 .rs-fmt .tm--home .sec-head{margin-bottom:18px}
+
+/* ================= round 24: no chapter counters; the rail is ticks only, names on hover / focus */
+.pg .ch-head{grid-template-columns:1fr}
+.pg .ch-head>*{grid-column:1!important}
+.snav-t{display:none}
+@media (min-width:1280px){
+  .snav--left{gap:0;padding:4px 0}
+  .snav--left a{display:flex;align-items:center;height:22px;padding:0 8px;font-size:12px}
+  .snav--left a::before{display:none}
+  .snav--left .snav-t{display:block;width:12px;height:2px;border-radius:2px;background:var(--fg-3);transition:width .25s var(--ease),background .25s}
+  .snav--left a.is-on .snav-t{width:26px;background:var(--accent)}
+  .snav--left a:hover .snav-t,.snav--left a:focus-visible .snav-t{background:var(--fg)}
+  .snav--left a span{position:absolute;left:44px;white-space:nowrap;padding:3px 9px;border-radius:999px;background:var(--bg-2);border:1px solid var(--hair);
+    color:var(--fg);font-size:12px;opacity:0;transform:translateX(-4px);pointer-events:none;transition:opacity .15s,transform .2s var(--ease)}
+  .snav--left a:hover span,.snav--left a:focus-visible span{opacity:1;transform:none}
+  .pgr2 .wrap,.pgmt .wrap,.pgl .wrap,.pg3 .wrap,.pgm .wrap,.pgs .wrap{padding-left:max(var(--gut),calc(76px - max(0px,(100vw - var(--wrap)) / 2)))}
+}

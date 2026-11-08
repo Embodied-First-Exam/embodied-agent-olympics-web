@@ -142,7 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!bar || !secs.length) return;
   secs.forEach((s) => {
     const a = document.createElement("a");
-    a.href = "#" + s.id; a.textContent = s.dataset.snav;
+    a.href = "#" + s.id; a.setAttribute("aria-label", s.dataset.snav);
+    a.innerHTML = '<i class="snav-t" aria-hidden="true"></i><span></span>';
+    a.querySelector("span").textContent = s.dataset.snav;
     bar.appendChild(a);
   });
   const links = [...bar.querySelectorAll("a")];

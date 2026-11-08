@@ -744,4 +744,5 @@ def home(site: Site, measure_variant: str = "a", nav: str = "left", intro: str =
             + measure(site, clips, measure_variant) + match_screen() + season_screen()
             + f'<nav class="snav{" snav--left" if nav == "left" else ""}" aria-label="Sections" data-snav-bar></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')
+    body = re.sub(r'<span class="ch-n">.*?</span>', "", body)  # the left rail marks the chapters; no counters
     return "", page(site, path="", title=None, body=body, dark_top=True)
