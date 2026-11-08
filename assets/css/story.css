@@ -1595,3 +1595,27 @@ a.doc-row:hover{background:var(--bg-2)}
 .ig-lab{bottom:28px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ig-t:hover .ig-name,.ig-t:focus-visible .ig-name{transform:none}
 .ig-t:hover::after,.ig-t:focus-visible::after{background:linear-gradient(to top,rgba(8,9,11,.92) 0%,rgba(8,9,11,.35) 70%,rgba(8,9,11,.1) 100%)}
+
+/* ================= round 31: intro tiles = big sport icons; the clip (or still) plays in the tile on hover */
+.ig-t--ic{background:var(--bg-2);border:1px solid var(--hair);display:grid;place-items:center;color:var(--fg)}
+.ig-t--ic::after{opacity:0;transition:opacity .3s}
+.ig-media{position:absolute;inset:0;opacity:0;transition:opacity .35s var(--ease)}
+.ig-media video,.ig-media img{width:100%;height:100%;object-fit:cover}
+.ig-pic{position:relative;z-index:1;width:clamp(44px,4.2vw,60px);height:clamp(44px,4.2vw,60px);margin-top:-18px;color:var(--fg);transition:opacity .3s,color .2s}
+.ig-t--ic .ig-name{left:0;right:0;text-align:center;bottom:10px;color:var(--fg)}
+.ig-t--ic .ig-lab{left:10px;right:10px;text-align:center}
+@media (hover:hover){
+  .ig-t--ic.is-playing .ig-media,.ig-t--still:hover .ig-media{opacity:1}
+  .ig-t--ic.is-playing::after,.ig-t--still:hover::after{opacity:1}
+  .ig-t--ic.is-playing .ig-pic,.ig-t--still:hover .ig-pic{opacity:0}
+  .ig-t--ic.is-playing .ig-name,.ig-t--still:hover .ig-name{color:#fff}
+  .ig-t--ic:hover{border-color:var(--accent)}
+}
+@media (hover:none){.ig-media,.ig-lab{display:none}}
+.ig-t--ic:hover .ig-img img{transform:none}
+.ig-t--ic.is-playing .ig-media,.ig-t--still:hover .ig-media{opacity:1}
+.ig-t--ic.is-playing::after,.ig-t--still:hover::after{opacity:1}
+.ig-t--ic.is-playing .ig-pic,.ig-t--still:hover .ig-pic{opacity:0}
+.ig-t--ic.is-playing .ig-name,.ig-t--still:hover .ig-name{color:#fff}
+.ig-t--ic:hover{border-color:var(--accent)}
+@media (hover:none){.ig-t--ic .ig-media,.ig-t--ic::after{display:none}.ig-t--ic .ig-pic{opacity:1!important}.ig-t--ic .ig-name{color:var(--fg)!important}}

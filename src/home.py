@@ -93,9 +93,9 @@ def reel(site: Site, clips: dict, rows: int = 2) -> str:
 GLANCE_IC = {  # 24x24 line icons, stroke = currentColor (original drawings)
     "sports": "".join(f'<rect x="{x}" y="{y}" width="4.6" height="4.6" rx="1.2"/>' for y in (3.2, 9.7, 16.2) for x in (3.2, 9.7, 16.2)),
     "time": '<circle cx="12" cy="13" r="8"/><path d="M12 9v4.5l3 2M9.5 2.5h5"/>',
-    "limits": '<path d="M2.6 18a9.4 9.4 0 0 1 18.8 0"/><path d="M17.6 12.9l2.9-2.4" stroke-width="2.8"/><path d="M12 18l4.5-6.3"/><circle cx="12" cy="18" r="1.4"/><path d="M5.5 18h13" opacity=".45"/>',
+    "limits": '<path d="M2.6 18a9.4 9.4 0 0 1 18.8 0"/><path d="M12 18l4.5-6.3"/><circle cx="12" cy="18" r="1.4"/><path d="M5.5 18h13" opacity=".45"/>',
     "control": '<circle cx="5" cy="18.5" r="2"/><circle cx="11" cy="9.5" r="2"/><circle cx="19.5" cy="7" r="1.6"/>'
-               '<path d="M6.1 16.8l3.8-5.6M12.9 8.9l5-1.4"/><path d="M14.4 13.2a4.6 4.6 0 0 1-2.6 0.8M13.9 11.6l0.5 1.6-1.6 0.6"/>',
+               '<path d="M6.1 16.8l3.8-5.6M12.9 8.9l5-1.4"/>',
 }
 GLANCE_IC_ALT = {  # alternatives shown on the preview's /fact-icons/ page
     "sports": '<circle cx="12" cy="15" r="5.5"/><path d="M8.5 3.5 12 9.5l3.5-6M12 12.5v5"/>',
@@ -120,9 +120,12 @@ def intro_grid(site: Site, clips: dict) -> str:
     def tile(sid):
         s = site.sport_by_id[sid]
         c = clips.get(s["clips"][0]["id"]) if s["clips"] else None
-        img = c["poster"] if c else site.murl(s["thumb"]["url"])
         labs = " · ".join((tags.get(sid) or ["", []])[1])
-        return (f'<a class="ig-t" href="{site.sport_url(s)}"><span class="ig-img"><img src="{E(img)}" alt="" loading="lazy"></span>'
+        # big line icon by default; on hover the sport's clip (loaded on first hover by site.js) or, without a clip, its still
+        media = (f'<video muted loop playsinline preload="none" data-hover-src="{E(c["web"])}" poster="{E(c["poster"])}"></video>' if c
+                 else f'<img src="{E(site.murl(s["thumb"]["url"]))}" alt="" loading="lazy">')
+        return (f'<a class="ig-t ig-t--ic{"" if c else " ig-t--still"}" href="{site.sport_url(s)}" data-hover>'
+                f'<span class="ig-media">{media}</span>{icon(s["id"], "pic ig-pic")}'
                 f'<span class="ig-name">{E(s["name"])}</span><span class="ig-lab">{E(labs)}</span></a>')
     cells = []
     for name, ids, span in groups:
