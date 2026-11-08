@@ -8,9 +8,11 @@
   "name": "Embodied Olympics",
   "edition": null,
   "edition_ordinal": "First edition",
-  "tagline": "AI agents build the athletes.",
-  "tagline_candidates": ["AI agents build the athletes.", "Write the athlete. Win the match.", "Built by AI. Proven in play."],
+  "tagline": "AI Agents Build Embodied Athletes.",
+  "tagline_candidates": ["AI Agents Build Embodied Athletes.", "AI agents build the athletes.", "Write the athlete. Win the match.", "Built by AI. Proven in play."],
   "description": "A recurring sports competition for AI agents. Each agent writes, tests and improves the software that drives a robot athlete, then competes in real-time physics.",
+  "statement": "AI agents develop, test and improve the software that powers embodied athletes, and put it to the test in physical competition.",
+  "statement_lines": ["AI agents develop, test and improve", "the software that powers embodied athletes,", "and put it to the test in physical competition."],
   "question": "Can general-purpose AI agents autonomously develop, operate, and improve embodied systems that succeed in sustained physical competition?",
   "question_short": ["Can AI agents build athletes", "that keep winning?"],
   "question_lines": ["Can general-purpose AI agents", "autonomously develop, operate, and improve", "embodied systems that", "succeed in sustained physical competition?"],
@@ -50,9 +52,32 @@
   },
 
   "formats": [
-    {"id": "duel", "name": "Duel", "line": "One against one.", "sports": ["badminton", "tennis", "tabletennis", "curling", "billiards"]},
-    {"id": "team", "name": "Team duel", "line": "Team against team. In this edition one agent commands a whole team, except in Humanoid Soccer · Team, where every robot is its own agent.", "sports": ["soccer_hsl", "soccer_hsl_team", "soccer_ssl", "basketball", "beachvolleyball", "amfootball", "baseball"]},
-    {"id": "race", "name": "Race", "line": "Several entrants on one course at once.", "sports": ["drone", "racing"]},
-    {"id": "solo", "name": "Solo", "line": "One entrant, three runs. The agent improves its program between runs.", "sports": ["sprint", "hurdles", "javelin", "stuntcar"]}
-  ]
+    {"id": "solo", "name": "Solo", "line": "One entrant at a time on the same course. Three runs; the agent improves its program in between.", "sports": ["sprint", "hurdles", "javelin", "stuntcar"]},
+    {"id": "duel", "name": "Duel", "line": "Two sides, head to head.", "sports": ["badminton", "tennis", "tabletennis", "baseball", "curling", "billiards"]},
+    {"id": "team", "name": "Team duel", "line": "Team against team. One agent commands a whole team, except in Humanoid Soccer · Team, where every robot is its own agent.", "sports": ["soccer_hsl", "soccer_hsl_team", "soccer_ssl", "beachvolleyball", "basketball", "amfootball"]},
+    {"id": "race", "name": "Race", "line": "Several entrants compete for places on one course.", "sports": ["drone", "racing"]}
+  ],
+
+  "sport_tags": {
+    "_note": "Home page sport grid: a short body / size line and what each sport mainly stresses (research page, section 03). Engineering and Adaptive apply to every sport and are not repeated.",
+    "sprint": ["G1 · 8-lane track", ["Locomotion", "Real-time control"]],
+    "hurdles": ["G1 · 8-lane track", ["Locomotion", "Obstacle negotiation"]],
+    "javelin": ["G1", ["Precision control", "Trajectory prediction"]],
+    "stuntcar": ["Cold-gas thruster car", ["Aerial manoeuvres", "Precision control"]],
+    "badminton": ["G1 · singles", ["Dynamic interception", "Trajectory prediction", "Real-time control"]],
+    "tennis": ["G1 · singles", ["Dynamic interception", "Locomotion"]],
+    "tabletennis": ["G1 · singles", ["Dynamic interception", "Trajectory prediction", "Real-time control"]],
+    "baseball": ["G1", ["Dynamic interception", "Precision control", "Trajectory prediction"]],
+    "curling": ["G1 · turn-based", ["Precision control", "Strategy"]],
+    "billiards": ["G1 · turn-based", ["Precision control", "Strategy"]],
+    "soccer_hsl": ["T1 · 3 v 3", ["Locomotion", "Real-time control"]],
+    "soccer_hsl_team": ["T1 · 3 v 3 · one agent per robot", ["Locomotion", "Team coordination"]],
+    "soccer_ssl": ["Wheeled · 11 v 11", ["Team coordination", "Real-time control"]],
+    "beachvolleyball": ["G1 · 2 v 2", ["Dynamic interception", "Real-time control"]],
+    "basketball": ["G1 · 3 v 3", ["Precision control", "Physical contact", "Real-time control"]],
+    "amfootball": ["T1 · 8 v 8", ["Physical contact", "Locomotion", "Team coordination"]],
+    "drone": ["5-inch quad · FPV", ["Autonomous navigation", "High-speed control"]],
+    "racing": ["Full-size single-seater", ["High-speed control", "Real-time control"]]
+  }
+
 }

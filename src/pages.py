@@ -117,17 +117,11 @@ def sport_page(site: Site, i: int):
 # ---------------------------------------------------------------- The Match
 def match(site: Site):
     clips = story.clip_index(site)
-    aw = """<figure class="three">
-  <div class="th-box th-prac"><span class="kicker">Practice arena</span><strong>Resettable.<br>Never scored.</strong></div>
-  <div class="th-wire"><span>change &amp; test →</span><span>← results</span></div>
-  <div class="th-box th-ws"><span class="kicker">Agent workspace</span><strong>Code · weights · notes</strong></div>
-  <div class="th-wire"><span>deploy →</span><span>← replay</span></div>
-  <div class="th-box th-arena"><span class="kicker">Competition arena</span><strong>Real time.<br>Scored.</strong></div>
-</figure>"""
+    aw = story.arenas()
     stack = "".join(f'<li><b>{k + 1:02d}</b><strong>{w}</strong></li>' for k, w in enumerate(["Perception", "Strategy", "Motion", "Joints"]))
     body = phead("How an agent plays.", "Three places. The agent decides when to use which.")
     body += f'<section class="band" style="padding-top:clamp(24px,3vw,48px)"><div class="wrap">{aw}</div></section>'
-    body += story.chap3(site, clips, "01", "One match.", "Prepare, play, review, improve. The agent decides when.").replace("<i>/05</i>", "")
+    body += story.chap3(site, clips, "01", "One match.", "Prepare, play, review, improve. The agent decides when.").replace("<i>/04</i>", "")
     body += f"""<section class="band"><div class="wrap">
   <div class="sec-h"><h2 class="h2">The whole stack.<br>Written by the agent.</h2></div>
   <ol class="stack4">{stack}</ol>
@@ -180,17 +174,21 @@ def medal_table(site: Site) -> str:
     return f'<div class="mt-wrap"><table class="mt{"" if released else " is-empty"}"><thead><tr>{head}</tr></thead><tbody>{"".join(body)}</tbody></table></div>'
 
 
+OA_EXCLUDED = ("drone", "racing", "soccer_hsl_team")  # Championship only in this edition (Team match: Open Arena on hold)
+
+
 def results(site: Site):
     by = {r["sport"]: r for r in site.results.get("by_sport", [])}
     groups = []
-    for cat in CATEGORIES:
+    tags = site.cfg.get("sport_tags", {})
+    for f in site.cfg["formats"]:  # grouped by format, as on the home page
         rows = "".join(
-            f'<tr><td><a class="bs-sport" href="{site.sport_url(s)}">{icon(s["id"])}{E(s["name"])}</a></td><td>{E(short(s["kind"]) or "")}</td>'
+            f'<tr><td><a class="bs-sport" href="{site.sport_url(s)}">{icon(s["id"])}{E(s["name"])}</a></td><td>{E((tags.get(s["id"]) or [""])[0])}</td>'
             + "".join(f'<td>{E(model_name(by.get(s["id"], {})[k])) if by.get(s["id"], {}).get(k) else "—"}</td>' for k in ("gold", "silver", "bronze"))
-            + "</tr>" for s in site.sports if s["category"] == cat and s.get("medals"))
+            + "</tr>" for s in (site.sport_by_id[x] for x in f["sports"] if x in site.sport_by_id) if s.get("medals"))
         if rows:
-            groups.append(f'<tbody><tr class="bs-cat"><th colspan="5">{E(cat)}</th></tr>{rows}</tbody>')
-    by_sport = ('<table class="bs"><thead><tr><th>Sport</th><th>Format</th><th><i class="medal medal--g"></i>Gold</th>'
+            groups.append(f'<tbody><tr class="bs-cat"><th colspan="5">{E(f["name"])}</th></tr>{rows}</tbody>')
+    by_sport = ('<table class="bs"><thead><tr><th>Sport</th><th>Body</th><th><i class="medal medal--g"></i>Gold</th>'
                 f'<th><i class="medal medal--s"></i>Silver</th><th><i class="medal medal--b"></i>Bronze</th></tr></thead>{"".join(groups)}</table>')
     oa = site.results.get("open_arena")
     oa = oa if isinstance(oa, dict) else {}
@@ -198,18 +196,29 @@ def results(site: Site):
         f'<div class="oa">{icon(s["id"])}<strong>{E(s["name"])}</strong><ol>'
         + ("".join(f'<li><span>{k + 1}</span>{E(model_name(t.get("model", "")))}</li>' for k, t in enumerate((oa.get(s["id"]) or [])[:3]))
            or "".join(f"<li><span>{k}</span>—</li>" for k in (1, 2, 3)))
-        + "</ol></div>" for s in site.sports)
+        + "</ol></div>" for s in site.sports if s["id"] not in OA_EXCLUDED)
     mc = "".join(f'<article class="mcard" style="--c:{E(m["colour"])}">{model_logo(site, m)}<h3>{E(model_name(m))}</h3><p>{E(m["maker"])}'
                  f'{" · " + E(m["harness"]) if todo(m["harness"]) else ""}</p></article>' for m in site.models)
-    tabs = [("medals", "Medal table"), ("by-sport", "By sport"), ("arena", "Open Arena"), ("models", "Models")]
+    reps = "".join(
+        f'<a class="wtile" href="{site.url("watch/")}#clip={E(c["id"])}"><span class="wtile-img"><img src="{E(site.murl(c["poster"]["url"]))}" alt="" loading="lazy"></span>'
+        f'<span class="wtile-t">{icon(s["id"])}{E(s["name"])}</span></a>'
+        for s in site.sports for c in s["clips"][:1])
+    replays = (f'<p class="rp-note">Replays from development. Match replays of each sport appear here at release.</p>'
+               f'<div class="wgrid rp-grid">{reps}</div>')
+    tabs = [("medals", "Medal table"), ("by-sport", "By sport"), ("arena", "Open Arena"), ("replays", "Replays"), ("models", "Models")]
     tab_btns = "".join(f'<button role="tab" class="tab{" is-on" if k == 0 else ""}" data-tab="{t}">{l}</button>' for k, (t, l) in enumerate(tabs))
-    body = phead("Results.", extra=f'<div class="phead-row" style="margin-top:28px"><span class="tag tag--pending">Results at release</span></div>'
-                                    f'<div class="tabs" role="tablist">{tab_btns}</div>')
-    body += f"""<section class="band" style="padding-top:0"><div class="wrap">
+    body = phead("Results.", extra='<div class="phead-row" style="margin-top:28px"><span class="tag tag--pending">Results at release</span></div>')
+    body += f'<section class="band rs-fmt" id="formats" style="padding-top:0"><div class="wrap">{story.tournament(site)}</div></section>'
+    body += f"""<section class="band band--line rs-tables" id="tables"><div class="wrap">
+  <div class="sec-h"><h2 class="h2">Tables.</h2></div>
+  <div class="tabs" role="tablist" style="margin-top:0">{tab_btns}</div>
+  <div class="rs-panels">
   <div class="panel is-on" data-panel="medals">{medal_table(site)}</div>
   <div class="panel" data-panel="by-sport">{by_sport}</div>
-  <div class="panel" data-panel="arena"><div class="oagrid">{boards}</div></div>
+  <div class="panel" data-panel="arena"><p class="rp-note">New agents can enter at any time; every duel starts from an empty workspace. Top three per sport. Drone racing, full-size racing and Humanoid Soccer · Team run in the Championship only.</p><div class="oagrid">{boards}</div></div>
+  <div class="panel" data-panel="replays">{replays}</div>
   <div class="panel" data-panel="models"><div class="mgrid">{mc}</div></div>
+  </div>
 </div></section>"""
     return "results/", page(site, path="results/", title="Results", body=body)
 
