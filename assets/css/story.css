@@ -1620,3 +1620,10 @@ a.doc-row:hover{background:var(--bg-2)}
 .ig-t--ic:hover{border-color:var(--accent)}
 @media (hover:none){.ig-t--ic .ig-media,.ig-t--ic::after{display:none}.ig-t--ic .ig-pic{opacity:1!important}.ig-t--ic .ig-name{color:var(--fg)!important}}
 .ig-t{max-height:calc((100svh - 520px) / 3)}
+/* round 33: arena figures in the sports-icon line style */
+.pl-fig path,.pl-fig circle{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.pl-fig--a path,.pl-fig--a circle{stroke:var(--accent)}
+.pl-fig--b path,.pl-fig--b circle{stroke:#6E9CF2}
+.pl-ball{fill:none;stroke:var(--fg);stroke-width:2.4}
+.pl-ashade{fill:rgba(8,9,11,.62)}
+.pl-arena .pl-ashade{fill:rgba(8,9,11,.6);stroke:none}

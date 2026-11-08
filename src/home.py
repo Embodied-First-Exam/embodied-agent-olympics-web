@@ -164,7 +164,7 @@ def page2(site: Site, clips: dict, intro: str = "strip") -> str:
 </section>"""
 
 
-def physloop(site: Site) -> str:
+def physloop(site: Site, arena_mode: str = "figures") -> str:
     """Agent–environment architecture. Each side: a workspace in which the agent builds and deploys a system; the system
     (its programs) observes and acts in the shared competition arena; the workspace also runs its own practice arena.
     Wording checked against the official run's seat instructions (handoff/webv3_1108.md, fact correction)."""
@@ -209,13 +209,22 @@ def physloop(site: Site) -> str:
                 f'<text class="pl-io" x="{cx}" y="454">Joint and motor commands</text>')
     build_lab = ('<text class="pl-bl" x="84" y="294">builds and deploys</text>'
                  '<text class="pl-bl" x="1116" y="294" text-anchor="end">builds and deploys</text>')
-    ga, gb = site.asset("img/g1-silhouette-a.png"), site.asset("img/g1-silhouette-b.png")
-    arena = (f'<g class="pl-arena"><rect x="480" y="150" width="240" height="305" rx="18"/>'
+    # two line-drawn robots in the sports-icon style (48-unit icon box, scaled; stroke kept at icon weight), facing a ball
+    fig = ('<circle cx="20" cy="8" r="3.4"/><path d="M20 11.6 L19 25 M19.6 16 L13 21.5 M19.6 16 L27.5 19.5 '
+           'M19 25 L14 33 L14 42 M19 25 L24 33 L25.5 42"/>')
+    if arena_mode == "still":
+        still = site.murl("/eo/img/poster/soccer_hsl_3v3.jpg")
+        inner = (f'<clipPath id="pl-ac"><rect x="481" y="151" width="238" height="303" rx="17"/></clipPath>'
+                 f'<image href="{E(still)}" x="481" y="151" width="238" height="303" preserveAspectRatio="xMidYMid slice" clip-path="url(#pl-ac)"/>'
+                 f'<rect class="pl-ashade" x="481" y="151" width="238" height="303" rx="17"/>')
+    else:
+        inner = (f'<g class="pl-fig pl-fig--a" transform="translate(503 268) scale(2.6)">{fig}</g>'
+                 f'<g class="pl-fig pl-fig--b" transform="translate(697 268) scale(-2.6 2.6)">{fig}</g>'
+                 f'<circle class="pl-ball" cx="600" cy="371" r="6"/>')
+    arena = (f'<g class="pl-arena"><rect x="480" y="150" width="240" height="305" rx="18"/>{inner}'
              f'<text class="pl-t" x="600" y="194">Competition Arena</text>'
              f'<text class="pl-s" x="600" y="220">Shared physical world</text>'
-             f'<image href="{E(ga)}" x="512" y="244" width="72" height="184"/>'
-             f'<image href="{E(gb)}" x="616" y="244" width="72" height="184"/>'
-             f'<text class="pl-vs" x="600" y="342">vs</text></g>')
+             + ('' if arena_mode == "still" else '<text class="pl-vs" x="600" y="330">vs</text>') + '</g>')
     svg = (f'<svg class="pl-svg" viewBox="0 0 {W} 468" role="img" aria-label="Each system is an agent and the code it builds and deploys; '
            f'the system observes and acts in a shared competition arena; each system has its own practice arena">'
            f'{side(True, "A")}{side(False, "B")}{arena}{lines}{build_lab}{io(365)}{io(835)}<g class="pl-pulses">{pulses}</g></svg>')
@@ -767,10 +776,10 @@ def results_medals(site: Site) -> str:
 # ---------------------------------------------------------------- page
 
 
-def home(site: Site, measure_variant: str = "a", nav: str = "left", intro: str = "strip"):
+def home(site: Site, measure_variant: str = "a", nav: str = "left", intro: str = "strip", arena: str = "figures"):
     clips = clip_index(site)
     body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips, intro)
-            + results_medals(site) + physloop(site)
+            + results_medals(site) + physloop(site, arena)
             + measure(site, clips, measure_variant) + match_screen() + season_screen()
             + f'<nav class="snav{" snav--left" if nav == "left" else ""}" aria-label="Sections" data-snav-bar></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')
