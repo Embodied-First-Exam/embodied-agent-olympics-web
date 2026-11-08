@@ -1653,3 +1653,7 @@ a.doc-row:hover{background:var(--bg-2)}
 /* round 37: GPU training chip on the practice link */
 .pl-gpu rect{fill:var(--bg-2);stroke:var(--fg-3);stroke-width:1}
 .pl-gpu text{font:500 11px var(--f-mono);letter-spacing:.06em;fill:var(--fg-2);text-anchor:middle}
+/* round 38: One season links = accent words with a small ↓, no underline */
+.jl{color:var(--accent);text-decoration:none;transition:color .2s,filter .2s}
+.jl::after{content:"\00a0↓";opacity:1;font-size:.85em}
+.jl:hover,.jl:focus-visible{color:var(--accent);filter:brightness(1.25)}
