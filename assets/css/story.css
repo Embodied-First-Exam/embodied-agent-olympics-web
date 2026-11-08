@@ -1621,9 +1621,18 @@ a.doc-row:hover{background:var(--bg-2)}
 @media (hover:none){.ig-t--ic .ig-media,.ig-t--ic::after{display:none}.ig-t--ic .ig-pic{opacity:1!important}.ig-t--ic .ig-name{color:var(--fg)!important}}
 .ig-t{max-height:calc((100svh - 520px) / 3)}
 /* round 33: arena figures in the sports-icon line style */
-.pl-fig path,.pl-fig circle{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-.pl-fig--a path,.pl-fig--a circle{stroke:var(--accent)}
-.pl-fig--b path,.pl-fig--b circle{stroke:#6E9CF2}
+.pl-bot path,.pl-bot circle{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.pl-bot--a path,.pl-bot--a circle{stroke:var(--accent)}
+.pl-bot--b path,.pl-bot--b circle{stroke:#6E9CF2}
 .pl-ball{fill:none;stroke:var(--fg);stroke-width:2.4}
 .pl-ashade{fill:rgba(8,9,11,.62)}
 .pl-arena .pl-ashade{fill:rgba(8,9,11,.6);stroke:none}
+/* round 34: robots that read as robots; each system in its robot's colour; neutral arena */
+.pl-bot rect{fill:none;stroke-width:2.6;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.pl-bot path,.pl-bot circle{stroke-width:2.6}
+.pl-bot circle{fill:var(--bg-2)}
+.pl-bot--a rect{stroke:var(--accent)}.pl-bot--b rect{stroke:#6E9CF2}
+.pl-bot .pl-visor{stroke-width:2.6}
+.pl-ws--a rect{stroke:var(--accent)}.pl-ws--a .pl-wsl{fill:var(--accent-ink)}
+.pl-ws--b rect{stroke:#6E9CF2}.pl-ws--b .pl-wsl{fill:#8FB2F5}
+.pl-arena>rect{stroke:var(--fg-3);stroke-width:1.4}

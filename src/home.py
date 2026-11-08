@@ -180,7 +180,7 @@ def physloop(site: Site, arena_mode: str = "figures") -> str:
                  f'<text class="pl-s" x="{X(130)}" y="74">Full copy of the match world</text>'
                  f'<text class="pl-s" x="{X(130)}" y="96">resettable · open throughout</text></g>')
         # workspace container with agent and system
-        s.append(f'<g class="pl-ws"><rect x="{R(10, 240)}" y="150" width="240" height="305" rx="16"/>'
+        s.append(f'<g class="pl-ws pl-ws--{"a" if left else "b"}"><rect x="{R(10, 240)}" y="150" width="240" height="305" rx="16"/>'
                  f'<text class="pl-wsl" x="{X(26)}" y="174" text-anchor="{"start" if left else "end"}">System {label}</text></g>')
         s.append(f'<g class="pl-agent"><rect x="{R(30, 200)}" y="186" width="200" height="74" rx="12"/>'
                  f'<text class="pl-t pl-t--s" x="{X(130)}" y="217">Agent</text>'
@@ -210,17 +210,21 @@ def physloop(site: Site, arena_mode: str = "figures") -> str:
     build_lab = ('<text class="pl-bl" x="84" y="294">builds and deploys</text>'
                  '<text class="pl-bl" x="1116" y="294" text-anchor="end">builds and deploys</text>')
     # two line-drawn robots in the sports-icon style (48-unit icon box, scaled; stroke kept at icon weight), facing a ball
-    fig = ('<circle cx="20" cy="8" r="3.4"/><path d="M20 11.6 L19 25 M19.6 16 L13 21.5 M19.6 16 L27.5 19.5 '
-           'M19 25 L14 33 L14 42 M19 25 L24 33 L25.5 42"/>')
+    # robot (local units, facing right): rounded head with a visor slit, rectangular torso, straight limbs with joints, flat feet
+    joints = [(13, 17), (25, 17), (9, 24), (31, 23), (16, 30), (22, 30), (14, 39), (25, 39)]
+    fig = ('<rect x="13" y="2" width="12" height="10" rx="2.6"/><path d="M18 7h5.5" class="pl-visor"/><path d="M19 12v2"/>'
+           '<rect x="13" y="14" width="12" height="16" rx="2"/>'
+           '<path d="M13 17 9 24 10 31M25 17 31 23 36 20M16 30 14 39 15 48M22 30 25 39 24 48M12 48h6M22 48h6"/>'
+           + "".join(f'<circle cx="{x}" cy="{y}" r="1.35"/>' for x, y in joints))
     if arena_mode == "still":
         still = site.murl("/eo/img/poster/soccer_hsl_3v3.jpg")
         inner = (f'<clipPath id="pl-ac"><rect x="481" y="151" width="238" height="303" rx="17"/></clipPath>'
                  f'<image href="{E(still)}" x="481" y="151" width="238" height="303" preserveAspectRatio="xMidYMid slice" clip-path="url(#pl-ac)"/>'
                  f'<rect class="pl-ashade" x="481" y="151" width="238" height="303" rx="17"/>')
     else:
-        inner = (f'<g class="pl-fig pl-fig--a" transform="translate(503 268) scale(2.6)">{fig}</g>'
-                 f'<g class="pl-fig pl-fig--b" transform="translate(697 268) scale(-2.6 2.6)">{fig}</g>'
-                 f'<circle class="pl-ball" cx="600" cy="371" r="6"/>')
+        inner = (f'<g class="pl-bot pl-bot--a" transform="translate(490 252) scale(2.55)">{fig}</g>'
+                 f'<g class="pl-bot pl-bot--b" transform="translate(710 252) scale(-2.55 2.55)">{fig}</g>'
+                 f'<circle class="pl-ball" cx="600" cy="370" r="6"/>')
     arena = (f'<g class="pl-arena"><rect x="480" y="150" width="240" height="305" rx="18"/>{inner}'
              f'<text class="pl-t" x="600" y="194">Competition Arena</text>'
              f'<text class="pl-s" x="600" y="220">Shared physical world</text>'
