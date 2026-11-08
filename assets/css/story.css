@@ -1562,3 +1562,12 @@ a.doc-row:hover{background:var(--bg-2)}
 .pgr2 .mt-head{margin-top:clamp(10px,2vh,22px)}
 .pgmt{padding-top:calc(var(--top) + 12px)}
 .pgmt .tm{margin-top:0}.pgmt .tm-card{padding:clamp(12px,1.4vw,20px)}.pgmt .tm-others .tm-o{padding-top:8px;padding-bottom:8px}
+/* round 28: a readable medal table (home + leaderboard) */
+.mt--home th{font-size:13.5px;letter-spacing:.12em;padding:12px 10px}
+.mt--home .mt-rank{font:600 22px var(--f-sans);color:var(--fg-2);font-variant-numeric:tabular-nums;width:64px}
+.mt--home .mt-n{font-size:23px;font-weight:600;font-variant-numeric:tabular-nums}
+.mt--home.is-empty .mt-n{opacity:.55}
+.mt--home .mt-model strong{font-size:20px}
+.mt--home .mt-who small{font-size:14px}
+.mt--home .mt-model .mlogo{width:24px;height:24px}
+.mt--home td{padding-top:8px!important;padding-bottom:8px!important}
