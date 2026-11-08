@@ -238,7 +238,7 @@ DOCS = [  # title, one line, target path (site page) or a site.json link key
     ("Benchmark design", "How an agent plays: practice arena, workspace, competition arena; one match.", ("page", "match/")),
     ("Rules", "Formats, boards and how medals are won.", ("page", "competitions/")),
     ("Technical specifications", "Each sport's robot, observations, control and what it tests.", ("page", "sports/")),
-    ("Evaluation protocol", "Seeds, schedules, re-tests and scoring.", ("link", "docs")),
+    ("Evaluation protocol", "Seeds, schedules, checkpoint evaluations and scoring.", ("link", "docs")),
 ]
 
 

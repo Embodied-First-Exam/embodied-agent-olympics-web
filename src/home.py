@@ -321,7 +321,7 @@ MATCH_STEPS = [
      "tag": "Official match · v2", "agent": "Swaps in the new version and keeps watching.",
      "field": "v2 on the field."},
     {"key": "end", "kind": "end", "label": "Whistle", "w": 10, "title": "Final whistle", "v": 2, "score": [2, 1],
-     "tag": "Full time", "agent": "Every version it fielded is saved for re-testing.", "field": "Full time."},
+     "tag": "Full time", "agent": "Every version it fielded is saved for checkpoint evaluation.", "field": "Full time."},
 ]
 
 
@@ -445,8 +445,8 @@ def growth2() -> str:
                 f'<b><span class="sw-full">{lab}</span><span class="sw-short">{short}</span></b></button>')
 
     def ck(i):
-        return (f'<button type="button" class="sw-ck" data-g2-stop="{i}" aria-label="Checkpoint {i + 1}: re-test">'
-                f'<i></i><span>Re-test</span></button>')
+        return (f'<button type="button" class="sw-ck" data-g2-stop="{i}" aria-label="Checkpoint evaluation {i + 1}">'
+                f'<i></i><span>Checkpoint evaluation</span></button>')
     more = '<span class="sw-more" aria-label="The season goes on">…</span>'
     labs = ["Match 1", "Match 2", "Match 3", "Match 4", "Match 5"]
     tiles = ck(0) + "".join(tile(l, i + 1) + ck(i + 1) for i, l in enumerate(labs)) + more
@@ -469,11 +469,11 @@ def growth2() -> str:
     </div>
     <div class="g2-p">
       <span class="kicker">Capability growth curve</span>
-      <div class="g2-q"><strong>What has it learned?</strong><span>Distinct capabilities its program shows in the re-test, counted as they first appear</span></div>
+      <div class="g2-q"><strong>What has it learned?</strong><span>Distinct capabilities its program shows in checkpoint evaluations, counted as they first appear</span></div>
       <div class="g2-chart g2-steps">{step_svg}{caps}<span class="g2-dot g2-dot--c"></span><span class="g2-xl">checkpoint</span></div>
     </div>
   </div>
-  <p class="note g2-note">Sketches without data. Both curves come from the post-match re-test: frozen programs, no model calls.</p>
+  <p class="note g2-note">Sketches without data. Both curves come from checkpoint evaluations: frozen programs, no model calls.</p>
   <script type="application/json" data-g2-data>{json.dumps(data)}</script>
 </figure>"""
 
@@ -524,7 +524,7 @@ def season_screen() -> str:
 <section class="pg pgs" data-inview id="season" data-snav="One season">
   <div class="wrap">
     <header class="ch-head lc-head lc-head--s"><span class="ch-n"></span><div class="lc-sub"><h3>One season <a class="jl-back" href="#" data-jl-back hidden>↑ back</a></h3>
-      <p>Across a season, the agent keeps learning. It rewatches its earlier matches, finds its own mistakes and fixes them, and carries everything it builds into the next match. Its saved versions are re-tested at checkpoints to measure its growth.</p></div></header>
+      <p>Across a season, the agent keeps learning. It rewatches its earlier matches, finds its own mistakes and fixes them, and carries everything it builds into the next match. Checkpoint evaluations of its saved versions measure its growth.</p></div></header>
     {growth2()}
   </div>
 </section>"""
