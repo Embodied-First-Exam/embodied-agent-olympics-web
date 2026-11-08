@@ -4,7 +4,7 @@
     {"name": "Claude Opus 5.5", "maker": "Anthropic", "harness": "Claude Code", "colour": "#D55E00", "effort": "high", "entry": "opus@v5"},
     {"name": "GPT-6 Astra", "maker": "OpenAI", "harness": "Codex", "colour": "#009E73", "effort": "high", "entry": "astra-sub@v5"},
     {"name": "Gemini 4 Argon", "maker": "Google", "harness": "Antigravity CLI", "colour": "#0072B2", "effort": "high", "entry": "gemini@v3"},
-    {"name": "Kimi (TODO: public model name)", "maker": "Moonshot AI", "harness": "Kimi Code", "colour": "#CC79A7", "effort": "high", "entry": "kimi@v2"},
+    {"name": "Kimi 3.1 Pro", "maker": "Moonshot AI", "harness": "Kimi Code", "colour": "#CC79A7", "effort": "high", "entry": "kimi@v2"},
     {"name": "DeepSeek V4.1 Flash", "maker": "DeepSeek", "harness": "DeepSeek Harness", "colour": "#56B4E9", "effort": "high", "entry": "deepseek-flash-sh@v1"},
     {"name": "GLM 5.3 Flash", "maker": "Zhipu AI", "harness": "ZCode", "colour": "#E69F00", "effort": "high", "entry": "glm-flash-sh@v2"}
   ]

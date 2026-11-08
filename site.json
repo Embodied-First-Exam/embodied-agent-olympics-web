@@ -37,7 +37,7 @@
     "Claude Opus 5.5": "claude",
     "GPT-6 Astra": "openai",
     "Gemini 4 Argon": "gemini",
-    "Kimi (TODO: public model name)": "kimi",
+    "Kimi 3.1 Pro": "kimi",
     "DeepSeek V4.1 Flash": "deepseek",
     "GLM 5.3 Flash": "chatglm"
   },
