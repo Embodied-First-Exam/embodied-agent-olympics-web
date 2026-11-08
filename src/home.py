@@ -505,8 +505,7 @@ def tournament(site: Site, head: bool = True, home: bool = False) -> str:
     ms = site.models
     pairs = [(i, j) for i in range(len(ms)) for j in range(i + 1, len(ms))]
     order = {p: k for k, p in enumerate(sorted(pairs, key=lambda p: ((p[1] - p[0]) % 3, p)))}
-    seat = (lambda k, m: f'<span class="tm-h tm-h--n">{"ABCDEFGH"[k]}</span>') if home else \
-        (lambda k, m: f'<span class="tm-h" title="{E(model_name(m))}" style="--c:{E(m["colour"])}">{model_logo(site, m)}</span>')
+    seat = lambda k, m: f'<span class="tm-h" title="{E(model_name(m))}" style="--c:{E(m["colour"])}">{model_logo(site, m)}</span>'  # noqa: E731
     hdr = "".join(seat(k, m) for k, m in enumerate(ms))
     rows = ""
     for i, mi in enumerate(ms):
@@ -599,7 +598,7 @@ def tournament(site: Site, head: bool = True, home: bool = False) -> str:
                   for k, ids, n, d in btns)
     title = '<header class="sec-head"><h2>Competition Format<br>and Medal Allocation</h2></header>' if head else ""
     if home:
-        return _medal_forms_home(h2h, solo)
+        return _medal_forms_home(h2h, solo, title)
     return f"""<div class="tm" data-tm data-fmt="h2h">
   {title}
   <div class="tm-card">{h2h}{drone}{racing}{solo}</div>
@@ -607,7 +606,7 @@ def tournament(site: Site, head: bool = True, home: bool = False) -> str:
 </div>"""
 
 
-def _medal_forms_home(h2h: str, solo: str) -> str:
+def _medal_forms_home(h2h: str, solo: str, title: str = "") -> str:
     """Home version of the format chart: three forms, Solo first. Racing shows drone and full-size racing as two lanes."""
     def lane(sid, name, steps, rule):
         chips = []
@@ -625,17 +624,16 @@ def _medal_forms_home(h2h: str, solo: str) -> str:
       {lane("racing", "Full-size racing", ["Race 1", "Race 2", "Race 3", "F1 points", "Medals"], "All cars on one track · 25-18-15-12-10-8 points, summed over the three races")}
     </div>
   </div>"""
-    h2h = h2h.replace('data-fmt-panel="h2h">', 'data-fmt-panel="h2h" hidden>', 1)
-    solo = solo.replace('data-fmt-panel="solo" hidden>', 'data-fmt-panel="solo">', 1)
-    btns = [("solo", ["sprint", "hurdles", "javelin", "stuntcar"], "Solo events", "4 sports · 3 runs, averaged"),
-            ("h2h", ["badminton", "tennis", "soccer_hsl", "basketball"], "Team events", "12 duels and team duels · round robin, knockout"),
+    btns = [("h2h", ["badminton", "tennis", "soccer_hsl", "basketball"], "Team events", "12 duels and team duels · round robin, knockout"),
+            ("solo", ["sprint", "hurdles", "javelin", "stuntcar"], "Solo events", "4 sports · 3 runs, averaged"),
             ("race", ["drone", "racing"], "Racing", "Drone and full-size racing")]
-    oth = "".join(f'<button type="button" class="tm-o{" is-on" if k == "solo" else ""}" data-fmt="{k}" aria-pressed="{str(k == "solo").lower()}">'
+    oth = "".join(f'<button type="button" class="tm-o{" is-on" if k == "h2h" else ""}" data-fmt="{k}" aria-pressed="{str(k == "h2h").lower()}">'
                   f'<span class="tm-o-ic">{"".join(icon(s) for s in ids)}</span><strong>{n}</strong><span>{d}</span></button>'
                   for k, ids, n, d in btns)
-    return f"""<div class="tm tm--home" data-tm data-fmt="solo">
+    return f"""<div class="tm tm--home" data-tm data-fmt="h2h">
+  {title}
   <div class="tm-others" role="tablist" aria-label="Formats">{oth}</div>
-  <div class="tm-card">{solo}{h2h}{race}<span class="note tm-sch">Schematic · seats A–F</span></div>
+  <div class="tm-card">{h2h}{solo}{race}<span class="note tm-sch">Schematic</span></div>
 </div>"""
 
 
@@ -730,10 +728,8 @@ def results_medals(site: Site) -> str:
     <div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">Provisional — fills in at release</span>
       <span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>
     <div class="mt-home">{medal_table_home(site)}</div>
-    <div class="mt-links">
-      <a class="rm-card rm-card--s rm-card--nk" href="{lb}#arena"><strong>Open Arena</strong><em>A separate, always-open leaderboard that never counts toward medals.</em><span class="rm-more"><b class="arr">→</b></span></a>
-      <a class="link mt-all" href="{lb}">Explore all results <span class="arr">→</span></a>
-    </div>
+    <p class="mt-foot">Open Arena is a separate, always-open leaderboard and does not count toward medals.
+      <a href="{lb}#arena">View Open Arena →</a> · <a href="{lb}">All results →</a></p>
   </div>
 </section>"""
 

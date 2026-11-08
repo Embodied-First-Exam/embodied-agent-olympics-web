@@ -1534,3 +1534,7 @@ a.doc-row:hover{background:var(--bg-2)}
     padding-left:max(var(--gut),calc(156px - max(0px,(100vw - var(--wrap)) / 2)))}
 }
 .rm-card--nk{grid-template-columns:1fr auto}.rm-card--nk strong,.rm-card--nk em{grid-column:1}.rm-card--nk .rm-more{grid-column:2}
+.mt-foot{margin-top:clamp(14px,2.2vh,22px);font-size:13.5px;color:var(--fg-3)}
+.mt-foot a{color:var(--fg-2);margin-left:6px;border-bottom:1px solid var(--hair)}
+.mt-foot a:hover{color:var(--accent)}
+.rs-fmt .tm--home .sec-head{margin-bottom:18px}

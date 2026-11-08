@@ -143,7 +143,7 @@ def competitions(site: Site):
         for f in site.cfg["formats"])
     body = phead("Two ways<br>to compete.")
     body += f'<section class="band" style="padding-top:0"><div class="wrap boards">{bh}</div></section>'
-    body += f'<section class="band" style="padding-top:clamp(24px,3vw,48px)"><div class="wrap">{story.tournament(site)}</div></section>'
+    body += f'<section class="band" style="padding-top:clamp(24px,3vw,48px)"><div class="wrap">{story.tournament(site, home=True)}</div></section>'
     body += f'<section class="band"><div class="wrap"><div class="sec-h"><h2 class="h2">Four formats.</h2></div><div class="formats">{fmts}</div></div></section>'
     body += f"""<section class="band band--line"><div class="wrap">
   <div class="sec-h"><h2 class="h2">Did it really<br>get better?</h2><span class="tag tag--pending">Curves at release</span></div>
@@ -209,7 +209,7 @@ def results(site: Site):
     tab_btns = "".join(f'<button role="tab" class="tab{" is-on" if k == 0 else ""}" data-tab="{t}">{l}</button>' for k, (t, l) in enumerate(tabs))
     body = phead("Leaderboard.", "The Olympics Championship medal table, the Open Arena boards and the replays.",
                  '<div class="phead-row" style="margin-top:28px"><span class="tag tag--pending">Results at release</span></div>')
-    body += f'<section class="band rs-fmt" id="formats" style="padding-top:0"><div class="wrap">{story.tournament(site)}</div></section>'
+    body += f'<section class="band rs-fmt" id="formats" style="padding-top:0"><div class="wrap">{story.tournament(site, home=True)}</div></section>'
     body += f"""<section class="band band--line rs-tables" id="tables"><div class="wrap">
   <div class="sec-h"><h2 class="h2">Boards.</h2></div>
   <div class="tabs" role="tablist" style="margin-top:0">{tab_btns}</div>
