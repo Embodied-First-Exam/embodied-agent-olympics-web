@@ -130,38 +130,43 @@ def chap_head(n: str, title: str, line: str = "", total: str = "04") -> str:
             f'{f"<p>{line}</p>" if line else ""}</header>')
 
 
-CAPS = [  # name, layer, clip, card class, skills
-    ("Physical", "sys", "tabletennis_g1", "", ["State Estimation", "Prediction", "Execution", "Real-time Interaction"]),
-    ("Competitive", "sys", "soccer_hsl_3v3", "cap4--crop", ["Strategy", "Opponent Modeling", "Collaboration"]),
-    ("Engineering", "build", "stuntcar_replica", "cap4--build", ["Development", "Testing", "Debugging"]),
-    ("Adaptive", "build", "drone_race_4", "", ["Feedback", "Continual Improvement"]),
+CAPS = [  # name, layer, still, card class, one line, skills (shown on hover / click only)
+    ("Physical", "sys", "tabletennis_g1", "", "Perceive, predict, and act in the physical world.",
+     ["State Estimation", "Prediction", "Execution", "Real-time Interaction"]),
+    ("Competitive", "sys", "soccer_hsl_3v3", "mc--crop", "Compete through strategy and interaction.",
+     ["Strategy", "Opponent Modeling", "Collaboration"]),
+    ("Engineering", "build", "stuntcar_replica", "mc--build", "Develop and validate effective systems.",
+     ["Development", "Testing", "Debugging"]),
+    ("Adaptive", "build", "drone_race_4", "", "Learn from feedback and improve continuously.",
+     ["Feedback", "Continual Improvement"]),
 ]
+MEASURE_LAYERS = [("sys", "System capabilities", "What the System Can Do"),
+                  ("build", "Agent capabilities", "How the Agent Builds It")]
 
 
 def measure(site: Site, clips: dict) -> str:
-    """01 What we measure: four core capabilities in two layers, as large video cards.
-    The clip plays while the card is on screen; hover, focus or click lists the skills."""
-    def card(name, cid, cls, subs):
+    """01 What we measure: two layers, each a kicker + title in its own column beside two capability cards.
+    A card is a still from our footage with the name and one line below; the skills appear on hover or click."""
+    def card(name, cid, cls, line, subs):
         c = clips.get(cid)
-        media = vid(c, "cover", "data-autoplay") if c else ""
-        lis = "".join(f"<li>{E(s)}</li>" for s in subs)
-        return (f'<button type="button" class="cap5 {cls}" data-cap aria-expanded="false">{media}<span class="cap4-grid"></span>'
-                f'<span class="cap5-face"><strong>{name}</strong></span>'
-                f'<span class="cap5-more"><strong>{name}</strong><ul>{lis}</ul></span>'
-                f'<i class="cap5-plus" aria-hidden="true"></i></button>')
-    layers = [("sys", "What the System Can Do", "The running system, which can change at any time."),
-              ("build", "How the Agent Builds It", "Building includes improving, for as long as it competes.")]
+        img = f'<img src="{E(c["poster"])}" alt="" loading="lazy">' if c else ""
+        skills = "".join(f"<li>{E(s)}</li>" for s in subs)
+        return (f'<button type="button" class="mc {cls}" data-cap aria-expanded="false">'
+                f'<span class="mc-img">{img}<span class="mc-grid"></span><ul class="mc-skills">{skills}</ul>'
+                f'<i class="mc-plus" aria-hidden="true"></i></span>'
+                f'<strong class="mc-name">{name}</strong><span class="mc-line">{E(line)}</span></button>')
     rows = []
-    for key, name, sub in layers:
-        cards = "".join(card(n, cid, cls, subs) for n, lay, cid, cls, subs in CAPS if lay == key)
-        rows.append(f'<div class="lay"><div class="lay-h"><strong>{name}</strong></div><div class="lay-cards">{cards}</div></div>')
-    link = ('<div class="lay-link" aria-hidden="true"><span><b>↑</b> develops and deploys new versions</span>'
-            '<span><b>↓</b> match statistics and replays</span></div>')
+    for key, kicker, title in MEASURE_LAYERS:
+        cards = "".join(card(n, cid, cls, line, subs) for n, lay, cid, cls, line, subs in CAPS if lay == key)
+        rows.append(f'<div class="ms-lay"><div class="ms-txt"><span class="kicker">{kicker}</span><h2>{title}</h2></div>'
+                    f'<div class="ms-cards">{cards}</div></div>')
+    rel = ('<p class="ms-rel"><i aria-hidden="true">↕</i>Development · Deployment · Feedback · Improvement</p>')
     return f"""
 <section class="chap chap--m pg pg3" data-inview id="measure">
   <div class="wrap">
-    {chap_head('01', 'What we measure.', 'Four core capabilities in two layers. Results describe the whole agent system: the model, its harness and the code it writes.')}
-    <div class="lays lays--big">{rows[0]}{link}{rows[1]}</div>
+    <header class="ch-head ms-head"><span class="ch-n">01<i>/04</i></span>
+      <p>We evaluate both the capabilities of the embodied system and the agent&rsquo;s ability to build and improve it.</p></header>
+    {rows[0]}{rel}{rows[1]}
   </div>
 </section>"""
 
