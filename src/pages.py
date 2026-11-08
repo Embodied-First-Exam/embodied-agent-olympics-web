@@ -80,6 +80,10 @@ def sports_index(site: Site):
 
 # ---------------------------------------------------------------- Sport page
 def sport_page(site: Site, i: int):
+    import sport  # noqa: PLC0415  the new four-block page, for every sport with data/sport_pages/<id>.json
+    d = sport.load(site.sports[i]["id"])
+    if d:
+        return sport.render(site, i, d)
     s = site.sports[i]
     prev_s, next_s = site.sports[i - 1], site.sports[(i + 1) % len(site.sports)]
     tick = story.tick_ms(s)

@@ -1,0 +1,1852 @@
+{
+ "schema": "eo-sportpage/1",
+ "sport": "drone",
+ "key": "drone",
+ "format": "race",
+ "made": "2026-11-08T18:48Z",
+ "status": "final",
+ "provisional": true,
+ "podium": {
+  "gold": "Gemini 4 Argon",
+  "silver": "GPT-6 Astra",
+  "bronze": "Claude Opus 5.5"
+ },
+ "flag": null,
+ "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
+ "championship": {
+  "rule": "heats_final@1",
+  "final": true,
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "Gemini 4 Argon",
+    "note": "final"
+   },
+   {
+    "rank": 2,
+    "model": "GPT-6 Astra",
+    "note": "final"
+   },
+   {
+    "rank": 3,
+    "model": "Claude Opus 5.5",
+    "note": "final"
+   },
+   {
+    "rank": 4,
+    "model": "Kimi 3.1 Pro",
+    "note": "final"
+   },
+   {
+    "rank": 5,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "heat place 3"
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "note": "heat place 3"
+   }
+  ],
+  "races": [
+   {
+    "id": "DRN2-F21",
+    "stage": "final",
+    "name": "Final",
+    "rows": [
+     {
+      "place": 1,
+      "model": "Gemini 4 Argon",
+      "places": [
+       1,
+       1,
+       2,
+       1
+      ],
+      "points": 5,
+      "best_time_s": 47.0,
+      "finishes": 1
+     },
+     {
+      "place": 2,
+      "model": "GPT-6 Astra",
+      "places": [
+       2,
+       2,
+       1,
+       2
+      ],
+      "points": 7,
+      "best_time_s": null,
+      "finishes": 0
+     },
+     {
+      "place": 3,
+      "model": "Claude Opus 5.5",
+      "places": [
+       3,
+       3,
+       3,
+       3
+      ],
+      "points": 12,
+      "best_time_s": null,
+      "finishes": 0
+     },
+     {
+      "place": 4,
+      "model": "Kimi 3.1 Pro",
+      "places": [
+       4,
+       4,
+       4,
+       4
+      ],
+      "points": 16,
+      "best_time_s": null,
+      "finishes": 0
+     }
+    ],
+    "races": [
+     {
+      "race": 1,
+      "placing": [
+       "Gemini 4 Argon",
+       "GPT-6 Astra",
+       "Claude Opus 5.5",
+       "Kimi 3.1 Pro"
+      ],
+      "results": {
+       "GPT-6 Astra": {
+        "finished": false,
+        "time_s": null,
+        "gates": 13,
+        "gates_total": 25,
+        "end": "heat_over"
+       },
+       "Gemini 4 Argon": {
+        "finished": true,
+        "time_s": 47.0,
+        "gates": 25,
+        "gates_total": 25,
+        "end": "finished"
+       },
+       "Claude Opus 5.5": {
+        "finished": false,
+        "time_s": null,
+        "gates": 0,
+        "gates_total": 25,
+        "end": "out_of_bounds"
+       },
+       "Kimi 3.1 Pro": {
+        "finished": false,
+        "time_s": null,
+        "gates": 0,
+        "gates_total": 25,
+        "end": "out_of_bounds"
+       }
+      }
+     },
+     {
+      "race": 2,
+      "placing": [
+       "Gemini 4 Argon",
+       "GPT-6 Astra",
+       "Claude Opus 5.5",
+       "Kimi 3.1 Pro"
+      ],
+      "results": {
+       "GPT-6 Astra": {
+        "finished": false,
+        "time_s": null,
+        "gates": 5,
+        "gates_total": 25,
+        "end": "collision"
+       },
+       "Gemini 4 Argon": {
+        "finished": false,
+        "time_s": null,
+        "gates": 12,
+        "gates_total": 25,
+        "end": "collision"
+       },
+       "Claude Opus 5.5": {
+        "finished": false,
+        "time_s": null,
+        "gates": 5,
+        "gates_total": 25,
+        "end": "out_of_bounds"
+       },
+       "Kimi 3.1 Pro": {
+        "finished": false,
+        "time_s": null,
+        "gates": 2,
+        "gates_total": 25,
+        "end": "failsafe"
+       }
+      }
+     },
+     {
+      "race": 3,
+      "placing": [
+       "GPT-6 Astra",
+       "Gemini 4 Argon",
+       "Claude Opus 5.5",
+       "Kimi 3.1 Pro"
+      ],
+      "results": {
+       "GPT-6 Astra": {
+        "finished": false,
+        "time_s": null,
+        "gates": 21,
+        "gates_total": 25,
+        "end": "out_of_bounds"
+       },
+       "Gemini 4 Argon": {
+        "finished": false,
+        "time_s": null,
+        "gates": 6,
+        "gates_total": 25,
+        "end": "collision"
+       },
+       "Claude Opus 5.5": {
+        "finished": false,
+        "time_s": null,
+        "gates": 1,
+        "gates_total": 25,
+        "end": "out_of_bounds"
+       },
+       "Kimi 3.1 Pro": {
+        "finished": false,
+        "time_s": null,
+        "gates": 0,
+        "gates_total": 25,
+        "end": "out_of_bounds"
+       }
+      }
+     },
+     {
+      "race": 4,
+      "placing": [
+       "Gemini 4 Argon",
+       "GPT-6 Astra",
+       "Claude Opus 5.5",
+       "Kimi 3.1 Pro"
+      ],
+      "results": {
+       "GPT-6 Astra": {
+        "finished": false,
+        "time_s": null,
+        "gates": 3,
+        "gates_total": 25,
+        "end": "collision"
+       },
+       "Gemini 4 Argon": {
+        "finished": false,
+        "time_s": null,
+        "gates": 11,
+        "gates_total": 25,
+        "end": "collision"
+       },
+       "Claude Opus 5.5": {
+        "finished": false,
+        "time_s": null,
+        "gates": 1,
+        "gates_total": 25,
+        "end": "out_of_bounds"
+       },
+       "Kimi 3.1 Pro": {
+        "finished": false,
+        "time_s": null,
+        "gates": 0,
+        "gates_total": 25,
+        "end": "collision"
+       }
+      }
+     }
+    ],
+    "replay": {
+     "kind": "full",
+     "seconds": 247.5,
+     "path": "matches/drone/rel-drone-champ2/DRN2-F21/replay.mp4",
+     "camera": "broadcast",
+     "size": "848x480"
+    }
+   },
+   {
+    "id": "DRN2-F19",
+    "stage": "heat",
+    "name": "Heat 1",
+    "rows": [
+     {
+      "place": 1,
+      "model": "GPT-6 Astra",
+      "places": [
+       1,
+       1,
+       1
+      ],
+      "points": 3,
+      "best_time_s": 95.0,
+      "finishes": 3
+     },
+     {
+      "place": 2,
+      "model": "Kimi 3.1 Pro",
+      "places": [
+       3,
+       2,
+       2
+      ],
+      "points": 7,
+      "best_time_s": null,
+      "finishes": 0
+     },
+     {
+      "place": 3,
+      "model": "DeepSeek V4.1 Flash",
+      "places": [
+       2,
+       3,
+       3
+      ],
+      "points": 8,
+      "best_time_s": null,
+      "finishes": 0
+     }
+    ],
+    "races": [
+     {
+      "race": 1,
+      "placing": [
+       "GPT-6 Astra",
+       "DeepSeek V4.1 Flash",
+       "Kimi 3.1 Pro"
+      ],
+      "results": {
+       "GPT-6 Astra": {
+        "finished": true,
+        "time_s": 103.1,
+        "gates": 25,
+        "gates_total": 25,
+        "end": "finished"
+       },
+       "DeepSeek V4.1 Flash": {
+        "finished": false,
+        "time_s": null,
+        "gates": 1,
+        "gates_total": 25,
+        "end": "out_of_bounds"
+       },
+       "Kimi 3.1 Pro": {
+        "finished": false,
+        "time_s": null,
+        "gates": 0,
+        "gates_total": 25,
+        "end": "failsafe"
+       }
+      }
+     },
+     {
+      "race": 2,
+      "placing": [
+       "GPT-6 Astra",
+       "Kimi 3.1 Pro",
+       "DeepSeek V4.1 Flash"
+      ],
+      "results": {
+       "GPT-6 Astra": {
+        "finished": true,
+        "time_s": 95.0,
+        "gates": 25,
+        "gates_total": 25,
+        "end": "finished"
+       },
+       "DeepSeek V4.1 Flash": {
+        "finished": false,
+        "time_s": null,
+        "gates": 1,
+        "gates_total": 25,
+        "end": "out_of_bounds"
+       },
+       "Kimi 3.1 Pro": {
+        "finished": false,
+        "time_s": null,
+        "gates": 2,
+        "gates_total": 25,
+        "end": "failsafe"
+       }
+      }
+     },
+     {
+      "race": 3,
+      "placing": [
+       "GPT-6 Astra",
+       "Kimi 3.1 Pro",
+       "DeepSeek V4.1 Flash"
+      ],
+      "results": {
+       "GPT-6 Astra": {
+        "finished": true,
+        "time_s": 129.4,
+        "gates": 25,
+        "gates_total": 25,
+        "end": "finished"
+       },
+       "DeepSeek V4.1 Flash": {
+        "finished": false,
+        "time_s": null,
+        "gates": 1,
+        "gates_total": 25,
+        "end": "out_of_bounds"
+       },
+       "Kimi 3.1 Pro": {
+        "finished": false,
+        "time_s": null,
+        "gates": 2,
+        "gates_total": 25,
+        "end": "failsafe"
+       }
+      }
+     }
+    ],
+    "replay": {
+     "kind": "full",
+     "seconds": 327.7,
+     "path": "matches/drone/rel-drone-champ2/DRN2-F19/replay.mp4",
+     "camera": "broadcast",
+     "size": "848x480"
+    }
+   },
+   {
+    "id": "DRN2-F20",
+    "stage": "heat",
+    "name": "Heat 2",
+    "rows": [
+     {
+      "place": 1,
+      "model": "Gemini 4 Argon",
+      "places": [
+       1,
+       1,
+       1
+      ],
+      "points": 3,
+      "best_time_s": null,
+      "finishes": 0
+     },
+     {
+      "place": 2,
+      "model": "Claude Opus 5.5",
+      "places": [
+       2,
+       2,
+       2
+      ],
+      "points": 6,
+      "best_time_s": null,
+      "finishes": 0
+     },
+     {
+      "place": 3,
+      "model": "GLM 5.3 Flash",
+      "places": [
+       3,
+       3,
+       3
+      ],
+      "points": 9,
+      "best_time_s": null,
+      "finishes": 0
+     }
+    ],
+    "races": [
+     {
+      "race": 1,
+      "placing": [
+       "Gemini 4 Argon",
+       "Claude Opus 5.5",
+       "GLM 5.3 Flash"
+      ],
+      "results": {
+       "Gemini 4 Argon": {
+        "finished": false,
+        "time_s": null,
+        "gates": 18,
+        "gates_total": 25,
+        "end": "collision"
+       },
+       "Claude Opus 5.5": {
+        "finished": false,
+        "time_s": null,
+        "gates": 10,
+        "gates_total": 25,
+        "end": "collision"
+       },
+       "GLM 5.3 Flash": {
+        "finished": false,
+        "time_s": null,
+        "gates": 1,
+        "gates_total": 25,
+        "end": "out_of_bounds"
+       }
+      }
+     },
+     {
+      "race": 2,
+      "placing": [
+       "Gemini 4 Argon",
+       "Claude Opus 5.5",
+       "GLM 5.3 Flash"
+      ],
+      "results": {
+       "Gemini 4 Argon": {
+        "finished": false,
+        "time_s": null,
+        "gates": 13,
+        "gates_total": 25,
+        "end": "collision"
+       },
+       "Claude Opus 5.5": {
+        "finished": false,
+        "time_s": null,
+        "gates": 2,
+        "gates_total": 25,
+        "end": "out_of_bounds"
+       },
+       "GLM 5.3 Flash": {
+        "finished": false,
+        "time_s": null,
+        "gates": 0,
+        "gates_total": 25,
+        "end": "collision"
+       }
+      }
+     },
+     {
+      "race": 3,
+      "placing": [
+       "Gemini 4 Argon",
+       "Claude Opus 5.5",
+       "GLM 5.3 Flash"
+      ],
+      "results": {
+       "Gemini 4 Argon": {
+        "finished": false,
+        "time_s": null,
+        "gates": 17,
+        "gates_total": 25,
+        "end": "collision"
+       },
+       "Claude Opus 5.5": {
+        "finished": false,
+        "time_s": null,
+        "gates": 6,
+        "gates_total": 25,
+        "end": "collision"
+       },
+       "GLM 5.3 Flash": {
+        "finished": false,
+        "time_s": null,
+        "gates": 0,
+        "gates_total": 25,
+        "end": "collision"
+       }
+      }
+     }
+    ],
+    "replay": {
+     "kind": "full",
+     "seconds": 99.9,
+     "path": "matches/drone/rel-drone-champ2/DRN2-F20/replay.mp4",
+     "camera": "broadcast",
+     "size": "848x480"
+    }
+   }
+  ],
+  "trial": [
+   {
+    "seed": 1,
+    "model": "GPT-6 Astra",
+    "mean": 1.423907,
+    "matches": [
+     {
+      "id": "DRNC-F04",
+      "match": 1,
+      "value": 1.353651,
+      "best_time_s": 116.3427838086787,
+      "flights": 3,
+      "finished": 1,
+      "replay": {
+       "kind": "full",
+       "seconds": 179.8,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F04/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     },
+     {
+      "id": "DRNC-F05",
+      "match": 2,
+      "value": 1.453592,
+      "best_time_s": 98.35351127061095,
+      "flights": 3,
+      "finished": 2,
+      "replay": {
+       "kind": "full",
+       "seconds": 297.2,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F05/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     },
+     {
+      "id": "DRNC-F06",
+      "match": 3,
+      "value": 1.464479,
+      "best_time_s": 96.39382433400996,
+      "flights": 3,
+      "finished": 2,
+      "replay": {
+       "kind": "full",
+       "seconds": 223.0,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F06/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     }
+    ]
+   },
+   {
+    "seed": 2,
+    "model": "Gemini 4 Argon",
+    "mean": 0.936508,
+    "matches": [
+     {
+      "id": "DRNC-F07",
+      "match": 1,
+      "value": 0.219133,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 52.2,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F07/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     },
+     {
+      "id": "DRNC-F08",
+      "match": 2,
+      "value": 0.855879,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 65.1,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F08/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     },
+     {
+      "id": "DRNC-F09",
+      "match": 3,
+      "value": 1.734511,
+      "best_time_s": 47.78802908323812,
+      "flights": 3,
+      "finished": 1,
+      "replay": {
+       "kind": "full",
+       "seconds": 121.8,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F09/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     }
+    ]
+   },
+   {
+    "seed": 3,
+    "model": "Claude Opus 5.5",
+    "mean": 0.535008,
+    "matches": [
+     {
+      "id": "DRNC-F01",
+      "match": 1,
+      "value": 0.09946,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 26.2,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F01/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     },
+     {
+      "id": "DRNC-F02",
+      "match": 2,
+      "value": 0.535357,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 108.3,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F02/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     },
+     {
+      "id": "DRNC-F03",
+      "match": 3,
+      "value": 0.970206,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 161.8,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F03/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     }
+    ]
+   },
+   {
+    "seed": 4,
+    "model": "DeepSeek V4.1 Flash",
+    "mean": 0.073036,
+    "matches": [
+     {
+      "id": "DRN2-F13",
+      "match": 1,
+      "value": 0.059777,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 8.8,
+       "path": "matches/drone/rel-drone-champ2/DRN2-F13/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     },
+     {
+      "id": "DRN2-F14",
+      "match": 2,
+      "value": 0.099541,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 17.8,
+       "path": "matches/drone/rel-drone-champ2/DRN2-F14/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     },
+     {
+      "id": "DRN2-F15",
+      "match": 3,
+      "value": 0.059791,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 30.7,
+       "path": "matches/drone/rel-drone-champ2/DRN2-F15/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     }
+    ]
+   },
+   {
+    "seed": 5,
+    "model": "Kimi 3.1 Pro",
+    "mean": 0.059532,
+    "matches": [
+     {
+      "id": "DRNC-F16",
+      "match": 1,
+      "value": 0.059668,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 37.1,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F16/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     },
+     {
+      "id": "DRNC-F17",
+      "match": 2,
+      "value": 0.059263,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 50.0,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F17/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     },
+     {
+      "id": "DRNC-F18",
+      "match": 3,
+      "value": 0.059666,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 35.8,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F18/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     }
+    ]
+   },
+   {
+    "seed": 6,
+    "model": "GLM 5.3 Flash",
+    "mean": 0.03985,
+    "matches": [
+     {
+      "id": "DRNC-F10",
+      "match": 1,
+      "value": 0.059879,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 9.9,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F10/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     },
+     {
+      "id": "DRNC-F11",
+      "match": 2,
+      "value": 0.0,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 8.6,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F11/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     },
+     {
+      "id": "DRNC-F12",
+      "match": 3,
+      "value": 0.059671,
+      "best_time_s": null,
+      "flights": 3,
+      "finished": 0,
+      "replay": {
+       "kind": "full",
+       "seconds": 22.7,
+       "path": "matches/drone/rel-drone-champ2/DRNC-F12/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      }
+     }
+    ]
+   }
+  ],
+  "as_of": "2026-11-08T05:33:26Z",
+  "scoring": "Time trial: three matches, three flights each, best flight counts; course progress = 1 + (180 s - time) / 180 s for a finish, below 1 by gates passed otherwise; the mean seeds two 3-drone heats (3 races, points 1-2-3, fewer is better); the top two of each heat fly the 4-drone final (4 races); medals from the final.",
+  "board": "rel-drone-champ2"
+ },
+ "open_arena": null,
+ "agents": {
+  "per_model": {
+   "Claude Opus 5.5": {
+    "championship_place": "3 (Bronze)",
+    "open_arena": "n/a",
+    "matches": 5,
+    "versions": 16,
+    "switches": 11,
+    "model_calls": 338,
+    "output_tokens": 256720,
+    "reviews": "11/11",
+    "gpu": null,
+    "seat_matches": 5,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 5,
+    "realtime_rehearsal": 5,
+    "median_prep_min": 39
+   },
+   "GPT-6 Astra": {
+    "championship_place": "2 (Silver)",
+    "open_arena": "n/a",
+    "matches": 5,
+    "versions": 14,
+    "switches": 9,
+    "model_calls": 537,
+    "output_tokens": 266172,
+    "reviews": "10/11",
+    "gpu": null,
+    "seat_matches": 5,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 5,
+    "realtime_rehearsal": 5,
+    "median_prep_min": 28
+   },
+   "Gemini 4 Argon": {
+    "championship_place": "1 (Gold)",
+    "open_arena": "n/a",
+    "matches": 5,
+    "versions": 9,
+    "switches": 4,
+    "model_calls": 898,
+    "output_tokens": 692759,
+    "reviews": "10/11",
+    "gpu": null,
+    "seat_matches": 5,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 5,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 44
+   },
+   "Kimi 3.1 Pro": {
+    "championship_place": "4",
+    "open_arena": "n/a",
+    "matches": 5,
+    "versions": 9,
+    "switches": 5,
+    "model_calls": 919,
+    "output_tokens": 458885,
+    "reviews": "11/11",
+    "gpu": null,
+    "seat_matches": 5,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 5,
+    "realtime_rehearsal": 4,
+    "median_prep_min": 44
+   },
+   "DeepSeek V4.1 Flash": {
+    "championship_place": "5",
+    "open_arena": "n/a",
+    "matches": 4,
+    "versions": 11,
+    "switches": 7,
+    "model_calls": 327,
+    "output_tokens": 333286,
+    "reviews": "8/8",
+    "gpu": null,
+    "seat_matches": 4,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 4,
+    "realtime_rehearsal": 1,
+    "median_prep_min": 28
+   },
+   "GLM 5.3 Flash": {
+    "championship_place": "6",
+    "open_arena": "n/a",
+    "matches": 4,
+    "versions": 8,
+    "switches": 4,
+    "model_calls": 380,
+    "output_tokens": 259000,
+    "reviews": "8/8",
+    "gpu": null,
+    "seat_matches": 4,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 4,
+    "realtime_rehearsal": 1,
+    "median_prep_min": 13
+   }
+  },
+  "checkpoint": {
+   "kind": "solo",
+   "board": "rel-drone-champ2",
+   "made": "2026-11-08 12:43 CST",
+   "measure": "Course progress, ratio to the reference program (1.0 = reference)",
+   "opponents": [],
+   "ref": 1.0,
+   "count": {
+    "planned": 170,
+    "ok": 170,
+    "invalid": 0,
+    "never_acted": 0,
+    "model_called": 0,
+    "pending": 0
+   },
+   "lines": {
+    "GPT-6 Astra": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.8183,
+      "lo": 0.6534,
+      "hi": 0.9161,
+      "n": 5
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.8714,
+      "lo": 0.85,
+      "hi": 0.9003,
+      "n": 5
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.8863,
+      "lo": 0.8722,
+      "hi": 0.9047,
+      "n": 5
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.8916,
+      "lo": 0.866,
+      "hi": 0.9115,
+      "n": 5
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.883,
+      "lo": 0.8619,
+      "hi": 0.9048,
+      "n": 5
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.8812,
+      "lo": 0.8683,
+      "hi": 0.9032,
+      "n": 5
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 5
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0518,
+      "lo": 0.0412,
+      "hi": 0.0624,
+      "n": 5
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0467,
+      "lo": 0.0368,
+      "hi": 0.0565,
+      "n": 5
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0369,
+      "lo": 0.0363,
+      "hi": 0.0377,
+      "n": 5
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.0468,
+      "lo": 0.0365,
+      "hi": 0.0577,
+      "n": 5
+     }
+    ],
+    "Gemini 4 Argon": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.1496,
+      "lo": 0.0915,
+      "hi": 0.2102,
+      "n": 5
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.5917,
+      "lo": 0.2166,
+      "hi": 0.9669,
+      "n": 5
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.6275,
+      "lo": 0.328,
+      "hi": 0.927,
+      "n": 5
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.6353,
+      "lo": 0.3076,
+      "hi": 0.977,
+      "n": 5
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.6579,
+      "lo": 0.3758,
+      "hi": 0.9445,
+      "n": 5
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.9201,
+      "lo": 0.631,
+      "hi": 1.0735,
+      "n": 5
+     }
+    ],
+    "GLM 5.3 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0467,
+      "lo": 0.0369,
+      "hi": 0.0566,
+      "n": 5
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0665,
+      "lo": 0.0509,
+      "hi": 0.0814,
+      "n": 5
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0292,
+      "lo": 0.0146,
+      "hi": 0.0368,
+      "n": 5
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0417,
+      "lo": 0.0364,
+      "hi": 0.0513,
+      "n": 5
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.0076,
+      "lo": 0.0,
+      "hi": 0.0227,
+      "n": 5
+     }
+    ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0416,
+      "lo": 0.0364,
+      "hi": 0.051,
+      "n": 5
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0265,
+      "lo": 0.0072,
+      "hi": 0.0458,
+      "n": 5
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0292,
+      "lo": 0.0144,
+      "hi": 0.0371,
+      "n": 5
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0147,
+      "lo": 0.0,
+      "hi": 0.0296,
+      "n": 5
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.0512,
+      "lo": 0.0415,
+      "hi": 0.0607,
+      "n": 5
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.0512,
+      "lo": 0.0415,
+      "hi": 0.0607,
+      "n": 5
+     }
+    ],
+    "Claude Opus 5.5": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0864,
+      "lo": 0.0653,
+      "hi": 0.1134,
+      "n": 5
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0762,
+      "lo": 0.0653,
+      "hi": 0.0871,
+      "n": 5
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.2293,
+      "lo": 0.1521,
+      "hi": 0.3066,
+      "n": 5
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.4911,
+      "lo": 0.2819,
+      "hi": 0.752,
+      "n": 5
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.3538,
+      "lo": 0.1194,
+      "hi": 0.6644,
+      "n": 5
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.4347,
+      "lo": 0.1936,
+      "hi": 0.6865,
+      "n": 5
+     }
+    ]
+   },
+   "verdict": {
+    "GPT-6 Astra": "unclear (seeds disagree)",
+    "Claude Opus 5.5": "improve",
+    "Gemini 4 Argon": "improve",
+    "Kimi 3.1 Pro": "flat",
+    "GLM 5.3 Flash": "flat",
+    "DeepSeek V4.1 Flash": "flat"
+   },
+   "capability": {
+    "n": 4,
+    "names": [
+     "Finding the gates, mapping and localizing oneself",
+     "Flight control under latency",
+     "Pace: trading speed against crash risk",
+     "Timing moving shutters"
+    ],
+    "ref": 4.0,
+    "lines": {
+     "GPT-6 Astra": [
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 1,
+       "valid": 6
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 3,
+       "valid": 5
+      }
+     ],
+     "DeepSeek V4.1 Flash": [
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 5
+      }
+     ],
+     "Gemini 4 Argon": [
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 1,
+       "valid": 6
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 1,
+       "valid": 5
+      }
+     ],
+     "GLM 5.3 Flash": [
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 7
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 5
+      }
+     ],
+     "Kimi 3.1 Pro": [
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 6
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 5
+      }
+     ],
+     "Claude Opus 5.5": [
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 1
+      }
+     ]
+    },
+    "status": "proposal"
+   }
+  }
+ },
+ "capabilities": {
+  "source": "g5-drone",
+  "skills": [
+   {
+    "id": "gate1",
+    "group": "phys",
+    "name": "Takes off and passes gate 1",
+    "real": "Arm, lift off, settle and line up on the first gate. Gate 1's position is in /spec; everything after depends on it.",
+    "measure": "Checkpoint Evaluation: flights with a gate passed / all flights (pooled per checkpoint, ≥ 4 flights).",
+    "line": "≥ 80 % of flights",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "in_control",
+    "group": "phys",
+    "name": "Stays in control in flight",
+    "real": "Flying on top of a Betaflight-like rate loop with latency and wind: no hit on a frame, wall or floor, no crossing of the safety line.",
+    "measure": "Checkpoint Evaluation: of the flights past gate 1, the share that end finished (or only by a shutter hit, which is the shutter skill's); a frame hit, out of bounds, the time limit or the failsafe counts as out of control.",
+    "line": "≥ 70 % of flights past gate 1 (≥ 4)",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "gust",
+    "group": "phys",
+    "name": "Recovers from a gust",
+    "real": "Air moves indoors too and gusts are stronger outdoors. A gust acts through the drag, the IMU feels it and the gates drift in the image: the drone must pull back onto its line quickly.",
+    "measure": "Scenario gust: the official start; 0.4 s after gate 2 the world's gust state gets 5 m/s across the drone's velocity (alternating sides, then decaying with the world's 1.2 s time constant); the round ends at gate 5. Of the gusted rounds, the share reaching gate 5.",
+    "line": "≥ 2/3 of gusted rounds (≥ 3)",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "loop",
+    "group": "eng",
+    "name": "A fast control loop",
+    "real": "Research racers fly at the throttle + body-rate level with about 40 ms end to end; a slow loop falls behind in turns and gates.",
+    "measure": "Checkpoint Evaluation: 90th-percentile command latency (the step a command takes effect less the step of the state the program had seen); gate: ≥ 100 applied commands in the unit.",
+    "line": "p90 ≤ 2 steps (20 ms) in ≥ 2/3 of units",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "lap1",
+    "group": "phys",
+    "name": "Finds the gates for a lap",
+    "real": "Only gate 1 is given; the others are found, numbered and mapped from the 320 × 240 FPV image while gate sightings correct the IMU's drift.",
+    "measure": "Checkpoint Evaluation: flights completing lap 1 in order (progress ≥ 1/3 or finished) / all flights.",
+    "line": "≥ 70 % of flights",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "relocalize",
+    "group": "phys",
+    "name": "Finds the gates ahead from a mid-course start",
+    "real": "In a real race a drifted estimate is recovered from gate sightings. Here the drone starts mid-course before the hardest section: only the camera can tell which gates lie ahead.",
+    "measure": "Scenario mid: each round the drone hovers 5 m before gate K facing it (K = the start of the shutter-free 3-gate section with the most turn + climb; the referee's count starts at K - 1, next_gate = K; the /spec start fields report this start); the round ends after K, K+1, K+2. The share of rounds completing the section.",
+    "line": "≥ 2/3 of rounds (≥ 3)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "centred",
+    "group": "phys",
+    "name": "Threads the gates near the centre",
+    "real": "With a good map and self-localization the drone passes near the opening's centre; near the edge it clips the frame.",
+    "measure": "replay: distance from the opening's centre at each pass, median per unit (≥ 3 passes).",
+    "line": "≤ 0.3 m (shown only)",
+    "secondary": true,
+    "three_checks": false
+   },
+   {
+    "id": "shutters",
+    "group": "phys",
+    "name": "Times the moving shutters",
+    "real": "A shutter slides sinusoidally across its gate; the camera shows only where it is now: the program infers period and phase from images and slows or waits before crossing.",
+    "measure": "Checkpoint Evaluation: of the flights past gate 2, the share through shutter gate 3 (not ended by a shutter hit). Scenario shutter: starts 5 m before the shutter gate with the shutter's phase pinned to block the gate centre 1.5 s after the start (when a drone flying straight in arrives); the share of rounds through the shutter gate and the shutter hits.",
+    "line": "Checkpoint Evaluation ≥ 80 % (≥ 4); scenario ≥ 2/3 of rounds",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "pace",
+    "group": "comp",
+    "name": "Flies at pace",
+    "real": "Racing is the fastest line that still does not crash: too slow loses, too fast hits a frame.",
+    "measure": "Checkpoint Evaluation: mean speed of finished flights = 3 × lap length / finish time, per unit; ≥ 2/3 of the units with a finish.",
+    "line": "≥ 3.4 m/s",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "finishes",
+    "group": "comp",
+    "name": "Finishes the race (composite)",
+    "real": "Three full laps: finding gates, flight control, shutters and pace all have to work.",
+    "measure": "Checkpoint Evaluation: finished flights / all flights.",
+    "line": "≥ 60 % (composite, shown; the old ≥ 90 % fails the reference too: 0.75)",
+    "secondary": true,
+    "three_checks": true
+   }
+  ],
+  "off": [
+   {
+    "name": "Thrust and battery (secondary)",
+    "group": "phys",
+    "why": "Unverified on the card; within one race the battery sag barely matters at these speeds and there is no energy ablation arm. Not measured."
+   },
+   {
+    "name": "Racing others in one airspace (excluded)",
+    "group": "comp",
+    "why": "The released Engineer track is a time trial (one drone); excluded on the card."
+   },
+   {
+    "name": "Improving across rounds (invalid)",
+    "group": "adap",
+    "why": "Wind and shutter phases differ per round, so the two-round difference is mostly luck; growth is read across checkpoints (the growth curve)."
+   },
+   {
+    "name": "The rest of Engineering",
+    "group": "eng",
+    "why": "The card declares only the control loop; how the system is built is read across checkpoints."
+   }
+  ],
+  "results": {
+   "Claude Opus 5.5": {
+    "gate1": {
+     "status": "pass",
+     "reading": "10/10",
+     "checkpoint": "final:2",
+     "source": "Checkpoint Evaluation"
+    },
+    "in_control": {
+     "status": "fail",
+     "reading": "5/10",
+     "checkpoint": "final:2",
+     "source": "Checkpoint Evaluation"
+    },
+    "lap1": {
+     "status": "fail",
+     "reading": "2/10",
+     "checkpoint": "final:2",
+     "source": "Checkpoint Evaluation"
+    },
+    "shutters": {
+     "status": "pass",
+     "reading": "scenario 6/6",
+     "checkpoint": "final:3",
+     "source": "Scenario"
+    },
+    "finishes": {
+     "status": "fail",
+     "reading": "0/10",
+     "checkpoint": "final:2",
+     "source": "Checkpoint Evaluation"
+    },
+    "loop": {
+     "status": "pass",
+     "reading": "5/5",
+     "checkpoint": "final:2",
+     "source": "Checkpoint Evaluation"
+    },
+    "pace": {
+     "status": "fail",
+     "reading": "3.3 m/s",
+     "checkpoint": "final:3"
+    },
+    "gust": {
+     "status": "pass",
+     "reading": "scenario 6/6",
+     "checkpoint": "final:3",
+     "source": "Scenario"
+    },
+    "relocalize": {
+     "status": "fail",
+     "reading": "scenario 0/6",
+     "checkpoint": "final:3",
+     "source": "Scenario"
+    }
+   },
+   "GPT-6 Astra": {
+    "gate1": {
+     "status": "pass",
+     "reading": "10/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "in_control": {
+     "status": "pass",
+     "reading": "8/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "lap1": {
+     "status": "pass",
+     "reading": "10/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "shutters": {
+     "status": "pass",
+     "reading": "10/10 · scenario 5/6",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "finishes": {
+     "status": "pass",
+     "reading": "8/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "loop": {
+     "status": "pass",
+     "reading": "5/5",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "pace": {
+     "status": "fail",
+     "reading": "2.7 m/s",
+     "checkpoint": "final:3"
+    },
+    "gust": {
+     "status": "pass",
+     "reading": "scenario 6/6",
+     "checkpoint": "final:3",
+     "source": "Scenario"
+    },
+    "relocalize": {
+     "status": "fail",
+     "reading": "scenario 0/6",
+     "checkpoint": "final:3",
+     "source": "Scenario"
+    }
+   },
+   "Gemini 4 Argon": {
+    "gate1": {
+     "status": "pass",
+     "reading": "10/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "in_control": {
+     "status": "fail",
+     "reading": "6/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "lap1": {
+     "status": "pass",
+     "reading": "7/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "shutters": {
+     "status": "pass",
+     "reading": "9/9",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "finishes": {
+     "status": "fail",
+     "reading": "4/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "loop": {
+     "status": "pass",
+     "reading": "5/5",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "pace": {
+     "status": "pass",
+     "reading": "5.7 m/s",
+     "checkpoint": "final:3"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "gate1": {
+     "status": "fail",
+     "reading": "7/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "in_control": {
+     "status": "fail",
+     "reading": "0/7",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "lap1": {
+     "status": "fail",
+     "reading": "0/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "shutters": {
+     "status": "fail",
+     "reading": "2/5",
+     "checkpoint": "final:1",
+     "source": "Checkpoint Evaluation"
+    },
+    "finishes": {
+     "status": "fail",
+     "reading": "0/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "loop": {
+     "status": "pass",
+     "reading": "5/5",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "gate1": {
+     "status": "fail",
+     "reading": "3/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "in_control": {
+     "status": "fail",
+     "reading": "0/5",
+     "checkpoint": "final:2",
+     "source": "Checkpoint Evaluation"
+    },
+    "lap1": {
+     "status": "fail",
+     "reading": "0/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "finishes": {
+     "status": "fail",
+     "reading": "0/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "loop": {
+     "status": "pass",
+     "reading": "5/5",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    }
+   },
+   "DeepSeek V4.1 Flash": {
+    "gate1": {
+     "status": "pass",
+     "reading": "10/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "in_control": {
+     "status": "fail",
+     "reading": "0/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "lap1": {
+     "status": "fail",
+     "reading": "0/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "shutters": {
+     "status": "fail",
+     "reading": "0/4",
+     "checkpoint": "final:1",
+     "source": "Checkpoint Evaluation"
+    },
+    "finishes": {
+     "status": "fail",
+     "reading": "0/10",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    },
+    "loop": {
+     "status": "pass",
+     "reading": "5/5",
+     "checkpoint": "final:3",
+     "source": "Checkpoint Evaluation"
+    }
+   }
+  },
+  "reference": {
+   "passed": [],
+   "failed": []
+  },
+  "open_questions": [],
+  "pass_marks": "derived"
+ },
+ "notes": {
+  "_source": "Hand-written from the official board rel-drone-champ2 (final.json heats, incidents, standings), the seats' own notes in the HF match folders (DRN2-F19 seat C, DRNC-F18 seat A DIAGNOSIS.md), the skill-test section g5-drone and the drone analysis draft (analysis/drafts/drone/findings.md, items 1-3, 8-9). Every line was checked against those files on 11-08.",
+  "challenge": "A racing quad with a first-person camera and an IMU, no position from the simulator. The program finds the gates, holds the drone through latency, wind and moving shutters, and chooses how fast to risk it.",
+  "achieved": [
+   {
+    "text": "Gemini 4 Argon won gold on pace: 3 of 4 final races won, and the only finish of the final (47.0 s, race 1).",
+    "evidence": [
+     "DRN2-F21"
+    ]
+   },
+   {
+    "text": "GPT-6 Astra flew the most reliable program: a finish in every time-trial match (best 96.4 s) and all three races of its heat; second in the final.",
+    "evidence": [
+     "DRNC-F06",
+     "DRN2-F19"
+    ]
+   },
+   {
+    "text": "In the final, Gemini's faster drone ran into Astra's from behind twice; both contacts were ruled incidental.",
+    "evidence": [
+     "DRN2-F21"
+    ]
+   },
+   {
+    "text": "Kimi 3.1 Pro reached the final with a heat program that flies two gates and stops; it beat DeepSeek in two of three heat races.",
+    "evidence": [
+     "DRN2-F19"
+    ]
+   },
+   {
+    "text": "Every frozen program tested fails from a mid-course start (0 of 6 sections): they fly only from the official start pose.",
+    "evidence": [
+     "skill tests"
+    ]
+   }
+  ],
+  "built": {
+   "GPT-6 Astra": [
+    "Checked that a diagnostic build sent the same commands before deploying it, and kept regression scenes with deliberate faults."
+   ],
+   "Claude Opus 5.5": [
+    "Ran paired multi-seed batches with an explicit noise estimate and kept a file of lessons between matches."
+   ],
+   "Gemini 4 Argon": [
+    "Maps the gates as landmarks while flying; holds a slower lap-1 pace until the map closes, then speeds up."
+   ],
+   "Kimi 3.1 Pro": [
+    "The only learning attempt: behaviour cloning from a teacher program. It failed on training and unseen circuits and was not deployed."
+   ],
+   "GLM 5.3 Flash": [
+    "Its reviews traced the crashes to commanding against a phantom velocity; no later program completed lap 1 in Checkpoint Evaluation."
+   ],
+   "DeepSeek V4.1 Flash": [
+    "Its reviews named the one change that matters (an EKF fusing the IMU with gate sightings); no later program completed lap 1 in Checkpoint Evaluation."
+   ]
+  }
+ }
+}
