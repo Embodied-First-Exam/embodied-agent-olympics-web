@@ -1,26 +1,26 @@
 {
  "_note": "Written by /data/guichi/eao-hq/tools/web/medals_sync.py from the official release run (evalops-r1107 + race rc6). Medal table counts FINAL sports only; by_sport.status final / in_progress; flag = an open item that could still move that podium (shown with a dagger).",
  "edition": "TODO",
- "updated": "2026-11-08T10:05-06:00",
+ "updated": "2026-11-08T13:14-06:00",
  "medal_table": [
   {
    "model": "GPT-6 Astra",
-   "gold": 5,
-   "silver": 3,
+   "gold": 4,
+   "silver": 4,
    "bronze": 2,
    "rank": 1
   },
   {
-   "model": "Gemini 4 Argon",
-   "gold": 2,
-   "silver": 4,
+   "model": "Claude Opus 5.5",
+   "gold": 3,
+   "silver": 2,
    "bronze": 3,
    "rank": 2
   },
   {
-   "model": "Claude Opus 5.5",
+   "model": "Gemini 4 Argon",
    "gold": 2,
-   "silver": 2,
+   "silver": 3,
    "bronze": 4,
    "rank": 3
   },
@@ -143,15 +143,15 @@
    "gold": "Gemini 4 Argon",
    "silver": "Kimi 3.1 Pro",
    "bronze": "GPT-6 Astra",
-   "flag": "GLM's round-robin no-shows trace to a platform fault (its harness sent a video block the model endpoint refuses); a re-run of its line is under review, and that would replay the Kimi and Opus lines too. Seeds 1-3 were tied on points and ordered by score difference (tiebreak rule under review).",
+   "flag": null,
    "board": "rel-curling-g1-champ2"
   },
   {
    "sport": "billiards",
-   "status": "in_progress",
-   "gold": null,
-   "silver": null,
-   "bronze": null,
+   "status": "final",
+   "gold": "Claude Opus 5.5",
+   "silver": "GPT-6 Astra",
+   "bronze": "Gemini 4 Argon",
    "flag": null,
    "board": "rel-billiards-g1-champ2"
   },
@@ -184,12 +184,12 @@
   },
   {
    "sport": "racing",
-   "status": "final",
-   "gold": "GPT-6 Astra",
-   "silver": "Gemini 4 Argon",
-   "bronze": "Claude Opus 5.5",
-   "flag": "Gemini's race-3 no-show was most likely an account-quota fault; whether race 3 is re-run is under review. Opus's bronze rests on race 3 (18 points to GLM's 15).",
-   "board": "rel-racing-full-champ-rc6"
+   "status": "in_progress",
+   "gold": null,
+   "silver": null,
+   "bronze": null,
+   "flag": null,
+   "board": "rel-racing-full-champ-rc6b"
   },
   {
    "sport": "drone",
@@ -1128,28 +1128,40 @@
    "board": "rel-soccer-hsl-team-arena",
    "rule": "points_table@1",
    "complete": false,
-   "played": 2,
+   "played": 5,
    "total": 15,
    "no_result": 0,
-   "status": "2 of 15 matches played",
+   "status": "5 of 15 matches played",
    "rows": [
     {
      "rank": 1,
      "model": "Claude Opus 5.5",
-     "points": 6,
-     "rating": 1627.2,
-     "won": 2,
+     "points": 9,
+     "rating": 1722.7,
+     "won": 3,
      "drawn": 0,
      "lost": 0,
-     "played": 2,
-     "score_for": 4,
+     "played": 3,
+     "score_for": 14,
      "score_against": 3
     },
     {
      "rank": 2,
+     "model": "GPT-6 Astra",
+     "points": 6,
+     "rating": 1531.8,
+     "won": 2,
+     "drawn": 0,
+     "lost": 1,
+     "played": 3,
+     "score_for": 21,
+     "score_against": 2
+    },
+    {
+     "rank": 3,
      "model": "Gemini 4 Argon",
      "points": 0,
-     "rating": 1436.4,
+     "rating": 1531.8,
      "won": 0,
      "drawn": 0,
      "lost": 1,
@@ -1158,16 +1170,40 @@
      "score_against": 2
     },
     {
-     "rank": 3,
-     "model": "GPT-6 Astra",
+     "rank": 4,
+     "model": "DeepSeek V4.1 Flash",
      "points": 0,
-     "rating": 1436.4,
+     "rating": 1341.0,
      "won": 0,
      "drawn": 0,
      "lost": 1,
      "played": 1,
-     "score_for": 1,
-     "score_against": 2
+     "score_for": 0,
+     "score_against": 10
+    },
+    {
+     "rank": 5,
+     "model": "Kimi 3.1 Pro",
+     "points": 0,
+     "rating": 1531.8,
+     "won": 0,
+     "drawn": 0,
+     "lost": 1,
+     "played": 1,
+     "score_for": 0,
+     "score_against": 10
+    },
+    {
+     "rank": 6,
+     "model": "GLM 5.3 Flash",
+     "points": 0,
+     "rating": 1341.0,
+     "won": 0,
+     "drawn": 0,
+     "lost": 1,
+     "played": 1,
+     "score_for": 0,
+     "score_against": 10
     }
    ]
   }
@@ -1176,12 +1212,12 @@
   "provisional": true,
   "decided": 10,
   "total": 18,
-  "line": "Provisional · 10 of 18 sports decided · updated Nov 8, 10:05 CT"
+  "line": "Provisional · 10 of 18 sports decided · updated Nov 8, 13:14 CT"
  },
  "open_arena_status": {
-  "updated": "2026-11-08T10:05-06:00",
+  "updated": "2026-11-08T13:14-06:00",
   "boards": 12,
   "complete": 11,
-  "line": "Updated Nov 8, 10:05 CT · 11 of 12 boards complete"
+  "line": "Updated Nov 8, 13:14 CT · 11 of 12 boards complete"
  }
 }
