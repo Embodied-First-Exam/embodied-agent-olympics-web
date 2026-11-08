@@ -470,7 +470,7 @@ def season_screen() -> str:
 <section class="chap pg pgs" data-inview id="season">
   <div class="wrap">
     <header class="ch-head"><span class="ch-n"></span><h2>One season.</h2>
-      <p>Across a season, the agent keeps learning. What it builds and learns in one match carries into the next, and every version it deploys is re-tested to measure its growth.</p></header>
+      <p>Across a season, the agent keeps learning. What it builds and learns in one match carries into the next, and its saved versions are re-tested at checkpoints to measure its growth.</p></header>
     {growth2()}
   </div>
 </section>"""
