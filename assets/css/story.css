@@ -1619,3 +1619,4 @@ a.doc-row:hover{background:var(--bg-2)}
 .ig-t--ic.is-playing .ig-name,.ig-t--still:hover .ig-name{color:#fff}
 .ig-t--ic:hover{border-color:var(--accent)}
 @media (hover:none){.ig-t--ic .ig-media,.ig-t--ic::after{display:none}.ig-t--ic .ig-pic{opacity:1!important}.ig-t--ic .ig-name{color:var(--fg)!important}}
+.ig-t{max-height:calc((100svh - 520px) / 3)}

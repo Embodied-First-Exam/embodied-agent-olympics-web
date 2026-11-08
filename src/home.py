@@ -114,27 +114,22 @@ def intro_grid(site: Site, clips: dict) -> str:
     (Team events = duels + team duels, Solo events, Racing). Hover: slight zoom and the sport's challenge labels."""
     tags = site.cfg.get("sport_tags", {})
     fm = {f["id"]: f for f in site.cfg["formats"]}
-    groups = [("Team events", fm["duel"]["sports"] + fm["team"]["sports"], 6),
-              ("Solo events", fm["solo"]["sports"], 4), ("Racing", fm["race"]["sports"], 2)]
+    groups = [(fm[k]["name"], [x for x in fm[k]["sports"] if x in site.sport_by_id]) for k in ("duel", "team", "solo", "race")]
 
     def tile(sid):
         s = site.sport_by_id[sid]
         c = clips.get(s["clips"][0]["id"]) if s["clips"] else None
-        labs = " · ".join((tags.get(sid) or ["", []])[1])
         # big line icon by default; on hover the sport's clip (loaded on first hover by site.js) or, without a clip, its still
         media = (f'<video muted loop playsinline preload="none" data-hover-src="{E(c["web"])}" poster="{E(c["poster"])}"></video>' if c
                  else f'<img src="{E(site.murl(s["thumb"]["url"]))}" alt="" loading="lazy">')
         return (f'<a class="ig-t ig-t--ic{"" if c else " ig-t--still"}" href="{site.sport_url(s)}" data-hover>'
-                f'<span class="ig-media">{media}</span>{icon(s["id"], "pic ig-pic")}'
-                f'<span class="ig-name">{E(s["name"])}</span><span class="ig-lab">{E(labs)}</span></a>')
-    cells = []
-    for name, ids, span in groups:
-        ids = [x for x in ids if x in site.sport_by_id]
-        cells.append(f'<span class="ig-h" style="grid-column:span {span}">{E(name)} <b>{len(ids)}</b></span>')
-    # labels for row 1 (Team events) then 12 tiles; row 3 labels (Solo, Racing) then their tiles
-    team, solo, race = (g[1] for g in groups)
-    out = (cells[0] + "".join(tile(x) for x in team if x in site.sport_by_id) + cells[1] + cells[2]
-           + "".join(tile(x) for x in solo if x in site.sport_by_id) + "".join(tile(x) for x in race if x in site.sport_by_id))
+                f'<span class="ig-media">{media}</span>{icon(s["id"], "pic ig-pic")}<span class="ig-name">{E(s["name"])}</span></a>')
+
+    def head(name, ids, span):
+        return f'<span class="ig-h" style="grid-column:span {span}">{E(name)} <b>{len(ids)}</b></span>'
+    (dn, duel), (tn, team), (sn, solo), (rn, race) = groups
+    out = (head(dn, duel, 6) + "".join(tile(x) for x in duel) + head(tn, team, 6) + "".join(tile(x) for x in team)
+           + head(sn, solo, 4) + head(rn, race, 2) + "".join(tile(x) for x in solo) + "".join(tile(x) for x in race))
     return f'<div class="wrap ig">{out}</div>'
 
 
@@ -658,9 +653,9 @@ def _medal_forms_home(h2h: str, solo: str, title: str = "") -> str:
       {lane("racing", "Full-size racing", ["Race 1", "Race 2", "Race 3", "F1 points", "Medals"], "All cars on one track · 25-18-15-12-10-8 points, summed over the three races")}
     </div>
   </div>"""
-    btns = [("h2h", ["badminton", "tennis", "soccer_hsl", "basketball"], "Team events", "12 duels and team duels · round robin, knockout"),
-            ("solo", ["sprint", "hurdles", "javelin", "stuntcar"], "Solo events", "4 sports · 3 runs, averaged"),
-            ("race", ["drone", "racing"], "Racing", "Drone and full-size racing")]
+    btns = [("h2h", ["badminton", "tennis", "soccer_hsl", "basketball"], "Duel · Team duel", "12 sports · round robin, knockout"),
+            ("solo", ["sprint", "hurdles", "javelin", "stuntcar"], "Solo", "4 sports · 3 runs, averaged"),
+            ("race", ["drone", "racing"], "Race", "Drone and full-size racing")]
     oth = "".join(f'<button type="button" class="tm-o{" is-on" if k == "h2h" else ""}" data-fmt="{k}" aria-pressed="{str(k == "h2h").lower()}">'
                   f'<span class="tm-o-ic">{"".join(icon(s) for s in ids)}</span><strong>{n}</strong><span>{d}</span></button>'
                   for k, ids, n, d in btns)
