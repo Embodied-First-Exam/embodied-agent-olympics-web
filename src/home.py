@@ -237,7 +237,7 @@ def physloop(site: Site, arena_mode: str = "figures") -> str:
 <section class="chap pg pgl" data-inview id="architecture" data-snav="Architecture">
   <div class="wrap">
     <header class="pl-head-t ch-head"><span class="ch-n">02<i>/04</i></span><h2>Agent–Environment Architecture</h2>
-      <p class="pl-lede">Agent systems interact with physical environments through observations and actions, using independent practice arenas and a shared competition arena. Both agents get the same time and compute budget, including GPUs for training in most sports.</p></header>
+      <p class="pl-lede">Agent systems interact with physical environments through observations and actions, learning in independent practice arenas and competing in a shared competition arena. Both agents get the same time and compute budget, including GPUs for training in most sports.</p></header>
     <div class="pl-fig"><div class="pl-scroll">{svg}</div><p class="note pl-note">Schematic</p></div>
   </div>
 </section>"""
