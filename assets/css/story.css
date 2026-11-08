@@ -1091,3 +1091,46 @@
 .qx3{min-height:64svh}
 .gl{padding-top:clamp(40px,5vw,72px)}
 @media (max-width:640px){.qx3{min-height:0;padding:clamp(88px,14vh,120px) 0 clamp(36px,6vh,56px)}}
+
+/* ================= page-by-page opening: hero, about (definition + strip + glance), what we measure; one screen each */
+.ch-head h2{font-size:clamp(34px,4.4vw,68px)}
+.ch-head p{font-size:clamp(16px,1.3vw,19px);margin-top:16px}
+.pg{min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+/* page 2 */
+.pg2{padding:calc(var(--top) + 12px) 0 28px;gap:clamp(22px,4vh,44px)}
+.pg2-k{color:var(--accent)}
+.pg2-h{margin-top:14px;max-width:1000px;font-size:clamp(30px,3.5vw,54px);font-weight:600;line-height:1.05;letter-spacing:-.03em}
+.pg2-p{margin-top:16px;max-width:720px;font-size:clamp(16px,1.3vw,19px);line-height:1.5;color:var(--fg-2)}
+.reel--thin{padding:0}
+.reel--thin .rl-t{width:clamp(150px,13vw,200px);border-radius:10px}
+.pg2 .gl{padding:0}
+.pg2 .gl-h{margin-bottom:12px}
+.pg2 .gl-m{padding-top:16px}
+/* page 3 */
+.pg3{padding:calc(var(--top) + 12px) 0 24px}
+.pg3 .ch-head{margin-bottom:clamp(14px,2.4vh,24px)}
+.pg3 .ch-head h2{font-size:clamp(32px,3.4vw,52px)}
+.pg3 .ch-head p{margin-top:8px;max-width:640px}
+.pg3 .lays--big .lay{grid-template-columns:minmax(180px,1fr) 3fr;gap:clamp(16px,2vw,28px)}
+.pg3 .lays--big .lay-h{display:grid;align-content:center;gap:8px;padding-top:12px}
+.pg3 .lay-h strong{font-size:clamp(19px,1.6vw,24px)}
+.pg3 .lay-h span{font-size:14px}
+.pg3 .lays--big .cap5{aspect-ratio:auto;height:clamp(150px,calc((100svh - 330px) / 2),300px)}
+.pg3 .lays--big .cap5 strong{font-size:clamp(24px,2.2vw,36px)}
+.pg3 .lays--big .cap5-face>span{font-size:clamp(13px,1vw,15px)}
+.pg3 .lays--big .cap5-more li{font-size:14px;padding:5px 0}
+.pg3 .lays--big .lay-link{padding:8px 0 8px calc(25% + 12px);justify-content:space-around}
+@media (min-width:901px) and (min-height:700px){
+  html{scroll-snap-type:y proximity}
+  .h2o,.pg2,.pg3{scroll-snap-align:start}
+}
+@media (max-width:900px){
+  .pg{min-height:0}
+  .pg2{padding:72px 0 48px}
+  .pg3{padding:64px 0 48px}
+  .pg3 .lays--big .lay{grid-template-columns:1fr}
+  .pg3 .lays--big .cap5{height:auto;aspect-ratio:16/10}
+  .pg3 .lays--big .lay-link{padding-left:0;justify-content:space-between}
+}
+.pg>.wrap{width:100%}
+.pg2 .gl{padding-top:0;padding-bottom:0;padding-left:var(--gut);padding-right:var(--gut)}

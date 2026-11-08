@@ -72,20 +72,7 @@ def hero(site: Site, clips: dict) -> str:
 <script type="application/json" data-hero2-clips>{json.dumps(seq)}</script>"""
 
 
-def definition(site: Site, clips: dict) -> str:
-    """Layer 2 of the hero: what Embodied Olympics is, in one big line and one short line."""
-    c = site.cfg
-    return f"""
-<section class="qx2 qx3" data-inview>
-  <div class="wrap qx2-in">
-    <span class="ql kicker qx3-k" style="--k:0">{E(c['definition_label'])}</span>
-    <h2 class="qx2-text qx3-text"><span class="ql ql--hi" style="--k:1">{E(c['definition'])}</span></h2>
-    <p class="ql qx2-full" style="--k:2">{E(c['definition_line'])}</p>
-  </div>
-</section>"""
-
-
-def reel(site: Site, clips: dict) -> str:
+def reel(site: Site, clips: dict, rows: int = 2) -> str:
     """Two rows of match stills drifting in opposite directions (plain strip: no labels); hover pauses the row and plays that clip."""
     def tile(s, poster, web):
         v = f'<video muted loop playsinline preload="none" data-hover-src="{E(web)}"></video>' if web else ""
@@ -97,10 +84,10 @@ def reel(site: Site, clips: dict) -> str:
         c = s["clips"][0] if s["clips"] else None
         poster = site.murl(c["poster"]["url"]) if c else site.murl(s["thumb"]["url"])
         web = site.murl(c["web_720p"]["url"]) if c else None
-        (row1 if k % 2 == 0 else row2).append(tile(s, poster, web))
-    rows = "".join(f'<div class="rl-row rl-row--{d}"><div class="rl-track">{"".join(r) * 2}</div></div>'
-                   for d, r in (("l", row1), ("r", row2)))
-    return f'<section class="reel" aria-label="The sports in motion">{rows}</section>'
+        (row1 if rows == 1 or k % 2 == 0 else row2).append(tile(s, poster, web))
+    tracks = "".join(f'<div class="rl-row rl-row--{d}"><div class="rl-track">{"".join(r) * 2}</div></div>'
+                     for d, r in (("l", row1), ("r", row2)) if r)
+    return f'<section class="reel" aria-label="The sports in motion">{tracks}</section>'
 
 
 GLANCE_IC = {  # 24x24 line icons, stroke = currentColor
@@ -116,14 +103,22 @@ GLANCE = [("sports", "18 Sports", "Diverse physical competition tasks."),
           ("control", "Direct Body Control", "Agents control the embodied system through low-level interfaces.")]
 
 
-def glance(site: Site) -> str:
-    """Layer 3: the benchmark at a glance, four small modules."""
+def page2(site: Site, clips: dict) -> str:
+    """Screen 2: what Embodied Olympics is, a thin strip of all 18 sports, and the benchmark at a glance."""
+    c = site.cfg
     mods = "".join(f'<li class="gl-m" data-inview><svg class="gl-ic" viewBox="0 0 24 24" aria-hidden="true">{GLANCE_IC[k]}</svg>'
                    f'<strong>{E(t)}</strong><span>{E(l)}</span></li>' for k, t, l in GLANCE)
+    strip = reel(site, clips, rows=1).replace('class="reel"', 'class="reel reel--plain reel--thin"', 1)
     return f"""
-<section class="gl" aria-labelledby="gl-h">
-  <div class="wrap">
-    <h2 class="gl-h" id="gl-h">The Benchmark at a Glance</h2>
+<section class="pg pg2" id="about">
+  <div class="wrap pg2-def">
+    <span class="kicker pg2-k">{E(c['definition_label'])}</span>
+    <h2 class="pg2-h">{E(c['definition'])}</h2>
+    <p class="pg2-p">{E(c['definition_line'])}</p>
+  </div>
+  {strip}
+  <div class="wrap gl">
+    <h3 class="gl-h">The Benchmark at a Glance</h3>
     <ul class="gl-row">{mods}</ul>
   </div>
 </section>"""
@@ -163,9 +158,9 @@ def measure(site: Site, clips: dict) -> str:
     link = ('<div class="lay-link" aria-hidden="true"><span><b>↑</b> develops and deploys new versions</span>'
             '<span><b>↓</b> match statistics and replays</span></div>')
     return f"""
-<section class="chap chap--m" data-inview id="measure">
+<section class="chap chap--m pg pg3" data-inview id="measure">
   <div class="wrap">
-    {chap_head('01', 'What we<br>measure.', 'Four core capabilities in two layers. Results describe the whole agent system: the model, its harness and the code it writes.')}
+    {chap_head('01', 'What we measure.', 'Four core capabilities in two layers. Results describe the whole agent system: the model, its harness and the code it writes.')}
     <div class="lays lays--big">{rows[0]}{link}{rows[1]}</div>
   </div>
 </section>"""
@@ -569,7 +564,7 @@ def results_compact(site: Site) -> str:
 
 def home(site: Site):
     clips = clip_index(site)
-    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + definition(site, clips) + '</div>' + reel(site, clips).replace('class="reel"', 'class="reel reel--plain"', 1) + glance(site)
+    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips)
             + measure(site, clips) + season(site, clips) + competition(site, clips) + results_compact(site)
             + '<nav class="crail" aria-label="Chapters" data-crail></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')
