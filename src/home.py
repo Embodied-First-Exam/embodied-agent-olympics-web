@@ -147,8 +147,7 @@ def physloop(site: Site) -> str:
                  f'<text class="pl-s pl-s--a" x="{X(130)}" y="242">Model × Harness</text></g>')
         s.append(f'<g class="pl-sys"><rect x="{R(30, 200)}" y="318" width="200" height="104" rx="12"/>'
                  f'<text class="pl-t pl-t--s" x="{X(130)}" y="356">Code it builds</text>'
-                 f'<text class="pl-s" x="{X(130)}" y="382">programs · weights</text>'
-                 f'<text class="pl-s pl-s--xs" x="{X(130)}" y="404">command lines</text></g>')
+                 f'<text class="pl-s" x="{X(130)}" y="388">programs · weights</text></g>')
         return "".join(s)
     flows = {  # id: (path, arrow head)
         "bA": ("M70 260 V318", "M64 310 L70 318 L76 310"), "bB": ("M1130 260 V318", "M1124 310 L1130 318 L1136 310"),
@@ -160,8 +159,7 @@ def physloop(site: Site) -> str:
     lines = "".join(f'<path id="pl-{k}" class="pl-flow" d="{d}"/><path class="pl-head" d="{h}"/>' for k, (d, h) in flows.items())
     pulses = "".join(f'<circle class="pl-pulse" r="4.5"><animateMotion dur="{d}s" begin="{b}s" repeatCount="indefinite"><mpath href="#pl-{k}"/></animateMotion></circle>'
                      for k, d, b in (("obsA", 3.2, 0), ("actA", 3.2, 1.6), ("obsB", 3.2, .8), ("actB", 3.2, 2.4),
-                                     ("bA", 3.2, .5), ("bB", 3.2, 1.3),
-                                     ("pA1", 3.2, .4), ("pA2", 3.2, 2.0), ("pB1", 3.2, 1.2), ("pB2", 3.2, 2.8)))
+))
     def io(cx):
         return (f'<text class="pl-io" x="{cx}" y="312">Camera images · robot state</text>'
                 f'<text class="pl-ioh" x="{cx}" y="336">Observation</text>'
@@ -183,7 +181,7 @@ def physloop(site: Site) -> str:
 <section class="pg pgl" data-inview id="loop">
   <div class="wrap">
     <header class="pl-head-t"><h2>Agent–Environment Architecture</h2>
-      <p class="pl-lede">Agents interact with physical environments through observations and actions, using independent practice arenas and a shared competition arena.</p></header>
+      <p class="pl-lede">Agent systems interact with physical environments through observations and actions, using independent practice arenas and a shared competition arena.</p></header>
     <div class="pl-fig"><div class="pl-scroll">{svg}</div><p class="note pl-note">Schematic</p></div>
   </div>
 </section>"""
