@@ -85,6 +85,24 @@ def definition(site: Site, clips: dict) -> str:
 </section>"""
 
 
+def reel(site: Site, clips: dict) -> str:
+    """Two rows of match stills drifting in opposite directions (plain strip: no labels); hover pauses the row and plays that clip."""
+    def tile(s, poster, web):
+        v = f'<video muted loop playsinline preload="none" data-hover-src="{E(web)}"></video>' if web else ""
+        return (f'<a class="rl-t" href="{site.sport_url(s)}" data-hover tabindex="-1">'
+                f'<img src="{E(poster)}" alt="" loading="lazy">{v}{icon(s["id"], "pic rl-pic")}'
+                f'<span class="rl-name">{E(s["name"])}</span></a>')
+    row1, row2 = [], []
+    for k, s in enumerate(site.sports):
+        c = s["clips"][0] if s["clips"] else None
+        poster = site.murl(c["poster"]["url"]) if c else site.murl(s["thumb"]["url"])
+        web = site.murl(c["web_720p"]["url"]) if c else None
+        (row1 if k % 2 == 0 else row2).append(tile(s, poster, web))
+    rows = "".join(f'<div class="rl-row rl-row--{d}"><div class="rl-track">{"".join(r) * 2}</div></div>'
+                   for d, r in (("l", row1), ("r", row2)))
+    return f'<section class="reel" aria-label="The sports in motion">{rows}</section>'
+
+
 GLANCE_IC = {  # 24x24 line icons, stroke = currentColor
     "sports": '<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/>'
               '<rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>',
@@ -551,7 +569,7 @@ def results_compact(site: Site) -> str:
 
 def home(site: Site):
     clips = clip_index(site)
-    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + definition(site, clips) + '</div>' + glance(site)
+    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + definition(site, clips) + '</div>' + reel(site, clips).replace('class="reel"', 'class="reel reel--plain"', 1) + glance(site)
             + measure(site, clips) + season(site, clips) + competition(site, clips) + results_compact(site)
             + '<nav class="crail" aria-label="Chapters" data-crail></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')

@@ -1084,3 +1084,10 @@
 }
 .qx3{min-height:78svh}
 .qx3 .qx2-in{padding-top:0}
+/* the plain sport strip between the definition and the glance modules */
+.reel--plain{padding:clamp(8px,2vw,24px) 0 0}
+.reel--plain .rl-pic,.reel--plain .rl-name{display:none}
+.reel--plain .rl-t::after{display:none}
+.qx3{min-height:64svh}
+.gl{padding-top:clamp(40px,5vw,72px)}
+@media (max-width:640px){.qx3{min-height:0;padding:clamp(88px,14vh,120px) 0 clamp(36px,6vh,56px)}}
