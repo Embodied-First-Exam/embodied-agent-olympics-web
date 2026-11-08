@@ -90,12 +90,18 @@ def reel(site: Site, clips: dict, rows: int = 2) -> str:
     return f'<section class="reel" aria-label="The sports in motion">{tracks}</section>'
 
 
-GLANCE_IC = {  # 24x24 line icons, stroke = currentColor
-    "sports": '<rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/>'
-              '<rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/>',
+GLANCE_IC = {  # 24x24 line icons, stroke = currentColor (original drawings)
+    "sports": "".join(f'<rect x="{x}" y="{y}" width="4.6" height="4.6" rx="1.2"/>' for y in (3.2, 9.7, 16.2) for x in (3.2, 9.7, 16.2)),
     "time": '<circle cx="12" cy="13" r="8"/><path d="M12 9v4.5l3 2M9.5 2.5h5"/>',
-    "limits": '<circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/>',
-    "control": '<circle cx="6" cy="18" r="2.2"/><circle cx="12" cy="10" r="2.2"/><circle cx="19" cy="5" r="1.8"/><path d="M7.3 16.2 10.7 11.8M13.8 8.8 17.4 6"/>',
+    "limits": '<path d="M2.6 18a9.4 9.4 0 0 1 18.8 0"/><path d="M17.6 12.9l2.9-2.4" stroke-width="2.8"/><path d="M12 18l4.5-6.3"/><circle cx="12" cy="18" r="1.4"/><path d="M5.5 18h13" opacity=".45"/>',
+    "control": '<circle cx="5" cy="18.5" r="2"/><circle cx="11" cy="9.5" r="2"/><circle cx="19.5" cy="7" r="1.6"/>'
+               '<path d="M6.1 16.8l3.8-5.6M12.9 8.9l5-1.4"/><path d="M14.4 13.2a4.6 4.6 0 0 1-2.6 0.8M13.9 11.6l0.5 1.6-1.6 0.6"/>',
+}
+GLANCE_IC_ALT = {  # alternatives shown on the preview's /fact-icons/ page
+    "sports": '<circle cx="12" cy="15" r="5.5"/><path d="M8.5 3.5 12 9.5l3.5-6M12 12.5v5"/>',
+    "time": '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5h4"/>',
+    "limits": '<circle cx="9" cy="15" r="2.6"/><path d="M11 13.3l7-6.3"/><path d="M4.2 12.4a5.4 5.4 0 0 1 2.4-4.9" stroke-dasharray="1.6 1.8"/><path d="M5.6 6.2l2 2.2"/>',
+    "control": '<circle cx="15" cy="12" r="3.6"/><circle cx="15" cy="12" r="0.9"/><path d="M3 12h7.4M8 9.4l2.6 2.6L8 14.6"/>',
 }
 GLANCE = [("sports", "18 Sports", "Diverse physical competition tasks."),
           ("time", "Real-Time Interaction", "The world runs in real time."),
