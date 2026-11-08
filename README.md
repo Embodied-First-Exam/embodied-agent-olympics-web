@@ -1,31 +1,42 @@
-# Embodied Olympics
+# Embodied Olympics — website
 
-The project page of **Embodied Olympics**: physical sports for coding agents. Published at
-<https://olympics.embodied-first-exam.ai/> by GitHub Pages from `main` (`CNAME`).
+The public site of **Embodied Olympics**, published at <https://olympics.embodied-first-exam.ai/>.
 
-**Status (2026-10-19): First Exam release.** Two Embodied Olympics suites are part of the
-[Embodied First Exam](https://www.embodied-first-exam.ai/): Embodied Olympics – Fun and Embodied Olympics – Match. The home page
-shows them; the full benchmark is not released yet. Pages of the earlier preview (sports, results, robots, docs, film)
-keep their URLs and show a short "returns with the full release" page. Earlier versions are in the git history.
+The repository holds the **source**: page templates, styles, data and media. GitHub Actions builds the static site and
+publishes it to GitHub Pages; the built HTML is never committed.
 
 ## Run it locally
 
-Static HTML and CSS, no build step:
+Python 3.10 or newer, standard library only:
 
 ```bash
-python3 -m http.server 8780 --bind 127.0.0.1
+python3 build.py --serve 8000     # build and serve http://localhost:8000/ (rebuilds on every save)
+python3 build.py                  # build only, into ./dist
 ```
 
-Then open http://localhost:8780. `?theme=dark` forces the dark theme.
+## Where things live
 
-## Files
+| Path | What |
+|---|---|
+| `site.json` | Site settings: name, tagline, research question, links (Docs / Code / Paper), formats, model logos |
+| `data/sports.json`, `data/media.json`, `data/models.json` | The 18 sports, their clips and stills, the six models |
+| `data/results.json` | Results (all `null` until release); medal table, podiums and boards fill in from it |
+| `src/home.py` | The home page and its story sections |
+| `src/pages.py` | Sports, the 18 sport pages, The Match, Competitions, Results, Watch |
+| `src/layout.py` | Page frame: head, top bar, footer, URL helpers |
+| `assets/css/site.css`, `story.css` | Design tokens (night and day themes) and components |
+| `assets/js/site.js`, `home.js` | Interactions; every page also reads fine without JavaScript |
+| `assets/media/` | Web clips (720p), posters, stills; `release/full/` holds the 1440p versions used for HD |
+| `assets/icons/`, `assets/models/` | Sport pictograms; model logos (see `assets/models/SOURCE.txt`) |
+| `tools/fetch_media.py` | Pulls any media file named in `data/` that is not in `assets/media/` yet (campus network or VPN) |
 
-- `index.html`: the release page. `404.html`: not found.
-- `sports/`, `results/`, `robots/`, `docs/`, `film/`: placeholders for the full release.
-- `assets/css/site.css`, `responsive.css`: the site's look; `release.css`: the release page.
-- `assets/media/release/`: web clips (H.264, muted) and posters of Embodied Olympics – Match and Embodied Olympics – Fun tasks.
+## Making a change
+
+1. Edit the source, run `python3 build.py --serve 8000`, check the page.
+2. New footage or stills: add them to `data/*.json`, then `python3 tools/fetch_media.py`.
+3. Open a pull request. The **Build and deploy** workflow builds every push; a merge into `main` publishes the site.
 
 ## Credits
 
-Text, figures and videos: the Embodied Olympics team. Fonts: Bricolage Grotesque, Inter and JetBrains Mono from Google
-Fonts (SIL Open Font License).
+Text, figures and videos: the Embodied Olympics team. Fonts: Inter Tight and IBM Plex Mono (SIL Open Font License).
+Model logos: `@lobehub/icons` (MIT); each logo is a trademark of its owner.

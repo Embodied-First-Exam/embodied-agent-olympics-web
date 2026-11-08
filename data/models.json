@@ -1,0 +1,41 @@
+{
+ "_note": "The six entries of the first edition. Each entry is a whole agent system: model + harness. Colours are suggestions (Okabe-Ito, colour-blind safe).",
+ "models": [
+  {
+   "name": "Claude Opus 5.5",
+   "maker": "Anthropic",
+   "harness": "Claude Code",
+   "colour": "#D55E00"
+  },
+  {
+   "name": "GPT-6 Astra",
+   "maker": "OpenAI",
+   "harness": "Codex",
+   "colour": "#009E73"
+  },
+  {
+   "name": "Gemini 4 Argon",
+   "maker": "Google",
+   "harness": "TODO",
+   "colour": "#0072B2"
+  },
+  {
+   "name": "Kimi (TODO: public model name)",
+   "maker": "Moonshot AI",
+   "harness": "TODO",
+   "colour": "#CC79A7"
+  },
+  {
+   "name": "DeepSeek V4.1 Flash",
+   "maker": "DeepSeek",
+   "harness": "TODO",
+   "colour": "#56B4E9"
+  },
+  {
+   "name": "GLM 5.3 Flash",
+   "maker": "Zhipu AI",
+   "harness": "TODO",
+   "colour": "#E69F00"
+  }
+ ]
+}

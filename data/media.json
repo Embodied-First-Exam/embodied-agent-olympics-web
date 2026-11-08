@@ -1,0 +1,540 @@
+{
+ "_note": "Every video/still slot. All footage is replays of recorded simulation runs, path-traced in Blender for display; no new renders.",
+ "home_hero_sequence": [
+  {
+   "id": "soccer_hsl_3v3",
+   "duration_s": 18.9,
+   "aspect": "16:9",
+   "web_720p": {
+    "url": "/eo/media/soccer_hsl_3v3.mp4"
+   },
+   "master_1440p": {
+    "url": "/exam-media/masters/soccer_hsl_3v3/video.mp4"
+   },
+   "poster": {
+    "url": "/eo/img/poster/soccer_hsl_3v3.jpg",
+    "size": "1280x720"
+   }
+  },
+  {
+   "id": "drone_race_4",
+   "duration_s": 21.97,
+   "aspect": "16:9",
+   "web_720p": {
+    "url": "/eo/media/drone_race_4.mp4"
+   },
+   "master_1440p": {
+    "url": "/exam-media/masters/drone_race_4/video.mp4"
+   },
+   "poster": {
+    "url": "/eo/img/poster/drone_race_4.jpg",
+    "size": "1280x720"
+   }
+  },
+  {
+   "id": "beach_volleyball",
+   "duration_s": 13.33,
+   "aspect": "16:9",
+   "web_720p": {
+    "url": "/eo/media/beach_volleyball.mp4"
+   },
+   "master_1440p": {
+    "url": "/exam-media/masters/beach_volleyball/video.mp4"
+   },
+   "poster": {
+    "url": "/eo/img/poster/beach_volleyball.jpg",
+    "size": "1280x720"
+   }
+  },
+  {
+   "id": "f1_night_race",
+   "duration_s": 17.37,
+   "aspect": "16:9",
+   "web_720p": {
+    "url": "/eo/media/f1_night_race.mp4"
+   },
+   "master_1440p": {
+    "url": "/exam-media/masters/f1_night_race/video.mp4"
+   },
+   "poster": {
+    "url": "/eo/img/poster/f1_night_race.jpg",
+    "size": "1280x720"
+   }
+  },
+  {
+   "id": "basketball_3x3",
+   "duration_s": 18.6,
+   "aspect": "16:9",
+   "web_720p": {
+    "url": "/eo/media/basketball_3x3.mp4"
+   },
+   "master_1440p": {
+    "url": "/exam-media/masters/basketball_3x3/video.mp4"
+   },
+   "poster": {
+    "url": "/eo/img/poster/basketball_3x3.jpg",
+    "size": "1280x720"
+   }
+  },
+  {
+   "id": "badminton_g1",
+   "duration_s": 17.47,
+   "aspect": "16:9",
+   "web_720p": {
+    "url": "/eo/media/badminton_g1.mp4"
+   },
+   "master_1440p": {
+    "url": "/exam-media/masters/badminton_g1/video.mp4"
+   },
+   "poster": {
+    "url": "/eo/img/poster/badminton_g1.jpg",
+    "size": "1280x720"
+   }
+  },
+  {
+   "id": "stuntcar_replica",
+   "duration_s": 33.47,
+   "aspect": "16:9",
+   "web_720p": {
+    "url": "/eo/media/stuntcar_replica.mp4"
+   },
+   "master_1440p": {
+    "url": "/exam-media/masters/stuntcar_replica/video.mp4"
+   },
+   "poster": {
+    "url": "/eo/img/poster/stuntcar_replica.jpg",
+    "size": "1280x720"
+   }
+  },
+  {
+   "id": "tabletennis_g1",
+   "duration_s": 18.43,
+   "aspect": "16:9",
+   "web_720p": {
+    "url": "/eo/media/tabletennis_g1.mp4"
+   },
+   "master_1440p": {
+    "url": "/exam-media/masters/tabletennis_g1/video.mp4"
+   },
+   "poster": {
+    "url": "/eo/img/poster/tabletennis_g1.jpg",
+    "size": "1280x720"
+   }
+  }
+ ],
+ "per_sport": {
+  "soccer_hsl": {
+   "thumbnail": {
+    "url": "/eo/img/sports/soccer_hsl.jpg",
+    "size": "640x360"
+   },
+   "still": {
+    "url": "/eo/img/hero-close.jpg",
+    "size": "1920x1080"
+   },
+   "clips": [
+    {
+     "id": "soccer_hsl_3v3",
+     "shows": "Three-a-side match, a goal from open play",
+     "status": "Showcase render from development; earlier rules version",
+     "duration_s": 18.9,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/soccer_hsl_3v3.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/soccer_hsl_3v3/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/soccer_hsl_3v3.jpg",
+      "size": "1280x720"
+     }
+    }
+   ]
+  },
+  "soccer_hsl_team": {
+   "thumbnail": {
+    "url": "/eo/img/sports/soccer_hsl_team.jpg",
+    "size": "640x360"
+   },
+   "still": {
+    "url": "/eo/img/sports/soccer_hsl_team.jpg",
+    "size": "640x360"
+   },
+   "clips": []
+  },
+  "soccer_ssl": {
+   "thumbnail": {
+    "url": "/eo/img/sports/soccer_ssl.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "soccerssl_match",
+     "shows": "Wheeled-robot match",
+     "status": "Showcase render of an earlier 5 v 5 build; not the 11 v 11 release version",
+     "duration_s": 19.2,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/soccerssl_match.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/soccerssl_match/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/soccerssl_match.jpg",
+      "size": "1280x720"
+     }
+    }
+   ]
+  },
+  "basketball": {
+   "thumbnail": {
+    "url": "/eo/img/sports/basketball_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "basketball_3x3",
+     "shows": "Six G1s, a basket",
+     "status": "Showcase render from development; earlier rules version",
+     "duration_s": 18.6,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/basketball_3x3.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/basketball_3x3/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/basketball_3x3.jpg",
+      "size": "1280x720"
+     }
+    }
+   ]
+  },
+  "beachvolleyball": {
+   "thumbnail": {
+    "url": "/eo/img/sports/beachvolleyball_g1.jpg",
+    "size": "640x360"
+   },
+   "still": {
+    "url": "/eo/img/bv-wide.jpg",
+    "size": "1600x900"
+   },
+   "clips": [
+    {
+     "id": "beach_volleyball",
+     "shows": "Two-a-side rally on sand",
+     "status": "Showcase render from development",
+     "duration_s": 13.33,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/beach_volleyball.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/beach_volleyball/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/beach_volleyball.jpg",
+      "size": "1280x720"
+     }
+    }
+   ]
+  },
+  "amfootball": {
+   "thumbnail": {
+    "url": "/eo/img/sports/amfootball.jpg",
+    "size": "640x360"
+   },
+   "still": {
+    "url": "/eo/img/sports/amfootball.jpg",
+    "size": "960x540 source (promo still)"
+   },
+   "clips": []
+  },
+  "baseball": {
+   "thumbnail": {
+    "url": "/eo/img/sports/baseball_g1.jpg",
+    "size": "640x360"
+   },
+   "still": {
+    "url": "/eo/img/baseball-wide.jpg",
+    "size": "1600x900"
+   },
+   "clips": [
+    {
+     "id": "baseball_g1",
+     "shows": "Pitch and swing",
+     "status": "Showcase render from development",
+     "duration_s": 8.27,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/baseball_g1.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/baseball_g1/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/baseball_g1.jpg",
+      "size": "1280x720"
+     }
+    }
+   ]
+  },
+  "badminton": {
+   "thumbnail": {
+    "url": "/eo/img/sports/badminton_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "badminton_g1",
+     "shows": "A G1 returns the shuttle over the net",
+     "status": "Showcase render from development",
+     "duration_s": 17.47,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/badminton_g1.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/badminton_g1/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/badminton_g1.jpg",
+      "size": "1280x720"
+     }
+    }
+   ]
+  },
+  "tennis": {
+   "thumbnail": {
+    "url": "/eo/img/sports/tennis_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": []
+  },
+  "tabletennis": {
+   "thumbnail": {
+    "url": "/eo/img/sports/tabletennis_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "tabletennis_g1",
+     "shows": "A G1 rally",
+     "status": "Showcase render from development",
+     "duration_s": 18.43,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/tabletennis_g1.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/tabletennis_g1/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/tabletennis_g1.jpg",
+      "size": "1280x720"
+     }
+    }
+   ]
+  },
+  "curling": {
+   "thumbnail": {
+    "url": "/eo/img/sports/curling_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "curling_match",
+     "shows": "A take-out, from the hack to the far house",
+     "status": "Showcase render of an earlier version; no G1 visible",
+     "duration_s": 13.63,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/curling_match.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/curling_match/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/curling_match.jpg",
+      "size": "1280x720"
+     }
+    }
+   ]
+  },
+  "billiards": {
+   "thumbnail": {
+    "url": "/eo/img/sports/billiards_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "billiards_8ball",
+     "shows": "The break and a called 8, top view",
+     "status": "Showcase render of an earlier version; no G1 visible",
+     "duration_s": 11.37,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/billiards_8ball.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/billiards_8ball/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/billiards_8ball.jpg",
+      "size": "1280x720"
+     }
+    }
+   ]
+  },
+  "sprint": {
+   "thumbnail": {
+    "url": "/eo/img/sports/sprint_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": []
+  },
+  "hurdles": {
+   "thumbnail": {
+    "url": "/eo/img/sports/hurdles_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": []
+  },
+  "javelin": {
+   "thumbnail": {
+    "url": "/eo/img/sports/javelin_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "javelin_g1",
+     "shows": "A G1 throw",
+     "status": "Showcase render from development",
+     "duration_s": 10.5,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/javelin_g1.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/javelin_g1/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/javelin_g1.jpg",
+      "size": "1280x720"
+     }
+    }
+   ]
+  },
+  "racing": {
+   "thumbnail": {
+    "url": "/eo/img/sports/f1full.jpg",
+    "size": "640x360"
+   },
+   "still": {
+    "url": "/eo/img/racing-close.jpg",
+    "size": "1600x900"
+   },
+   "clips": [
+    {
+     "id": "f1_night_race",
+     "shows": "Night circuit, braking and a pass",
+     "status": "Showcase render from development; shows several cars, the release event is a single-car time trial",
+     "duration_s": 17.37,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/f1_night_race.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/f1_night_race/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/f1_night_race.jpg",
+      "size": "1280x720"
+     }
+    }
+   ]
+  },
+  "drone": {
+   "thumbnail": {
+    "url": "/eo/img/sports/drone.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "drone_race_4",
+     "shows": "Four drones in one airspace",
+     "status": "Showcase render from development",
+     "duration_s": 21.97,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/drone_race_4.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/drone_race_4/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/drone_race_4.jpg",
+      "size": "1280x720"
+     }
+    }
+   ]
+  },
+  "stuntcar": {
+   "thumbnail": {
+    "url": "/eo/img/sports/stuntcar.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "stuntcar_replica",
+     "shows": "Four thruster stunts",
+     "status": "Showcase render from development",
+     "duration_s": 33.47,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/stuntcar_replica.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/stuntcar_replica/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/stuntcar_replica.jpg",
+      "size": "1280x720"
+     }
+    },
+    {
+     "id": "stuntcar_wave_wall",
+     "shows": "Climbing the wave wall",
+     "status": "Showcase render from development",
+     "duration_s": 19.6,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/stuntcar_wave_wall.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/stuntcar_wave_wall/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/stuntcar_wave_wall.jpg",
+      "size": "1280x720"
+     }
+    }
+   ]
+  }
+ }
+}
