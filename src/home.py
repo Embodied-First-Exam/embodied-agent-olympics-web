@@ -103,6 +103,32 @@ GLANCE = [("sports", "18 Sports", "Diverse physical competition tasks."),
           ("control", "Direct Body Control", "Agents control the embodied system through low-level interfaces.")]
 
 
+def intro_grid(site: Site, clips: dict) -> str:
+    """The intro's 18 sports: a static grid of our own match stills, grouped as the Championship's three forms
+    (Team events = duels + team duels, Solo events, Racing). Hover: slight zoom and the sport's challenge labels."""
+    tags = site.cfg.get("sport_tags", {})
+    fm = {f["id"]: f for f in site.cfg["formats"]}
+    groups = [("Team events", fm["duel"]["sports"] + fm["team"]["sports"], 6),
+              ("Solo events", fm["solo"]["sports"], 4), ("Racing", fm["race"]["sports"], 2)]
+
+    def tile(sid):
+        s = site.sport_by_id[sid]
+        c = clips.get(s["clips"][0]["id"]) if s["clips"] else None
+        img = c["poster"] if c else site.murl(s["thumb"]["url"])
+        labs = " · ".join((tags.get(sid) or ["", []])[1])
+        return (f'<a class="ig-t" href="{site.sport_url(s)}"><span class="ig-img"><img src="{E(img)}" alt="" loading="lazy"></span>'
+                f'<span class="ig-name">{E(s["name"])}</span><span class="ig-lab">{E(labs)}</span></a>')
+    cells = []
+    for name, ids, span in groups:
+        ids = [x for x in ids if x in site.sport_by_id]
+        cells.append(f'<span class="ig-h" style="grid-column:span {span}">{E(name)} <b>{len(ids)}</b></span>')
+    # labels for row 1 (Team events) then 12 tiles; row 3 labels (Solo, Racing) then their tiles
+    team, solo, race = (g[1] for g in groups)
+    out = (cells[0] + "".join(tile(x) for x in team if x in site.sport_by_id) + cells[1] + cells[2]
+           + "".join(tile(x) for x in solo if x in site.sport_by_id) + "".join(tile(x) for x in race if x in site.sport_by_id))
+    return f'<div class="wrap ig">{out}</div>'
+
+
 def intro_icons(site: Site) -> str:
     """Variant of the intro's sport strip: the 18 sport pictograms, grouped by the four formats."""
     groups = []
@@ -118,8 +144,7 @@ def page2(site: Site, clips: dict, intro: str = "strip") -> str:
     c = site.cfg
     mods = "".join(f'<li class="gl-m" data-inview><svg class="gl-ic" viewBox="0 0 24 24" aria-hidden="true">{GLANCE_IC[k]}</svg>'
                    f'<strong>{E(t)}</strong><span>{E(l)}</span></li>' for k, t, l in GLANCE)
-    strip = (intro_icons(site) if intro == "icons"
-             else reel(site, clips).replace('class="reel"', 'class="reel reel--plain reel--thin"', 1))
+    strip = intro_grid(site, clips)
     return f"""
 <section class="pg pg2" id="about">
   <div class="wrap pg2-def">
