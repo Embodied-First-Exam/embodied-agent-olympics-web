@@ -124,52 +124,44 @@ def page2(site: Site, clips: dict) -> str:
 </section>"""
 
 
-def physloop() -> str:
-    """Agents in the Physical Loop: two agents, each with its own practice arena, meet in one competition arena.
-    Labels state only what the Engineer track's seat instructions say (see handoff/webv3_1108.md, round 7)."""
+def physloop(site: Site) -> str:
+    """Agents in the Physical Loop: two agents, each working back and forth with its own practice arena, observe and act on
+    their robots in one shared competition arena. Wording checked against the Engineer seat instructions (handoff round 7)."""
     def agent(x, name):
-        return (f'<g class="pl-agent"><rect x="{x}" y="215" width="230" height="130" rx="16"/>'
-                f'<text class="pl-t" x="{x + 115}" y="268">{name}</text>'
-                f'<text class="pl-s" x="{x + 115}" y="296">Model · Harness · Workspace</text></g>')
+        return (f'<g class="pl-agent"><rect x="{x}" y="226" width="190" height="124" rx="16"/>'
+                f'<text class="pl-t" x="{x + 95}" y="280">{name}</text>'
+                f'<text class="pl-s pl-s--a" x="{x + 95}" y="310">Model × Harness</text></g>')
 
     def practice(x):
-        return (f'<g class="pl-prac"><rect x="{x}" y="20" width="230" height="130" rx="16"/>'
-                f'<text class="pl-t pl-t--s" x="{x + 115}" y="62">Practice Arena</text>'
-                f'<text class="pl-s" x="{x + 115}" y="90">full copy of the match world</text>'
-                f'<text class="pl-s" x="{x + 115}" y="112">resettable · unscored</text>'
-                f'<text class="pl-s" x="{x + 115}" y="134">open before, during, after play</text></g>')
-
-    def robot(cx, cls):
-        return (f'<g class="pl-robot {cls}"><circle cx="{cx}" cy="230" r="13"/><path d="M{cx} 246 v52 M{cx - 26} 262 h52 '
-                f'M{cx} 298 l-18 40 M{cx} 298 l18 40"/></g>')
-    # flows: agent A at x 20..250, agent B at 950..1180, arena 360..840
-    paths = {
-        "obsA": "M360 250 H250", "actA": "M250 310 H360", "obsB": "M840 250 H950", "actB": "M950 310 H840",
-        "pracA": "M135 150 V215", "pracB": "M1065 150 V215",
-        "resA": "M520 440 C520 500 135 500 135 345", "resB": "M680 440 C680 500 1065 500 1065 345",
-    }
-    lines = "".join(f'<path id="pl-{k}" class="pl-flow{" pl-flow--res" if k.startswith("res") else ""}" d="{d}"/>' for k, d in paths.items())
+        return (f'<g class="pl-prac"><rect x="{x}" y="22" width="190" height="124" rx="16"/>'
+                f'<text class="pl-t pl-t--s" x="{x + 95}" y="66">Practice Arena</text>'
+                f'<text class="pl-s" x="{x + 95}" y="96">Full copy of the match world</text>'
+                f'<text class="pl-s" x="{x + 95}" y="120">resettable · open throughout</text></g>')
+    paths = {"obsA": "M440 262 H200", "actA": "M200 318 H440", "obsB": "M760 262 H1000", "actB": "M1000 318 H760",
+             "prA1": "M105 146 V226", "prA2": "M105 226 V146", "prB1": "M1095 146 V226", "prB2": "M1095 226 V146"}
+    lines = "".join(f'<path id="pl-{k}" class="pl-flow" d="{d}"/>' for k, d in paths.items() if not k.endswith("2"))
+    lines += "".join(f'<path id="pl-{k}" class="pl-ghost" d="{d}"/>' for k, d in paths.items() if k.endswith("2"))
     heads = "".join(f'<path class="pl-head" d="{d}"/>' for d in (
-        "M258 244 L250 250 L258 256", "M352 304 L360 310 L352 316", "M942 244 L950 250 L942 256", "M848 304 L840 310 L848 316",
-        "M129 207 L135 215 L141 207", "M1059 207 L1065 215 L1071 207", "M129 353 L135 345 L141 353", "M1059 353 L1065 345 L1071 353"))
+        "M208 256 L200 262 L208 268", "M432 312 L440 318 L432 324", "M992 256 L1000 262 L992 268", "M768 312 L760 318 L768 324",
+        "M99 218 L105 226 L111 218", "M99 154 L105 146 L111 154", "M1089 218 L1095 226 L1101 218", "M1089 154 L1095 146 L1101 154"))
     pulses = "".join(f'<circle class="pl-pulse" r="4.5"><animateMotion dur="{d}s" begin="{b}s" repeatCount="indefinite"><mpath href="#pl-{k}"/></animateMotion></circle>'
                      for k, d, b in (("obsA", 3.2, 0), ("actA", 3.2, 1.6), ("obsB", 3.2, .8), ("actB", 3.2, 2.4),
-                                     ("pracA", 2.6, .4), ("pracB", 2.6, 1.7), ("resA", 6, 0), ("resB", 6, 3)))
-    labels = (
-        '<text class="pl-l" x="305" y="238">Observation</text><text class="pl-l" x="305" y="336">Action</text>'
-        '<text class="pl-l" x="895" y="238">Observation</text><text class="pl-l" x="895" y="336">Action</text>'
-        '<text class="pl-l pl-l--m" x="600" y="492">Score · a review after every scoring unit</text>'
-        '<text class="pl-l pl-l--s" x="600" y="520">observation: cameras or vision feed · own state · referee    '
-        'action: joint-level commands every 10–20 ms</text>')
-    arena = (f'<g class="pl-arena"><rect x="360" y="110" width="480" height="330" rx="20"/>'
-             f'<text class="pl-t" x="600" y="160">Competition Arena</text>'
-             f'<text class="pl-s" x="600" y="190">shared physical world · runs on its own clock · scored</text>'
-             f'{robot(520, "pl-robot--a")}{robot(680, "pl-robot--b")}'
-             f'<text class="pl-s pl-vs" x="600" y="300">vs</text>'
-             f'<text class="pl-s" x="520" y="372">Robot A</text><text class="pl-s" x="680" y="372">Robot B</text></g>')
-    svg = (f'<svg class="pl-svg" viewBox="0 0 1200 535" role="img" aria-label="Two agents, each with its own practice arena, '
-           f'observe and act on their robots in one shared competition arena">{lines}{heads}{practice(20)}{practice(950)}'
-           f'{agent(20, "Agent A")}{agent(950, "Agent B")}{arena}{labels}<g class="pl-pulses">{pulses}</g></svg>')
+                                     ("prA1", 2.4, 0), ("prA2", 2.4, 1.2), ("prB1", 2.4, .6), ("prB2", 2.4, 1.8)))
+    def io(cx):
+        return (f'<text class="pl-io" x="{cx}" y="214">Camera images · robot state</text>'
+                f'<text class="pl-ioh" x="{cx}" y="242">Observation</text>'
+                f'<text class="pl-ioh" x="{cx}" y="348">Action</text>'
+                f'<text class="pl-io" x="{cx}" y="372">Joint and motor commands</text>')
+    ga, gb = site.asset("img/g1-silhouette-a.png"), site.asset("img/g1-silhouette-b.png")
+    arena = (f'<g class="pl-arena"><rect x="440" y="130" width="320" height="320" rx="20"/>'
+             f'<text class="pl-t" x="600" y="176">Competition Arena</text>'
+             f'<text class="pl-s" x="600" y="204">Shared physical world</text>'
+             f'<image href="{E(ga)}" x="490" y="226" width="78" height="200"/>'
+             f'<image href="{E(gb)}" x="632" y="226" width="78" height="200"/>'
+             f'<text class="pl-vs" x="600" y="334">vs</text></g>')
+    svg = (f'<svg class="pl-svg" viewBox="0 0 1200 460" role="img" aria-label="Two agents, each working with its own practice arena, '
+           f'observe and act on their robots in one shared competition arena">{lines}{heads}{practice(10)}{practice(1000)}'
+           f'{agent(10, "Agent A")}{agent(1000, "Agent B")}{arena}{io(320)}{io(880)}<g class="pl-pulses">{pulses}</g></svg>')
     return f"""
 <section class="pg pgl" data-inview id="loop">
   <div class="wrap">
@@ -692,7 +684,7 @@ def results_compact(site: Site) -> str:
 
 def home(site: Site, measure_variant: str = "a"):
     clips = clip_index(site)
-    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips) + physloop()
+    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips) + physloop(site)
             + measure(site, clips, measure_variant) + match_screen() + season_screen() + competition(site, clips) + results_compact(site)
             + '<nav class="crail" aria-label="Chapters" data-crail></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')

@@ -1330,3 +1330,9 @@
   .mb-loop{width:100%;height:96px}
 }
 .pg3--a .mc-img{height:clamp(120px,calc((100svh - 450px) / 2),260px)}
+/* physical loop, round 8: readable observation / action, two-way practice link, G1 silhouettes */
+.pl-ghost{fill:none;stroke:none}
+.pl-io{font:400 16px var(--f-sans);fill:var(--fg-2);text-anchor:middle}
+.pl-ioh{font:600 17px var(--f-sans);fill:var(--fg);text-anchor:middle;letter-spacing:-.01em}
+.pl-s--a{font-size:15px}
+.pl-svg{max-height:calc(100svh - 240px)}
