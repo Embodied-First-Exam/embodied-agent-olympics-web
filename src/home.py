@@ -349,9 +349,8 @@ G2_STEPS = [  # checkpoint (re-test after every match), score share vs fixed opp
     ("Match 3", 0.45, ["vision"], "Finds the ball with its own camera."),
     ("Match 4", 0.53, ["react"], "Reacts to the ball in time."),
     ("Match 5", 0.61, ["pass"], "Passes to a teammate in space."),
-    ("Final", 0.71, ["team"], "Plays as a team."),
 ]
-G2_CAPS = {"walk": "Walking", "getup": "Get-up", "vision": "Vision", "react": "Reaction", "pass": "Passing", "team": "Team play"}
+G2_CAPS = {"walk": "Walking", "getup": "Get-up", "vision": "Vision", "react": "Reaction", "pass": "Passing"}
 
 
 def growth2() -> str:
@@ -383,20 +382,18 @@ def growth2() -> str:
     caps = "".join(f'<span class="g2-cap" data-at="{i}" style="left:{X(i) / W * 100:.2f}%;top:{YC(counts[i]) / H * 100:.2f}%">'
                    f'<i></i><em>{G2_CAPS[k]}</em></span>'
                    for i, (_, _, ks, _) in enumerate(G2_STEPS) for k in ks)
-    loop = '<span class="sw-loop"><i class="p"></i><i class="g"></i><i class="r"></i><i class="g"></i></span>'
 
     def tile(lab, done):
         short = "F" if lab == "Final" else "M" + lab.split()[-1]
-        return (f'<button type="button" class="sw-m" data-done="{done}" data-g2-goto="{done}">{loop}'
+        return (f'<button type="button" class="sw-m" data-done="{done}" data-g2-goto="{done}">'
                 f'<b><span class="sw-full">{lab}</span><span class="sw-short">{short}</span></b></button>')
 
     def ck(i):
         return (f'<button type="button" class="sw-ck" data-g2-stop="{i}" aria-label="Checkpoint {i + 1}: re-test">'
                 f'<i></i><span>Re-test</span></button>')
-    crown = ('<span class="sw-crown" aria-label="Season ends"><svg viewBox="0 0 24 24" aria-hidden="true">'
-             '<path d="M3 8.5 7.5 12 12 5l4.5 7L21 8.5 19 18H5z"/><path d="M5 20.5h14"/></svg><span>Season ends</span></span>')
-    labs = ["Match 1", "Match 2", "Match 3", "Match 4", "Match 5", "Final"]
-    tiles = ck(0) + "".join(tile(l, i + 1) + ck(i + 1) for i, l in enumerate(labs)) + crown
+    more = '<span class="sw-more" aria-label="The season goes on">…</span>'
+    labs = ["Match 1", "Match 2", "Match 3", "Match 4", "Match 5"]
+    tiles = ck(0) + "".join(tile(l, i + 1) + ck(i + 1) for i, l in enumerate(labs)) + more
     data = [{"x": round(X(i) / W * 100, 2), "y": round(Y(v) / H * 100, 2), "cy": round(YC(counts[i]) / H * 100, 2),
              "score": v, "skills": counts[i], "event": ev} for i, (_, v, _, ev) in enumerate(G2_STEPS)]
     return f"""<figure class="g2" data-g2>
@@ -405,7 +402,7 @@ def growth2() -> str:
   <div class="sw">
     <div class="sw-matches">{tiles}</div>
     <div class="sw-carry"><span class="sw-carry-line"><i></i></span></div>
-    <div class="sw-foot"><span class="sw-carry-lab">Season memory<b>code · weights · notes · match video</b></span>
+    <div class="sw-foot"><span class="sw-carry-lab">Season memory<b>code &amp; weights · notes · the agent&rsquo;s memory and session history · earlier match videos and records</b></span>
       <span class="sw-key">Each match starts in a fresh world.</span></div>
   </div>
   <div class="g2-panels">

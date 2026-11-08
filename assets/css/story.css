@@ -1391,3 +1391,8 @@
 .tl-rev .tl-sub{white-space:normal}
 .tl-head{top:24px;height:22px;margin-top:-4px}
 .pgs .ch-head p{max-width:860px}
+/* round 15: plain match tiles, the season goes on */
+.pgs .sw-m,.pgs .sw-m.cur{flex:1 1 0}
+.pgs .sw-m{min-height:46px}
+.pgs .sw-m.cur{border-color:var(--accent);background:var(--accent-soft)}
+.sw-more{flex:none;align-self:center;padding:0 6px;font-size:22px;letter-spacing:.1em;color:var(--fg-3)}
