@@ -1396,3 +1396,9 @@
 .pgs .sw-m{min-height:46px}
 .pgs .sw-m.cur{border-color:var(--accent);background:var(--accent-soft)}
 .sw-more{flex:none;align-self:center;padding:0 6px;font-size:22px;letter-spacing:.1em;color:var(--fg-3)}
+.sw-tip{position:relative;color:var(--fg-2);border-bottom:1px dotted var(--fg-3);cursor:help}
+.sw-tip::after{content:attr(data-tip);position:absolute;left:0;bottom:calc(100% + 8px);width:340px;padding:10px 12px;border-radius:8px;
+  background:var(--bg-3);border:1px solid var(--hair);color:var(--fg);font-size:13px;line-height:1.45;white-space:normal;
+  opacity:0;pointer-events:none;transform:translateY(4px);transition:opacity .2s,transform .2s;z-index:5}
+.sw-tip:hover::after,.sw-tip:focus-visible::after{opacity:1;transform:none}
+.pgs .sw-carry-lab{color:var(--fg-2)}
