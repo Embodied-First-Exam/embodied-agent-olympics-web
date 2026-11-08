@@ -429,52 +429,38 @@ def growth_panels(draw: bool = False) -> str:
     return growth2()
 
 
-def match_loop() -> str:
-    """One match in time: preparation, then a loop the agent runs as it decides, then the end of the match."""
-    import math
-    cx, cy, r = 600, 205, 128
-    nodes = [("Play", "the world runs in real time", -90), ("Review", "the world stands still|after each goal or point", 0),
-             ("Improve & Test", "in the practice arena", 90), ("Deploy", "start or replace programs", 180)]
-    pos = [(cx + r * math.cos(math.radians(a)), cy + r * math.sin(math.radians(a))) for _, _, a in nodes]
-    arcs = ""
-    for k in range(4):
-        a0, a1 = math.radians(nodes[k][2] + 22), math.radians(nodes[k][2] + 68)
-        x0, y0, x1, y1 = cx + r * math.cos(a0), cy + r * math.sin(a0), cx + r * math.cos(a1), cy + r * math.sin(a1)
-        arcs += f'<path class="ml-arc" d="M{x0:.1f} {y0:.1f} A{r} {r} 0 0 1 {x1:.1f} {y1:.1f}"/>'
-        hx, hy = x1, y1
-        ang = nodes[k][2] + 68 + 90
-        arcs += (f'<path class="ml-head" transform="translate({hx:.1f} {hy:.1f}) rotate({ang:.1f})" d="M-6 -6 L0 0 L-6 6"/>')
-    def node(k):
-        (name, sub, a), (x, y) = nodes[k], pos[k]
-        tx = {0: (x, y - 52), 1: (x + 38, y - 66), 2: (x, y + 58), 3: (x - 38, y - 50)}[k]
-        anchor = {0: "middle", 1: "start", 2: "middle", 3: "end"}[k]
-        return (f'<g class="ml-node"><circle cx="{x:.1f}" cy="{y:.1f}" r="30"/>'
-                f'<text class="ml-n" x="{tx[0]:.1f}" y="{tx[1]:.1f}" text-anchor="{anchor}">{name}</text>'
-                + "".join(f'<text class="ml-s" x="{tx[0]:.1f}" y="{tx[1] + 20 + 17 * j:.1f}" text-anchor="{anchor}">{s}</text>'
-                          for j, s in enumerate(sub.split("|"))) + '</g>')
-    nodes_svg = "".join(node(k) for k in range(4))
-    ring = f'<circle id="ml-ring" class="ml-ring" cx="{cx}" cy="{cy}" r="{r}"/>'
-    pulse = ('<circle class="pl-pulse" r="5" opacity="0"><set attributeName="opacity" to="1" begin="0s"/><animateMotion dur="9s" repeatCount="indefinite" '
-             f'path="M{cx} {cy - r} A{r} {r} 0 1 1 {cx - .1} {cy - r}"/></circle>')
-    box = lambda x, t1, t2, cls: (f'<g class="ml-box {cls}"><rect x="{x}" y="150" width="230" height="110" rx="16"/>'  # noqa: E731
-                                  f'<text class="pl-t pl-t--s" x="{x + 115}" y="196">{t1}</text>'
-                                  f'<text class="pl-s" x="{x + 115}" y="224">{t2}</text></g>')
-    links = ('<path class="pl-flow" d="M250 205 H420"/><path class="pl-head" d="M412 199 L420 205 L412 211"/>'
-             '<path class="pl-flow" d="M780 205 H950"/><path class="pl-head" d="M942 199 L950 205 L942 211"/>')
-    center = (f'<text class="pl-t pl-t--s" x="{cx}" y="{cy - 4}">Competition</text>'
-              f'<text class="pl-s" x="{cx}" y="{cy + 22}">as often as the agent decides</text>')
-    svg = (f'<svg class="ml-svg" viewBox="0 0 1200 420" role="img" aria-label="Preparation, then a loop of play, review, improve and test, '
-           f'deploy, then the match ends">{links}{ring}{arcs}{box(20, "Preparation", "develop · test · deploy", "ml-prep")}'
-           f'{center}{nodes_svg}{box(950, "Match ends", "programs and records saved", "ml-end")}<g class="pl-pulses">{pulse}</g></svg>')
-    return svg
+def match_timeline() -> str:
+    """One match on a time axis: preparation, then play (world running) and review windows (world paused) alternating,
+    then the end. Examples from the official run's seat instructions (handoff/webv3_1108.md, round 13)."""
+    segs = [("prep", 15, "Preparation", "Develop · Test · Deploy"), ("play", 14, "Play", "world running"),
+            ("rev", 8, "Review", "world paused"), ("play", 15, "Play", ""), ("rev", 8, "Review", ""),
+            ("play", 11, "Play", ""), ("more", 4, "…", ""), ("end", 14, "Match end", "programs, match data and reviews saved")]
+    bar = "".join(f'<div class="tl-seg tl-{k}" style="flex:{w}"><span class="tl-lab">{E(l)}</span><i class="tl-bar"></i>'
+                  f'<span class="tl-sub">{E(s)}</span></div>' for k, w, l, s in segs)
+
+    def strip(name, seq, note):
+        cells = "".join(f'<i class="tl-m tl-m--{k}" style="flex:{w}"></i>' for k, w in seq)
+        return (f'<div class="tl-ex"><strong>{E(name)}</strong><div class="tl-mini">{cells}</div>'
+                f'<span>{E(note)}</span></div>')
+    tt = [("play", 3), ("rev", 1)] * 9 + [("play", 3)]
+    soc = [("play", 14), ("rev", 1.5), ("play", 9), ("rev", 4.5), ("play", 11), ("rev", 1.5), ("play", 8)]
+    ex = (strip("Table tennis", tt, "a review after every point, up to 300 s")
+          + strip("Humanoid soccer", soc, "a review after every goal, up to 120 s; at half time, up to 600 s"))
+    return f"""<div class="tl" data-inview>
+      <div class="tl-main">{bar}<i class="tl-head" aria-hidden="true"></i></div>
+      <div class="tl-key"><span><i class="tl-k tl-k--play"></i>world running</span><span><i class="tl-k tl-k--rev"></i>review window · world paused</span>
+        <span class="tl-key-note">Play and review alternate; how often depends on the sport&rsquo;s rules.</span></div>
+      <div class="tl-exs">{ex}</div>
+      <p class="tl-eng">The agent can keep developing its system throughout the match; review windows add structured time to inspect results, reflect and revise.</p>
+    </div>"""
 
 
 def match_screen() -> str:
     return f"""
 <section class="chap pg pgm" data-inview id="match">
   <div class="wrap">
-    {chap_head('02', 'One match.', 'The agent prepares before the match, stays in the loop through competition, and decides when and how to improve its system.')}
-    <div class="ml-fig">{match_loop()}</div>
+    {chap_head('02', 'One match.', 'Preparation, continuous competition, and event-triggered review.')}
+    {match_timeline()}
   </div>
 </section>"""
 
