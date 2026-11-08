@@ -1555,3 +1555,10 @@ a.doc-row:hover{background:var(--bg-2)}
   .snav--left a:hover span,.snav--left a:focus-visible span{opacity:1;transform:none}
   .pgr2 .wrap,.pgmt .wrap,.pgl .wrap,.pg3 .wrap,.pgm .wrap,.pgs .wrap{padding-left:max(var(--gut),calc(76px - max(0px,(100vw - var(--wrap)) / 2)))}
 }
+/* round 26: agent = model + harness + effort */
+.mt-who{display:grid;gap:2px;line-height:1.15}
+.mt-who small{font-size:12.5px;font-weight:400;color:var(--fg-3);letter-spacing:0}
+.mt--home td{padding-top:10px!important;padding-bottom:10px!important}
+.pgr2 .mt-head{margin-top:clamp(10px,2vh,22px)}
+.pgmt{padding-top:calc(var(--top) + 12px)}
+.pgmt .tm{margin-top:0}.pgmt .tm-card{padding:clamp(12px,1.4vw,20px)}.pgmt .tm-others .tm-o{padding-top:8px;padding-bottom:8px}

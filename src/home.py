@@ -702,7 +702,8 @@ def medal_table_home(site: Site) -> str:
     cell = lambda v: "—" if v is None else E(str(v))  # noqa: E731
     body = "".join(
         f'<tr><td class="mt-rank">{k + 1 if released else "—"}</td>'
-        f'<td><span class="mt-model"><i class="flag" style="--c:{E(m["colour"])}"></i>{model_logo(site, m)}<strong>{E(model_name(m))}</strong></span></td>'
+        f'<td><span class="mt-model"><i class="flag" style="--c:{E(m["colour"])}"></i>{model_logo(site, m)}<span class="mt-who"><strong>{E(model_name(m))}</strong>'
+        f'<small>{E(m.get("harness", ""))} · {E(m.get("effort", ""))} effort</small></span></span></td>'
         + "".join(f'<td class="mt-n">{cell(rows.get(m["name"], {}).get(c))}</td>' for c in ("gold", "silver", "bronze")) + "</tr>"
         for k, m in enumerate(models))
     head = "".join(f"<th>{h}</th>" for h in ["Rank", "AI agent", '<i class="medal medal--g"></i>Gold',
@@ -711,23 +712,23 @@ def medal_table_home(site: Site) -> str:
 
 
 def results_medals(site: Site) -> str:
-    """01 Championship. Screen 1: what the Olympics Championship is (the official medal standings; the Open Arena is a
-    separate board) and how medals are won (three forms). Screen 2: the medal table, the Open Arena entry, all results."""
+    """01 Championship. Screen 1: title, lede and the medal table (the board first). Screen 2: competition format and
+    medal allocation (three forms), then one quiet line on the Open Arena."""
     lb = site.url("leaderboard/")
     return f"""
 <section class="chap pg pgr2" data-inview id="championship" data-snav="Championship">
   <div class="wrap">
     <header class="ch-head ch-head--k"><span class="ch-n">01<i>/04</i></span><h2>Embodied Olympics Championship</h2>
       <p class="ch-lede">Six AI agents compete across 18 sports in a season-long championship. Each agent carries its programs, weights, and experience forward, continuously improving from match to match.</p></header>
-    <h3 class="rm-h">Competition Format and Medal Allocation</h3>
-    {tournament(site, head=False, home=True)}
-  </div>
-</section>
-<section class="pg pgmt" data-inview id="medal-table">
-  <div class="wrap">
     <div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">Provisional — fills in at release</span>
       <span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>
     <div class="mt-home">{medal_table_home(site)}</div>
+  </div>
+</section>
+<section class="pg pgmt" data-inview id="medal-allocation">
+  <div class="wrap">
+    <h3 class="rm-h">Competition Format and Medal Allocation</h3>
+    {tournament(site, head=False, home=True)}
     <p class="mt-foot">Open Arena is a separate, always-open leaderboard and does not count toward medals.
       <a href="{lb}#arena">View Open Arena →</a> · <a href="{lb}">All results →</a></p>
   </div>
