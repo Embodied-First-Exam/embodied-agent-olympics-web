@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import functools
+import hashlib
 import http.server
 import json
 import re
@@ -57,11 +58,16 @@ def build(base: str | None = None) -> int:
     if base:
         cfg["base"] = base
     cfg["_sprite"] = icon_sprite()
+    # build version for cache busting: content of the stylesheets and scripts plus the build time (changes every build)
+    h = hashlib.sha1(str(time.time()).encode())
+    for f in sorted((ROOT / "assets").glob("css/*.css")) + sorted((ROOT / "assets").glob("js/*.js")):
+        h.update(f.read_bytes())
+    cfg["_v"] = h.hexdigest()[:10]
     site = layout.Site(cfg, load("data/sports.json")["sports"], load("data/models.json")["models"],
                 load("data/media.json"), load("data/results.json"))
 
     out = [home.home(site), pages.sports_index(site), pages.match(site), pages.competitions(site),
-           pages.results(site), pages.watch(site), pages.not_found(site)]
+           pages.results(site), pages.documents(site), pages.watch(site), pages.not_found(site)]
     out += [pages.sport_page(site, i) for i in range(len(site.sports))]
 
     if DIST.exists():
@@ -78,6 +84,7 @@ def build(base: str | None = None) -> int:
         page = DIST / old / "index.html"
         page.parent.mkdir(parents=True, exist_ok=True)
         page.write_text(f'<!doctype html><meta charset="utf-8"><title>Moved</title><link rel="canonical" href="{target}">'
+                        f'<script>location.replace("{target}"+location.hash)</script>'
                         f'<meta http-equiv="refresh" content="0; url={target}"><a href="{target}">Moved here</a>\n', encoding="utf-8")
     if (ROOT / "CNAME").is_file():  # custom domain for GitHub Pages
         shutil.copy(ROOT / "CNAME", DIST / "CNAME")

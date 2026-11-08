@@ -143,18 +143,20 @@
   /* two growths, one control: auto-advances while in view; a click on a checkpoint takes over */
   $$("[data-g2]").forEach((root) => {
     const data = JSON.parse($("[data-g2-data]", root).textContent);
-    const stops = $$("[data-g2-stop]", root), nodes = $$(".g2-node", root), edges = $$(".g2-edge", root);
+    const stops = $$("[data-g2-stop]", root), nodes = $$(".g2-node, .g2-cap", root), edges = $$(".g2-edge", root);
     const ev = $("[data-g2-event]", root), sc = $("[data-g2-score]", root), sk = $("[data-g2-skills]", root);
     let k = -1, timer = null, pinned = false, shownScore = data[0].score;
     const tween = (to) => {
       const from = shownScore, t0 = performance.now();
       const f = (t) => { const q = Math.min(1, (t - t0) / 600); shownScore = from + (to - from) * (1 - Math.pow(1 - q, 3)); sc.textContent = shownScore.toFixed(2); if (q < 1) requestAnimationFrame(f); };
+      if (!sc) return;
       reduced ? (sc.textContent = to.toFixed(2), shownScore = to) : requestAnimationFrame(f);
     };
     const set = (n) => {
       if (n === k) return; k = n; const d = data[k];
       root.dataset.k = k;
       root.style.setProperty("--g2x", d.x + "%"); root.style.setProperty("--g2y", d.y + "%");
+      if (d.cy != null) root.style.setProperty("--g2cy", d.cy + "%");
       root.style.setProperty("--g2p", (k / (data.length - 1) * 100) + "%");
       stops.forEach((s, i) => { s.classList.toggle("past", i < k); s.classList.toggle("on", i === k); });
       $$(".sw-m", root).forEach((m) => { m.classList.toggle("done", +m.dataset.done < k); m.classList.toggle("cur", +m.dataset.done === k); });
@@ -163,7 +165,7 @@
       nodes.forEach((nd) => { const on = +nd.dataset.at <= k; if (on && !nd.classList.contains("on")) { nd.classList.add("new"); setTimeout(() => nd.classList.remove("new"), 700); } nd.classList.toggle("on", on); });
       edges.forEach((e) => e.classList.toggle("on", +e.dataset.at <= k));
       ev.classList.add("out"); setTimeout(() => { ev.textContent = d.event; ev.classList.remove("out"); }, 180);
-      sk.textContent = d.skills; tween(d.score);
+      if (sk) sk.textContent = d.skills; tween(d.score);
     };
     const run = () => {
       clearTimeout(timer); if (pinned || reduced) return;
@@ -236,17 +238,41 @@
     $$(".sc", grid).forEach((c) => c.classList.toggle("is-hidden", f !== "all" && c.dataset.cat !== f));
   }));
 
-  /* results tabs (remembered in the URL hash) */
+  /* results tabs (remembered in the URL hash); #fmt-<format> opens that panel of the format diagram */
   const tabs = $$("[data-tab]");
+  const fromHash = () => {
+    const h = location.hash.slice(1);
+    const fb = h.startsWith("fmt-") && $(`.tm-o[data-fmt="${h.slice(4)}"]`);
+    if (fb) { fb.click(); $("#formats") && $("#formats").scrollIntoView(); return; }
+    if (tabs.some((t) => t.dataset.tab === h)) { pick(h); const s = $("#tables"); if (s) s.scrollIntoView(); }
+  };
+  const pick = (id) => {
+    if (!tabs.some((t) => t.dataset.tab === id)) id = tabs[0].dataset.tab;
+    tabs.forEach((t) => { t.classList.toggle("is-on", t.dataset.tab === id); t.setAttribute("aria-selected", t.dataset.tab === id); });
+    $$("[data-panel]").forEach((p) => p.classList.toggle("is-on", p.dataset.panel === id));
+  };
   if (tabs.length) {
-    const pick = (id) => {
-      if (!tabs.some((t) => t.dataset.tab === id)) id = tabs[0].dataset.tab;
-      tabs.forEach((t) => { t.classList.toggle("is-on", t.dataset.tab === id); t.setAttribute("aria-selected", t.dataset.tab === id); });
-      $$("[data-panel]").forEach((p) => p.classList.toggle("is-on", p.dataset.panel === id));
-    };
     tabs.forEach((t) => t.addEventListener("click", () => { pick(t.dataset.tab); history.replaceState(null, "", "#" + t.dataset.tab); }));
     pick(location.hash.slice(1));
   }
+  if (location.hash) fromHash();
+  addEventListener("hashchange", fromHash);
+
+  /* capability cards: hover shows the skills; a click (or tap) keeps them open */
+  $$("[data-cap]").forEach((b) => b.addEventListener("click", () => {
+    const open = !b.classList.contains("is-open");
+    $$("[data-cap]").forEach((x) => { x.classList.remove("is-open"); x.setAttribute("aria-expanded", "false"); });
+    b.classList.toggle("is-open", open); b.setAttribute("aria-expanded", open);
+  }));
+
+  /* how medals are won (home): a chip opens its one-paragraph detail; without JS it links to the full diagram */
+  const mchips = $$("[data-mchip]");
+  mchips.forEach((c) => c.addEventListener("click", (e) => {
+    e.preventDefault();
+    const k = c.dataset.mchip, open = !c.classList.contains("is-on");
+    mchips.forEach((x) => { x.classList.toggle("is-on", open && x === c); x.setAttribute("aria-expanded", open && x === c); });
+    $$("[data-mchip-d]").forEach((d) => { d.hidden = !(open && d.dataset.mchipD === k); });
+  }));
 
   /* watch: one player, a grid of clips, #clip=<id> deep links */
   const wv = $("[data-wvideo]");

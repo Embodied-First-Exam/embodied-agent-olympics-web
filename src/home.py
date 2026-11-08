@@ -5,6 +5,7 @@ import json
 import re
 
 from layout import E, Site, icon, ink_on, model_logo, model_name, page
+import medals
 
 # ---------------------------------------------------------------- helpers
 
@@ -36,11 +37,6 @@ def vid(c: dict, cls: str = "", extra: str = "", hd: bool = False) -> str:
             f'data-lazy data-web="{E(c["web"])}"{hd_attr} {extra}></video>')
 
 
-def chap_head(n: str, title: str, line: str = "") -> str:
-    return (f'<header class="ch-head"><span class="ch-n">{n}<i>/05</i></span><h2>{title}</h2>'
-            f'{f"<p>{line}</p>" if line else ""}</header>')
-
-
 # ---------------------------------------------------------------- sections
 
 
@@ -67,7 +63,7 @@ def hero(site: Site, clips: dict) -> str:
     <h1 class="wordmark" data-fit><span class="fit-inner"><span class="wl">Embodied</span> <span class="wl">Olympics</span></span></h1>
     <div class="h2o-row">
       <div class="h2o-cta">
-        <p class="h2o-tag">{E(site.cfg['tagline'])}</p>
+        <p class="h2o-tag h2o-head">{E(site.cfg['tagline'])}</p>
         <a class="btn btn--light" href="{site.url('watch/')}" data-hero-watch><span class="play"></span>Watch</a>
       </div>
       <div class="channels" role="group" aria-label="Switch sport">{channels}</div>
@@ -77,20 +73,8 @@ def hero(site: Site, clips: dict) -> str:
 <script type="application/json" data-hero2-clips>{json.dumps(seq)}</script>"""
 
 
-def question(site: Site, clips: dict) -> str:
-    """A short headline in large type; the research question itself, verbatim, as one line beneath it."""
-    short = " ".join(f'<span class="ql ql--hi" style="--k:{k}">{E(l)}</span>' for k, l in enumerate(site.cfg["question_short"]))
-    return f"""
-<section class="qx2" data-inview>
-  <div class="wrap qx2-in">
-    <h2 class="qx2-text">{short}</h2>
-    <p class="ql qx2-full" style="--k:3">{E(site.cfg['question'])}</p>
-  </div>
-</section>"""
-
-
-def reel(site: Site, clips: dict) -> str:
-    """Two rows of match stills drifting in opposite directions; hover pauses the row and plays that clip."""
+def reel(site: Site, clips: dict, rows: int = 2) -> str:
+    """Two rows of match stills drifting in opposite directions (plain strip: no labels); hover pauses the row and plays that clip."""
     def tile(s, poster, web):
         v = f'<video muted loop playsinline preload="none" data-hover-src="{E(web)}"></video>' if web else ""
         return (f'<a class="rl-t" href="{site.sport_url(s)}" data-hover tabindex="-1">'
@@ -101,77 +85,224 @@ def reel(site: Site, clips: dict) -> str:
         c = s["clips"][0] if s["clips"] else None
         poster = site.murl(c["poster"]["url"]) if c else site.murl(s["thumb"]["url"])
         web = site.murl(c["web_720p"]["url"]) if c else None
-        (row1 if k % 2 == 0 else row2).append(tile(s, poster, web))
-    rows = "".join(f'<div class="rl-row rl-row--{d}"><div class="rl-track">{"".join(r) * 2}</div></div>'
-                   for d, r in (("l", row1), ("r", row2)))
-    return f'<section class="reel" aria-label="The sports in motion">{rows}</section>'
+        (row1 if rows == 1 or k % 2 == 0 else row2).append(tile(s, poster, web))
+    tracks = "".join(f'<div class="rl-row rl-row--{d}"><div class="rl-track">{"".join(r) * 2}</div></div>'
+                     for d, r in (("l", row1), ("r", row2)) if r)
+    return f'<section class="reel" aria-label="The sports in motion">{tracks}</section>'
 
 
-def numbers(site: Site, clips: dict) -> str:
-    """The big numbers sit on top of the drifting reel of all 18 sports (the reel is the '18')."""
-    cells = [(len(site.sports), "Sports"), (len(site.models), "AI agents"), (1, "Season"), (0, "Pauses")]
-    nums = "".join(f'<div class="num" data-inview><strong data-count="{n}">{n}</strong><span>{E(l)}</span></div>' for n, l in cells)
-    return f"""<section class="numreel">
-  {reel(site, clips)}
-  <div class="numreel-scrim"></div>
-  <div class="nums"><div class="wrap nums-grid">{nums}</div></div>
-</section>"""
+GLANCE_IC = {  # 24x24 line icons, stroke = currentColor (original drawings)
+    "sports": "".join(f'<rect x="{x}" y="{y}" width="4.6" height="4.6" rx="1.2"/>' for y in (3.2, 9.7, 16.2) for x in (3.2, 9.7, 16.2)),
+    "time": '<circle cx="12" cy="13" r="8"/><path d="M12 9v4.5l3 2M9.5 2.5h5"/>',
+    "limits": '<path d="M2.6 18a9.4 9.4 0 0 1 18.8 0"/><path d="M12 18l4.5-6.3"/><circle cx="12" cy="18" r="1.4"/><path d="M5.5 18h13" opacity=".45"/>',
+    "control": '<circle cx="5" cy="18.5" r="2"/><circle cx="11" cy="9.5" r="2"/><circle cx="19.5" cy="7" r="1.6"/>'
+               '<path d="M6.1 16.8l3.8-5.6M12.9 8.9l5-1.4"/>',
+}
+GLANCE_IC_ALT = {  # alternatives shown on the preview's /fact-icons/ page
+    "sports": '<circle cx="12" cy="15" r="5.5"/><path d="M8.5 3.5 12 9.5l3.5-6M12 12.5v5"/>',
+    "time": '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5h4"/>',
+    "limits": '<circle cx="9" cy="15" r="2.6"/><path d="M11 13.3l7-6.3"/><path d="M4.2 12.4a5.4 5.4 0 0 1 2.4-4.9" stroke-dasharray="1.6 1.8"/><path d="M5.6 6.2l2 2.2"/>',
+    "control": '<circle cx="15" cy="12" r="3.6"/><circle cx="15" cy="12" r="0.9"/><path d="M3 12h7.4M8 9.4l2.6 2.6L8 14.6"/>',
+}
+GLANCE = [("sports", "18 Sports", "Diverse physical competition tasks."),
+          ("time", "Real-Time Interaction", "The world runs in real time."),
+          ("limits", "Real Robot Constraints", "Bodies, joints, actuators and physics."),
+          ("control", "Direct Body Control", "Agents control the embodied system through low-level interfaces.")]
 
 
-_PY_TOKEN = re.compile(r"""(?P<com>\#.*$)|(?P<str>"[^"]*"|'[^']*')|(?P<kw>\b(?:def|return|if|else|for|in|import|from|class)\b)"""
-                       r"""|(?P<num>\b\d+(?:\.\d+)?\b)|(?P<call>\b[A-Za-z_]\w*(?=\())|(?P<attr>(?<=\.)[A-Za-z_]\w*)"""
-                       r"""|(?P<kwarg>\b[A-Za-z_]\w*(?==))|(?P<name>\b[A-Za-z_]\w*\b)|(?P<op>[=().,:])""", re.M)
+def intro_grid(site: Site, clips: dict) -> str:
+    """The intro's 18 sports: a static grid of our own match stills, grouped as the Championship's three forms
+    (Team events = duels + team duels, Solo events, Racing). Hover: slight zoom and the sport's challenge labels."""
+    tags = site.cfg.get("sport_tags", {})
+    fm = {f["id"]: f for f in site.cfg["formats"]}
+    groups = [(fm[k]["name"], [x for x in fm[k]["sports"] if x in site.sport_by_id]) for k in ("duel", "team", "solo", "race")]
+
+    def tile(sid):
+        s = site.sport_by_id[sid]
+        c = clips.get(s["clips"][0]["id"]) if s["clips"] else None
+        # big line icon by default; on hover the sport's clip (loaded on first hover by site.js) or, without a clip, its still
+        media = (f'<video muted loop playsinline preload="none" data-hover-src="{E(c["web"])}" poster="{E(c["poster"])}"></video>' if c
+                 else f'<img src="{E(site.murl(s["thumb"]["url"]))}" alt="" loading="lazy">')
+        return (f'<a class="ig-t ig-t--ic{"" if c else " ig-t--still"}" href="{site.sport_url(s)}" data-hover>'
+                f'<span class="ig-media">{media}</span>{icon(s["id"], "pic ig-pic")}<span class="ig-name">{E(s["name"])}</span></a>')
+
+    def head(name, ids, span):
+        return f'<span class="ig-h" style="grid-column:span {span}">{E(name)} <b>{len(ids)}</b></span>'
+    (dn, duel), (tn, team), (sn, solo), (rn, race) = groups
+    out = (head(dn, duel, 6) + "".join(tile(x) for x in duel) + head(tn, team, 6) + "".join(tile(x) for x in team)
+           + head(sn, solo, 4) + head(rn, race, 2) + "".join(tile(x) for x in solo) + "".join(tile(x) for x in race))
+    return f'<div class="wrap ig">{out}</div>'
 
 
-def hl_python(src: str) -> str:
-    """Tiny Python highlighter with VS Code Dark+ token classes (enough for the few illustrative lines)."""
-    out, pos, after_def = [], 0, False
-    for m in _PY_TOKEN.finditer(src):
-        out.append(E(src[pos:m.start()]))
-        kind, tok = m.lastgroup, m.group()
-        if kind == "call" and after_def:
-            kind = "fn"
-        if kind == "kw" and tok in ("return", "if", "else", "for", "in", "import", "from"):
-            kind = "ctl"  # Dark+ colours control-flow keywords purple
-        after_def = kind == "kw" and tok == "def" or (after_def and kind not in ("call", "fn", "name"))
-        out.append(f'<i class="t-{kind}">{E(tok)}</i>')
-        pos = m.end()
-    out.append(E(src[pos:]))
-    return "".join(out)
+def intro_icons(site: Site) -> str:
+    """Variant of the intro's sport strip: the 18 sport pictograms, grouped by the four formats."""
+    groups = []
+    for f in site.cfg["formats"]:
+        ss = [site.sport_by_id[x] for x in f["sports"] if x in site.sport_by_id]
+        ics = "".join(f'<a class="ii-s" href="{site.sport_url(s)}" title="{E(s["name"])}">{icon(s["id"])}<span>{E(s["name"])}</span></a>' for s in ss)
+        groups.append(f'<div class="ii-g"><span class="ii-h">{E(f["name"])} <b>{len(ss)}</b></span><div class="ii-row">{ics}</div></div>')
+    return f'<div class="wrap ii"><span class="ii-total">{len(site.sports)} sports</span>{"".join(groups)}</div>'
 
 
-def chap1(site: Site, clips: dict) -> str:
-    c = clips.get("badminton_g1") or next(iter(clips.values()))
-    code = ["# written by the agent", "def step(obs):", "    shuttle = track(obs.head_depth)",
-            "    hit = predict_contact(shuttle)", "    pose = reach(hit, racket=\"right\")",
-            "    return joint_targets(pose)"]
-    lines = "".join(f'<span class="cl"><b>{n + 1}</b><span class="cl-t">{hl_python(t)}</span><i class="cl-cur"></i></span>'
-                    for n, t in enumerate(code))
+def page2(site: Site, clips: dict, intro: str = "strip") -> str:
+    """Screen 2: what Embodied Olympics is, a thin strip of all 18 sports, and the benchmark at a glance."""
+    c = site.cfg
+    mods = "".join(f'<li class="gl-m" data-inview><svg class="gl-ic" viewBox="0 0 24 24" aria-hidden="true">{GLANCE_IC[k]}</svg>'
+                   f'<strong>{E(t)}</strong><span>{E(l)}</span></li>' for k, t, l in GLANCE)
+    strip = intro_grid(site, clips)
     return f"""
-<section class="chap chap--1" data-inview>
-  <div class="wrap">
-    {chap_head('01', 'AI agents build<br>robot athletes.')}
-    <figure class="codevid build">
-      {vid(c, 'cover', 'data-autoplay', hd=True)}
-      <div class="codevid-shade"></div>
-      <div class="codevid-ed"><span class="codevid-tab"><i></i>controller.py</span><pre class="codevid-code" data-type>{lines}</pre></div>
-      <div class="term-status"><span class="ok">●</span> v7 on the field</div>
-      <span class="note codevid-note">Illustrative code</span>
-    </figure>
+<section class="pg pg2" id="about">
+  <div class="wrap pg2-def">
+    <span class="kicker pg2-k">{E(c['definition_label'])}</span>
+    <h2 class="pg2-h">{E(c['definition'])}</h2>
+    <p class="pg2-p">{E(c['definition_line'])}</p>
+  </div>
+  {strip}
+  <div class="wrap gl">
+    <h3 class="gl-h">The Benchmark at a Glance</h3>
+    <ul class="gl-row">{mods}</ul>
   </div>
 </section>"""
 
 
-def chap2(site: Site, clips: dict) -> str:
-    panels = [("beach_volleyball", "Real motor limits."), ("drone_race_4", "Only its own cameras."),
-              ("f1_night_race", "The clock never stops.")]
-    tri = "".join(f'<figure class="tri-p">{vid(clips[cid], "cover", "data-autoplay")}<figcaption>{line}</figcaption></figure>'
-                  for cid, line in panels if cid in clips)
+def physloop(site: Site, arena_mode: str = "figures") -> str:
+    """Agent–environment architecture. Each side: a workspace in which the agent builds and deploys a system; the system
+    (its programs) observes and acts in the shared competition arena; the workspace also runs its own practice arena.
+    Wording checked against the official run's seat instructions (handoff/webv3_1108.md, fact correction)."""
+    W = 1200
+
+    def side(left, label):
+        X = (lambda x: x) if left else (lambda x: W - x)  # mirror x positions
+        R = (lambda x, w: x) if left else (lambda x, w: W - x - w)  # mirror a rect's left edge
+        s = []
+        # practice arena
+        s.append(f'<g class="pl-prac"><rect x="{R(10, 240)}" y="10" width="240" height="100" rx="14"/>'
+                 f'<text class="pl-t pl-t--s" x="{X(130)}" y="48">Practice Arena</text>'
+                 f'<text class="pl-s" x="{X(130)}" y="74">Full copy of the match world</text>'
+                 f'<text class="pl-s" x="{X(130)}" y="96">resettable · open throughout</text></g>')
+        # workspace container with agent and system
+        s.append(f'<g class="pl-ws pl-ws--{"a" if left else "b"}"><rect x="{R(10, 240)}" y="150" width="240" height="305" rx="16"/>'
+                 f'<text class="pl-wsl" x="{X(26)}" y="174" text-anchor="{"start" if left else "end"}">System {label}</text></g>')
+        s.append(f'<g class="pl-agent"><rect x="{R(30, 200)}" y="186" width="200" height="74" rx="12"/>'
+                 f'<text class="pl-t pl-t--s" x="{X(130)}" y="217">Agent</text>'
+                 f'<text class="pl-s pl-s--a" x="{X(130)}" y="242">Model × Harness</text></g>')
+        s.append(f'<g class="pl-sys"><rect x="{R(30, 200)}" y="318" width="200" height="104" rx="12"/>'
+                 f'<text class="pl-t pl-t--s" x="{X(130)}" y="356">Code it builds</text>'
+                 f'<text class="pl-s" x="{X(130)}" y="388">programs · trained weights</text></g>')
+        return "".join(s)
+    flows = {  # id: (path, arrow head)
+        "bA": ("M70 260 V318", "M64 310 L70 318 L76 310"), "bB": ("M1130 260 V318", "M1124 310 L1130 318 L1136 310"),
+        "obsA": ("M480 350 H250", "M258 344 L250 350 L258 356"), "actA": ("M250 404 H480", "M472 398 L480 404 L472 410"),
+        "obsB": ("M720 350 H950", "M942 344 L950 350 L942 356"), "actB": ("M950 404 H720", "M728 398 L720 404 L728 410"),
+        "pA1": ("M122 110 V150", "M116 142 L122 150 L128 142"), "pA2": ("M138 150 V110", "M132 118 L138 110 L144 118"),
+        "pB1": ("M1062 110 V150", "M1056 142 L1062 150 L1068 142"), "pB2": ("M1078 150 V110", "M1072 118 L1078 110 L1084 118"),
+    }
+    lines = "".join(f'<path id="pl-{k}" class="pl-flow" d="{d}"/><path class="pl-head" d="{h}"/>' for k, (d, h) in flows.items())
+    # hidden until its motion starts: an SVG circle sits at the origin (0, 0) before a delayed animateMotion begins
+    pulses = "".join(f'<circle class="pl-pulse" r="4.5" opacity="0"><set attributeName="opacity" to="1" begin="{b}s"/>'
+                     f'<animateMotion dur="{d}s" begin="{b}s" repeatCount="indefinite"><mpath href="#pl-{k}"/></animateMotion></circle>'
+                     for k, d, b in (("obsA", 3.2, 0), ("actA", 3.2, 1.6), ("obsB", 3.2, .8), ("actB", 3.2, 2.4),
+))
+    def io(cx):
+        return (f'<text class="pl-io" x="{cx}" y="312">Camera images · robot state</text>'
+                f'<text class="pl-ioh" x="{cx}" y="336">Observation</text>'
+                f'<text class="pl-ioh" x="{cx}" y="432">Action</text>'
+                f'<text class="pl-io" x="{cx}" y="454">Joint and motor commands</text>')
+    build_lab = ('<text class="pl-bl" x="84" y="294">builds and deploys</text>'
+                 '<text class="pl-bl" x="1116" y="294" text-anchor="end">builds and deploys</text>')
+    # two line-drawn robots in the sports-icon style (48-unit icon box, scaled; stroke kept at icon weight), facing a ball
+    # robot (local units, facing right): rounded head with a visor slit, rectangular torso, straight limbs with joints, flat feet
+    joints = [(13, 17), (25, 17), (9, 24), (31, 23), (16, 30), (22, 30), (14, 39), (25, 39)]
+    fig = ('<rect x="13" y="2" width="12" height="10" rx="2.6"/><path d="M18 7h5.5" class="pl-visor"/><path d="M19 12v2"/>'
+           '<rect x="13" y="14" width="12" height="16" rx="2"/>'
+           '<path d="M13 17 9 24 10 31M25 17 31 23 36 20M16 30 14 39 15 48M22 30 25 39 24 48M12 48h6M22 48h6"/>'
+           + "".join(f'<circle cx="{x}" cy="{y}" r="1.35"/>' for x, y in joints))
+    if arena_mode == "still":
+        still = site.murl("/eo/img/poster/soccer_hsl_3v3.jpg")
+        inner = (f'<clipPath id="pl-ac"><rect x="481" y="151" width="238" height="303" rx="17"/></clipPath>'
+                 f'<image href="{E(still)}" x="481" y="151" width="238" height="303" preserveAspectRatio="xMidYMid slice" clip-path="url(#pl-ac)"/>'
+                 f'<rect class="pl-ashade" x="481" y="151" width="238" height="303" rx="17"/>')
+    else:
+        inner = (f'<g class="pl-bot pl-bot--a" transform="translate(490 252) scale(2.55)">{fig}</g>'
+                 f'<g class="pl-bot pl-bot--b" transform="translate(710 252) scale(-2.55 2.55)">{fig}</g>'
+                 f'<circle class="pl-ball" cx="600" cy="370" r="6"/>')
+    arena = (f'<g class="pl-arena"><rect x="480" y="150" width="240" height="305" rx="18"/>{inner}'
+             f'<text class="pl-t" x="600" y="194">Competition Arena</text>'
+             f'<text class="pl-s" x="600" y="220">Shared physical world</text>'
+             + ('' if arena_mode == "still" else '<text class="pl-vs" x="600" y="330">vs</text>') + '</g>')
+    svg = (f'<svg class="pl-svg" viewBox="0 0 {W} 468" role="img" aria-label="Each system is an agent and the code it builds and deploys; '
+           f'the system observes and acts in a shared competition arena; each system has its own practice arena">'
+           f'{side(True, "A")}{side(False, "B")}{arena}{lines}{build_lab}{io(365)}{io(835)}<g class="pl-pulses">{pulses}</g></svg>')
     return f"""
-<section class="chap chap--2" data-inview>
+<section class="chap pg pgl" data-inview id="architecture" data-snav="Architecture">
   <div class="wrap">
-    {chap_head('02', 'Real bodies.<br>Real time.')}
-    <div class="tri">{tri}</div>
+    <header class="pl-head-t ch-head"><span class="ch-n">02<i>/04</i></span><h2>Agent–Environment Architecture</h2>
+      <p class="pl-lede">Agent systems interact with physical environments through observations and actions, learning in independent practice arenas and competing in a shared competition arena. Both agents get the same time and compute budget, including GPUs for training in most sports.</p></header>
+    <div class="pl-fig"><div class="pl-scroll">{svg}</div><p class="note pl-note">Schematic</p></div>
+  </div>
+</section>"""
+
+
+def chap_head(n: str, title: str, line: str = "", total: str = "04") -> str:
+    tot = f"<i>/{total}</i>" if total else ""
+    return (f'<header class="ch-head"><span class="ch-n">{n}{tot}</span><h2>{title}</h2>'
+            f'{f"<p>{line}</p>" if line else ""}</header>')
+
+
+CAPS = [  # name, layer, still, card class, one line, skills (shown on hover / click only)
+    # TODO: the four stills below (third field) are PLACEHOLDERS. PLACEHOLDER image, to be replaced; candidates in /eo-web-preview/measure-candidates/, see handoff/pre_release_updates_1107.md
+    ("Physical", "sys", "tabletennis_g1", "", "Perceive, predict, and act in the physical world.",  # TODO: PLACEHOLDER image, to be replaced
+     ["State Estimation", "Prediction", "Execution", "Real-time Interaction"]),
+    ("Competitive", "sys", "soccer_hsl_3v3", "mc--crop", "Compete through strategy and interaction.",  # TODO: PLACEHOLDER image, to be replaced
+     ["Strategy", "Opponent Modeling", "Collaboration"]),
+    ("Engineering", "build", "stuntcar_wave_wall", "mc--build", "Develop and validate effective systems.",  # TODO: PLACEHOLDER image, to be replaced
+     ["Development", "Testing", "Debugging"]),
+    ("Adaptive", "build", "drone_race_4", "", "Learn from feedback and improve continuously.",  # TODO: PLACEHOLDER image, to be replaced
+     ["Feedback", "Continual Improvement"]),
+]
+MEASURE_GROUPS = [("build", "How the Agent Builds It", ["Engineering", "Adaptive"]),
+                  ("sys", "What the System Can Do", ["Physical", "Competitive"])]
+MEASURE_FLOW = ("builds and deploys the system", "match results and replays feed back")
+
+
+def measure(site: Site, clips: dict, variant: str = "a") -> str:
+    # TODO: card images are placeholders (PLACEHOLDER image, to be replaced; candidates in /eo-web-preview/measure-candidates/, see handoff/pre_release_updates_1107.md)
+    """01 What we measure: four equal capabilities in two light groups, joined by a loop.
+    A: 2 x 2 (agent group left, system group right) with the two flow arrows between the columns.
+    B: one row of four, a thin bracket above each pair and the loop drawn under the row."""
+    by = {c[0]: c for c in CAPS}
+
+    def card(name):
+        _, _, cid, cls, line, subs = by[name]
+        c = clips.get(cid)
+        img = f'<img src="{E(c["poster"])}" alt="" loading="lazy">' if c else ""
+        skills = "".join(f"<li>{E(s)}</li>" for s in subs)
+        return (f'<button type="button" class="mc {cls}" data-cap aria-expanded="false">'
+                f'<span class="mc-img">{img}<span class="mc-grid"></span><ul class="mc-skills">{skills}</ul>'
+                f'<i class="mc-plus" aria-hidden="true"></i></span>'
+                f'<strong class="mc-name">{name}</strong><span class="mc-line">{E(line)}</span></button>')
+    fwd, back = MEASURE_FLOW
+    if variant == "b":
+        groups = "".join(f'<div class="mb-g"><span class="mb-br kicker">{E(g)}</span><div class="mb-cards">{card(n1)}{card(n2)}</div></div>'
+                         for _, g, (n1, n2) in MEASURE_GROUPS)
+        body = (f'<div class="mb">{groups}</div>'
+                f'<div class="mb-loop" aria-label="Loop: the agent {fwd}; {back}">'
+                f'<p class="mb-fwd"><span>{E(fwd)}</span></p><p class="mb-back"><span>{E(back)}</span></p>'
+                f'<i class="flow-dot flow-dot--a"></i><i class="flow-dot flow-dot--b"></i></div>')
+    else:
+        (k1, g1, (a1, a2)), (k2, g2, (b1, b2)) = MEASURE_GROUPS
+        body = f"""<div class="ma">
+      <span class="kicker ma-tag ma-tag--l">{E(g1)}</span><span class="kicker ma-tag ma-tag--r">{E(g2)}</span>
+      <div class="ma-c ma-l1">{card(a1)}</div><div class="ma-c ma-l2">{card(a2)}</div>
+      <div class="ma-c ma-r1">{card(b1)}</div><div class="ma-c ma-r2">{card(b2)}</div>
+      <div class="ma-arrow ma-fwd"><span class="ma-lab">{E(fwd)}</span><span class="ma-line"><i class="flow-dot flow-dot--a"></i></span></div>
+      <div class="ma-arrow ma-back"><span class="ma-line"><i class="flow-dot flow-dot--b"></i></span><span class="ma-lab">{E(back)}</span></div>
+    </div>"""
+    return f"""
+<section class="chap chap--m pg pg3 pg3--{variant}" data-inview id="measure" data-snav="What we measure">
+  <div class="wrap">
+    {chap_head('03', 'What we measure.', 'We evaluate both the capabilities of the embodied system and the agent&rsquo;s ability to build and improve it.')}
+    {body}
   </div>
 </section>"""
 
@@ -194,8 +325,8 @@ MATCH_STEPS = [
 ]
 
 
-def chap3(site: Site, clips: dict, n: str = "03", title: str = "Prepare. Play.<br>Review. Improve.",
-          line: str = "") -> str:
+def match_block(site: Site, clips: dict) -> str:
+    """One match as a broadcast timeline: footage + "now" panel; a playhead runs Prepare -> Play -> Review -> Play."""
     c = clips.get("basketball_3x3") or next(iter(clips.values()))
     steps = MATCH_STEPS
     total = sum(s["w"] for s in steps)
@@ -208,11 +339,7 @@ def chap3(site: Site, clips: dict, n: str = "03", title: str = "Prepare. Play.<b
     marks = (f'<span class="tl3-mark" style="left:{starts[1]:.2f}%">v1</span>'
              f'<span class="tl3-mark" style="left:{starts[3]:.2f}%">v2</span>')
     s0 = steps[0]
-    return f"""
-<section class="chap chap--3" data-inview>
-  <div class="wrap">
-    {chap_head(n, title, line)}
-    <div class="mt3" data-match data-phase="prep">
+    return f"""<div class="mt3" data-match data-phase="prep">
       <div class="mt3-top">
         <figure class="stage-vid">{vid(c, 'cover', 'data-autoplay')}
           <div class="ov ov-grid"></div>
@@ -245,105 +372,108 @@ def chap3(site: Site, clips: dict, n: str = "03", title: str = "Prepare. Play.<b
       </div>
       <p class="note tl3-note">Illustration</p>
       <script type="application/json" data-match-steps>{json.dumps(steps)}</script>
-    </div>
+    </div>"""
+
+
+def chap3(site: Site, clips: dict, n: str = "02", title: str = "Prepare. Play.<br>Review. Improve.",
+          line: str = "") -> str:
+    """The match timeline as a chapter of its own (The Match page)."""
+    return f"""
+<section class="chap chap--3" data-inview>
+  <div class="wrap">
+    {chap_head(n, title, line)}
+    {match_block(site, clips)}
   </div>
 </section>"""
 
 
-G2_STEPS = [  # checkpoint (re-test after every match), score share vs fixed opponents, newly unlocked skills, what changed
+def arenas() -> str:
+    """Practice arena · agent workspace · competition arena: two separate worlds, joined only through the agent's work."""
+    return """<figure class="three">
+  <div class="th-box th-prac"><span class="kicker">Practice arena</span><strong>Open at all hours.<br>Resettable.<br>Never scored.</strong></div>
+  <div class="th-wire"><span>change &amp; test →</span><span>← results</span></div>
+  <div class="th-box th-ws"><span class="kicker">Agent workspace</span><strong>Code · weights · notes</strong></div>
+  <div class="th-wire"><span>deploy →</span><span>← replay</span></div>
+  <div class="th-box th-arena"><span class="kicker">Competition arena</span><strong>Real time.<br>Official opponents.<br>Scored.</strong></div>
+</figure>"""
+
+
+G2_STEPS = [  # checkpoint (re-test after every match), score share vs fixed opponents, newly shown capabilities, what changed
     ("Start", 0.18, ["walk"], "Its first program walks."),
     ("Match 1", 0.27, ["getup"], "Gets up after falls."),
     ("Match 2", 0.34, [], "Steadier: falls half as often."),
     ("Match 3", 0.45, ["vision"], "Finds the ball with its own camera."),
     ("Match 4", 0.53, ["react"], "Reacts to the ball in time."),
-    ("Match 5", 0.61, ["pass"], "Passes instead of dribbling into traffic."),
-    ("Final", 0.71, ["team"], "Plays as a team."),
+    ("Match 5", 0.61, ["pass"], "Passes to a teammate in space."),
 ]
-G2_TREE = {  # skill -> (label, x %, y %)
-    "walk": ("Walking", 52, 86), "getup": ("Get-up", 32, 60), "vision": ("Vision", 72, 60),
-    "pass": ("Passing", 32, 34), "react": ("Reaction", 72, 34), "team": ("Team play", 52, 9),
-}
-G2_ICONS = {  # 24x24 line icons, stroke = currentColor
-    "walk": '<path d="M8.5 3.5c1.4 0 2.3 1.5 2.3 3.6s-1 4.2-2.3 4.2-2.3-2-2.3-4.2.9-3.6 2.3-3.6zM15.5 9c1.4 0 2.3 1.5 2.3 3.6s-1 4.2-2.3 4.2-2.3-2-2.3-4.2.9-3.6 2.3-3.6zM7 14.5h3M14 20h3"/>',
-    "getup": '<path d="M12 21V9M6.5 14.5 12 9l5.5 5.5M6 4h12"/>',
-    "vision": '<path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
-    "react": '<path d="M13 2 4.5 13.5H11L10 22l8.5-11.5H12z"/>',
-    "pass": '<circle cx="5" cy="12" r="2.2"/><path d="M8.5 12H19M15 8l4 4-4 4"/>',
-    "team": '<circle cx="6" cy="9" r="2.3"/><circle cx="12" cy="7" r="2.6"/><circle cx="18" cy="9" r="2.3"/><path d="M2.5 19c0-2.8 1.6-4.8 3.6-4.8M21.5 19c0-2.8-1.6-4.8-3.6-4.8M7 20c0-3.3 2.2-6 5-6s5 2.7 5 6"/>',
-}
-G2_LOCK = '<rect x="6" y="11" width="12" height="9" rx="2"/><path d="M9 11V8.5a3 3 0 0 1 6 0V11"/>'
-G2_TIERS = [("Team", 9), ("Play", 34), ("Senses", 60), ("Body", 86)]
-G2_EDGES = [("walk", "getup"), ("walk", "vision"), ("getup", "pass"), ("vision", "pass"), ("vision", "react"),
-            ("pass", "team"), ("react", "team")]
+G2_CAPS = {"walk": "Walking", "getup": "Get-up", "vision": "Vision", "react": "Reaction", "pass": "Passing"}
 
 
 def growth2() -> str:
-    """Two growths driven by one checkpoint track: score vs fixed opponents, and the skill tree.
-    Linked views: one control, both panels follow it. Illustration (humanoid soccer)."""
+    """One season: match tiles with re-test checkpoints between them drive two sketched curves,
+    the growth curve (score vs the same fixed opponents) and the capability growth curve (Voyager-style count of
+    distinct capabilities). Illustration only (humanoid soccer); no data."""
     n = len(G2_STEPS)
-    W, H, pad = 400, 200, 12
+    W, H, pad = 400, 200, 14
     X = lambda i: pad + i * (W - 2 * pad) / (n - 1)  # noqa: E731
     Y = lambda v: H - pad - v * (H - 2 * pad)  # noqa: E731
     pts = [(X(i), Y(v)) for i, (_, v, _, _) in enumerate(G2_STEPS)]
     line = "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in pts)
     area = line + f" L{pts[-1][0]:.1f},{H - pad} L{pts[0][0]:.1f},{H - pad} Z"
-    chart = f"""<svg viewBox="0 0 {W} {H}" preserveAspectRatio="none" aria-hidden="true">
+    axes = f'<path class="g2-axis" d="M{pad},{pad - 6} V{H - pad} H{W - pad + 6}"/>'
+    chart = f"""<svg viewBox="0 0 {W} {H}" preserveAspectRatio="none" aria-hidden="true">{axes}
         <line class="g2-level" x1="{pad}" x2="{W - pad}" y1="{Y(.5):.1f}" y2="{Y(.5):.1f}"/>
         <path class="g2-ghost" d="{line}"/>
         <g class="g2-reveal"><path class="g2-area" d="{area}"/><path class="g2-line" d="{line}"/></g></svg>"""
-    # the season workflow: six matches (each a miniature of section 03's timeline), checkpoints saved where the
-    # research saves them (M1 opening; end of M1, M3, M5, Final), each dropping into the re-test
-    # the season: match tiles (each a miniature of section 03), with the saved checkpoints sitting in the gaps
-    # between them where the research saves them (M1 opening; end of M1, M3, M5, Final)
-    loop = '<span class="sw-loop"><i class="p"></i><i class="g"></i><i class="r"></i><i class="g"></i></span>'
+    # capability growth: a step up for every capability the re-test shows for the first time
+    total = len(G2_CAPS)
+    counts, acc = [], 0
+    for _, _, caps, _ in G2_STEPS:
+        acc += len(caps)
+        counts.append(acc)
+    YC = lambda c: H - pad - c / total * (H - 2 * pad) * 0.92  # noqa: E731
+    step = f"M{X(0):.1f},{YC(counts[0]):.1f}" + "".join(f" H{X(i):.1f} V{YC(c):.1f}" for i, c in enumerate(counts) if i)
+    step_svg = f"""<svg viewBox="0 0 {W} {H}" preserveAspectRatio="none" aria-hidden="true">{axes}
+        <path class="g2-ghost" d="{step}"/><g class="g2-reveal"><path class="g2-line" d="{step}"/></g></svg>"""
+    caps = "".join(f'<span class="g2-cap" data-at="{i}" style="left:{X(i) / W * 100:.2f}%;top:{YC(counts[i]) / H * 100:.2f}%">'
+                   f'<i></i><em>{G2_CAPS[k]}</em></span>'
+                   for i, (_, _, ks, _) in enumerate(G2_STEPS) for k in ks)
+
     def tile(lab, done):
         short = "F" if lab == "Final" else "M" + lab.split()[-1]
-        return (f'<button type="button" class="sw-m" data-done="{done}" data-g2-goto="{done}">{loop}'
+        return (f'<button type="button" class="sw-m" data-done="{done}" data-g2-goto="{done}">'
                 f'<b><span class="sw-full">{lab}</span><span class="sw-short">{short}</span></b></button>')
+
     def ck(i):
         return (f'<button type="button" class="sw-ck" data-g2-stop="{i}" aria-label="Checkpoint {i + 1}: re-test">'
                 f'<i></i><span>Re-test</span></button>')
-    crown = ('<span class="sw-crown" aria-label="Season ends"><svg viewBox="0 0 24 24" aria-hidden="true">'
-             '<path d="M3 8.5 7.5 12 12 5l4.5 7L21 8.5 19 18H5z"/><path d="M5 20.5h14"/></svg><span>Season ends</span></span>')
-    labs = ["Match 1", "Match 2", "Match 3", "Match 4", "Match 5", "Final"]
-    tiles = ck(0) + "".join(tile(l, i + 1) + ck(i + 1) for i, l in enumerate(labs)) + crown
-    pins = ""
-    stops = ""
-    unlock = {sk: i for i, (_, _, sks, _) in enumerate(G2_STEPS) for sk in sks}
-    def branch(a, b):  # right-angled branch from the lower skill up to the higher one
-        (_, x1, y1), (_, x2, y2) = G2_TREE[a], G2_TREE[b]
-        mid = (y1 + y2) / 2
-        return (f'<path class="g2-edge" data-at="{max(unlock[a], unlock[b])}" '
-                f'd="M{x1} {y1} V{mid:.1f} H{x2} V{y2}"/>')
-    edges = "".join(branch(a, b) for a, b in G2_EDGES)
-    svg_icon = lambda body, cls: f'<svg class="{cls}" viewBox="0 0 24 24" aria-hidden="true">{body}</svg>'  # noqa: E731
-    nodes = "".join(
-        f'<span class="g2-node" data-at="{unlock[k]}" style="left:{x}%;top:{y}%">'
-        f'<b class="g2-badge">{svg_icon(G2_ICONS[k], "g2-ic")}{svg_icon(G2_LOCK, "g2-lock")}</b><em>{lab}</em></span>'
-        for k, (lab, x, y) in G2_TREE.items())
-    tiers = ""
-    data = [{"x": round(X(i) / W * 100, 2), "y": round(Y(v) / H * 100, 2), "score": v, "skills": sum(len(s[2]) for s in G2_STEPS[:i + 1]),
-             "event": ev} for i, (_, v, _, ev) in enumerate(G2_STEPS)]
+    more = '<span class="sw-more" aria-label="The season goes on">…</span>'
+    labs = ["Match 1", "Match 2", "Match 3", "Match 4", "Match 5"]
+    tiles = ck(0) + "".join(tile(l, i + 1) + ck(i + 1) for i, l in enumerate(labs)) + more
+    data = [{"x": round(X(i) / W * 100, 2), "y": round(Y(v) / H * 100, 2), "cy": round(YC(counts[i]) / H * 100, 2),
+             "score": v, "skills": counts[i], "event": ev} for i, (_, v, _, ev) in enumerate(G2_STEPS)]
     return f"""<figure class="g2" data-g2>
   <div class="g2-top"><div class="g2-ex">{icon("soccer_hsl", "pic")}<span><em>Example</em>Humanoid Soccer</span></div>
     <p class="g2-event" data-g2-event>{G2_STEPS[0][3]}</p></div>
   <div class="sw">
     <div class="sw-matches">{tiles}</div>
     <div class="sw-carry"><span class="sw-carry-line"><i></i></span></div>
+    <div class="sw-foot"><span class="sw-carry-lab sw-chain">Code · Weights · Notes · Memory · Match videos <b>→ carried into every next match</b></span>
+      <span class="sw-key">Each match starts in a fresh world.</span></div>
   </div>
   <div class="g2-panels">
     <div class="g2-p">
       <span class="kicker">Growth curve</span>
-      <div class="g2-big"><strong data-g2-score>0.18</strong><span>score share vs the same fixed opponents</span></div>
-      <div class="g2-chart">{chart}<span class="g2-dot"></span><span class="g2-lv">0.5 = level</span></div>
+      <div class="g2-q"><strong>Getting stronger?</strong><span>Score share against the same fixed opponents at each checkpoint</span></div>
+      <div class="g2-chart">{chart}<span class="g2-dot"></span><span class="g2-lv">level</span><span class="g2-xl">checkpoint</span></div>
     </div>
     <div class="g2-p">
-      <span class="kicker">Capability growth</span>
-      <div class="g2-big"><strong data-g2-skills>1</strong><span>of {len(G2_TREE)} skills on its sport card</span></div>
-      <div class="g2-tree">{tiers}<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">{edges}</svg>{nodes}</div>
+      <span class="kicker">Capability growth curve</span>
+      <div class="g2-q"><strong>What has it learned?</strong><span>Distinct capabilities its program shows in the re-test, counted as they first appear</span></div>
+      <div class="g2-chart g2-steps">{step_svg}{caps}<span class="g2-dot g2-dot--c"></span><span class="g2-xl">checkpoint</span></div>
     </div>
   </div>
-  
+  <p class="note g2-note">Sketches without data. Both curves come from the post-match re-test: frozen programs, no model calls.</p>
   <script type="application/json" data-g2-data>{json.dumps(data)}</script>
 </figure>"""
 
@@ -352,51 +482,50 @@ def growth_panels(draw: bool = False) -> str:
     return growth2()
 
 
-def chap4(n: str = "04", title: str = "Agents keep learning<br>across the season.", line: str = "") -> str:
+def match_timeline() -> str:
+    """One match on a time axis: preparation, then play (world running) and review windows (world paused) alternating,
+    then the end. Examples from the official run's seat instructions (handoff/webv3_1108.md, round 13)."""
+    segs = [("prep", 15, "Preparation", "Develop · Test · Deploy"), ("play", 14, "Play", "world running"),
+            ("rev", 8, "Review", "world paused"), ("play", 15, "Play", ""), ("rev", 8, "Review", ""),
+            ("play", 11, "Play", ""), ("more", 4, "…", ""), ("end", 14, "Match end", "programs, match data and reviews saved")]
+    bar = "".join(f'<div class="tl-seg tl-{k}" style="flex:{w}"><span class="tl-lab">{E(l)}</span><i class="tl-bar"></i>'
+                  f'<span class="tl-sub">{E(s)}</span></div>' for k, w, l, s in segs)
+
+    def strip(name, seq, note):
+        cells = "".join(f'<i class="tl-m tl-m--{k}" style="flex:{w}"></i>' for k, w in seq)
+        return (f'<div class="tl-ex"><strong>{E(name)}</strong><div class="tl-mini">{cells}</div>'
+                f'<span>{E(note)}</span></div>')
+    tt = [("play", 3), ("rev", 1)] * 9 + [("play", 3)]
+    soc = [("play", 14), ("rev", 1.5), ("play", 9), ("rev", 4.5), ("play", 11), ("rev", 1.5), ("play", 8)]
+    ex = (strip("Table tennis", tt, "a review after every point, up to 300 s")
+          + strip("Humanoid soccer", soc, "a review after every goal, up to 120 s; at half time, up to 600 s"))
+    return f"""<div class="tl" data-inview>
+      <div class="tl-main">{bar}<i class="tl-head" aria-hidden="true"></i></div>
+      <div class="tl-key"><span><i class="tl-k tl-k--play"></i>world running</span><span><i class="tl-k tl-k--rev"></i>review window · world paused</span>
+        <span class="tl-key-note">Play and review alternate; how often depends on the sport&rsquo;s rules.</span></div>
+      <div class="tl-exs">{ex}</div>
+      <p class="tl-eng">In each review window the agent watches its opponent and the field, reflects on its own programs, and decides what to change before play resumes.</p>
+    </div>"""
+
+
+def match_screen() -> str:
     return f"""
-<section class="chap chap--4" data-inview>
+<section class="chap pg pgm" data-inview id="lifecycle" data-snav="One match">
   <div class="wrap">
-    {chap_head(n, title, line)}
+    <header class="ch-head lc-head"><span class="ch-n">04<i>/04</i></span><h2>Agent Lifecycle &amp; Learning</h2>
+      <div class="lc-sub"><h3>One match</h3><p>Preparation, continuous competition, and event-triggered review.</p></div></header>
+    {match_timeline()}
+  </div>
+</section>"""
+
+
+def season_screen() -> str:
+    return f"""
+<section class="pg pgs" data-inview id="season" data-snav="One season">
+  <div class="wrap">
+    <header class="ch-head lc-head lc-head--s"><span class="ch-n"></span><div class="lc-sub"><h3>One season <a class="jl-back" href="#" data-jl-back hidden>↑ back</a></h3>
+      <p>Across a season, the agent keeps learning. It rewatches its earlier matches, finds its own mistakes and fixes them, and carries everything it builds into the next match. Its saved versions are re-tested at checkpoints to measure its growth.</p></div></header>
     {growth2()}
-  </div>
-</section>"""
-
-
-def chap5(site: Site, clips: dict) -> str:
-    caps = [
-        ("Physical", "tabletennis_g1", "", "State estimation · Prediction · Execution · Real-time"),
-        ("Competitive", "soccer_hsl_3v3", "cap4--crop", "Strategy · Opponent modeling · Teamwork"),
-        ("Engineering", "stuntcar_replica", "cap4--build", "Development · Testing · Reliability"),
-        ("Adaptive", "drone_race_4", "cap4--grow", "Feedback · Continual improvement"),
-    ]
-    grow = ('<svg class="cap4-grow" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">'
-            '<path d="M4 52 L18 48 L30 50 L42 38 L56 34 L68 24 L82 20 L96 8" pathLength="1"/></svg>')
-    cards = "".join(
-        f'<figure class="cap4 {cls}">{vid(clips[cid], "cover", "data-autoplay") if cid in clips else ""}'
-        f'<span class="cap4-grid"></span>{grow if cls == "cap4--grow" else ""}'
-        f'<figcaption><strong>{name}</strong><span>{skills}</span></figcaption></figure>'
-        for name, cid, cls, skills in caps)
-    return f"""
-<section class="chap chap--5" data-inview>
-  <div class="wrap">
-    {chap_head('05', 'Four core capabilities.')}
-    <div class="caps4-layers"><span>What the system can do</span><span>How the agent builds it</span></div>
-    <div class="caps4">{cards}</div>
-  </div>
-</section>"""
-
-
-def parade(site: Site) -> str:
-    cards = "".join(f"""<li class="plc" style="--c:{E(m['colour'])};--k:{k};--on:{ink_on(m['colour'])}">
-  <div class="plc-card"><div class="plc-flag">{model_logo(site, m)}</div><div class="plc-name"><strong>{E(model_name(m))}</strong><span>{E(m['maker'])}</span></div></div>
-  <div class="plc-pole"></div>
-</li>""" for k, m in enumerate(site.models))
-    return f"""
-<section class="parade" data-inview>
-  <div class="wrap">
-    <header class="sec-head"><h2>Each model enters<br>like a nation.</h2><span class="tag tag--pending">Medals at release</span></header>
-    <ol class="placards">{cards}</ol>
-    {tournament(site)}
   </div>
 </section>"""
 
@@ -414,19 +543,20 @@ def _stepper(names: list, static: bool = False) -> str:
             + "".join(f'<li data-st="{keys[i]}"><b>{i + 1:02d}</b><strong>{n}</strong></li>' for i, n in enumerate(names)) + "</ol>")
 
 
-def tournament(site: Site, head: bool = True) -> str:
+def tournament(site: Site, head: bool = True, home: bool = False) -> str:
     """The four formats of the edition (research page, section 03), one panel each, chosen with the buttons below.
     Head-to-head (12 sports): round robin -> semifinals -> final + bronze. Drone: time trials -> heats -> final.
     Full-size racing: 3 races, F1 points. Solo (4 sports): 3 runs, ranked by the mean. Cells never show invented results."""
     ms = site.models
     pairs = [(i, j) for i in range(len(ms)) for j in range(i + 1, len(ms))]
     order = {p: k for k, p in enumerate(sorted(pairs, key=lambda p: ((p[1] - p[0]) % 3, p)))}
-    hdr = "".join(f'<span class="tm-h" title="{E(model_name(m))}" style="--c:{E(m["colour"])}">{model_logo(site, m)}</span>' for m in ms)
+    seat = lambda k, m: f'<span class="tm-h" title="{E(model_name(m))}" style="--c:{E(m["colour"])}">{model_logo(site, m)}</span>'  # noqa: E731
+    hdr = "".join(seat(k, m) for k, m in enumerate(ms))
     rows = ""
     for i, mi in enumerate(ms):
         cells = "".join('<i class="tm-x"></i>' if i == j else f'<i class="tm-c" style="--k:{order[(min(i, j), max(i, j))]}"></i>'
                         for j in range(len(ms)))
-        rows += f'<span class="tm-h" title="{E(model_name(mi))}" style="--c:{E(mi["colour"])}">{model_logo(site, mi)}</span>{cells}'
+        rows += seat(i, mi) + cells
     tag = lambda m: f'<span class="tm-h tm-h--s" style="--c:{E(m["colour"])}">{model_logo(site, m)}</span>'  # noqa: E731
 
     h2h = f"""<div class="tm-pan" data-fmt-panel="h2h">
@@ -505,13 +635,15 @@ def tournament(site: Site, head: bool = True) -> str:
   </div>"""
 
     h2h_sports = ["soccer_hsl", "badminton", "tennis", "basketball"]
-    btns = [("h2h", h2h_sports, "Head-to-head", "12 sports"), ("drone", ["drone"], "Drone racing", "Alone → groups → final"),
+    btns = [("h2h", h2h_sports, "Duel · Team duel", "12 sports"), ("drone", ["drone"], "Drone racing", "Alone → groups → final"),
             ("racing", ["racing"], "Full-size racing", "3 races · F1 points"),
             ("solo", ["stuntcar", "sprint", "hurdles", "javelin"], "Solo events", "3 runs · averaged")]
     oth = "".join(f'<button type="button" class="tm-o{" is-on" if k == "h2h" else ""}" data-fmt="{k}" aria-pressed="{str(k == "h2h").lower()}">'
                   f'<span class="tm-o-ic">{"".join(icon(s) for s in ids)}</span><strong>{n}</strong><span>{d}</span></button>'
                   for k, ids, n, d in btns)
-    title = '<header class="sec-head"><h2>How medals<br>are won.</h2></header>' if head else ""
+    title = '<header class="sec-head"><h2>Competition Format<br>and Medal Allocation</h2></header>' if head else ""
+    if home:
+        return _medal_forms_home(h2h, solo, title)
     return f"""<div class="tm" data-tm data-fmt="h2h">
   {title}
   <div class="tm-card">{h2h}{drone}{racing}{solo}</div>
@@ -519,20 +651,130 @@ def tournament(site: Site, head: bool = True) -> str:
 </div>"""
 
 
-def wall(site: Site, clips: dict) -> str:
-    tiles = []
-    for s in site.sports:
-        c = clips.get(s["clips"][0]["id"]) if s["clips"] else None
-        media = (f'<video muted loop playsinline preload="none" data-hover-src="{E(c["web"])}" poster="{E(c["poster"])}"></video>'
-                 if c else f'<img src="{E(site.murl(s["thumb"]["url"]))}" alt="" loading="lazy">')
-        tiles.append(f'<a class="wt" href="{site.sport_url(s)}" data-hover><span class="wt-media">{media}</span>'
-                     f'{icon(s["id"], "pic wt-pic")}<span class="wt-name">{E(s["name"])}</span></a>')
+def _medal_forms_home(h2h: str, solo: str, title: str = "") -> str:
+    """Home version of the format chart: three forms, Solo first. Racing shows drone and full-size racing as two lanes."""
+    def lane(sid, name, steps, rule):
+        chips = []
+        for k, s in enumerate(steps):
+            last = k == len(steps) - 1
+            chips.append(f'<li class="mf-step{" mf-step--m" if last else ""}" style="--k:{k}">{E(s)}</li>')
+            if not last:
+                chips.append(f'<li class="mf-arr" aria-hidden="true" style="--k:{k}">→</li>')
+        return (f'<div class="tm-lane"><span class="tm-lane-h">{icon(sid)}{E(name)}</span><ol class="mf-flow">{"".join(chips)}</ol>'
+                f'<p class="tm-lane-r">{E(rule)}</p></div>')
+    race = f"""<div class="tm-pan" data-fmt-panel="race" hidden>
+    {_stepper(["Qualify", "Race", "Medals"], static=True)}
+    <div class="tm-lanes">
+      {lane("drone", "Drone racing", ["Time trial", "2 heats of 3", "Final of 4", "Medals"], "Fastest of 3 solo laps sets the seeding · top 2 of each heat reach the final")}
+      {lane("racing", "Full-size racing", ["Race 1", "Race 2", "Race 3", "F1 points", "Medals"], "All cars on one track · 25-18-15-12-10-8 points, summed over the three races")}
+    </div>
+  </div>"""
+    btns = [("h2h", ["badminton", "tennis", "soccer_hsl", "basketball"], "Duel · Team duel", "12 sports · round robin, knockout"),
+            ("solo", ["sprint", "hurdles", "javelin", "stuntcar"], "Solo", "4 sports · 3 runs, averaged"),
+            ("race", ["drone", "racing"], "Race", "Drone and full-size racing")]
+    oth = "".join(f'<button type="button" class="tm-o{" is-on" if k == "h2h" else ""}" data-fmt="{k}" aria-pressed="{str(k == "h2h").lower()}">'
+                  f'<span class="tm-o-ic">{"".join(icon(s) for s in ids)}</span><strong>{n}</strong><span>{d}</span></button>'
+                  for k, ids, n, d in btns)
+    return f"""<div class="tm tm--home" data-tm data-fmt="h2h">
+  {title}
+  <div class="tm-others" role="tablist" aria-label="Formats">{oth}</div>
+  <div class="tm-card">{h2h}{solo}{race}<span class="note tm-sch">Schematic</span></div>
+</div>"""
+
+
+def competition(site: Site, clips: dict) -> str:
+    """03 The competition: the 18 sports in one six-column grid, grouped by format (Solo and Race share the first row).
+    Each tile: pictogram, name, body; hover or focus plays the clip and shows what the sport mainly stresses."""
+    tags = site.cfg.get("sport_tags", {})
+    fmts = {f["id"]: f for f in site.cfg["formats"]}
+
+    def tiles(f):
+        out = []
+        for sid in f["sports"]:
+            s = site.sport_by_id.get(sid)
+            if not s:
+                continue
+            c = clips.get(s["clips"][0]["id"]) if s["clips"] else None
+            media = (f'<video muted loop playsinline preload="none" data-hover-src="{E(c["web"])}" poster="{E(c["poster"])}"></video>'
+                     if c else f'<img src="{E(site.murl(s["thumb"]["url"]))}" alt="" loading="lazy">')
+            meta, labs = (tags.get(sid) or ["", []])
+            chips = "".join(f"<i>{E(l)}</i>" for l in labs)
+            out.append(f'<a class="wt wt3" href="{site.sport_url(s)}" data-hover><span class="wt-media">{media}</span>'
+                       f'{icon(s["id"], "pic wt-pic")}<span class="wt3-txt"><span class="wt-name">{E(s["name"])}</span>'
+                       f'<span class="wt3-meta">{E(meta)}</span><span class="wt3-labs">{chips}</span></span></a>')
+        return out
+
+    def head(f, span):
+        n = len([x for x in f["sports"] if x in site.sport_by_id])
+        return (f'<header class="fg2-h" style="grid-column:span {span}"><h3>{E(f["name"])}<b>{n}</b></h3>'
+                f'<p>{E(f["line"])}</p></header>')
+    rows = [[("solo", 4), ("race", 2)], [("duel", 6)], [("team", 6)]]
+    cells = []
+    for row in rows:
+        cells += [head(fmts[k], span) for k, span in row]
+        for k, _ in row:
+            cells += tiles(fmts[k])
     return f"""
-<section class="wall">
+<section class="chap chap--c pg pgc" data-inview id="championship" data-snav="Championship">
   <div class="wrap">
-    <header class="sec-head"><h2>{len(site.sports)} sports.<br>Real rules.</h2>
-      <a class="link" href="{site.url('sports/')}">All sports <span class="arr">→</span></a></header>
-    <div class="wall-grid">{''.join(tiles)}</div>
+    <header class="ch-head"><span class="ch-n">01<i>/04</i></span><h2>Championship.</h2>
+      <p>The competition: {len(site.sports)} sports in four formats, real rules on real robot bodies. Hover a sport for what it mainly stresses. <a class="link" href="{site.url('sports/')}">All sports <span class="arr">→</span></a></p></header>
+    <div class="fg2">{''.join(cells)}</div>
+  </div>
+</section>"""
+
+
+MEDAL_FLOWS = [  # id, name, sports, steps, one line
+    ("solo", "Solo", "4 sports", ["Run 1", "Run 2", "Run 3", "Average", "Medals"],
+     "Same hidden course for every entry; the agent may fix its code between runs."),
+    ("h2h", "Duel · Team duel", "12 sports", ["Round robin", "Semifinals", "Final + bronze", "Medals"],
+     "Win 3 · draw 1 · the top four reach the semifinals (1st v 4th, 2nd v 3rd)."),
+    ("drone", "Drone racing", "1 sport", ["Time trial", "Heats · 2 × 3", "Final · 4", "Medals"],
+     "The fastest of three solo laps sets the seeding; the top two of each heat fly the final."),
+    ("racing", "Full-size racing", "1 sport", ["Race 1", "Race 2", "Race 3", "Points", "Medals"],
+     "Every car on one track; F1-style points summed over the three races."),
+]
+
+
+def medal_table_home(site: Site) -> str:
+    """The Olympics Championship medal table as the GPT design chat specifies: Rank · AI agent · Gold · Silver · Bronze,
+    ranked by golds, then silvers, then bronzes; dashes until release (layout.model_name drops TODO notes)."""
+    rows = {r["model"]: r for r in site.results.get("medal_table", [])}
+    released = any(r.get("gold") is not None for r in rows.values())
+    models = list(site.models)
+    if released:
+        models.sort(key=lambda m: tuple(-(rows.get(m["name"], {}).get(k) or 0) for k in ("gold", "silver", "bronze")))
+    cell = lambda v: "—" if v is None else E(str(v))  # noqa: E731
+    body = "".join(
+        f'<tr><td class="mt-rank">{medals.rank_of(site, m["name"], k + 1) if released else "—"}</td>'
+        f'<td><span class="mt-model"><i class="flag" style="--c:{E(m["colour"])}"></i>{model_logo(site, m)}<span class="mt-who"><strong>{E(model_name(m))}</strong>'
+        f'<small>{E(m.get("harness", ""))} · {E(m.get("effort", ""))} effort</small></span></span></td>'
+        + "".join(f'<td class="mt-n">{cell(rows.get(m["name"], {}).get(c))}</td>' for c in ("gold", "silver", "bronze")) + "</tr>"
+        for k, m in enumerate(models))
+    head = "".join(f"<th>{h}</th>" for h in ["Rank", "AI agent", '<i class="medal medal--g"></i>Gold',
+                                           '<i class="medal medal--s"></i>Silver', '<i class="medal medal--b"></i>Bronze'])
+    return f'<div class="mt-wrap"><table class="mt mt--home{"" if released else " is-empty"}"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
+
+
+def results_medals(site: Site) -> str:
+    """01 Championship. Screen 1: title, lede and the medal table (the board first). Screen 2: competition format and
+    medal allocation (three forms), then one quiet line on the Open Arena."""
+    lb = site.url("leaderboard/")
+    return f"""
+<section class="chap pg pgr2" data-inview id="championship" data-snav="Medal table">
+  <div class="wrap">
+    <header class="ch-head ch-head--k"><span class="ch-n">01<i>/04</i></span><h2>Embodied Olympics Championship</h2>
+      <p class="ch-lede">Six AI agents compete across 18 sports in a season-long championship. Each agent carries its programs, weights, and experience forward, <a class="jl" href="#season" data-jl>continuously improving from match to match</a>.</p></header>
+    <div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">{E(medals.status_line(site, "Provisional — fills in at release"))}</span>
+      <span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>
+    <div class="mt-home">{medal_table_home(site)}</div>{medals.flag_foot(site)}
+    <p class="mt-foot mt-foot--oa">Open Arena is a separate, always-open leaderboard and does not count toward medals. <a href="{lb}#arena">View Open Arena →</a></p>
+  </div>
+</section>
+<section class="pg pgmt" data-inview id="medal-allocation" data-snav="Competition format">
+  <div class="wrap">
+    <h3 class="rm-h">Competition Format and Medal Allocation</h3>
+    {tournament(site, head=False, home=True)}
   </div>
 </section>"""
 
@@ -540,10 +782,12 @@ def wall(site: Site, clips: dict) -> str:
 # ---------------------------------------------------------------- page
 
 
-def home(site: Site):
+def home(site: Site, measure_variant: str = "a", nav: str = "left", intro: str = "strip", arena: str = "figures"):
     clips = clip_index(site)
-    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + question(site, clips) + numbers(site, clips) + '</div>' + chap1(site, clips) + chap2(site, clips)
-            + chap3(site, clips) + chap4() + chap5(site, clips) + parade(site) + wall(site, clips)
-            + '<nav class="crail" aria-label="Chapters" data-crail></nav>'
+    body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips, intro)
+            + results_medals(site) + physloop(site, arena)
+            + measure(site, clips, measure_variant) + match_screen() + season_screen()
+            + f'<nav class="snav{" snav--left" if nav == "left" else ""}" aria-label="Sections" data-snav-bar></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')
+    body = re.sub(r'<span class="ch-n">.*?</span>', "", body)  # the left rail marks the chapters; no counters
     return "", page(site, path="", title=None, body=body, dark_top=True)

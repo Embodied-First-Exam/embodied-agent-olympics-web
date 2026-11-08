@@ -123,3 +123,45 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+
+/* how medals are won (home): a format tab shows its flow */
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.querySelector("[data-mf]"); if (!root) return;
+  const tabs = [...root.querySelectorAll("[data-mf-tab]")], pans = [...root.querySelectorAll("[data-mf-pan]")];
+  tabs.forEach((b) => b.addEventListener("click", () => {
+    tabs.forEach((x) => { x.classList.toggle("is-on", x === b); x.setAttribute("aria-pressed", x === b); });
+    pans.forEach((p) => { p.hidden = p.dataset.mfPan !== b.dataset.mfTab; });
+  }));
+});
+
+/* section nav: appears once the reader passes the intro; shows the four chapters, the current one highlighted */
+document.addEventListener("DOMContentLoaded", () => {
+  const bar = document.querySelector("[data-snav-bar]");
+  const secs = [...document.querySelectorAll("[data-snav]")];
+  if (!bar || !secs.length) return;
+  secs.forEach((s) => {
+    const a = document.createElement("a");
+    a.href = "#" + s.id; a.setAttribute("aria-label", s.dataset.snav);
+    a.innerHTML = '<i class="snav-t" aria-hidden="true"></i><span></span>';
+    a.querySelector("span").textContent = s.dataset.snav;
+    bar.appendChild(a);
+  });
+  const links = [...bar.querySelectorAll("a")];
+  const sync = () => {
+    const mid = innerHeight * 0.4;
+    bar.classList.toggle("on", secs[0].getBoundingClientRect().top < mid);
+    let cur = 0;
+    secs.forEach((s, k) => { if (s.getBoundingClientRect().top < mid) cur = k; });
+    links.forEach((l, k) => l.classList.toggle("is-on", k === cur));
+  };
+  addEventListener("scroll", sync, { passive: true }); addEventListener("resize", sync); sync();
+});
+
+/* in-text links to One season: remember where the reader was, offer a quiet "back" there */
+document.addEventListener("DOMContentLoaded", () => {
+  const back = document.querySelector("[data-jl-back]");
+  let from = null;
+  document.querySelectorAll("[data-jl]").forEach((a) => a.addEventListener("click", () => { from = scrollY; if (back) back.hidden = false; }));
+  if (back) back.addEventListener("click", (e) => { e.preventDefault(); if (from != null) window.scrollTo({ top: from, behavior: "smooth" }); back.hidden = true; from = null; });
+});

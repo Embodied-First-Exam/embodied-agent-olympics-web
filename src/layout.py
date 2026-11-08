@@ -47,7 +47,10 @@ class Site:
         return self.url(rel) if (ROOT / rel).is_file() else None
 
     def asset(self, path: str) -> str:
-        return self.url("assets/" + path)
+        """An asset URL; stylesheets and scripts carry the build version (?v=) so browsers fetch each new build."""
+        v = self.cfg.get("_v")
+        q = f"?v={v}" if v and path.endswith((".css", ".js")) else ""
+        return self.url("assets/" + path) + q
 
     def sport_url(self, s: dict) -> str:
         return self.url(f"sports/{slug(s)}/")
@@ -120,6 +123,12 @@ MARK = (
     '<circle cx="22.5" cy="16" r="3.4" fill="var(--accent)"/></svg>'
 )
 
+def brand_mark(site: "Site") -> str:
+    """Chi's 01 Arena mark: silver on the dark bar (dark theme), the black ink version in the light theme (CSS swaps them)."""
+    return (f'<img class="mark mark--light" src="{site.asset("brand/mark-light.png")}" alt="" width="50" height="22">'
+            f'<img class="mark mark--ink" src="{site.asset("brand/mark-ink.png")}" alt="" width="50" height="22">')
+
+
 THEME_ICONS = (
     '<svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">'
     '<circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>'
@@ -129,10 +138,8 @@ THEME_ICONS = (
 
 NAV = [
     ("sports/", "Sports"),
-    ("match/", "The Match"),
-    ("competitions/", "Competitions"),
-    ("results/", "Results"),
-    ("watch/", "Watch"),
+    ("leaderboard/", "Leaderboard"),
+    ("documents/", "Documents"),
 ]
 
 
@@ -149,8 +156,8 @@ def page(site: Site, *, path: str, title: str | None, body: str, description: st
     topbar = f"""
 <header class="top{' top--over' if dark_top else ''}" data-top>
   <div class="top-in">
-    <a class="brand" href="{site.url()}" aria-label="{E(cfg['name'])} home">{MARK}<span class="brand-word">{E(cfg['name'])}</span></a>
-    <nav class="nav" aria-label="Main">{nav}{site.ext_link('docs', 'Docs', 'nav-ext')}</nav>
+    <a class="brand" href="{site.url()}" aria-label="{E(cfg['name'])} home">{brand_mark(site)}<span class="brand-word">{E(cfg['name'])}</span></a>
+    <nav class="nav" aria-label="Main">{nav}</nav>
     <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch to day mode">{THEME_ICONS}</button>
     <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" data-menu><span></span><span></span></button>
   </div>
@@ -166,7 +173,10 @@ def page(site: Site, *, path: str, title: str | None, body: str, description: st
 <meta property="og:description" content="{E(desc)}">
 <meta name="theme-color" content="#08090B">
 <script>try{{var t=localStorage.getItem("eo-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
-<link rel="icon" href="{site.asset('brand/mark.svg')}" type="image/svg+xml">
+<link rel="icon" href="{site.asset('brand/favicon-16.png')}" type="image/png" sizes="16x16">
+<link rel="icon" href="{site.asset('brand/favicon-32.png')}" type="image/png" sizes="32x32">
+<link rel="icon" href="{site.asset('brand/favicon-64.png')}" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="{site.asset('brand/apple-touch-icon.png')}">
 <link rel="preload" href="{site.asset('fonts/intertight-var.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{site.asset('css/site.css')}">
 <link rel="stylesheet" href="{site.asset('css/story.css')}">
@@ -187,13 +197,13 @@ def page(site: Site, *, path: str, title: str | None, body: str, description: st
 
 def footer(site: Site) -> str:
     cfg = site.cfg
-    explore = "".join(f'<li><a href="{site.url(p)}">{E(l)}</a></li>' for p, l in NAV)
+    explore = "".join(f'<li><a href="{site.url(p)}">{E(l)}</a></li>' for p, l in NAV + [("watch/", "Watch")])
     res = "".join(f"<li>{site.ext_link(k, l)}</li>" for k, l in [("docs", "Docs"), ("code", "Code"), ("paper", "Paper")])
     return f"""
 <footer class="foot">
   <div class="wrap">
     <div class="foot-top">
-      <a class="foot-brand" href="{site.url()}">{MARK}<span>{E(cfg['name'])}</span></a>
+      <a class="foot-brand" href="{site.url()}">{brand_mark(site)}<span>{E(cfg['name'])}</span></a>
     </div>
     <div class="foot-cols"><ul>{explore}</ul><ul>{res}</ul></div>
     <p class="foot-fine">A research benchmark. Not affiliated with or endorsed by the International Olympic Committee. Footage: replays of recorded simulation runs.</p>
