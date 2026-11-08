@@ -98,7 +98,7 @@ GLANCE_IC = {  # 24x24 line icons, stroke = currentColor
     "control": '<circle cx="6" cy="18" r="2.2"/><circle cx="12" cy="10" r="2.2"/><circle cx="19" cy="5" r="1.8"/><path d="M7.3 16.2 10.7 11.8M13.8 8.8 17.4 6"/>',
 }
 GLANCE = [("sports", "18 Sports", "Diverse physical competition tasks."),
-          ("time", "Real-Time Interaction", "The world keeps moving."),
+          ("time", "Real-Time Interaction", "The world runs in real time and never waits."),
           ("limits", "Real Robot Constraints", "Bodies, joints, actuators and physics."),
           ("control", "Direct Body Control", "Agents control the embodied system through low-level interfaces.")]
 
@@ -387,7 +387,7 @@ def growth2() -> str:
   <div class="sw">
     <div class="sw-matches">{tiles}</div>
     <div class="sw-carry"><span class="sw-carry-line"><i></i></span></div>
-    <div class="sw-foot"><span class="sw-carry-lab">Carried to the next match<b>programs · weights · notes</b></span>
+    <div class="sw-foot"><span class="sw-carry-lab">Carried to the next match<b>programs · weights · notes · match video</b></span>
       <span class="sw-key">The world resets every match.</span></div>
   </div>
   <div class="g2-panels">
@@ -415,7 +415,7 @@ def match_loop() -> str:
     """One match in time: preparation, then a loop the agent runs as it decides, then the end of the match."""
     import math
     cx, cy, r = 600, 205, 128
-    nodes = [("Play", "the world never waits", -90), ("Review", "the world freezes|after each scoring unit", 0),
+    nodes = [("Play", "the world runs in real time", -90), ("Review", "the world stands still|after each goal or point", 0),
              ("Improve & Test", "in the practice arena", 90), ("Deploy", "start or replace programs", 180)]
     pos = [(cx + r * math.cos(math.radians(a)), cy + r * math.sin(math.radians(a))) for _, _, a in nodes]
     arcs = ""
@@ -466,7 +466,7 @@ def season_screen() -> str:
 <section class="chap pg pgs" data-inview id="season">
   <div class="wrap">
     <header class="ch-head"><span class="ch-n"></span><h2>One season.</h2>
-      <p>Programs, weights and notes carry over; the world and the seed reset. Saved programs are re-tested after every match.</p></header>
+      <p>Programs, weights, notes and the match video carry over; the world and the seed reset. Saved programs are re-tested after every match.</p></header>
     {growth2()}
   </div>
 </section>"""
