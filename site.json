@@ -16,6 +16,13 @@
   "question_lines": ["Can general-purpose AI agents", "autonomously develop, operate, and improve", "embodied systems that", "succeed in sustained physical competition?"],
   "question_bright": [1, 3],
 
+  "redirects": {
+    "_note": "Old URLs of the first-exam release page that the new site has no page for: old path -> new path.",
+    "robots/": "sports/",
+    "docs/": "",
+    "film/": "watch/"
+  },
+
   "links": {
     "docs": null,
     "code": null,

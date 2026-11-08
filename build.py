@@ -71,6 +71,14 @@ def build(base: str | None = None) -> int:
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(html, encoding="utf-8")
     shutil.copytree(ROOT / "assets", DIST / "assets", ignore=shutil.ignore_patterns("icons"))
+    for old, new in cfg.get("redirects", {}).items():  # old URLs keep working
+        if old.startswith("_"):
+            continue
+        target = site.url(new)
+        page = DIST / old / "index.html"
+        page.parent.mkdir(parents=True, exist_ok=True)
+        page.write_text(f'<!doctype html><meta charset="utf-8"><title>Moved</title><link rel="canonical" href="{target}">'
+                        f'<meta http-equiv="refresh" content="0; url={target}"><a href="{target}">Moved here</a>\n', encoding="utf-8")
     if (ROOT / "CNAME").is_file():  # custom domain for GitHub Pages
         shutil.copy(ROOT / "CNAME", DIST / "CNAME")
     return len(out)
