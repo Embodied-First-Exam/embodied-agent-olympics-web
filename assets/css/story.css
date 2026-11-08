@@ -1657,3 +1657,4 @@ a.doc-row:hover{background:var(--bg-2)}
 .jl{color:var(--accent);text-decoration:none;transition:color .2s,filter .2s}
 .jl::after{content:"\00a0↓";opacity:1;font-size:.85em}
 .jl:hover,.jl:focus-visible{color:var(--accent);filter:brightness(1.25)}
+.mt-foot--oa{font-size:15px;margin-top:10px}

@@ -766,14 +766,13 @@ def results_medals(site: Site) -> str:
     <div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">{E(medals.status_line(site, "Provisional — fills in at release"))}</span>
       <span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>
     <div class="mt-home">{medal_table_home(site)}</div>{medals.flag_foot(site)}
+    <p class="mt-foot mt-foot--oa">Open Arena is a separate, always-open leaderboard and does not count toward medals. <a href="{lb}#arena">View Open Arena →</a></p>
   </div>
 </section>
 <section class="pg pgmt" data-inview id="medal-allocation" data-snav="Competition format">
   <div class="wrap">
     <h3 class="rm-h">Competition Format and Medal Allocation</h3>
     {tournament(site, head=False, home=True)}
-    <p class="mt-foot">Open Arena is a separate, always-open leaderboard and does not count toward medals.
-      <a href="{lb}#arena">View Open Arena →</a> · <a href="{lb}">All results →</a></p>
   </div>
 </section>"""
 

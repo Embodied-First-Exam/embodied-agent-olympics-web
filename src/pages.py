@@ -215,7 +215,7 @@ def results(site: Site):
         for s in site.sports for c in s["clips"][:1])
     replays = (f'<p class="rp-note">Replays from development. Match replays of each sport appear here at release.</p>'
                f'<div class="wgrid rp-grid">{reps}</div>')
-    tabs = [("medals", "Olympics Championship"), ("by-sport", "By sport"), ("arena", "Open Arena"), ("replays", "Replays"), ("models", "Models")]
+    tabs = [("medals", "Olympics Championship"), ("by-sport", "By sport"), ("arena", "Open Arena")]
     tab_btns = "".join(f'<button role="tab" class="tab{" is-on" if k == 0 else ""}" data-tab="{t}">{l}</button>' for k, (t, l) in enumerate(tabs))
     body = phead("Leaderboard.", "The Olympics Championship medal table, the Open Arena boards and the replays.",
                  f'<div class="phead-row" style="margin-top:28px"><span class="tag tag--pending">{E(medals.status_line(site, "Results at release"))}</span></div>')
@@ -227,8 +227,6 @@ def results(site: Site):
   <div class="panel is-on" data-panel="medals"><p class="rp-note">The official medal standings. Ranked by golds, then silvers, then bronzes. {E(medals.status_line(site, "Provisional — fills in at release."))}</p>{story.medal_table_home(site)}{medals.flag_foot(site)}</div>
   <div class="panel" data-panel="by-sport">{by_sport}</div>
   <div class="panel" data-panel="arena">{medals.arena_panel(site, boards)}</div>
-  <div class="panel" data-panel="replays">{replays}</div>
-  <div class="panel" data-panel="models"><div class="mgrid">{mc}</div></div>
   </div>
 </div></section>"""
     return "leaderboard/", page(site, path="leaderboard/", title="Leaderboard", body=body)
