@@ -154,7 +154,7 @@ def page2(site: Site, clips: dict, intro: str = "strip") -> str:
   <div class="wrap pg2-def">
     <span class="kicker pg2-k">{E(c['definition_label'])}</span>
     <h2 class="pg2-h">{E(c['definition'])}</h2>
-    <p class="pg2-p">{E(c['definition_line'])}</p>
+    <p class="pg2-p">{E(c['definition_line']).replace("continually improve", '<a class="jl" href="#season" data-jl>continually improve</a>', 1)}</p>
   </div>
   {strip}
   <div class="wrap gl">
@@ -520,7 +520,7 @@ def season_screen() -> str:
     return f"""
 <section class="pg pgs" data-inview id="season" data-snav="One season">
   <div class="wrap">
-    <header class="ch-head lc-head lc-head--s"><span class="ch-n"></span><div class="lc-sub"><h3>One season</h3>
+    <header class="ch-head lc-head lc-head--s"><span class="ch-n"></span><div class="lc-sub"><h3>One season <a class="jl-back" href="#" data-jl-back hidden>↑ back</a></h3>
       <p>Across a season, the agent keeps learning. What it builds and learns in one match carries into the next, and its saved versions are re-tested at checkpoints to measure its growth.</p></div></header>
     {growth2()}
   </div>
@@ -761,7 +761,7 @@ def results_medals(site: Site) -> str:
 <section class="chap pg pgr2" data-inview id="championship" data-snav="Medal table">
   <div class="wrap">
     <header class="ch-head ch-head--k"><span class="ch-n">01<i>/04</i></span><h2>Embodied Olympics Championship</h2>
-      <p class="ch-lede">Six AI agents compete across 18 sports in a season-long championship. Each agent carries its programs, weights, and experience forward, continuously improving from match to match.</p></header>
+      <p class="ch-lede">Six AI agents compete across 18 sports in a season-long championship. Each agent carries its programs, weights, and experience forward, <a class="jl" href="#season" data-jl>continuously improving from match to match</a>.</p></header>
     <div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">Provisional — fills in at release</span>
       <span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>
     <div class="mt-home">{medal_table_home(site)}</div>

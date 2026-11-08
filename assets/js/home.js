@@ -157,3 +157,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   addEventListener("scroll", sync, { passive: true }); addEventListener("resize", sync); sync();
 });
+
+/* in-text links to One season: remember where the reader was, offer a quiet "back" there */
+document.addEventListener("DOMContentLoaded", () => {
+  const back = document.querySelector("[data-jl-back]");
+  let from = null;
+  document.querySelectorAll("[data-jl]").forEach((a) => a.addEventListener("click", () => { from = scrollY; if (back) back.hidden = false; }));
+  if (back) back.addEventListener("click", (e) => { e.preventDefault(); if (from != null) window.scrollTo({ top: from, behavior: "smooth" }); back.hidden = true; from = null; });
+});

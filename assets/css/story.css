@@ -1644,3 +1644,9 @@ a.doc-row:hover{background:var(--bg-2)}
   .pgmt .tm-grid{grid-template-columns:repeat(calc(var(--n) + 1),28px)}.pgmt .tm-h,.pgmt .tm-c,.pgmt .tm-x{width:28px;height:28px}
   .pgmt .tm-others{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+/* round 36: quiet in-text links to One season */
+.jl{color:inherit;text-decoration:underline dotted var(--accent);text-decoration-thickness:1.5px;text-underline-offset:4px;transition:color .2s}
+.jl::after{content:" ↓";color:var(--accent);opacity:0;transition:opacity .2s}
+.jl:hover{color:var(--fg)}.jl:hover::after,.jl:focus-visible::after{opacity:1}
+.jl-back{margin-left:12px;font-size:13px;font-weight:500;letter-spacing:0;color:var(--fg-3);vertical-align:middle}
+.jl-back:hover{color:var(--accent)}
