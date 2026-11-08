@@ -597,7 +597,7 @@ def tournament(site: Site, head: bool = True, home: bool = False) -> str:
     oth = "".join(f'<button type="button" class="tm-o{" is-on" if k == "h2h" else ""}" data-fmt="{k}" aria-pressed="{str(k == "h2h").lower()}">'
                   f'<span class="tm-o-ic">{"".join(icon(s) for s in ids)}</span><strong>{n}</strong><span>{d}</span></button>'
                   for k, ids, n, d in btns)
-    title = '<header class="sec-head"><h2>How medals<br>are won.</h2></header>' if head else ""
+    title = '<header class="sec-head"><h2>Competition Format<br>and Medal Allocation</h2></header>' if head else ""
     if home:
         return _medal_forms_home(h2h, solo)
     return f"""<div class="tm" data-tm data-fmt="h2h">
@@ -719,9 +719,9 @@ def results_medals(site: Site) -> str:
     return f"""
 <section class="chap pg pgr2" data-inview id="championship" data-snav="Championship">
   <div class="wrap">
-    <header class="ch-head ch-head--k"><span class="ch-n">01<i>/04</i></span><span class="kicker ch-k">Championship</span><h2>A persistent competition.</h2>
-      <p class="ch-lede">The Olympics Championship is the official medal standings. The Open Arena is a separate, always-open leaderboard and never counts toward medals.</p></header>
-    <h3 class="rm-h">How medals are won</h3>
+    <header class="ch-head ch-head--k"><span class="ch-n">01<i>/04</i></span><h2>Embodied Olympics Championship</h2>
+      <p class="ch-lede">Six AI agents compete across 18 sports in a season-long championship. Each agent carries its programs, weights, and experience forward, continuously improving from match to match.</p></header>
+    <h3 class="rm-h">Competition Format and Medal Allocation</h3>
     {tournament(site, head=False, home=True)}
   </div>
 </section>
@@ -731,7 +731,7 @@ def results_medals(site: Site) -> str:
       <span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>
     <div class="mt-home">{medal_table_home(site)}</div>
     <div class="mt-links">
-      <a class="rm-card rm-card--s" href="{lb}#arena"><span class="kicker">Always open</span><strong>Open Arena</strong><em>A separate leaderboard, per sport.</em><span class="rm-more"><b class="arr">→</b></span></a>
+      <a class="rm-card rm-card--s rm-card--nk" href="{lb}#arena"><strong>Open Arena</strong><em>A separate, always-open leaderboard that never counts toward medals.</em><span class="rm-more"><b class="arr">→</b></span></a>
       <a class="link mt-all" href="{lb}">Explore all results <span class="arr">→</span></a>
     </div>
   </div>
