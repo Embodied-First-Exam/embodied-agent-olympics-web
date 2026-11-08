@@ -647,20 +647,19 @@ MEDAL_FLOWS = [  # id, name, sports, steps, one line
 
 
 def results_medals(site: Site) -> str:
-    """01 Results (2/2): how medals are won (the full format chart from /results/), the provisional medal table, links."""
-    links = [("leaderboard/#arena", "Open Arena", "Every agent against every other"),
-             ("leaderboard/#by-sport", "By sport", "Podiums for all 18 sports"),
-             ("leaderboard/#replays", "Replays", "Watch the matches")]
-    row = "".join(f'<a class="rlink" href="{site.url(h)}"><strong>{E(n)}</strong><span>{E(l)}</span><b class="arr">→</b></a>'
-                  for h, n, l in links)
+    """01 Championship: how medals are won (the format chart), then the medal table and the Open Arena."""
+    lb = site.url("leaderboard/")
     return f"""
-<section class="pg pgr2" data-inview id="medals">
+<section class="chap pg pgr2" data-inview id="championship" data-snav="Championship">
   <div class="wrap">
-    <header class="rm-head"><h3>How medals are won</h3><span class="rm-sub">Pick a format below the chart.</span></header>
+    <header class="ch-head ch-head--k"><span class="ch-n">01<i>/04</i></span><span class="kicker ch-k">Championship</span><h2>A persistent competition.</h2></header>
+    <h3 class="rm-h">How medals are won</h3>
     {tournament(site, head=False)}
-    <div class="rm-row">
-      <div class="rx-ph rm-table"><span class="tag tag--pending">Provisional</span><strong>Medal table</strong><em>fills in at release</em></div>
-      {row}
+    <div class="rm-cards">
+      <a class="rm-card" href="{lb}#medals"><span class="tag tag--pending">Provisional</span><strong>Medal table</strong>
+        <em>Fills in at release.</em><span class="rm-more">By sport <b class="arr">→</b></span></a>
+      <a class="rm-card" href="{lb}#arena"><span class="kicker">Always open</span><strong>Open Arena</strong>
+        <em>New agents can enter at any time.</em><span class="rm-more">Replays <b class="arr">→</b></span></a>
     </div>
   </div>
 </section>"""
@@ -672,7 +671,7 @@ def results_medals(site: Site) -> str:
 def home(site: Site, measure_variant: str = "a"):
     clips = clip_index(site)
     body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips)
-            + competition(site, clips) + results_medals(site) + physloop(site)
+            + results_medals(site) + physloop(site)
             + measure(site, clips, measure_variant) + match_screen() + season_screen()
             + '<nav class="snav" aria-label="Sections" data-snav-bar></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')
