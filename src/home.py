@@ -250,13 +250,14 @@ def chap_head(n: str, title: str, line: str = "", total: str = "04") -> str:
 
 
 CAPS = [  # name, layer, still, card class, one line, skills (shown on hover / click only)
-    ("Physical", "sys", "tabletennis_g1", "", "Perceive, predict, and act in the physical world.",
+    # TODO: the four stills below (third field) are PLACEHOLDERS. PLACEHOLDER image, to be replaced; candidates in /eo-web-preview/measure-candidates/, see handoff/pre_release_updates_1107.md
+    ("Physical", "sys", "tabletennis_g1", "", "Perceive, predict, and act in the physical world.",  # TODO: PLACEHOLDER image, to be replaced
      ["State Estimation", "Prediction", "Execution", "Real-time Interaction"]),
-    ("Competitive", "sys", "soccer_hsl_3v3", "mc--crop", "Compete through strategy and interaction.",
+    ("Competitive", "sys", "soccer_hsl_3v3", "mc--crop", "Compete through strategy and interaction.",  # TODO: PLACEHOLDER image, to be replaced
      ["Strategy", "Opponent Modeling", "Collaboration"]),
-    ("Engineering", "build", "stuntcar_wave_wall", "mc--build", "Develop and validate effective systems.",
+    ("Engineering", "build", "stuntcar_wave_wall", "mc--build", "Develop and validate effective systems.",  # TODO: PLACEHOLDER image, to be replaced
      ["Development", "Testing", "Debugging"]),
-    ("Adaptive", "build", "drone_race_4", "", "Learn from feedback and improve continuously.",
+    ("Adaptive", "build", "drone_race_4", "", "Learn from feedback and improve continuously.",  # TODO: PLACEHOLDER image, to be replaced
      ["Feedback", "Continual Improvement"]),
 ]
 MEASURE_GROUPS = [("build", "How the Agent Builds It", ["Engineering", "Adaptive"]),
@@ -265,6 +266,7 @@ MEASURE_FLOW = ("builds and deploys the system", "match results and replays feed
 
 
 def measure(site: Site, clips: dict, variant: str = "a") -> str:
+    # TODO: card images are placeholders (PLACEHOLDER image, to be replaced; candidates in /eo-web-preview/measure-candidates/, see handoff/pre_release_updates_1107.md)
     """01 What we measure: four equal capabilities in two light groups, joined by a loop.
     A: 2 x 2 (agent group left, system group right) with the two flow arrows between the columns.
     B: one row of four, a thin bracket above each pair and the loop drawn under the row."""
