@@ -138,15 +138,14 @@ def physloop(site: Site) -> str:
                 f'<text class="pl-s" x="{x + 95}" y="96">Full copy of the match world</text>'
                 f'<text class="pl-s" x="{x + 95}" y="120">resettable · open throughout</text></g>')
     paths = {"obsA": "M440 262 H200", "actA": "M200 318 H440", "obsB": "M760 262 H1000", "actB": "M1000 318 H760",
-             "prA1": "M105 146 V226", "prA2": "M105 226 V146", "prB1": "M1095 146 V226", "prB2": "M1095 226 V146"}
-    lines = "".join(f'<path id="pl-{k}" class="pl-flow" d="{d}"/>' for k, d in paths.items() if not k.endswith("2"))
-    lines += "".join(f'<path id="pl-{k}" class="pl-ghost" d="{d}"/>' for k, d in paths.items() if k.endswith("2"))
+             "prA1": "M97 146 V226", "prA2": "M113 226 V146", "prB1": "M1087 146 V226", "prB2": "M1103 226 V146"}
+    lines = "".join(f'<path id="pl-{k}" class="pl-flow" d="{d}"/>' for k, d in paths.items())
     heads = "".join(f'<path class="pl-head" d="{d}"/>' for d in (
         "M208 256 L200 262 L208 268", "M432 312 L440 318 L432 324", "M992 256 L1000 262 L992 268", "M768 312 L760 318 L768 324",
-        "M99 218 L105 226 L111 218", "M99 154 L105 146 L111 154", "M1089 218 L1095 226 L1101 218", "M1089 154 L1095 146 L1101 154"))
+        "M91 218 L97 226 L103 218", "M107 154 L113 146 L119 154", "M1081 218 L1087 226 L1093 218", "M1097 154 L1103 146 L1109 154"))
     pulses = "".join(f'<circle class="pl-pulse" r="4.5"><animateMotion dur="{d}s" begin="{b}s" repeatCount="indefinite"><mpath href="#pl-{k}"/></animateMotion></circle>'
                      for k, d, b in (("obsA", 3.2, 0), ("actA", 3.2, 1.6), ("obsB", 3.2, .8), ("actB", 3.2, 2.4),
-                                     ("prA1", 2.4, 0), ("prA2", 2.4, 1.2), ("prB1", 2.4, .6), ("prB2", 2.4, 1.8)))
+                                     ("prA1", 3.2, .4), ("prA2", 3.2, 2.0), ("prB1", 3.2, 1.2), ("prB2", 3.2, 2.8)))
     def io(cx):
         return (f'<text class="pl-io" x="{cx}" y="214">Camera images · robot state</text>'
                 f'<text class="pl-ioh" x="{cx}" y="242">Observation</text>'
@@ -165,7 +164,8 @@ def physloop(site: Site) -> str:
     return f"""
 <section class="pg pgl" data-inview id="loop">
   <div class="wrap">
-    <header class="pl-head-t"><span class="kicker">Agent–environment architecture</span><h2>Agents in the Physical Loop</h2></header>
+    <header class="pl-head-t"><h2>Agent–Environment Architecture</h2>
+      <p class="pl-lede">Agents interact with physical environments through observations and actions, using independent practice arenas and a shared competition arena.</p></header>
     <div class="pl-fig"><div class="pl-scroll">{svg}</div><p class="note pl-note">Schematic</p></div>
   </div>
 </section>"""
