@@ -205,12 +205,13 @@ def results(site: Site):
         for s in site.sports for c in s["clips"][:1])
     replays = (f'<p class="rp-note">Replays from development. Match replays of each sport appear here at release.</p>'
                f'<div class="wgrid rp-grid">{reps}</div>')
-    tabs = [("medals", "Medal table"), ("by-sport", "By sport"), ("arena", "Open Arena"), ("replays", "Replays"), ("models", "Models")]
+    tabs = [("medals", "Olympics Championship"), ("by-sport", "By sport"), ("arena", "Open Arena"), ("replays", "Replays"), ("models", "Models")]
     tab_btns = "".join(f'<button role="tab" class="tab{" is-on" if k == 0 else ""}" data-tab="{t}">{l}</button>' for k, (t, l) in enumerate(tabs))
-    body = phead("Results.", extra='<div class="phead-row" style="margin-top:28px"><span class="tag tag--pending">Results at release</span></div>')
+    body = phead("Leaderboard.", "The Olympics Championship medal table, the Open Arena boards and the replays.",
+                 '<div class="phead-row" style="margin-top:28px"><span class="tag tag--pending">Results at release</span></div>')
     body += f'<section class="band rs-fmt" id="formats" style="padding-top:0"><div class="wrap">{story.tournament(site)}</div></section>'
     body += f"""<section class="band band--line rs-tables" id="tables"><div class="wrap">
-  <div class="sec-h"><h2 class="h2">Tables.</h2></div>
+  <div class="sec-h"><h2 class="h2">Boards.</h2></div>
   <div class="tabs" role="tablist" style="margin-top:0">{tab_btns}</div>
   <div class="rs-panels">
   <div class="panel is-on" data-panel="medals">{medal_table(site)}</div>
@@ -220,7 +221,32 @@ def results(site: Site):
   <div class="panel" data-panel="models"><div class="mgrid">{mc}</div></div>
   </div>
 </div></section>"""
-    return "results/", page(site, path="results/", title="Results", body=body)
+    return "leaderboard/", page(site, path="leaderboard/", title="Leaderboard", body=body)
+
+
+# ---------------------------------------------------------------- Documents
+DOCS = [  # title, one line, target path (site page) or a site.json link key
+    ("Research", "The research question and what the benchmark measures.", ("link", "paper")),
+    ("Benchmark design", "How an agent plays: practice arena, workspace, competition arena; one match.", ("page", "match/")),
+    ("Rules", "Formats, boards and how medals are won.", ("page", "competitions/")),
+    ("Technical specifications", "Each sport's robot, observations, control and what it tests.", ("page", "sports/")),
+    ("Evaluation protocol", "Seeds, schedules, re-tests and scoring.", ("link", "docs")),
+]
+
+
+def documents(site: Site):
+    rows = []
+    for title, line, (kind, target) in DOCS:
+        href = site.url(target) if kind == "page" else site.cfg["links"].get(target)
+        if href:
+            ext = kind == "link"
+            rows.append(f'<a class="doc-row" href="{E(href)}"{" target=_blank rel=noopener" if ext else ""}><strong>{E(title)}</strong>'
+                        f'<span>{E(line)}</span><b class="arr">{"↗" if ext else "→"}</b></a>')
+        else:
+            rows.append(f'<div class="doc-row is-todo"><strong>{E(title)}</strong><span>{E(line)}</span><em class="tag tag--pending">At release</em></div>')
+    body = phead("Documents.", "Design, rules and specifications of Embodied Olympics.")
+    body += f'<section class="band" style="padding-top:0"><div class="wrap"><div class="docs-list">{"".join(rows)}</div></div></section>'
+    return "documents/", page(site, path="documents/", title="Documents", body=body)
 
 
 # ---------------------------------------------------------------- Watch

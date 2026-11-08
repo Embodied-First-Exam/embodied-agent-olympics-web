@@ -61,7 +61,7 @@ def build(base: str | None = None) -> int:
                 load("data/media.json"), load("data/results.json"))
 
     out = [home.home(site), pages.sports_index(site), pages.match(site), pages.competitions(site),
-           pages.results(site), pages.watch(site), pages.not_found(site)]
+           pages.results(site), pages.documents(site), pages.watch(site), pages.not_found(site)]
     out += [pages.sport_page(site, i) for i in range(len(site.sports))]
 
     if DIST.exists():
@@ -78,6 +78,7 @@ def build(base: str | None = None) -> int:
         page = DIST / old / "index.html"
         page.parent.mkdir(parents=True, exist_ok=True)
         page.write_text(f'<!doctype html><meta charset="utf-8"><title>Moved</title><link rel="canonical" href="{target}">'
+                        f'<script>location.replace("{target}"+location.hash)</script>'
                         f'<meta http-equiv="refresh" content="0; url={target}"><a href="{target}">Moved here</a>\n', encoding="utf-8")
     if (ROOT / "CNAME").is_file():  # custom domain for GitHub Pages
         shutil.copy(ROOT / "CNAME", DIST / "CNAME")

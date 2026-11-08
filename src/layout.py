@@ -129,10 +129,8 @@ THEME_ICONS = (
 
 NAV = [
     ("sports/", "Sports"),
-    ("match/", "The Match"),
-    ("competitions/", "Competitions"),
-    ("results/", "Results"),
-    ("watch/", "Watch"),
+    ("leaderboard/", "Leaderboard"),
+    ("documents/", "Documents"),
 ]
 
 
@@ -150,7 +148,7 @@ def page(site: Site, *, path: str, title: str | None, body: str, description: st
 <header class="top{' top--over' if dark_top else ''}" data-top>
   <div class="top-in">
     <a class="brand" href="{site.url()}" aria-label="{E(cfg['name'])} home">{MARK}<span class="brand-word">{E(cfg['name'])}</span></a>
-    <nav class="nav" aria-label="Main">{nav}{site.ext_link('docs', 'Docs', 'nav-ext')}</nav>
+    <nav class="nav" aria-label="Main">{nav}</nav>
     <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch to day mode">{THEME_ICONS}</button>
     <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" data-menu><span></span><span></span></button>
   </div>
@@ -187,7 +185,7 @@ def page(site: Site, *, path: str, title: str | None, body: str, description: st
 
 def footer(site: Site) -> str:
     cfg = site.cfg
-    explore = "".join(f'<li><a href="{site.url(p)}">{E(l)}</a></li>' for p, l in NAV)
+    explore = "".join(f'<li><a href="{site.url(p)}">{E(l)}</a></li>' for p, l in NAV + [("watch/", "Watch")])
     res = "".join(f"<li>{site.ext_link(k, l)}</li>" for k, l in [("docs", "Docs"), ("code", "Code"), ("paper", "Paper")])
     return f"""
 <footer class="foot">

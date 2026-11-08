@@ -23,7 +23,8 @@
     "_note": "Old URLs of the first-exam release page that the new site has no page for: old path -> new path.",
     "robots/": "sports/",
     "docs/": "",
-    "film/": "watch/"
+    "film/": "watch/",
+    "results/": "leaderboard/"
   },
 
   "links": {

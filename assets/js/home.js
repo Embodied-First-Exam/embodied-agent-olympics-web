@@ -134,3 +134,24 @@ document.addEventListener("DOMContentLoaded", () => {
     pans.forEach((p) => { p.hidden = p.dataset.mfPan !== b.dataset.mfTab; });
   }));
 });
+
+/* section nav: appears once the reader passes the intro; shows the four chapters, the current one highlighted */
+document.addEventListener("DOMContentLoaded", () => {
+  const bar = document.querySelector("[data-snav-bar]");
+  const secs = [...document.querySelectorAll("[data-snav]")];
+  if (!bar || !secs.length) return;
+  secs.forEach((s) => {
+    const a = document.createElement("a");
+    a.href = "#" + s.id; a.textContent = s.dataset.snav;
+    bar.appendChild(a);
+  });
+  const links = [...bar.querySelectorAll("a")];
+  const sync = () => {
+    const mid = innerHeight * 0.4;
+    bar.classList.toggle("on", secs[0].getBoundingClientRect().top < mid);
+    let cur = 0;
+    secs.forEach((s, k) => { if (s.getBoundingClientRect().top < mid) cur = k; });
+    links.forEach((l, k) => l.classList.toggle("is-on", k === cur));
+  };
+  addEventListener("scroll", sync, { passive: true }); addEventListener("resize", sync); sync();
+});

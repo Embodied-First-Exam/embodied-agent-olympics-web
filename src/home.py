@@ -180,7 +180,7 @@ def physloop(site: Site) -> str:
            f'the system observes and acts in a shared competition arena; each system has its own practice arena">'
            f'{side(True, "A")}{side(False, "B")}{arena}{lines}{build_lab}{io(365)}{io(835)}<g class="pl-pulses">{pulses}</g></svg>')
     return f"""
-<section class="chap pg pgl" data-inview id="loop">
+<section class="chap pg pgl" data-inview id="architecture" data-snav="Architecture">
   <div class="wrap">
     <header class="pl-head-t ch-head"><span class="ch-n">02<i>/04</i></span><h2>Agent–Environment Architecture</h2>
       <p class="pl-lede">Agent systems interact with physical environments through observations and actions, using independent practice arenas and a shared competition arena.</p></header>
@@ -243,7 +243,7 @@ def measure(site: Site, clips: dict, variant: str = "a") -> str:
       <div class="ma-arrow ma-back"><span class="ma-line"><i class="flow-dot flow-dot--b"></i></span><span class="ma-lab">{E(back)}</span></div>
     </div>"""
     return f"""
-<section class="chap chap--m pg pg3 pg3--{variant}" data-inview id="measure">
+<section class="chap chap--m pg pg3 pg3--{variant}" data-inview id="measure" data-snav="Measure">
   <div class="wrap">
     {chap_head('03', 'What we measure.', 'We evaluate both the capabilities of the embodied system and the agent&rsquo;s ability to build and improve it.')}
     {body}
@@ -454,9 +454,10 @@ def match_timeline() -> str:
 
 def match_screen() -> str:
     return f"""
-<section class="chap pg pgm" data-inview id="match">
+<section class="chap pg pgm" data-inview id="lifecycle" data-snav="Lifecycle">
   <div class="wrap">
-    {chap_head('04', 'One match.', 'Preparation, continuous competition, and event-triggered review.')}
+    <header class="ch-head lc-head"><span class="ch-n">04<i>/04</i></span><h2>Agent Lifecycle &amp; Learning</h2>
+      <div class="lc-sub"><h3>One match</h3><p>Preparation, continuous competition, and event-triggered review.</p></div></header>
     {match_timeline()}
   </div>
 </section>"""
@@ -464,10 +465,10 @@ def match_screen() -> str:
 
 def season_screen() -> str:
     return f"""
-<section class="chap pg pgs" data-inview id="season">
+<section class="pg pgs" data-inview id="season">
   <div class="wrap">
-    <header class="ch-head"><span class="ch-n"></span><h2>One season.</h2>
-      <p>Across a season, the agent keeps learning. What it builds and learns in one match carries into the next, and its saved versions are re-tested at checkpoints to measure its growth.</p></header>
+    <header class="ch-head lc-head lc-head--s"><span class="ch-n"></span><div class="lc-sub"><h3>One season</h3>
+      <p>Across a season, the agent keeps learning. What it builds and learns in one match carries into the next, and its saved versions are re-tested at checkpoints to measure its growth.</p></div></header>
     {growth2()}
   </div>
 </section>"""
@@ -624,9 +625,9 @@ def competition(site: Site, clips: dict) -> str:
         for k, _ in row:
             cells += tiles(fmts[k])
     return f"""
-<section class="chap chap--c pg pgc" data-inview id="results">
+<section class="chap chap--c pg pgc" data-inview id="championship" data-snav="Championship">
   <div class="wrap">
-    <header class="ch-head"><span class="ch-n">01<i>/04</i></span><h2>Results.</h2>
+    <header class="ch-head"><span class="ch-n">01<i>/04</i></span><h2>Championship.</h2>
       <p>The competition: {len(site.sports)} sports in four formats, real rules on real robot bodies. Hover a sport for what it mainly stresses. <a class="link" href="{site.url('sports/')}">All sports <span class="arr">→</span></a></p></header>
     <div class="fg2">{''.join(cells)}</div>
   </div>
@@ -647,13 +648,13 @@ MEDAL_FLOWS = [  # id, name, sports, steps, one line
 
 def results_medals(site: Site) -> str:
     """01 Results (2/2): how medals are won (the full format chart from /results/), the provisional medal table, links."""
-    links = [("results/#arena", "Open Arena", "Every agent against every other"),
-             ("results/#by-sport", "By sport", "Podiums for all 18 sports"),
-             ("results/#replays", "Replays", "Watch the matches")]
+    links = [("leaderboard/#arena", "Open Arena", "Every agent against every other"),
+             ("leaderboard/#by-sport", "By sport", "Podiums for all 18 sports"),
+             ("leaderboard/#replays", "Replays", "Watch the matches")]
     row = "".join(f'<a class="rlink" href="{site.url(h)}"><strong>{E(n)}</strong><span>{E(l)}</span><b class="arr">→</b></a>'
                   for h, n, l in links)
     return f"""
-<section class="chap pg pgr2" data-inview id="medals">
+<section class="pg pgr2" data-inview id="medals">
   <div class="wrap">
     <header class="rm-head"><h3>How medals are won</h3><span class="rm-sub">Pick a format below the chart.</span></header>
     {tournament(site, head=False)}
@@ -673,6 +674,6 @@ def home(site: Site, measure_variant: str = "a"):
     body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips)
             + competition(site, clips) + results_medals(site) + physloop(site)
             + measure(site, clips, measure_variant) + match_screen() + season_screen()
-            + '<nav class="crail" aria-label="Chapters" data-crail></nav>'
+            + '<nav class="snav" aria-label="Sections" data-snav-bar></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')
     return "", page(site, path="", title=None, body=body, dark_top=True)
