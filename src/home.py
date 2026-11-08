@@ -155,7 +155,7 @@ def page2(site: Site, clips: dict, intro: str = "strip") -> str:
   <div class="wrap pg2-def">
     <span class="kicker pg2-k">{E(c['definition_label'])}</span>
     <h2 class="pg2-h">{E(c['definition'])}</h2>
-    <p class="pg2-p">{E(c['definition_line']).replace("continually improve", '<a class="jl" href="#season" data-jl>continually improve</a>', 1)}</p>
+    <p class="pg2-p">{E(c['definition_line'])}</p>
   </div>
   {strip}
   <div class="wrap gl">
