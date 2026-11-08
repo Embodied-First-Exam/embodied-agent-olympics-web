@@ -502,7 +502,7 @@ def match_timeline() -> str:
       <div class="tl-key"><span><i class="tl-k tl-k--play"></i>world running</span><span><i class="tl-k tl-k--rev"></i>review window · world paused</span>
         <span class="tl-key-note">Play and review alternate; how often depends on the sport&rsquo;s rules.</span></div>
       <div class="tl-exs">{ex}</div>
-      <p class="tl-eng">The agent can keep developing its system throughout the match; review windows add structured time to inspect results, reflect and revise.</p>
+      <p class="tl-eng">In each review window the agent watches its opponent and the field, reflects on its own programs, and decides what to change before play resumes.</p>
     </div>"""
 
 
@@ -522,7 +522,7 @@ def season_screen() -> str:
 <section class="pg pgs" data-inview id="season" data-snav="One season">
   <div class="wrap">
     <header class="ch-head lc-head lc-head--s"><span class="ch-n"></span><div class="lc-sub"><h3>One season <a class="jl-back" href="#" data-jl-back hidden>↑ back</a></h3>
-      <p>Across a season, the agent keeps learning. What it builds and learns in one match carries into the next, and its saved versions are re-tested at checkpoints to measure its growth.</p></div></header>
+      <p>Across a season, the agent keeps learning. It rewatches its earlier matches, finds its own mistakes and fixes them, and carries everything it builds into the next match. Its saved versions are re-tested at checkpoints to measure its growth.</p></div></header>
     {growth2()}
   </div>
 </section>"""
