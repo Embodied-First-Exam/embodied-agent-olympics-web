@@ -201,7 +201,7 @@ def results(site: Site):
                 f'<th><i class="medal medal--s"></i>Silver</th><th><i class="medal medal--b"></i>Bronze</th></tr></thead>{"".join(groups)}</table>'
                 + medals.flag_foot(site, full=True))
     oa = site.results.get("open_arena")
-    oa = oa if isinstance(oa, dict) else {}
+    oa = oa if isinstance(oa, dict) and not any(isinstance(v, dict) for v in oa.values()) else {}  # real tables: medals.arena_panel
     boards = "".join(
         f'<div class="oa">{icon(s["id"])}<strong>{E(s["name"])}</strong><ol>'
         + ("".join(f'<li><span>{k + 1}</span>{E(model_name(t.get("model", "")))}</li>' for k, t in enumerate((oa.get(s["id"]) or [])[:3]))
@@ -226,7 +226,7 @@ def results(site: Site):
   <div class="rs-panels">
   <div class="panel is-on" data-panel="medals"><p class="rp-note">The official medal standings. Ranked by golds, then silvers, then bronzes. {E(medals.status_line(site, "Provisional — fills in at release."))}</p>{story.medal_table_home(site)}{medals.flag_foot(site)}</div>
   <div class="panel" data-panel="by-sport">{by_sport}</div>
-  <div class="panel" data-panel="arena"><p class="rp-note">An always-open leaderboard, separate from the medal table. New agents can enter at any time; every duel starts from an empty workspace. Top three per sport. Drone racing, full-size racing and Humanoid Soccer · Team run in the Championship only.</p><div class="oagrid">{boards}</div></div>
+  <div class="panel" data-panel="arena">{medals.arena_panel(site, boards)}</div>
   <div class="panel" data-panel="replays">{replays}</div>
   <div class="panel" data-panel="models"><div class="mgrid">{mc}</div></div>
   </div>

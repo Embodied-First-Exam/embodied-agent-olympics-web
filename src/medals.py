@@ -46,3 +46,39 @@ def flag_foot(site: Site, full: bool = False) -> str:
     lb = site.url("leaderboard/")
     return (f'<p class="mt-flags">† Counted, but could still change: {E(", ".join(names))}. '
             f'<a href="{lb}#by-sport">By sport →</a></p>')
+
+
+ARENA_NOTE = ("An always-open leaderboard, separate from the medal table. New agents can enter at any time; every duel "
+              "starts from an empty workspace. Round robin: win 3, draw 1; ties by score difference. The rating "
+              "(Bradley-Terry) is for reference. Drone racing and full-size racing run in the Championship only; the "
+              "four solo sports' three-run series are their medal events (By sport).")
+
+
+def arena_panel(site: Site, fallback_boards: str) -> str:
+    """The Open Arena tab: one official table per board (results.json open_arena, from medals_sync.py), or the
+    placeholder grid before results exist."""
+    oa = site.results.get("open_arena")
+    if not isinstance(oa, dict) or not oa:
+        return ('<p class="rp-note">An always-open leaderboard, separate from the medal table. New agents can enter at '
+                'any time; every duel starts from an empty workspace. Top three per sport. Drone racing, full-size '
+                f'racing and Humanoid Soccer · Team run in the Championship only.</p><div class="oagrid">{fallback_boards}</div>')
+    from layout import icon  # noqa: PLC0415
+    st = site.results.get("open_arena_status") or {}
+    cards = []
+    for s in site.sports:
+        b = oa.get(s["id"])
+        if not b:
+            continue
+        rows = "".join(
+            f'<tr><td class="oa-r">{E(str(r["rank"]))}</td><td class="oa-m">{E(model_name(r["model"]))}</td>'
+            f'<td class="oa-p">{E(str(r["points"]))}</td><td>{r["won"]}-{r["drawn"]}-{r["lost"]}</td>'
+            f'<td>{r["played"]}</td><td class="oa-x">{"" if r.get("rating") is None else E(format(r["rating"], ".0f"))}</td></tr>'
+            for r in b["rows"])
+        tag = "" if b.get("complete") else ' <span class="oa-inc">Incomplete</span>'
+        cards.append(
+            f'<div class="oa oa--t{"" if b.get("complete") else " is-inc"}">{icon(s["id"])}<strong>{E(s["name"])}</strong>'
+            f'<p class="oa-st">{E(b.get("status", ""))}{tag}</p>'
+            '<table class="oa-tab"><thead><tr><th>#</th><th>Model</th><th>Pts</th><th>W-D-L</th><th>P</th><th>Rating</th>'
+            f'</tr></thead><tbody>{rows}</tbody></table></div>')
+    upd = f' <span class="oa-upd">{E(st["line"])}</span>' if st.get("line") else ""
+    return f'<p class="rp-note">{E(ARENA_NOTE)}{upd}</p><div class="oagrid">{"".join(cards)}</div>'

@@ -318,3 +318,15 @@ a:hover .arr{transform:translateX(4px)}
 .mt-dag{color:var(--accent-ink);font-size:.72em;margin-left:4px;line-height:0}
 .mt-flags{font-size:13px;color:var(--fg-3);margin-top:12px;max-width:900px;line-height:1.5}
 .mt-flags ul{margin:6px 0 0;padding-left:18px}.mt-flags b{color:var(--fg-2);font-weight:600}
+/* Open Arena tab filled from the official run (medals_sync.py): one table per board */
+.oa--t{align-content:start}
+.oa-st{grid-column:1/-1;font-size:13px;color:var(--fg-3);margin:0}
+.oa-inc{font:500 10.5px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent-soft);padding:3px 7px;border-radius:9px;margin-left:6px}
+.oa-tab{grid-column:1/-1;width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.oa-tab th{font:500 10px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--fg-3);text-align:right;padding:8px 4px;border-bottom:1px solid var(--hair)}
+.oa-tab td{padding:7px 4px;border-bottom:1px solid var(--hair);text-align:right;color:var(--fg-2)}
+.oa-tab th:nth-child(-n+2),.oa-tab td.oa-r,.oa-tab td.oa-m{text-align:left}
+.oa-tab td.oa-m{color:var(--fg);white-space:nowrap}
+.oa-tab td.oa-p{color:var(--fg);font-weight:600}
+.oa-tab td.oa-r,.oa-tab td.oa-x{color:var(--fg-3)}.oa-tab td.oa-x{font-size:12.5px}
+.oa-upd{display:block;margin-top:6px;font-size:13px;color:var(--fg-3)}
