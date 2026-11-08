@@ -124,9 +124,9 @@ MARK = (
 )
 
 def brand_mark(site: "Site") -> str:
-    """Chi's 01 Arena mark: the silver version on the dark bar, the ink version in the light theme (CSS swaps them)."""
+    """Chi's 01 Arena mark, always silver: the light silver on the dark bar, a darker silver in the light theme."""
     return (f'<img class="mark mark--light" src="{site.asset("brand/mark-light.png")}" alt="" width="50" height="22">'
-            f'<img class="mark mark--ink" src="{site.asset("brand/mark-ink.png")}" alt="" width="50" height="22">')
+            f'<img class="mark mark--ink" src="{site.asset("brand/mark-silver-dark.png")}" alt="" width="50" height="22">')
 
 
 THEME_ICONS = (
@@ -173,6 +173,7 @@ def page(site: Site, *, path: str, title: str | None, body: str, description: st
 <meta property="og:description" content="{E(desc)}">
 <meta name="theme-color" content="#08090B">
 <script>try{{var t=localStorage.getItem("eo-theme");if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
+<link rel="icon" href="{site.asset('brand/favicon-16.png')}" type="image/png" sizes="16x16">
 <link rel="icon" href="{site.asset('brand/favicon-32.png')}" type="image/png" sizes="32x32">
 <link rel="icon" href="{site.asset('brand/favicon-64.png')}" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="{site.asset('brand/apple-touch-icon.png')}">
