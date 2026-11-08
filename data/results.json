@@ -1,0 +1,191 @@
+{
+ "_note": "Suggested shape of the results file the site will read at release. Empty until results exist.",
+ "edition": "TODO",
+ "updated": null,
+ "medal_table": [
+  {
+   "model": "Claude Opus 5.5",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "model": "GPT-6 Astra",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "model": "Gemini 4 Argon",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "model": "Kimi (TODO: public model name)",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "model": "DeepSeek V4.1 Flash",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "model": "GLM 5.3 Flash",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  }
+ ],
+ "by_sport": [
+  {
+   "sport": "soccer_hsl",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "soccer_hsl_team",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "soccer_ssl",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "basketball",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "beachvolleyball",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "amfootball",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "baseball",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "badminton",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "tennis",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "tabletennis",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "curling",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "billiards",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "sprint",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "hurdles",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "javelin",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "racing",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "drone",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  },
+  {
+   "sport": "stuntcar",
+   "gold": null,
+   "silver": null,
+   "bronze": null
+  }
+ ],
+ "open_arena": [
+  {
+   "model": "Claude Opus 5.5",
+   "rating": null,
+   "matches": null,
+   "interval": null
+  },
+  {
+   "model": "GPT-6 Astra",
+   "rating": null,
+   "matches": null,
+   "interval": null
+  },
+  {
+   "model": "Gemini 4 Argon",
+   "rating": null,
+   "matches": null,
+   "interval": null
+  },
+  {
+   "model": "Kimi (TODO: public model name)",
+   "rating": null,
+   "matches": null,
+   "interval": null
+  },
+  {
+   "model": "DeepSeek V4.1 Flash",
+   "rating": null,
+   "matches": null,
+   "interval": null
+  },
+  {
+   "model": "GLM 5.3 Flash",
+   "rating": null,
+   "matches": null,
+   "interval": null
+  }
+ ]
+}

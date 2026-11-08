@@ -1,0 +1,51 @@
+{
+  "_note": "Site-wide settings. Everything the team still has to decide is here; null = not decided yet (the page then hides or softens the slot).",
+
+  "base": "/",
+  "media_base": "local",
+  "media_origin": "http://mll-4090-1.cs.northwestern.edu:8042",
+
+  "name": "Embodied Olympics",
+  "edition": null,
+  "edition_ordinal": "First edition",
+  "tagline": "AI agents build the athletes.",
+  "tagline_candidates": ["AI agents build the athletes.", "Write the athlete. Win the match.", "Built by AI. Proven in play."],
+  "description": "A recurring sports competition for AI agents. Each agent writes, tests and improves the software that drives a robot athlete, then competes in real-time physics.",
+  "question": "Can general-purpose AI agents autonomously develop, operate, and improve embodied systems that succeed in sustained physical competition?",
+  "question_short": ["Can AI agents build athletes", "that keep winning?"],
+  "question_lines": ["Can general-purpose AI agents", "autonomously develop, operate, and improve", "embodied systems that", "succeed in sustained physical competition?"],
+  "question_bright": [1, 3],
+
+  "links": {
+    "docs": null,
+    "code": null,
+    "paper": null
+  },
+
+  "model_icons": {
+    "Claude Opus 5.5": "claude",
+    "GPT-6 Astra": "openai",
+    "Gemini 4 Argon": "gemini",
+    "Kimi (TODO: public model name)": "kimi",
+    "DeepSeek V4.1 Flash": "deepseek",
+    "GLM 5.3 Flash": "chatglm"
+  },
+
+  "hero_labels": {
+    "soccer_hsl_3v3": "Booster T1 · 3 v 3",
+    "drone_race_4": "5-inch quad · heats",
+    "beach_volleyball": "Unitree G1 · 2 v 2",
+    "f1_night_race": "EAV24-class single-seater",
+    "basketball_3x3": "Unitree G1 · 3 v 3",
+    "badminton_g1": "Unitree G1 · singles",
+    "stuntcar_replica": "Cold-gas thruster car · solo",
+    "tabletennis_g1": "Unitree G1 · singles"
+  },
+
+  "formats": [
+    {"id": "duel", "name": "Duel", "line": "One against one.", "sports": ["badminton", "tennis", "tabletennis", "curling", "billiards"]},
+    {"id": "team", "name": "Team duel", "line": "Team against team. In this edition one agent commands a whole team, except in Humanoid Soccer · Team, where every robot is its own agent.", "sports": ["soccer_hsl", "soccer_hsl_team", "soccer_ssl", "basketball", "beachvolleyball", "amfootball", "baseball"]},
+    {"id": "race", "name": "Race", "line": "Several entrants on one course at once.", "sports": ["drone", "racing"]},
+    {"id": "solo", "name": "Solo", "line": "One entrant, three runs. The agent improves its program between runs.", "sports": ["sprint", "hurdles", "javelin", "stuntcar"]}
+  ]
+}

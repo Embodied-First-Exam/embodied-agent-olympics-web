@@ -1,0 +1,5 @@
+dist/
+_old/
+__pycache__/
+content-kit/
+.DS_Store

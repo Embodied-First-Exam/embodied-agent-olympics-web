@@ -1,0 +1,990 @@
+{
+ "_note": "One entry per sport (18). TODO = not stated in the release card yet. Media paths map to assets/media/<path> (tools/fetch_media.py).",
+ "sports": [
+  {
+   "id": "soccer_hsl",
+   "name": "Humanoid Soccer",
+   "category": "Team ball",
+   "pitch": "Three humanoid robots a side play under RoboCup rules and find the ball with a head camera alone.",
+   "body": "Booster T1 humanoid (23 joints)",
+   "team": "3 v 3; one agent controls the whole team",
+   "kind": "Head-to-head",
+   "rules": "RoboCup Humanoid League 2026 (v1.1.1), Large division 3 v 3",
+   "field": "14 x 9 m field",
+   "length": "2 x 10 min",
+   "sees": "Head camera only",
+   "control": "A target for every joint every 20 ms",
+   "hard": [
+    "Walking and keeping balance within real motor limits",
+    "Getting up after a fall: a fallen robot returns only once it has stood up by itself",
+    "Finding the ball with a head camera that the agent must aim",
+    "Building the whole controller from the joints up"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/soccer_hsl.jpg",
+    "size": "640x360"
+   },
+   "still": {
+    "url": "/eo/img/hero-close.jpg",
+    "size": "1920x1080"
+   },
+   "clips": [
+    {
+     "id": "soccer_hsl_3v3",
+     "shows": "Three-a-side match, a goal from open play",
+     "status": "Showcase render from development; earlier rules version",
+     "duration_s": 18.9,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/soccer_hsl_3v3.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/soccer_hsl_3v3/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/soccer_hsl_3v3.jpg",
+      "size": "1280x720"
+     }
+    }
+   ],
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (Persistent; round robin, then semifinals, final and bronze; medals)",
+    "Open Arena (Fresh; round robin)"
+   ],
+   "medals": true,
+   "page_url": "/sports/soccer-hsl",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/main/cards/soccer_hsl/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/main/cards/soccer_hsl/card.md",
+    "status": "on main",
+    "pr": null
+   },
+   "footage": "Video available"
+  },
+  {
+   "id": "soccer_hsl_team",
+   "name": "Humanoid Soccer · Team",
+   "category": "Team ball",
+   "pitch": "The same RoboCup match, but every robot is a separate AI agent that sees only through its own eyes and talks to its teammates over a narrow radio channel.",
+   "body": "Booster T1 humanoid (23 joints)",
+   "team": "3 v 3; one agent per robot (three agents per side)",
+   "kind": "Head-to-head",
+   "rules": "RoboCup Humanoid League 2026 (v1.1.1), Large division 3 v 3, as Humanoid Soccer",
+   "field": "14 x 9 m field",
+   "length": "2 x 10 min",
+   "sees": "Each robot: its own head camera only",
+   "control": "Each agent commands only its own robot; team messages of at most 512 bytes, one per robot every 0.2 s",
+   "hard": [
+    "Everything in Humanoid Soccer",
+    "Teamwork between separate agents: they share a team folder while preparing, then only short messages during play"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/soccer_hsl_team.jpg",
+    "size": "640x360"
+   },
+   "still": {
+    "url": "/eo/img/sports/soccer_hsl_team.jpg",
+    "size": "640x360"
+   },
+   "clips": [],
+   "footage_todo": "No match video of the team format yet",
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (Persistent; round robin, then semifinals, final and bronze; medals)",
+    "Open Arena (Fresh; round robin)"
+   ],
+   "medals": true,
+   "page_url": "/sports/soccer-hsl-team",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/soccer_hsl_team-1104/cards/soccer_hsl_team/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/soccer_hsl_team-1104/cards/soccer_hsl_team/card.md",
+    "status": "in review, PR #67",
+    "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/67"
+   },
+   "footage": "Still only (No match video of the team format yet)"
+  },
+  {
+   "id": "soccer_ssl",
+   "name": "Wheeled Soccer",
+   "category": "Team ball",
+   "pitch": "Eleven fast wheeled robots a side, RoboCup Small Size League rules, and a strongest opponent built on a RoboCup champion team's open-source software.",
+   "body": "Omnidirectional small-size wheeled robot (public TIGERs v2020 dimensions) with flat / chip kicker and dribbler",
+   "team": "11 v 11; one agent controls the whole team",
+   "kind": "Head-to-head",
+   "rules": "RoboCup Small Size League, Division A",
+   "field": "12 x 9 m field",
+   "length": "2 halves of 300 s playing time",
+   "sees": "Shared overhead vision data (robot and ball positions, noisy, 40 ms late) and referee messages; no images",
+   "control": "Per-robot velocity, kick and dribbler commands in the official SSL simulation protocol",
+   "hard": [
+    "Running a real-time team of 11 robots from noisy, delayed vision",
+    "Precise driving and ball handling within real robot limits",
+    "Positioning and spatial structure",
+    "Playing within the rules (automatic referees call fouls)"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/soccer_ssl.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "soccerssl_match",
+     "shows": "Wheeled-robot match",
+     "status": "Showcase render of an earlier 5 v 5 build; not the 11 v 11 release version",
+     "duration_s": 19.2,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/soccerssl_match.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/soccerssl_match/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/soccerssl_match.jpg",
+      "size": "1280x720"
+     }
+    }
+   ],
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (Persistent; round robin, then semifinals, final and bronze; medals)",
+    "Open Arena (Fresh; round robin)"
+   ],
+   "medals": true,
+   "page_url": "/sports/soccer-ssl",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/main/cards/soccer_ssl/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/main/cards/soccer_ssl/card.md",
+    "status": "on main",
+    "pr": null
+   },
+   "footage": "Video available"
+  },
+  {
+   "id": "basketball",
+   "name": "3x3 Basketball",
+   "category": "Team ball",
+   "pitch": "Three humanoids a side on a FIBA 3x3 half court: walk the ball in, stay on your feet in contact, and shoot.",
+   "body": "Unitree G1 humanoid (29 joints)",
+   "team": "3 v 3",
+   "kind": "Head-to-head",
+   "rules": "FIBA 3x3 rules (2024) with declared deviations",
+   "field": "FIBA 3x3 half court, 15 x 11 m; ring at 3.05 m; ball scaled 0.6 to the robot hand",
+   "length": "16 check balls, 8 per team",
+   "sees": "Head cameras only",
+   "control": "Targets for all 29 joints every 10 ms (an optional walking service is available; its use is recorded)",
+   "hard": [
+    "Walking in with the ball and shooting under joint noise (the check ball starts beyond any standing throw)",
+    "Staying up in contact without gaining from running into opponents",
+    "Sending commands on time for the 20 ms world step"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/basketball_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "basketball_3x3",
+     "shows": "Six G1s, a basket",
+     "status": "Showcase render from development; earlier rules version",
+     "duration_s": 18.6,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/basketball_3x3.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/basketball_3x3/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/basketball_3x3.jpg",
+      "size": "1280x720"
+     }
+    }
+   ],
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (Persistent; round robin, then semifinals, final and bronze; medals)",
+    "Open Arena (Fresh; round robin)"
+   ],
+   "medals": true,
+   "page_url": "/sports/basketball",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/basketball_g1-v1/cards/basketball_g1/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/basketball_g1-v1/cards/basketball_g1/card.md",
+    "status": "in review, PR #22",
+    "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/22"
+   },
+   "footage": "Video available"
+  },
+  {
+   "id": "beachvolleyball",
+   "name": "Beach Volleyball",
+   "category": "Team ball",
+   "pitch": "Two humanoids a side, a ball in the wind, and only two windsocks to read it.",
+   "body": "Unitree G1 humanoid (29 joints), rubber hands with flat palms",
+   "team": "2 v 2; agents per team: TODO",
+   "kind": "Head-to-head",
+   "rules": "FIVB Beach Volleyball Rules 2025-2028",
+   "field": "8.4 x 4.2 m court, net 1.56 m (scaled to the G1's reach)",
+   "length": "One set to 15 points, win by 2 (at 16-16 the next point wins)",
+   "sees": "One head colour camera per robot; wind of 0-5 m/s readable only from two windsocks",
+   "control": "Targets for 29 joints every 10 ms per robot",
+   "hard": [
+    "Seeing the ball and reading the wind",
+    "Timing every contact in real time",
+    "Serving and receiving"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/beachvolleyball_g1.jpg",
+    "size": "640x360"
+   },
+   "still": {
+    "url": "/eo/img/bv-wide.jpg",
+    "size": "1600x900"
+   },
+   "clips": [
+    {
+     "id": "beach_volleyball",
+     "shows": "Two-a-side rally on sand",
+     "status": "Showcase render from development",
+     "duration_s": 13.33,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/beach_volleyball.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/beach_volleyball/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/beach_volleyball.jpg",
+      "size": "1280x720"
+     }
+    }
+   ],
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (Persistent; round robin, then semifinals, final and bronze; medals)",
+    "Open Arena (Fresh; round robin)"
+   ],
+   "medals": true,
+   "page_url": "/sports/beachvolleyball",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/dev/pingyue-release-cards/cards/beachvolleyball_g1/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/dev/pingyue-release-cards/cards/beachvolleyball_g1/card.md",
+    "status": "in review, PR #27",
+    "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/27"
+   },
+   "footage": "Video available"
+  },
+  {
+   "id": "amfootball",
+   "name": "American Football",
+   "category": "Team ball",
+   "pitch": "Eight humanoids a side play tackle football: run, block, tackle and protect the ball.",
+   "body": "Booster T1 humanoid (23 joints)",
+   "team": "8 v 8",
+   "kind": "Head-to-head",
+   "rules": "NFL rules played 8-a-side (as US high-school 8-player football)",
+   "field": "NFL field scaled 1/3: 30.5 m field of play, two 3.05 m end zones, 16.3 m wide",
+   "length": "2 x 10 min, 25 s play clock; kicks are declared and executed by the referee",
+   "sees": "Head cameras only",
+   "control": "TODO",
+   "hard": [
+    "Walking, balance and getting up under contact",
+    "Tackling and ball security",
+    "Seeing the play from head cameras",
+    "Play calling and teamwork (secondary)"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/amfootball.jpg",
+    "size": "640x360"
+   },
+   "still": {
+    "url": "/eo/img/sports/amfootball.jpg",
+    "size": "960x540 source (promo still)"
+   },
+   "clips": [],
+   "footage_todo": "No match video yet; one promo still only",
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (Persistent; round robin, then semifinals, final and bronze; medals)",
+    "Open Arena (Fresh; round robin)"
+   ],
+   "medals": true,
+   "page_url": "/sports/amfootball",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/amfootball-draft/cards/amfootball/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/amfootball-draft/cards/amfootball/card.md",
+    "status": "in review, PR #68",
+    "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/68"
+   },
+   "footage": "Still only (No match video yet; one promo still only)"
+  },
+  {
+   "id": "baseball",
+   "name": "Baseball",
+   "category": "Team ball",
+   "pitch": "Pitcher against batter, both humanoids: control the pitch, read the ball from the cameras, time the swing.",
+   "body": "Unitree G1 humanoid (29 joints), youth glove and bat",
+   "team": "5 robots per team (9 on the field at once)",
+   "kind": "Head-to-head",
+   "rules": "MLB 2026 rules; deviations follow Little League (Major division)",
+   "field": "Scaled to the G1: 10 m bases, 6.5 m pitching distance, fence at 33.3 m",
+   "length": "2 innings (up to 2 extra); a half-inning ends at 3 outs, the 5th run, the 32nd pitch or 745 s",
+   "sees": "Head cameras and two broadcast cameras; no ball position given",
+   "control": "Targets for 29 joints every 10 ms; no walking policy given",
+   "hard": [
+    "Pitching control",
+    "Seeing the ball's flight from the cameras",
+    "Swing timing"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/baseball_g1.jpg",
+    "size": "640x360"
+   },
+   "still": {
+    "url": "/eo/img/baseball-wide.jpg",
+    "size": "1600x900"
+   },
+   "clips": [
+    {
+     "id": "baseball_g1",
+     "shows": "Pitch and swing",
+     "status": "Showcase render from development",
+     "duration_s": 8.27,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/baseball_g1.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/baseball_g1/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/baseball_g1.jpg",
+      "size": "1280x720"
+     }
+    }
+   ],
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (Persistent; round robin, then semifinals, final and bronze; medals)",
+    "Open Arena (Fresh; round robin)"
+   ],
+   "medals": true,
+   "page_url": "/sports/baseball",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/dev/pingyue-release-cards/cards/baseball_g1/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/dev/pingyue-release-cards/cards/baseball_g1/card.md",
+    "status": "in review, PR #27",
+    "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/27"
+   },
+   "footage": "Video available"
+  },
+  {
+   "id": "badminton",
+   "name": "Badminton",
+   "category": "Racket",
+   "pitch": "A humanoid with a racket, one depth camera in its head, and a shuttle that flies like the real thing.",
+   "body": "Unitree G1 humanoid (29 joints) with a 0.675 m racket",
+   "team": "1 v 1 singles",
+   "kind": "Head-to-head",
+   "rules": "BWF singles rules",
+   "field": "Court lengths scaled 0.4; net 1.524 m",
+   "length": "One game to 11",
+   "sees": "One head depth camera only",
+   "control": "Targets for 29 joints every 10 ms; no walking or stroke policy given",
+   "hard": [
+    "Keeping the shuttle in view from the head camera",
+    "Predicting its flight under real drag",
+    "Getting to the contact point and staying stable while swinging",
+    "Contact accuracy and timing",
+    "Receiving the serve"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/badminton_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "badminton_g1",
+     "shows": "A G1 returns the shuttle over the net",
+     "status": "Showcase render from development",
+     "duration_s": 17.47,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/badminton_g1.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/badminton_g1/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/badminton_g1.jpg",
+      "size": "1280x720"
+     }
+    }
+   ],
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (Persistent; round robin, then semifinals, final and bronze; medals)",
+    "Open Arena (Fresh; round robin)"
+   ],
+   "medals": true,
+   "page_url": "/sports/badminton",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/main/cards/badminton_g1/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/main/cards/badminton_g1/card.md",
+    "status": "on main",
+    "pr": null
+   },
+   "footage": "Video available"
+  },
+  {
+   "id": "tennis",
+   "name": "Tennis",
+   "category": "Racket",
+   "pitch": "With nothing given but the joints, the agent teaches a humanoid to stand, reach the ball and hit it back.",
+   "body": "Unitree G1 humanoid (29 joints), racket on the right wrist",
+   "team": "1 v 1",
+   "kind": "Head-to-head",
+   "rules": "ITF Rules of Tennis (2026); drop serve, after the wheelchair-tennis precedent",
+   "field": "11.0 x 5.5 m court (ITF red-court range), net 0.80 m",
+   "length": "One tie-break game: first to 7, win by 2",
+   "sees": "Two cameras",
+   "control": "Joint targets every 10 ms with its own gains; one GPU and 2 h of preparation",
+   "hard": [
+    "Standing and balance",
+    "Getting to the ball",
+    "Meeting the ball on serve and strokes",
+    "Returning serve and rallying",
+    "Seeing the ball through two cameras and acting on time"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/tennis_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [],
+   "footage_todo": "No G1 tennis video yet (existing render shows an earlier body)",
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (Persistent; round robin, then semifinals, final and bronze; medals)",
+    "Open Arena (Fresh; round robin)"
+   ],
+   "medals": true,
+   "page_url": "/sports/tennis",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/tennis_g1-v1/cards/tennis_g1/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/tennis_g1-v1/cards/tennis_g1/card.md",
+    "status": "in review, PR #23",
+    "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/23"
+   },
+   "footage": "Still only (No G1 tennis video yet (existing render shows an earlier body))"
+  },
+  {
+   "id": "tabletennis",
+   "name": "Table Tennis",
+   "category": "Racket",
+   "pitch": "Two humanoids, real paddles, two cameras and no ball coordinates: one of the fastest sports to see and react to.",
+   "body": "Unitree G1 humanoid (29 joints) with a 0.22 kg paddle",
+   "team": "1 v 1 singles",
+   "kind": "Head-to-head",
+   "rules": "ITTF singles rules with declared deviations",
+   "field": "TODO",
+   "length": "One game to 5 points (from 4-4 win by 2; at 6-6 the next point wins)",
+   "sees": "Two fixed cameras (behind and beside the robot); no ball coordinates",
+   "control": "Targets for 29 joints at 100 Hz plus a serve toss; no walking service",
+   "hard": [
+    "Seeing the ball from cameras alone",
+    "Whole-body hitting at the joint level",
+    "Real-time timing",
+    "Predicting trajectory and spin",
+    "Serving"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/tabletennis_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "tabletennis_g1",
+     "shows": "A G1 rally",
+     "status": "Showcase render from development",
+     "duration_s": 18.43,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/tabletennis_g1.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/tabletennis_g1/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/tabletennis_g1.jpg",
+      "size": "1280x720"
+     }
+    }
+   ],
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (Persistent; round robin, then semifinals, final and bronze; medals)",
+    "Open Arena (Fresh; round robin)"
+   ],
+   "medals": true,
+   "page_url": "/sports/tabletennis",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/tabletennis_g1/cards/tabletennis_g1/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/tabletennis_g1/cards/tabletennis_g1/card.md",
+    "status": "in review, PR #33",
+    "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/33"
+   },
+   "footage": "Video available"
+  },
+  {
+   "id": "curling",
+   "name": "Curling",
+   "category": "Precision",
+   "pitch": "Read an ice surface you are never told about, choose the shot, and deliver a 20 kg stone with the right weight and spin.",
+   "body": "Unitree G1 humanoid (29 joints, no hands); the platform pushes robot and stone with the acceleration the agent sends",
+   "team": "1 v 1",
+   "kind": "Head-to-head (turn-based)",
+   "rules": "World Curling rules (July 2025), official dimensions (38.4 m hack to far tee, 19.96 kg stone)",
+   "field": "Official sheet; ice friction random each match and not told",
+   "length": "4 ends, 5 stones per team per end; 3600 s game clock per player",
+   "sees": "Top view of the house and a head camera",
+   "control": "Push-off acceleration profile, direction and release spin per delivery",
+   "hard": [
+    "Shot selection",
+    "Reading the ice",
+    "Calibrating the delivery",
+    "Spin",
+    "Locating the stones"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/curling_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "curling_match",
+     "shows": "A take-out, from the hack to the far house",
+     "status": "Showcase render of an earlier version; no G1 visible",
+     "duration_s": 13.63,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/curling_match.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/curling_match/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/curling_match.jpg",
+      "size": "1280x720"
+     }
+    }
+   ],
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (Persistent; round robin, then semifinals, final and bronze; medals)",
+    "Open Arena (Fresh; round robin)"
+   ],
+   "medals": true,
+   "page_url": "/sports/curling",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/dev/pingyue-release-cards/cards/curling_g1/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/dev/pingyue-release-cards/cards/curling_g1/card.md",
+    "status": "in review, PR #27",
+    "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/27"
+   },
+   "footage": "Video available"
+  },
+  {
+   "id": "billiards",
+   "name": "Billiards",
+   "category": "Precision",
+   "pitch": "Eight-ball on a full-size table for a humanoid without fingers: see the balls, plan the shot, strike with the whole body.",
+   "body": "Unitree G1 humanoid (29 joints); a V-groove wrist block or a mechanical rest as the bridge",
+   "team": "1 v 1",
+   "kind": "Head-to-head (turn-based)",
+   "rules": "WPA 8-ball rules (2025)",
+   "field": "7-foot table, 0.99 x 1.98 m playing surface, not scaled",
+   "length": "One rack, at most 60 shots each",
+   "sees": "Head camera (1280 x 720)",
+   "control": "One whole-stroke command per shot: stance, bridge, and a joint plan every 10 ms (up to 15 s)",
+   "hard": [
+    "Seeing the balls (primary)",
+    "The two-handed stroke",
+    "Shot choice and position play",
+    "Rules and safety play"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/billiards_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "billiards_8ball",
+     "shows": "The break and a called 8, top view",
+     "status": "Showcase render of an earlier version; no G1 visible",
+     "duration_s": 11.37,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/billiards_8ball.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/billiards_8ball/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/billiards_8ball.jpg",
+      "size": "1280x720"
+     }
+    }
+   ],
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (Persistent; round robin, then semifinals, final and bronze; medals)",
+    "Open Arena (Fresh; round robin)"
+   ],
+   "medals": true,
+   "page_url": "/sports/billiards",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/dev/pingyue-release-cards/cards/billiards_g1/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/dev/pingyue-release-cards/cards/billiards_g1/card.md",
+    "status": "in review, PR #27",
+    "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/27"
+   },
+   "footage": "Video available"
+  },
+  {
+   "id": "sprint",
+   "name": "100 m Sprint",
+   "category": "Athletics",
+   "pitch": "The agent has two hours to teach a humanoid to run, then it races 100 m from what its head camera sees.",
+   "body": "Unitree G1 humanoid (29 joints)",
+   "team": "Solo, 8-lane track",
+   "kind": "Solo",
+   "rules": "World Athletics 100 m (2026)",
+   "field": "Straight 8-lane track",
+   "length": "Three runs; score = 100 m / mean time (m/s); a failed run counts as 120 s",
+   "sees": "Head camera and joint / IMU state; no position or velocity",
+   "control": "Targets for 29 joints every 10 ms; no walking or running policy; 2 h preparation with half a GPU",
+   "hard": [
+    "Training a running gait during preparation",
+    "Staying in lane from the head camera",
+    "Real-time control within the compute budget"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/sprint_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [],
+   "footage_todo": "No G1 sprint video yet",
+   "track": "Engineer",
+   "boards": [
+    "Open Arena (Persistent series of 3 runs; medals from the series ranking)"
+   ],
+   "medals": true,
+   "page_url": "/sports/sprint",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/athletics/cards/sprint_g1/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/athletics/cards/sprint_g1/card.md",
+    "status": "in review, PR #34",
+    "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/34"
+   },
+   "footage": "Still only (No G1 sprint video yet)"
+  },
+  {
+   "id": "hurdles",
+   "name": "110 m Hurdles",
+   "category": "Athletics",
+   "pitch": "Run and clear ten hurdles at official spacing, finding each one with a head camera.",
+   "body": "Unitree G1 humanoid (29 joints)",
+   "team": "Solo, 8-lane track",
+   "kind": "Solo",
+   "rules": "World Athletics 110 m hurdles (2026); official spacing, hurdles 0.08 m high (what a G1 can clear)",
+   "field": "Straight 8-lane track",
+   "length": "Three runs; score = 110 m / mean time (m/s); a failed run counts as 150 s",
+   "sees": "Head camera and joint / IMU state",
+   "control": "Targets for 29 joints every 10 ms; no running policy; 2 h preparation with half a GPU",
+   "hard": [
+    "Training a gait that runs and clears hurdles",
+    "Finding the hurdles and staying in lane from the head camera",
+    "Real-time control"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/hurdles_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [],
+   "footage_todo": "No G1 hurdles video yet (existing render shows an earlier body)",
+   "track": "Engineer",
+   "boards": [
+    "Open Arena (Persistent series of 3 runs; medals from the series ranking)"
+   ],
+   "medals": true,
+   "page_url": "/sports/hurdles",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/athletics/cards/hurdles_g1/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/athletics/cards/hurdles_g1/card.md",
+    "status": "in review, PR #34",
+    "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/34"
+   },
+   "footage": "Still only (No G1 hurdles video yet (existing render shows an earlier body))"
+  },
+  {
+   "id": "javelin",
+   "name": "Javelin",
+   "category": "Athletics",
+   "pitch": "Six throws, the best one counts: whole-body power, balance and the moment of release.",
+   "body": "Unitree G1 humanoid (29 joints, no fingers; the agent chooses the release time)",
+   "team": "Solo",
+   "kind": "Solo",
+   "rules": "World Athletics javelin final (rule book 2025)",
+   "field": "TODO",
+   "length": "Six throws; best valid throw counts",
+   "sees": "Head colour camera only",
+   "control": "TODO",
+   "hard": [
+    "Whole-body force and balance (release speed)",
+    "Javelin flight: release timing, angle and a tip-first landing",
+    "Real-time execution (secondary)"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/javelin_g1.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "javelin_g1",
+     "shows": "A G1 throw",
+     "status": "Showcase render from development",
+     "duration_s": 10.5,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/javelin_g1.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/javelin_g1/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/javelin_g1.jpg",
+      "size": "1280x720"
+     }
+    }
+   ],
+   "track": "Engineer",
+   "boards": [
+    "Open Arena (Persistent series of 3 runs; medals from the series ranking)"
+   ],
+   "medals": true,
+   "page_url": "/sports/javelin",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/dev/pingyue-release-cards/cards/javelin_g1/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/dev/pingyue-release-cards/cards/javelin_g1/card.md",
+    "status": "in review, PR #27",
+    "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/27"
+   },
+   "footage": "Video available"
+  },
+  {
+   "id": "racing",
+   "name": "Full-size Racing",
+   "category": "Speed",
+   "pitch": "A 750 kg, 405 kW single-seater driven through the same drive-by-wire interface autonomous racing leagues use.",
+   "body": "Original EAV24-class single-seater: 750 kg, 405 kW, six gears, downforce",
+   "team": "Solo",
+   "kind": "Solo (time trial)",
+   "rules": "Time trial; series rules basis: TODO",
+   "field": "TODO",
+   "length": "Two runs of two timed laps; score = reference lap time / best valid lap; run 2 has a 100 km/h double-yellow sector",
+   "sees": "Front onboard camera, noisy GNSS/INS, wheel speeds, engine and timing data",
+   "control": "Throttle, brake, steering and gear at 100 Hz (drive-by-wire)",
+   "hard": [
+    "Planning the racing line and speed at the grip limit",
+    "Driving precisely at the limit",
+    "Acting on time at real speed"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/f1full.jpg",
+    "size": "640x360"
+   },
+   "still": {
+    "url": "/eo/img/racing-close.jpg",
+    "size": "1600x900"
+   },
+   "clips": [
+    {
+     "id": "f1_night_race",
+     "shows": "Night circuit, braking and a pass",
+     "status": "Showcase render from development; shows several cars, the release event is a single-car time trial",
+     "duration_s": 17.37,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/f1_night_race.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/f1_night_race/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/f1_night_race.jpg",
+      "size": "1280x720"
+     }
+    }
+   ],
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (series of six-car races; medals)",
+    "Open Arena: TODO"
+   ],
+   "medals": true,
+   "page_url": "/sports/racing",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/f1full/cards/f1full/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/card/f1full/cards/f1full/card.md",
+    "status": "in review, PR #32",
+    "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/32"
+   },
+   "footage": "Video available"
+  },
+  {
+   "id": "drone",
+   "name": "Drone Racing",
+   "category": "Speed",
+   "pitch": "A racing quad, a first-person camera and an IMU, no position from the simulator: three laps through the gates.",
+   "body": "Original 5-inch racing quad (0.752 kg, thrust-to-weight 4.6)",
+   "team": "Solo; multi-drone heats and a final",
+   "kind": "Solo (time trial, heats)",
+   "rules": "After FAI F9U indoor drone racing (2026)",
+   "field": "52 x 28 x 8 m hall, 1.5 x 1.5 m gates, seeded circuits with wind, gusts and moving shutters",
+   "length": "3 laps; 3 rounds per event; best round counts",
+   "sees": "One FPV camera (320 x 240) and the flight controller's IMU; no position from the simulator",
+   "control": "Throttle and body rates every 10 ms (acro mode)",
+   "hard": [
+    "Finding the gates, mapping and locating itself",
+    "Flight control under latency",
+    "Pace",
+    "Timing the moving shutters"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/drone.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "drone_race_4",
+     "shows": "Four drones in one airspace",
+     "status": "Showcase render from development",
+     "duration_s": 21.97,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/drone_race_4.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/drone_race_4/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/drone_race_4.jpg",
+      "size": "1280x720"
+     }
+    }
+   ],
+   "track": "Engineer",
+   "boards": [
+    "Olympics Championship (Persistent; heats and a final; medals)",
+    "Open Arena (Persistent time trial, 3 runs)"
+   ],
+   "medals": true,
+   "page_url": "/sports/drone",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/main/cards/drone/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/main/cards/drone/card.md",
+    "status": "on main",
+    "pr": null
+   },
+   "footage": "Video available"
+  },
+  {
+   "id": "stuntcar",
+   "name": "Stunt Car",
+   "category": "Speed",
+   "pitch": "A car with ten cold-gas thrusters takes off from a flat floor, flips over a row of vehicles and has to land it.",
+   "body": "Cold-gas thruster stunt car: 10 nozzles (rear main thrust over 80 kN), 600 L of nitrogen at 690 bar",
+   "team": "Solo",
+   "kind": "Solo",
+   "rules": "Trick show after FIS big air scoring; distance flight",
+   "field": "Indoor stunt arena; take-off over 2-3 cars up to a truck, landing in an 8 m corridor",
+   "length": "Trick show: 2 practice + 3 scored runs, best two different tricks count; distance flight: 1 practice + 3 scored runs",
+   "sees": "INS + GNSS estimate, wheel speeds, tank and manifold pressures; the course is public",
+   "control": "10 valve openings, drive torques, brakes and steering",
+   "hard": [
+    "Attitude manoeuvres in the air",
+    "A powered soft landing",
+    "Budgeting one fill of air",
+    "Variety: a repeated trick scores a tenth"
+   ],
+   "thumb": {
+    "url": "/eo/img/sports/stuntcar.jpg",
+    "size": "640x360"
+   },
+   "still": null,
+   "clips": [
+    {
+     "id": "stuntcar_replica",
+     "shows": "Four thruster stunts",
+     "status": "Showcase render from development",
+     "duration_s": 33.47,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/stuntcar_replica.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/stuntcar_replica/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/stuntcar_replica.jpg",
+      "size": "1280x720"
+     }
+    },
+    {
+     "id": "stuntcar_wave_wall",
+     "shows": "Climbing the wave wall",
+     "status": "Showcase render from development",
+     "duration_s": 19.6,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/stuntcar_wave_wall.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/stuntcar_wave_wall/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/stuntcar_wave_wall.jpg",
+      "size": "1280x720"
+     }
+    }
+   ],
+   "track": "Engineer",
+   "boards": [
+    "Open Arena (Persistent series of 3 runs; medals from the series ranking)"
+   ],
+   "medals": true,
+   "page_url": "/sports/stuntcar",
+   "card": {
+    "en": "https://github.com/CHIGUI0/embodied-olympics-site/blob/main/cards/stuntcar/card.en.md",
+    "zh": "https://github.com/CHIGUI0/embodied-olympics-site/blob/main/cards/stuntcar/card.md",
+    "status": "on main",
+    "pr": null
+   },
+   "footage": "Video available"
+  }
+ ]
+}
