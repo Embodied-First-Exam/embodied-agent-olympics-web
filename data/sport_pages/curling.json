@@ -2423,54 +2423,44 @@
    },
    "Kimi 3.1 Pro": {
     "around": {
-     "status": "na",
-     "checkpoint": "final:7",
-     "reading": "Could not start in our test: missing file (our snapshot)"
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "both_turns": {
      "status": "na",
-     "checkpoint": "final:7",
-     "reading": "Could not start in our test: missing file (our snapshot)"
+     "checkpoint": "final:7"
     },
     "choose": {
-     "status": "na",
-     "checkpoint": "final:7",
-     "reading": "Could not start in our test: missing file (our snapshot)"
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "draw": {
-     "status": "na",
-     "checkpoint": "final:7",
-     "reading": "Could not start in our test: missing file (our snapshot)"
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "hammer": {
      "status": "na",
-     "checkpoint": "final:7",
-     "reading": "Could not start in our test: missing file (our snapshot)"
+     "checkpoint": "final:7"
     },
     "ice": {
-     "status": "na",
-     "checkpoint": "final:7",
-     "reading": "Could not start in our test: missing file (our snapshot)"
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "legal": {
      "status": "na",
-     "checkpoint": "final:7",
-     "reading": "Could not start in our test: missing file (our snapshot)"
+     "checkpoint": "final:7"
     },
     "reach_play": {
      "status": "na",
-     "checkpoint": "final:7",
-     "reading": "Could not start in our test: missing file (our snapshot)"
+     "checkpoint": "final:7"
     },
     "spins": {
      "status": "na",
-     "checkpoint": "final:7",
-     "reading": "Could not start in our test: missing file (our snapshot)"
+     "checkpoint": "final:7"
     },
     "takeout": {
-     "status": "na",
-     "checkpoint": "final:7",
-     "reading": "Could not start in our test: missing file (our snapshot)"
+     "status": "pass",
+     "checkpoint": "final:7"
     }
    }
   },
