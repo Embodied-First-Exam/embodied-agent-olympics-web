@@ -3,7 +3,7 @@
  "sport": "drone",
  "key": "drone",
  "format": "race",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -270,7 +270,10 @@
      "seconds": 247.5,
      "path": "matches/drone/rel-drone-champ2/DRN2-F21/replay.mp4",
      "camera": "broadcast",
-     "size": "848x480"
+     "size": "848x480",
+     "fixture": "DRN2-F21",
+     "key": "drone",
+     "highlight": true
     }
    },
    {
@@ -415,7 +418,10 @@
      "seconds": 327.7,
      "path": "matches/drone/rel-drone-champ2/DRN2-F19/replay.mp4",
      "camera": "broadcast",
-     "size": "848x480"
+     "size": "848x480",
+     "fixture": "DRN2-F19",
+     "key": "drone",
+     "highlight": true
     }
    },
    {
@@ -560,7 +566,10 @@
      "seconds": 99.9,
      "path": "matches/drone/rel-drone-champ2/DRN2-F20/replay.mp4",
      "camera": "broadcast",
-     "size": "848x480"
+     "size": "848x480",
+     "fixture": "DRN2-F20",
+     "key": "drone",
+     "highlight": true
     }
    }
   ],
@@ -582,7 +591,10 @@
        "seconds": 179.8,
        "path": "matches/drone/rel-drone-champ2/DRNC-F04/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F04",
+       "key": "drone",
+       "highlight": true
       }
      },
      {
@@ -597,7 +609,10 @@
        "seconds": 297.2,
        "path": "matches/drone/rel-drone-champ2/DRNC-F05/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F05",
+       "key": "drone",
+       "highlight": true
       }
      },
      {
@@ -612,7 +627,10 @@
        "seconds": 223.0,
        "path": "matches/drone/rel-drone-champ2/DRNC-F06/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F06",
+       "key": "drone",
+       "highlight": true
       }
      }
     ]
@@ -634,7 +652,10 @@
        "seconds": 52.2,
        "path": "matches/drone/rel-drone-champ2/DRNC-F07/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F07",
+       "key": "drone",
+       "highlight": true
       }
      },
      {
@@ -649,7 +670,10 @@
        "seconds": 65.1,
        "path": "matches/drone/rel-drone-champ2/DRNC-F08/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F08",
+       "key": "drone",
+       "highlight": true
       }
      },
      {
@@ -664,7 +688,10 @@
        "seconds": 121.8,
        "path": "matches/drone/rel-drone-champ2/DRNC-F09/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F09",
+       "key": "drone",
+       "highlight": true
       }
      }
     ]
@@ -686,7 +713,10 @@
        "seconds": 26.2,
        "path": "matches/drone/rel-drone-champ2/DRNC-F01/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F01",
+       "key": "drone",
+       "highlight": true
       }
      },
      {
@@ -701,7 +731,10 @@
        "seconds": 108.3,
        "path": "matches/drone/rel-drone-champ2/DRNC-F02/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F02",
+       "key": "drone",
+       "highlight": true
       }
      },
      {
@@ -716,7 +749,10 @@
        "seconds": 161.8,
        "path": "matches/drone/rel-drone-champ2/DRNC-F03/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F03",
+       "key": "drone",
+       "highlight": true
       }
      }
     ]
@@ -738,7 +774,10 @@
        "seconds": 8.8,
        "path": "matches/drone/rel-drone-champ2/DRN2-F13/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRN2-F13",
+       "key": "drone",
+       "highlight": true
       }
      },
      {
@@ -753,7 +792,10 @@
        "seconds": 17.8,
        "path": "matches/drone/rel-drone-champ2/DRN2-F14/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRN2-F14",
+       "key": "drone",
+       "highlight": false
       }
      },
      {
@@ -768,7 +810,10 @@
        "seconds": 30.7,
        "path": "matches/drone/rel-drone-champ2/DRN2-F15/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRN2-F15",
+       "key": "drone",
+       "highlight": true
       }
      }
     ]
@@ -790,7 +835,10 @@
        "seconds": 37.1,
        "path": "matches/drone/rel-drone-champ2/DRNC-F16/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F16",
+       "key": "drone",
+       "highlight": true
       }
      },
      {
@@ -805,7 +853,10 @@
        "seconds": 50.0,
        "path": "matches/drone/rel-drone-champ2/DRNC-F17/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F17",
+       "key": "drone",
+       "highlight": true
       }
      },
      {
@@ -820,7 +871,10 @@
        "seconds": 35.8,
        "path": "matches/drone/rel-drone-champ2/DRNC-F18/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F18",
+       "key": "drone",
+       "highlight": true
       }
      }
     ]
@@ -842,7 +896,10 @@
        "seconds": 9.9,
        "path": "matches/drone/rel-drone-champ2/DRNC-F10/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F10",
+       "key": "drone",
+       "highlight": true
       }
      },
      {
@@ -857,7 +914,10 @@
        "seconds": 8.6,
        "path": "matches/drone/rel-drone-champ2/DRNC-F11/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F11",
+       "key": "drone",
+       "highlight": true
       }
      },
      {
@@ -872,7 +932,10 @@
        "seconds": 22.7,
        "path": "matches/drone/rel-drone-champ2/DRNC-F12/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "DRNC-F12",
+       "key": "drone",
+       "highlight": true
       }
      }
     ]
@@ -991,7 +1054,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-drone-champ2",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Course progress, ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,

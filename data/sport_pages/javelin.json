@@ -3,7 +3,7 @@
  "sport": "javelin",
  "key": "javelin_g1",
  "format": "solo",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -35,7 +35,10 @@
        "seconds": 22.5,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0051/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0051",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -49,7 +52,10 @@
        "seconds": 22.9,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0052/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0052",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -63,7 +69,10 @@
        "seconds": 24.0,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0053/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0053",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -86,7 +95,10 @@
        "seconds": 0.0,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0101/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0101",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -100,7 +112,10 @@
        "seconds": 137.3,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0102/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0102",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -114,7 +129,10 @@
        "seconds": 26.8,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0103/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0103",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -137,7 +155,10 @@
        "seconds": 25.2,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0001/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0001",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -151,7 +172,10 @@
        "seconds": 26.2,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0002/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0002",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -165,7 +189,10 @@
        "seconds": 26.6,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0003/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0003",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -188,7 +215,10 @@
        "seconds": 251.4,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0251/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0251",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -202,7 +232,10 @@
        "seconds": 102.6,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0252/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0252",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -216,7 +249,10 @@
        "seconds": 94.2,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0253/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0253",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -239,7 +275,10 @@
        "seconds": 13.0,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0211/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0211",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -253,7 +292,10 @@
        "seconds": 12.5,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0212/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0212",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -267,7 +309,10 @@
        "seconds": 12.9,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0213/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0213",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -290,7 +335,10 @@
        "seconds": 72.8,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0151/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0151",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -304,7 +352,10 @@
        "seconds": 302.4,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0152/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0152",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -318,7 +369,10 @@
        "seconds": 15.7,
        "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0153/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "JAVA-F0153",
+       "key": "javelin_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -465,7 +519,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-javelin-g1-arena",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Best mark (m), ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,

@@ -3,7 +3,7 @@
  "sport": "hurdles",
  "key": "hurdles_g1",
  "format": "solo",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -35,7 +35,10 @@
        "seconds": 112.1,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HURA-F0051/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HURA-F0051",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -49,7 +52,10 @@
        "seconds": 106.4,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0052/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0052",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -63,7 +69,10 @@
        "seconds": 95.7,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0053/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0053",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -86,7 +95,10 @@
        "seconds": 132.2,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0101/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0101",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -100,7 +112,10 @@
        "seconds": 113.8,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0102/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0102",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -114,7 +129,10 @@
        "seconds": 120.7,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0103/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0103",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -137,7 +155,10 @@
        "seconds": 253.4,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HURA-F0001/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HURA-F0001",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -151,7 +172,10 @@
        "seconds": 236.1,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0002/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0002",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -165,7 +189,10 @@
        "seconds": 204.4,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0003/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0003",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -188,7 +215,10 @@
        "seconds": 103.2,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HURA-F0251/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HURA-F0251",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -202,7 +232,10 @@
        "seconds": 118.7,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0252/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0252",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -216,7 +249,10 @@
        "seconds": 114.6,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0253/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0253",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -239,7 +275,10 @@
        "seconds": 182.8,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HURA-F0151/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HURA-F0151",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -253,7 +292,10 @@
        "seconds": 44.4,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0152/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0152",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -267,7 +309,10 @@
        "seconds": 68.2,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0153/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0153",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -290,7 +335,10 @@
        "seconds": 26.3,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0211/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0211",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -304,7 +352,10 @@
        "seconds": 37.3,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0212/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0212",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -318,7 +369,10 @@
        "seconds": 51.4,
        "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0213/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "HUR2-F0213",
+       "key": "hurdles_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -465,7 +519,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-hurdles-g1-arena2",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Speed (m/s), ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,

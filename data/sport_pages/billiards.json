@@ -3,7 +3,7 @@
  "sport": "billiards",
  "key": "billiards_g1",
  "format": "duel",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -126,7 +126,10 @@
        "seconds": 55.4,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F02/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F02",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -160,7 +163,10 @@
        "seconds": 480.1,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BILC-F01/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BILC-F01",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -194,7 +200,10 @@
        "seconds": 16.1,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BILC-F03/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BILC-F03",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -229,7 +238,10 @@
        "seconds": 191.6,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F04/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F04",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -293,7 +305,10 @@
        "seconds": 372.9,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F06/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F06",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -327,7 +342,10 @@
        "seconds": 371.2,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F07/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F07",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -361,7 +379,10 @@
        "seconds": 351.4,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F08/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F08",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -395,7 +416,10 @@
        "seconds": 434.5,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F09/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F09",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -429,7 +453,10 @@
        "seconds": 304.5,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F10/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F10",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -463,7 +490,10 @@
        "seconds": 252.5,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F11/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F11",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -497,7 +527,10 @@
        "seconds": 946.4,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F12/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F12",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -531,7 +564,10 @@
        "seconds": 473.8,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F13/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F13",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -565,7 +601,10 @@
        "seconds": 401.5,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F14/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F14",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -599,7 +638,10 @@
        "seconds": 1190.5,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F15/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F15",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -642,7 +684,10 @@
        "seconds": 103.5,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F16/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F16",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -683,7 +728,10 @@
        "seconds": 92.5,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F17/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F17",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -730,7 +778,10 @@
        "seconds": 386.8,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F18/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F18",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -777,7 +828,10 @@
        "seconds": 266.6,
        "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F19/replay.mp4",
        "camera": "off-tree wide + top inset",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "BIL2-F19",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -941,7 +995,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F01",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -974,7 +1031,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F03",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1007,7 +1067,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F05",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1040,7 +1103,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F06",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1073,7 +1139,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F07",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1106,7 +1175,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F08",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1139,7 +1211,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F09",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1172,7 +1247,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F11",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1205,7 +1283,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F12",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1238,7 +1319,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F13",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1271,7 +1355,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F14",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1304,7 +1391,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F15",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1340,7 +1430,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILQ-F02",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1374,7 +1467,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILQ-F04",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1410,7 +1506,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILQ-F10",
+       "key": "billiards_g1",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -1567,7 +1666,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-billiards-g1-champ2",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1582,11 +1681,11 @@
    "ref": 0.3828,
    "count": {
     "planned": 176,
-    "ok": 41,
-    "invalid": 30,
-    "never_acted": 18,
+    "ok": 65,
+    "invalid": 28,
+    "never_acted": 20,
     "model_called": 0,
-    "pending": 87
+    "pending": 63
    },
    "lines": {
     "GPT-6 Astra": [
@@ -1599,6 +1698,14 @@
       "n": 1
      },
      {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.5535,
+      "lo": 0.5,
+      "hi": 0.5714,
+      "n": 2
+     },
+     {
       "cp": "final:2",
       "x": 2.0,
       "mean": 0.4039,
@@ -1609,15 +1716,31 @@
      {
       "cp": "final:3",
       "x": 3.0,
+      "mean": 0.5,
+      "lo": 0.5,
+      "hi": 0.5714,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
       "mean": 0.5714,
       "lo": null,
       "hi": null,
       "n": 1
      },
      {
-      "cp": "final:4",
-      "x": 4.0,
-      "mean": 0.5714,
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.5467,
+      "lo": 0.5467,
+      "hi": 0.5714,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.7273,
       "lo": null,
       "hi": null,
       "n": 1
@@ -1643,10 +1766,10 @@
      {
       "cp": "final:3",
       "x": 3.0,
-      "mean": 0.0,
-      "lo": null,
-      "hi": null,
-      "n": 1
+      "mean": 0.1237,
+      "lo": 0.0,
+      "hi": 0.1919,
+      "n": 2
      },
      {
       "cp": "final:4",
@@ -1655,6 +1778,14 @@
       "lo": null,
       "hi": null,
       "n": 1
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.1237,
+      "lo": 0.0,
+      "hi": 0.1919,
+      "n": 2
      }
     ],
     "Gemini 4 Argon": [
@@ -1669,10 +1800,10 @@
      {
       "cp": "final:3",
       "x": 3.0,
-      "mean": 0.25,
-      "lo": null,
-      "hi": null,
-      "n": 1
+      "mean": 0.1625,
+      "lo": 0.1,
+      "hi": 0.25,
+      "n": 2
      },
      {
       "cp": "final:4",
@@ -1711,15 +1842,23 @@
      {
       "cp": "final:3",
       "x": 3.0,
+      "mean": 0.1056,
+      "lo": 0.0,
+      "hi": 0.1556,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
       "mean": 0.0,
       "lo": null,
       "hi": null,
       "n": 1
      },
      {
-      "cp": "final:4",
-      "x": 4.0,
-      "mean": 0.0,
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.1919,
       "lo": null,
       "hi": null,
       "n": 1
@@ -1730,6 +1869,14 @@
       "cp": "final:3",
       "x": 3.0,
       "mean": 0.127,
+      "lo": 0.127,
+      "hi": 0.1429,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.0,
       "lo": null,
       "hi": null,
       "n": 1
@@ -1763,15 +1910,23 @@
      {
       "cp": "final:3",
       "x": 3.0,
+      "mean": 0.6675,
+      "lo": 0.6675,
+      "hi": 0.7273,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
       "mean": 0.6857,
       "lo": null,
       "hi": null,
       "n": 1
      },
      {
-      "cp": "final:4",
-      "x": 4.0,
-      "mean": 0.6857,
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.7273,
       "lo": null,
       "hi": null,
       "n": 1

@@ -3,7 +3,7 @@
  "sport": "baseball",
  "key": "baseball_g1",
  "format": "duel",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -126,7 +126,10 @@
        "seconds": 141.7,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F02/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F02",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -160,7 +163,10 @@
        "seconds": 1423.8,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSBC-F01/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSBC-F01",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -194,7 +200,10 @@
        "seconds": 1164.3,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSBC-F03/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSBC-F03",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -229,7 +238,10 @@
        "seconds": 603.0,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F04/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F04",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -264,7 +276,10 @@
        "seconds": 907.2,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F05/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F05",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -299,7 +314,10 @@
        "seconds": 1137.1,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F06/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F06",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -333,7 +351,10 @@
        "seconds": 464.2,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F07/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F07",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -367,7 +388,10 @@
        "seconds": 450.8,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F08/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F08",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -401,7 +425,10 @@
        "seconds": 838.4,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F09/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F09",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -435,7 +462,10 @@
        "seconds": 1263.4,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F10/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F10",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -469,7 +499,10 @@
        "seconds": 259.9,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F11/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F11",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -503,7 +536,10 @@
        "seconds": 777.8,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F12/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F12",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -537,7 +573,10 @@
        "seconds": 486.3,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F13/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F13",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -571,7 +610,10 @@
        "seconds": 750.3,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F14/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F14",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -605,7 +647,10 @@
        "seconds": 256.7,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F15/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F15",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -648,7 +693,10 @@
        "seconds": 276.6,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F16/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F16",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -689,7 +737,10 @@
        "seconds": 1565.2,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F17/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F17",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -736,7 +787,10 @@
        "seconds": 1439.0,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F18/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F18",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -783,7 +837,10 @@
        "seconds": 323.8,
        "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F19/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSB2-F19",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -945,7 +1002,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F01",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -978,7 +1038,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F02",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1011,7 +1074,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F03",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1044,7 +1110,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F04",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1077,7 +1146,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F05",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1110,7 +1182,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F06",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1143,7 +1218,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F07",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1176,7 +1254,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F08",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1209,7 +1290,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F09",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1242,7 +1326,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F10",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1275,7 +1362,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F11",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1308,7 +1398,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F13",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1341,7 +1434,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F14",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1374,7 +1470,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F15",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1410,7 +1509,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBQ-F12",
+       "key": "baseball_g1",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -1567,7 +1669,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-baseball-g1-champ2",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1579,10 +1681,10 @@
    "count": {
     "planned": 68,
     "ok": 37,
-    "invalid": 1,
+    "invalid": 17,
     "never_acted": 4,
     "model_called": 0,
-    "pending": 26
+    "pending": 10
    },
    "lines": {
     "GPT-6 Astra": [

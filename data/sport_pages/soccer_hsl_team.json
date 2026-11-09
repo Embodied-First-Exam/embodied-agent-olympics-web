@@ -3,7 +3,7 @@
  "sport": "soccer_hsl_team",
  "key": "soccer_hsl_team",
  "format": "team",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "in_progress",
  "provisional": true,
  "podium": {
@@ -135,7 +135,10 @@
        "seconds": 1605.6,
        "path": "matches/soccer_hsl_team/rel-soccer-hsl-team-champ/HSTC-F01/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "HSTC-F01",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -179,7 +182,10 @@
        "seconds": 1600.8,
        "path": "matches/soccer_hsl_team/rel-soccer-hsl-team-champ/HSTC-F02/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "HSTC-F02",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -223,7 +229,10 @@
        "seconds": 1783.9,
        "path": "matches/soccer_hsl_team/rel-soccer-hsl-team-champ/HSTC-F03/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "HSTC-F03",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -267,7 +276,10 @@
        "seconds": 839.0,
        "path": "matches/soccer_hsl_team/rel-soccer-hsl-team-champ/HSTC-F04/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "HSTC-F04",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -311,7 +323,10 @@
        "seconds": 0.0,
        "path": "matches/soccer_hsl_team/rel-soccer-hsl-team-champ/HSTC-F05/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "HSTC-F05",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -355,7 +370,10 @@
        "seconds": 1894.3,
        "path": "matches/soccer_hsl_team/rel-soccer-hsl-team-champ/HSTC-F06/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "HSTC-F06",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -798,7 +816,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "HSTA-F01",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -844,7 +865,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "HSTA-F02",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -887,7 +911,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "HSTA-F05",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -930,7 +957,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "HSTA-F07",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -973,7 +1003,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "HSTA-F08",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1016,7 +1049,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "HSTA-F09",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1059,7 +1095,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "HSTA-F10",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1216,7 +1255,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "HSTA-F14",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1299,7 +1341,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "HSTQ-F03",
+       "key": "soccer_hsl_team",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1536,7 +1581,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-soccer-hsl-team-champ",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [],
    "ref": null,

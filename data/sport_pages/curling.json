@@ -3,7 +3,7 @@
  "sport": "curling",
  "key": "curling_g1",
  "format": "duel",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -126,7 +126,10 @@
        "seconds": 159.6,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F02/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F02",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -160,7 +163,10 @@
        "seconds": 159.8,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CURC-F01/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CURC-F01",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -194,7 +200,10 @@
        "seconds": 156.6,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CURC-F03/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CURC-F03",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -229,7 +238,10 @@
        "seconds": 162.0,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F04/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F04",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -264,7 +276,10 @@
        "seconds": 157.5,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F06/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F06",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -298,7 +313,10 @@
        "seconds": 1.0,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CURC-F05/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CURC-F05",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -333,7 +351,10 @@
        "seconds": 1.0,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F07/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F07",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -368,7 +389,10 @@
        "seconds": 158.3,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F08/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F08",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -403,7 +427,10 @@
        "seconds": 162.9,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F09/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F09",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -437,7 +464,10 @@
        "seconds": 159.0,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F10/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F10",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -471,7 +501,10 @@
        "seconds": 1.0,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F11/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F11",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -505,7 +538,10 @@
        "seconds": 157.8,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F12/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F12",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -539,7 +575,10 @@
        "seconds": 161.5,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F13/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F13",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -573,7 +612,10 @@
        "seconds": 158.8,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F14/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F14",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -607,7 +649,10 @@
        "seconds": 1.0,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F15/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F15",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -650,7 +695,10 @@
        "seconds": 163.6,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F16/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F16",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -691,7 +739,10 @@
        "seconds": 157.8,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F17/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F17",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -738,7 +789,10 @@
        "seconds": 163.6,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F18/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F18",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -785,7 +839,10 @@
        "seconds": 164.2,
        "path": "matches/curling_g1/rel-curling-g1-champ2/CUR2-F19/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "CUR2-F19",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -949,7 +1006,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F01",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -982,7 +1042,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F02",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1015,7 +1078,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F03",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1048,7 +1114,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F04",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1081,7 +1150,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F05",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1114,7 +1186,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F06",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1147,7 +1222,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F07",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1180,7 +1258,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F08",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1213,7 +1294,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F09",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1246,7 +1330,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F10",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1279,7 +1366,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F11",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1312,7 +1402,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F12",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1345,7 +1438,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F13",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1378,7 +1474,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F14",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1411,7 +1510,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "CURA-F15",
+       "key": "curling_g1",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -1568,7 +1670,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-curling-g1-champ2",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {

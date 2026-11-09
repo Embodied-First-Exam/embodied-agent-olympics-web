@@ -73,16 +73,48 @@ def mmss(s: float | None) -> str:
     return f"{s // 60}:{s % 60:02d}"
 
 
-def replay(site: Site, r: dict | None, compact: bool = False) -> str:
-    """The replay slot of a match: a link when the media is publicly hosted, else its type and length, 'at release'."""
+def media_url(site: Site, r: dict | None, which: str = "replay") -> str | None:
+    """URL of a match video from site.json replay_base / highlight_base (null = not hosted yet). A base may carry
+    {path} (file path in the media repo), {key} (sport key) and {fixture}; without placeholders the path is appended."""
     if not r:
-        return '<span class="rp rp--none">No replay</span>'
-    base = site.cfg.get("replay_base")
+        return None
+    base = site.cfg.get(f"{which}_base")
+    if not base or (which == "replay" and not r.get("path")) or (which == "highlight" and not r.get("highlight")):
+        return None
+    vals = {"path": r.get("path") or "", "key": r.get("key") or "", "fixture": r.get("fixture") or ""}
+    if "{" in base:
+        return base.format(**vals)
+    return base.rstrip("/") + "/" + vals["path"]
+
+
+def play_attrs(site: Site, r: dict | None, title: str) -> str:
+    """data-* for the in-page player (sport.js); empty when there is no playable video."""
+    src, hl = media_url(site, r), media_url(site, r, "highlight")
+    if not src and hl:  # no full video (e.g. Open Arena: recorded states only), but a highlight reel exists
+        return f' data-play="{E(hl)}" data-kind="Selected highlight" data-title="{E(title)}"'
+    if not src:
+        return ""
     kind = REPLAY_KIND.get(r.get("kind"), "Replay")
+    return (f' data-play="{E(src)}" data-kind="{E(kind)}" data-title="{E(title)}"'
+            + (f' data-hl="{E(hl)}"' if hl else ""))
+
+
+def no_replay_why(r: dict | None) -> str:
+    if r and r.get("kind") == "states":
+        return "No replay (recorded states only)"
+    return "No replay"
+
+
+def replay(site: Site, r: dict | None, compact: bool = False, title: str = "") -> str:
+    """The replay slot of a match: a play button when the video is hosted, else its type and length, 'at release'."""
+    if not r or (r.get("kind") == "states" and not play_attrs(site, r, title)):
+        return f'<span class="rp rp--none" title="{E(no_replay_why(r))}">No replay</span>'
+    kind = REPLAY_KIND.get(r.get("kind"), "Replay") if r.get("kind") != "states" else "Selected highlight"
     length = mmss(r.get("seconds"))
     label = (f'<b>▶</b>{"" if compact else E(kind)}{(" · " if not compact else "") + length if length else ""}')
-    if base and r.get("path"):
-        return f'<a class="rp" href="{E(base.rstrip("/") + "/" + r["path"])}" target="_blank" rel="noopener" title="{E(kind)}">{label}</a>'
+    pa = play_attrs(site, r, title)
+    if pa:
+        return f'<button type="button" class="rp"{pa} aria-label="Play: {E(title or kind)}">{label}</button>'
     return f'<span class="rp rp--wait" title="{E(kind)}{" · " + length if length else ""} · at release">{label}</span>'
 
 
@@ -111,8 +143,11 @@ def card_match(site: Site, m: dict, title: str) -> str:
         f'<div class="kc-r{" is-w" if s["model"] == m["winner"] or pend else ""}">{who(site, s["model"], note=seat_note(s))}'
         f'<b class="kc-s">{E(str(s["score"])) if s["score"] is not None else "–"}</b></div>' for s in m["sides"])
     note = f'<p class="kc-note">{E(m["note"])}</p>' if m.get("note") else ""
-    return (f'<article class="kc"><header><span class="kicker">{E(title)}</span><span class="mx-id">{E(m["id"])}</span></header>'
-            f'{rows}{note}<footer>{"" if pend else replay(site, m.get("replay"))}</footer></article>')
+    ttl = f'{title} · ' + " v ".join(f'{model_name(_m(site, s["model"]))} {s["score"]}' for s in m["sides"])
+    pa = "" if pend else play_attrs(site, m.get("replay"), ttl)
+    attrs = f' tabindex="0" role="button" aria-label="Play: {E(ttl)}"{pa}' if pa else (f' title="{E(no_replay_why(m.get("replay")))}"' if not pend else "")
+    return (f'<article class="kc{" kc--play" if pa else ""}"{attrs}><header><span class="kicker">{E(title)}</span><span class="mx-id">{E(m["id"])}</span></header>'
+            f'{rows}{note}<footer>{"" if pend else replay(site, m.get("replay"), title=ttl)}</footer></article>')
 
 
 def row_match(site: Site, m: dict, tag: str = "") -> str:
@@ -253,14 +288,20 @@ def cross_table(site: Site, rr: dict, anchor: str = "m") -> str:
             so = c.get("shootout") or {}
             sotxt = f' · shoot-out {so.get(mi["name"], "?")}:{so.get(mj["name"], "?")}' if so else ""
             r = c.get("replay") or {}
-            rp = f' · {REPLAY_KIND.get(r.get("kind"), "Replay")} {mmss(r.get("seconds"))}'.rstrip() if r.get("path") else " · no replay yet"
+            rp = f' · {REPLAY_KIND.get(r.get("kind"), "Replay")} {mmss(r.get("seconds"))}, click to play'.rstrip() if media_url(site, r) else " · no replay yet"
             word = {"W": "won", "L": "lost", "D": "drew"}[res]
             tip = (f'{c["id"]} · {model_name(mi)} {word} {me["score"]}:{op["score"]} v {model_name(mj)}'
                    + (f' · {MARK_WORDS[mk]}' if mk else "") + sotxt + rp)
-            href = (site.cfg["replay_base"].rstrip("/") + "/" + r["path"]) if site.cfg.get("replay_base") and r.get("path") else f'#{anchor}-{c["id"]}'
             tag = res + (f"·{mk}" if mk else "")
-            row.append(f'<a class="xt-c xt-{res.lower()}" href="{E(href)}" title="{E(tip)}"><b>{tag}</b>'
-                       f'<span>{E(str(me["score"]))}:{E(str(op["score"]))}</span></a>')
+            ttl = f'{c["id"]} · {model_name(mi)} {me["score"]}:{op["score"]} {model_name(mj)}'
+            pa = play_attrs(site, r, ttl)
+            inner = f'<b>{tag}</b><span>{E(str(me["score"]))}:{E(str(op["score"]))}</span>'
+            if pa:
+                row.append(f'<button type="button" class="xt-c xt-{res.lower()} xt-play" title="{E(tip)}"{pa}>{inner}</button>')
+            else:
+                why = no_replay_why(r) if r.get("kind") == "states" or not r.get("path") else "Replay at release"
+                tip = tip.replace(" · no replay yet", "") + f" · {why}"
+                row.append(f'<span class="xt-c xt-{res.lower()} xt-np" title="{E(tip)}">{inner}</span>')
         body.append("".join(row))
     legend = ('<span><b class="xt-k xt-w">W</b>row model won</span><span><b class="xt-k xt-l">L</b>row model lost</span>'
               '<span><b class="xt-k xt-d">D</b>draw</span><span><b class="xt-k xt-p">–</b>not played yet</span>'
@@ -338,8 +379,7 @@ def duel_champ(site: Site, ch: dict, d: dict | None = None) -> str:
 <div class="cx-row cx-row--2">
   <div class="cx-l"><h3 class="cr-h">Knockout</h3>{bracket(site, st, bool(rr))}</div>
   <div class="cx-r">{podium_box(site, d or {})}</div>
-</div>
-{rr_list(site, rr, "cm")}"""
+</div>"""
 
 
 def race_champ(site: Site, ch: dict) -> str:
@@ -423,8 +463,7 @@ def arena(site: Site, oa: dict) -> str:
   <div class="cx-l"><h3 class="cr-h">Round robin <span>{E(status)}</span></h3>{cross_table(site, rr, "am")}</div>
   <div class="cx-r"><h3 class="cr-h">Standings <span>win 3 · draw 1</span></h3>{standings_big(site, rr["standings"])}</div>
 </div>
-<p class="cr-rule cx-note">{E(note)} Fresh: every match starts from an empty workspace. Separate from the medals.</p>
-{rr_list(site, rr, "am", numbered=True)}"""
+<p class="cr-rule cx-note">{E(note)} Fresh: every match starts from an empty workspace. Separate from the medals.</p>"""
 
 
 def records(site: Site, d: dict) -> str:
@@ -451,8 +490,8 @@ def records(site: Site, d: dict) -> str:
     btns = "".join(f'<button type="button" class="tab{" is-on" if k == 0 else ""}" data-sptab="{t}" role="tab">{l}<small>{E(sub)}</small></button>'
                    for k, (t, l, sub, _) in enumerate(tabs))
     panels = "".join(f'<div class="sp-panel{" is-on" if k == 0 else ""}" data-sppanel="{t}">{body}</div>' for k, (t, _, _, body) in enumerate(tabs))
-    rp = ("Every match links its own recording: the full match, unedited, in real time. "
-          + ("" if site.cfg.get("replay_base") else "Replays go online at release."))
+    rp = ("Click a result or a knockout card to play the full match: unedited, in real time." if site.cfg.get("replay_base")
+          else "Every match has its own recording: the full match, unedited, in real time. Replays go online at release.")
     return f"""
 <section class="band sp-block" id="records" data-snav="Records">
   <div class="wrap">
@@ -691,6 +730,15 @@ def render(site: Site, i: int, d: dict):
   <a href="{site.sport_url(prev_s)}"><span>←</span>{icon(prev_s['id'])}<strong>{E(prev_s['name'])}</strong></a>
   <a href="{site.sport_url(next_s)}"><strong>{E(next_s['name'])}</strong>{icon(next_s['id'])}<span>→</span></a>
 </nav>
+<dialog class="pl" data-player aria-label="Match replay">
+  <div class="pl-in">
+    <header class="pl-h"><strong data-pl-title></strong>
+      <span class="pl-tabs"><button type="button" class="pl-t is-on" data-pl-src="full"></button><button type="button" class="pl-t" data-pl-src="hl" hidden>Highlights</button></span>
+      <button type="button" class="pl-x" data-pl-close aria-label="Close">×</button></header>
+    <video class="pl-v" controls playsinline preload="metadata" data-pl-video></video>
+    <p class="pl-note">Provisional results. Raw broadcast camera, unedited.</p>
+  </div>
+</dialog>
 <script src="{site.asset('js/sport.js')}" defer></script>""")
     return f"sports/{slug(s)}/", page(site, path="sports/", title=s["name"], body=body, description=s["pitch"], dark_top=True,
                                       body_class="sp", css=("css/sport.css",))

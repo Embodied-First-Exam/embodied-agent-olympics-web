@@ -3,7 +3,7 @@
  "sport": "badminton",
  "key": "badminton_g1",
  "format": "duel",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -126,7 +126,10 @@
        "seconds": 33.4,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD2-F02/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD2-F02",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -160,7 +163,10 @@
        "seconds": 54.5,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BADC-F01/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BADC-F01",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -194,7 +200,10 @@
        "seconds": 32.7,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BADC-F03/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BADC-F03",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -229,7 +238,10 @@
        "seconds": 32.0,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD2-F04/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD2-F04",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -264,7 +276,10 @@
        "seconds": 71.3,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD3-F06/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD3-F06",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -298,7 +313,10 @@
        "seconds": 30.2,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BADC-F05/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BADC-F05",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -333,7 +351,10 @@
        "seconds": 31.0,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD2-F07/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD2-F07",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -368,7 +389,10 @@
        "seconds": 34.3,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD3-F08/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD3-F08",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -403,7 +427,10 @@
        "seconds": 32.8,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD3-F09/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD3-F09",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -438,7 +465,10 @@
        "seconds": 47.5,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD3-F10/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD3-F10",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -473,7 +503,10 @@
        "seconds": 31.0,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD3-F11/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD3-F11",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -508,7 +541,10 @@
        "seconds": 34.6,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD3-F12/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD3-F12",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -542,7 +578,10 @@
        "seconds": 49.6,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD3-F13/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD3-F13",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -576,7 +615,10 @@
        "seconds": 35.3,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD3-F14/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD3-F14",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -610,7 +652,10 @@
        "seconds": 38.8,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD3-F15/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD3-F15",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -653,7 +698,10 @@
        "seconds": 31.4,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD3-F16/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD3-F16",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -694,7 +742,10 @@
        "seconds": 42.6,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD3-F17/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD3-F17",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -741,7 +792,10 @@
        "seconds": 77.5,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD3-F18/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD3-F18",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -788,7 +842,10 @@
        "seconds": 57.6,
        "path": "matches/badminton_g1/rel-badminton-g1-champ3/BAD3-F19/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BAD3-F19",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -950,7 +1007,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADA-F01",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -983,7 +1043,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADA-F03",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1016,7 +1079,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADA-F05",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1049,7 +1115,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADA-F07",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1082,7 +1151,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADA-F08",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1115,7 +1187,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADA-F09",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1148,7 +1223,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADA-F13",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1181,7 +1259,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADA-F14",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1214,7 +1295,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADA-F15",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1250,7 +1334,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADQ-F02",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1284,7 +1371,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADQ-F04",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1320,7 +1410,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADQ-F06",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1356,7 +1449,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADQ-F10",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1390,7 +1486,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADQ-F11",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1426,7 +1525,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BADQ-F12",
+       "key": "badminton_g1",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -1583,7 +1685,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-badminton-g1-champ3",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {

@@ -3,7 +3,7 @@
  "sport": "tennis",
  "key": "tennis_g1",
  "format": "duel",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -126,7 +126,10 @@
        "seconds": 53.4,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F02/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F02",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -160,7 +163,10 @@
        "seconds": 84.6,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TENC-F01/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TENC-F01",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -194,7 +200,10 @@
        "seconds": 44.0,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TENC-F03/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TENC-F03",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -229,7 +238,10 @@
        "seconds": 53.8,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F04/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F04",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -264,7 +276,10 @@
        "seconds": 61.1,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F06/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F06",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -298,7 +313,10 @@
        "seconds": 43.4,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TENC-F05/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TENC-F05",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -333,7 +351,10 @@
        "seconds": 54.5,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F07/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F07",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -368,7 +389,10 @@
        "seconds": 38.8,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F08/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F08",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -403,7 +427,10 @@
        "seconds": 93.6,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F09/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F09",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -437,7 +464,10 @@
        "seconds": 48.7,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F10/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F10",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -471,7 +501,10 @@
        "seconds": 38.4,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F11/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F11",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -505,7 +538,10 @@
        "seconds": 50.8,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F12/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F12",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -539,7 +575,10 @@
        "seconds": 52.2,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F13/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F13",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -573,7 +612,10 @@
        "seconds": 83.1,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F14/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F14",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -607,7 +649,10 @@
        "seconds": 0.0,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F15/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F15",
+       "key": "tennis_g1",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -650,7 +695,10 @@
        "seconds": 48.0,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F16/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F16",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -691,7 +739,10 @@
        "seconds": 88.6,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F17/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F17",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -738,7 +789,10 @@
        "seconds": 50.2,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F18/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F18",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -785,7 +839,10 @@
        "seconds": 53.4,
        "path": "matches/tennis_g1/rel-tennis-g1-champ2/TEN2-F19/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "TEN2-F19",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -949,7 +1006,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENA-F01",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -982,7 +1042,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENA-F02",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1015,7 +1078,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENA-F03",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1048,7 +1114,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENA-F05",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1081,7 +1150,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENA-F07",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1114,7 +1186,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENA-F08",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1147,7 +1222,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENA-F09",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1180,7 +1258,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENA-F10",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1213,7 +1294,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENA-F11",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1246,7 +1330,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENA-F12",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1279,7 +1366,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENA-F13",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1312,7 +1402,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENA-F14",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1345,7 +1438,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENA-F15",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1379,7 +1475,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENQ-F04",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1415,7 +1514,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "TENQ-F06",
+       "key": "tennis_g1",
+       "highlight": true
       },
       "status": "resolved"
      }
@@ -1572,7 +1674,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-tennis-g1-champ2",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1606,9 +1708,9 @@
      {
       "cp": "final:1",
       "x": 1.0,
-      "mean": 0.0,
+      "mean": 0.0625,
       "lo": 0.0,
-      "hi": 0.0,
+      "hi": 0.125,
       "n": 2
      },
      {

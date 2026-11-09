@@ -3,7 +3,7 @@
  "sport": "basketball",
  "key": "basketball_g1",
  "format": "team",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -126,7 +126,10 @@
        "seconds": 106.7,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F02/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F02",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -160,7 +163,10 @@
        "seconds": 85.6,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSKC-F01/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSKC-F01",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -194,7 +200,10 @@
        "seconds": 0.0,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSKC-F03/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSKC-F03",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -229,7 +238,10 @@
        "seconds": 84.4,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F04/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F04",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -264,7 +276,10 @@
        "seconds": 64.3,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F06/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F06",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -298,7 +313,10 @@
        "seconds": 101.3,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSKC-F05/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSKC-F05",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -333,7 +351,10 @@
        "seconds": 114.9,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F07/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F07",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -368,7 +389,10 @@
        "seconds": 162.5,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F08/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F08",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -403,7 +427,10 @@
        "seconds": 81.8,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F09/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F09",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -437,7 +464,10 @@
        "seconds": 78.4,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F10/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F10",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -471,7 +501,10 @@
        "seconds": 130.4,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F11/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F11",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -505,7 +538,10 @@
        "seconds": 136.8,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F12/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F12",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -539,7 +575,10 @@
        "seconds": 64.6,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F13/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F13",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -573,7 +612,10 @@
        "seconds": 90.3,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F14/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F14",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -607,7 +649,10 @@
        "seconds": 200.3,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F15/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F15",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -650,7 +695,10 @@
        "seconds": 74.2,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F16/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F16",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -691,7 +739,10 @@
        "seconds": 132.4,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F17/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F17",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -738,7 +789,10 @@
        "seconds": 63.2,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F18/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F18",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -785,7 +839,10 @@
        "seconds": 152.5,
        "path": "matches/basketball_g1/rel-basketball-g1-champ2/BSK2-F19/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BSK2-F19",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -949,7 +1006,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKA-F01",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -982,7 +1042,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKA-F02",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1015,7 +1078,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKA-F03",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1048,7 +1114,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKA-F04",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1081,7 +1150,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKA-F05",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1114,7 +1186,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKA-F06",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1147,7 +1222,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKA-F07",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1180,7 +1258,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKA-F08",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1213,7 +1294,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKA-F09",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1246,7 +1330,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKA-F11",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1279,7 +1366,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKA-F13",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1312,7 +1402,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKA-F14",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1345,7 +1438,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKA-F15",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1381,7 +1477,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKQ-F10",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1417,7 +1516,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSKQ-F12",
+       "key": "basketball_g1",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -1574,7 +1676,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-basketball-g1-champ2",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {

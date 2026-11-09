@@ -47,22 +47,40 @@
   }
 })();
 
-/* cross-table cells link to their match row inside the folded list: open it, scroll, highlight */
+/* in-page player: any [data-play] (cross-table cell, knockout card, replay chip) opens its match in a dialog;
+   Esc, the close button or a click outside closes it; a "Highlights" tab appears when the match has a reel */
 (() => {
-  const go = (id) => {
-    const row = document.getElementById(id);
-    if (!row) return;
-    const d = row.closest("details"); if (d) d.open = true;
-    const panel = row.closest("[data-sppanel]");
-    if (panel && !panel.classList.contains("is-on")) { const b = document.querySelector(`[data-sptab="${panel.dataset.sppanel}"]`); if (b) b.click(); }
-    document.querySelectorAll(".mx.is-hl").forEach((x) => x.classList.remove("is-hl"));
-    row.classList.add("is-hl");
-    row.scrollIntoView({ block: "center", behavior: "smooth" });
+  const dlg = document.querySelector("[data-player]");
+  if (!dlg) return;
+  const vid = dlg.querySelector("[data-pl-video]"), ttl = dlg.querySelector("[data-pl-title]");
+  const tFull = dlg.querySelector('[data-pl-src="full"]'), tHl = dlg.querySelector('[data-pl-src="hl"]');
+  let src = {}, opener = null;
+  const show = (k) => {
+    vid.src = src[k]; vid.play().catch(() => {});
+    tFull.classList.toggle("is-on", k === "full"); tHl.classList.toggle("is-on", k === "hl");
   };
+  const open = (el) => {
+    opener = el;
+    src = { full: el.dataset.play, hl: el.dataset.hl };
+    ttl.textContent = el.dataset.title || el.dataset.kind || "Replay";
+    tFull.textContent = el.dataset.kind || "Full match replay";
+    tHl.hidden = !src.hl;
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+    show("full");
+  };
+  const close = () => { vid.pause(); vid.removeAttribute("src"); vid.load(); if (dlg.open) dlg.close(); if (opener) opener.focus(); };
   document.addEventListener("click", (e) => {
-    const a = e.target.closest("a.xt-c[href^='#']");
-    if (!a) return;
-    e.preventDefault(); history.replaceState(null, "", a.getAttribute("href")); go(a.getAttribute("href").slice(1));
+    const el = e.target.closest("[data-play]");
+    if (!el || dlg.contains(el)) return;
+    e.preventDefault(); e.stopPropagation(); open(el);
   });
-  if (/^#(cm|am)-/.test(location.hash)) go(location.hash.slice(1));
+  document.addEventListener("keydown", (e) => {
+    const el = e.target.closest && e.target.closest("article[data-play]");
+    if (el && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); open(el); }
+  });
+  tFull.addEventListener("click", () => show("full"));
+  tHl.addEventListener("click", () => show("hl"));
+  dlg.querySelector("[data-pl-close]").addEventListener("click", close);
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) close(); });
+  dlg.addEventListener("cancel", (e) => { e.preventDefault(); close(); });
 })();

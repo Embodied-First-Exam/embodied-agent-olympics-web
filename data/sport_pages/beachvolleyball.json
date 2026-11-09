@@ -3,7 +3,7 @@
  "sport": "beachvolleyball",
  "key": "beachvolleyball_g1",
  "format": "team",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -126,7 +126,10 @@
        "seconds": 39.2,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F02/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F02",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -160,7 +163,10 @@
        "seconds": 28.4,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVBC-F01/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVBC-F01",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -194,7 +200,10 @@
        "seconds": 27.7,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVBC-F03/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVBC-F03",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -229,7 +238,10 @@
        "seconds": 30.4,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F04/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F04",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -264,7 +276,10 @@
        "seconds": 31.5,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F06/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F06",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -298,7 +313,10 @@
        "seconds": 35.3,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVBC-F05/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVBC-F05",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -333,7 +351,10 @@
        "seconds": 24.2,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F07/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F07",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -368,7 +389,10 @@
        "seconds": 35.2,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F08/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F08",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -403,7 +427,10 @@
        "seconds": 27.5,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F09/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F09",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -437,7 +464,10 @@
        "seconds": 63.9,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F10/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F10",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -471,7 +501,10 @@
        "seconds": 19.8,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F11/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F11",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -505,7 +538,10 @@
        "seconds": 39.0,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F12/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F12",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -539,7 +575,10 @@
        "seconds": 70.9,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F13/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F13",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -573,7 +612,10 @@
        "seconds": 41.1,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F14/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F14",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -607,7 +649,10 @@
        "seconds": 18.0,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F15/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F15",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -650,7 +695,10 @@
        "seconds": 50.8,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F16/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F16",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -691,7 +739,10 @@
        "seconds": 62.7,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F17/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F17",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -738,7 +789,10 @@
        "seconds": 71.3,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F18/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F18",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -785,7 +839,10 @@
        "seconds": 54.4,
        "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F19/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "BVB2-F19",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -947,7 +1004,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F01",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -980,7 +1040,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F02",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1013,7 +1076,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F03",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1046,7 +1112,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F05",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1079,7 +1148,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F06",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1112,7 +1184,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F07",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1145,7 +1220,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F08",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1178,7 +1256,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F09",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1211,7 +1292,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F10",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1244,7 +1328,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F11",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1277,7 +1364,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F12",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1310,7 +1400,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F13",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1343,7 +1436,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F14",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1376,7 +1472,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F15",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1412,7 +1511,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBQ-F04",
+       "key": "beachvolleyball_g1",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -1569,7 +1671,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-beachvolleyball-g1-champ2",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {

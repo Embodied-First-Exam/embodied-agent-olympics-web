@@ -3,7 +3,7 @@
  "sport": "sprint",
  "key": "sprint_g1",
  "format": "solo",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -35,7 +35,10 @@
        "seconds": 80.4,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPRA-F0051/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPRA-F0051",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -49,7 +52,10 @@
        "seconds": 67.1,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPR2-F0052/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPR2-F0052",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -63,7 +69,10 @@
        "seconds": 61.0,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPR2-F0053/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPR2-F0053",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -86,7 +95,10 @@
        "seconds": 132.6,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPRA-F0001/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPRA-F0001",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -100,7 +112,10 @@
        "seconds": 83.9,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPR2-F0002/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPR2-F0002",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -114,7 +129,10 @@
        "seconds": 75.2,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPR2-F0003/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPR2-F0003",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -137,7 +155,10 @@
        "seconds": 62.9,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPRA-F0101/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPRA-F0101",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -151,7 +172,10 @@
        "seconds": 106.6,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPR2-F0102/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPR2-F0102",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -165,7 +189,10 @@
        "seconds": 106.8,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPR2-F0103/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPR2-F0103",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -188,7 +215,10 @@
        "seconds": 38.4,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPRA-F0251/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPRA-F0251",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -202,7 +232,10 @@
        "seconds": 30.5,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPR2-F0252/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPR2-F0252",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -216,7 +249,10 @@
        "seconds": 36.5,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPR2-F0253/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPR2-F0253",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -239,7 +275,10 @@
        "seconds": 15.3,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPR2-F0211/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPR2-F0211",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -253,7 +292,10 @@
        "seconds": 46.1,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPR2-F0212/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPR2-F0212",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -267,7 +309,10 @@
        "seconds": 47.0,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPR2-F0213/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPR2-F0213",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -290,7 +335,10 @@
        "seconds": 45.2,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPRA-F0151/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPRA-F0151",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -304,7 +352,10 @@
        "seconds": 32.3,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPR2-F0152/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPR2-F0152",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      },
@@ -318,7 +369,10 @@
        "seconds": 35.7,
        "path": "matches/sprint_g1/rel-sprint-g1-arena2/SPR2-F0153/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SPR2-F0153",
+       "key": "sprint_g1",
+       "highlight": false
       },
       "pending": false
      }
@@ -465,7 +519,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-sprint-g1-arena2",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Speed (m/s), ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,

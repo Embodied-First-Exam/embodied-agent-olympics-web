@@ -3,7 +3,7 @@
  "sport": "racing",
  "key": "racing_full",
  "format": "race",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -44,7 +44,10 @@
      "seconds": 527.3,
      "path": "matches/racing_full/rel-racing-full-champ-rc6b/RAC6-F01/replay.mp4",
      "camera": "broadcast",
-     "size": "1280x720"
+     "size": "1280x720",
+     "fixture": "RAC6-F01",
+     "key": "racing_full",
+     "highlight": false
     }
    },
    {
@@ -74,7 +77,10 @@
      "seconds": 497.0,
      "path": "matches/racing_full/rel-racing-full-champ-rc6b/RAC6-F02/replay.mp4",
      "camera": "broadcast",
-     "size": "1280x720"
+     "size": "1280x720",
+     "fixture": "RAC6-F02",
+     "key": "racing_full",
+     "highlight": false
     }
    },
    {
@@ -104,7 +110,10 @@
      "seconds": 617.7,
      "path": "matches/racing_full/rel-racing-full-champ-rc6b/RA6B-F03/replay.mp4",
      "camera": "broadcast",
-     "size": "1280x720"
+     "size": "1280x720",
+     "fixture": "RA6B-F03",
+     "key": "racing_full",
+     "highlight": false
     }
    }
   ],
@@ -285,19 +294,176 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-racing-full-champ-rc6",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Pace score, ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,
    "count": {
-    "planned": 74,
-    "ok": 3,
+    "planned": 90,
+    "ok": 72,
     "invalid": 0,
-    "never_acted": 3,
+    "never_acted": 1,
     "model_called": 0,
-    "pending": 68
+    "pending": 17
    },
-   "lines": {},
+   "lines": {
+    "GPT-6 Astra": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 1.0506,
+      "lo": 1.049,
+      "hi": 1.0528,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 1.0505,
+      "lo": 1.0492,
+      "hi": 1.0528,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.0688,
+      "lo": 1.0657,
+      "hi": 1.0705,
+      "n": 3
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.2132,
+      "lo": 0.2128,
+      "hi": 0.2138,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.9983,
+      "lo": 0.9965,
+      "hi": 0.9996,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.0476,
+      "lo": 1.0446,
+      "hi": 1.0501,
+      "n": 3
+     }
+    ],
+    "Gemini 4 Argon": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 1.0541,
+      "lo": 1.0518,
+      "hi": 1.0558,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 1.0538,
+      "lo": 1.0518,
+      "hi": 1.0556,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.0655,
+      "lo": 1.0638,
+      "hi": 1.0674,
+      "n": 3
+     }
+    ],
+    "GLM 5.3 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.2132,
+      "lo": 0.2128,
+      "hi": 0.2138,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.2132,
+      "lo": 0.2128,
+      "hi": 0.2138,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.2132,
+      "lo": 0.2128,
+      "hi": 0.2138,
+      "n": 3
+     }
+    ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 1.016,
+      "lo": 1.0143,
+      "hi": 1.0171,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 1.0169,
+      "lo": 1.0165,
+      "hi": 1.0177,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.0012,
+      "lo": 1.0008,
+      "hi": 1.0021,
+      "n": 3
+     }
+    ],
+    "Claude Opus 5.5": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.4888,
+      "lo": 0.213,
+      "hi": 1.0397,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.9396,
+      "lo": 0.8834,
+      "hi": 0.9693,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.7487,
+      "lo": 0.2138,
+      "hi": 1.0477,
+      "n": 3
+     }
+    ]
+   },
    "verdict": {
     "GPT-6 Astra": null,
     "Claude Opus 5.5": null,

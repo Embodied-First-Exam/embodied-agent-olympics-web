@@ -3,7 +3,7 @@
  "sport": "stuntcar",
  "key": "stuntcar",
  "format": "solo",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -35,7 +35,10 @@
        "seconds": 50.8,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STUA-F0051/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STUA-F0051",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      },
@@ -49,7 +52,10 @@
        "seconds": 51.8,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0052/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STU2-F0052",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      },
@@ -63,7 +69,10 @@
        "seconds": 53.8,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0053/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STU2-F0053",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      }
@@ -86,7 +95,10 @@
        "seconds": 62.6,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STUA-F0001/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STUA-F0001",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      },
@@ -100,7 +112,10 @@
        "seconds": 61.9,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0002/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STU2-F0002",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      },
@@ -114,7 +129,10 @@
        "seconds": 57.2,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0003/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STU2-F0003",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      }
@@ -137,7 +155,10 @@
        "seconds": 61.2,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0101/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STU2-F0101",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      },
@@ -151,7 +172,10 @@
        "seconds": 0.0,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0102/replay.mp4",
        "camera": "broadcast",
-       "size": "848x480"
+       "size": "848x480",
+       "fixture": "STU2-F0102",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      },
@@ -165,7 +189,10 @@
        "seconds": 58.2,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0103/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STU2-F0103",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      }
@@ -188,7 +215,10 @@
        "seconds": 49.9,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STUA-F0251/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STUA-F0251",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      },
@@ -202,7 +232,10 @@
        "seconds": 49.3,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0252/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STU2-F0252",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      },
@@ -216,7 +249,10 @@
        "seconds": 35.9,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0253/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STU2-F0253",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      }
@@ -239,7 +275,10 @@
        "seconds": 40.8,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0211/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STU2-F0211",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      },
@@ -253,7 +292,10 @@
        "seconds": 38.0,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0212/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STU2-F0212",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      },
@@ -267,7 +309,10 @@
        "seconds": 37.4,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0213/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STU2-F0213",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      }
@@ -290,7 +335,10 @@
        "seconds": 95.9,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STUA-F0151/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STUA-F0151",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      },
@@ -304,7 +352,10 @@
        "seconds": 25.7,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0152/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STU2-F0152",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      },
@@ -318,7 +369,10 @@
        "seconds": 22.0,
        "path": "matches/stuntcar/rel-stuntcar-arena2/STU2-F0153/replay.mp4",
        "camera": "follow",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "STU2-F0153",
+       "key": "stuntcar",
+       "highlight": false
       },
       "pending": false
      }
@@ -465,7 +519,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-stuntcar-arena2",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Event points, ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,

@@ -3,7 +3,7 @@
  "sport": "soccer_ssl",
  "key": "soccer_ssl",
  "format": "team",
- "made": "2026-11-09T04:21Z",
+ "made": "2026-11-09T04:28Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -126,7 +126,10 @@
        "seconds": 1332.9,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F02/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F02",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -160,7 +163,10 @@
        "seconds": 1090.3,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSLC-F01/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSLC-F01",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -194,7 +200,10 @@
        "seconds": 1085.2,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSLC-F03/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSLC-F03",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -229,7 +238,10 @@
        "seconds": 1644.6,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F04/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F04",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -264,7 +276,10 @@
        "seconds": 806.3,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F06/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F06",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -298,7 +313,10 @@
        "seconds": 1337.4,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSLC-F05/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSLC-F05",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -333,7 +351,10 @@
        "seconds": 669.7,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F07/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F07",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -368,7 +389,10 @@
        "seconds": 592.4,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F08/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F08",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -403,7 +427,10 @@
        "seconds": 1000.4,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F09/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F09",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -441,7 +468,10 @@
        "seconds": 990.4,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F10/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F10",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -476,7 +506,10 @@
        "seconds": 532.4,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F11/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F11",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -511,7 +544,10 @@
        "seconds": 1795.0,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F12/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F12",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -545,7 +581,10 @@
        "seconds": 962.0,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F13/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F13",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -579,7 +618,10 @@
        "seconds": 710.9,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F14/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F14",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -616,7 +658,10 @@
        "seconds": 1219.8,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F15/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F15",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      }
@@ -659,7 +704,10 @@
        "seconds": 1007.0,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F16/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F16",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -703,7 +751,10 @@
        "seconds": 816.7,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F17/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F17",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -750,7 +801,10 @@
        "seconds": 911.5,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F18/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F18",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -797,7 +851,10 @@
        "seconds": 863.0,
        "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F19/replay.mp4",
        "camera": "broadcast",
-       "size": "1280x720"
+       "size": "1280x720",
+       "fixture": "SSL2-F19",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved",
       "seeds": [
@@ -959,7 +1016,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F01",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1020,7 +1080,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F03",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1053,7 +1116,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F04",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1170,7 +1236,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F08",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1203,7 +1272,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F09",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1236,7 +1308,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F10",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1325,7 +1400,10 @@
        "kind": "states",
        "seconds": null,
        "path": null,
-       "note": "Recorded states only; video drawn at release"
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F15",
+       "key": "soccer_ssl",
+       "highlight": false
       },
       "status": "resolved"
      },
@@ -1544,7 +1622,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-soccer-ssl-champ2",
-   "made": "2026-11-08 22:18 CST",
+   "made": "2026-11-08 22:22 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
