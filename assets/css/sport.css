@@ -378,3 +378,34 @@ button.rp:hover{border-color:var(--accent);color:var(--fg)}
 .sbo-toast[hidden],.sbo[hidden]{display:none}
 @media (max-width:640px){.sbo{left:6px;top:6px}.sbo-side{padding:4px 6px;font-size:12px;gap:5px}.sbo-sc{font-size:15px;padding:0 8px}
   .sbo-logo{display:none}.sbo-sub{font-size:9.5px}.sbo-lab{display:none}.sbo-toast{top:auto;bottom:46px;font-size:12px}}
+
+/* ---------- player full screen: the stage (video + scoreboard) together; CSS fill where the API is missing */
+.pl-fs{position:absolute;right:10px;top:10px;z-index:3;display:grid;place-items:center;width:34px;height:34px;border-radius:8px;
+  background:rgba(8,9,11,.6);color:#F2F1EC;opacity:.85}
+.pl-fs:hover,.pl-fs:focus-visible{opacity:1;background:rgba(8,9,11,.85)}
+.pl-fs .fs-out,.pl-fs.is-on .fs-in{display:none}.pl-fs.is-on .fs-out{display:inline}
+.pl-rot{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);padding:6px 12px;border-radius:999px;background:rgba(8,9,11,.8);
+  color:#F2F1EC;font-size:12px;white-space:nowrap;pointer-events:none}
+.pl-rot[hidden]{display:none}
+/* full-screen look; :fullscreen and the webkit prefix in separate rules (an unknown selector drops a whole rule) */
+.pl-stage.is-fill{position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;z-index:2147483000;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+html.pl-fill-on,html.pl-fill-on body{overflow:hidden}
+.pl-stage:fullscreen{background:#000;display:flex;align-items:center;justify-content:center;--sb:1.55}
+.pl-stage:fullscreen .pl-v{width:100%;height:100%;max-height:none;aspect-ratio:auto}
+.pl-stage:fullscreen .sbo{left:max(2.2vw,env(safe-area-inset-left));top:max(2.6vh,env(safe-area-inset-top));transform:scale(var(--sb));transform-origin:top left;max-width:calc((100% - 4.4vw) / var(--sb))}
+.pl-stage:fullscreen .sbo-toast{top:3vh;transform:translateX(-50%) scale(var(--sb));transform-origin:top center;animation:none}
+.pl-stage:fullscreen .pl-fs{right:max(2vw,env(safe-area-inset-right));top:max(2.4vh,env(safe-area-inset-top));width:42px;height:42px}
+.pl-stage:-webkit-full-screen{background:#000;display:flex;align-items:center;justify-content:center;--sb:1.55}
+.pl-stage:-webkit-full-screen .pl-v{width:100%;height:100%;max-height:none;aspect-ratio:auto}
+.pl-stage:-webkit-full-screen .sbo{left:max(2.2vw,env(safe-area-inset-left));top:max(2.6vh,env(safe-area-inset-top));transform:scale(var(--sb));transform-origin:top left;max-width:calc((100% - 4.4vw) / var(--sb))}
+.pl-stage:-webkit-full-screen .sbo-toast{top:3vh;transform:translateX(-50%) scale(var(--sb));transform-origin:top center;animation:none}
+.pl-stage:-webkit-full-screen .pl-fs{right:max(2vw,env(safe-area-inset-right));top:max(2.4vh,env(safe-area-inset-top));width:42px;height:42px}
+.pl-stage.is-fill{background:#000;display:flex;align-items:center;justify-content:center;--sb:1.55}
+.pl-stage.is-fill .pl-v{width:100%;height:100%;max-height:none;aspect-ratio:auto}
+.pl-stage.is-fill .sbo{left:max(2.2vw,env(safe-area-inset-left));top:max(2.6vh,env(safe-area-inset-top));transform:scale(var(--sb));transform-origin:top left;max-width:calc((100% - 4.4vw) / var(--sb))}
+.pl-stage.is-fill .sbo-toast{top:3vh;transform:translateX(-50%) scale(var(--sb));transform-origin:top center;animation:none}
+.pl-stage.is-fill .pl-fs{right:max(2vw,env(safe-area-inset-right));top:max(2.4vh,env(safe-area-inset-top));width:42px;height:42px}
+@media (min-width:1700px){.pl-stage:fullscreen,.pl-stage.is-fill{--sb:1.9}}
+@media (max-width:900px){.pl-stage.is-fill,.pl-stage:fullscreen{--sb:1.1}}
+@media (max-width:640px){.pl-stage.is-fill .sbo-lab{display:inline}}

@@ -737,7 +737,9 @@ def render(site: Site, i: int, d: dict):
     <header class="pl-h"><strong data-pl-title></strong>
       <span class="pl-tabs"><button type="button" class="pl-t is-on" data-pl-src="full"></button><button type="button" class="pl-t" data-pl-src="hl" hidden>Highlights</button></span>
       <button type="button" class="pl-x" data-pl-close aria-label="Close">×</button></header>
-    <div class="pl-stage"><video class="pl-v" controls playsinline preload="metadata" data-pl-video></video>
+    <div class="pl-stage" data-pl-stage><video class="pl-v" controls controlslist="nofullscreen nodownload" disablepictureinpicture playsinline preload="metadata" data-pl-video></video>
+      <button type="button" class="pl-fs" data-pl-fs aria-label="Full screen (F)" title="Full screen (F)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path class="fs-in" d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/><path class="fs-out" d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg></button>
+      <p class="pl-rot" data-pl-rot hidden>Turn your phone sideways for a bigger picture</p>
       <div class="sbo" data-sbo hidden aria-live="polite"></div><div class="sbo-toast" data-sbo-toast hidden></div></div>
     <p class="pl-note">Provisional results. Raw broadcast camera, unedited.</p>
   </div>

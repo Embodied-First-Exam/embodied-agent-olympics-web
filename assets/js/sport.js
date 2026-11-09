@@ -123,7 +123,39 @@
       tl = j; tl.events.sort((x, y) => x.t - y.t); sbo.hidden = mode !== "full"; render();
     }).catch(() => {});
   };
-  const close = () => { vid.pause(); vid.removeAttribute("src"); vid.load(); if (dlg.open) dlg.close(); if (opener) opener.focus(); };
+  /* full screen: the stage (video + scoreboard) goes full screen together; native video full screen is off.
+     Without the element Fullscreen API (iPhone Safari) the stage fills the viewport with CSS instead. */
+  const stage = dlg.querySelector("[data-pl-stage]"), fsBtn = dlg.querySelector("[data-pl-fs]"), rot = dlg.querySelector("[data-pl-rot]");
+  const fsEl = () => document.fullscreenElement || document.webkitFullscreenElement;
+  const canFs = !!(stage.requestFullscreen || stage.webkitRequestFullscreen);
+  const isFill = () => stage.classList.contains("is-fill");
+  const portrait = () => matchMedia("(orientation: portrait)").matches;
+  const setFill = (on) => {
+    stage.classList.toggle("is-fill", on); document.documentElement.classList.toggle("pl-fill-on", on);
+    rot.hidden = !(on && portrait());
+    fsBtn.classList.toggle("is-on", on);
+  };
+  const toggleFs = () => {
+    if (fsEl()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    if (isFill()) { setFill(false); return; }
+    if (canFs) {
+      const req = stage.requestFullscreen || stage.webkitRequestFullscreen;
+      const p = req.call(stage);
+      if (p && p.catch) p.catch(() => setFill(true));
+    } else setFill(true);
+  };
+  const onFs = () => { const on = fsEl() === stage; stage.classList.toggle("is-fs", on); fsBtn.classList.toggle("is-on", on); render(); };
+  document.addEventListener("fullscreenchange", onFs);
+  document.addEventListener("webkitfullscreenchange", onFs);
+  addEventListener("orientationchange", () => { if (isFill()) rot.hidden = !portrait(); });
+  addEventListener("resize", () => { if (isFill()) rot.hidden = !portrait(); });
+  fsBtn.addEventListener("click", (e) => { e.stopPropagation(); toggleFs(); });
+  vid.addEventListener("dblclick", (e) => { e.preventDefault(); toggleFs(); });
+  dlg.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && fsEl()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    if ((e.key === "f" || e.key === "F") && !e.metaKey && !e.ctrlKey && !e.altKey && !/input|textarea/i.test(e.target.tagName)) { e.preventDefault(); toggleFs(); }
+  });
+  const close = () => { if (fsEl()) (document.exitFullscreen || document.webkitExitFullscreen).call(document); setFill(false); vid.pause(); vid.removeAttribute("src"); vid.load(); if (dlg.open) dlg.close(); if (opener) opener.focus(); };
   document.addEventListener("click", (e) => {
     const el = e.target.closest("[data-play]");
     if (!el || dlg.contains(el)) return;
@@ -137,5 +169,5 @@
   tHl.addEventListener("click", () => show("hl"));
   dlg.querySelector("[data-pl-close]").addEventListener("click", close);
   dlg.addEventListener("click", (e) => { if (e.target === dlg) close(); });
-  dlg.addEventListener("cancel", (e) => { e.preventDefault(); close(); });
+  dlg.addEventListener("cancel", (e) => { e.preventDefault(); if (isFill()) setFill(false); else if (!fsEl()) close(); });
 })();
