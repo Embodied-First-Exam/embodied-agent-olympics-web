@@ -2054,6 +2054,96 @@
      "status": "na",
      "checkpoint": "final:1"
     }
+   },
+   "GLM 5.3 Flash": {
+    "strikes": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "contact": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "discipline": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "fielded": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "pitch_up": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "push_up": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "to_first": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "Gemini 4 Argon": {
+    "strikes": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "pitch_up": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "push_up": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "discipline": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "contact": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "fielded": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "to_first": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
+   },
+   "DeepSeek V4.1 Flash": {
+    "strikes": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "pitch_up": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "push_up": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "contact": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "discipline": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "fielded": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "to_first": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
    }
   },
   "reference": {

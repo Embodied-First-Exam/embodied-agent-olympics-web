@@ -2167,6 +2167,174 @@
      "status": "na",
      "checkpoint": "final:1"
     }
+   },
+   "GLM 5.3 Flash": {
+    "aim": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "pots": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "cut": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "clean": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "break": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "place": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "legal": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "acts": {
+     "status": "na",
+     "checkpoint": "final:4"
+    },
+    "runs": {
+     "status": "na",
+     "checkpoint": "final:4"
+    },
+    "safety": {
+     "status": "na",
+     "checkpoint": "final:4"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "aim": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "pots": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "cut": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "clean": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "break": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "place": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "legal": {
+     "status": "fail",
+     "checkpoint": "final:4"
+    },
+    "acts": {
+     "status": "na",
+     "checkpoint": "final:4"
+    },
+    "runs": {
+     "status": "na",
+     "checkpoint": "final:4"
+    },
+    "safety": {
+     "status": "na",
+     "checkpoint": "final:4"
+    }
+   },
+   "DeepSeek V4.1 Flash": {
+    "aim": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "pots": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "cut": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "clean": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "break": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "place": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "legal": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "acts": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "runs": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "safety": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
+   },
+   "Gemini 4 Argon": {
+    "break": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "place": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "aim": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "pots": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "cut": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "clean": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "legal": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "acts": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "runs": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "safety": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
    }
   },
   "reference": {

@@ -2377,6 +2377,158 @@
      "status": "na",
      "checkpoint": "final:5"
     }
+   },
+   "GLM 5.3 Flash": {
+    "stands": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "push": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "moves_to": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "serve_in": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "touches": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "receives": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "returns_in": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "near": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "rallies": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "DeepSeek V4.1 Flash": {
+    "serve_in": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "stands": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "moves_to": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "touches": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "receives": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "returns_in": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "near": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "rallies": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "Gemini 4 Argon": {
+    "serve_in": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "stands": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "push": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "moves_to": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "touches": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "receives": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "returns_in": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "near": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "rallies": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "serve_in": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "stands": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "push": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "moves_to": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "touches": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "receives": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "returns_in": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "near": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "rallies": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
    }
   },
   "reference": {

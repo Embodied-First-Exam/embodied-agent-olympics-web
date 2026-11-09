@@ -793,6 +793,158 @@
      "status": "fail",
      "checkpoint": "final:3"
     }
+   },
+   "Gemini 4 Argon": {
+    "corner_speed": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "lap": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "no_incident": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "pace": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "recovers": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "rhythm": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "tight_corner": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "steady": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "yellow": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "lap": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "no_incident": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "recovers": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "rhythm": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "tight_corner": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "corner_speed": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "pace": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "steady": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "yellow": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "rhythm": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "corner_speed": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "lap": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "no_incident": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "pace": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "steady": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "yellow": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "recovers": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "tight_corner": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
+   },
+   "DeepSeek V4.1 Flash": {
+    "rhythm": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "corner_speed": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "lap": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "no_incident": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "pace": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "steady": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "yellow": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "recovers": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "tight_corner": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
    }
   },
   "reference": {

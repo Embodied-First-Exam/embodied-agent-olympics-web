@@ -2284,6 +2284,132 @@
      "status": "fail",
      "checkpoint": "final:1"
     }
+   },
+   "DeepSeek V4.1 Flash": {
+    "draw": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "takeout": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "choose": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "ice": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "around": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "both_turns": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "hammer": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "legal": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "reach_play": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "spins": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "draw": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "ice": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "takeout": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "around": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "choose": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "both_turns": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "hammer": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "legal": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "reach_play": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "spins": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "Gemini 4 Argon": {
+    "draw": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "ice": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "takeout": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "around": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "choose": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "both_turns": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "hammer": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "legal": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "reach_play": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "spins": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
    }
   },
   "reference": {

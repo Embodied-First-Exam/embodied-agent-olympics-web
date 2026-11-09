@@ -2373,6 +2373,158 @@
      "status": "na",
      "checkpoint": "final:1"
     }
+   },
+   "DeepSeek V4.1 Flash": {
+    "ball_sec": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "push_up": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "gets_up": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "first_down": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "in_play": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "ball_seen": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "loose": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "tackle": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "ball_sec": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "push_up": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "gets_up": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "in_play": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "ball_seen": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "first_down": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "loose": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "tackle": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "Gemini 4 Argon": {
+    "tackle": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "ball_sec": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "loose": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "push_up": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "gets_up": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "in_play": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "ball_seen": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "first_down": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "first_down": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "push_up": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "gets_up": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "tackle": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "ball_sec": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "loose": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "in_play": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "ball_seen": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
    }
   },
   "reference": {

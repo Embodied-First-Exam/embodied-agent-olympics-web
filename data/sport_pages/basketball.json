@@ -2032,34 +2032,34 @@
   "results": {
    "GPT-6 Astra": {
     "takes_shots": {
-     "status": "na",
+     "status": "pass",
      "checkpoint": "final:2"
     },
     "shoots": {
-     "status": "na",
-     "checkpoint": "final:2"
-    },
-    "walk_in": {
-     "status": "na",
+     "status": "pass",
      "checkpoint": "final:2"
     },
     "view_loose": {
-     "status": "na",
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "walk_in": {
+     "status": "fail",
      "checkpoint": "final:2"
     },
     "loose_ball": {
-     "status": "na",
+     "status": "fail",
      "checkpoint": "final:2"
     },
     "push_up": {
-     "status": "na",
-     "checkpoint": "final:2"
-    },
-    "stays_up": {
-     "status": "na",
+     "status": "fail",
      "checkpoint": "final:2"
     },
     "clean": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "defends": {
      "status": "na",
      "checkpoint": "final:2"
     },
@@ -2067,45 +2067,45 @@
      "status": "na",
      "checkpoint": "final:2"
     },
-    "walks": {
+    "stays_up": {
      "status": "na",
      "checkpoint": "final:2"
     },
-    "defends": {
+    "walks": {
      "status": "na",
      "checkpoint": "final:2"
     }
    },
    "Claude Opus 5.5": {
     "takes_shots": {
-     "status": "na",
+     "status": "pass",
      "checkpoint": "final:2"
     },
     "shoots": {
-     "status": "na",
-     "checkpoint": "final:2"
-    },
-    "walk_in": {
-     "status": "na",
+     "status": "pass",
      "checkpoint": "final:2"
     },
     "view_loose": {
-     "status": "na",
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "walk_in": {
+     "status": "fail",
      "checkpoint": "final:2"
     },
     "loose_ball": {
-     "status": "na",
+     "status": "fail",
      "checkpoint": "final:2"
     },
     "push_up": {
-     "status": "na",
-     "checkpoint": "final:2"
-    },
-    "stays_up": {
-     "status": "na",
+     "status": "fail",
      "checkpoint": "final:2"
     },
     "clean": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "defends": {
      "status": "na",
      "checkpoint": "final:2"
     },
@@ -2113,19 +2113,27 @@
      "status": "na",
      "checkpoint": "final:2"
     },
-    "walks": {
+    "stays_up": {
      "status": "na",
      "checkpoint": "final:2"
     },
-    "defends": {
+    "walks": {
      "status": "na",
      "checkpoint": "final:2"
     }
    }
   },
   "reference": {
-   "passed": [],
-   "failed": []
+   "passed": [
+    "takes_shots",
+    "shoots",
+    "walk_in",
+    "push_up"
+   ],
+   "failed": [
+    "view_loose",
+    "loose_ball"
+   ]
   },
   "open_questions": [
    "Standing long shot, then a fall. Both models shoot standing from the 8.3-8.5 m check-ball spot (scenario shot: Astra 12/12 made with about 4 acts a check ball; Opus 8/12). The shooter falls after every release. The next check ball re-places every robot, so the fall costs nothing. The card says a standing 8.5 m shot needs >= 11.9 m/s, above the upper-bound thrower probe, yet the models score. Should a fall between the release and the ball's landing be a violation or cost something? Until that is decided, 'Makes shots' has c = partly.",
