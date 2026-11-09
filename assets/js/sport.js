@@ -74,17 +74,20 @@
     }
     return k;
   };
-  const sw = (k) => (k && k.hex ? `<i class="sbo-kit" style="--k:${esc(k.hex)}" title="${esc(k.what || "")}"></i>` : "");
+  // robots now wear their model's colour (Chi 11-09): the swatch is the model colour; a word only for non-colour cues
+  // (court end, billiards ball group, baseball role)
+  const sw = (k) => (k && k.hex ? `<i class="sbo-kit" title="${esc(k.what || "")}"></i>` : "");
+  const kitWord = (k) => (k && !k.hex ? esc(k.name) : "");
   const side = (s, cls, mark) => {
     const m = mdl[s.model] || {}, k = kitOf(s.seat);
-    const kitTxt = k ? `${sw(k)}${esc(k.name)}` : "";
+    const kitTxt = k ? `${sw(k)}${kitWord(k)}` : "";
     const sub = [kitTxt, s.agents ? `${s.agents} agents` : ""].filter(Boolean).join(" · ");
     return `<span class="sbo-side ${cls}" style="--c:${m.colour || "#888"}">${cls === "sbo-b" ? "" : mark}<i class="sbo-flag"></i>${m.logo || ""}`
       + `<span class="sbo-nm">${esc(m.short || s.model)}${sub ? `<small>${sub}</small>` : ""}</span>${cls === "sbo-b" ? mark : ""}</span>`;
   };
   const legend = () => {  // more than two entrants (drone, racing heats): a compact kit legend
     if (!tl.kit || (tl.sides || []).length === 2) return "";
-    const items = tl.sides.filter((s) => kitOf(s.seat)).map((s) => `<span>${sw(kitOf(s.seat))}${esc((mdl[s.model] || {}).short || s.model)} <em>${esc(kitOf(s.seat).name)}</em></span>`);
+    const items = tl.sides.filter((s) => kitOf(s.seat)).map((s) => `<span style="--c:${(mdl[s.model] || {}).colour || "#888"}">${sw(kitOf(s.seat))}${esc((mdl[s.model] || {}).short || s.model)}${kitWord(kitOf(s.seat)) ? ` <em>${kitWord(kitOf(s.seat))}</em>` : ""}</span>`);
     return items.length ? `<div class="sbo-leg">${items.join("")}</div>` : "";
   };
   const render = () => {
@@ -190,4 +193,15 @@
   dlg.querySelector("[data-pl-close]").addEventListener("click", close);
   dlg.addEventListener("click", (e) => { if (e.target === dlg) close(); });
   dlg.addEventListener("cancel", (e) => { e.preventDefault(); if (isFill()) setFill(false); else if (!fsEl()) close(); });
+})();
+
+/* Checkpoint Evaluation: opponent switch (All (mean) | L1 | L2 | L3 | practice player) */
+(() => {
+  document.querySelectorAll(".tv-row").forEach((row) => {
+    const fig = row.closest(".cfig");
+    row.querySelectorAll("[data-tv]").forEach((b) => b.addEventListener("click", () => {
+      row.querySelectorAll("[data-tv]").forEach((x) => { x.classList.toggle("is-on", x === b); x.setAttribute("aria-pressed", x === b); });
+      fig.querySelectorAll("[data-tvp]").forEach((p) => { p.hidden = p.dataset.tvp !== b.dataset.tv; });
+    }));
+  });
 })();

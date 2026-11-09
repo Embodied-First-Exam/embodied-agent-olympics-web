@@ -228,7 +228,7 @@ def results(site: Site):
   <div class="sec-h"><h2 class="h2">Boards.</h2></div>
   <div class="tabs" role="tablist" style="margin-top:0">{tab_btns}</div>
   <div class="rs-panels">
-  <div class="panel is-on" data-panel="medals"><p class="rp-note">The official medal standings. Ranked by golds, then silvers, then bronzes. {E(medals.status_line(site, "Provisional — fills in at release."))}</p>{story.medal_table_home(site)}{medals.flag_foot(site)}</div>
+  <div class="panel is-on" data-panel="medals"><p class="rp-note">The official medal standings. Ranked by golds, then silvers, then bronzes. {E(medals.status_line(site, "Provisional — fills in at release."))}</p>{medals.medal_switch(site, story.medal_table_home(site) + medals.flag_foot(site))}</div>
   <div class="panel" data-panel="by-sport">{by_sport}</div>
   <div class="panel" data-panel="arena">{medals.arena_panel(site, boards)}</div>
   </div>

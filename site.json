@@ -28,6 +28,8 @@
   },
 
   "replay_base": "https://huggingface.co/datasets/embodied-olympics/release1-replays/resolve/main/replays/{key}/{fixture}.mp4",
+  "kimi_chart": "v2",
+  "_kimi_chart_note": "Dark theme, Checkpoint Evaluation charts: Kimi's black line drawn with a soft light glow, its points black with a light ring (v2; v1 grey line, v3 dashed light line are the other tested variants).",
   "highlight_base": "https://huggingface.co/datasets/embodied-olympics/release1-replays/resolve/main/highlights/{key}/{fixture}.mp4",
   "_replay_note": "Match videos for the sport pages' in-page player. null = not hosted yet (pages show 'at release'). Hosted on the public HF dataset embodied-olympics/release1-replays (replays/<key>/<FIXTURE>.mp4 + .jpg, highlights/<key>/<FIXTURE>.mp4 + .jpg + .events.json); a re-render is uploaded to the same paths, so this needs no change. A base may use {path} (file path in the media repo, e.g. matches/tennis_g1/<board>/<fixture>/replay.mp4), {key} (sport key) and {fixture}; the preview build sets EO_REPLAY_BASE / EO_HIGHLIGHT_BASE.",
 

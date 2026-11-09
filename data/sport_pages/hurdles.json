@@ -3,7 +3,7 @@
  "sport": "hurdles",
  "key": "hurdles_g1",
  "format": "solo",
- "made": "2026-11-09T04:28Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -55,7 +55,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0052",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -98,7 +98,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0101",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -115,7 +115,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0102",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -132,7 +132,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0103",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -235,7 +235,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0252",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -252,7 +252,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0253",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -372,7 +372,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0213",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -519,7 +519,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-hurdles-g1-arena2",
-   "made": "2026-11-08 22:22 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Speed (m/s), ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,
@@ -604,17 +604,17 @@
      {
       "cp": "kickoff:1",
       "x": 0.5,
-      "mean": 0.0042,
-      "lo": 0.0024,
-      "hi": 0.0059,
+      "mean": 0.792,
+      "lo": 0.6355,
+      "hi": 1.0211,
       "n": 3
      },
      {
       "cp": "final:1",
       "x": 1.0,
-      "mean": 0.0043,
-      "lo": 0.0025,
-      "hi": 0.006,
+      "mean": 1.6968,
+      "lo": 1.0611,
+      "hi": 2.8554,
       "n": 3
      },
      {
@@ -724,11 +724,13 @@
    "verdict": {
     "GPT-6 Astra": "improve",
     "Claude Opus 5.5": "improve",
-    "Gemini 4 Argon": "flat",
+    "Gemini 4 Argon": "improve",
     "Kimi 3.1 Pro": "flat",
-    "GLM 5.3 Flash": "flat",
-    "DeepSeek V4.1 Flash": "one point only"
+    "GLM 5.3 Flash": "improve",
+    "DeepSeek V4.1 Flash": "flat"
    },
+   "tiers": [],
+   "tier_note": null,
    "capability": {
     "n": 4,
     "names": [
@@ -1034,6 +1036,44 @@
      "status": "na",
      "checkpoint": "final:1"
     }
+   },
+   "DeepSeek V4.1 Flash": {
+    "lane": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "rhythm": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "fair": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "clear": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "first_hurdle": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "jump": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "speed": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "upright": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
    }
   },
   "reference": {
@@ -1096,5 +1136,34 @@
     "Its repair package added a camera distance-to-bar input, a lane filter, a separate camera process and a training curriculum."
    ]
   }
+ },
+ "interface": {
+  "sees": "One head camera (480 × 270, a new frame every 10 ms) aimed by turning the waist, the robot's joints and two IMUs, and the starter's commands and race clock. No position or speed: the hurdles and track markings tell it where it is.",
+  "controls": "Plans of joint targets for all 29 joints, one row every 10 ms, in real time. Running, stepping over ten hurdles and staying in lane are all the agent's own program.",
+  "moment": "Medal series, GPT-6 Astra's second match, race 1 of 3: 14.48 s after the gun, 2 m before the fifth hurdle. Its head camera sees that hurdle across the lane and the next ones beyond it; the race ended in 31.60 s.",
+  "camera": {
+   "src": "img/pov/hurdles-camera.jpg",
+   "w": 480,
+   "h": 270,
+   "label": "Robot camera · Astra · 480 × 270"
+  },
+  "broadcast": {
+   "src": "img/pov/hurdles-broadcast.jpg",
+   "w": 1280,
+   "h": 720,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Camera: the G1's head camera, 480 × 270 pixels, 58° vertical field of view, tilted 20° down, fixed to the torso. The three waist joints turn it, so the program can aim it. It takes a frame every 10 ms; the newest frame a program can fetch is 20 ms old, stamped with its step.",
+   "Own robot: the 29 joint angles, speeds and motor torques, the joint targets in force and who controls each joint group, and two IMUs (pelvis and torso: orientation, gyro, accelerometer).",
+   "Referee: the starter's commands (on your marks, set, the gun), the race clock from the gun, the robot's own status and calls, and the results of finished races.",
+   "Not given: position, speed or any ground truth. The program finds where it is on the track from the camera: lane lines, distance boards every 10 m on both sides, the hurdles and the finish line with its posts.",
+   "Command: a plan of 1 to 300 rows of joint targets for some or all joint groups (legs, waist, arms), one row per 10 ms, the last row held; optionally joint speeds, torques and stiffness and damping per joint. At most one plan every 20 ms; the robot can also withdraw from the race.",
+   "How a plan moves the robot: every 1 ms each motor applies a PD law toward the row's target through the vendor's torque–speed curve and torque limit. Rows outside the joint ranges or faster than the speed limits are refused. No walking policy and no gravity help: running is the agent's own program.",
+   "Timing: the race runs at real speed and never waits; a command acts at the next 10 ms step. After each race the world freezes for up to 5 minutes for a review.",
+   "Race rules: ten hurdles 0.08 m high, the first at 13.72 m and then every 9.14 m; knocking them down is allowed; a foot or leg beside a hurdle, or a hand or arm touching one, is a disqualification; a standing start, the time from the gun to the torso reaching the line, time limit 150 s.",
+   "A match is three races alone; its score is the distance divided by the mean race time (a race without a valid finish counts the time limit). The medal series is three such matches.",
+   "Before the match: 2 hours of preparation with a full practice copy of the race, a practice runner in the next lane, and a GPU training kit (half an RTX PRO 6000)."
+  ]
  }
 }

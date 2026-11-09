@@ -1,6 +1,7 @@
 """The sport page (SPORTPAGE, 11-08): four blocks, one screen each where possible.
 
-    01 Overview                    footage, name, one line; body, format, observation, action, control, GPU kit
+    01 Overview                    footage, name, one line; body, format, observation, action, control, GPU kit;
+                                   what the athlete sees and controls (robot camera + broadcast, one line each)
     02 Competition records         podium; Olympics Championship by stage and Open Arena, every match with its score,
                                    result and replay (replays sit in the records, there is no separate replay wall)
     03 Challenges & capabilities   why the sport is hard = what it tests: the sport card's skills grouped by the four
@@ -27,6 +28,9 @@ Top-level keys the template reads:
                     checkpoint: {kind, measure, ref, count, lines: {model: [{cp, x, mean, n}]}, verdict: {model: text},
                     capability: {n, names, ref, lines: {model: [{cp, x, n_pass}]}}}}
   notes             hand-written: {challenge, achieved: [{text, evidence: [...]}], built: {model: [lines]}}
+  interface         hand-written + rendered: {sees, controls, details: [lines], moment, camera {src, w, h, label}
+                    (or {text, label} for a sport without a camera), broadcast {src, w, h, label}}; images under
+                    assets/img/pov/; absent = the card is hidden
 Replays link only when site.json replay_base is set (a public host of the media repo); until then each match shows its
 replay type and length with "at release".
 """
@@ -181,7 +185,10 @@ def overview(site: Site, s: dict, d: dict) -> str:
     fmt = next((f for f in site.cfg["formats"] if f["id"] == d.get("format")), {})
     tick = story.tick_ms(s)
     hz = f"{1000 // int(tick.split()[0])} Hz · every {tick}" if tick else None
-    action = (s.get("control") or "").split(" every ")[0].split(";")[0]
+    # the command without its rate (the Control cell has it): cut at "every <n> ms" only, so "A target for every joint
+    # every 20 ms" keeps "every joint"; a placeholder (TODO) shows as "At release"
+    action = re.sub(r"\s+every \d[\d.]*\s*(?:ms|s)\b.*$", "", (s.get("control") or "").split(";")[0]).strip()
+    action = None if action.upper() in ("", "TODO") else action
     sees = re.sub(r"\s*\([^)]*\)", "", (s.get("sees") or "").split(";")[0])
     team = (s.get("team") or "").split(";")[0]
     if (d.get("championship") or {}).get("trial"):  # race with a time trial: the stages are the format
@@ -190,6 +197,9 @@ def overview(site: Site, s: dict, d: dict) -> str:
         team = "series of six-car races"
     elif d.get("format") == "solo":
         team = "three-match series"
+    band = s.get("band") or {}                 # hand-checked cells from the official task (data/sports.json `band`)
+    action = band.get("action") or action
+    hz = band.get("control") or hz
     facts = [("Body", short_body(s)), ("Format", f'{fmt.get("name", "")} · {team}' if team else fmt.get("name")),
              ("Observation", sees), ("Action", action), ("Control", hz), ("Training", GPU_KIT.get(s["id"]))]
     spec = "".join(f'<div><dt class="kicker">{k}</dt><dd>{E(v) if v else "At release"}</dd></div>' for k, v in facts)
@@ -210,7 +220,43 @@ def overview(site: Site, s: dict, d: dict) -> str:
     <p class="shero-pitch">{E(s['pitch'])}</p></div>
   {tag}
 </section>
-<section class="sp-specband"><div class="wrap"><dl class="spec sp-spec">{spec}</dl></div></section>"""
+<section class="sp-specband"><div class="wrap"><dl class="spec sp-spec">{spec}</dl></div></section>""" + athlete_view(site, d)
+
+
+def athlete_view(site: Site, d: dict) -> str:
+    """01b 'What the athlete sees and controls' (POVCARD, 11-09): the robot's own camera and the broadcast at the same
+    instant of a real match, one line each for what the program receives and what it commands, the full interface
+    folded. Data: d["interface"] (see the module docstring). Hidden when the sport has no interface yet."""
+    it = d.get("interface")
+    if not it:
+        return ""
+
+    def fig(x: dict, cls: str) -> str:
+        if not x:
+            return ""
+        if x.get("src"):
+            w, h = int(x.get("w") or 16), int(x.get("h") or 9)
+            body = (f'<span class="pov-img"><img src="{E(site.asset(x["src"]))}" width="{w}" height="{h}" '
+                    f'alt="{E(x.get("alt") or x.get("label") or "")}" loading="lazy"></span>')
+        else:                                   # a sport without a camera: the observation as text
+            w, h = 4, 3
+            body = f'<span class="pov-img pov-txt"><pre>{E(x.get("text") or "")}</pre></span>'
+        return (f'<figure class="pov-fig {cls}" style="--ar:{w / h:.4f}">{body}'
+                f'<figcaption>{E(x.get("label") or "")}</figcaption></figure>')
+
+    lines = "".join(f"<li>{E(t)}</li>" for t in it.get("details") or [])
+    more = (f'<details class="pov-more"><summary>Full interface <span class="arr">▾</span></summary>'
+            f'<ul>{lines}</ul></details>') if lines else ""
+    moment = f'<p class="pov-moment">{E(it["moment"])}</p>' if it.get("moment") else ""
+    return f"""
+<section class="sp-pov" aria-labelledby="pov-h"><div class="wrap">
+  <h2 class="pov-h" id="pov-h">What the athlete sees and controls</h2>
+  <div class="pov-shots">{fig(it.get("camera") or {}, "is-cam")}{fig(it.get("broadcast") or {}, "is-bc")}</div>
+  {moment}
+  <dl class="pov-lines"><div><dt>Sees</dt><dd>{E(it.get("sees") or "At release")}</dd></div>
+    <div><dt>Controls</dt><dd>{E(it.get("controls") or "At release")}</dd></div></dl>
+  {more}
+</div></section>"""
 
 
 def subnav(site: Site) -> str:
@@ -528,8 +574,8 @@ def capabilities(site: Site, s: dict, d: dict) -> str:
                 r = (res.get(m) or {}).get(sk["id"])
                 stt = r["status"] if r else "na"
                 sym, word = mark[stt]
-                cells.append(f'<span class="sk-c sk-c--{stt}" title="{E(model_name(_m(site, m)))}: {word}">{sym}</span>')
-                if r and stt != "na":
+                cells.append(f'<span class="sk-c sk-c--{stt}" title="{E(model_name(_m(site, m)))}: {word}{(" (" + E(r["reading"]) + ")") if r and stt == "na" and r.get("reading") else ""}">{sym}</span>')
+                if r and (stt != "na" or r.get("reading")):
                     reads.append(f'<li>{who(site, m)}<span class="sk-rd sk-rd--{stt}">{word}</span>'
                                  f'<span class="sk-at">{E(r.get("reading") or "")}{" · " if r.get("reading") else ""}{E(r["checkpoint"])}</span></li>')
             badge = '<em class="sk-v" title="Passes all three test checks">Validated test</em>' if sk.get("three_checks") else ""
@@ -649,7 +695,7 @@ def _chart(site: Site, lines: dict, key: str, ymax: float, ref: float | None, yl
         dots = "".join(f'<circle cx="{X(p["x"]):.1f}" cy="{Y(p[key]) + off:.1f}" r="3.6"><title>{E(model_name(m))} · '
                        f'{"start" if p["cp"].startswith("kickoff") else "after match " + p["cp"].split(":")[1]} · {fmt(p[key])}'
                        f'{f" (n={p.get(chr(110))})" if p.get("n") else ""}</title></circle>' for p in pts)
-        ser.append(f'<g class="cs" data-series="{E(m["name"])}" style="--c:{E(c)}"><path d="{d}"/>{dots}</g>')
+        ser.append(f'<g class="cs" data-series="{E(m["name"])}" style="--c:{E(c)}"><path class="cs-case" d="{d}"/><path d="{d}"/>{dots}</g>')
     return (f'<svg class="chart" viewBox="0 0 {W} {H}" role="img" aria-label="{E(ylab)}">{grid}{"".join(ser)}'
             f'<text x="{(L + W - R) / 2:.0f}" y="{H - 4}" class="ct ct-x" text-anchor="middle">Program saved after match n</text></svg>')
 
@@ -700,11 +746,33 @@ def growth(site: Site, d: dict) -> str:
             f"{cnt.get('ok', 0)} of {cnt.get('planned', 0)} replays done. Provisional.")
     cap_h = (f'<figure class="cfig"><figcaption><strong>Capability growth</strong><span>Card capabilities passed, of {cap.get("n")}</span></figcaption>{capc}</figure>'
              if capc else "")
+    # opponent switch (Chi 11-09): "All (mean)" = the main curve; one view per tested opponent tier, weakest first
+    tiers = ck.get("tiers") or []
+    fmt2 = lambda v: f"{v:.2f}".rstrip("0").rstrip(".") if v else "0"  # noqa: E731
+    views = [("all", "All (mean)", f'<p class="tv-cap">{E(ck["measure"])}</p>{perf}')]
+    for tr in tiers:
+        tl = {m: v for m, v in tr["lines"].items() if v}
+        prog = (f'in progress, {tr["ok"]} of {tr["planned"]} replays done' if tr["ok"] < tr["planned"] else f'{tr["ok"]} replays')
+        if tl:
+            tv = max(p["mean"] for pts in tl.values() for p in pts)
+            ch = _chart(site, tl, "mean", 0.5 if tv <= 0.5 else 1.0, None, tr["label"], fmt2, xmax=xmax)
+        else:
+            ch = '<p class="cr-rule tv-empty">No checkpoint replays against this opponent yet.</p>'
+        views.append((tr["id"], tr["short"], f'<p class="tv-cap">Score share against {E(tr["label"])} · {E(prog)}</p>{ch}'))
+    if len(views) > 1:
+        sw = "".join(f'<button type="button" class="tv-b{" is-on" if k == 0 else ""}" data-tv="{E(v)}" aria-pressed="{"true" if k == 0 else "false"}">{E(lab)}</button>'
+                     for k, (v, lab, _) in enumerate(views))
+        panes = "".join(f'<div class="tv-p" data-tvp="{E(v)}"{"" if k == 0 else " hidden"}>{body}</div>' for k, (v, _, body) in enumerate(views))
+        note = f'<p class="cr-rule tv-note">{E(ck["tier_note"])}</p>' if ck.get("tier_note") else ""
+        perf_block = f'<div class="tv-row" role="group" aria-label="Opponent">{sw}</div>{panes}{note}'
+        mcap = "Score share (0.5 = even); pick the opponent"
+    else:
+        perf_block, mcap = perf, ck["measure"]
     return f"""
 <div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3>
   <div class="lg-row" data-lgs>{legend}</div>
   <div class="cgrid" data-charts>
-    <figure class="cfig"><figcaption><strong>Performance growth</strong><span>{E(ck["measure"])}</span></figcaption>{perf}</figure>
+    <figure class="cfig"><figcaption><strong>Performance growth</strong><span>{E(mcap)}</span></figcaption>{perf_block}</figure>
     {cap_h}
   </div>
   <p class="cr-rule">{E(foot)}</p>

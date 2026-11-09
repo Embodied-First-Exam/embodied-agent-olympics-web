@@ -10,6 +10,34 @@
 .sp-spec div+div{padding-left:18px}
 .sp-spec dd{font-size:clamp(15px,1.25vw,19px);line-height:1.3}
 
+/* 01b what the athlete sees and controls (robot camera + broadcast at one instant) */
+.sp-pov{padding:0 0 clamp(40px,4.5vw,64px)}
+.sp-pov .wrap{border-top:1px solid var(--hair);padding-top:clamp(26px,2.8vw,40px)}
+.pov-h{font-size:clamp(22px,2vw,30px);font-weight:600;letter-spacing:-.01em;margin:0 0 clamp(16px,1.6vw,24px)}
+.pov-shots{display:flex;gap:clamp(10px,1.2vw,18px);align-items:flex-start}
+.pov-fig{margin:0;flex:var(--ar) 1 0;min-width:0}
+.pov-img{display:block;border-radius:10px;overflow:hidden;background:var(--bg-3);border:1px solid var(--hair)}
+.pov-img img{display:block;width:100%;height:auto}
+.pov-txt pre{margin:0;padding:16px;font:12px/1.5 var(--f-mono);white-space:pre-wrap;color:var(--fg-2);aspect-ratio:4/3;overflow:auto}
+.pov-fig figcaption{margin-top:8px;font:500 11.5px/1.35 var(--f-mono);letter-spacing:.04em;color:var(--fg-3)}
+.pov-fig.is-cam figcaption{color:var(--accent-ink)}
+.pov-moment{margin:14px 0 0;font-size:14px;color:var(--fg-2);max-width:900px}
+.pov-lines{display:grid;gap:10px;margin:clamp(18px,1.8vw,26px) 0 0;max-width:1000px}
+.pov-lines div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;align-items:baseline}
+.pov-lines dt{font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3)}
+.pov-lines dd{margin:0;font-size:clamp(15px,1.15vw,18px);line-height:1.45}
+.pov-more{margin-top:18px;border-top:1px solid var(--hair);max-width:1000px}
+.pov-more summary{cursor:pointer;list-style:none;padding:13px 0;font-size:14px;font-weight:600;color:var(--fg-2)}
+.pov-more summary::-webkit-details-marker{display:none}
+.pov-more summary .arr{display:inline-block;transition:transform .2s}
+.pov-more[open] summary .arr{transform:rotate(180deg)}
+.pov-more ul{margin:0 0 6px;padding-left:18px;display:grid;gap:7px;font-size:14.5px;line-height:1.5;color:var(--fg-2)}
+@media (max-width:720px){
+  .pov-shots{flex-direction:column}
+  .pov-fig{flex:none;width:100%}
+  .pov-lines div{grid-template-columns:1fr;gap:4px}
+}
+
 /* on-page nav: a quiet capsule under the top bar */
 .sp-sub{position:sticky;top:calc(var(--top) - 4px);z-index:40;pointer-events:none;margin-top:-8px}
 .sp-sub .wrap{display:flex;justify-content:center}
@@ -410,8 +438,30 @@ html.pl-fill-on,html.pl-fill-on body{overflow:hidden}
 @media (max-width:900px){.pl-stage.is-fill,.pl-stage:fullscreen{--sb:1.1}}
 @media (max-width:640px){.pl-stage.is-fill .sbo-lab{display:inline}}
 /* kit swatch: the colour the side wears in this video (the bar next to it stays the model's brand colour) */
-.sbo-kit{display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--k);box-shadow:0 0 0 1px rgba(255,255,255,.55);margin-right:4px;vertical-align:-1px}
+.sbo-kit{display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--c);box-shadow:0 0 0 1.2px var(--ol,rgba(255,255,255,.55));margin-right:4px;vertical-align:-1px}
 .sbo-nm small{display:block}
 .sbo-leg{display:flex;flex-wrap:wrap;gap:4px 10px;padding:5px 9px;border-radius:7px;background:rgba(8,9,11,.72);font-size:12px;font-weight:600}
 .sbo-leg span{display:inline-flex;align-items:center;gap:2px}
 .sbo-leg em{font:500 10px var(--f-mono);font-style:normal;color:rgba(242,241,236,.65);margin-left:3px}
+.cs path.cs-case{stroke:var(--ol,transparent);stroke-width:4.4}
+
+/* Checkpoint Evaluation charts, dark theme: Kimi's black line variants (html[data-kc], site.json kimi_chart) */
+html[data-kc]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] .cs-case{stroke:transparent}
+html[data-kc="v1"]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] path{stroke:#8A8A8A}
+html[data-kc="v1"]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] circle{fill:#8A8A8A;stroke:var(--bg-2)}
+html[data-kc="v1"]:not([data-theme="light"]) .lg[data-lg="Kimi 3.1 Pro"] i{background:#8A8A8A;box-shadow:none}
+html[data-kc="v2"]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] path:not(.cs-case){filter:drop-shadow(0 0 2px rgba(217,217,217,.38)) drop-shadow(0 0 3.5px rgba(217,217,217,.22))}
+html[data-kc="v2"]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] circle{fill:#1A1A1A;stroke:#D9D9D9;stroke-width:1.5}
+html[data-kc="v2"]:not([data-theme="light"]) .lg[data-lg="Kimi 3.1 Pro"] i{box-shadow:0 0 4px 1px rgba(217,217,217,.4)}
+html[data-kc="v3"]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] path:not(.cs-case){stroke:#BFBFBF;stroke-dasharray:4 3}
+html[data-kc="v3"]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] circle{fill:var(--bg-2);stroke:#BFBFBF;stroke-width:1.5}
+html[data-kc="v3"]:not([data-theme="light"]) .lg[data-lg="Kimi 3.1 Pro"] i{background:repeating-linear-gradient(90deg,#BFBFBF 0 4px,transparent 4px 7px);box-shadow:none}
+/* Checkpoint Evaluation opponent switch */
+.tv-row{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.tv-b{height:28px;padding:0 11px;border-radius:999px;border:1px solid var(--hair);font-size:12px;font-weight:500;color:var(--fg-2)}
+.tv-b:hover{color:var(--fg)}
+.tv-b.is-on{color:var(--fg);border-color:var(--accent);background:var(--accent-soft)}
+.tv-cap{font-size:12px;color:var(--fg-3);margin:0 0 2px}
+.tv-p[hidden]{display:none}
+.tv-empty{min-height:120px;display:grid;place-items:center}
+.tv-note{margin-top:6px}

@@ -3,7 +3,7 @@
  "sport": "curling",
  "key": "curling_g1",
  "format": "duel",
- "made": "2026-11-09T04:28Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -241,7 +241,7 @@
        "size": "848x480",
        "fixture": "CUR2-F04",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -279,7 +279,7 @@
        "size": "848x480",
        "fixture": "CUR2-F06",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -541,7 +541,7 @@
        "size": "848x480",
        "fixture": "CUR2-F12",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -578,7 +578,7 @@
        "size": "848x480",
        "fixture": "CUR2-F13",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -615,7 +615,7 @@
        "size": "848x480",
        "fixture": "CUR2-F14",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -698,7 +698,7 @@
        "size": "848x480",
        "fixture": "CUR2-F16",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -742,7 +742,7 @@
        "size": "848x480",
        "fixture": "CUR2-F17",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -792,7 +792,7 @@
        "size": "848x480",
        "fixture": "CUR2-F18",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -842,7 +842,7 @@
        "size": "848x480",
        "fixture": "CUR2-F19",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -1045,7 +1045,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F02",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1081,7 +1081,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F03",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1117,7 +1117,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F04",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1297,7 +1297,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F09",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1333,7 +1333,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F10",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1369,7 +1369,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F11",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1670,7 +1670,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-curling-g1-champ2",
-   "made": "2026-11-08 22:22 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1685,11 +1685,11 @@
    "ref": 0.5167,
    "count": {
     "planned": 168,
-    "ok": 140,
+    "ok": 145,
     "invalid": 0,
-    "never_acted": 28,
+    "never_acted": 0,
     "model_called": 0,
-    "pending": 0
+    "pending": 23
    },
    "lines": {
     "GPT-6 Astra": [
@@ -1916,6 +1916,24 @@
       "n": 2
      }
     ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.3054,
+      "lo": 0.1964,
+      "hi": 0.4143,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.75,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
     "Claude Opus 5.5": [
      {
       "cp": "kickoff:1",
@@ -1991,6 +2009,692 @@
     "GLM 5.3 Flash": "improve",
     "DeepSeek V4.1 Flash": "improve"
    },
+   "tiers": [
+    {
+     "id": "L1",
+     "tier": "weak",
+     "label": "L1 = level-1 reference program (weak)",
+     "short": "L1 · weak",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3958
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.3958
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.3889
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.3333
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.4857
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.5794
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5972
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.5972
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.6429
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.6905
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.7
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.1
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.125
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.75
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.75
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.75
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.7321
+       }
+      ]
+     },
+     "ok": 46,
+     "planned": 56,
+     "shared_count": false
+    },
+    {
+     "id": "L2",
+     "tier": "middle",
+     "label": "L2 = level-2 reference program (middle)",
+     "short": "L2 · middle",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.3
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.3
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.4
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.4
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.3833
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1429
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.2
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.25
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.3095
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.3889
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.3875
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3875
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.5889
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.6932
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.75
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.8333
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.8125
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.2143
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.4848
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.4848
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.4848
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.4848
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.4848
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.2714
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.75
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.7143
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.6875
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.6875
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.6875
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.6875
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.8333
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.8333
+       }
+      ]
+     },
+     "ok": 145,
+     "planned": 168,
+     "shared_count": true
+    },
+    {
+     "id": "L3",
+     "tier": "strong",
+     "label": "L3 = level-3 reference program (strong)",
+     "short": "L3 · strong",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.1
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1125
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.2
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.3333
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3333
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.3667
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.3667
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.4143
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.2143
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3875
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.4286
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.4286
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.3889
+       }
+      ]
+     },
+     "ok": 46,
+     "planned": 56,
+     "shared_count": false
+    },
+    {
+     "id": "PP",
+     "tier": "strongest",
+     "label": "Practice player = the strongest program (our best)",
+     "short": "Practice player",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.125
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0625
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1429
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.2917
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.3333
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.2857
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.425
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.425
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.3333
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.425
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.5667
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.3667
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.1
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.2667
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.2667
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.2667
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.2667
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.2667
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3393
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.4583
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.4583
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.4583
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.4583
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.4583
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.2917
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.2917
+       }
+      ]
+     },
+     "ok": 145,
+     "planned": 168,
+     "shared_count": true
+    }
+   ],
+   "tier_note": null,
    "capability": {
     "n": 4,
     "names": [
@@ -2284,6 +2988,184 @@
      "status": "fail",
      "checkpoint": "final:1"
     }
+   },
+   "DeepSeek V4.1 Flash": {
+    "draw": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "takeout": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "choose": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "ice": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "around": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "both_turns": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "hammer": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "legal": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "reach_play": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "spins": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "draw": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "ice": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "takeout": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "around": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "choose": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "both_turns": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "hammer": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "legal": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "reach_play": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "spins": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    }
+   },
+   "Gemini 4 Argon": {
+    "draw": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "ice": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "takeout": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "around": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "choose": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "both_turns": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "hammer": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "legal": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "reach_play": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "spins": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "around": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "both_turns": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "choose": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "draw": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "hammer": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "ice": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "legal": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "reach_play": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "spins": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "takeout": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    }
    }
   },
   "reference": {
@@ -2346,5 +3228,35 @@
     "Ported its ice model to C++ and gated changes on paired self-play; it tested a lookahead search and switched it off (\"net -4 points\")."
    ]
   }
+ },
+ "interface": {
+  "sees": "Two images at each turn: an overhead camera of the far house (600 × 1000) and the robot's own head camera from the hack (640 × 360), plus the score, the end, the hammer and what was heard of every throw. No stone coordinates.",
+  "controls": "One delivery per turn, sent whole before it starts: the push out of the hack (one acceleration every 20 ms), the aim, when the hand lets go, and joint targets for the waist and both arms every 20 ms. Turn-based: the ice waits while the agent thinks.",
+  "moment": "Final, Kimi 3.1 Pro v Gemini 4 Argon, end 4, 2:38 in the replay. Gemini's robot waits in the hack before its last stone of the end; left, the two images its program received at that moment: the overhead house camera (scaled down here) and its head camera looking down the sheet. Gemini scores 2 with the end and wins 6–1.",
+  "camera": {
+   "src": "img/pov/curling-camera.jpg",
+   "w": 862,
+   "h": 360,
+   "label": "Robot cameras · Gemini · house 600 × 1000 + head 640 × 360"
+  },
+  "broadcast": {
+   "src": "img/pov/curling-broadcast.jpg",
+   "w": 848,
+   "h": 480,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Head camera: the real G1's Intel RealSense D435i colour camera, 640 × 360, 42.5° vertical, fixed on the trunk and tilted 47.6° down. Between throws the robot waits in the hack leaning back, so the camera looks down the sheet; the far house, 38 m away, is only a thin band near the top.",
+   "House camera: straight above the far house, 600 × 1000. It shows what a skip and sweepers would see; here one robot is the whole team.",
+   "Images come once per observation, showing the ice as it stands; after each own throw the house camera also shows where the stones came to rest.",
+   "Referee: score, end and extra end, the throw in the end, the hammer, stones left to throw and in play, and what was heard since the last own throw: the spin, collisions, stones removed and why, delivery faults.",
+   "Not given: where the stones are. The program reads them from the images.",
+   "The delivery: the push out of the hack as up to 32 accelerations, one per 20 ms (at most 9.1 m/s² each, top speed 3.45 m/s); the angle from the centre line (±5°); when the hand lets go of the stone (before the hog line, or the stone is removed); optionally where on the hack to start.",
+   "The upper body: up to 300 rows of targets for the 17 waist and arm joints, one per 20 ms, with their stiffness, damping and torques; the legs stay locked in the slide. There is no throw skill, no handle turn and no lift off the handle.",
+   "No sweeping. Spin: a stone curls the way its handle was turned at the release (at least 0.5 rad/s); a stone released with less turn curls a random way.",
+   "Timing: turn-based. Nothing moves while the agent thinks; a 60-minute chess clock runs only on its turn.",
+   "Rules: World Curling rules, 4 ends of 5 stones each per side, up to 3 extra ends; more points wins.",
+   "Before the match: 2 hours of preparation with a full practice copy of the match world and a practice opponent; the training kit runs on the CPU."
+  ]
  }
 }
