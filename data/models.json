@@ -21,7 +21,7 @@
    "name": "Gemini 4 Argon",
    "maker": "Google",
    "harness": "Antigravity CLI",
-   "colour": "#8E75B2",
+   "colour": "#795BA4",
    "effort": "high",
    "entry": "gemini@v3"
   },
