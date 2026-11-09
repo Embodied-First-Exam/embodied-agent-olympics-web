@@ -183,7 +183,10 @@ def overview(site: Site, s: dict, d: dict) -> str:
     fmt = next((f for f in site.cfg["formats"] if f["id"] == d.get("format")), {})
     tick = story.tick_ms(s)
     hz = f"{1000 // int(tick.split()[0])} Hz · every {tick}" if tick else None
-    action = (s.get("control") or "").split(" every ")[0].split(";")[0]
+    # the command without its rate (the Control cell has it): cut at "every <n> ms" only, so "A target for every joint
+    # every 20 ms" keeps "every joint"; a placeholder (TODO) shows as "At release"
+    action = re.sub(r"\s+every \d[\d.]*\s*(?:ms|s)\b.*$", "", (s.get("control") or "").split(";")[0]).strip()
+    action = None if action.upper() in ("", "TODO") else action
     sees = re.sub(r"\s*\([^)]*\)", "", (s.get("sees") or "").split(";")[0])
     team = (s.get("team") or "").split(";")[0]
     if (d.get("championship") or {}).get("trial"):  # race with a time trial: the stages are the format
