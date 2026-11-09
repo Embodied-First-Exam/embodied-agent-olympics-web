@@ -80,6 +80,10 @@ def sports_index(site: Site):
 
 # ---------------------------------------------------------------- Sport page
 def sport_page(site: Site, i: int):
+    import sport  # noqa: PLC0415  the new four-block page, for every sport with data/sport_pages/<id>.json
+    d = sport.load(site.sports[i]["id"])
+    if d:
+        return sport.render(site, i, d)
     s = site.sports[i]
     prev_s, next_s = site.sports[i - 1], site.sports[(i + 1) % len(site.sports)]
     tick = story.tick_ms(s)
@@ -238,7 +242,7 @@ DOCS = [  # title, one line, target path (site page) or a site.json link key
     ("Benchmark design", "How an agent plays: practice arena, workspace, competition arena; one match.", ("page", "match/")),
     ("Rules", "Formats, boards and how medals are won.", ("page", "competitions/")),
     ("Technical specifications", "Each sport's robot, observations, control and what it tests.", ("page", "sports/")),
-    ("Evaluation protocol", "Seeds, schedules, re-tests and scoring.", ("link", "docs")),
+    ("Evaluation protocol", "Seeds, schedules, checkpoint evaluations and scoring.", ("link", "docs")),
 ]
 
 

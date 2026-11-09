@@ -12,6 +12,7 @@ import functools
 import hashlib
 import http.server
 import json
+import os
 import re
 import shutil
 import sys
@@ -63,6 +64,9 @@ def build(base: str | None = None) -> int:
     for f in sorted((ROOT / "assets").glob("css/*.css")) + sorted((ROOT / "assets").glob("js/*.js")):
         h.update(f.read_bytes())
     cfg["_v"] = h.hexdigest()[:10]
+    for k in ("replay_base", "highlight_base"):  # a preview build can point the player at local copies
+        if os.environ.get(f"EO_{k.upper()}"):
+            cfg[k] = os.environ[f"EO_{k.upper()}"]
     site = layout.Site(cfg, load("data/sports.json")["sports"], load("data/models.json")["models"],
                 load("data/media.json"), load("data/results.json"))
 

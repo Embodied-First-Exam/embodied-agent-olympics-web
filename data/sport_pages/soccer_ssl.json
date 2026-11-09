@@ -1,0 +1,2675 @@
+{
+ "schema": "eo-sportpage/1",
+ "sport": "soccer_ssl",
+ "key": "soccer_ssl",
+ "format": "team",
+ "made": "2026-11-09T04:28Z",
+ "status": "final",
+ "provisional": true,
+ "podium": {
+  "gold": "Claude Opus 5.5",
+  "silver": "GPT-6 Astra",
+  "bronze": "Gemini 4 Argon"
+ },
+ "flag": null,
+ "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
+ "championship": {
+  "rule": "round_robin_knockout_serial@1",
+  "final": true,
+  "stages": [
+   {
+    "id": "round_robin",
+    "name": "Round robin",
+    "standings": [
+     {
+      "rank": 1,
+      "model": "Claude Opus 5.5",
+      "played": 5,
+      "won": 5,
+      "drawn": 0,
+      "lost": 0,
+      "points": 15,
+      "for": 30,
+      "against": 4,
+      "note": "5-0-0, score 30:4"
+     },
+     {
+      "rank": 2,
+      "model": "GPT-6 Astra",
+      "played": 5,
+      "won": 4,
+      "drawn": 0,
+      "lost": 1,
+      "points": 12,
+      "for": 29,
+      "against": 6,
+      "note": "4-0-1, score 29:6"
+     },
+     {
+      "rank": 3,
+      "model": "Gemini 4 Argon",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 35,
+      "against": 10,
+      "note": "3-0-2, score 35:10"
+     },
+     {
+      "rank": 4,
+      "model": "Kimi 3.1 Pro",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 11,
+      "against": 22,
+      "note": "2-0-3, score 11:22"
+     },
+     {
+      "rank": 5,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 3,
+      "against": 26,
+      "note": "1-0-4, score 3:26"
+     },
+     {
+      "rank": 6,
+      "model": "GLM 5.3 Flash",
+      "played": 5,
+      "won": 0,
+      "drawn": 0,
+      "lost": 5,
+      "points": 0,
+      "for": 0,
+      "against": 40,
+      "note": "0-0-5, score 0:40"
+     }
+    ],
+    "matches": [
+     {
+      "id": "SSL2-F02",
+      "labels": {
+       "pair": "astra-sub vs deepseek-flash-sh",
+       "replaces": "SSLC-F02",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 6
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 2
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1332.9,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F02/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F02",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSLC-F01",
+      "labels": {
+       "pair": "opus vs kimi",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 6
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1090.3,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSLC-F01/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSLC-F01",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSLC-F03",
+      "labels": {
+       "pair": "gemini vs glm-flash-sh",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1085.2,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSLC-F03/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSLC-F03",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSL2-F04",
+      "labels": {
+       "pair": "deepseek-flash-sh vs opus",
+       "replaces": "SSLC-F04",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 9
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1644.6,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F04/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F04",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSL2-F06",
+      "labels": {
+       "pair": "astra-sub vs gemini",
+       "replaces": "SSLC-F06",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 2
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 806.3,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F06/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F06",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSLC-F05",
+      "labels": {
+       "pair": "glm-flash-sh vs kimi",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 10
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1337.4,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSLC-F05/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSLC-F05",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSL2-F07",
+      "labels": {
+       "pair": "opus vs glm-flash-sh",
+       "replaces": "SSLC-F07",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 669.7,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F07/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F07",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSL2-F08",
+      "labels": {
+       "pair": "gemini vs deepseek-flash-sh",
+       "replaces": "SSLC-F08",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 592.4,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F08/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F08",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSL2-F09",
+      "labels": {
+       "pair": "kimi vs astra-sub",
+       "replaces": "SSLC-F09",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 5
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1000.4,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F09/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F09",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSL2-F10",
+      "labels": {
+       "pair": "opus vs gemini",
+       "replaces": "SSLC-F10",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 3
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 3
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "shootout",
+      "note": "Level; penalty shoot-out 2:0",
+      "shootout": {
+       "Claude Opus 5.5": 2,
+       "Gemini 4 Argon": 0
+      },
+      "replay": {
+       "kind": "full",
+       "seconds": 990.4,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F10/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F10",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSL2-F11",
+      "labels": {
+       "pair": "glm-flash-sh vs astra-sub",
+       "replaces": "SSLC-F11",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 10
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 532.4,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F11/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F11",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSL2-F12",
+      "labels": {
+       "pair": "deepseek-flash-sh vs kimi",
+       "replaces": "SSLC-F12",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 1
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "coin_toss",
+      "note": "Level; decided by coin toss",
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1795.0,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F12/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F12",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSL2-F13",
+      "labels": {
+       "pair": "astra-sub vs opus",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 2
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 962.0,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F13/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F13",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSL2-F14",
+      "labels": {
+       "pair": "kimi vs gemini",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 10
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 710.9,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F14/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F14",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSL2-F15",
+      "labels": {
+       "pair": "glm-flash-sh vs deepseek-flash-sh",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "shootout",
+      "note": "Level; penalty shoot-out 0:3",
+      "shootout": {
+       "DeepSeek V4.1 Flash": 3,
+       "GLM 5.3 Flash": 0
+      },
+      "replay": {
+       "kind": "full",
+       "seconds": 1219.8,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F15/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F15",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     }
+    ],
+    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+   },
+   {
+    "id": "semi_final",
+    "name": "Semifinal",
+    "matches": [
+     {
+      "id": "SSL2-F16",
+      "labels": {
+       "match": "SF1",
+       "pair": "kimi vs opus",
+       "round": 6,
+       "seeds": "1v4",
+       "stage": "semi_final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 6
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1007.0,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F16/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F16",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       4,
+       1
+      ],
+      "label": "Semifinal 1"
+     },
+     {
+      "id": "SSL2-F17",
+      "labels": {
+       "match": "SF2",
+       "pair": "astra-sub vs gemini",
+       "round": 6,
+       "seeds": "2v3",
+       "stage": "semi_final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 3
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 3
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "shootout",
+      "note": "Level; penalty shoot-out 3:1",
+      "shootout": {
+       "GPT-6 Astra": 3,
+       "Gemini 4 Argon": 1
+      },
+      "replay": {
+       "kind": "full",
+       "seconds": 816.7,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F17/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F17",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       2,
+       3
+      ],
+      "label": "Semifinal 2"
+     }
+    ]
+   },
+   {
+    "id": "final",
+    "name": "Final",
+    "matches": [
+     {
+      "id": "SSL2-F18",
+      "labels": {
+       "match": "F",
+       "pair": "astra-sub vs opus",
+       "round": 7,
+       "seeds": "1v2",
+       "stage": "final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 2
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 911.5,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F18/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F18",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       2,
+       1
+      ],
+      "label": "Final"
+     }
+    ]
+   },
+   {
+    "id": "bronze",
+    "name": "Bronze match",
+    "matches": [
+     {
+      "id": "SSL2-F19",
+      "labels": {
+       "match": "B",
+       "pair": "gemini vs kimi",
+       "round": 7,
+       "seeds": "3v4",
+       "stage": "bronze"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 8
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 863.0,
+       "path": "matches/soccer_ssl/rel-soccer-ssl-champ2/SSL2-F19/replay.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSL2-F19",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       3,
+       4
+      ],
+      "label": "Bronze match"
+     }
+    ]
+   }
+  ],
+  "played": 19,
+  "pending": 0,
+  "knockout_planned": true,
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "Claude Opus 5.5",
+    "note": "final winner"
+   },
+   {
+    "rank": 2,
+    "model": "GPT-6 Astra",
+    "note": "final loser"
+   },
+   {
+    "rank": 3,
+    "model": "Gemini 4 Argon",
+    "note": "bronze winner"
+   },
+   {
+    "rank": 4,
+    "model": "Kimi 3.1 Pro",
+    "note": "bronze loser"
+   },
+   {
+    "rank": 5,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "round robin 5th"
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "note": "round robin 6th"
+   }
+  ],
+  "notes": [],
+  "as_of": "2026-11-08T10:17:40Z",
+  "board": "rel-soccer-ssl-champ2"
+ },
+ "open_arena": {
+  "rule": "points_table@1",
+  "final": false,
+  "stages": [
+   {
+    "id": "round_robin",
+    "name": "Round robin",
+    "standings": [
+     {
+      "rank": 1,
+      "model": "Claude Opus 5.5",
+      "played": 5,
+      "won": 5,
+      "drawn": 0,
+      "lost": 0,
+      "points": 15,
+      "for": 29,
+      "against": 5,
+      "note": "5-0-0, score 29:5, 1 won by forfeit"
+     },
+     {
+      "rank": 2,
+      "model": "Gemini 4 Argon",
+      "played": 5,
+      "won": 4,
+      "drawn": 0,
+      "lost": 1,
+      "points": 12,
+      "for": 33,
+      "against": 5,
+      "note": "4-0-1, score 33:5"
+     },
+     {
+      "rank": 3,
+      "model": "GPT-6 Astra",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 20,
+      "against": 7,
+      "note": "3-0-2, score 20:7, 1 won by forfeit"
+     },
+     {
+      "rank": 4,
+      "model": "Kimi 3.1 Pro",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 11,
+      "against": 20,
+      "note": "2-0-3, score 11:20, 1 no-show"
+     },
+     {
+      "rank": 5,
+      "model": "GLM 5.3 Flash",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 6,
+      "against": 17,
+      "note": "1-0-4, score 6:17, 1 no-show"
+     },
+     {
+      "rank": 6,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 5,
+      "won": 0,
+      "drawn": 0,
+      "lost": 5,
+      "points": 0,
+      "for": 1,
+      "against": 46,
+      "note": "0-0-5, score 1:46"
+     }
+    ],
+    "matches": [
+     {
+      "id": "SSLA-F01",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 5
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 4
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F01",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSLA-F02",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs gemini",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 4
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 1
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved"
+     },
+     {
+      "id": "SSLA-F03",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F03",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSLA-F04",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 10
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F04",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSLA-F05",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved"
+     },
+     {
+      "id": "SSLA-F06",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 2
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved"
+     },
+     {
+      "id": "SSLA-F07",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 6
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved"
+     },
+     {
+      "id": "SSLA-F08",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F08",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSLA-F09",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F09",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSLA-F10",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs gemini",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 10
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F10",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSLA-F13",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 6
+       }
+      ],
+      "winner": "GLM 5.3 Flash",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved"
+     },
+     {
+      "id": "SSLA-F14",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 1
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved"
+     },
+     {
+      "id": "SSLA-F15",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 10
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "SSLA-F15",
+       "key": "soccer_ssl",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "SSLQ-F11",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs deepseek-flash-sh",
+       "replaces": "SSLA-F11",
+       "replay_cause": "quota_no_show",
+       "replay_reason": "quota-caused no-show, approved by Chi 11-07",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 1
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved"
+     },
+     {
+      "id": "SSLQ-F12",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs gemini",
+       "replaces": "SSLA-F12",
+       "replay_cause": "quota_no_show",
+       "replay_reason": "quota-caused no-show, approved by Chi 11-07",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 10
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved"
+     }
+    ],
+    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+   }
+  ],
+  "played": 15,
+  "pending": 0,
+  "knockout_planned": false,
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "Claude Opus 5.5",
+    "note": "5-0-0, score 29:5, 1 won by forfeit"
+   },
+   {
+    "rank": 2,
+    "model": "Gemini 4 Argon",
+    "note": "4-0-1, score 33:5"
+   },
+   {
+    "rank": 3,
+    "model": "GPT-6 Astra",
+    "note": "3-0-2, score 20:7, 1 won by forfeit"
+   },
+   {
+    "rank": 4,
+    "model": "Kimi 3.1 Pro",
+    "note": "2-0-3, score 11:20, 1 no-show"
+   },
+   {
+    "rank": 5,
+    "model": "GLM 5.3 Flash",
+    "note": "1-0-4, score 6:17, 1 no-show"
+   },
+   {
+    "rank": 6,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "0-0-5, score 1:46"
+   }
+  ],
+  "notes": [],
+  "as_of": "2026-11-08T08:13:24Z",
+  "board": "rel-soccer-ssl-arena",
+  "complete": true,
+  "status_line": "Complete"
+ },
+ "agents": {
+  "per_model": {
+   "Claude Opus 5.5": {
+    "championship_place": "1 (Gold)",
+    "open_arena": "1 (15 pts, 5-0-0)",
+    "matches": 12,
+    "versions": 70,
+    "switches": 59,
+    "model_calls": 1414,
+    "output_tokens": 867534,
+    "reviews": "77/78",
+    "gpu": null,
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 1,
+    "realtime_rehearsal": 1,
+    "median_prep_min": 30
+   },
+   "GPT-6 Astra": {
+    "championship_place": "2 (Silver)",
+    "open_arena": "3 (9 pts, 3-0-2)",
+    "matches": 12,
+    "versions": 90,
+    "switches": 79,
+    "model_calls": 1773,
+    "output_tokens": 902577,
+    "reviews": "73/75",
+    "gpu": null,
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 3,
+    "median_prep_min": 26
+   },
+   "Gemini 4 Argon": {
+    "championship_place": "3 (Bronze)",
+    "open_arena": "2 (12 pts, 4-0-1)",
+    "matches": 12,
+    "versions": 83,
+    "switches": 71,
+    "model_calls": 3086,
+    "output_tokens": 1810059,
+    "reviews": "86/95",
+    "gpu": null,
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 12,
+    "realtime_rehearsal": 1,
+    "median_prep_min": 36
+   },
+   "Kimi 3.1 Pro": {
+    "championship_place": "4",
+    "open_arena": "4 (6 pts, 2-0-3)",
+    "matches": 12,
+    "versions": 129,
+    "switches": 118,
+    "model_calls": 2258,
+    "output_tokens": 1394682,
+    "reviews": "80/80",
+    "gpu": null,
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 4,
+    "realtime_rehearsal": 2,
+    "median_prep_min": 33
+   },
+   "DeepSeek V4.1 Flash": {
+    "championship_place": "5",
+    "open_arena": "6 (0 pts, 0-0-5)",
+    "matches": 10,
+    "versions": 138,
+    "switches": 129,
+    "model_calls": 1764,
+    "output_tokens": 1398592,
+    "reviews": "74/74",
+    "gpu": null,
+    "seat_matches": 10,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 5,
+    "realtime_rehearsal": 5,
+    "median_prep_min": 28
+   },
+   "GLM 5.3 Flash": {
+    "championship_place": "6",
+    "open_arena": "5 (3 pts, 1-0-4)",
+    "matches": 10,
+    "versions": 78,
+    "switches": 69,
+    "model_calls": 1164,
+    "output_tokens": 650021,
+    "reviews": "55/60",
+    "gpu": null,
+    "seat_matches": 10,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 3,
+    "median_prep_min": 33
+   }
+  },
+  "checkpoint": {
+   "kind": "duel",
+   "board": "rel-soccer-ssl-champ2",
+   "made": "2026-11-08 22:22 CST",
+   "measure": "Score share against fixed practice opponents (0.5 = even)",
+   "opponents": [
+    {
+     "id": "L2",
+     "tier": "middle"
+    },
+    {
+     "id": "Sumatra",
+     "tier": "strongest"
+    }
+   ],
+   "ref": 0.4722,
+   "count": {
+    "planned": 152,
+    "ok": 144,
+    "invalid": 0,
+    "never_acted": 0,
+    "model_called": 0,
+    "pending": 8
+   },
+   "lines": {
+    "Gemini 4 Argon": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.5625,
+      "lo": 0.5,
+      "hi": 0.625,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.5833,
+      "lo": 0.5,
+      "hi": 0.6667,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.5,
+      "lo": 0.5,
+      "hi": 0.5,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.3958,
+      "lo": 0.375,
+      "hi": 0.4167,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.4583,
+      "lo": 0.4167,
+      "hi": 0.5,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.4375,
+      "lo": 0.375,
+      "hi": 0.5,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.4167,
+      "lo": 0.3333,
+      "hi": 0.5,
+      "n": 2
+     }
+    ],
+    "GLM 5.3 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     }
+    ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0278,
+      "lo": 0.0,
+      "hi": 0.0556,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     }
+    ],
+    "Claude Opus 5.5": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.125,
+      "lo": 0.0,
+      "hi": 0.25,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0833,
+      "lo": 0.0,
+      "hi": 0.1667,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.2361,
+      "lo": 0.2222,
+      "hi": 0.25,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.5,
+      "lo": 0.5,
+      "hi": 0.5,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.25,
+      "lo": 0.0,
+      "hi": 0.5,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.25,
+      "lo": 0.25,
+      "hi": 0.25,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.5357,
+      "lo": 0.5,
+      "hi": 0.5714,
+      "n": 2
+     }
+    ],
+    "GPT-6 Astra": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.2778,
+      "lo": 0.0,
+      "hi": 0.5556,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.1833,
+      "lo": 0.1667,
+      "hi": 0.2,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.3125,
+      "lo": 0.125,
+      "hi": 0.5,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.1667,
+      "lo": 0.0,
+      "hi": 0.3333,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.1667,
+      "lo": 0.1667,
+      "hi": 0.1667,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.0833,
+      "lo": 0.0,
+      "hi": 0.1667,
+      "n": 2
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0227,
+      "lo": 0.0,
+      "hi": 0.0455,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0312,
+      "lo": 0.0,
+      "hi": 0.0625,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     }
+    ]
+   },
+   "verdict": {
+    "GPT-6 Astra": "unclear (seeds disagree)",
+    "Claude Opus 5.5": "unclear (seeds disagree)",
+    "Gemini 4 Argon": "unclear (seeds disagree)",
+    "Kimi 3.1 Pro": "flat",
+    "GLM 5.3 Flash": "flat",
+    "DeepSeek V4.1 Flash": "flat"
+   },
+   "capability": {
+    "n": 4,
+    "names": [
+     "Physical execution",
+     "Real-time control under noisy, delayed vision",
+     "Positioning & spatial structure",
+     "Playing within the rules"
+    ],
+    "ref": null,
+    "lines": {
+     "GPT-6 Astra": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:5",
+       "x": 5.0,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
+       "cp": "final:6",
+       "x": 6.0,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:7",
+       "x": 7.0,
+       "n_pass": 0,
+       "valid": 5
+      }
+     ],
+     "DeepSeek V4.1 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
+       "cp": "final:4",
+       "x": 4.0,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:5",
+       "x": 5.0,
+       "n_pass": 0,
+       "valid": 4
+      }
+     ],
+     "Gemini 4 Argon": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 8
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 6
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:4",
+       "x": 4.0,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:5",
+       "x": 5.0,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
+       "cp": "final:6",
+       "x": 6.0,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:7",
+       "x": 7.0,
+       "n_pass": 0,
+       "valid": 5
+      }
+     ],
+     "GLM 5.3 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 8
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 8
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 6
+      },
+      {
+       "cp": "final:5",
+       "x": 5.0,
+       "n_pass": 0,
+       "valid": 6
+      }
+     ],
+     "Kimi 3.1 Pro": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 8
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 8
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 6
+      },
+      {
+       "cp": "final:4",
+       "x": 4.0,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:5",
+       "x": 5.0,
+       "n_pass": 0,
+       "valid": 6
+      },
+      {
+       "cp": "final:6",
+       "x": 6.0,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:7",
+       "x": 7.0,
+       "n_pass": 0,
+       "valid": 6
+      }
+     ],
+     "Claude Opus 5.5": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 7
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 6
+      },
+      {
+       "cp": "final:4",
+       "x": 4.0,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:5",
+       "x": 5.0,
+       "n_pass": 0,
+       "valid": 6
+      },
+      {
+       "cp": "final:6",
+       "x": 6.0,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:7",
+       "x": 7.0,
+       "n_pass": 0,
+       "valid": 6
+      }
+     ]
+    },
+    "status": "proposal"
+   }
+  }
+ },
+ "capabilities": {
+  "source": "soccer_ssl",
+  "skills": [
+   {
+    "id": "drives",
+    "group": "phys",
+    "name": "Really drives in play",
+    "real": "Division A robots reach a p99 of 2.85 m/s in matches; a standing team does nothing. The program has to send every robot's velocity commands and drive it near its physical limits.",
+    "measure": "Scenario trace: each own robot's speed p90 while the game RUNS; robots with a p90 ≥ 1.0 m/s. Match Checkpoint Evaluations need a replay for it; here only scenario base.",
+    "line": "≥ 6 robots in 2/3 of runs",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "plays_ball",
+    "group": "phys",
+    "name": "Gets to the ball",
+    "real": "Reaching the ball before the opponent comes before any dribble, pass or shot.",
+    "measure": "Checkpoint Evaluation: own last-touch events in the referee's events. Scenario loose: share of loose balls an own robot touches first.",
+    "line": "Match ≥ 20 a match in 2/3 of matches; scenario: first to ≥ 1/2 of the loose balls",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "react",
+    "group": "phys",
+    "name": "Starts quickly for a loose ball",
+    "real": "Real teams get only SSL-Vision detections, 40 ms late and noisy, and must track and compensate themselves. A slow team loses the second balls.",
+    "measure": "Scenario loose: when the ball is set rolling across the own half, among own robots within 4 m not already heading to it, the time until the first one moves at ≥ 0.5 m/s towards it (0.1 s resolution, capped at 3 s); median per program.",
+    "line": "Median ≤ 1.0 s (≥ 3 balls with a candidate)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "loop",
+    "group": "eng",
+    "name": "Commands never lapse",
+    "real": "The robot firmware stops a robot whose command is older than 0.1 s. The program's loop must keep renewing all eleven robots' commands.",
+    "measure": "the match log: the robots in each own act_received + the step its effect row names; per robot the share of steps with a command younger than 10 steps (0.1 s), review pauses excluded; the median of the eleven.",
+    "line": "≥ 95 % in 2/3 of matches",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "no_swarm",
+    "group": "comp",
+    "name": "Does not swarm",
+    "real": "Champions organise attacks by roles and support positions; in SSL everyone chasing is weaker (7:0 against 3:0 v L2 on the same seed).",
+    "measure": "Scenario trace: share of RUNNING time with ≥ 4 own field robots (keeper excluded) within 1.5 m of the ball. Gate: ≥ 6 robots drive.",
+    "line": "≤ 30 % in 2/3 of runs",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "drives_clean",
+    "group": "comp",
+    "name": "Drives into a crowd without crashing",
+    "real": "Rule 8.4.2.3: a contact above 1.5 m/s relative speed is a crash; TIGERs had 1.7 per 10 minutes in 2025 Division A.",
+    "measure": "Checkpoint Evaluation: own BOT_CRASH_* / BOT_PUSHED_BOT / BOT_TIPPED_OVER calls. Scenario scrum: the ball at rest in the opponent half with the four nearest opponent field robots set 0.35 m around it; own crash calls in the next 8 s and whether an own robot gets within 0.3 m of the ball (contests it).",
+    "line": "Match ≤ 2 a match in 2/3 of matches (gate: drives); scenario ≤ 0.5 a trial (pooled) and contests the ball (within 0.3 m) in ≥ 1/2 of trials",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "within_rules",
+    "group": "comp",
+    "name": "Few fouls",
+    "real": "Every third foul is a yellow card (a robot off); a red card takes a robot off for good.",
+    "measure": "the match record / cards (own).",
+    "line": "≤ 6 fouls and no red card in 2/3 of matches (gate: drives)",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "places_ball",
+    "group": "comp",
+    "name": "Places the ball itself",
+    "real": "In Division A the robots place the ball after every stoppage (5.2); each failure is a free kick for the other team, and five end placing for the half.",
+    "measure": "Checkpoint Evaluation: the match record (own succeeded / all, pooled). Scenario place: three times in play the referee awards the own team a free kick at a spot ≥ 1.5 m from the ball; the referee's own PLACEMENT_SUCCEEDED / _FAILED (the first one within 30 s; a trial where the opponent interfered and the referee placed the ball itself is left out).",
+    "line": "Match ≥ 80 % (≥ 3); scenario ≥ 2/3 succeed",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "saves",
+    "group": "comp",
+    "name": "Stops shots at its own goal",
+    "real": "Real SSL keepers save about 45 %; in the 11-02 duels 3 of 17 goals were keeper own goals.",
+    "measure": "Scenario shot: in play the ball is put 4.5 m in front of the own goal moving at 3.5 m/s at a point inside the goal (0.45 m in from a post); crossing the own goal line between the posts within 3 s = conceded.",
+    "line": "Concedes ≤ 1/3 (pooled)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "passes",
+    "group": "comp",
+    "name": "Passes",
+    "real": "Division A champions all build attacks on passing.",
+    "measure": "Scenario trace: last touch passing from one own robot to another with ≥ 1 m of ball travel (while RUNNING); per 100 s of play.",
+    "line": "≥ 3 per 100 s in 2/3 of runs",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "holds_ball",
+    "group": "comp",
+    "name": "Holds its share of the ball",
+    "real": "ZJUNlict held 68.8 % possession when it won in 2019.",
+    "measure": "Checkpoint Evaluation (v L2): own last-touch events / both teams' in the referee's events.",
+    "line": "≥ 40 % in 2/3 of matches",
+    "secondary": false,
+    "three_checks": false
+   }
+  ],
+  "off": [
+   {
+    "name": "Shot selection (candidate)",
+    "group": "comp",
+    "why": "The card's control does not hold (shoot-on-sight and the full reference draw v Sumatra), and no reading isolates it; left off the list."
+   },
+   {
+    "name": "Reading the opponent and adapting (candidate)",
+    "group": "adap",
+    "why": "Needs an opponent that switches style within a match; none exists. Change across checkpoints is read on the growth curve."
+   },
+   {
+    "name": "GPU learning and training (excluded)",
+    "group": "eng",
+    "why": "Excluded on the card: no GPU tier."
+   },
+   {
+    "name": "Match results (goals, score share v L2 / Sumatra)",
+    "group": "comp",
+    "why": "Outcomes, not skills; on the growth curve only."
+   }
+  ],
+  "results": {
+   "Claude Opus 5.5": {
+    "plays_ball": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "loop": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "places_ball": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "holds_ball": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "drives_clean": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "within_rules": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "drives": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "no_swarm": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "saves": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "passes": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "GPT-6 Astra": {
+    "plays_ball": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "loop": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "drives_clean": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "within_rules": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "places_ball": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "holds_ball": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "drives": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "no_swarm": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "saves": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "passes": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
+   },
+   "Gemini 4 Argon": {
+    "loop": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "drives_clean": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "within_rules": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "plays_ball": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "places_ball": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "holds_ball": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "drives": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "no_swarm": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "saves": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "passes": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "plays_ball": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "loop": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "drives_clean": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "within_rules": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "places_ball": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "drives": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "no_swarm": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "saves": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "passes": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "holds_ball": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "plays_ball": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "loop": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "drives_clean": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "within_rules": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "places_ball": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "holds_ball": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "drives": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "no_swarm": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "saves": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "passes": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "DeepSeek V4.1 Flash": {
+    "plays_ball": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "loop": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "drives_clean": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "within_rules": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "places_ball": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "holds_ball": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "drives": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "no_swarm": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "saves": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "passes": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   }
+  },
+  "reference": {
+   "passed": [
+    "drives",
+    "plays_ball",
+    "react",
+    "loop",
+    "no_swarm",
+    "drives_clean",
+    "places_ball",
+    "saves"
+   ],
+   "failed": [
+    "passes"
+   ]
+  },
+  "open_questions": [],
+  "pass_marks": "page"
+ },
+ "notes": {
+  "_source": "R2 (11-08 evening). Line 1: dim/competitive/final.md #7 and synthesis finding 1 (57 / 13 / 30 / 2); line 2: soccer_ssl/findings.md #2 and overall #4 (SSL2-F12 coin toss); line 3: analysis/drafts/dim/teamsports/final.md #10 (Gemini passing, SSL2-F10) and soccer_ssl/findings.md #5; line 4: soccer_ssl/findings.md #7. Built: soccer_ssl/findings.md #4, #6. No R2 change contradicts v1. Owner: edit or replace with your analysis.",
+  "_status": "draft from the analysis drafts, for the sport owner to edit",
+  "challenge": "Eleven fast wheeled robots a side under RoboCup Small Size rules. The program runs the whole team in real time from noisy, delayed overhead vision, and an automatic referee calls every foul.",
+  "achieved": [
+   {
+    "text": "Claude Opus 5.5's corner along the goal line: 13 of its 57 corner-zone free kicks were followed by a goal within 10 s; once opponents guarded that corner, 2 of 30.",
+    "evidence": [
+     "SSLC-F01",
+     "SSL2-F04",
+     "SSL2-F07",
+     "SSL2-F13",
+     "SSL2-F16",
+     "SSL2-F18"
+    ]
+   },
+   {
+    "text": "Kimi 3.1 Pro against DeepSeek V4.1 Flash ended 1:1, the shoot-out produced no goal in 20 kicks, and a coin toss decided the match. Across all shoot-outs 9 of 43 kicks went in.",
+    "evidence": [
+     "SSL2-F12"
+    ]
+   },
+   {
+    "text": "Gemini 4 Argon's team passes the most (46 % of its non-shot kicks reach a teammate next, Opus 29 %). In SSL2-F10 it passed through Opus's press 48 times; Opus kept revising its program, equalised 18 s from time and won the shoot-out 2:0.",
+    "evidence": [
+     "SSL2-F10"
+    ]
+   },
+   {
+    "text": "34 of 230 goals were last touched by the conceding keeper, both goals of SSL2-F18 among them.",
+    "evidence": [
+     "SSL2-F18"
+    ]
+   }
+  ],
+  "built": {
+   "Claude Opus 5.5": [
+    "Changed its program the least of all teams (70 deploys) and judged mid-match that a live deploy risked more than a small tweak could gain."
+   ],
+   "GLM 5.3 Flash": [
+    "Its program lost on the rules: 25 fouls a match and 25 red cards in 6 matches."
+   ]
+  }
+ }
+}

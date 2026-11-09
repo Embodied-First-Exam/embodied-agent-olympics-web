@@ -180,6 +180,7 @@ def page(site: Site, *, path: str, title: str | None, body: str, description: st
 <link rel="preload" href="{site.asset('fonts/intertight-var.woff2')}" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{site.asset('css/site.css')}">
 <link rel="stylesheet" href="{site.asset('css/story.css')}">
+{"".join(f'<link rel="stylesheet" href="{site.asset(c)}">' for c in css)}
 </head>
 <body class="{body_class}">
 {icon_sprite(site)}

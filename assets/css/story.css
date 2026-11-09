@@ -1658,3 +1658,4 @@ a.doc-row:hover{background:var(--bg-2)}
 .jl::after{content:"\00a0↓";opacity:1;font-size:.85em}
 .jl:hover,.jl:focus-visible{color:var(--accent);filter:brightness(1.25)}
 .mt-foot--oa{font-size:15px;margin-top:10px}
+.sw-matches .sw-ck:first-child span{left:0;transform:none}

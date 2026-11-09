@@ -1,0 +1,1100 @@
+{
+ "schema": "eo-sportpage/1",
+ "sport": "hurdles",
+ "key": "hurdles_g1",
+ "format": "solo",
+ "made": "2026-11-09T04:28Z",
+ "status": "final",
+ "provisional": true,
+ "podium": {
+  "gold": "GPT-6 Astra",
+  "silver": "Gemini 4 Argon",
+  "bronze": "Claude Opus 5.5"
+ },
+ "flag": null,
+ "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
+ "championship": {
+  "rule": "mean_round@1",
+  "final": true,
+  "unit": "m/s",
+  "rank_by": "mean",
+  "rows": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra",
+    "mean": 2.755762,
+    "best": 3.464894,
+    "matches": [
+     {
+      "match": 1,
+      "id": "HURA-F0051",
+      "value": 3.255594,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 112.1,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HURA-F0051/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HURA-F0051",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "HUR2-F0052",
+      "value": 3.464894,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 106.4,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0052/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0052",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "HUR2-F0053",
+      "value": 1.546798,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 95.7,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0053/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0053",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 2,
+    "model": "Gemini 4 Argon",
+    "mean": 1.862596667,
+    "best": 2.71634,
+    "matches": [
+     {
+      "match": 1,
+      "id": "HUR2-F0101",
+      "value": 2.71634,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 132.2,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0101/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0101",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "HUR2-F0102",
+      "value": 1.435881,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 113.8,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0102/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0102",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "HUR2-F0103",
+      "value": 1.435569,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 120.7,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0103/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0103",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 3,
+    "model": "Claude Opus 5.5",
+    "mean": 1.226647,
+    "best": 1.706167,
+    "matches": [
+     {
+      "match": 1,
+      "id": "HURA-F0001",
+      "value": 0.506931,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 253.4,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HURA-F0001/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HURA-F0001",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "HUR2-F0002",
+      "value": 1.466843,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 236.1,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0002/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0002",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "HUR2-F0003",
+      "value": 1.706167,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 204.4,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0003/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0003",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 4,
+    "model": "Kimi 3.1 Pro",
+    "mean": 0.133707333,
+    "best": 0.157951,
+    "matches": [
+     {
+      "match": 1,
+      "id": "HURA-F0251",
+      "value": 0.120004,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 103.2,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HURA-F0251/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HURA-F0251",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "HUR2-F0252",
+      "value": 0.157951,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 118.7,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0252/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0252",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "HUR2-F0253",
+      "value": 0.123167,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 114.6,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0253/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0253",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 5,
+    "model": "GLM 5.3 Flash",
+    "mean": 0.043383667,
+    "best": 0.11804,
+    "matches": [
+     {
+      "match": 1,
+      "id": "HURA-F0151",
+      "value": 0.004687,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 182.8,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HURA-F0151/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HURA-F0151",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "HUR2-F0152",
+      "value": 0.007424,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 44.4,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0152/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0152",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "HUR2-F0153",
+      "value": 0.11804,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 68.2,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0153/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0153",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 6,
+    "model": "DeepSeek V4.1 Flash",
+    "mean": 0.023485333,
+    "best": 0.057838,
+    "matches": [
+     {
+      "match": 1,
+      "id": "HUR2-F0211",
+      "value": 0.005298,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 26.3,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0211/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0211",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "HUR2-F0212",
+      "value": 0.00732,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 37.3,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0212/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0212",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "HUR2-F0213",
+      "value": 0.057838,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 51.4,
+       "path": "matches/hurdles_g1/rel-hurdles-g1-arena2/HUR2-F0213/replay.mp4",
+       "camera": "follow",
+       "size": "1280x720",
+       "fixture": "HUR2-F0213",
+       "key": "hurdles_g1",
+       "highlight": false
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   }
+  ],
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra"
+   },
+   {
+    "rank": 2,
+    "model": "Gemini 4 Argon"
+   },
+   {
+    "rank": 3,
+    "model": "Claude Opus 5.5"
+   },
+   {
+    "rank": 4,
+    "model": "Kimi 3.1 Pro"
+   },
+   {
+    "rank": 5,
+    "model": "GLM 5.3 Flash"
+   },
+   {
+    "rank": 6,
+    "model": "DeepSeek V4.1 Flash"
+   }
+  ],
+  "scoring": "Each match: 110 m / mean time of its races (a race not finished counts 150 s). Ranked by the mean of three matches; the workspace carries over between matches.",
+  "as_of": "2026-11-08T14:46:22Z",
+  "board": "rel-hurdles-g1-arena2"
+ },
+ "open_arena": null,
+ "agents": {
+  "per_model": {
+   "Claude Opus 5.5": {
+    "championship_place": "3 (Bronze)",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 3,
+    "switches": 0,
+    "model_calls": 303,
+    "output_tokens": 184410,
+    "reviews": "6/6",
+    "gpu": "yes in 3/3 (max 101 GPU-min)",
+    "seat_matches": 3,
+    "train_code": 3,
+    "weights": 2,
+    "practice_world": 2,
+    "realtime_rehearsal": 2,
+    "median_prep_min": 81
+   },
+   "GPT-6 Astra": {
+    "championship_place": "1 (Gold)",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 3,
+    "switches": 0,
+    "model_calls": 675,
+    "output_tokens": 387065,
+    "reviews": "6/6",
+    "gpu": "yes in 3/3 (max 100 GPU-min)",
+    "seat_matches": 3,
+    "train_code": 3,
+    "weights": 2,
+    "practice_world": 2,
+    "realtime_rehearsal": 2,
+    "median_prep_min": 109
+   },
+   "Gemini 4 Argon": {
+    "championship_place": "2 (Silver)",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 3,
+    "switches": 0,
+    "model_calls": 741,
+    "output_tokens": 454483,
+    "reviews": "5/6",
+    "gpu": "yes in 1/3 (max 48 GPU-min)",
+    "seat_matches": 3,
+    "train_code": 3,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 59
+   },
+   "Kimi 3.1 Pro": {
+    "championship_place": "4",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 10,
+    "switches": 8,
+    "model_calls": 1206,
+    "output_tokens": 612241,
+    "reviews": "5/6",
+    "gpu": "yes in 3/3 (max 78 GPU-min)",
+    "seat_matches": 3,
+    "train_code": 3,
+    "weights": 1,
+    "practice_world": 3,
+    "realtime_rehearsal": 3,
+    "median_prep_min": 77
+   },
+   "DeepSeek V4.1 Flash": {
+    "championship_place": "6",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 9,
+    "switches": 6,
+    "model_calls": 394,
+    "output_tokens": 365422,
+    "reviews": "5/6",
+    "gpu": "yes in 3/3 (max 95 GPU-min)",
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 1,
+    "practice_world": 3,
+    "realtime_rehearsal": 3,
+    "median_prep_min": 99
+   },
+   "GLM 5.3 Flash": {
+    "championship_place": "5",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 4,
+    "switches": 1,
+    "model_calls": 369,
+    "output_tokens": 186385,
+    "reviews": "5/6",
+    "gpu": "yes in 3/3 (max 70 GPU-min)",
+    "seat_matches": 3,
+    "train_code": 3,
+    "weights": 1,
+    "practice_world": 1,
+    "realtime_rehearsal": 1,
+    "median_prep_min": 50
+   }
+  },
+  "checkpoint": {
+   "kind": "solo",
+   "board": "rel-hurdles-g1-arena2",
+   "made": "2026-11-08 22:22 CST",
+   "measure": "Speed (m/s), ratio to the reference program (1.0 = reference)",
+   "opponents": [],
+   "ref": 1.0,
+   "count": {
+    "planned": 66,
+    "ok": 66,
+    "invalid": 0,
+    "never_acted": 0,
+    "model_called": 0,
+    "pending": 0
+   },
+   "lines": {
+    "GPT-6 Astra": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 1.7971,
+      "lo": 1.3941,
+      "hi": 2.4019,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 2.4175,
+      "lo": 1.3971,
+      "hi": 3.4364,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 2.1055,
+      "lo": 1.1477,
+      "hi": 3.6662,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 2.5842,
+      "lo": 1.5074,
+      "hi": 3.6583,
+      "n": 3
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.005,
+      "lo": 0.003,
+      "hi": 0.0067,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0053,
+      "lo": 0.0032,
+      "hi": 0.0089,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0063,
+      "lo": 0.0037,
+      "hi": 0.0089,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0379,
+      "lo": 0.0316,
+      "hi": 0.0442,
+      "n": 3
+     }
+    ],
+    "Gemini 4 Argon": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0042,
+      "lo": 0.0024,
+      "hi": 0.0059,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0043,
+      "lo": 0.0025,
+      "hi": 0.006,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.5281,
+      "lo": 0.6204,
+      "hi": 2.8973,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 1.5301,
+      "lo": 0.621,
+      "hi": 2.9018,
+      "n": 3
+     }
+    ],
+    "GLM 5.3 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0052,
+      "lo": 0.0031,
+      "hi": 0.0076,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0053,
+      "lo": 0.0031,
+      "hi": 0.0076,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0798,
+      "lo": 0.0401,
+      "hi": 0.1104,
+      "n": 3
+     }
+    ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0771,
+      "lo": 0.0441,
+      "hi": 0.1126,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.113,
+      "lo": 0.0437,
+      "hi": 0.1575,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.109,
+      "lo": 0.0506,
+      "hi": 0.1906,
+      "n": 3
+     }
+    ],
+    "Claude Opus 5.5": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0893,
+      "lo": 0.0607,
+      "hi": 0.1179,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.6485,
+      "lo": 0.3987,
+      "hi": 0.8617,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.0933,
+      "lo": 0.6374,
+      "hi": 1.5471,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 1.2694,
+      "lo": 0.739,
+      "hi": 1.7955,
+      "n": 3
+     }
+    ]
+   },
+   "verdict": {
+    "GPT-6 Astra": "improve",
+    "Claude Opus 5.5": "improve",
+    "Gemini 4 Argon": "flat",
+    "Kimi 3.1 Pro": "flat",
+    "GLM 5.3 Flash": "flat",
+    "DeepSeek V4.1 Flash": "one point only"
+   },
+   "capability": {
+    "n": 4,
+    "names": [
+     "Building a running gait",
+     "Clearing hurdles",
+     "Knowing where you are from the camera",
+     "Real-time control"
+    ],
+    "ref": null,
+    "lines": {},
+    "status": "proposal"
+   }
+  }
+ },
+ "capabilities": {
+  "source": "hurdles_g1",
+  "skills": [
+   {
+    "id": "upright",
+    "group": "phys",
+    "name": "Runs without falling",
+    "real": "A humanoid runs on a whole-body controller it trained itself; nobody runs for it, and a fall that lasts 10 s ends the race.",
+    "measure": "As in the 100 m: among races started, the share not ended as DNF 'down for 10 s' (falls at a hurdle count too; clearing is its own skill).",
+    "line": "≥ 80 %",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "speed",
+    "group": "phys",
+    "name": "Runs fast enough",
+    "real": "The gait must be fast as well as stable; the result is the mean of three races.",
+    "measure": "the match record: mean of 110 / time over finished races, with ≥ 2/3 finished.",
+    "line": "≥ 1.92 m/s (0.83 × the reference's 2.32)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "clear",
+    "group": "phys",
+    "name": "Clears the hurdles it reaches",
+    "real": "The hurdles are the one difference from the 100 m: adjust the stride before a hurdle and clear it without falling. 0.08 m high (scaled to the G1), knocked over at 17.4 N.",
+    "measure": "the match record: among hurdles reached (progress ≥ 1 m before it), the share not followed by a race end (fall or DQ) inside [1 m before, 3 m past); a finished race clears all 10. Pooled (gate ≥ 5 hurdles).",
+    "line": "≥ 80 %",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "jump",
+    "group": "phys",
+    "name": "Clears a hurdle met at speed from an unexpected place (finds it by camera)",
+    "real": "Hurdling means seeing the hurdle and adjusting the stride; a program that counts strides from the start fails when the hurdle is not where its count says.",
+    "measure": "Scenario jump: when the pelvis passes 25 m (past hurdle 2) the whole robot, with its speed and joint state, is moved forward along the lane so its pelvis is 2.2 m before hurdle 4 (hurdle 3 counts as passed); the scenario record = no fall and no DQ within 3 m past hurdle 4. Jump10 = the same move when the pelvis passes 10 m (before hurdle 1), so ablation arms that fall at the first hurdles reach it too.",
+    "line": "≥ 2/3 of the races",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "first_hurdle",
+    "group": "phys",
+    "name": "Clears hurdle 1",
+    "real": "The 13.72 m to hurdle 1 is the acceleration; the stride is hardest to fit there.",
+    "measure": "As 'clears', hurdle 1 only (gate ≥ 3 races reaching it).",
+    "line": "≥ 80 %",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "lane",
+    "group": "phys",
+    "name": "Stays in lane from the camera",
+    "real": "In real athletics you can only look. The robot has only its head camera (480 × 270, 2 steps late) plus joints and IMUs, no position.",
+    "measure": "As in the 100 m (match field + scenario offset: start 0.40 m left, turned 6 deg left).",
+    "line": "Match ≥ 90 %; scenario ≥ 2/3",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "push",
+    "group": "phys",
+    "name": "Takes a sideways push: no fall, back in lane",
+    "real": "A knock while running must be absorbed by the whole-body controller, and the camera must bring the robot back to the lane centre.",
+    "measure": "Scenario push: at 36.5 m (between hurdles 3 and 4) a 0.8 m/s sideways push; read as in the 100 m.",
+    "line": "≥ 2/3 of the pushed races",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "rhythm",
+    "group": "phys",
+    "name": "Real-time control: commands keep coming",
+    "real": "A real robot runs at x1; a slow loop cannot steer in time (card: a plan every 30 ms finishes every race, every 40 ms leaves the lane in all).",
+    "measure": "Steps of seat A's 'effect' rows (commands the world applied) in the match log: per race, the gaps between consecutive commands from the gun to the race's end, p95 (steps of 10 ms); share of races with ≥ 100 commands whose p95 ≤ 3 steps.",
+    "line": "≥ 80 % of races",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "fair",
+    "group": "comp",
+    "name": "No false start (rule, secondary)",
+    "real": "World Athletics TR 16: a start movement within 0.100 s of the gun is a false start.",
+    "measure": "the match record: among races with a start movement (reaction_s set), the share without TR16.8.",
+    "line": "≥ 90 %",
+    "secondary": true,
+    "three_checks": false
+   }
+  ],
+  "off": [
+   {
+    "name": "Speed versus falling (secondary, open)",
+    "group": "comp",
+    "why": "No effect seen on the card: faster programs do not fall more. The result ratio belongs to the growth curve."
+   }
+  ],
+  "results": {
+   "Claude Opus 5.5": {
+    "upright": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "clear": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "jump": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "first_hurdle": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "rhythm": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "fair": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "speed": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "lane": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "push": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    }
+   },
+   "GPT-6 Astra": {
+    "upright": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "speed": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "clear": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "jump": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "first_hurdle": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "lane": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "push": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "rhythm": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "fair": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    }
+   },
+   "Gemini 4 Argon": {
+    "rhythm": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "fair": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "upright": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "speed": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "clear": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "jump": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "first_hurdle": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "lane": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "rhythm": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "fair": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "upright": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "speed": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "clear": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "jump": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "first_hurdle": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "lane": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "rhythm": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "fair": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "upright": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "speed": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "clear": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "first_hurdle": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "lane": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "jump": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   }
+  },
+  "reference": {
+   "passed": [
+    "upright",
+    "speed",
+    "clear",
+    "rhythm",
+    "fair"
+   ],
+   "failed": [
+    "jump",
+    "first_hurdle",
+    "lane",
+    "push"
+   ]
+  },
+  "open_questions": [],
+  "pass_marks": "page"
+ },
+ "notes": {
+  "_source": "R2 (11-08 evening). Line 1: analysis/drafts/dim/othersports/final.md hurdles physical column and overall #14 (knock-downs, skill tests); line 2: analysis/drafts/dim/othersports/final.md top 10 #1 (finishes); line 3: hurdles adaptive column and synthesis finding 6 (Opus 0/3 -> 6/6); line 4: dim/adaptive R2 F6 (Gemini, the part kept). Built: hurdles adaptive / engineering columns. Dropped from v1: 'Astra fell by tuning a working runner' (withdrawn in R2: it kept its 4 m/s program on measured rates and fell once). Owner: edit or replace with your analysis.",
+  "_status": "draft from the analysis drafts, for the sport owner to edit",
+  "challenge": "Ten hurdles at official spacing. The program trains a running gait in two hours and finds each hurdle with its head camera.",
+  "achieved": [
+   {
+    "text": "The 0.08 m hurdles can be run through: in finished races Claude Opus 5.5 knocked down 59 of 60, GPT-6 Astra 69 of 80 and Gemini 4 Argon 34 of 70, so the skill test cannot tell a jump from a run-through.",
+    "evidence": [
+     "skill tests",
+     "all valid matches"
+    ]
+   },
+   {
+    "text": "Astra finished 8 of 9 races, Gemini 7 of 9, Opus 6 of 9; Kimi 3.1 Pro, DeepSeek V4.1 Flash and GLM 5.3 Flash none.",
+    "evidence": [
+     "all valid matches"
+    ]
+   },
+   {
+    "text": "Opus finished none of its 3 races in its first match and all 6 after one repair package.",
+    "evidence": [
+     "HURA-F0001",
+     "HUR2-F0002",
+     "HUR2-F0003"
+    ]
+   },
+   {
+    "text": "Gemini raised a jump-boost setting from 0.15 to 0.17 after its first match, hit hurdle 8, and its score fell from 2.72 to 1.44.",
+    "evidence": [
+     "HUR2-F0101",
+     "HUR2-F0102"
+    ]
+   }
+  ],
+  "built": {
+   "GPT-6 Astra": [
+    "Its gait has no hurdle input; it kept its 4 m/s program on measured success rates (101 of 101 and 12 of 12 trials, against 16 of 18 and 3 of 3 at 3.5 m/s) and fell once in nine races."
+   ],
+   "Claude Opus 5.5": [
+    "Its repair package added a camera distance-to-bar input, a lane filter, a separate camera process and a training curriculum."
+   ]
+  }
+ }
+}

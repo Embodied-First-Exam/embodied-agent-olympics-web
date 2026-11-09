@@ -1,0 +1,2193 @@
+{
+ "schema": "eo-sportpage/1",
+ "sport": "beachvolleyball",
+ "key": "beachvolleyball_g1",
+ "format": "team",
+ "made": "2026-11-09T04:28Z",
+ "status": "final",
+ "provisional": true,
+ "podium": {
+  "gold": "Claude Opus 5.5",
+  "silver": "GPT-6 Astra",
+  "bronze": "DeepSeek V4.1 Flash"
+ },
+ "flag": null,
+ "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
+ "championship": {
+  "rule": "round_robin_knockout_serial@1",
+  "final": true,
+  "stages": [
+   {
+    "id": "round_robin",
+    "name": "Round robin",
+    "standings": [
+     {
+      "rank": 1,
+      "model": "GPT-6 Astra",
+      "played": 5,
+      "won": 5,
+      "drawn": 0,
+      "lost": 0,
+      "points": 15,
+      "for": 76,
+      "against": 23,
+      "note": "5-0-0, score 76:23"
+     },
+     {
+      "rank": 2,
+      "model": "Claude Opus 5.5",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 72,
+      "against": 33,
+      "note": "3-0-2, score 72:33"
+     },
+     {
+      "rank": 3,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 53,
+      "against": 38,
+      "note": "3-0-2, score 53:38"
+     },
+     {
+      "rank": 4,
+      "model": "Gemini 4 Argon",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 50,
+      "against": 61,
+      "note": "3-0-2, score 50:61"
+     },
+     {
+      "rank": 5,
+      "model": "Kimi 3.1 Pro",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 29,
+      "against": 74,
+      "note": "1-0-4, score 29:74"
+     },
+     {
+      "rank": 6,
+      "model": "GLM 5.3 Flash",
+      "played": 5,
+      "won": 0,
+      "drawn": 0,
+      "lost": 5,
+      "points": 0,
+      "for": 25,
+      "against": 76,
+      "note": "0-0-5, score 25:76"
+     }
+    ],
+    "matches": [
+     {
+      "id": "BVB2-F02",
+      "labels": {
+       "pair": "astra-sub vs deepseek-flash-sh",
+       "replaces": "BVBC-F02",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 15
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 7
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 39.2,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F02/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F02",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBC-F01",
+      "labels": {
+       "pair": "opus vs kimi",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 15
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 1
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 28.4,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVBC-F01/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVBC-F01",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBC-F03",
+      "labels": {
+       "pair": "gemini vs glm-flash-sh",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 15
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 11
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 27.7,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVBC-F03/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVBC-F03",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVB2-F04",
+      "labels": {
+       "pair": "deepseek-flash-sh vs opus",
+       "replaces": "BVBC-F04",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 15
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 30.4,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F04/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F04",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVB2-F06",
+      "labels": {
+       "pair": "astra-sub vs gemini",
+       "replaces": "BVBC-F06",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 15
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 2
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 31.5,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F06/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F06",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBC-F05",
+      "labels": {
+       "pair": "glm-flash-sh vs kimi",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 14
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 16
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 35.3,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVBC-F05/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVBC-F05",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVB2-F07",
+      "labels": {
+       "pair": "opus vs glm-flash-sh",
+       "replaces": "BVBC-F07",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 15
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 24.2,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F07/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F07",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVB2-F08",
+      "labels": {
+       "pair": "gemini vs deepseek-flash-sh",
+       "replaces": "BVBC-F08",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 3
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 15
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 35.2,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F08/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F08",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVB2-F09",
+      "labels": {
+       "pair": "kimi vs astra-sub",
+       "replaces": "BVBC-F09",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 15
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 27.5,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F09/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F09",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVB2-F10",
+      "labels": {
+       "pair": "opus vs gemini",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 13
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 15
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 63.9,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F10/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F10",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVB2-F11",
+      "labels": {
+       "pair": "glm-flash-sh vs astra-sub",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 15
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 19.8,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F11/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F11",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVB2-F12",
+      "labels": {
+       "pair": "deepseek-flash-sh vs kimi",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 15
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 5
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 39.0,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F12/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F12",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVB2-F13",
+      "labels": {
+       "pair": "astra-sub vs opus",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 16
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 14
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 70.9,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F13/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F13",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVB2-F14",
+      "labels": {
+       "pair": "kimi vs gemini",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 15
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 41.1,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F14/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F14",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVB2-F15",
+      "labels": {
+       "pair": "glm-flash-sh vs deepseek-flash-sh",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 15
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 18.0,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F15/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F15",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     }
+    ],
+    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+   },
+   {
+    "id": "semi_final",
+    "name": "Semifinal",
+    "matches": [
+     {
+      "id": "BVB2-F16",
+      "labels": {
+       "match": "SF1",
+       "pair": "astra-sub vs gemini",
+       "round": 6,
+       "seeds": "1v4",
+       "stage": "semi_final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 15
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 9
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 50.8,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F16/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F16",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       1,
+       4
+      ],
+      "label": "Semifinal 1"
+     },
+     {
+      "id": "BVB2-F17",
+      "labels": {
+       "match": "SF2",
+       "pair": "opus vs deepseek-flash-sh",
+       "round": 6,
+       "seeds": "2v3",
+       "stage": "semi_final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 16
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 14
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 62.7,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F17/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F17",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       2,
+       3
+      ],
+      "label": "Semifinal 2"
+     }
+    ]
+   },
+   {
+    "id": "final",
+    "name": "Final",
+    "matches": [
+     {
+      "id": "BVB2-F18",
+      "labels": {
+       "match": "F",
+       "pair": "opus vs astra-sub",
+       "round": 7,
+       "seeds": "1v2",
+       "stage": "final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 16
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 14
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 71.3,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F18/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F18",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       2,
+       1
+      ],
+      "label": "Final"
+     }
+    ]
+   },
+   {
+    "id": "bronze",
+    "name": "Bronze match",
+    "matches": [
+     {
+      "id": "BVB2-F19",
+      "labels": {
+       "match": "B",
+       "pair": "gemini vs deepseek-flash-sh",
+       "round": 7,
+       "seeds": "3v4",
+       "stage": "bronze"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 11
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 15
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 54.4,
+       "path": "matches/beachvolleyball_g1/rel-beachvolleyball-g1-champ2/BVB2-F19/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVB2-F19",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       4,
+       3
+      ],
+      "label": "Bronze match"
+     }
+    ]
+   }
+  ],
+  "played": 19,
+  "pending": 0,
+  "knockout_planned": true,
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "Claude Opus 5.5",
+    "note": "final winner"
+   },
+   {
+    "rank": 2,
+    "model": "GPT-6 Astra",
+    "note": "final loser"
+   },
+   {
+    "rank": 3,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "bronze winner"
+   },
+   {
+    "rank": 4,
+    "model": "Gemini 4 Argon",
+    "note": "bronze loser"
+   },
+   {
+    "rank": 5,
+    "model": "Kimi 3.1 Pro",
+    "note": "round robin 5th"
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "note": "round robin 6th"
+   }
+  ],
+  "notes": [],
+  "as_of": "2026-11-08T12:24:03Z",
+  "board": "rel-beachvolleyball-g1-champ2"
+ },
+ "open_arena": {
+  "rule": "points_table@1",
+  "final": false,
+  "stages": [
+   {
+    "id": "round_robin",
+    "name": "Round robin",
+    "standings": [
+     {
+      "rank": 1,
+      "model": "GPT-6 Astra",
+      "played": 5,
+      "won": 5,
+      "drawn": 0,
+      "lost": 0,
+      "points": 15,
+      "for": 61,
+      "against": 24,
+      "note": "5-0-0, score 61:24, 1 won by forfeit"
+     },
+     {
+      "rank": 2,
+      "model": "Claude Opus 5.5",
+      "played": 5,
+      "won": 4,
+      "drawn": 0,
+      "lost": 1,
+      "points": 12,
+      "for": 74,
+      "against": 35,
+      "note": "4-0-1, score 74:35"
+     },
+     {
+      "rank": 3,
+      "model": "Kimi 3.1 Pro",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 43,
+      "against": 60,
+      "note": "2-0-3, score 43:60, 1 won by forfeit"
+     },
+     {
+      "rank": 4,
+      "model": "GLM 5.3 Flash",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 34,
+      "against": 60,
+      "note": "2-0-3, score 34:60, 1 won by forfeit"
+     },
+     {
+      "rank": 5,
+      "model": "Gemini 4 Argon",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 27,
+      "against": 21,
+      "note": "1-0-4, score 27:21, 3 no-show"
+     },
+     {
+      "rank": 6,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 36,
+      "against": 75,
+      "note": "1-0-4, score 36:75"
+     }
+    ],
+    "matches": [
+     {
+      "id": "BVBA-F01",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 14
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 16
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F01",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBA-F02",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs gemini",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 15
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 12
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F02",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBA-F03",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 15
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F03",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBA-F05",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 15
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 7
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F05",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBA-F06",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F06",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBA-F07",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 15
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 4
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F07",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBA-F08",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 15
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F08",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBA-F09",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 6
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 15
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F09",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBA-F10",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs gemini",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       }
+      ],
+      "winner": "GLM 5.3 Flash",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F10",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBA-F11",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 15
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 6
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F11",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBA-F12",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F12",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBA-F13",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 16
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 14
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F13",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBA-F14",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 16
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 14
+       }
+      ],
+      "winner": "GLM 5.3 Flash",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F14",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBA-F15",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 16
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 14
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBA-F15",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BVBQ-F04",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs opus",
+       "replaces": "BVBA-F04",
+       "replay_cause": "quota_no_show",
+       "replay_reason": "seat B opus no-show caused by the platform (its kill command hit exec_agent, same uid), approved by Chi 11-07",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 15
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BVBQ-F04",
+       "key": "beachvolleyball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     }
+    ],
+    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+   }
+  ],
+  "played": 15,
+  "pending": 0,
+  "knockout_planned": false,
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra",
+    "note": "5-0-0, score 61:24, 1 won by forfeit"
+   },
+   {
+    "rank": 2,
+    "model": "Claude Opus 5.5",
+    "note": "4-0-1, score 74:35"
+   },
+   {
+    "rank": 3,
+    "model": "Kimi 3.1 Pro",
+    "note": "2-0-3, score 43:60, 1 won by forfeit"
+   },
+   {
+    "rank": 4,
+    "model": "GLM 5.3 Flash",
+    "note": "2-0-3, score 34:60, 1 won by forfeit"
+   },
+   {
+    "rank": 5,
+    "model": "Gemini 4 Argon",
+    "note": "1-0-4, score 27:21, 3 no-show"
+   },
+   {
+    "rank": 6,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "1-0-4, score 36:75"
+   }
+  ],
+  "notes": [],
+  "as_of": "2026-11-08T10:44:59Z",
+  "board": "rel-beachvolleyball-g1-arena",
+  "complete": true,
+  "status_line": "Complete"
+ },
+ "agents": {
+  "per_model": {
+   "Claude Opus 5.5": {
+    "championship_place": "1 (Gold)",
+    "open_arena": "2 (12 pts, 4-0-1)",
+    "matches": 12,
+    "versions": 25,
+    "switches": 13,
+    "model_calls": 1493,
+    "output_tokens": 1026018,
+    "reviews": "260/262",
+    "gpu": "yes in 2/12 (max 35 GPU-min)",
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 1,
+    "practice_world": 12,
+    "realtime_rehearsal": 9,
+    "median_prep_min": 44
+   },
+   "GPT-6 Astra": {
+    "championship_place": "2 (Silver)",
+    "open_arena": "1 (15 pts, 5-0-0)",
+    "matches": 12,
+    "versions": 31,
+    "switches": 20,
+    "model_calls": 2269,
+    "output_tokens": 1207051,
+    "reviews": "186/227",
+    "gpu": "yes in 12/12 (max 78 GPU-min)",
+    "seat_matches": 12,
+    "train_code": 7,
+    "weights": 1,
+    "practice_world": 6,
+    "realtime_rehearsal": 6,
+    "median_prep_min": 69
+   },
+   "Gemini 4 Argon": {
+    "championship_place": "4",
+    "open_arena": "5 (3 pts, 1-0-4)",
+    "matches": 12,
+    "versions": 22,
+    "switches": 13,
+    "model_calls": 5401,
+    "output_tokens": 3654796,
+    "reviews": "58/200",
+    "gpu": "yes in 3/12 (max 12 GPU-min)",
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 11,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 118
+   },
+   "Kimi 3.1 Pro": {
+    "championship_place": "5",
+    "open_arena": "3 (6 pts, 2-0-3)",
+    "matches": 10,
+    "versions": 24,
+    "switches": 15,
+    "model_calls": 3459,
+    "output_tokens": 1950113,
+    "reviews": "145/197",
+    "gpu": "yes in 6/10 (max 80 GPU-min)",
+    "seat_matches": 10,
+    "train_code": 0,
+    "weights": 3,
+    "practice_world": 9,
+    "realtime_rehearsal": 9,
+    "median_prep_min": 76
+   },
+   "DeepSeek V4.1 Flash": {
+    "championship_place": "3 (Bronze)",
+    "open_arena": "6 (3 pts, 1-0-4)",
+    "matches": 12,
+    "versions": 42,
+    "switches": 30,
+    "model_calls": 1747,
+    "output_tokens": 2017533,
+    "reviews": "112/246",
+    "gpu": "yes in 1/12 (max 22 GPU-min)",
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 12,
+    "realtime_rehearsal": 2,
+    "median_prep_min": 92
+   },
+   "GLM 5.3 Flash": {
+    "championship_place": "6",
+    "open_arena": "4 (6 pts, 2-0-3)",
+    "matches": 10,
+    "versions": 28,
+    "switches": 19,
+    "model_calls": 1327,
+    "output_tokens": 1311295,
+    "reviews": "75/186",
+    "gpu": "no (0/10)",
+    "seat_matches": 10,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 9,
+    "realtime_rehearsal": 1,
+    "median_prep_min": 93
+   }
+  },
+  "checkpoint": {
+   "kind": "duel",
+   "board": "rel-beachvolleyball-g1-champ2",
+   "made": "2026-11-08 22:22 CST",
+   "measure": "Score share against fixed practice opponents (0.5 = even)",
+   "opponents": [
+    {
+     "id": "L2",
+     "tier": "middle"
+    },
+    {
+     "id": "PP",
+     "tier": "strongest"
+    }
+   ],
+   "ref": 0.3785,
+   "count": {
+    "planned": 172,
+    "ok": 57,
+    "invalid": 74,
+    "never_acted": 0,
+    "model_called": 0,
+    "pending": 41
+   },
+   "lines": {
+    "Gemini 4 Argon": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.1198,
+      "lo": 0.0833,
+      "hi": 0.1562,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.2033,
+      "lo": 0.1739,
+      "hi": 0.2327,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.375,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
+    "GLM 5.3 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0294,
+      "lo": 0.0,
+      "hi": 0.0588,
+      "n": 2
+     }
+    ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.045,
+      "lo": 0.0312,
+      "hi": 0.0588,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0588,
+      "lo": 0.0588,
+      "hi": 0.0588,
+      "n": 2
+     }
+    ],
+    "Claude Opus 5.5": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.3401,
+      "lo": 0.333,
+      "hi": 0.3472,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.3682,
+      "lo": 0.3614,
+      "hi": 0.375,
+      "n": 2
+     }
+    ],
+    "GPT-6 Astra": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.3616,
+      "lo": 0.291,
+      "hi": 0.4321,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.3999,
+      "lo": 0.3937,
+      "hi": 0.4061,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.4187,
+      "lo": 0.375,
+      "hi": 0.4624,
+      "n": 2
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0711,
+      "lo": 0.0588,
+      "hi": 0.0833,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.3884,
+      "lo": 0.3571,
+      "hi": 0.4196,
+      "n": 2
+     }
+    ]
+   },
+   "verdict": {
+    "GPT-6 Astra": "unclear (seeds disagree)",
+    "Claude Opus 5.5": "flat",
+    "Gemini 4 Argon": "unclear (seeds disagree)",
+    "Kimi 3.1 Pro": "flat",
+    "GLM 5.3 Flash": "flat",
+    "DeepSeek V4.1 Flash": "improve"
+   },
+   "capability": {
+    "n": 4,
+    "names": [
+     "Standing on its own joints (no walking policy)",
+     "Seeing the ball and the wind",
+     "Receiving the serve",
+     "Timing at x1: acting on fresh information"
+    ],
+    "ref": null,
+    "lines": {},
+    "status": "proposal"
+   }
+  }
+ },
+ "capabilities": {
+  "source": "g3-bv",
+  "skills": [
+   {
+    "id": "stand",
+    "group": "phys",
+    "name": "Stays on its feet",
+    "real": "No walking policy is given: the program drives every joint; on the platform gains alone a G1 falls within about 1.3 s. A real G1 does not stand without a balance controller, and every serve and receive starts from standing.",
+    "measure": "Checkpoint Evaluation: the match record / (2 robots × match minutes), examined only with ≥ 5 own hits (fall_rate). Scenarios base / recv: the same reading.",
+    "line": "≤ 2 falls per robot-minute in 2/3 of matches",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "push",
+    "group": "phys",
+    "name": "Takes a knock and stays up",
+    "real": "Collisions with a partner and being pulled off balance after a dive are common in beach volleyball; stable means taking a knock and still standing for the next ball.",
+    "measure": "Scenario push: the opponent serves every point; 0.3 s after the serve hit one robot of the program's (alternating) gets a sideways push of 1.2 m/s to its pelvis. The scenario record: pushes where the robot stood at the push and did not fall within 2 s (fell = false) / all pushes.",
+    "line": "≥ 2/3 of the pushes absorbed (pooled, ≥ 8 pushes)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "serve_calm",
+    "group": "phys",
+    "name": "Serves legally in still air",
+    "real": "Every point starts with a serve. A flat palm holds the ball, no fingers, and the server must stand on its own before and after.",
+    "measure": "Scenario serve: the program serves every point, the wind set to 0. Share of the scenario record (server_side = A) with service_fault = false. Checkpoint Evaluation: the world's serve drill, legal / units.",
+    "line": "≥ 60 % (pooled, ≥ 10 serves)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "wind_serve",
+    "group": "adap",
+    "name": "Serves legally in the wind",
+    "real": "An outdoor sport where floating serves drift. The wind is read only from two windsocks beyond the far side, and the serve must be corrected for it.",
+    "measure": "Scenario wind: the program serves every point, the wind fixed at 3.0 m/s (direction by seed; inside the official 0-5 m/s). The same reading as serve_calm; examined only when the same program reads ≥ 60 % in the serve scenario. Checkpoint Evaluation: serves in the match (the seed's wind).",
+    "line": "≥ 60 % (pooled), gated on still air ≥ 60 %",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "sees_serve",
+    "group": "phys",
+    "name": "Watches the serve",
+    "real": "One fixed head camera tilted 30 deg up, no neck: the robot looks by turning its waist or body. A serve flies 1.2-1.8 s; unseen, it is not received.",
+    "measure": "Scenario recv (and Checkpoint Evaluations): for each legal serve of the opponent, whether a frame the program received during the flight (serve hit to the next touch / landing; episode observe rows, view_steps) was taken while the ball was inside an own head camera's field of view. Share = serves seen / legal serves.",
+    "line": "≥ 80 % (pooled, ≥ 10 serves)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "reaches_serve",
+    "group": "phys",
+    "name": "Reaches the serve",
+    "real": "Receiving is the first test of beach volleyball: see the serve, judge where it comes down, get there and put the arms in place, the whole chain within about 1.5 s.",
+    "measure": "Scenario recv: the opponent (L2) serves every point. The scenario record: share of legal serves with touch_own_k set (an own robot touched the ball in the point, the referee's touch event). Checkpoint Evaluation: the same reading (opp_touched / flights).",
+    "line": "≥ 25 % (pooled, ≥ 10 serves)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "side_out",
+    "group": "comp",
+    "name": "Side-out",
+    "real": "The receiving side wins the point back (side-out); about 60-70 % in elite play.",
+    "measure": "Scenario recv: share of the points on the opponent's legal serves won by the program (the scenario record, winner = A; the opponent's service faults left out). Checkpoint Evaluation: sideout_rx / opp_legal.",
+    "line": "≥ 20 % (pooled, ≥ 10 serves); not required for now",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "loop",
+    "group": "eng",
+    "name": "Commands keep coming",
+    "real": "Real time at x1 with 100 Hz control; at the joint layer no walking policy covers a gap, so a robot starts to fall when the commands stop.",
+    "measure": "Checkpoint Evaluation (x1): episode cmd rows, each robot's 95th percentile command gap in play (steps), the mean of the two (cmd_gap_p95). The base scenario (x1, Quest) gives the reference and ablation readings.",
+    "line": "≤ 5 steps (50 ms) in 2/3 of matches",
+    "secondary": false,
+    "three_checks": false
+   }
+  ],
+  "off": [],
+  "results": {
+   "GPT-6 Astra": {
+    "stand": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "serve_calm": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "wind_serve": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "sees_serve": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "reaches_serve": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "side_out": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "loop": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "Claude Opus 5.5": {
+    "stand": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "serve_calm": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "wind_serve": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "sees_serve": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "reaches_serve": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "side_out": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "loop": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "DeepSeek V4.1 Flash": {
+    "stand": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "serve_calm": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "wind_serve": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "sees_serve": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "reaches_serve": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "side_out": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "loop": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "Gemini 4 Argon": {
+    "stand": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "serve_calm": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "wind_serve": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "sees_serve": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "reaches_serve": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "side_out": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "loop": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "stand": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "serve_calm": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "wind_serve": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "sees_serve": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "reaches_serve": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "side_out": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "loop": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "stand": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "serve_calm": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "wind_serve": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "sees_serve": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "reaches_serve": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "side_out": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "loop": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   }
+  },
+  "reference": {
+   "passed": [],
+   "failed": []
+  },
+  "open_questions": [
+   "Move the wind_serve scenario to 5 m/s (at 3 m/s serving without reading the wind is all legal)?",
+   "sees_serve cannot be told apart from stand: merge it into stand, or replace it with a reading that needs the waist to follow the ball (time with the ball near the image centre)?",
+   "The push line (2/3 absorbed at 1.2 m/s) sits under the reference's 18/24 (75 %); Astra reads 0/24 and fails. Agree?",
+   "side_out is 0 for every program now: record it, not required?"
+  ],
+  "pass_marks": "page"
+ },
+ "notes": {
+  "_source": "R2 (11-08 evening). Line 1: dim/physical/final.md R2 F1 (0/375, unchanged); lines 2-3: dim/adaptive/final.md F3 and synthesis finding 6 (DeepSeek serve repair, BVB2-F17); line 4: physical round-3 F10 (Opus falls). Built: adaptive F4-F5 (DeepSeek), engineering finding 5 (Kimi learned contact skills; earlier audit, not refreshed). No R2 change contradicts v1. Owner: edit or replace with your analysis.",
+  "_status": "draft from the analysis drafts, for the sport owner to edit",
+  "challenge": "Two humanoids a side and a ball in the wind. The program finds the ball with one head camera, reads the wind from two windsocks and times every serve and receive in real time.",
+  "achieved": [
+   {
+    "text": "The serve decided the game: in 34 matches the receiving team won none of about 375 points in which the serve landed in.",
+    "evidence": [
+     "all valid matches"
+    ]
+   },
+   {
+    "text": "DeepSeek V4.1 Flash served 0 of 8 legally because its controller swapped the serve for a standing pose once the ball left its hands. Its notes named the bug, and the fixed program served 8 of 8 in the next match.",
+    "evidence": [
+     "BVB2-F04"
+    ]
+   },
+   {
+    "text": "DeepSeek predicted where serve-only play ends: \"first server wins 16-14\". Its semifinal against Claude Opus 5.5 went 14:16, with the server winning all 30 points.",
+    "evidence": [
+     "BVB2-F17"
+    ]
+   },
+   {
+    "text": "Opus's robots fell 170 times in 12 matches yet served 131 of 137; robots are re-placed every point, so falls rarely cost points.",
+    "evidence": [
+     "all valid matches"
+    ]
+   }
+  ],
+  "built": {
+   "DeepSeek V4.1 Flash": [
+    "Its serve passed 200 of 200 seeds in practice before failing live; after the repair it still never won a point on a legal incoming serve (0 of 47)."
+   ],
+   "Kimi 3.1 Pro": [
+    "Fielded learned return and receive motions in two Open Arena matches, one of the few learned contact skills in the whole event."
+   ]
+  }
+ }
+}

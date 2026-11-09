@@ -23,6 +23,7 @@ python3 build.py                  # build only, into ./dist
 | `data/results.json` | Results (all `null` until release); medal table, podiums and boards fill in from it |
 | `src/home.py` | The home page and its story sections |
 | `src/pages.py` | Sports, the 18 sport pages, The Match, Competitions, Results, Watch |
+| `src/sport.py`, `data/sport_pages/<sport>.json` | The four-block sport page (overview, competition records, capabilities, agents) for every sport with a data file; the data contract is in the module docstring |
 | `src/layout.py` | Page frame: head, top bar, footer, URL helpers |
 | `assets/css/site.css`, `story.css` | Design tokens (night and day themes) and components |
 | `assets/js/site.js`, `home.js` | Interactions; every page also reads fine without JavaScript |

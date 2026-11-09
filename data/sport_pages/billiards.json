@@ -1,0 +1,2234 @@
+{
+ "schema": "eo-sportpage/1",
+ "sport": "billiards",
+ "key": "billiards_g1",
+ "format": "duel",
+ "made": "2026-11-09T04:28Z",
+ "status": "final",
+ "provisional": true,
+ "podium": {
+  "gold": "Claude Opus 5.5",
+  "silver": "GPT-6 Astra",
+  "bronze": "Gemini 4 Argon"
+ },
+ "flag": null,
+ "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
+ "championship": {
+  "rule": "round_robin_knockout_serial@1",
+  "final": true,
+  "stages": [
+   {
+    "id": "round_robin",
+    "name": "Round robin",
+    "standings": [
+     {
+      "rank": 1,
+      "model": "GPT-6 Astra",
+      "played": 5,
+      "won": 5,
+      "drawn": 0,
+      "lost": 0,
+      "points": 15,
+      "for": 6,
+      "against": 28,
+      "note": "5-0-0, score 6:28, 1 won by forfeit"
+     },
+     {
+      "rank": 2,
+      "model": "Claude Opus 5.5",
+      "played": 5,
+      "won": 4,
+      "drawn": 0,
+      "lost": 1,
+      "points": 12,
+      "for": 1,
+      "against": 26,
+      "note": "4-0-1, score 1:26"
+     },
+     {
+      "rank": 3,
+      "model": "Gemini 4 Argon",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 22,
+      "against": 21,
+      "note": "3-0-2, score 22:21, 1 won by forfeit"
+     },
+     {
+      "rank": 4,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 35,
+      "against": 22,
+      "note": "2-0-3, score 35:22, 2 forfeited"
+     },
+     {
+      "rank": 5,
+      "model": "Kimi 3.1 Pro",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 34,
+      "against": 14,
+      "note": "1-0-4, score 34:14"
+     },
+     {
+      "rank": 6,
+      "model": "GLM 5.3 Flash",
+      "played": 5,
+      "won": 0,
+      "drawn": 0,
+      "lost": 5,
+      "points": 0,
+      "for": 34,
+      "against": 21,
+      "note": "0-0-5, score 34:21"
+     }
+    ],
+    "matches": [
+     {
+      "id": "BIL2-F02",
+      "labels": {
+       "pair": "astra-sub vs deepseek-flash-sh",
+       "replaces": "BILC-F02",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 6
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 7
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 55.4,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F02/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F02",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILC-F01",
+      "labels": {
+       "pair": "opus vs kimi",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 6
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 480.1,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BILC-F01/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BILC-F01",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILC-F03",
+      "labels": {
+       "pair": "gemini vs glm-flash-sh",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 7
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 16.1,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BILC-F03/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BILC-F03",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BIL2-F04",
+      "labels": {
+       "pair": "deepseek-flash-sh vs opus",
+       "replaces": "BILC-F04",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 191.6,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F04/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F04",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BIL2-F05",
+      "labels": {
+       "pair": "glm-flash-sh vs kimi",
+       "replaces": "BILC-F05",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 7
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": null,
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved"
+     },
+     {
+      "id": "BIL2-F06",
+      "labels": {
+       "pair": "astra-sub vs gemini",
+       "replaces": "BILC-F06",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 7
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 372.9,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F06/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F06",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BIL2-F07",
+      "labels": {
+       "pair": "opus vs glm-flash-sh",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 7
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 371.2,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F07/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F07",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BIL2-F08",
+      "labels": {
+       "pair": "gemini vs deepseek-flash-sh",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 2
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 7
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 351.4,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F08/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F08",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BIL2-F09",
+      "labels": {
+       "pair": "kimi vs astra-sub",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 434.5,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F09/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F09",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BIL2-F10",
+      "labels": {
+       "pair": "opus vs gemini",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 6
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 304.5,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F10/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F10",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BIL2-F11",
+      "labels": {
+       "pair": "glm-flash-sh vs astra-sub",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 6
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 252.5,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F11/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F11",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BIL2-F12",
+      "labels": {
+       "pair": "deepseek-flash-sh vs kimi",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 7
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "chess_clock",
+      "note": "Level; tie-break by the chess clock",
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 946.4,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F12/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F12",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BIL2-F13",
+      "labels": {
+       "pair": "astra-sub vs opus",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 1
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 473.8,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F13/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F13",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BIL2-F14",
+      "labels": {
+       "pair": "kimi vs gemini",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 401.5,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F14/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F14",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BIL2-F15",
+      "labels": {
+       "pair": "glm-flash-sh vs deepseek-flash-sh",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 7
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "chess_clock",
+      "note": "Level; tie-break by the chess clock",
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1190.5,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F15/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F15",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     }
+    ],
+    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+   },
+   {
+    "id": "semi_final",
+    "name": "Semifinal",
+    "matches": [
+     {
+      "id": "BIL2-F16",
+      "labels": {
+       "match": "SF1",
+       "pair": "deepseek-flash-sh vs astra-sub",
+       "round": 6,
+       "seeds": "1v4",
+       "stage": "semi_final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 3
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 103.5,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F16/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F16",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       4,
+       1
+      ],
+      "label": "Semifinal 1"
+     },
+     {
+      "id": "BIL2-F17",
+      "labels": {
+       "match": "SF2",
+       "pair": "gemini vs opus",
+       "round": 6,
+       "seeds": "2v3",
+       "stage": "semi_final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 5
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 92.5,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F17/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F17",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       3,
+       2
+      ],
+      "label": "Semifinal 2"
+     }
+    ]
+   },
+   {
+    "id": "final",
+    "name": "Final",
+    "matches": [
+     {
+      "id": "BIL2-F18",
+      "labels": {
+       "match": "F",
+       "pair": "astra-sub vs opus",
+       "round": 7,
+       "seeds": "1v2",
+       "stage": "final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 5
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 386.8,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F18/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F18",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       1,
+       2
+      ],
+      "label": "Final"
+     }
+    ]
+   },
+   {
+    "id": "bronze",
+    "name": "Bronze match",
+    "matches": [
+     {
+      "id": "BIL2-F19",
+      "labels": {
+       "match": "B",
+       "pair": "gemini vs deepseek-flash-sh",
+       "round": 7,
+       "seeds": "3v4",
+       "stage": "bronze"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 2
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 6
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 266.6,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F19/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720",
+       "fixture": "BIL2-F19",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       3,
+       4
+      ],
+      "label": "Bronze match"
+     }
+    ]
+   }
+  ],
+  "played": 19,
+  "pending": 0,
+  "knockout_planned": true,
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "Claude Opus 5.5",
+    "note": "final winner"
+   },
+   {
+    "rank": 2,
+    "model": "GPT-6 Astra",
+    "note": "final loser"
+   },
+   {
+    "rank": 3,
+    "model": "Gemini 4 Argon",
+    "note": "bronze winner"
+   },
+   {
+    "rank": 4,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "bronze loser"
+   },
+   {
+    "rank": 5,
+    "model": "Kimi 3.1 Pro",
+    "note": "round robin 5th"
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "note": "round robin 6th"
+   }
+  ],
+  "notes": [
+   "2 result(s) by forfeit (counted as a win, not played): astra-sub beat deepseek-flash-sh by forfeit (resigned), BIL2-F02/run-1; gemini beat deepseek-flash-sh by forfeit (resigned), BIL2-F08/run-1"
+  ],
+  "as_of": "2026-11-08T18:38:54Z",
+  "board": "rel-billiards-g1-champ2"
+ },
+ "open_arena": {
+  "rule": "points_table@1",
+  "final": false,
+  "stages": [
+   {
+    "id": "round_robin",
+    "name": "Round robin",
+    "standings": [
+     {
+      "rank": 1,
+      "model": "Claude Opus 5.5",
+      "played": 5,
+      "won": 4,
+      "drawn": 0,
+      "lost": 1,
+      "points": 12,
+      "for": 5,
+      "against": 17,
+      "note": "4-0-1, score 5:17"
+     },
+     {
+      "rank": 2,
+      "model": "GPT-6 Astra",
+      "played": 5,
+      "won": 4,
+      "drawn": 0,
+      "lost": 1,
+      "points": 12,
+      "for": 8,
+      "against": 26,
+      "note": "4-0-1, score 8:26"
+     },
+     {
+      "rank": 3,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 35,
+      "against": 21,
+      "note": "3-0-2, score 35:21"
+     },
+     {
+      "rank": 4,
+      "model": "Kimi 3.1 Pro",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 18,
+      "against": 22,
+      "note": "3-0-2, score 18:22"
+     },
+     {
+      "rank": 5,
+      "model": "Gemini 4 Argon",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 24,
+      "against": 28,
+      "note": "1-0-4, score 24:28"
+     },
+     {
+      "rank": 6,
+      "model": "GLM 5.3 Flash",
+      "played": 5,
+      "won": 0,
+      "drawn": 0,
+      "lost": 5,
+      "points": 0,
+      "for": 34,
+      "against": 10,
+      "note": "0-0-5, score 34:10"
+     }
+    ],
+    "matches": [
+     {
+      "id": "BILA-F01",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 5
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F01",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILA-F03",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 6
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F03",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILA-F05",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 1
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F05",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILA-F06",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 7
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F06",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILA-F07",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 7
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F07",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILA-F08",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 7
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F08",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILA-F09",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 1
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F09",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILA-F11",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs gemini",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 7
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F11",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILA-F12",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 7
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F12",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILA-F13",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 7
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F13",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILA-F14",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 3
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 7
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F14",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILA-F15",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 7
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "chess_clock",
+      "note": "Level; tie-break by the chess clock",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILA-F15",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILQ-F02",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs gemini",
+       "replaces": "BILA-F02",
+       "replay_cause": "quota_no_show",
+       "replay_reason": "quota-caused no-show, approved by Chi 11-07",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 3
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILQ-F02",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILQ-F04",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs opus",
+       "replaces": "BILA-F04",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILQ-F04",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BILQ-F10",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs gemini",
+       "replaces": "BILA-F10",
+       "replay_cause": "quota_no_show",
+       "replay_reason": "quota-caused no-show, approved by Chi 11-07",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BILQ-F10",
+       "key": "billiards_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     }
+    ],
+    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+   }
+  ],
+  "played": 15,
+  "pending": 0,
+  "knockout_planned": false,
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "Claude Opus 5.5",
+    "note": "4-0-1, score 5:17"
+   },
+   {
+    "rank": 2,
+    "model": "GPT-6 Astra",
+    "note": "4-0-1, score 8:26"
+   },
+   {
+    "rank": 3,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "3-0-2, score 35:21"
+   },
+   {
+    "rank": 4,
+    "model": "Kimi 3.1 Pro",
+    "note": "3-0-2, score 18:22"
+   },
+   {
+    "rank": 5,
+    "model": "Gemini 4 Argon",
+    "note": "1-0-4, score 24:28"
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "note": "0-0-5, score 34:10"
+   }
+  ],
+  "notes": [],
+  "as_of": "2026-11-08T06:22:18Z",
+  "board": "rel-billiards-g1-arena",
+  "complete": true,
+  "status_line": "Complete"
+ },
+ "agents": {
+  "per_model": {
+   "Claude Opus 5.5": {
+    "championship_place": "2 (provisional: round robin 2nd)",
+    "open_arena": "1 (12 pts, 4-0-1)",
+    "matches": 11,
+    "versions": 63,
+    "switches": 52,
+    "model_calls": 2786,
+    "output_tokens": 1842125,
+    "reviews": "200/202",
+    "gpu": null,
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 11,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 52
+   },
+   "GPT-6 Astra": {
+    "championship_place": "1 (provisional: round robin 1st)",
+    "open_arena": "2 (12 pts, 4-0-1)",
+    "matches": 11,
+    "versions": 77,
+    "switches": 66,
+    "model_calls": 2986,
+    "output_tokens": 1141795,
+    "reviews": "169/169",
+    "gpu": null,
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 12,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 50
+   },
+   "Gemini 4 Argon": {
+    "championship_place": "3 (provisional: round robin 3rd)",
+    "open_arena": "5 (3 pts, 1-0-4)",
+    "matches": 11,
+    "versions": 83,
+    "switches": 73,
+    "model_calls": 5753,
+    "output_tokens": 4603301,
+    "reviews": "138/138",
+    "gpu": null,
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 12,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 116
+   },
+   "Kimi 3.1 Pro": {
+    "championship_place": "5 (provisional: round robin 5th)",
+    "open_arena": "4 (9 pts, 3-0-2)",
+    "matches": 9,
+    "versions": 107,
+    "switches": 104,
+    "model_calls": 5305,
+    "output_tokens": 3012262,
+    "reviews": "250/251",
+    "gpu": null,
+    "seat_matches": 9,
+    "train_code": 1,
+    "weights": 0,
+    "practice_world": 7,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 74
+   },
+   "DeepSeek V4.1 Flash": {
+    "championship_place": "4 (provisional: round robin 4th)",
+    "open_arena": "3 (9 pts, 3-0-2)",
+    "matches": 11,
+    "versions": 39,
+    "switches": 28,
+    "model_calls": 2470,
+    "output_tokens": 2586724,
+    "reviews": "249/273",
+    "gpu": null,
+    "seat_matches": 12,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 12,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 50
+   },
+   "GLM 5.3 Flash": {
+    "championship_place": "6 (provisional: round robin 6th)",
+    "open_arena": "6 (0 pts, 0-0-5)",
+    "matches": 9,
+    "versions": 29,
+    "switches": 20,
+    "model_calls": 2169,
+    "output_tokens": 1991803,
+    "reviews": "105/171",
+    "gpu": null,
+    "seat_matches": 9,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 9,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 62
+   }
+  },
+  "checkpoint": {
+   "kind": "duel",
+   "board": "rel-billiards-g1-champ2",
+   "made": "2026-11-08 22:22 CST",
+   "measure": "Score share against fixed practice opponents (0.5 = even)",
+   "opponents": [
+    {
+     "id": "L2",
+     "tier": "middle"
+    },
+    {
+     "id": "L3",
+     "tier": "strong"
+    }
+   ],
+   "ref": 0.3828,
+   "count": {
+    "planned": 176,
+    "ok": 65,
+    "invalid": 28,
+    "never_acted": 20,
+    "model_called": 0,
+    "pending": 63
+   },
+   "lines": {
+    "GPT-6 Astra": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.5,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.5535,
+      "lo": 0.5,
+      "hi": 0.5714,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.4039,
+      "lo": 0.4039,
+      "hi": 0.4506,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.5,
+      "lo": 0.5,
+      "hi": 0.5714,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.5714,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.5467,
+      "lo": 0.5467,
+      "hi": 0.5714,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.7273,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.1237,
+      "lo": 0.0,
+      "hi": 0.1919,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.1237,
+      "lo": 0.0,
+      "hi": 0.1919,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.1237,
+      "lo": 0.0,
+      "hi": 0.1919,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.1237,
+      "lo": 0.0,
+      "hi": 0.1919,
+      "n": 2
+     }
+    ],
+    "Gemini 4 Argon": [
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.1625,
+      "lo": 0.1,
+      "hi": 0.25,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.25,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
+    "GLM 5.3 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.1363,
+      "lo": 0.0,
+      "hi": 0.2727,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.1363,
+      "lo": 0.0,
+      "hi": 0.2727,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.1363,
+      "lo": 0.0,
+      "hi": 0.2727,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.1056,
+      "lo": 0.0,
+      "hi": 0.1556,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.1919,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.127,
+      "lo": 0.127,
+      "hi": 0.1429,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
+    "Claude Opus 5.5": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.6318,
+      "lo": 0.6137,
+      "hi": 0.8,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.5714,
+      "lo": 0.5714,
+      "hi": 0.5714,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.6857,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.6675,
+      "lo": 0.6675,
+      "hi": 0.7273,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.6857,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.7273,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ]
+   },
+   "verdict": {
+    "GPT-6 Astra": "one point only",
+    "Claude Opus 5.5": "one point only",
+    "Gemini 4 Argon": null,
+    "Kimi 3.1 Pro": null,
+    "GLM 5.3 Flash": "flat",
+    "DeepSeek V4.1 Flash": "one point only"
+   },
+   "capability": {
+    "n": 1,
+    "names": [
+     "Seeing the balls"
+    ],
+    "ref": null,
+    "lines": {
+     "DeepSeek V4.1 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 1
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 3
+      }
+     ]
+    },
+    "status": "proposal"
+   }
+  }
+ },
+ "capabilities": {
+  "source": "g4-bil",
+  "skills": [
+   {
+    "id": "aim",
+    "group": "phys",
+    "name": "Aims at the call (seeing the balls + stroke direction)",
+    "real": "A player finds the balls by eye; the rules allow no measuring aid. One head colour camera, at most 12 views a shot; a few millimetres misread turn into tenths of a degree of aim.",
+    "measure": "Scenario pot: each stroke's direction at contact (, measured by the world) less the centre of the aims that pot the called ball in the called pocket, computed by the world (, the function L3 reads a player's error with); strokes with |error| ≤ 0.5 deg / strokes with a reading. Match Checkpoint Evaluations: aim_ok / aim_n (the same reading).",
+    "line": "≥ 60 % of strokes within 0.5 deg (seeds pooled, ≥ 5 strokes with a reading)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "pots",
+    "group": "phys",
+    "name": "Pots the called ball (straight-in)",
+    "real": "Potting is the basic act of pool: see the balls, line up, stroke with the right speed and tip, and the ball drops in the called pocket.",
+    "measure": "Scenario pot, straight-in tables (even shots): the called ball is the laid one and it dropped in the called pocket / straight-in shots. Match Checkpoint Evaluations: pots_legal / shots.",
+    "line": "Straight-in ≥ 50 % made (seeds pooled, 6 shots); match Checkpoint Evaluations keep ≥ 30 %",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "cut",
+    "group": "phys",
+    "name": "Pots a cut (30 deg)",
+    "real": "A cut needs the ghost-ball point and throw (friction between the balls drags the object ball off line); errors in seeing the balls grow with the cut.",
+    "measure": "Scenario pot, cut tables (odd shots, the cue ball on a 30 deg cut, alternating sides): made / cut shots.",
+    "line": "≥ 50 % made (seeds pooled, 6 shots)",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "clean",
+    "group": "phys",
+    "name": "Clean strokes (two-handed bridge, no fall, in time)",
+    "real": "The rules want a legal stroke: the cue on a bridge, the tip meets the cue ball, the player stays up; each shot has a time limit.",
+    "measure": "All drill shots: the tip met the cue ball and the foul text names no stroke fault (fell, no bridge, shot clock, no contact) / shots. Match Checkpoint Evaluations: clean_strokes / shots. Falls (the old 'no fall while stroking') are part of this.",
+    "line": "≥ 90 % (≥ 10 shots)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "break",
+    "group": "phys",
+    "name": "Break power",
+    "real": "The break drives power into the rack: WPA 4.3 needs a ball potted or at least 4 object balls to a cushion, else it is a foul. The program breaks in half the matches.",
+    "measure": "Scenario break: the official rack ( of the drill seed), the program breaks from the kitchen; the mean number of object balls sent to a cushion per break ( = object_balls_to_cushion), with legal breaks and cue speed V0 aside. A break past the 120 s shot clock is not played and reads 0.",
+    "line": "Mean ≥ 3 balls to a cushion (seeds pooled, 4 breaks)",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "place",
+    "group": "comp",
+    "name": "Places the cue ball with ball in hand",
+    "real": "After the opponent's foul the cue ball goes anywhere: a good player gives itself a short, straight pot.",
+    "measure": "Scenario hand: the cue ball off the table, ball in hand anywhere, one own ball on the table; made / shots, with the shots where the program placed the cue ball itself and the median cut angle of its chosen pot (cue_placed_at, cut_deg).",
+    "line": "≥ 50 % made (seeds pooled, 8 shots)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "legal",
+    "group": "comp",
+    "name": "Legal shots",
+    "real": "WPA chapter 4: every shot called, own ball hit first, a cushion or a pot after it, the cue ball stays on the table.",
+    "measure": "All drill shots: no foul ( empty) / shots. Match Checkpoint Evaluations: legal / shots.",
+    "line": "≥ 90 % (≥ 10 shots)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "runs",
+    "group": "comp",
+    "name": "Runs of pots (position play)",
+    "real": "Position play is the core of pool: pot one, leave the cue ball where the next is easy.",
+    "measure": "Match Checkpoint Evaluations only: runs2 (at least one visit with 2 pots, 2/3 of racks). No drill (single-shot drills do not test position).",
+    "line": "A 2-pot visit in 2/3 of racks",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "safety",
+    "group": "comp",
+    "name": "Effective safeties",
+    "real": "With no good pot, call safety and leave the opponent a hard table.",
+    "measure": "Match Checkpoint Evaluations only: safety_ok / safeties (a legal safety after which the opponent fouls or pots nothing).",
+    "line": "≥ 30 % (≥ 3 safeties)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "acts",
+    "group": "eng",
+    "name": "Shoots every turn in time",
+    "real": "The program must stroke within 120 s a shot and the match chess clock; no stroke loses. In Checkpoint Evaluations some programs crashed in their vision code and never acted again.",
+    "measure": "All drills: the drill finished (the scenario record, shots = cap), no shot past the shot clock ( / a 'shot clock' foul).",
+    "line": "Every drill finished, 0 late shots",
+    "secondary": false,
+    "three_checks": false
+   }
+  ],
+  "off": [
+   {
+    "name": "Walking to a new stance",
+    "group": "phys",
+    "why": "Not tested: the robot is teleported to its chosen stance each shot (excluded on the card)."
+   },
+   {
+    "name": "Real-time reaction",
+    "group": "phys",
+    "why": "Not tested: pool is static between shots."
+   }
+  ],
+  "results": {
+   "Claude Opus 5.5": {
+    "aim": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "pots": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "cut": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "place": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "clean": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "break": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "legal": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "runs": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "safety": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "acts": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "GPT-6 Astra": {
+    "aim": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "pots": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "cut": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "place": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "clean": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "break": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "legal": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "runs": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "safety": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "acts": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   }
+  },
+  "reference": {
+   "passed": [
+    "aim",
+    "pots",
+    "cut",
+    "break",
+    "place"
+   ],
+   "failed": [
+    "clean",
+    "legal"
+   ]
+  },
+  "open_questions": [
+   "Seat resources: the drill seat had 2 cores (re-tests 8, official 16), and the 5-core controls show the late shots come mainly from that. The proposal: rerun the break drill and Opus's three drills on an 8-core seat before settling these skills. Do it?",
+   "Break line: even the reference makes only 1 legal break of 4 under WPA; the proposal reads power as 'mean >= 3 balls to a cushion' and shows the legal rate aside. Or keep the rule's 4-ball line?",
+   "The 50 % lines for straight-in, cut and ball in hand are proposals; the reference reads 5/6, 6/6, 6/8, and every ablation arm falls below."
+  ],
+  "pass_marks": "page"
+ },
+ "notes": {
+  "_source": "R2 (11-08 evening). Line 1: analysis/drafts/dim/othersports/final.md top 10 #4 (failure funnel); line 2: #4 and synthesis finding 10 (clock tie-breaks, BIL2-F15 split); line 3: overall #11 and dim/adaptive R2 F10 (four resignations); line 4: #4 and billiards physical column (Opus 95/104). Built: dim/engineering finding 1 (GLM), billiards engineering / adaptive columns (Kimi). Changed from v1: resignations 3 -> 4; the DeepSeek built quote dropped (line 3 covers it). Owner: edit or replace with your analysis.",
+  "_status": "draft from the analysis drafts, for the sport owner to edit",
+  "challenge": "Eight-ball on a full-size table for a humanoid without fingers. The program sees the balls with a head camera, plans the shot and strikes with a two-handed whole-body stroke.",
+  "achieved": [
+   {
+    "text": "Each model failed at a different stage; on non-break shots the cue reached the ball for Claude Opus 5.5 198 of 219 times, GPT-6 Astra 149 of 183, Kimi 3.1 Pro 162 of 249, Gemini 4 Argon 94 of 157, DeepSeek V4.1 Flash 20 of 282 and GLM 5.3 Flash 13 of 166.",
+    "evidence": [
+     "all valid matches"
+    ]
+   },
+   {
+    "text": "DeepSeek and GLM potted no ball all event, yet DeepSeek won three 7:7 clock tie-breaks; in BIL2-F15 its clock lead came mostly from answering reviews faster (69 %).",
+    "evidence": [
+     "BIL2-F15"
+    ]
+   },
+   {
+    "text": "DeepSeek resigned four matches, the only resignations of the event; in one it reasoned that \"the match is lost either way\".",
+    "evidence": [
+     "BIL2-F02",
+     "BIL2-F08",
+     "BIL2-F16",
+     "BIL2-F19"
+    ]
+   },
+   {
+    "text": "Opus's Championship stroke was the steadiest: 95 of 104 shots legal, with no fallback and no missed contact.",
+    "evidence": [
+     "Championship matches"
+    ]
+   }
+  ],
+  "built": {
+   "GLM 5.3 Flash": [
+    "Moved its match reviews into its own program; the referee accepts reviews only from the agent and refused 9,232 of them in one match, while GLM kept sending reviews by hand."
+   ],
+   "Kimi 3.1 Pro": [
+    "Wrote up to 1,710 files and 49 snapshots in one match; its Championship series fell apart: legal rest-bridge shots 16 of 24 in its fresh Arena matches against 28 of 82, called pots 5 to 0."
+   ]
+  }
+ }
+}

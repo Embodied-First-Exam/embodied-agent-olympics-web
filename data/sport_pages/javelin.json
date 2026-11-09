@@ -1,0 +1,1033 @@
+{
+ "schema": "eo-sportpage/1",
+ "sport": "javelin",
+ "key": "javelin_g1",
+ "format": "solo",
+ "made": "2026-11-09T04:28Z",
+ "status": "final",
+ "provisional": true,
+ "podium": {
+  "gold": "GPT-6 Astra",
+  "silver": "Gemini 4 Argon",
+  "bronze": "Claude Opus 5.5"
+ },
+ "flag": null,
+ "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
+ "championship": {
+  "rule": "mean_round@1",
+  "final": true,
+  "unit": "m",
+  "rank_by": "mean",
+  "rows": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra",
+    "mean": 17.573333333,
+    "best": 18.74,
+    "matches": [
+     {
+      "match": 1,
+      "id": "JAVA-F0051",
+      "value": 15.91,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 22.5,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0051/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0051",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "JAVA-F0052",
+      "value": 18.07,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 22.9,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0052/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0052",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "JAVA-F0053",
+      "value": 18.74,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 24.0,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0053/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0053",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 2,
+    "model": "Gemini 4 Argon",
+    "mean": 14.803333333,
+    "best": 22.35,
+    "matches": [
+     {
+      "match": 1,
+      "id": "JAVA-F0101",
+      "value": 0.0,
+      "no_show": true,
+      "replay": {
+       "kind": "full",
+       "seconds": 0.0,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0101/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0101",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "JAVA-F0102",
+      "value": 22.35,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 137.3,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0102/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0102",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "JAVA-F0103",
+      "value": 22.06,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 26.8,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0103/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0103",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 3,
+    "model": "Claude Opus 5.5",
+    "mean": 13.896666667,
+    "best": 15.11,
+    "matches": [
+     {
+      "match": 1,
+      "id": "JAVA-F0001",
+      "value": 11.65,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 25.2,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0001/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0001",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "JAVA-F0002",
+      "value": 15.11,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 26.2,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0002/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0002",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "JAVA-F0003",
+      "value": 14.93,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 26.6,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0003/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0003",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 4,
+    "model": "Kimi 3.1 Pro",
+    "mean": 11.636666667,
+    "best": 12.24,
+    "matches": [
+     {
+      "match": 1,
+      "id": "JAVA-F0251",
+      "value": 11.67,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 251.4,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0251/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0251",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "JAVA-F0252",
+      "value": 12.24,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 102.6,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0252/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0252",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "JAVA-F0253",
+      "value": 11.0,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 94.2,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0253/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0253",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 5,
+    "model": "DeepSeek V4.1 Flash",
+    "mean": 1.363333333,
+    "best": 3.14,
+    "matches": [
+     {
+      "match": 1,
+      "id": "JAVA-F0211",
+      "value": 0.0,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 13.0,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0211/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0211",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "JAVA-F0212",
+      "value": 0.95,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 12.5,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0212/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0212",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "JAVA-F0213",
+      "value": 3.14,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 12.9,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0213/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0213",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "mean": 0.353333333,
+    "best": 1.06,
+    "matches": [
+     {
+      "match": 1,
+      "id": "JAVA-F0151",
+      "value": 0.0,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 72.8,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0151/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0151",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 2,
+      "id": "JAVA-F0152",
+      "value": 0.0,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 302.4,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0152/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0152",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     },
+     {
+      "match": 3,
+      "id": "JAVA-F0153",
+      "value": 1.06,
+      "no_show": false,
+      "replay": {
+       "kind": "full",
+       "seconds": 15.7,
+       "path": "matches/javelin_g1/rel-javelin-g1-arena/JAVA-F0153/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "JAVA-F0153",
+       "key": "javelin_g1",
+       "highlight": false
+      },
+      "pending": false
+     }
+    ],
+    "pending": 0
+   }
+  ],
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra"
+   },
+   {
+    "rank": 2,
+    "model": "Gemini 4 Argon"
+   },
+   {
+    "rank": 3,
+    "model": "Claude Opus 5.5"
+   },
+   {
+    "rank": 4,
+    "model": "Kimi 3.1 Pro"
+   },
+   {
+    "rank": 5,
+    "model": "DeepSeek V4.1 Flash"
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash"
+   }
+  ],
+  "scoring": "Each match: the best valid throw of six. Ranked by the mean of three matches; the workspace carries over between matches.",
+  "as_of": "2026-11-07T22:46:37Z",
+  "board": "rel-javelin-g1-arena"
+ },
+ "open_arena": null,
+ "agents": {
+  "per_model": {
+   "Claude Opus 5.5": {
+    "championship_place": "3 (Bronze)",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 4,
+    "switches": 1,
+    "model_calls": 258,
+    "output_tokens": 229093,
+    "reviews": "15/15",
+    "gpu": "yes in 3/3 (max 100 GPU-min)",
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 3,
+    "median_prep_min": 79
+   },
+   "GPT-6 Astra": {
+    "championship_place": "1 (Gold)",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 11,
+    "switches": 8,
+    "model_calls": 781,
+    "output_tokens": 436078,
+    "reviews": "14/15",
+    "gpu": "yes in 3/3 (max 108 GPU-min)",
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 2,
+    "median_prep_min": 114
+   },
+   "Gemini 4 Argon": {
+    "championship_place": "2 (Silver)",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 8,
+    "switches": 6,
+    "model_calls": 927,
+    "output_tokens": 499128,
+    "reviews": "10/10",
+    "gpu": "no (0/3)",
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 81
+   },
+   "Kimi 3.1 Pro": {
+    "championship_place": "4",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 3,
+    "switches": 0,
+    "model_calls": 466,
+    "output_tokens": 292680,
+    "reviews": "15/15",
+    "gpu": "yes in 3/3 (max 22 GPU-min)",
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 2,
+    "median_prep_min": 27
+   },
+   "DeepSeek V4.1 Flash": {
+    "championship_place": "5",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 10,
+    "switches": 7,
+    "model_calls": 530,
+    "output_tokens": 465057,
+    "reviews": "15/15",
+    "gpu": "yes in 1/3 (max 58 GPU-min)",
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 55
+   },
+   "GLM 5.3 Flash": {
+    "championship_place": "6",
+    "open_arena": "n/a",
+    "matches": 3,
+    "versions": 8,
+    "switches": 5,
+    "model_calls": 288,
+    "output_tokens": 189839,
+    "reviews": "11/15",
+    "gpu": "yes in 1/3 (max 18 GPU-min)",
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 0,
+    "median_prep_min": 27
+   }
+  },
+  "checkpoint": {
+   "kind": "solo",
+   "board": "rel-javelin-g1-arena",
+   "made": "2026-11-08 22:22 CST",
+   "measure": "Best mark (m), ratio to the reference program (1.0 = reference)",
+   "opponents": [],
+   "ref": 1.0,
+   "count": {
+    "planned": 69,
+    "ok": 37,
+    "invalid": 32,
+    "never_acted": 0,
+    "model_called": 0,
+    "pending": 0
+   },
+   "lines": {
+    "GPT-6 Astra": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 1.1201,
+      "lo": 1.0895,
+      "hi": 1.1531,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 1.1687,
+      "lo": 1.1441,
+      "hi": 1.1993,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.2938,
+      "lo": 1.2706,
+      "hi": 1.3304,
+      "n": 3
+     }
+    ],
+    "Gemini 4 Argon": [
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.5828,
+      "lo": 1.5524,
+      "hi": 1.6337,
+      "n": 3
+     }
+    ],
+    "GLM 5.3 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0066,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.7538,
+      "lo": 0.742,
+      "hi": 0.7758,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.8073,
+      "lo": 0.784,
+      "hi": 0.835,
+      "n": 3
+     }
+    ],
+    "Claude Opus 5.5": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.7376,
+      "lo": 0.7182,
+      "hi": 0.7546,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.8187,
+      "lo": 0.8028,
+      "hi": 0.8381,
+      "n": 3
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 3
+     }
+    ]
+   },
+   "verdict": {
+    "GPT-6 Astra": "improve",
+    "Claude Opus 5.5": "improve",
+    "Gemini 4 Argon": "one point only",
+    "Kimi 3.1 Pro": "improve",
+    "GLM 5.3 Flash": "flat",
+    "DeepSeek V4.1 Flash": "flat"
+   },
+   "capability": {
+    "n": 2,
+    "names": [
+     "Whole-body power and staying stable (release speed)",
+     "Javelin flight: release timing, angle, alignment, tip first"
+    ],
+    "ref": null,
+    "lines": {},
+    "status": "proposal"
+   }
+  }
+ },
+ "capabilities": {
+  "source": "javelin_g1",
+  "skills": [
+   {
+    "id": "upright",
+    "group": "phys",
+    "name": "Throws without falling",
+    "real": "A throw is a whole-body effort; the robot must stay standing after it (only its feet on the ground for settle_s after the landing).",
+    "measure": "the match record: among trials with a release, the share whose foul is not 'the robot fell' (gate ≥ 3). Scenario push03: 0.4 s after the motion starts (during the withdrawal) a 0.3 m/s sideways push at the pelvis; share of pushed trials without a fall (at 0.6 m/s every program and the reference fall in every trial; at 0.15 m/s the reference falls in 5 of 6).",
+    "line": "Match ≥ 90 %; scenario ≥ 2/3",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "rel_speed",
+    "group": "phys",
+    "name": "Fast release (whole-body power)",
+    "real": "Release speed is the first factor of distance: legs, hips, trunk, shoulder and elbow accelerate in turn. The G1 is capped at 2.7 kW.",
+    "measure": "the match : median over trials with a release; a trial over the power cap counts 0.",
+    "line": "≥ 9 m/s",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "legal",
+    "group": "phys",
+    "name": "Legal release (over the shoulder, along the shaft, facing the throw)",
+    "real": "The rules forbid a sling; a javelin not aligned with its path stalls.",
+    "measure": "the match record: among trials with a release and no fall or line foul, the share without a release-style foul (shoulder / axis / sling) or power-cap foul (gate ≥ 3).",
+    "line": "≥ 80 %",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "flight",
+    "group": "phys",
+    "name": "Tip lands first, inside the sector",
+    "real": "Only a tip-first landing scores; the tumble at the release decides how it lands.",
+    "measure": "the match record: among legal releases, the share with a mark (gate ≥ 3).",
+    "line": "≥ 50 %",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "aim",
+    "group": "adap",
+    "name": "Corrects its aim from the last throw",
+    "real": "An athlete adjusts stance and direction after seeing each landing; the observation carries the last release's heading.",
+    "measure": "Scenario turned: every stance is placed turned 18 deg further left than asked; an uncorrected throw leaves 18 deg off and lands outside the 14.5 deg half-sector. Reading: among trials 2-6 (released, no fall, no line foul) the share without 'outside the sector'.",
+    "line": "≥ 2/3",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "consistent",
+    "group": "phys",
+    "name": "Repeats its throw",
+    "real": "Steady marks over the six trials.",
+    "measure": "the match record: share of finals with ≥ 3 valid marks and a CV ≤ 15 %.",
+    "line": "≥ 2/3 of finals",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "runup",
+    "group": "phys",
+    "name": "Throws with run-up momentum (candidate)",
+    "real": "In real javelin 20-30 % of the release speed comes from the run-up, which must end braked, behind the arc.",
+    "measure": "Scenario runupend: at the motion start the pelvis gets forward momentum along its facing (the run-up's end); reading: share of those trials released with no fall and no line foul. At 0.8 m/s every program and the reference fall in every trial; calibration (seed 9101) at 0.3 m/s: reference 4/6, Opus k1 0/6, Astra k1 0/6; at 0.15 m/s: reference 0/6, Opus k1 5/6 (not monotonic). The reading uses 0.3 m/s (runup03).",
+    "line": "≥ 2/3",
+    "secondary": true,
+    "three_checks": false
+   },
+   {
+    "id": "behind",
+    "group": "comp",
+    "name": "Stays behind the arc (rule, secondary)",
+    "real": "TR 32: touching the arc or the ground beyond it is a foul.",
+    "measure": "the match record: among trials with a release, the share without a line foul.",
+    "line": "≥ 90 %",
+    "secondary": true,
+    "three_checks": false
+   }
+  ],
+  "off": [
+   {
+    "name": "Real time (secondary): no stall before the release",
+    "group": "phys",
+    "why": "Needs every step's plan rows from replay; not recomputed here. Validated it (plans 1 step late all score 0)."
+   },
+   {
+    "name": "Reading the wind (excluded)",
+    "group": "adap",
+    "why": "Not declared on the card: aiming 15 deg off changes the score by under 0.005."
+   }
+  ],
+  "results": {
+   "Claude Opus 5.5": {
+    "rel_speed": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "legal": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "flight": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "consistent": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "behind": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "upright": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "aim": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "runup": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
+   },
+   "GPT-6 Astra": {
+    "rel_speed": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "flight": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "aim": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "consistent": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "behind": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "upright": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "legal": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "runup": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "upright": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "legal": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "flight": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "behind": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "rel_speed": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "consistent": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "aim": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "runup": {
+     "status": "na",
+     "checkpoint": "final:2"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "upright": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "rel_speed": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "legal": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "flight": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "consistent": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "behind": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "aim": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "runup": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "DeepSeek V4.1 Flash": {
+    "behind": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "upright": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "rel_speed": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "legal": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "consistent": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "flight": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "aim": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "runup": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "Gemini 4 Argon": {
+    "upright": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "rel_speed": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "legal": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "flight": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "consistent": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "behind": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "aim": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "runup": {
+     "status": "na",
+     "checkpoint": "final:2"
+    }
+   }
+  },
+  "reference": {
+   "passed": [
+    "rel_speed",
+    "legal",
+    "flight",
+    "aim",
+    "consistent",
+    "runup",
+    "behind"
+   ],
+   "failed": [
+    "upright"
+   ]
+  },
+  "open_questions": [],
+  "pass_marks": "page"
+ },
+ "notes": {
+  "_source": "R2 (11-08 evening). Line 1: analysis/drafts/dim/othersports/final.md top 10 #7 (Astra risk choice); line 2: top 10 #7 (early fouls); line 3: javelin physical column and _r3/javelin.md P3 (release speed, best marks); line 4: javelin adaptive column (DeepSeek). Fixture ids from the javelin_g1 data sheet. Built: javelin engineering / competitive columns. Owner: edit or replace with your analysis.",
+  "_status": "draft from the analysis drafts, for the sport owner to edit",
+  "challenge": "Six throws, the best one counts. The program builds whole-body power and balance for a humanoid without fingers and picks the moment of release for a tip-first landing.",
+  "achieved": [
+   {
+    "text": "GPT-6 Astra chose a throwing motion that fouls more often on purpose: its simulations gave it a higher median best-of-six (18.76 m against 18.06 m), and it threw 18.74 m in the match.",
+    "evidence": [
+     "JAVA-F0053"
+    ]
+   },
+   {
+    "text": "All 10 early shoulder-delivery fouls of the event came on early gripper jitter; wind and jitter were the same for every model in a match.",
+    "evidence": [
+     "all valid matches"
+    ]
+   },
+   {
+    "text": "Gemini 4 Argon threw fastest: 16.86 m/s mean release speed and a best mark of 22.35 m, 1.56 times the reference program.",
+    "evidence": [
+     "JAVA-F0102",
+     "JAVA-F0103"
+    ]
+   },
+   {
+    "text": "DeepSeek V4.1 Flash fixed the previous match's main failure each time: best mark 0, 0.95, then 3.14 m, valid throws 0, 4, then 5 of 6.",
+    "evidence": [
+     "JAVA-F0211",
+     "JAVA-F0212",
+     "JAVA-F0213"
+    ]
+   }
+  ],
+  "built": {
+   "Claude Opus 5.5": [
+    "Optimised its throw with CMA-ES on an exact CPU simulation and chose each attempt by its expected gain over the mark already banked."
+   ],
+   "Kimi 3.1 Pro": [
+    "Kept a library of joint plans for each trial and had the most valid throws of the event (12 of 18)."
+   ]
+  }
+ }
+}

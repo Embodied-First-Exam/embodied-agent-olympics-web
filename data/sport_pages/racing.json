@@ -1,0 +1,855 @@
+{
+ "schema": "eo-sportpage/1",
+ "sport": "racing",
+ "key": "racing_full",
+ "format": "race",
+ "made": "2026-11-09T04:28Z",
+ "status": "final",
+ "provisional": true,
+ "podium": {
+  "gold": "GPT-6 Astra",
+  "silver": "Gemini 4 Argon",
+  "bronze": "GLM 5.3 Flash"
+ },
+ "flag": null,
+ "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
+ "championship": {
+  "rule": "points_total+last_race@1",
+  "final": true,
+  "series": [
+   {
+    "race": 1,
+    "id": "RAC6-F01",
+    "grid": "race 1: the seating",
+    "pending": false,
+    "replaces": null,
+    "ranks": {
+     "GPT-6 Astra": 1,
+     "DeepSeek V4.1 Flash": 5,
+     "Gemini 4 Argon": 2,
+     "GLM 5.3 Flash": 4,
+     "Kimi 3.1 Pro": 6,
+     "Claude Opus 5.5": 3
+    },
+    "points": {
+     "GPT-6 Astra": 25,
+     "DeepSeek V4.1 Flash": 0,
+     "Gemini 4 Argon": 18,
+     "GLM 5.3 Flash": 0,
+     "Kimi 3.1 Pro": 0,
+     "Claude Opus 5.5": 0
+    },
+    "replay": {
+     "kind": "full",
+     "seconds": 527.3,
+     "path": "matches/racing_full/rel-racing-full-champ-rc6b/RAC6-F01/replay.mp4",
+     "camera": "broadcast",
+     "size": "1280x720",
+     "fixture": "RAC6-F01",
+     "key": "racing_full",
+     "highlight": false
+    }
+   },
+   {
+    "race": 2,
+    "id": "RAC6-F02",
+    "grid": "race 1's finishing order",
+    "pending": false,
+    "replaces": null,
+    "ranks": {
+     "GPT-6 Astra": 1,
+     "DeepSeek V4.1 Flash": 3,
+     "Gemini 4 Argon": 2,
+     "GLM 5.3 Flash": 5,
+     "Kimi 3.1 Pro": 4,
+     "Claude Opus 5.5": 6
+    },
+    "points": {
+     "GPT-6 Astra": 25,
+     "DeepSeek V4.1 Flash": 0,
+     "Gemini 4 Argon": 18,
+     "GLM 5.3 Flash": 0,
+     "Kimi 3.1 Pro": 0,
+     "Claude Opus 5.5": 0
+    },
+    "replay": {
+     "kind": "full",
+     "seconds": 497.0,
+     "path": "matches/racing_full/rel-racing-full-champ-rc6b/RAC6-F02/replay.mp4",
+     "camera": "broadcast",
+     "size": "1280x720",
+     "fixture": "RAC6-F02",
+     "key": "racing_full",
+     "highlight": false
+    }
+   },
+   {
+    "race": 3,
+    "id": "RA6B-F03",
+    "grid": "race 2's finishing order",
+    "pending": false,
+    "replaces": "RAC6-F03",
+    "ranks": {
+     "GPT-6 Astra": 6,
+     "DeepSeek V4.1 Flash": 4,
+     "Gemini 4 Argon": 2,
+     "GLM 5.3 Flash": 1,
+     "Kimi 3.1 Pro": 5,
+     "Claude Opus 5.5": 3
+    },
+    "points": {
+     "GPT-6 Astra": 0,
+     "DeepSeek V4.1 Flash": 0,
+     "Gemini 4 Argon": 0,
+     "GLM 5.3 Flash": 25,
+     "Kimi 3.1 Pro": 0,
+     "Claude Opus 5.5": 0
+    },
+    "replay": {
+     "kind": "full",
+     "seconds": 617.7,
+     "path": "matches/racing_full/rel-racing-full-champ-rc6b/RA6B-F03/replay.mp4",
+     "camera": "broadcast",
+     "size": "1280x720",
+     "fixture": "RA6B-F03",
+     "key": "racing_full",
+     "highlight": false
+    }
+   }
+  ],
+  "rows": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra",
+    "points": 50.0,
+    "note": "places 1:2 6:1"
+   },
+   {
+    "rank": 2,
+    "model": "Gemini 4 Argon",
+    "points": 36.0,
+    "note": "places 2:3"
+   },
+   {
+    "rank": 3,
+    "model": "GLM 5.3 Flash",
+    "points": 25.0,
+    "note": "places 1:1 4:1 5:1"
+   },
+   {
+    "rank": 4,
+    "model": "Claude Opus 5.5",
+    "points": 0.0,
+    "note": "places 3:2 6:1"
+   },
+   {
+    "rank": 5,
+    "model": "DeepSeek V4.1 Flash",
+    "points": 0.0,
+    "note": "places 3:1 4:1 5:1"
+   },
+   {
+    "rank": 6,
+    "model": "Kimi 3.1 Pro",
+    "points": 0.0,
+    "note": "places 4:1 5:1 6:1"
+   }
+  ],
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra"
+   },
+   {
+    "rank": 2,
+    "model": "Gemini 4 Argon"
+   },
+   {
+    "rank": 3,
+    "model": "GLM 5.3 Flash"
+   },
+   {
+    "rank": 4,
+    "model": "Claude Opus 5.5"
+   },
+   {
+    "rank": 5,
+    "model": "DeepSeek V4.1 Flash"
+   },
+   {
+    "rank": 6,
+    "model": "Kimi 3.1 Pro"
+   }
+  ],
+  "scoring": "Six cars, 10 laps per race; F1 points 25-18-15-12-10-8 for classified finishers; ranked by total points over three races, ties by the last race. Race 1's grid by lot, later grids by the previous result.",
+  "as_of": "2026-11-08T20:40:15Z",
+  "board": "rel-racing-full-champ-rc6b"
+ },
+ "open_arena": null,
+ "agents": {
+  "per_model": {
+   "Claude Opus 5.5": {
+    "championship_place": "6 (provisional: places 3:1 6:1)",
+    "open_arena": "n/a",
+    "matches": 2,
+    "versions": 2,
+    "switches": 0,
+    "model_calls": 296,
+    "output_tokens": 178842,
+    "reviews": "0/0",
+    "gpu": null,
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 2,
+    "realtime_rehearsal": 2,
+    "median_prep_min": 57
+   },
+   "GPT-6 Astra": {
+    "championship_place": "1 (provisional: places 1:2)",
+    "open_arena": "n/a",
+    "matches": 2,
+    "versions": 3,
+    "switches": 1,
+    "model_calls": 245,
+    "output_tokens": 120998,
+    "reviews": "0/0",
+    "gpu": null,
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 2,
+    "realtime_rehearsal": 2,
+    "median_prep_min": 57
+   },
+   "Gemini 4 Argon": {
+    "championship_place": "2 (provisional: places 2:2)",
+    "open_arena": "n/a",
+    "matches": 2,
+    "versions": 2,
+    "switches": 0,
+    "model_calls": 381,
+    "output_tokens": 390043,
+    "reviews": "0/0",
+    "gpu": null,
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 1,
+    "median_prep_min": 57
+   },
+   "Kimi 3.1 Pro": {
+    "championship_place": "4 (provisional: places 4:1 6:1)",
+    "open_arena": "n/a",
+    "matches": 2,
+    "versions": 2,
+    "switches": 0,
+    "model_calls": 337,
+    "output_tokens": 180470,
+    "reviews": "0/0",
+    "gpu": null,
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 2,
+    "realtime_rehearsal": 2,
+    "median_prep_min": 57
+   },
+   "DeepSeek V4.1 Flash": {
+    "championship_place": "3 (provisional: places 3:1 5:1)",
+    "open_arena": "n/a",
+    "matches": 2,
+    "versions": 2,
+    "switches": 0,
+    "model_calls": 309,
+    "output_tokens": 274361,
+    "reviews": "0/0",
+    "gpu": null,
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 1,
+    "median_prep_min": 57
+   },
+   "GLM 5.3 Flash": {
+    "championship_place": "5 (provisional: places 4:1 5:1)",
+    "open_arena": "n/a",
+    "matches": 2,
+    "versions": 7,
+    "switches": 5,
+    "model_calls": 246,
+    "output_tokens": 154157,
+    "reviews": "0/0",
+    "gpu": null,
+    "seat_matches": 3,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 2,
+    "median_prep_min": 57
+   }
+  },
+  "checkpoint": {
+   "kind": "solo",
+   "board": "rel-racing-full-champ-rc6",
+   "made": "2026-11-08 22:22 CST",
+   "measure": "Pace score, ratio to the reference program (1.0 = reference)",
+   "opponents": [],
+   "ref": 1.0,
+   "count": {
+    "planned": 90,
+    "ok": 72,
+    "invalid": 0,
+    "never_acted": 1,
+    "model_called": 0,
+    "pending": 17
+   },
+   "lines": {
+    "GPT-6 Astra": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 1.0506,
+      "lo": 1.049,
+      "hi": 1.0528,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 1.0505,
+      "lo": 1.0492,
+      "hi": 1.0528,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.0688,
+      "lo": 1.0657,
+      "hi": 1.0705,
+      "n": 3
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.2132,
+      "lo": 0.2128,
+      "hi": 0.2138,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.9983,
+      "lo": 0.9965,
+      "hi": 0.9996,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.0476,
+      "lo": 1.0446,
+      "hi": 1.0501,
+      "n": 3
+     }
+    ],
+    "Gemini 4 Argon": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 1.0541,
+      "lo": 1.0518,
+      "hi": 1.0558,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 1.0538,
+      "lo": 1.0518,
+      "hi": 1.0556,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.0655,
+      "lo": 1.0638,
+      "hi": 1.0674,
+      "n": 3
+     }
+    ],
+    "GLM 5.3 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.2132,
+      "lo": 0.2128,
+      "hi": 0.2138,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.2132,
+      "lo": 0.2128,
+      "hi": 0.2138,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.2132,
+      "lo": 0.2128,
+      "hi": 0.2138,
+      "n": 3
+     }
+    ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 1.016,
+      "lo": 1.0143,
+      "hi": 1.0171,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 1.0169,
+      "lo": 1.0165,
+      "hi": 1.0177,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.0012,
+      "lo": 1.0008,
+      "hi": 1.0021,
+      "n": 3
+     }
+    ],
+    "Claude Opus 5.5": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.4888,
+      "lo": 0.213,
+      "hi": 1.0397,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.9396,
+      "lo": 0.8834,
+      "hi": 0.9693,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.7487,
+      "lo": 0.2138,
+      "hi": 1.0477,
+      "n": 3
+     }
+    ]
+   },
+   "verdict": {
+    "GPT-6 Astra": null,
+    "Claude Opus 5.5": null,
+    "Gemini 4 Argon": null,
+    "Kimi 3.1 Pro": null,
+    "GLM 5.3 Flash": null,
+    "DeepSeek V4.1 Flash": null
+   },
+   "capability": {
+    "n": 3,
+    "names": [
+     "Vehicle dynamics: planning at the grip limit",
+     "Execution at the limit",
+     "Real-time control and latency compensation"
+    ],
+    "ref": 2.0,
+    "lines": {
+     "GPT-6 Astra": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 2,
+       "valid": 6
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 3,
+       "valid": 3
+      }
+     ],
+     "DeepSeek V4.1 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 1,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 3,
+       "valid": 3
+      }
+     ],
+     "Gemini 4 Argon": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 3,
+       "valid": 3
+      }
+     ],
+     "GLM 5.3 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 3
+      }
+     ],
+     "Kimi 3.1 Pro": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 3,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 3,
+       "valid": 3
+      }
+     ],
+     "Claude Opus 5.5": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 1,
+       "valid": 3
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 2,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 1,
+       "valid": 3
+      }
+     ]
+    },
+    "status": "proposal"
+   }
+  }
+ },
+ "capabilities": {
+  "source": "g5-racing_full",
+  "skills": [
+   {
+    "id": "lap",
+    "group": "phys",
+    "name": "Completes a valid lap",
+    "real": "The basic requirement of a time trial: pull away from rest and drive a full lap without all four wheels past the white line, the barrier or driving the wrong way; only then does the lap count.",
+    "measure": "Baseline scenario (the official time trial's run 1: standing start, two timed laps): runs with the match set / runs. The Checkpoint Evaluations read the same field.",
+    "line": "≥ 80 % of runs",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "pace",
+    "group": "phys",
+    "name": "Laps fast enough",
+    "real": "A2RL / IAC cars run at the grip limit; the lap time comes from how much grip is used and where the car brakes.",
+    "measure": "Baseline scenario: the match record = the platform's plan lap time / the best valid lap (the reference reads about 0.94; no valid lap scores 0.2), median over seeds.",
+    "line": "≥ 0.91",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "corner_speed",
+    "group": "phys",
+    "name": "Carries speed through tight corners",
+    "real": "Lap time is won in the slow corners: a slightly slow entry costs the whole straight after it.",
+    "measure": "Every passage of the two tightest corners in the baseline (official start) + scenario hairpin: over the corners passed cleanly, the lowest speed in the corner / the platform plan's lowest speed there (the scenario record and / v_plan_min), pooled median. Gate: ≥ 2 clean corners.",
+    "line": "≥ 0.90",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "tight_corner",
+    "group": "phys",
+    "name": "Takes a hairpin at the limit, cleanly",
+    "real": "Before a hairpin the car brakes from over 250 km/h to about 90 km/h: braking point, steering and throttle have to agree, and a little late means the barrier. Opus kickoff:1 hit the barrier at the 974 m hairpin in its Checkpoint Evaluations.",
+    "measure": "Pooled from two sources: (1) every passage of the two tightest corners in the baseline (official start, two laps): clean = no new track-limit call and no DNF up to 200 m after the exit, and the lowest corner speed ≥ 0.8 × the plan's; (2) scenario hairpin: a flying start 250 m before one of the two tightest corners at the reference plan's speed (held until the program's first act), ending 200 m after the exit; clean = reaches the end with no barrier / wrong way / track-limit call and within 1.25 × the reference's time on the same seed and corner. A unit that leaves the road before reaching the corner after the flying start gives no reading (the program lost itself; see findings).",
+    "line": "≥ 2/3 of the corners",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "no_incident",
+    "group": "phys",
+    "name": "No incident over a lap",
+    "real": "A2RL teams write their own traction, braking and steering control; one barrier contact is a DNF.",
+    "measure": "Baseline scenario + Checkpoint Evaluations: of the runs that pulled away (≥ 100 m), the share with no barrier, wrong way or track-limit call (, track_limits, progress_m).",
+    "line": "≥ 80 % (≥ 2 runs that pulled away)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "recovers",
+    "group": "phys",
+    "name": "Catches a slide",
+    "real": "A kerb or a bump can snap the rear out; a driver (or autonomy stack) has a few tenths of a second to counter-steer and lift to save it.",
+    "measure": "Scenario slide: the hairpin start; a third of the way round the corner the world adds 2.0 m/s of sideways velocity towards the outside and 0.25 rad/s of yaw rate into the turn; recovered = reaches the end with no barrier / wrong way / track-limit call. Gate: speed at the kick ≥ 0.8 × the reference's at the same corner (crawling does not count).",
+    "line": "≥ 2/3 of the kicked corners",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "steady",
+    "group": "phys",
+    "name": "Steady steering",
+    "real": "Sawing at the wheel at speed upsets the tyres, costs speed and can lose the car.",
+    "measure": "Every unit of the scenarios: direction changes of the applied steering angle (0.004 rad hysteresis) per second above 20 m/s, median over baseline + hairpin. Gate: the program completes a valid lap or a clean corner.",
+    "line": "≤ 4 a second",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "rhythm",
+    "group": "eng",
+    "name": "Commands keep coming",
+    "real": "At 80 m/s 20 ms is 1.6 m; real cars command at the order of 100 Hz.",
+    "measure": "The world records the step of every applied act: the gap between consecutive acts while above 5 m/s, p95 per unit (the scenario record, in 10 ms steps), median over the scenarios.",
+    "line": "p95 ≤ 20 steps (200 ms)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "yellow",
+    "group": "comp",
+    "name": "Keeps the double yellow",
+    "real": "A double-yellow sector has a speed limit and speeding is penalised. The official run 2 has a 250 m, 100 km/h double yellow.",
+    "measure": "Scenario yellow: the official standing start; a 250 m, 100 km/h double yellow starts 120 m after the line (announced in from the first step); the unit ends 150 m after it, two units; kept = no yellow_violation and a sector mean ≥ 80 km/h.",
+    "line": "≥ 2/3 of the units",
+    "secondary": true,
+    "three_checks": true
+   }
+  ],
+  "off": [
+   {
+    "name": "Onboard camera perception",
+    "group": "phys",
+    "why": "There is no other car in a time trial, so camera perception cannot be read. Scenario alongside (a car beside yours) was not built: the time-trial observation has no other car and only the camera would show it, which tests something the task never asked for; it needs the passing / race tasks."
+   },
+   {
+    "name": "Race strategy (candidate)",
+    "group": "comp",
+    "why": "Exists only in the multi-car race and not in the Checkpoint Evaluation."
+   },
+   {
+    "name": "Adaptive",
+    "group": "adap",
+    "why": "Not declared on the card; read across checkpoints (the growth curve)."
+   }
+  ],
+  "results": {
+   "Claude Opus 5.5": {
+    "lap": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "pace": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "corner_speed": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "tight_corner": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "rhythm": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "no_incident": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "recovers": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "steady": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "yellow": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    }
+   },
+   "GPT-6 Astra": {
+    "lap": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "pace": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "corner_speed": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "tight_corner": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "no_incident": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "rhythm": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "recovers": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "steady": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "yellow": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    }
+   }
+  },
+  "reference": {
+   "passed": [
+    "lap",
+    "pace",
+    "corner_speed",
+    "tight_corner",
+    "no_incident",
+    "recovers",
+    "steady",
+    "rhythm",
+    "yellow"
+   ],
+   "failed": []
+  },
+  "open_questions": [],
+  "pass_marks": "page"
+ },
+ "notes": {
+  "_source": "R2 (11-08 evening). Race 3 is the re-run RA6B-F03 (the earlier race 3 is superseded and every line from it withdrawn). Line 1: analysis/drafts/dim/othersports/final.md top 10 #5 and racing physical column; lines 2-3: #5, R2 NEW and synthesis finding 10 (RA6B-F03); line 4: overall #13 (four tested builds). Built: analysis/drafts/dim/othersports/final.md #10 (Astra and GLM race-3 diagnoses). Dropped from v1: 'no learned model' line (still true per engineering, moved out for space). Owner: edit or replace with your analysis.",
+  "_status": "draft from the analysis drafts, for the sport owner to edit",
+  "challenge": "A 750 kg, 405 kW single-seater through a drive-by-wire interface. The program plans the racing line and speed at the grip limit and acts on time at real speed.",
+  "achieved": [
+   {
+    "text": "Surviving traffic decided the races: 5 finishes from 18 starts. In races 1 and 2 only GPT-6 Astra and Gemini 4 Argon finished, and eight starts ended within 35 s.",
+    "evidence": [
+     "RAC6-F01",
+     "RAC6-F02"
+    ]
+   },
+   {
+    "text": "In race 3 the slowest car won: GLM 5.3 Flash, lapping at 1.27 times its plan, was the only finisher. Astra braked to a 4 m/s target in front of Gemini, Gemini hit it and was retired for staying too slow, and Astra was disqualified for the brake test.",
+    "evidence": [
+     "RA6B-F03"
+    ]
+   },
+   {
+    "text": "The other race-3 exits came from the agents' own traffic code: Claude Opus 5.5's brake cap, written to avoid the brake-test rule, made it run into DeepSeek V4.1 Flash at 9.56 s, and DeepSeek switched off its traffic following mid-race and hit GLM three times.",
+    "evidence": [
+     "RA6B-F03"
+    ]
+   },
+   {
+    "text": "None of the four racing programs tested reads the yellow flag: they drove 180 to 196 km/h through a 100 km/h sector.",
+    "evidence": [
+     "skill tests"
+    ]
+   }
+  ],
+  "built": {
+   "GPT-6 Astra": [
+    "Traced its own race-3 disqualification in its telemetry (lost camera track, 4 m/s floor) and confirmed the floor offline on the unchanged controller."
+   ],
+   "GLM 5.3 Flash": [
+    "Its race-3 note claims it led from lap 1 at about 25 Hz; it ran at 47.5 Hz, and Astra and Gemini were ahead on track until 94.99 s."
+   ]
+  }
+ }
+}

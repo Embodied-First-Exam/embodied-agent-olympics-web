@@ -1,0 +1,2122 @@
+{
+ "schema": "eo-sportpage/1",
+ "sport": "baseball",
+ "key": "baseball_g1",
+ "format": "duel",
+ "made": "2026-11-09T04:28Z",
+ "status": "final",
+ "provisional": true,
+ "podium": {
+  "gold": "GPT-6 Astra",
+  "silver": "Claude Opus 5.5",
+  "bronze": "DeepSeek V4.1 Flash"
+ },
+ "flag": null,
+ "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
+ "championship": {
+  "rule": "round_robin_knockout_serial@1",
+  "final": true,
+  "stages": [
+   {
+    "id": "round_robin",
+    "name": "Round robin",
+    "standings": [
+     {
+      "rank": 1,
+      "model": "GPT-6 Astra",
+      "played": 5,
+      "won": 5,
+      "drawn": 0,
+      "lost": 0,
+      "points": 15,
+      "for": 32,
+      "against": 2,
+      "note": "5-0-0, score 32:2"
+     },
+     {
+      "rank": 2,
+      "model": "Claude Opus 5.5",
+      "played": 5,
+      "won": 4,
+      "drawn": 0,
+      "lost": 1,
+      "points": 12,
+      "for": 33,
+      "against": 4,
+      "note": "4-0-1, score 33:4"
+     },
+     {
+      "rank": 3,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 8,
+      "against": 16,
+      "note": "2-0-3, score 8:16"
+     },
+     {
+      "rank": 4,
+      "model": "Gemini 4 Argon",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 27,
+      "against": 39,
+      "note": "2-0-3, score 27:39"
+     },
+     {
+      "rank": 5,
+      "model": "Kimi 3.1 Pro",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 6,
+      "against": 24,
+      "note": "1-0-4, score 6:24"
+     },
+     {
+      "rank": 6,
+      "model": "GLM 5.3 Flash",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 24,
+      "against": 45,
+      "note": "1-0-4, score 24:45"
+     }
+    ],
+    "matches": [
+     {
+      "id": "BSB2-F02",
+      "labels": {
+       "pair": "astra-sub vs deepseek-flash-sh",
+       "replaces": "BSBC-F02",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 141.7,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F02/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F02",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBC-F01",
+      "labels": {
+       "pair": "opus vs kimi",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1423.8,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSBC-F01/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSBC-F01",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBC-F03",
+      "labels": {
+       "pair": "gemini vs glm-flash-sh",
+       "round": 1,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 20
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 20
+       }
+      ],
+      "winner": "GLM 5.3 Flash",
+      "decided_by": "walks",
+      "note": "Level; tie-break by walks",
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1164.3,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSBC-F03/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSBC-F03",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSB2-F04",
+      "labels": {
+       "pair": "deepseek-flash-sh vs opus",
+       "replaces": "BSBC-F04",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 3
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 603.0,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F04/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F04",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSB2-F05",
+      "labels": {
+       "pair": "glm-flash-sh vs kimi",
+       "replaces": "BSBC-F05",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 4
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 5
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 907.2,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F05/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F05",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSB2-F06",
+      "labels": {
+       "pair": "astra-sub vs gemini",
+       "replaces": "BSBC-F06",
+       "round": 2,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 8
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 2
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1137.1,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F06/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F06",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSB2-F07",
+      "labels": {
+       "pair": "opus vs glm-flash-sh",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 464.2,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F07/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F07",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSB2-F08",
+      "labels": {
+       "pair": "gemini vs deepseek-flash-sh",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 2
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 1
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 450.8,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F08/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F08",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSB2-F09",
+      "labels": {
+       "pair": "kimi vs astra-sub",
+       "round": 3,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 5
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 838.4,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F09/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F09",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSB2-F10",
+      "labels": {
+       "pair": "opus vs gemini",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1263.4,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F10/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F10",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSB2-F11",
+      "labels": {
+       "pair": "glm-flash-sh vs astra-sub",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 5
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 259.9,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F11/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F11",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSB2-F12",
+      "labels": {
+       "pair": "deepseek-flash-sh vs kimi",
+       "round": 4,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 2
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 1
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 777.8,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F12/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F12",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSB2-F13",
+      "labels": {
+       "pair": "astra-sub vs opus",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 4
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 486.3,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F13/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F13",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSB2-F14",
+      "labels": {
+       "pair": "kimi vs gemini",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 3
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 750.3,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F14/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F14",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSB2-F15",
+      "labels": {
+       "pair": "glm-flash-sh vs deepseek-flash-sh",
+       "round": 5,
+       "stage": "round_robin"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 5
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 256.7,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F15/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F15",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     }
+    ],
+    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+   },
+   {
+    "id": "semi_final",
+    "name": "Semifinal",
+    "matches": [
+     {
+      "id": "BSB2-F16",
+      "labels": {
+       "match": "SF1",
+       "pair": "gemini vs astra-sub",
+       "round": 6,
+       "seeds": "1v4",
+       "stage": "semi_final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 5
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 276.6,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F16/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F16",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       4,
+       1
+      ],
+      "label": "Semifinal 1"
+     },
+     {
+      "id": "BSB2-F17",
+      "labels": {
+       "match": "SF2",
+       "pair": "opus vs deepseek-flash-sh",
+       "round": 6,
+       "seeds": "2v3",
+       "stage": "semi_final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 8
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1565.2,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F17/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F17",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       2,
+       3
+      ],
+      "label": "Semifinal 2"
+     }
+    ]
+   },
+   {
+    "id": "final",
+    "name": "Final",
+    "matches": [
+     {
+      "id": "BSB2-F18",
+      "labels": {
+       "match": "F",
+       "pair": "opus vs astra-sub",
+       "round": 7,
+       "seeds": "1v2",
+       "stage": "final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 6
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 7
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1439.0,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F18/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F18",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       2,
+       1
+      ],
+      "label": "Final"
+     }
+    ]
+   },
+   {
+    "id": "bronze",
+    "name": "Bronze match",
+    "matches": [
+     {
+      "id": "BSB2-F19",
+      "labels": {
+       "match": "B",
+       "pair": "gemini vs deepseek-flash-sh",
+       "round": 7,
+       "seeds": "3v4",
+       "stage": "bronze"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "lot",
+      "note": "Level; decided by lot",
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 323.8,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F19/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSB2-F19",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved",
+      "seeds": [
+       4,
+       3
+      ],
+      "label": "Bronze match"
+     }
+    ]
+   }
+  ],
+  "played": 19,
+  "pending": 0,
+  "knockout_planned": true,
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra",
+    "note": "final winner"
+   },
+   {
+    "rank": 2,
+    "model": "Claude Opus 5.5",
+    "note": "final loser"
+   },
+   {
+    "rank": 3,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "bronze winner"
+   },
+   {
+    "rank": 4,
+    "model": "Gemini 4 Argon",
+    "note": "bronze loser"
+   },
+   {
+    "rank": 5,
+    "model": "Kimi 3.1 Pro",
+    "note": "round robin 5th"
+   },
+   {
+    "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "note": "round robin 6th"
+   }
+  ],
+  "notes": [],
+  "as_of": "2026-11-09T00:45:43Z",
+  "board": "rel-baseball-g1-champ2"
+ },
+ "open_arena": {
+  "rule": "points_table@1",
+  "final": false,
+  "stages": [
+   {
+    "id": "round_robin",
+    "name": "Round robin",
+    "standings": [
+     {
+      "rank": 1,
+      "model": "GPT-6 Astra",
+      "played": 5,
+      "won": 5,
+      "drawn": 0,
+      "lost": 0,
+      "points": 15,
+      "for": 29,
+      "against": 7,
+      "note": "5-0-0, score 29:7"
+     },
+     {
+      "rank": 2,
+      "model": "Claude Opus 5.5",
+      "played": 5,
+      "won": 4,
+      "drawn": 0,
+      "lost": 1,
+      "points": 12,
+      "for": 24,
+      "against": 8,
+      "note": "4-0-1, score 24:8"
+     },
+     {
+      "rank": 3,
+      "model": "Kimi 3.1 Pro",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 25,
+      "against": 11,
+      "note": "3-0-2, score 25:11"
+     },
+     {
+      "rank": 4,
+      "model": "GLM 5.3 Flash",
+      "played": 5,
+      "won": 2,
+      "drawn": 0,
+      "lost": 3,
+      "points": 6,
+      "for": 45,
+      "against": 61,
+      "note": "2-0-3, score 45:61"
+     },
+     {
+      "rank": 5,
+      "model": "Gemini 4 Argon",
+      "played": 5,
+      "won": 1,
+      "drawn": 0,
+      "lost": 4,
+      "points": 3,
+      "for": 36,
+      "against": 51,
+      "note": "1-0-4, score 36:51"
+     },
+     {
+      "rank": 6,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 5,
+      "won": 0,
+      "drawn": 0,
+      "lost": 5,
+      "points": 0,
+      "for": 30,
+      "against": 51,
+      "note": "0-0-5, score 30:51"
+     }
+    ],
+    "matches": [
+     {
+      "id": "BSBA-F01",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 2
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 3
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F01",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBA-F02",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 5
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F02",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBA-F03",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 5
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 6
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F03",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBA-F04",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F04",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBA-F05",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 1
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F05",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBA-F06",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 5
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 6
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F06",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBA-F07",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 5
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F07",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBA-F08",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 5
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F08",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBA-F09",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F09",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBA-F10",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 20
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 20
+       }
+      ],
+      "winner": "GLM 5.3 Flash",
+      "decided_by": "walks",
+      "note": "Level; tie-break by walks",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F10",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBA-F11",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs gemini",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 11
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F11",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBA-F13",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 20
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 20
+       }
+      ],
+      "winner": "GLM 5.3 Flash",
+      "decided_by": "walks",
+      "note": "Level; tie-break by walks",
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F13",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBA-F14",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F14",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBA-F15",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 5
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBA-F15",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     },
+     {
+      "id": "BSBQ-F12",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs gemini",
+       "replaces": "BSBA-F12",
+       "replay_cause": "quota_no_show",
+       "replay_reason": "quota-caused no-show, approved by Chi 11-07",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       }
+      ],
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "BSBQ-F12",
+       "key": "baseball_g1",
+       "highlight": false
+      },
+      "status": "resolved"
+     }
+    ],
+    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+   }
+  ],
+  "played": 15,
+  "pending": 0,
+  "knockout_planned": false,
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra",
+    "note": "5-0-0, score 29:7"
+   },
+   {
+    "rank": 2,
+    "model": "Claude Opus 5.5",
+    "note": "4-0-1, score 24:8"
+   },
+   {
+    "rank": 3,
+    "model": "Kimi 3.1 Pro",
+    "note": "3-0-2, score 25:11"
+   },
+   {
+    "rank": 4,
+    "model": "GLM 5.3 Flash",
+    "note": "2-0-3, score 45:61"
+   },
+   {
+    "rank": 5,
+    "model": "Gemini 4 Argon",
+    "note": "1-0-4, score 36:51"
+   },
+   {
+    "rank": 6,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "0-0-5, score 30:51"
+   }
+  ],
+  "notes": [],
+  "as_of": "2026-11-08T08:48:03Z",
+  "board": "rel-baseball-g1-arena",
+  "complete": true,
+  "status_line": "Complete"
+ },
+ "agents": {
+  "per_model": {
+   "Claude Opus 5.5": {
+    "championship_place": "2 (provisional: round robin 2nd)",
+    "open_arena": "2 (12 pts, 4-0-1)",
+    "matches": 10,
+    "versions": 22,
+    "switches": 12,
+    "model_calls": 1763,
+    "output_tokens": 1125447,
+    "reviews": "41/32",
+    "gpu": "yes in 4/10 (max 77 GPU-min)",
+    "seat_matches": 12,
+    "train_code": 8,
+    "weights": 2,
+    "practice_world": 8,
+    "realtime_rehearsal": 7,
+    "median_prep_min": 51
+   },
+   "GPT-6 Astra": {
+    "championship_place": "1 (provisional: round robin 1st)",
+    "open_arena": "1 (15 pts, 5-0-0)",
+    "matches": 10,
+    "versions": 33,
+    "switches": 23,
+    "model_calls": 1978,
+    "output_tokens": 1028383,
+    "reviews": "31/27",
+    "gpu": "yes in 10/10 (max 56 GPU-min)",
+    "seat_matches": 12,
+    "train_code": 2,
+    "weights": 1,
+    "practice_world": 4,
+    "realtime_rehearsal": 4,
+    "median_prep_min": 61
+   },
+   "Gemini 4 Argon": {
+    "championship_place": "4 (provisional: round robin 4th)",
+    "open_arena": "5 (3 pts, 1-0-4)",
+    "matches": 10,
+    "versions": 40,
+    "switches": 31,
+    "model_calls": 5451,
+    "output_tokens": 3023038,
+    "reviews": "30/40",
+    "gpu": "yes in 4/10 (max 23 GPU-min)",
+    "seat_matches": 12,
+    "train_code": 2,
+    "weights": 0,
+    "practice_world": 12,
+    "realtime_rehearsal": 1,
+    "median_prep_min": 106
+   },
+   "Kimi 3.1 Pro": {
+    "championship_place": "5 (provisional: round robin 5th)",
+    "open_arena": "3 (9 pts, 3-0-2)",
+    "matches": 10,
+    "versions": 30,
+    "switches": 20,
+    "model_calls": 3026,
+    "output_tokens": 1771489,
+    "reviews": "39/30",
+    "gpu": "yes in 6/10 (max 39 GPU-min)",
+    "seat_matches": 10,
+    "train_code": 1,
+    "weights": 2,
+    "practice_world": 6,
+    "realtime_rehearsal": 4,
+    "median_prep_min": 84
+   },
+   "DeepSeek V4.1 Flash": {
+    "championship_place": "3 (provisional: round robin 3rd)",
+    "open_arena": "6 (0 pts, 0-0-5)",
+    "matches": 10,
+    "versions": 28,
+    "switches": 19,
+    "model_calls": 2775,
+    "output_tokens": 3088246,
+    "reviews": "38/35",
+    "gpu": "yes in 2/10 (max 42 GPU-min)",
+    "seat_matches": 12,
+    "train_code": 1,
+    "weights": 2,
+    "practice_world": 9,
+    "realtime_rehearsal": 7,
+    "median_prep_min": 76
+   },
+   "GLM 5.3 Flash": {
+    "championship_place": "6 (provisional: round robin 6th)",
+    "open_arena": "4 (6 pts, 2-0-3)",
+    "matches": 10,
+    "versions": 7,
+    "switches": 2,
+    "model_calls": 1348,
+    "output_tokens": 1043354,
+    "reviews": "23/38",
+    "gpu": "yes in 1/10 (max 20 GPU-min)",
+    "seat_matches": 10,
+    "train_code": 0,
+    "weights": 0,
+    "practice_world": 9,
+    "realtime_rehearsal": 2,
+    "median_prep_min": 74
+   }
+  },
+  "checkpoint": {
+   "kind": "duel",
+   "board": "rel-baseball-g1-champ2",
+   "made": "2026-11-08 22:22 CST",
+   "measure": "Score share against fixed practice opponents (0.5 = even)",
+   "opponents": [
+    {
+     "id": "L2",
+     "tier": "middle"
+    }
+   ],
+   "ref": 0.0,
+   "count": {
+    "planned": 68,
+    "ok": 37,
+    "invalid": 17,
+    "never_acted": 4,
+    "model_called": 0,
+    "pending": 10
+   },
+   "lines": {
+    "GPT-6 Astra": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0833,
+      "lo": 0.0,
+      "hi": 0.1667,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.2222,
+      "lo": 0.0,
+      "hi": 0.4444,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0833,
+      "lo": 0.0,
+      "hi": 0.1667,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.4286,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
+    "Gemini 4 Argon": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.2262,
+      "lo": 0.1667,
+      "hi": 0.2857,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
+    "GLM 5.3 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     }
+    ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     }
+    ],
+    "Claude Opus 5.5": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.4901,
+      "lo": 0.4444,
+      "hi": 0.5357,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.5675,
+      "lo": 0.5263,
+      "hi": 0.6087,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.527,
+      "lo": 0.4706,
+      "hi": 0.5833,
+      "n": 2
+     }
+    ]
+   },
+   "verdict": {
+    "GPT-6 Astra": "flat",
+    "Claude Opus 5.5": "one point only",
+    "Gemini 4 Argon": "regress",
+    "Kimi 3.1 Pro": "flat",
+    "GLM 5.3 Flash": "flat",
+    "DeepSeek V4.1 Flash": "unclear (seeds disagree)"
+   },
+   "capability": {
+    "n": 3,
+    "names": [
+     "Pitching control",
+     "Ball flight from cameras",
+     "Swing timing and hitting"
+    ],
+    "ref": null,
+    "lines": {},
+    "status": "proposal"
+   }
+  }
+ },
+ "capabilities": {
+  "source": "g3-bsb",
+  "skills": [
+   {
+    "id": "strikes",
+    "group": "phys",
+    "name": "Throws strikes",
+    "real": "In MLB 2025, 64 % of pitches were strikes and walks were 8.4 % of plate appearances. A pitcher who misses the zone gives walks away; the G1 throws 8-10.5 m/s by hand with 1.5 ms release scatter, all on its own joints.",
+    "measure": "Scenario pitch: the program fields every pitch, pitching to L2's batters; the umpire's strikes (fouls, foul tips, balls in play included) / its pitch chances (one per placing; a pitch-timer run-out without a pitch counts). Checkpoint Evaluation: strikes / pitch_chances.",
+    "line": "≥ 40 % (a checkpoint's two seeds pooled, ≥ 20 chances)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "pitch_up",
+    "group": "phys",
+    "name": "Stays up after the pitch",
+    "real": "A pitch is a whole-body motion; after the release the pitcher still has to stand and field (it covers the plate and takes throws). There is no walking policy, so balance is all the program's.",
+    "measure": "Scenario pitch: of the program's own releases, the share where its pitcher is not down (the world's fall rule, W.fell; the scenario record) within 2 s after the release; gate: ≥ 5 releases. Checkpoint Evaluation: pitch_upright.",
+    "line": "≥ 50 % of releases (two seeds pooled)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "push_up",
+    "group": "phys",
+    "name": "Keeps balance when bumped after the pitch",
+    "real": "In a real game a pitcher after the release gets knocked off balance by its own follow-through, a comebacker or a collision; staying up takes a reaction.",
+    "measure": "Scenario push: as pitch, and 0.4 s (20 control steps) after each of the program's releases its pitcher's pelvis gets a 0.6 m/s sideways push (alternating); of the pushed pitches, the share with the pitcher not down within 2 s after the release (the scenario record, pitcher_down).",
+    "line": "≥ 50 % of pushed pitches (two seeds pooled, ≥ 5)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "discipline",
+    "group": "phys",
+    "name": "Swings at strikes, takes balls",
+    "real": "A pitch reaches the plate in 0.4-0.6 s and the swing decision takes 150-250 ms. MLB batters swing at about 65 % in the zone and 30 % outside; only a flight estimated from the cameras tells them apart.",
+    "measure": "Scenario bat: the program bats every pitch, L2 pitches; each pitch's zone from the released ball's true state flown to the plate's middle plane, the swing from the umpire (swung). Reading = swing rate in the zone − swing rate outside. Checkpoint Evaluation: discipline.",
+    "line": "≥ 0.2 (two seeds pooled; gate: ≥ 3 pitches in and out of the zone, ≥ 3 swings)",
+    "secondary": false,
+    "three_checks": true
+   },
+   {
+    "id": "contact",
+    "group": "phys",
+    "name": "Swings make contact",
+    "real": "Swings that still hit well are off by 9 ms on average; about 7 ms early or late sends the ball foul. With one row of joint targets every 20 ms, the time and the height both have to be right.",
+    "measure": "Scenario bat: of the swings (the umpire's swung), the share that met the ball (result foul, foul_tip, in_play). Checkpoint Evaluation: contacts / swings.",
+    "line": "≥ 20 % (two seeds pooled, ≥ 10 swings)",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "to_first",
+    "group": "phys",
+    "name": "Runs to first after a ball in play",
+    "real": "After a ball in play the batter drops the bat and runs 18.29 m to first; with no walking policy the program writes the batter-runner's gait. The card excludes running as beyond the body.",
+    "measure": "Scenario bat: of the balls in play, the share where the batter-runner's pelvis came within 1 m of first base's centre.",
+    "line": "Recorded only (candidate): gate ≥ 3 balls in play",
+    "secondary": false,
+    "three_checks": false
+   },
+   {
+    "id": "fielded",
+    "group": "comp",
+    "name": "Fielded outs",
+    "real": "MLB fielders turn about 71 % of balls in play into outs; with no fingers a ball is caught only within 6 cm of the pocket, and then the fielder walks to the bag or throws.",
+    "measure": "Checkpoint Evaluation: fielded_outs / halves_fielded (catches, force-outs, tags; strikeouts and the opponent's fouls removed). Scenarios pitch and push see too few balls in play to read it.",
+    "line": "≥ 0.5 per half-inning fielded (proposal)",
+    "secondary": false,
+    "three_checks": false
+   }
+  ],
+  "off": [],
+  "results": {
+   "GPT-6 Astra": {
+    "strikes": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "pitch_up": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "push_up": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "discipline": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "contact": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "to_first": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "fielded": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "Claude Opus 5.5": {
+    "strikes": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "pitch_up": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "push_up": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "discipline": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "contact": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "to_first": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "fielded": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "contact": {
+     "status": "pass",
+     "checkpoint": "final:1"
+    },
+    "strikes": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "pitch_up": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "discipline": {
+     "status": "fail",
+     "checkpoint": "final:1"
+    },
+    "push_up": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "to_first": {
+     "status": "na",
+     "checkpoint": "final:1"
+    },
+    "fielded": {
+     "status": "na",
+     "checkpoint": "final:1"
+    }
+   }
+  },
+  "reference": {
+   "passed": [
+    "pitch_up",
+    "push_up",
+    "contact"
+   ],
+   "failed": [
+    "strikes",
+    "discipline"
+   ]
+  },
+  "open_questions": [
+   "pitch_up: in the pitch scenario the pitcher of Astra and Opus, both checkpoints, is down within 2 s after every release (0/24) while throwing 96-100 % strikes; the reference stays up 24/24 and throws 8 % strikes. Should staying up be a required skill (line 50 %) or recorded only?",
+   "push_up: a push can stop a program's own fall (Astra 0 % unpushed, 50 % pushed), so the proposal examines it only for programs that stand without a push; for now only the reference is examined (50 %, exactly on the line). Agree with this gate? The push's size and timing (0.4 s after the release, 0.6 m/s sideways) are proposals too.",
+   "strikes, check b: the reference's pitching is broken on this release (8 % strikes), so no ablation can move it; only the card's e2-aim (old g1-11) remains. Fix the reference's pitch first, or accept the card evidence?",
+   "contact, check b is thin: the reference rarely swings (4 swings over two seeds), the 0.1 s late arm 0/6. More swings would need a 24-pitch bat scenario or a count pinned at two strikes. Add it?",
+   "to_first: card C5 excludes running; recorded only (Kimi, swinging at everything, 0/5; the swing-all reference 0/8; Astra kickoff:1 1/1). Should it join the list?",
+   "fielded has no scenario: the pitch scenarios see too few balls in play. Reading it needs a batted-ball scenario (a fair grounder / fly launched at the umpire level). Do it?"
+  ],
+  "pass_marks": "page"
+ },
+ "notes": {
+  "_source": "R2 (11-08 evening). Lines 1, 3, 4: analysis/drafts/dim/othersports/final.md top 10 #2 and the baseball table row, synthesis finding 8; line 2: analysis/drafts/dim/othersports/final.md baseball physical column and synthesis finding 6 (pitcher falls from all 32 state logs). Built: analysis/drafts/dim/othersports/final.md baseball engineering and adaptive columns, synthesis finding 6. Owner: edit or replace with your analysis.",
+  "_status": "draft from the analysis drafts, for the sport owner to edit",
+  "challenge": "Pitcher against batter, both humanoids. The program controls the pitch, reads the ball's flight from cameras alone and times the swing, with no walking policy given.",
+  "achieved": [
+   {
+    "text": "Most runs came from pitchers who could not pitch: 193 of 345 runs were scored in half-innings with no released pitch and only 48 came from batted balls. GLM 5.3 Flash released no pitch in 10 games and still won three 20:20 on the walks tie-break, since clock awards do not count as walks.",
+    "evidence": [
+     "all valid matches"
+    ]
+   },
+   {
+    "text": "Claude Opus 5.5's pitcher fell after all 54 pitches of its first three Championship games and after none of 49 in the next three.",
+    "evidence": [
+     "BSBC-F01",
+     "BSB2-F07",
+     "BSB2-F10"
+    ]
+   },
+   {
+    "text": "Opus won 9 of its first 11 games with no hits, by taking pitches, bunting and stealing; in BSB2-F17 all 8 of its runs came on the catcher dropping the third strike.",
+    "evidence": [
+     "BSB2-F17"
+    ]
+   },
+   {
+    "text": "Fielders standing in the base paths decided games: in BSB2-F18 all 7 of GPT-6 Astra's runs came on obstruction calls against Opus's fielders, the same failure Gemini 4 Argon showed in BSB2-F16.",
+    "evidence": [
+     "BSB2-F18",
+     "BSB2-F16"
+    ]
+   }
+  ],
+  "built": {
+   "GPT-6 Astra": [
+    "Trained walking, recovery and a fielding scoop on the GPU; its pitcher fell after its first 18 Championship pitches and after none of the next 101."
+   ],
+   "DeepSeek V4.1 Flash": [
+    "Built its pitch by imitation and iterative learning control and carried the repair through the Championship: runs allowed 10, 3, 2, 1, 0, then 8 (all on dropped third strikes), then 0."
+   ]
+  }
+ }
+}
