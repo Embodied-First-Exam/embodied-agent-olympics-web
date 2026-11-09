@@ -1,7 +1,7 @@
 {
  "_note": "Written by /data/guichi/eao-hq/tools/web/medals_sync.py from the official release run (evalops-r1107 + race rc6). Medal table counts FINAL sports only; by_sport.status final / in_progress; flag = an open item that could still move that podium (shown with a dagger).",
  "edition": "TODO",
- "updated": "2026-11-08T22:36-06:00",
+ "updated": "2026-11-09T02:43-06:00",
  "medal_table": [
   {
    "model": "GPT-6 Astra",
@@ -1128,16 +1128,16 @@
    "board": "rel-soccer-hsl-team-arena",
    "rule": "points_table@1",
    "complete": false,
-   "played": 9,
+   "played": 11,
    "total": 15,
    "no_result": 0,
-   "status": "9 of 15 matches played",
+   "status": "11 of 15 matches played",
    "rows": [
     {
      "rank": 1,
      "model": "Claude Opus 5.5",
      "points": 12,
-     "rating": 1683.3,
+     "rating": 1672.8,
      "won": 4,
      "drawn": 0,
      "lost": 0,
@@ -1149,7 +1149,7 @@
      "rank": 2,
      "model": "GPT-6 Astra",
      "points": 9,
-     "rating": 1572.3,
+     "rating": 1565.6,
      "won": 3,
      "drawn": 0,
      "lost": 1,
@@ -1160,44 +1160,44 @@
     {
      "rank": 3,
      "model": "Gemini 4 Argon",
-     "points": 3,
-     "rating": 1523.7,
-     "won": 1,
+     "points": 6,
+     "rating": 1554.7,
+     "won": 2,
      "drawn": 0,
      "lost": 1,
-     "played": 2,
-     "score_for": 6,
+     "played": 3,
+     "score_for": 15,
      "score_against": 2
     },
     {
      "rank": 4,
      "model": "Kimi 3.1 Pro",
      "points": 3,
-     "rating": 1475.1,
+     "rating": 1409.5,
      "won": 1,
      "drawn": 0,
-     "lost": 2,
-     "played": 3,
+     "lost": 3,
+     "played": 4,
      "score_for": 0,
      "score_against": 15
     },
     {
      "rank": 5,
      "model": "DeepSeek V4.1 Flash",
-     "points": 0,
-     "rating": 1381.4,
-     "won": 0,
+     "points": 3,
+     "rating": 1449.7,
+     "won": 1,
      "drawn": 0,
-     "lost": 1,
-     "played": 1,
+     "lost": 2,
+     "played": 3,
      "score_for": 0,
-     "score_against": 10
+     "score_against": 19
     },
     {
      "rank": 6,
      "model": "GLM 5.3 Flash",
      "points": 0,
-     "rating": 1364.2,
+     "rating": 1347.6,
      "won": 0,
      "drawn": 0,
      "lost": 4,
@@ -1212,12 +1212,462 @@
   "provisional": true,
   "decided": 17,
   "total": 18,
-  "line": "Provisional · 17 of 18 sports decided · updated Nov 8, 22:36 CT"
+  "line": "Provisional · 17 of 18 sports decided · updated Nov 9, 02:43 CT"
  },
  "open_arena_status": {
-  "updated": "2026-11-08T22:36-06:00",
+  "updated": "2026-11-09T02:43-06:00",
   "boards": 12,
   "complete": 11,
-  "line": "Updated Nov 8, 22:36 CT · 11 of 12 boards complete"
+  "line": "Updated Nov 9, 02:43 CT · 11 of 12 boards complete"
+ },
+ "win_rate": {
+  "scopes": {
+   "both": [
+    {
+     "model": "GPT-6 Astra",
+     "played": 131,
+     "won": 114,
+     "drawn": 0,
+     "lost": 17,
+     "pct": 87.0
+    },
+    {
+     "model": "Claude Opus 5.5",
+     "played": 132,
+     "won": 99,
+     "drawn": 0,
+     "lost": 33,
+     "pct": 75.0
+    },
+    {
+     "model": "Gemini 4 Argon",
+     "played": 120,
+     "won": 60,
+     "drawn": 0,
+     "lost": 60,
+     "pct": 50.0
+    },
+    {
+     "model": "Kimi 3.1 Pro",
+     "played": 120,
+     "won": 46,
+     "drawn": 0,
+     "lost": 74,
+     "pct": 38.3
+    },
+    {
+     "model": "DeepSeek V4.1 Flash",
+     "played": 115,
+     "won": 31,
+     "drawn": 0,
+     "lost": 84,
+     "pct": 27.0
+    },
+    {
+     "model": "GLM 5.3 Flash",
+     "played": 102,
+     "won": 10,
+     "drawn": 0,
+     "lost": 92,
+     "pct": 9.8
+    }
+   ],
+   "championship": [
+    {
+     "model": "GPT-6 Astra",
+     "played": 76,
+     "won": 65,
+     "drawn": 0,
+     "lost": 11,
+     "pct": 85.5
+    },
+    {
+     "model": "Claude Opus 5.5",
+     "played": 78,
+     "won": 57,
+     "drawn": 0,
+     "lost": 21,
+     "pct": 73.1
+    },
+    {
+     "model": "Gemini 4 Argon",
+     "played": 74,
+     "won": 38,
+     "drawn": 0,
+     "lost": 36,
+     "pct": 51.4
+    },
+    {
+     "model": "Kimi 3.1 Pro",
+     "played": 66,
+     "won": 22,
+     "drawn": 0,
+     "lost": 44,
+     "pct": 33.3
+    },
+    {
+     "model": "DeepSeek V4.1 Flash",
+     "played": 62,
+     "won": 18,
+     "drawn": 0,
+     "lost": 44,
+     "pct": 29.0
+    },
+    {
+     "model": "GLM 5.3 Flash",
+     "played": 50,
+     "won": 3,
+     "drawn": 0,
+     "lost": 47,
+     "pct": 6.0
+    }
+   ],
+   "arena": [
+    {
+     "model": "GPT-6 Astra",
+     "played": 55,
+     "won": 49,
+     "drawn": 0,
+     "lost": 6,
+     "pct": 89.1
+    },
+    {
+     "model": "Claude Opus 5.5",
+     "played": 54,
+     "won": 42,
+     "drawn": 0,
+     "lost": 12,
+     "pct": 77.8
+    },
+    {
+     "model": "Gemini 4 Argon",
+     "played": 46,
+     "won": 22,
+     "drawn": 0,
+     "lost": 24,
+     "pct": 47.8
+    },
+    {
+     "model": "Kimi 3.1 Pro",
+     "played": 54,
+     "won": 24,
+     "drawn": 0,
+     "lost": 30,
+     "pct": 44.4
+    },
+    {
+     "model": "DeepSeek V4.1 Flash",
+     "played": 53,
+     "won": 13,
+     "drawn": 0,
+     "lost": 40,
+     "pct": 24.5
+    },
+    {
+     "model": "GLM 5.3 Flash",
+     "played": 52,
+     "won": 7,
+     "drawn": 0,
+     "lost": 45,
+     "pct": 13.5
+    }
+   ]
+  },
+  "level_decided": {
+   "both": 33,
+   "championship": 19,
+   "arena": 14
+  },
+  "forfeits": [
+   {
+    "fixture": "HSLC-F01",
+    "sport": "soccer_hsl",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "Kimi 3.1 Pro"
+   },
+   {
+    "fixture": "SSLA-F03",
+    "sport": "soccer_ssl",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "SSLA-F09",
+    "sport": "soccer_ssl",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Kimi 3.1 Pro"
+   },
+   {
+    "fixture": "TTN2-F11",
+    "sport": "tabletennis",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "TTNA-F02",
+    "sport": "tabletennis",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "TTNA-F10",
+    "sport": "tabletennis",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "TEN2-F15",
+    "sport": "tennis",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "BVBA-F06",
+    "sport": "beachvolleyball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BVBA-F10",
+    "sport": "beachvolleyball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BVBA-F12",
+    "sport": "beachvolleyball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BSKC-F03",
+    "sport": "basketball",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BSKA-F04",
+    "sport": "basketball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "DeepSeek V4.1 Flash"
+   },
+   {
+    "fixture": "BSKA-F11",
+    "sport": "basketball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BSKQ-F12",
+    "sport": "basketball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "CURC-F05",
+    "sport": "curling",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "CUR2-F07",
+    "sport": "curling",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "CUR2-F11",
+    "sport": "curling",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "CUR2-F15",
+    "sport": "curling",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "CURA-F03",
+    "sport": "curling",
+    "scope": "arena",
+    "kind": "did not finish",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "CURA-F06",
+    "sport": "curling",
+    "scope": "arena",
+    "kind": "did not finish",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "CURA-F11",
+    "sport": "curling",
+    "scope": "arena",
+    "kind": "did not finish",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BIL2-F02",
+    "sport": "billiards",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "DeepSeek V4.1 Flash"
+   },
+   {
+    "fixture": "BILC-F03",
+    "sport": "billiards",
+    "scope": "championship",
+    "kind": "did not finish",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "BIL2-F05",
+    "sport": "billiards",
+    "scope": "championship",
+    "kind": "did not finish",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "BIL2-F08",
+    "sport": "billiards",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "DeepSeek V4.1 Flash"
+   },
+   {
+    "fixture": "BIL2-F16",
+    "sport": "billiards",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "DeepSeek V4.1 Flash"
+   },
+   {
+    "fixture": "BIL2-F19",
+    "sport": "billiards",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "DeepSeek V4.1 Flash"
+   },
+   {
+    "fixture": "BILA-F03",
+    "sport": "billiards",
+    "scope": "arena",
+    "kind": "did not finish",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "BILA-F06",
+    "sport": "billiards",
+    "scope": "arena",
+    "kind": "did not finish",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BILA-F11",
+    "sport": "billiards",
+    "scope": "arena",
+    "kind": "did not finish",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BILA-F12",
+    "sport": "billiards",
+    "scope": "arena",
+    "kind": "did not finish",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BILA-F13",
+    "sport": "billiards",
+    "scope": "arena",
+    "kind": "did not finish",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "BILA-F14",
+    "sport": "billiards",
+    "scope": "arena",
+    "kind": "did not finish",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "HSTC-F05",
+    "sport": "soccer_hsl_team",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "GLM 5.3 Flash"
+   }
+  ],
+  "running": [
+   "soccer_hsl_team"
+  ],
+  "sports": [
+   "amfootball",
+   "badminton",
+   "baseball",
+   "basketball",
+   "beachvolleyball",
+   "billiards",
+   "curling",
+   "soccer_hsl",
+   "soccer_hsl_team",
+   "soccer_ssl",
+   "tabletennis",
+   "tennis"
+  ],
+  "not_counted": [
+   "sprint",
+   "hurdles",
+   "javelin",
+   "stuntcar",
+   "drone",
+   "racing"
+  ],
+  "boards": [
+   "rel-soccer-hsl-champ2",
+   "rel-soccer-hsl-arena",
+   "rel-soccer-ssl-champ2",
+   "rel-soccer-ssl-arena",
+   "rel-tabletennis-g1-champ2",
+   "rel-tabletennis-g1-arena",
+   "rel-badminton-g1-champ3",
+   "rel-badminton-g1-arena",
+   "rel-tennis-g1-champ2",
+   "rel-tennis-g1-arena",
+   "rel-beachvolleyball-g1-champ2",
+   "rel-beachvolleyball-g1-arena",
+   "rel-basketball-g1-champ2",
+   "rel-basketball-g1-arena",
+   "rel-baseball-g1-champ2",
+   "rel-baseball-g1-arena",
+   "rel-curling-g1-champ2",
+   "rel-curling-g1-arena",
+   "rel-billiards-g1-champ2",
+   "rel-billiards-g1-arena",
+   "rel-amfootball-champ2",
+   "rel-amfootball-arena",
+   "rel-soccer-hsl-team-champ",
+   "rel-soccer-hsl-team-arena"
+  ]
  }
 }

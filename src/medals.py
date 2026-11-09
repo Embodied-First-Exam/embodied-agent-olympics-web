@@ -82,3 +82,54 @@ def arena_panel(site: Site, fallback_boards: str) -> str:
             f'</tr></thead><tbody>{rows}</tbody></table></div>')
     upd = f' <span class="oa-upd">{E(st["line"])}</span>' if st.get("line") else ""
     return f'<p class="rp-note">{E(ARENA_NOTE)}{upd}</p><div class="oagrid">{"".join(cards)}</div>'
+
+
+# ---------------------------------------------------------------- win rate (results.json win_rate, from medals_sync.py)
+WR_SCOPES = [("both", "Both"), ("championship", "Championship only"), ("arena", "Open Arena only")]
+
+
+def win_rate_block(site: Site) -> str:
+    """Head-to-head win rate per model (duel + team duel sports), Championship and Open Arena; sub-switch by scope."""
+    from layout import model_logo  # noqa: PLC0415
+    w = site.results.get("win_rate")
+    if not w:
+        return '<p class="rp-note">Win rates at release.</p>'
+    by = {m["name"]: m for m in site.models}
+    panes = []
+    for k, (sc, _) in enumerate(WR_SCOPES):
+        rows = w["scopes"].get(sc) or []
+        body = "".join(
+            f'<tr><td class="mt-rank">{i + 1}</td><td><span class="mt-model"><i class="flag" style="--c:{E(by[r["model"]]["colour"])}"></i>'
+            f'{model_logo(site, by[r["model"]])}<span class="mt-who"><strong>{E(model_name(r["model"]))}</strong>'
+            f'<small>{E(by[r["model"]].get("harness", ""))} · {E(by[r["model"]].get("effort", ""))} effort</small></span></span></td>'
+            f'<td class="mt-n">{r["played"]}</td><td class="mt-n wr-wdl">{r["won"]}-{r["drawn"]}-{r["lost"]}</td>'
+            f'<td class="wr-pc"><span class="wr-cell"><span class="wr-bar"><i style="--c:{E(by[r["model"]]["colour"])};width:{r["pct"] or 0}%"></i></span>'
+            f'<b>{"–" if r["pct"] is None else f"{r[chr(112) + chr(99) + chr(116)]:.0f}%"}</b></span></td></tr>'
+            for i, r in enumerate(rows) if r["model"] in by)
+        head = '<th>#</th><th>AI agent</th><th>Played</th><th>W-D-L</th><th>Win %</th>'
+        panes.append(f'<div class="wr-p" data-wr-p="{sc}"{"" if k == 0 else " hidden"}><table class="mt mt--home wr"><thead><tr>{head}</tr></thead>'
+                     f'<tbody>{body}</tbody></table></div>')
+    sw = "".join(f'<button type="button" class="wr-b{" is-on" if k == 0 else ""}" data-wr="{sc}" aria-pressed="{"true" if k == 0 else "false"}">{lab}</button>'
+                 for k, (sc, lab) in enumerate(WR_SCOPES))
+    lv, ff = w.get("level_decided") or {}, w.get("forfeits") or []
+    names = {s["id"]: s["name"] for s in site.sports}
+    ns = sum(1 for f in ff if f.get("kind") == "no-show")
+    nd = len(ff) - ns
+    run = ", ".join(names.get(x, x) for x in w.get("running") or [])
+    not_counted = ", ".join(names.get(x, x) for x in w.get("not_counted") or [])
+    ex = "; ".join(f'{f["fixture"]} ({names.get(f["sport"], f["sport"])}, {f["absent"]} {"did not start" if f.get("kind") == "no-show" else "stopped mid-match"})' for f in ff)
+    note = (f'<p class="rp-note wr-note">All head-to-head matches of the {len(w.get("sports") or [])} duel and team-duel sports, official result. '
+            f'{lv.get("both", 0)} matches ended level and were decided by coin toss, lot, shoot-out or the sport\'s tie-break: they count as the official winner\'s win. '
+            f'{len(ff)} matches are left out for both sides: {ns} no-shows and {nd} where a seat stopped mid-match. '
+            f'Not in the win rate (no head-to-head matches): {E(not_counted)}.'
+            + (f' Provisional while it runs: {E(run)}.' if run else "")
+            + f'</p><details class="wr-ex"><summary>Matches left out ({len(ff)})</summary><p>{E(ex)}</p></details>')
+    return f'<div class="wr-sw" role="group" aria-label="Scope">{sw}</div>{"".join(panes)}{note}'
+
+
+def medal_switch(site: Site, medal_html: str) -> str:
+    """Medals | Win rate toggle around a medal table (home medal section, leaderboard Championship tab)."""
+    return (f'<div class="mw" data-mw><div class="mw-sw" role="group" aria-label="View">'
+            '<button type="button" class="mw-b is-on" data-mw-v="medals" aria-pressed="true">Medals</button>'
+            '<button type="button" class="mw-b" data-mw-v="win" aria-pressed="false">Win rate</button></div>'
+            f'<div data-mw-p="medals">{medal_html}</div><div data-mw-p="win" hidden>{win_rate_block(site)}</div></div>')
