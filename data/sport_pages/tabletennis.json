@@ -2314,6 +2314,158 @@
      "status": "fail",
      "checkpoint": "final:3"
     }
+   },
+   "Kimi 3.1 Pro": {
+    "legal_serve": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "touches": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "receives": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "returns": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "push": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "stays_up": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "on_time": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "rallies": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "centred": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "stays_up": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "touches": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "receives": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "returns": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "push": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "legal_serve": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "on_time": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "rallies": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "centred": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "Gemini 4 Argon": {
+    "receives": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "returns": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "push": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "stays_up": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "legal_serve": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "centred": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "touches": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "on_time": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "rallies": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    }
+   },
+   "DeepSeek V4.1 Flash": {
+    "legal_serve": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "on_time": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "touches": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "receives": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "returns": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "push": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "stays_up": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "rallies": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "centred": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
    }
   },
   "reference": {

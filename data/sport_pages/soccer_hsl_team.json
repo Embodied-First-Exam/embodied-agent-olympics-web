@@ -1871,6 +1871,222 @@
      "status": "na",
      "checkpoint": "final:1"
     }
+   },
+   "GPT-6 Astra": {
+    "gets_up": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "ball_view": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "talks": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "push": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "walks": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "no_sendoff": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "reaches_ball": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "react": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "passes": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "keeps_goal": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "loop": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "spreads": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:2"
+    }
+   },
+   "Gemini 4 Argon": {
+    "talks": {
+     "status": "pass",
+     "checkpoint": "final:2"
+    },
+    "push": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "walks": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "gets_up": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "no_sendoff": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "ball_view": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "reaches_ball": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "react": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "passes": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "keeps_goal": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "loop": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "spreads": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:2"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "push": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "walks": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "gets_up": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "no_sendoff": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "ball_view": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "reaches_ball": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "react": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "talks": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "passes": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "keeps_goal": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "loop": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "spreads": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:2"
+    }
+   },
+   "DeepSeek V4.1 Flash": {
+    "push": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "walks": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "gets_up": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "no_sendoff": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "ball_view": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "reaches_ball": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "react": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "talks": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "passes": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "keeps_goal": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "loop": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "spreads": {
+     "status": "na",
+     "checkpoint": "final:2"
+    },
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:2"
+    }
    }
   },
   "reference": {

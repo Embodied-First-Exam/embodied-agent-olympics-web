@@ -2528,6 +2528,58 @@
      "status": "na",
      "checkpoint": "final:1"
     }
+   },
+   "Kimi 3.1 Pro": {
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "gets_up": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "no_sendoff": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "ball_view": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "reaches_ball": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "loop": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "passes": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    }
    }
   },
   "reference": {

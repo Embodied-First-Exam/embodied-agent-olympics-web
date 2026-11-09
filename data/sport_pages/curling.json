@@ -2284,6 +2284,184 @@
      "status": "fail",
      "checkpoint": "final:1"
     }
+   },
+   "DeepSeek V4.1 Flash": {
+    "draw": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "takeout": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "choose": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "ice": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "around": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "both_turns": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "hammer": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "legal": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "reach_play": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "spins": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "draw": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "ice": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "takeout": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "around": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "choose": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "both_turns": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "hammer": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "legal": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "reach_play": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    },
+    "spins": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    }
+   },
+   "Gemini 4 Argon": {
+    "draw": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "ice": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "takeout": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "around": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "choose": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "both_turns": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "hammer": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "legal": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "reach_play": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "spins": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "around": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "both_turns": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "choose": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "draw": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "hammer": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "ice": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "legal": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "reach_play": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "spins": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "takeout": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    }
    }
   },
   "reference": {

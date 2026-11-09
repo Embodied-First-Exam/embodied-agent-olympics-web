@@ -574,8 +574,8 @@ def capabilities(site: Site, s: dict, d: dict) -> str:
                 r = (res.get(m) or {}).get(sk["id"])
                 stt = r["status"] if r else "na"
                 sym, word = mark[stt]
-                cells.append(f'<span class="sk-c sk-c--{stt}" title="{E(model_name(_m(site, m)))}: {word}">{sym}</span>')
-                if r and stt != "na":
+                cells.append(f'<span class="sk-c sk-c--{stt}" title="{E(model_name(_m(site, m)))}: {word}{(" (" + E(r["reading"]) + ")") if r and stt == "na" and r.get("reading") else ""}">{sym}</span>')
+                if r and (stt != "na" or r.get("reading")):
                     reads.append(f'<li>{who(site, m)}<span class="sk-rd sk-rd--{stt}">{word}</span>'
                                  f'<span class="sk-at">{E(r.get("reading") or "")}{" · " if r.get("reading") else ""}{E(r["checkpoint"])}</span></li>')
             badge = '<em class="sk-v" title="Passes all three test checks">Validated test</em>' if sk.get("three_checks") else ""

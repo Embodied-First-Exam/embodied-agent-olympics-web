@@ -1034,6 +1034,44 @@
      "status": "na",
      "checkpoint": "final:1"
     }
+   },
+   "DeepSeek V4.1 Flash": {
+    "lane": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "rhythm": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "fair": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "clear": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "first_hurdle": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "jump": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "speed": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "upright": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
    }
   },
   "reference": {
