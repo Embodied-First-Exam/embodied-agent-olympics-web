@@ -55,9 +55,79 @@
   const vid = dlg.querySelector("[data-pl-video]"), ttl = dlg.querySelector("[data-pl-title]");
   const tFull = dlg.querySelector('[data-pl-src="full"]'), tHl = dlg.querySelector('[data-pl-src="hl"]');
   let src = {}, opener = null;
+  /* live scoreboard overlay: a match timeline (data/timelines/<FIXTURE>.json, eo-timeline/1) synced to currentTime */
+  const sbo = dlg.querySelector("[data-sbo]"), toastEl = dlg.querySelector("[data-sbo-toast]");
+  const mdl = JSON.parse((document.querySelector("[data-pl-models]") || {}).textContent || "{}");
+  let tl = null, lastToast = -1, toastTimer = 0, mode = "full";
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const names = () => Object.fromEntries((tl.sides || []).map((s) => [s.seat, (mdl[s.model] || {}).short || s.model]));
+  const fill = (txt) => { const n = names(); return String(txt).replace(/\{([A-Z])\}/g, (_, k) => n[k] || k); };
+  const latest = (t, f) => { let v; for (const e of tl.events) { if (e.t > t) break; if (e[f] !== undefined) v = e; } return v; };
+  const mmss = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+  let curT = 0;
+  const kitOf = (seat) => {  // baseball: the colour follows the role (batting / fielding) of the current half-inning
+    const k = (tl.kit || {})[seat];
+    if (k && tl.kit_from != null && curT < tl.kit_from) return { name: "open table", hex: null, what: "no ball group yet" };
+    if (k && k.batting && k.fielding) {
+      const tu = latest(curT, "turn");
+      if (tu) return { ...(tu.turn === seat ? k.batting : k.fielding), what: tu.turn === seat ? "batting" : "fielding" };
+    }
+    return k;
+  };
+  const sw = (k) => (k && k.hex ? `<i class="sbo-kit" style="--k:${esc(k.hex)}" title="${esc(k.what || "")}"></i>` : "");
+  const side = (s, cls, mark) => {
+    const m = mdl[s.model] || {}, k = kitOf(s.seat);
+    const kitTxt = k ? `${sw(k)}${esc(k.name)}` : "";
+    const sub = [kitTxt, s.agents ? `${s.agents} agents` : ""].filter(Boolean).join(" · ");
+    return `<span class="sbo-side ${cls}" style="--c:${m.colour || "#888"}">${cls === "sbo-b" ? "" : mark}<i class="sbo-flag"></i>${m.logo || ""}`
+      + `<span class="sbo-nm">${esc(m.short || s.model)}${sub ? `<small>${sub}</small>` : ""}</span>${cls === "sbo-b" ? mark : ""}</span>`;
+  };
+  const legend = () => {  // more than two entrants (drone, racing heats): a compact kit legend
+    if (!tl.kit || (tl.sides || []).length === 2) return "";
+    const items = tl.sides.filter((s) => kitOf(s.seat)).map((s) => `<span>${sw(kitOf(s.seat))}${esc((mdl[s.model] || {}).short || s.model)} <em>${esc(kitOf(s.seat).name)}</em></span>`);
+    return items.length ? `<div class="sbo-leg">${items.join("")}</div>` : "";
+  };
+  const render = () => {
+    if (!tl || mode !== "full") return;
+    const t = vid.currentTime || 0, two = (tl.sides || []).length === 2;
+    curT = t;
+    const sc = latest(t, "score"), pe = latest(t, "period"), inf = latest(t, "info");
+    const who = latest(t, "serve") || latest(t, "possession") || latest(t, "turn");
+    const whoSeat = who ? (who.serve || who.possession || who.turn) : null;
+    const whoWord = who ? (who.serve ? "serve" : who.possession ? "ball" : "turn") : "";
+    let clock = "";
+    if (pe && pe.clock_start) clock = mmss(Math.max(0, t - pe.t));
+    const mark = (seat) => (whoSeat === seat ? `<b class="sbo-who" title="${whoWord}">●</b>` : `<b class="sbo-who is-off">●</b>`);
+    let html = "";
+    if (two) {
+      const [a, b] = tl.sides;
+      const s = (sc && sc.score) || {};
+      html += `<div class="sbo-bar">${side(a, "sbo-a", mark(a.seat))}<span class="sbo-sc"><b>${s[a.seat] ?? 0}</b><i>:</i><b>${s[b.seat] ?? 0}</b></span>${side(b, "sbo-b", mark(b.seat))}</div>`;
+    }
+    const kind = two && tl.score_kind && !["points", "goals", "runs"].includes(tl.score_kind) ? tl.score_kind : "";
+    const sub = [tl.label, kind, pe ? pe.period : "", clock, inf ? fill(inf.info) : "", whoSeat && !two ? `${names()[whoSeat] || whoSeat} · ${whoWord}` : ""].filter(Boolean);
+    if (!two) html += legend();
+    html += `<div class="sbo-sub">${sub.map((x, i) => (i === 0 ? `<span class="sbo-lab">${esc(x)}${sub.length > 1 ? " · " : ""}</span>` : esc(x) + (i < sub.length - 1 ? " · " : ""))).join("")}${whoSeat && two ? ` <em>● ${whoWord}</em>` : ""}</div>`;
+    if (sbo.innerHTML !== html) sbo.innerHTML = html;
+    // toast: the latest toast event within the last 2.5 s
+    let ti = -1;
+    tl.events.forEach((e, i) => { if (e.toast && e.t <= t && t - e.t < 2.5) ti = i; });
+    if (ti !== lastToast) {
+      lastToast = ti;
+      if (ti >= 0) { toastEl.textContent = fill(tl.events[ti].toast); toastEl.hidden = false; } else toastEl.hidden = true;
+    }
+  };
+  let raf = 0;
+  const loop = () => { render(); raf = vid.paused ? 0 : requestAnimationFrame(loop); };
+  vid.addEventListener("play", () => { if (!raf) raf = requestAnimationFrame(loop); });
+  vid.addEventListener("seeked", render);
+  vid.addEventListener("timeupdate", render);
   const show = (k) => {
+    mode = k;
     vid.src = src[k]; vid.play().catch(() => {});
     tFull.classList.toggle("is-on", k === "full"); tHl.classList.toggle("is-on", k === "hl");
+    sbo.hidden = !(tl && k === "full"); toastEl.hidden = true; lastToast = -1;
+    if (tl && k === "full") render();
   };
   const open = (el) => {
     opener = el;
@@ -65,10 +135,47 @@
     ttl.textContent = el.dataset.title || el.dataset.kind || "Replay";
     tFull.textContent = el.dataset.kind || "Full match replay";
     tHl.hidden = !src.hl;
+    tl = null; sbo.hidden = true; sbo.innerHTML = ""; toastEl.hidden = true;
     if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
     show("full");
+    if (el.dataset.tl) fetch(el.dataset.tl).then((r) => (r.ok ? r.json() : null)).then((j) => {
+      if (!j || src.full !== el.dataset.play) return;
+      tl = j; tl.events.sort((x, y) => x.t - y.t); sbo.hidden = mode !== "full"; render();
+    }).catch(() => {});
   };
-  const close = () => { vid.pause(); vid.removeAttribute("src"); vid.load(); if (dlg.open) dlg.close(); if (opener) opener.focus(); };
+  /* full screen: the stage (video + scoreboard) goes full screen together; native video full screen is off.
+     Without the element Fullscreen API (iPhone Safari) the stage fills the viewport with CSS instead. */
+  const stage = dlg.querySelector("[data-pl-stage]"), fsBtn = dlg.querySelector("[data-pl-fs]"), rot = dlg.querySelector("[data-pl-rot]");
+  const fsEl = () => document.fullscreenElement || document.webkitFullscreenElement;
+  const canFs = !!(stage.requestFullscreen || stage.webkitRequestFullscreen);
+  const isFill = () => stage.classList.contains("is-fill");
+  const portrait = () => matchMedia("(orientation: portrait)").matches;
+  const setFill = (on) => {
+    stage.classList.toggle("is-fill", on); document.documentElement.classList.toggle("pl-fill-on", on);
+    rot.hidden = !(on && portrait());
+    fsBtn.classList.toggle("is-on", on);
+  };
+  const toggleFs = () => {
+    if (fsEl()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    if (isFill()) { setFill(false); return; }
+    if (canFs) {
+      const req = stage.requestFullscreen || stage.webkitRequestFullscreen;
+      const p = req.call(stage);
+      if (p && p.catch) p.catch(() => setFill(true));
+    } else setFill(true);
+  };
+  const onFs = () => { const on = fsEl() === stage; stage.classList.toggle("is-fs", on); fsBtn.classList.toggle("is-on", on); render(); };
+  document.addEventListener("fullscreenchange", onFs);
+  document.addEventListener("webkitfullscreenchange", onFs);
+  addEventListener("orientationchange", () => { if (isFill()) rot.hidden = !portrait(); });
+  addEventListener("resize", () => { if (isFill()) rot.hidden = !portrait(); });
+  fsBtn.addEventListener("click", (e) => { e.stopPropagation(); toggleFs(); });
+  vid.addEventListener("dblclick", (e) => { e.preventDefault(); toggleFs(); });
+  dlg.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && fsEl()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
+    if ((e.key === "f" || e.key === "F") && !e.metaKey && !e.ctrlKey && !e.altKey && !/input|textarea/i.test(e.target.tagName)) { e.preventDefault(); toggleFs(); }
+  });
+  const close = () => { if (fsEl()) (document.exitFullscreen || document.webkitExitFullscreen).call(document); setFill(false); vid.pause(); vid.removeAttribute("src"); vid.load(); if (dlg.open) dlg.close(); if (opener) opener.focus(); };
   document.addEventListener("click", (e) => {
     const el = e.target.closest("[data-play]");
     if (!el || dlg.contains(el)) return;
@@ -82,5 +189,5 @@
   tHl.addEventListener("click", () => show("hl"));
   dlg.querySelector("[data-pl-close]").addEventListener("click", close);
   dlg.addEventListener("click", (e) => { if (e.target === dlg) close(); });
-  dlg.addEventListener("cancel", (e) => { e.preventDefault(); close(); });
+  dlg.addEventListener("cancel", (e) => { e.preventDefault(); if (isFill()) setFill(false); else if (!fsEl()) close(); });
 })();

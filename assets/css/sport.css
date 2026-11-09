@@ -354,3 +354,64 @@ button.rp:hover{border-color:var(--accent);color:var(--fg)}
 .pl-note{padding:8px 18px 10px;font-size:12px;color:var(--fg-3)}
 @media (max-width:640px){.pl-h{flex-wrap:wrap}.pl-h strong{flex-basis:calc(100% - 46px)}}
 .pl-v{max-height:72vh;object-fit:contain}
+
+/* ---------- live scoreboard overlay (player) */
+.pl-stage{position:relative}
+.sbo{position:absolute;left:12px;top:10px;max-width:calc(100% - 24px);display:grid;gap:4px;justify-items:start;pointer-events:none;
+  font-family:var(--f-sans);color:#F2F1EC}
+.sbo-bar{display:flex;align-items:stretch;border-radius:8px;overflow:hidden;background:rgba(8,9,11,.78);backdrop-filter:blur(6px);
+  box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.sbo-side{display:flex;align-items:center;gap:7px;padding:6px 10px;font-size:14px;font-weight:600}
+.sbo-flag{width:4px;height:18px;border-radius:2px;background:var(--c)}
+.sbo-logo{width:16px;height:16px;color:#F2F1EC}
+.sbo-nm{display:grid;line-height:1.05}
+.sbo-nm small{font:500 9.5px/1.2 var(--f-mono);color:rgba(242,241,236,.6);letter-spacing:.03em}
+.sbo-sc{display:flex;align-items:center;gap:5px;padding:0 12px;background:rgba(255,255,255,.1);font:700 18px/1 var(--f-sans);font-variant-numeric:tabular-nums}
+.sbo-sc i{font-style:normal;opacity:.5;font-weight:400}
+.sbo-who{font-size:9px;color:#FFD166}
+.sbo-who.is-off{visibility:hidden}
+.sbo-sub{font:500 11px/1.3 var(--f-mono);letter-spacing:.03em;padding:4px 8px;border-radius:6px;background:rgba(8,9,11,.66);color:rgba(242,241,236,.85)}
+.sbo-sub em{font-style:normal;color:#FFD166}
+.sbo-toast{position:absolute;left:50%;top:14px;transform:translateX(-50%);padding:7px 14px;border-radius:999px;background:rgba(8,9,11,.82);
+  color:#fff;font-size:14px;font-weight:600;pointer-events:none;box-shadow:0 0 0 1px rgba(255,209,102,.5);animation:sboin .25s ease-out}
+@keyframes sboin{from{opacity:0;transform:translate(-50%,-6px)}to{opacity:1;transform:translate(-50%,0)}}
+.sbo-toast[hidden],.sbo[hidden]{display:none}
+@media (max-width:640px){.sbo{left:6px;top:6px}.sbo-side{padding:4px 6px;font-size:12px;gap:5px}.sbo-sc{font-size:15px;padding:0 8px}
+  .sbo-logo{display:none}.sbo-sub{font-size:9.5px}.sbo-lab{display:none}.sbo-toast{top:auto;bottom:46px;font-size:12px}}
+
+/* ---------- player full screen: the stage (video + scoreboard) together; CSS fill where the API is missing */
+.pl-fs{position:absolute;right:10px;top:10px;z-index:3;display:grid;place-items:center;width:34px;height:34px;border-radius:8px;
+  background:rgba(8,9,11,.6);color:#F2F1EC;opacity:.85}
+.pl-fs:hover,.pl-fs:focus-visible{opacity:1;background:rgba(8,9,11,.85)}
+.pl-fs .fs-out,.pl-fs.is-on .fs-in{display:none}.pl-fs.is-on .fs-out{display:inline}
+.pl-rot{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);padding:6px 12px;border-radius:999px;background:rgba(8,9,11,.8);
+  color:#F2F1EC;font-size:12px;white-space:nowrap;pointer-events:none}
+.pl-rot[hidden]{display:none}
+/* full-screen look; :fullscreen and the webkit prefix in separate rules (an unknown selector drops a whole rule) */
+.pl-stage.is-fill{position:fixed;inset:0;width:100vw;height:100vh;height:100dvh;z-index:2147483000;
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+html.pl-fill-on,html.pl-fill-on body{overflow:hidden}
+.pl-stage:fullscreen{background:#000;display:flex;align-items:center;justify-content:center;--sb:1.55}
+.pl-stage:fullscreen .pl-v{width:100%;height:100%;max-height:none;aspect-ratio:auto}
+.pl-stage:fullscreen .sbo{left:max(2.2vw,env(safe-area-inset-left));top:max(2.6vh,env(safe-area-inset-top));transform:scale(var(--sb));transform-origin:top left;max-width:calc((100% - 4.4vw) / var(--sb))}
+.pl-stage:fullscreen .sbo-toast{top:3vh;transform:translateX(-50%) scale(var(--sb));transform-origin:top center;animation:none}
+.pl-stage:fullscreen .pl-fs{right:max(2vw,env(safe-area-inset-right));top:max(2.4vh,env(safe-area-inset-top));width:42px;height:42px}
+.pl-stage:-webkit-full-screen{background:#000;display:flex;align-items:center;justify-content:center;--sb:1.55}
+.pl-stage:-webkit-full-screen .pl-v{width:100%;height:100%;max-height:none;aspect-ratio:auto}
+.pl-stage:-webkit-full-screen .sbo{left:max(2.2vw,env(safe-area-inset-left));top:max(2.6vh,env(safe-area-inset-top));transform:scale(var(--sb));transform-origin:top left;max-width:calc((100% - 4.4vw) / var(--sb))}
+.pl-stage:-webkit-full-screen .sbo-toast{top:3vh;transform:translateX(-50%) scale(var(--sb));transform-origin:top center;animation:none}
+.pl-stage:-webkit-full-screen .pl-fs{right:max(2vw,env(safe-area-inset-right));top:max(2.4vh,env(safe-area-inset-top));width:42px;height:42px}
+.pl-stage.is-fill{background:#000;display:flex;align-items:center;justify-content:center;--sb:1.55}
+.pl-stage.is-fill .pl-v{width:100%;height:100%;max-height:none;aspect-ratio:auto}
+.pl-stage.is-fill .sbo{left:max(2.2vw,env(safe-area-inset-left));top:max(2.6vh,env(safe-area-inset-top));transform:scale(var(--sb));transform-origin:top left;max-width:calc((100% - 4.4vw) / var(--sb))}
+.pl-stage.is-fill .sbo-toast{top:3vh;transform:translateX(-50%) scale(var(--sb));transform-origin:top center;animation:none}
+.pl-stage.is-fill .pl-fs{right:max(2vw,env(safe-area-inset-right));top:max(2.4vh,env(safe-area-inset-top));width:42px;height:42px}
+@media (min-width:1700px){.pl-stage:fullscreen,.pl-stage.is-fill{--sb:1.9}}
+@media (max-width:900px){.pl-stage.is-fill,.pl-stage:fullscreen{--sb:1.1}}
+@media (max-width:640px){.pl-stage.is-fill .sbo-lab{display:inline}}
+/* kit swatch: the colour the side wears in this video (the bar next to it stays the model's brand colour) */
+.sbo-kit{display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--k);box-shadow:0 0 0 1px rgba(255,255,255,.55);margin-right:4px;vertical-align:-1px}
+.sbo-nm small{display:block}
+.sbo-leg{display:flex;flex-wrap:wrap;gap:4px 10px;padding:5px 9px;border-radius:7px;background:rgba(8,9,11,.72);font-size:12px;font-weight:600}
+.sbo-leg span{display:inline-flex;align-items:center;gap:2px}
+.sbo-leg em{font:500 10px var(--f-mono);font-style:normal;color:rgba(242,241,236,.65);margin-left:3px}

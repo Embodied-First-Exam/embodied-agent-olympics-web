@@ -95,8 +95,10 @@ def play_attrs(site: Site, r: dict | None, title: str) -> str:
     if not src:
         return ""
     kind = REPLAY_KIND.get(r.get("kind"), "Replay")
+    tl = r.get("fixture") and (ROOT / "data" / "timelines" / f'{r["fixture"]}.json').is_file()
     return (f' data-play="{E(src)}" data-kind="{E(kind)}" data-title="{E(title)}"'
-            + (f' data-hl="{E(hl)}"' if hl else ""))
+            + (f' data-hl="{E(hl)}"' if hl else "")
+            + (f' data-tl="{E(site.url("timelines/" + r["fixture"] + ".json"))}"' if tl else ""))
 
 
 def no_replay_why(r: dict | None) -> str:
@@ -735,10 +737,14 @@ def render(site: Site, i: int, d: dict):
     <header class="pl-h"><strong data-pl-title></strong>
       <span class="pl-tabs"><button type="button" class="pl-t is-on" data-pl-src="full"></button><button type="button" class="pl-t" data-pl-src="hl" hidden>Highlights</button></span>
       <button type="button" class="pl-x" data-pl-close aria-label="Close">×</button></header>
-    <video class="pl-v" controls playsinline preload="metadata" data-pl-video></video>
+    <div class="pl-stage" data-pl-stage><video class="pl-v" controls controlslist="nofullscreen nodownload" disablepictureinpicture playsinline preload="metadata" data-pl-video></video>
+      <button type="button" class="pl-fs" data-pl-fs aria-label="Full screen (F)" title="Full screen (F)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path class="fs-in" d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/><path class="fs-out" d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg></button>
+      <p class="pl-rot" data-pl-rot hidden>Turn your phone sideways for a bigger picture</p>
+      <div class="sbo" data-sbo hidden aria-live="polite"></div><div class="sbo-toast" data-sbo-toast hidden></div></div>
     <p class="pl-note">Provisional results. Raw broadcast camera, unedited.</p>
   </div>
 </dialog>
+<script type="application/json" data-pl-models>{json.dumps({m["name"]: {"short": SHORT.get(m["name"], m["name"]), "colour": m["colour"], "logo": model_logo(site, m, "sbo-logo")} for m in site.models})}</script>
 <script src="{site.asset('js/sport.js')}" defer></script>""")
     return f"sports/{slug(s)}/", page(site, path="sports/", title=s["name"], body=body, description=s["pitch"], dark_top=True,
                                       body_class="sp", css=("css/sport.css",))

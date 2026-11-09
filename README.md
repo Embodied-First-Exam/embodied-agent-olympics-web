@@ -23,6 +23,7 @@ python3 build.py                  # build only, into ./dist
 | `data/results.json` | Results (all `null` until release); medal table, podiums and boards fill in from it |
 | `src/home.py` | The home page and its story sections |
 | `src/pages.py` | Sports, the 18 sport pages, The Match, Competitions, Results, Watch |
+| `data/timelines/<FIXTURE>.json` | Match timelines (eo-timeline/1) for the replay player's live scoreboard overlay; built by the team's timeline tool from the official records, videos stay external |
 | `src/sport.py`, `data/sport_pages/<sport>.json` | The four-block sport page (overview, competition records, capabilities, agents) for every sport with a data file; the data contract is in the module docstring |
 | `src/layout.py` | Page frame: head, top bar, footer, URL helpers |
 | `assets/css/site.css`, `story.css` | Design tokens (night and day themes) and components |

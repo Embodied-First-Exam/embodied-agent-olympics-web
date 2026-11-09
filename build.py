@@ -81,6 +81,8 @@ def build(base: str | None = None) -> int:
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(html, encoding="utf-8")
     shutil.copytree(ROOT / "assets", DIST / "assets", ignore=shutil.ignore_patterns("icons"))
+    if (ROOT / "data/timelines").is_dir():  # match timelines for the replay player's scoreboard overlay
+        shutil.copytree(ROOT / "data/timelines", DIST / "timelines")
     for old, new in cfg.get("redirects", {}).items():  # old URLs keep working
         if old.startswith("_"):
             continue
