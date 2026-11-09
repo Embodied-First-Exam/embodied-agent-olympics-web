@@ -336,3 +336,8 @@ img.mark--ink{display:none}
 :root[data-theme="light"] img.mark--light{display:none}
 :root[data-theme="light"] img.mark--ink{display:block}
 .foot-brand img.mark{height:30px;width:auto}
+/* light theme: a thin dark outline on model colours that are pale on white (GLM yellow); --ol is transparent elsewhere */
+:root[data-theme="light"] .flag,:root[data-theme="light"] .lg i,:root[data-theme="light"] .xt-sw{box-shadow:0 0 0 1px var(--ol,transparent)}
+:root[data-theme="light"] .tm-h::after{box-shadow:0 0 0 1px var(--ol,transparent)}
+:root[data-theme="light"] .cs path{filter:drop-shadow(0 0 .7px var(--ol,transparent))}
+:root[data-theme="light"] .cs circle{stroke:var(--ol,var(--bg-2))}

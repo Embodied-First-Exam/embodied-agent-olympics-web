@@ -17,6 +17,13 @@ class Site:
         self.cfg = cfg
         self.sports = sports
         self.sport_by_id = {s["id"]: s for s in sports}
+        # model colours as CSS variables (page() writes them per theme): m["colour"] becomes the style value used in
+        # every --c:... attribute, so the light / dark variants and the light-theme outline follow the theme
+        for m in models:
+            k = m["entry"].split("@")[0].split("-")[0]
+            m.setdefault("hex", m["colour"])
+            m["css_key"] = k
+            m["colour"] = f"var(--m-{k});--ol:var(--m-{k}-ol)"
         self.models = models
         self.media = media
         self.results = results
@@ -178,6 +185,7 @@ def page(site: Site, *, path: str, title: str | None, body: str, description: st
 <link rel="icon" href="{site.asset('brand/favicon-64.png')}" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="{site.asset('brand/apple-touch-icon.png')}">
 <link rel="preload" href="{site.asset('fonts/intertight-var.woff2')}" as="font" type="font/woff2" crossorigin>
+<style>{model_vars(site)}</style>
 <link rel="stylesheet" href="{site.asset('css/site.css')}">
 <link rel="stylesheet" href="{site.asset('css/story.css')}">
 {"".join(f'<link rel="stylesheet" href="{site.asset(c)}">' for c in css)}
@@ -194,6 +202,15 @@ def page(site: Site, *, path: str, title: str | None, body: str, description: st
 </body>
 </html>
 """
+
+
+def model_vars(site: Site) -> str:
+    """--m-<model>: the model colour per theme (dark = default; light = [data-theme=light]) and --m-<model>-ol, the
+    light-theme outline for colours too pale on white. Dark overlays on footage (.sbo, .stagebg, ...) use the dark set."""
+    dark = ";".join(f'--m-{m["css_key"]}:{m.get("colour_dark") or m["hex"]};--m-{m["css_key"]}-ol:transparent' for m in site.models)
+    light = ";".join(f'--m-{m["css_key"]}:{m["hex"]}' + (f';--m-{m["css_key"]}-ol:rgba(15,20,26,.6)' if m.get("outline_light") else "")
+                     for m in site.models)
+    return f':root{{{dark}}}:root[data-theme="light"]{{{light}}}:root[data-theme="light"] .sbo,:root[data-theme="light"] .stagebg,:root[data-theme="light"] .shero{{{dark}}}'
 
 
 def footer(site: Site) -> str:
