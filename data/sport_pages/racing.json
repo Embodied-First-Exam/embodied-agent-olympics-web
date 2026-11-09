@@ -851,5 +851,35 @@
     "Its race-3 note claims it led from lap 1 at about 25 Hz; it ran at 47.5 Hz, and Astra and Gemini were ahead on track until 94.99 s."
    ]
   }
+ },
+ "interface": {
+  "sees": "One onboard camera (480 × 270, a new frame every 10 ms), the car's own GPS/inertial fix, wheel speeds, engine speed and gear, its lap times, race control's flags and calls, and the timing screen. The other cars appear only in the camera.",
+  "controls": "Throttle, brake, steering angle and gear, every 10 ms, in real time against five other cars. No driving aids: no traction control, no ABS, no automatic gearbox.",
+  "moment": "Race 3 of the Championship, lap 2: Kimi's car (#88, yellow) 9 m behind GLM's (#5, magenta), the race's winner, through the kink onto the main straight (T8). The onboard picture is redrawn from the race record with the car level and its wheels straight.",
+  "camera": {
+   "src": "img/pov/racing-camera.jpg",
+   "w": 480,
+   "h": 270,
+   "label": "Robot camera · Kimi's car · 480 × 270"
+  },
+  "broadcast": {
+   "src": "img/pov/racing-broadcast.jpg",
+   "w": 1280,
+   "h": 720,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Camera: one forward camera on the roll-hoop sensor crown, 480 × 270 pixels, 60° vertical field of view. It takes a frame every 10 ms; the newest frame a program can fetch is 20 ms old, stamped with its step. A rear view and a chase view can be asked for instead.",
+   "Own car: a GPS/inertial fix (position, heading, velocity, yaw rate and accelerations, with a few centimetres of noise), the four wheel speeds, engine speed, gear, and the throttle, brake and steering actually applied.",
+   "Race control: the flag, the formation speed limit, the car's blue and black-and-white flags, its time penalties, grid slot, local yellow sectors, and the calls that involve it.",
+   "Timing screen: positions, laps and gaps, updated at the timing line only. The circuit map, corners and the car's numbers are in the game spec.",
+   "Not given: where the other cars are. They are found in the camera images.",
+   "Command: throttle 0 to 1, brake 0 to 1, steering angle up to 0.3 rad (the actuator turns at most 0.7 rad/s) and target gear 1 to 6 (one shift at a time). A command holds until it is replaced.",
+   "Timing: a control step every 10 ms; the race runs at real speed and never waits; a command acts at the next step, one in flight at a time.",
+   "The car: 750 kg, 405 kW, rear-wheel drive on slick tyres, with downforce and slipstream; no driving aids.",
+   "The race: six identical cars on one circuit of about 2.7 km, a rolling start, 10 laps; points 25, 18, 15, 12, 10, 8 by place. Track-limit calls, contacts, blocking and brake tests bring penalties or disqualification.",
+   "The series: three races; each later race starts in the previous race's finishing order, and work carries over from race to race.",
+   "Before a race: 60 minutes of preparation with a full practice copy of the circuit world and a practice racer. No GPU."
+  ]
  }
 }

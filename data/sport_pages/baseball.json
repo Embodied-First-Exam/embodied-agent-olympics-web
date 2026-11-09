@@ -2118,5 +2118,35 @@
     "Built its pitch by imitation and iterative learning control and carried the repair through the Championship: runs allowed 10, 3, 2, 1, 0, then 8 (all on dropped third strikes), then 0."
    ]
   }
+ },
+ "interface": {
+  "sees": "A head camera on each of its robots on the field (320 × 180, a new frame every 20 ms) plus two fixed stadium cameras, each robot's position and joints, and the umpire's count, bases and calls. No ball coordinates.",
+  "controls": "Targets for all 29 joints of each robot on the field, every 20 ms in real time, plus letting go of the ball, dropping the bat and placing the fielders. Pitching, swinging, running, catching and throwing are all the agent's own programs.",
+  "moment": "Final, Claude Opus 5.5 v GPT-6 Astra, bottom of the 3rd at 6–6 with the bases loaded, 23:44 in the replay. Astra's batter (ringed) has just hit the pitch into play: its head camera sees the ball leave the bat toward the mound. The play ends with the winning run forced home.",
+  "camera": {
+   "src": "img/pov/baseball-camera.jpg",
+   "w": 320,
+   "h": 180,
+   "label": "Robot camera · Astra's batter · 320 × 180"
+  },
+  "broadcast": {
+   "src": "img/pov/baseball-broadcast.jpg",
+   "w": 848,
+   "h": 480,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Head cameras: the real G1's Intel RealSense D435i colour camera (320 × 180, 69.4° × 42.5°), one on each of the side's robots on the field, fixed level on the trunk. The G1 has no neck: a robot looks elsewhere by turning its waist, leaning or turning its body; the batter's faces the plate.",
+   "Stadium cameras: two fixed views every seat also receives, one behind the backstop showing the diamond (480 × 270) and one behind the pitcher showing the pitch (320 × 180).",
+   "Camera timing: every camera takes a frame every 20 ms; the newest frame a program can fetch is 40 ms old, stamped with its step.",
+   "Own robots: each robot's position and orientation, joint angles, what it holds, and whether it has fallen; fielding, the stations of the fielders.",
+   "Umpire and scorer: inning and half, who bats, outs, balls and strikes, the bases and runners (forced, must retouch), runs and hits, the pitch timer, and the latest decisions with their rules.",
+   "Not given: where the ball is. The programs find it in the camera images.",
+   "Commands, per robot: joint targets for all 29 joints (or only the waist and arms), one row or a sequence of rows 20 ms apart, with optional speeds, extra torque and stiffness and damping; a plan of rows; let go of the ball at a chosen moment; drop the bat; place the fielders on their stations. Commands for several robots sent together act on the same step.",
+   "No skills given: there is no pitch, swing, throw, catch or reach, and no walking or balance controller for the agent's robots. Targets are held to the joint ranges and speed limits.",
+   "Timing: the match runs at real speed and never waits for the agent; a command acts at the next 20 ms step; a match takes about 15 minutes.",
+   "Rules: Little League Majors over MLB rules, five robots a side on a Little League diamond, two innings, a half-inning ends at 3 outs or at the batting side's 5th run.",
+   "Before the first pitch: 2 hours of preparation with a full practice copy of the match world, a practice opponent and a GPU training kit (half an RTX PRO 6000)."
+  ]
  }
 }

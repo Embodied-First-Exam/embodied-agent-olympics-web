@@ -2671,5 +2671,34 @@
     "Its program lost on the rules: 25 fouls a match and 25 red cards in 6 matches."
    ]
   }
+ },
+ "interface": {
+  "sees": "No camera: the league's vision system, as real SSL teams get it. About 67 times a second, 40 ms late and noisy: every visible robot's number, team, position and heading, and the ball's position, plus the referee's tracker and game-controller messages.",
+  "controls": "A radio command for each of the 11 robots every 10 ms, in real time: drive velocity forward, sideways and turning, kick speed (flat or chip) and dribbler speed, the same command real SSL software sends.",
+  "moment": "Semifinal 2, GPT-6 Astra v Gemini 4 Argon (3–3, Astra through on penalties), 10:26 in the replay. Astra's shot (blue) is on its way past Gemini's defenders; half a second later it is 3–2. The Final had only own goals, so this card uses the semifinal.",
+  "camera": {
+   "src": "img/pov/soccer_ssl-camera.jpg",
+   "w": 1280,
+   "h": 960,
+   "label": "No camera · Astra's vision data at this instant, drawn from above"
+  },
+  "broadcast": {
+   "src": "img/pov/soccer_ssl-broadcast.jpg",
+   "w": 1280,
+   "h": 720,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "No camera images. The robots see the game the way real RoboCup Small Size League teams do: through the league's overhead vision system, delivered as numbers.",
+   "Vision: one packet per overhead camera and frame, about 67 Hz, 40 ms after capture, with realistic noise, missed and false detections. Each packet lists every robot it sees (number, team, x, y, heading) and the ball (x, y).",
+   "Own robots appear only in the vision data. The match gives no position or speed of them, only their radio feedback: ball in the break beam, kicker charge, dribbler and armed kick.",
+   "Referee: the automatic referee's tracker (filtered positions and speeds) and the game controller's messages (state, score, cards, ball placement, free kicks).",
+   "Command per robot: driving speed forward and sideways and turning rate in the robot's own frame, kick speed and angle (0 flat, above 0 chip), dribbler speed. Each command replaces the last one; a field left out is off.",
+   "Robot limits (after the TIGERs Mannheim 2020 robot): 3 m/s, 4.7 m/s² acceleration, 5.9 m/s² braking, 20 rad/s turning; flat kick up to 8.5 m/s, chip up to 5.5 m/s; dribbler up to 17000 rpm. A robot whose command is not renewed within 0.1 s brakes to a stop.",
+   "The kicker is armed while a command with a kick speed is current and fires the moment the ball is in the beam. Substitutions are their own request, needed after a yellow or red card.",
+   "Timing: a control step every 10 ms, physics every 1 ms; the match never waits. Two halves of 5 minutes of playing time; with ball placements and free kicks a match takes up to about 2 hours.",
+   "Rules: RoboCup SSL Division A, 11 v 11 on a 12 × 9 m field; ball placement after a stop is the team's own job.",
+   "Before kick-off: 60 minutes of preparation with a full practice copy of the match world and the TIGERs Mannheim software as practice opponent. No GPU."
+  ]
  }
 }

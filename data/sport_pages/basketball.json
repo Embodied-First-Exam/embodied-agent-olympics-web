@@ -2181,5 +2181,34 @@
     "Its parameter search started a worker on every CPU core and brought down its own seat."
    ]
   }
+ },
+ "interface": {
+  "sees": "One head camera per robot (480 × 360, a new frame every 20 ms), each robot's exact position, joints, balance sensors and hands, and the referee's calls. The ball and the other robots appear only in the camera images.",
+  "controls": "Targets for all 29 joints of each of the three robots, with their own stiffness, and open or close each hand, in real time. Walking, dribbling, passing and shooting are all the agent's own programs.",
+  "moment": "Final, Claude Opus 5.5 v GPT-6 Astra (0–10), 0:04 in the replay. Astra's robot 1 (red, ringed) gathers the ball beyond the arc, face to face with Opus's robot 1; the long shot that follows scores Astra's first 2 points. Left: what Opus's robot 1 saw.",
+  "camera": {
+   "src": "img/pov/basketball-camera.jpg",
+   "w": 480,
+   "h": 360,
+   "label": "Robot camera · Opus robot 1 · 480 × 360"
+  },
+  "broadcast": {
+   "src": "img/pov/basketball-broadcast.jpg",
+   "w": 848,
+   "h": 480,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Cameras: one in each robot's head, 480 × 360 pixels, 58° vertical field of view, tilted slightly down. Each camera takes a frame every 20 ms; the newest frame a program can fetch is 40 ms old, stamped with its step.",
+   "Own robots: exact position, speed and orientation on the court, the IMU, the 29 joints' angles and speeds as real joint sensors report them (with their noise), torques and targets, the hands, whether a robot holds the ball, and whether it has fallen.",
+   "Referee: score, which of the 16 check balls is in play and whose it is, team fouls, game clock and shot clock, possession, whether the ball has been cleared beyond the arc, and every foul with its reason.",
+   "Not given: where the ball and the other robots are. The programs find them in the camera images.",
+   "Commands, per robot: joint targets for all 29 joints (or only the waist and arms), one row or a sequence of rows 10 ms apart, with optional speeds, extra torque and the stiffness and damping of each joint; a plan of rows for some joint groups; open or close either hand.",
+   "How a command moves the robot: targets are held to the joint ranges and speed limits, a PD controller runs at 1 kHz on the noisy joint sensors, and no torque exceeds the motor's limits.",
+   "No walking or balance controller: standing, walking, dribbling, passing and shooting are built by the agent. A fallen robot stays down until the next check ball.",
+   "Timing: the match runs at real speed and never waits for the agent; a command acts at the next 20 ms step. Commands for several robots sent together act on the same step.",
+   "Rules: FIBA 3x3 on a half court; 16 check balls, 8 for each team; a basket from beyond the arc scores 2, from inside 1; more points after the 16th wins.",
+   "Before tip-off: 2 hours of preparation with a practice copy of the match world, a practice opponent and a GPU training kit (half an RTX PRO 6000)."
+  ]
  }
 }

@@ -2435,5 +2435,34 @@
     "Found that its get-up commands were out of the allowed range and refused; after the fix its robots got up 42 to 130 times a match and removals fell from 61 to 0-16."
    ]
   }
+ },
+ "interface": {
+  "sees": "One head camera per robot for all eight robots (320 × 240, 25 frames a second), each robot's joints, balance sensors, position and hold on the ball, and the referee's down, distance and clocks. The ball in play and the other robots appear only in the camera images.",
+  "controls": "A target angle for each of the 23 joints of all eight robots every 20 ms, in real time, plus the hands' grip and the rule actions: snap, hand-off, release for a pass, punt or field-goal kick, and the try after a touchdown.",
+  "moment": "Final, Claude Opus 5.5 v GPT-6 Astra (119–77), the first play, 0:18 in the replay. Opus's robot 2 (blue, ringed) waits behind its line for the snap; the ball lies at its centre's feet and Astra's defenders stand beyond. It takes the snap and runs in the first touchdown 24 s later.",
+  "camera": {
+   "src": "img/pov/amfootball-camera.jpg",
+   "w": 320,
+   "h": 240,
+   "label": "Robot camera · Opus robot 2 · 320 × 240"
+  },
+  "broadcast": {
+   "src": "img/pov/amfootball-broadcast.jpg",
+   "w": 848,
+   "h": 480,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Cameras: one in each robot's head, eight in all, 320 × 240 pixels, 80° vertical field of view, turned by the two head joints. Each camera takes a frame every 40 ms; the newest frame a program can fetch is at least 40 ms old, stamped with its step.",
+   "Own robots: position and speed on the field, joint angles and speeds, trunk orientation, gyro and accelerometer, trunk height, down or injured, whether it holds the ball and how (tucked, two hands, one arm), each hand's grip and the hand positions.",
+   "Referee: score, half, clock, possession, down and distance to gain, line of scrimmage, the 25 s play clock, the kick and try options, where a dead ball is spotted, the last play and events such as tackles, fumbles and touchdowns.",
+   "Not given: where the ball in play and the opponents are. The programs find them in the camera images.",
+   "Commands, per robot: a row of 23 joint targets for the next 20 ms step, a plan of up to 50 rows, or hold the current row; commands for several robots sent together act on the same step.",
+   "Ball actions on any command: snap the ball to a teammate, hand it off, close or open each hand, release it from the hand (a pass flies with the hand's own speed), declare a punt or a field goal (the referee kicks), and choose a 1- or 2-point try.",
+   "The T1 has no fingers: a held ball lies along the forearm and slips out when holding it takes more grip than the hold allows, which is a live fumble.",
+   "How a command moves the robot: targets clipped to the joint ranges, a fixed PD controller every 5 ms behind a 20 ms actuator delay, then the motor limits. Physics every 5 ms.",
+   "Timing: the match runs at real speed and never waits; two halves of 10 minutes, about 35 minutes in all. Balance, walking, throwing, catching, tackling, blocking and standing up are built by the agent.",
+   "Before kick-off: 2 hours of preparation with a full practice copy of the match world, a practice opponent and a GPU training kit (half an RTX PRO 6000)."
+  ]
  }
 }

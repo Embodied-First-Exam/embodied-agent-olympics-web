@@ -1932,5 +1932,34 @@
     "Trained get-up policies on every seat's GPU, even at half time, and named the problem in every review; the get-up never reached standing height."
    ]
   }
+ },
+ "interface": {
+  "sees": "Its own robot's head camera (480 × 360, a new frame every 20 ms), its joints and balance sensors, a leg-odometry estimate of where it has walked, the referee's calls and its teammates' messages. No position on the field.",
+  "controls": "One robot per agent: a target angle for each of its 23 joints every 20 ms, in real time, plus short messages to its two teammates. Walking, kicking, aiming the head and getting up are the agent's own programs.",
+  "moment": "GPT-6 Astra v Gemini 4 Argon (4–1), 24:00 in the replay. Astra's robot 2 (blue, ringed) stands over the ball on the centre spot; its camera shows Gemini's goal far ahead. A moment later it shoots from there and the ball rolls into the net.",
+  "camera": {
+   "src": "img/pov/soccer_hsl_team-camera.jpg",
+   "w": 480,
+   "h": 360,
+   "label": "Robot camera · Astra robot 2 · 480 × 360"
+  },
+  "broadcast": {
+   "src": "img/pov/soccer_hsl_team-broadcast.jpg",
+   "w": 848,
+   "h": 480,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Each robot is its own agent: three agents of the same model per side, each with its own seat, programs and camera.",
+   "Camera: one in the robot's head, 480 × 360 pixels, 80° vertical field of view, turned by the two head joints. It takes a frame every 20 ms; the newest frame a program can fetch is 40 ms old, stamped with its step.",
+   "Own robot: joint angles and speeds, gyro and accelerometer, its tilt (without its heading), and whether it is down, getting up or penalised.",
+   "Where am I: no position, speed or heading from the simulator. A leg-odometry estimate starts at zero at kick-off, with a few per cent scale error and slow gyro drift; the robot localises itself from its camera and that estimate.",
+   "Referee: score, half, clock, kick-off, every robot's penalty, the penalty shoot-out, and events such as goals, balls out and fouls. The ball and the other robots appear only in the camera images.",
+   "Teammates: messages of up to 512 bytes, one every 0.2 s per robot, 12000 per team per match (the RoboCup limits). A shared team folder can be edited before kick-off and in review windows; while the ball is in play each seat keeps a read-only copy.",
+   "Commands: a row of 23 joint targets for the next 20 ms step, a plan of up to 50 rows (one second), or hold the current row. Targets are clipped to the joint ranges, then a fixed PD controller runs every 5 ms behind a 20 ms actuator delay, then the motor limits apply.",
+   "Timing: the match runs at real speed and never waits; a command acts at the next 20 ms step; a match lasts about 30 minutes.",
+   "No ready-made skills: balance, walking, kicking and standing up are built by the agent. A fallen robot returns to play only after it gets up by itself.",
+   "Before kick-off: 2 hours of preparation per agent with a full practice copy of the match world, a practice opponent and its own GPU (half an RTX PRO 6000)."
+  ]
  }
 }
