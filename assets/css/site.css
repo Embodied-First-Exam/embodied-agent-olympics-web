@@ -336,3 +336,8 @@ img.mark--ink{display:none}
 :root[data-theme="light"] img.mark--light{display:none}
 :root[data-theme="light"] img.mark--ink{display:block}
 .foot-brand img.mark{height:30px;width:auto}
+/* a thin outline on model colours that vanish into the ground (--ol per theme from models.json; transparent elsewhere):
+   Kimi black in the dark theme, GLM yellow in the light theme */
+.flag,.lg i,.xt-sw,.sbo-flag,.tm-h::after{box-shadow:0 0 0 1.2px var(--ol,transparent)}
+.cs circle{stroke:var(--ol,var(--bg-2))}
+.ms.is-on{box-shadow:inset 0 -2px 0 var(--c),0 1px 0 var(--ol,transparent)}

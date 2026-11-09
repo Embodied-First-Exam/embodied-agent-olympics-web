@@ -649,7 +649,7 @@ def _chart(site: Site, lines: dict, key: str, ymax: float, ref: float | None, yl
         dots = "".join(f'<circle cx="{X(p["x"]):.1f}" cy="{Y(p[key]) + off:.1f}" r="3.6"><title>{E(model_name(m))} · '
                        f'{"start" if p["cp"].startswith("kickoff") else "after match " + p["cp"].split(":")[1]} · {fmt(p[key])}'
                        f'{f" (n={p.get(chr(110))})" if p.get("n") else ""}</title></circle>' for p in pts)
-        ser.append(f'<g class="cs" data-series="{E(m["name"])}" style="--c:{E(c)}"><path d="{d}"/>{dots}</g>')
+        ser.append(f'<g class="cs" data-series="{E(m["name"])}" style="--c:{E(c)}"><path class="cs-case" d="{d}"/><path d="{d}"/>{dots}</g>')
     return (f'<svg class="chart" viewBox="0 0 {W} {H}" role="img" aria-label="{E(ylab)}">{grid}{"".join(ser)}'
             f'<text x="{(L + W - R) / 2:.0f}" y="{H - 4}" class="ct ct-x" text-anchor="middle">Program saved after match n</text></svg>')
 
