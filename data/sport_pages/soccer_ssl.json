@@ -279,7 +279,7 @@
        "size": "1280x720",
        "fixture": "SSL2-F06",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -354,7 +354,7 @@
        "size": "1280x720",
        "fixture": "SSL2-F07",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -509,7 +509,7 @@
        "size": "1280x720",
        "fixture": "SSL2-F11",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -584,7 +584,7 @@
        "size": "1280x720",
        "fixture": "SSL2-F13",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -621,7 +621,7 @@
        "size": "1280x720",
        "fixture": "SSL2-F14",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1119,7 +1119,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "SSLA-F04",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1311,7 +1311,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "SSLA-F10",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1403,7 +1403,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "SSLA-F15",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },

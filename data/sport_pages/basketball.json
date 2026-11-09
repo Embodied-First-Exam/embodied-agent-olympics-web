@@ -129,7 +129,7 @@
        "size": "848x480",
        "fixture": "BSK2-F02",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -241,7 +241,7 @@
        "size": "848x480",
        "fixture": "BSK2-F04",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -279,7 +279,7 @@
        "size": "848x480",
        "fixture": "BSK2-F06",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -316,7 +316,7 @@
        "size": "848x480",
        "fixture": "BSKC-F05",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -467,7 +467,7 @@
        "size": "848x480",
        "fixture": "BSK2-F10",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -504,7 +504,7 @@
        "size": "848x480",
        "fixture": "BSK2-F11",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -541,7 +541,7 @@
        "size": "848x480",
        "fixture": "BSK2-F12",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -578,7 +578,7 @@
        "size": "848x480",
        "fixture": "BSK2-F13",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1009,7 +1009,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSKA-F01",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1045,7 +1045,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSKA-F02",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1081,7 +1081,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSKA-F03",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1225,7 +1225,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSKA-F07",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1261,7 +1261,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSKA-F08",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1297,7 +1297,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSKA-F09",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1480,7 +1480,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSKQ-F10",
        "key": "basketball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },

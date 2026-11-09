@@ -129,7 +129,7 @@
        "size": "848x480",
        "fixture": "BVB2-F02",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -166,7 +166,7 @@
        "size": "848x480",
        "fixture": "BVBC-F01",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -203,7 +203,7 @@
        "size": "848x480",
        "fixture": "BVBC-F03",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -241,7 +241,7 @@
        "size": "848x480",
        "fixture": "BVB2-F04",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -316,7 +316,7 @@
        "size": "848x480",
        "fixture": "BVBC-F05",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -430,7 +430,7 @@
        "size": "848x480",
        "fixture": "BVB2-F09",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -467,7 +467,7 @@
        "size": "848x480",
        "fixture": "BVB2-F10",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -504,7 +504,7 @@
        "size": "848x480",
        "fixture": "BVB2-F11",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -541,7 +541,7 @@
        "size": "848x480",
        "fixture": "BVB2-F12",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1007,7 +1007,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BVBA-F01",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1043,7 +1043,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BVBA-F02",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1187,7 +1187,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BVBA-F07",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1223,7 +1223,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BVBA-F08",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1259,7 +1259,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BVBA-F09",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1439,7 +1439,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BVBA-F14",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1475,7 +1475,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BVBA-F15",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1514,7 +1514,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BVBQ-F04",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      }

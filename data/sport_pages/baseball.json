@@ -129,7 +129,7 @@
        "size": "848x480",
        "fixture": "BSB2-F02",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -203,7 +203,7 @@
        "size": "848x480",
        "fixture": "BSBC-F03",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -241,7 +241,7 @@
        "size": "848x480",
        "fixture": "BSB2-F04",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -279,7 +279,7 @@
        "size": "848x480",
        "fixture": "BSB2-F05",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -317,7 +317,7 @@
        "size": "848x480",
        "fixture": "BSB2-F06",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -465,7 +465,7 @@
        "size": "848x480",
        "fixture": "BSB2-F10",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -502,7 +502,7 @@
        "size": "848x480",
        "fixture": "BSB2-F11",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -539,7 +539,7 @@
        "size": "848x480",
        "fixture": "BSB2-F12",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -576,7 +576,7 @@
        "size": "848x480",
        "fixture": "BSB2-F13",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1005,7 +1005,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSBA-F01",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1041,7 +1041,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSBA-F02",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1077,7 +1077,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSBA-F03",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1113,7 +1113,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSBA-F04",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1257,7 +1257,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSBA-F08",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1293,7 +1293,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSBA-F09",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1329,7 +1329,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSBA-F10",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1365,7 +1365,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSBA-F11",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1512,7 +1512,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BSBQ-F12",
        "key": "baseball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      }

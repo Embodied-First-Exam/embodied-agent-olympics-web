@@ -241,7 +241,7 @@
        "size": "848x480",
        "fixture": "BAD2-F04",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -279,7 +279,7 @@
        "size": "848x480",
        "fixture": "BAD3-F06",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -354,7 +354,7 @@
        "size": "848x480",
        "fixture": "BAD2-F07",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -392,7 +392,7 @@
        "size": "848x480",
        "fixture": "BAD3-F08",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -544,7 +544,7 @@
        "size": "848x480",
        "fixture": "BAD3-F12",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -581,7 +581,7 @@
        "size": "848x480",
        "fixture": "BAD3-F13",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -618,7 +618,7 @@
        "size": "848x480",
        "fixture": "BAD3-F14",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -655,7 +655,7 @@
        "size": "848x480",
        "fixture": "BAD3-F15",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      }
@@ -1046,7 +1046,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BADA-F03",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1082,7 +1082,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BADA-F05",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1118,7 +1118,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BADA-F07",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1154,7 +1154,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BADA-F08",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1298,7 +1298,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BADA-F15",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1337,7 +1337,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BADQ-F02",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1374,7 +1374,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BADQ-F04",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1413,7 +1413,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BADQ-F06",
        "key": "badminton_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
