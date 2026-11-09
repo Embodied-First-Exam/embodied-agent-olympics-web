@@ -157,6 +157,7 @@
     stage.classList.toggle("is-fill", on); document.documentElement.classList.toggle("pl-fill-on", on);
     rot.hidden = !(on && portrait());
     fsBtn.classList.toggle("is-on", on);
+    fit();
   };
   const toggleFs = () => {
     if (fsEl()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); return; }
@@ -167,7 +168,25 @@
       if (p && p.catch) p.catch(() => setFill(true));
     } else setFill(true);
   };
-  const onFs = () => { const on = fsEl() === stage; stage.classList.toggle("is-fs", on); fsBtn.classList.toggle("is-on", on); render(); };
+  /* the picture's own rect inside the stage (object-fit: contain leaves black bands in full screen / odd window
+     shapes): --px --py --pw --ph on the stage, so the scoreboard, toast and full-screen button sit on the picture */
+  const fit = () => {
+    const s = stage.getBoundingClientRect(), v = vid.getBoundingClientRect();
+    if (!s.width || !v.width) return;
+    let w = v.width, h = v.height;
+    if (vid.videoWidth && vid.videoHeight) {
+      const k = Math.min(v.width / vid.videoWidth, v.height / vid.videoHeight);
+      w = vid.videoWidth * k; h = vid.videoHeight * k;
+    }
+    const x = v.left - s.left - stage.clientLeft + (v.width - w) / 2, y = v.top - s.top - stage.clientTop + (v.height - h) / 2;
+    const st = stage.style;
+    st.setProperty("--px", `${x.toFixed(1)}px`); st.setProperty("--py", `${y.toFixed(1)}px`);
+    st.setProperty("--pw", `${w.toFixed(1)}px`); st.setProperty("--ph", `${h.toFixed(1)}px`);
+  };
+  vid.addEventListener("loadedmetadata", fit);
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(vid);
+  addEventListener("resize", fit);
+  const onFs = () => { const on = fsEl() === stage; stage.classList.toggle("is-fs", on); fsBtn.classList.toggle("is-on", on); fit(); render(); };
   document.addEventListener("fullscreenchange", onFs);
   document.addEventListener("webkitfullscreenchange", onFs);
   addEventListener("orientationchange", () => { if (isFill()) rot.hidden = !portrait(); });
