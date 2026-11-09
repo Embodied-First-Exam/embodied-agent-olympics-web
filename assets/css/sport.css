@@ -272,3 +272,4 @@ a.rp:hover{border-color:var(--accent);color:var(--fg)}
   .st--tt{display:block;overflow-x:auto}
 }
 .cr-team{margin:0 0 18px}
+.st--solo td.is-ns{color:var(--fg-3)}.st--solo td.is-ns small{display:inline-block;margin-left:6px;font:500 10.5px var(--f-mono);color:var(--accent-ink)}

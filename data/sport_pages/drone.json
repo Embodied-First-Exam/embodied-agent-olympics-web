@@ -3,7 +3,7 @@
  "sport": "drone",
  "key": "drone",
  "format": "race",
- "made": "2026-11-09T04:03Z",
+ "made": "2026-11-09T04:10Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -1793,17 +1793,18 @@
   "pass_marks": "derived"
  },
  "notes": {
-  "_source": "Hand-written from the official board rel-drone-champ2 (final.json heats, incidents, standings), the seats' own notes in the HF match folders (DRN2-F19 seat C, DRNC-F18 seat A DIAGNOSIS.md), the skill-test section g5-drone and the drone analysis draft (analysis/drafts/drone/findings.md, items 1-3, 8-9). Every line was checked against those files on 11-08.",
+  "_source": "R2 (11-08 evening). Unchanged numbers: dim/othersports/final.md R2 says the drone draft was checked and no number changed. Lines from the first version (board rel-drone-champ2 final.json, DRN2-F19 / DRNC-F18 seat notes, skill-test section g5-drone, drone/findings.md items 1-3, 8-9). Line 4 narrowed to the four tested builds per overall #13 and synthesis critique. Medal and placing words removed; trimmed to 4 achieved / 2 built (dropped: Kimi's two-gate heat program; built lines for Astra, Opus, GLM, DeepSeek). Owner: edit or replace with your analysis. Built lines for Astra, Opus, GLM, DeepSeek checked against the seats' match notes (11-08).",
+  "_status": "draft from the analysis drafts, for the sport owner to edit",
   "challenge": "A racing quad with a first-person camera and an IMU, no position from the simulator. The program finds the gates, holds the drone through latency, wind and moving shutters, and chooses how fast to risk it.",
   "achieved": [
    {
-    "text": "Gemini 4 Argon won gold on pace: 3 of 4 final races won, and the only finish of the final (47.0 s, race 1).",
+    "text": "Gemini 4 Argon flew fastest in the final: it won 3 of 4 races and set the final's only finish (47.0 s, race 1).",
     "evidence": [
      "DRN2-F21"
     ]
    },
    {
-    "text": "GPT-6 Astra flew the most reliable program: a finish in every time-trial match (best 96.4 s) and all three races of its heat; second in the final.",
+    "text": "GPT-6 Astra flew the most reliable program: a finish in every time-trial match (best 96.4 s) and in all three races of its heat.",
     "evidence": [
      "DRNC-F06",
      "DRN2-F19"
@@ -1816,30 +1817,24 @@
     ]
    },
    {
-    "text": "Kimi 3.1 Pro reached the final with a heat program that flies two gates and stops; it beat DeepSeek in two of three heat races.",
-    "evidence": [
-     "DRN2-F19"
-    ]
-   },
-   {
-    "text": "Every frozen program tested fails from a mid-course start (0 of 6 sections): they fly only from the official start pose.",
+    "text": "The four programs tested from a mid-course start (Astra and Claude Opus 5.5) failed all six times each: they fly only from the official start pose.",
     "evidence": [
      "skill tests"
     ]
    }
   ],
   "built": {
-   "GPT-6 Astra": [
-    "Checked that a diagnostic build sent the same commands before deploying it, and kept regression scenes with deliberate faults."
-   ],
-   "Claude Opus 5.5": [
-    "Ran paired multi-seed batches with an explicit noise estimate and kept a file of lessons between matches."
-   ],
    "Gemini 4 Argon": [
     "Maps the gates as landmarks while flying; holds a slower lap-1 pace until the map closes, then speeds up."
    ],
    "Kimi 3.1 Pro": [
     "The only learning attempt: behaviour cloning from a teacher program. It failed on training and unseen circuits and was not deployed."
+   ],
+   "GPT-6 Astra": [
+    "Checked that a diagnostic build sent the same commands before deploying it, and kept regression scenes with deliberate faults."
+   ],
+   "Claude Opus 5.5": [
+    "Ran paired multi-seed batches with an explicit noise estimate and kept a file of lessons between matches."
    ],
    "GLM 5.3 Flash": [
     "Its reviews traced the crashes to commanding against a phantom velocity; no later program completed lap 1 in Checkpoint Evaluation."

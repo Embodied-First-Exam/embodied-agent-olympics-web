@@ -3,7 +3,7 @@
  "sport": "racing",
  "key": "racing_full",
  "format": "race",
- "made": "2026-11-09T04:03Z",
+ "made": "2026-11-09T04:10Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -333,12 +333,6 @@
        "x": 2.0,
        "n_pass": 3,
        "valid": 3
-      },
-      {
-       "cp": "final:3",
-       "x": 3.0,
-       "n_pass": 2,
-       "valid": 5
       }
      ],
      "DeepSeek V4.1 Flash": [
@@ -357,12 +351,6 @@
       {
        "cp": "final:2",
        "x": 2.0,
-       "n_pass": 3,
-       "valid": 3
-      },
-      {
-       "cp": "final:3",
-       "x": 3.0,
        "n_pass": 3,
        "valid": 3
       }
@@ -385,12 +373,6 @@
        "x": 2.0,
        "n_pass": 3,
        "valid": 3
-      },
-      {
-       "cp": "final:3",
-       "x": 3.0,
-       "n_pass": 3,
-       "valid": 3
       }
      ],
      "GLM 5.3 Flash": [
@@ -409,12 +391,6 @@
       {
        "cp": "final:2",
        "x": 2.0,
-       "n_pass": 0,
-       "valid": 3
-      },
-      {
-       "cp": "final:3",
-       "x": 3.0,
        "n_pass": 0,
        "valid": 3
       }
@@ -437,12 +413,6 @@
        "x": 2.0,
        "n_pass": 3,
        "valid": 3
-      },
-      {
-       "cp": "final:3",
-       "x": 3.0,
-       "n_pass": 3,
-       "valid": 3
       }
      ],
      "Claude Opus 5.5": [
@@ -463,18 +433,6 @@
        "x": 2.0,
        "n_pass": 1,
        "valid": 3
-      },
-      {
-       "cp": "final:3",
-       "x": 3.0,
-       "n_pass": 2,
-       "valid": 3
-      },
-      {
-       "cp": "deploy:3",
-       "x": 3.0,
-       "n_pass": 0,
-       "valid": 1
       }
      ]
     },
@@ -689,23 +647,43 @@
   "pass_marks": "page"
  },
  "notes": {
-  "_source": "analysis/drafts/overall/findings.md item 13 (yellow flag, skill tests); analysis/drafts/dim/engineering/round2.md R2-3 (no learned models in non-humanoid sports); challenge from sports.json. Owner: edit or replace with your analysis.",
+  "_source": "R2 (11-08 evening). Race 3 is the re-run RA6B-F03 (the earlier race 3 is superseded and every line from it withdrawn). Line 1: analysis/drafts/dim/othersports/final.md top 10 #5 and racing physical column; lines 2-3: #5, R2 NEW and synthesis finding 10 (RA6B-F03); line 4: overall #13 (four tested builds). Built: analysis/drafts/dim/othersports/final.md #10 (Astra and GLM race-3 diagnoses). Dropped from v1: 'no learned model' line (still true per engineering, moved out for space). Owner: edit or replace with your analysis.",
   "_status": "draft from the analysis drafts, for the sport owner to edit",
   "challenge": "A 750 kg, 405 kW single-seater through a drive-by-wire interface. The program plans the racing line and speed at the grip limit and acts on time at real speed.",
   "achieved": [
    {
-    "text": "No program obeys the yellow flag: the frozen programs drove 180 to 196 km/h through a 100 km/h sector.",
+    "text": "Surviving traffic decided the races: 5 finishes from 18 starts. In races 1 and 2 only GPT-6 Astra and Gemini 4 Argon finished, and eight starts ended within 35 s.",
     "evidence": [
-     "skill tests"
+     "RAC6-F01",
+     "RAC6-F02"
     ]
    },
    {
-    "text": "Every audited racing program was hand-written control code; none loaded a learned model.",
+    "text": "In race 3 the slowest car won: GLM 5.3 Flash, lapping at 1.27 times its plan, was the only finisher. Astra braked to a 4 m/s target in front of Gemini, Gemini hit it and was retired for staying too slow, and Astra was disqualified for the brake test.",
     "evidence": [
-     "all valid matches"
+     "RA6B-F03"
+    ]
+   },
+   {
+    "text": "The other race-3 exits came from the agents' own traffic code: Claude Opus 5.5's brake cap, written to avoid the brake-test rule, made it run into DeepSeek V4.1 Flash at 9.56 s, and DeepSeek switched off its traffic following mid-race and hit GLM three times.",
+    "evidence": [
+     "RA6B-F03"
+    ]
+   },
+   {
+    "text": "None of the four racing programs tested reads the yellow flag: they drove 180 to 196 km/h through a 100 km/h sector.",
+    "evidence": [
+     "skill tests"
     ]
    }
   ],
-  "built": {}
+  "built": {
+   "GPT-6 Astra": [
+    "Traced its own race-3 disqualification in its telemetry (lost camera track, 4 m/s floor) and confirmed the floor offline on the unchanged controller."
+   ],
+   "GLM 5.3 Flash": [
+    "Its race-3 note claims it led from lap 1 at about 25 Hz; it ran at 47.5 Hz, and Astra and Gemini were ahead on track until 94.99 s."
+   ]
+  }
  }
 }

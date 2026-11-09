@@ -3,7 +3,7 @@
  "sport": "soccer_ssl",
  "key": "soccer_ssl",
  "format": "team",
- "made": "2026-11-09T04:03Z",
+ "made": "2026-11-09T04:10Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -2508,7 +2508,7 @@
   "pass_marks": "page"
  },
  "notes": {
-  "_source": "analysis/drafts/soccer_ssl/findings.md items 1, 2, 4, 5, 6, 7; analysis/drafts/dim/competitive/final.md item 7 (corner counts); challenge from sports.json. Owner: edit or replace with your analysis.",
+  "_source": "R2 (11-08 evening). Line 1: dim/competitive/final.md #7 and synthesis finding 1 (57 / 13 / 30 / 2); line 2: soccer_ssl/findings.md #2 and overall #4 (SSL2-F12 coin toss); line 3: analysis/drafts/dim/teamsports/final.md #10 (Gemini passing, SSL2-F10) and soccer_ssl/findings.md #5; line 4: soccer_ssl/findings.md #7. Built: soccer_ssl/findings.md #4, #6. No R2 change contradicts v1. Owner: edit or replace with your analysis.",
   "_status": "draft from the analysis drafts, for the sport owner to edit",
   "challenge": "Eleven fast wheeled robots a side under RoboCup Small Size rules. The program runs the whole team in real time from noisy, delayed overhead vision, and an automatic referee calls every foul.",
   "achieved": [
@@ -2530,7 +2530,7 @@
     ]
    },
    {
-    "text": "The clearest in-match adaptation: Opus kept revising its program against Gemini 4 Argon's press, equalised 18 s from time and won the shoot-out 2:0, while Gemini kept one program.",
+    "text": "Gemini 4 Argon's team passes the most (46 % of its non-shot kicks reach a teammate next, Opus 29 %). In SSL2-F10 it passed through Opus's press 48 times; Opus kept revising its program, equalised 18 s from time and won the shoot-out 2:0.",
     "evidence": [
      "SSL2-F10"
     ]

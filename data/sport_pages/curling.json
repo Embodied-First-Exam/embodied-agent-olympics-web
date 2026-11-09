@@ -3,7 +3,7 @@
  "sport": "curling",
  "key": "curling_g1",
  "format": "duel",
- "made": "2026-11-09T04:03Z",
+ "made": "2026-11-09T04:10Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -2173,7 +2173,7 @@
   "pass_marks": "page"
  },
  "notes": {
-  "_source": "analysis/drafts/dim/competitive/final.md items 9 and 10; analysis/drafts/dim/adaptive/final.md stuck-vs-adapts table (Astra curling checkpoint); challenge from sports.json. Owner: edit or replace with your analysis.",
+  "_source": "R2 (11-08 evening). Line 1: dim/competitive/final.md #9 and synthesis finding 9 (CUR2-F17); line 2: analysis/drafts/dim/othersports/final.md top 10 #6 (Kimi falls); line 3: analysis/drafts/dim/othersports/final.md curling adaptive column (Opus, CUR2-F19); line 4: curling physical column (draw error). Built: competitive #10 (Gemini profile), curling competitive / engineering columns (Astra). Dropped from v1: the Astra Checkpoint Evaluation line (R2: curling checkpoint records are all invalid, do not cite). Owner: edit or replace with your analysis.",
   "_status": "draft from the analysis drafts, for the sport owner to edit",
   "challenge": "An ice surface the program is never told about. It locates the stones, chooses the shot and delivers a 20 kg stone with the right weight and spin.",
   "achieved": [
@@ -2184,15 +2184,30 @@
     ]
    },
    {
-    "text": "Checkpoint Evaluation: GPT-6 Astra's program scored lower late in the season (score share 0.50 to 0.25).",
+    "text": "Kimi 3.1 Pro's robot fell after 23 of 120 Championship deliveries, and its feedback never showed it: the delivery reply ends at release and the fall comes about 1 s later, so all 21 matched replies said it had not fallen.",
     "evidence": [
-     "Checkpoint Evaluation"
+     "Championship matches"
+    ]
+   },
+   {
+    "text": "Opus diagnosed the same defensive gap three times and patched it narrowly; in CUR2-F19 its review foresaw the three-point hit in end 3, and GPT-6 Astra scored three.",
+    "evidence": [
+     "CUR2-F19"
+    ]
+   },
+   {
+    "text": "Draw accuracy on clear ice, median error from its own target: Astra 0.15 m, Kimi 0.21 m, DeepSeek V4.1 Flash 0.40 m.",
+    "evidence": [
+     "all valid matches"
     ]
    }
   ],
   "built": {
    "Gemini 4 Argon": [
     "Wrote an opponent profile into its program; the opponents made 0 to 1 errors in 20 throws, so the profile never changed a decision."
+   ],
+   "GPT-6 Astra": [
+    "Ported its ice model to C++ and gated changes on paired self-play; it tested a lookahead search and switched it off (\"net -4 points\")."
    ]
   }
  }

@@ -3,7 +3,7 @@
  "sport": "baseball",
  "key": "baseball_g1",
  "format": "duel",
- "made": "2026-11-09T04:03Z",
+ "made": "2026-11-09T04:10Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -1942,10 +1942,45 @@
   "pass_marks": "page"
  },
  "notes": {
-  "_source": "No sport draft yet; the cross-sport drafts hold no evidenced baseball line (overall item 6 flags baseball deploy records as possibly missing). Challenge from sports.json. Owner: edit or replace with your analysis.",
+  "_source": "R2 (11-08 evening). Lines 1, 3, 4: analysis/drafts/dim/othersports/final.md top 10 #2 and the baseball table row, synthesis finding 8; line 2: analysis/drafts/dim/othersports/final.md baseball physical column and synthesis finding 6 (pitcher falls from all 32 state logs). Built: analysis/drafts/dim/othersports/final.md baseball engineering and adaptive columns, synthesis finding 6. Owner: edit or replace with your analysis.",
   "_status": "draft from the analysis drafts, for the sport owner to edit",
   "challenge": "Pitcher against batter, both humanoids. The program controls the pitch, reads the ball's flight from cameras alone and times the swing, with no walking policy given.",
-  "achieved": [],
-  "built": {}
+  "achieved": [
+   {
+    "text": "Most runs came from pitchers who could not pitch: 193 of 345 runs were scored in half-innings with no released pitch and only 48 came from batted balls. GLM 5.3 Flash released no pitch in 10 games and still won three 20:20 on the walks tie-break, since clock awards do not count as walks.",
+    "evidence": [
+     "all valid matches"
+    ]
+   },
+   {
+    "text": "Claude Opus 5.5's pitcher fell after all 54 pitches of its first three Championship games and after none of 49 in the next three.",
+    "evidence": [
+     "BSBC-F01",
+     "BSB2-F07",
+     "BSB2-F10"
+    ]
+   },
+   {
+    "text": "Opus won 9 of its first 11 games with no hits, by taking pitches, bunting and stealing; in BSB2-F17 all 8 of its runs came on the catcher dropping the third strike.",
+    "evidence": [
+     "BSB2-F17"
+    ]
+   },
+   {
+    "text": "Fielders standing in the base paths decided games: in BSB2-F18 all 7 of GPT-6 Astra's runs came on obstruction calls against Opus's fielders, the same failure Gemini 4 Argon showed in BSB2-F16.",
+    "evidence": [
+     "BSB2-F18",
+     "BSB2-F16"
+    ]
+   }
+  ],
+  "built": {
+   "GPT-6 Astra": [
+    "Trained walking, recovery and a fielding scoop on the GPU; its pitcher fell after its first 18 Championship pitches and after none of the next 101."
+   ],
+   "DeepSeek V4.1 Flash": [
+    "Built its pitch by imitation and iterative learning control and carried the repair through the Championship: runs allowed 10, 3, 2, 1, 0, then 8 (all on dropped third strikes), then 0."
+   ]
+  }
  }
 }

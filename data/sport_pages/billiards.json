@@ -3,7 +3,7 @@
  "sport": "billiards",
  "key": "billiards_g1",
  "format": "duel",
- "made": "2026-11-09T04:03Z",
+ "made": "2026-11-09T04:10Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -2001,25 +2001,44 @@
   "pass_marks": "page"
  },
  "notes": {
-  "_source": "analysis/drafts/overall/findings.md item 11; analysis/drafts/dim/adaptive/final.md item 10; analysis/drafts/dim/engineering/round2.md R2-6 (GLM review loop); challenge from sports.json. Owner: edit or replace with your analysis.",
+  "_source": "R2 (11-08 evening). Line 1: analysis/drafts/dim/othersports/final.md top 10 #4 (failure funnel); line 2: #4 and synthesis finding 10 (clock tie-breaks, BIL2-F15 split); line 3: overall #11 and dim/adaptive R2 F10 (four resignations); line 4: #4 and billiards physical column (Opus 95/104). Built: dim/engineering finding 1 (GLM), billiards engineering / adaptive columns (Kimi). Changed from v1: resignations 3 -> 4; the DeepSeek built quote dropped (line 3 covers it). Owner: edit or replace with your analysis.",
   "_status": "draft from the analysis drafts, for the sport owner to edit",
   "challenge": "Eight-ball on a full-size table for a humanoid without fingers. The program sees the balls with a head camera, plans the shot and strikes with a two-handed whole-body stroke.",
   "achieved": [
    {
-    "text": "DeepSeek V4.1 Flash resigned three Championship matches, the only resignations of the event; in one it reasoned that \"the match is lost either way\".",
+    "text": "Each model failed at a different stage; on non-break shots the cue reached the ball for Claude Opus 5.5 198 of 219 times, GPT-6 Astra 149 of 183, Kimi 3.1 Pro 162 of 249, Gemini 4 Argon 94 of 157, DeepSeek V4.1 Flash 20 of 282 and GLM 5.3 Flash 13 of 166.",
+    "evidence": [
+     "all valid matches"
+    ]
+   },
+   {
+    "text": "DeepSeek and GLM potted no ball all event, yet DeepSeek won three 7:7 clock tie-breaks; in BIL2-F15 its clock lead came mostly from answering reviews faster (69 %).",
+    "evidence": [
+     "BIL2-F15"
+    ]
+   },
+   {
+    "text": "DeepSeek resigned four matches, the only resignations of the event; in one it reasoned that \"the match is lost either way\".",
     "evidence": [
      "BIL2-F02",
      "BIL2-F08",
-     "BIL2-F16"
+     "BIL2-F16",
+     "BIL2-F19"
+    ]
+   },
+   {
+    "text": "Opus's Championship stroke was the steadiest: 95 of 104 shots legal, with no fallback and no missed contact.",
+    "evidence": [
+     "Championship matches"
     ]
    }
   ],
   "built": {
-   "DeepSeek V4.1 Flash": [
-    "Gave up on the stroke itself: \"I've now spent 3 matches … accept that the stroke is beyond my reach\"."
-   ],
    "GLM 5.3 Flash": [
     "Moved its match reviews into its own program; the referee accepts reviews only from the agent and refused 9,232 of them in one match, while GLM kept sending reviews by hand."
+   ],
+   "Kimi 3.1 Pro": [
+    "Wrote up to 1,710 files and 49 snapshots in one match; its Championship series fell apart: legal rest-bridge shots 16 of 24 in its fresh Arena matches against 28 of 82, called pots 5 to 0."
    ]
   }
  }

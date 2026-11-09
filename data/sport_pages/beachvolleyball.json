@@ -3,7 +3,7 @@
  "sport": "beachvolleyball",
  "key": "beachvolleyball_g1",
  "format": "team",
- "made": "2026-11-09T04:03Z",
+ "made": "2026-11-09T04:10Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -2016,7 +2016,7 @@
   "pass_marks": "page"
  },
  "notes": {
-  "_source": "analysis/drafts/dim/physical/final.md items 1 and 10; analysis/drafts/dim/adaptive/final.md items 3, 4, 5; analysis/drafts/dim/engineering/round2.md R2-3 (learned contact skills); challenge from sports.json. Owner: edit or replace with your analysis.",
+  "_source": "R2 (11-08 evening). Line 1: dim/physical/final.md R2 F1 (0/375, unchanged); lines 2-3: dim/adaptive/final.md F3 and synthesis finding 6 (DeepSeek serve repair, BVB2-F17); line 4: physical round-3 F10 (Opus falls). Built: adaptive F4-F5 (DeepSeek), engineering finding 5 (Kimi learned contact skills; earlier audit, not refreshed). No R2 change contradicts v1. Owner: edit or replace with your analysis.",
   "_status": "draft from the analysis drafts, for the sport owner to edit",
   "challenge": "Two humanoids a side and a ball in the wind. The program finds the ball with one head camera, reads the wind from two windsocks and times every serve and receive in real time.",
   "achieved": [

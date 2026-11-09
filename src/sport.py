@@ -265,7 +265,8 @@ def solo_champ(site: Site, ch: dict) -> str:
         vals = [m["value"] for m in r["matches"] if m["value"] is not None]
         top = max(vals) if vals else None
         cells = "".join(
-            (f'<td class="st-n tt{" is-best" if m["value"] == top else ""}">{fmtv(m["value"])}{replay(site, m.get("replay"), compact=True)}</td>'
+            (f'<td class="st-n tt is-ns" title="Did not start: counts 0">{fmtv(m["value"] or 0)}<small>no-show</small></td>' if m.get("no_show") else
+             f'<td class="st-n tt{" is-best" if m["value"] == top else ""}">{fmtv(m["value"])}{replay(site, m.get("replay"), compact=True)}</td>'
              if m["value"] is not None else '<td class="st-n tt is-pend">Pending</td>') for m in r["matches"])
         body.append(f'<tr><td class="st-r">{r["rank"]}</td><td>{who(site, r["model"])}</td>{cells}'
                     f'<td class="st-n st-p">{fmtv(r["mean"]) if r["mean"] is not None else "–"}</td></tr>')
@@ -274,7 +275,7 @@ def solo_champ(site: Site, ch: dict) -> str:
 <div class="cr-solo"><h3 class="cr-h">Three-match series <span>ranked by the {E(ch.get("rank_by") or "")} · {E(u)}</span></h3>
   <table class="st st--tt st--solo"><thead><tr><th>#</th><th>AI agent</th><th>Match 1</th><th>Match 2</th><th>Match 3</th><th>{how} ({E(u)})</th></tr></thead>
   <tbody>{"".join(body)}</tbody></table>
-  <p class="cr-rule">{E(ch.get("scoring") or "")}</p></div>"""
+  <p class="cr-rule">{E(ch.get("scoring") or "")}{" A no-show (the program did not start) counts 0." if any(m.get("no_show") for r in ch["rows"] for m in r["matches"]) else ""}</p></div>"""
 
 
 def points_race_champ(site: Site, ch: dict) -> str:
@@ -499,10 +500,25 @@ def growth(site: Site, d: dict) -> str:
     if not ck:
         return '<div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3><p class="cr-rule">Curves at release.</p></div>'
     lines = {k: v for k, v in (ck.get("lines") or {}).items() if v}
+    cap0 = {k: v for k, v in ((ck.get("capability") or {}).get("lines") or {}).items() if v}
+    if not lines and cap0:
+        cap = ck["capability"]
+        n = cap.get("n") or max(p["n_pass"] for pts in cap0.values() for p in pts)
+        xmax = int(max(p["x"] for pts in cap0.values() for p in pts))
+        capc = _chart(site, cap0, "n_pass", n, cap.get("ref"), "Card capabilities passed", lambda v: f"{int(round(v))}",
+                      step=True, xmax=xmax, yticks=list(range(0, int(n) + 1)))
+        cnt = ck.get("count") or {}
+        legend = "".join(f'<button type="button" class="lg" data-lg="{E(m["name"])}" style="--c:{E(m["colour"])}" aria-pressed="true"><i></i>{E(model_name(m))}</button>'
+                         for m in site.models if m["name"] in cap0)
+        return (f'<div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3><div class="lg-row" data-lgs>{legend}</div>'
+                f'<div class="cgrid" data-charts><figure class="cfig"><figcaption><strong>Performance growth</strong><span>{E(ck["measure"])}</span></figcaption>'
+                f'<p class="cr-rule">At release: {cnt.get("ok", 0)} of {cnt.get("planned", 0)} replays done.</p></figure>'
+                f'<figure class="cfig"><figcaption><strong>Capability growth</strong><span>Card capabilities passed, of {n}</span></figcaption>{capc}</figure></div>'
+                '<p class="cr-rule">Frozen programs of every checkpoint replayed with no model calls. Provisional.</p></div>')
     if not lines:
         cnt = ck.get("count") or {}
         return ('<div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3>'
-                f'<p class="cr-rule">Curves at release: {cnt.get("ok", 0)} of {cnt.get("planned", 0)} replays done.</p></div>')
+                f'<p class="cr-rule">Curves at release{f": {cnt.get(chr(111) + chr(107), 0)} of {cnt[chr(112) + chr(108) + chr(97) + chr(110) + chr(110) + chr(101) + chr(100)]} replays done" if cnt.get("planned") else ""}.</p></div>')
     vmax = max([p["mean"] for pts in lines.values() for p in pts] + [ck.get("ref") or 0])
     duel = ck.get("kind") == "duel"
     ymax = 0.5 if duel and vmax <= 0.5 else (1.0 if vmax <= 1.0 else round(vmax + 0.25, 1))

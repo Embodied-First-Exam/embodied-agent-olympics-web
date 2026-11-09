@@ -3,7 +3,7 @@
  "sport": "amfootball",
  "key": "amfootball",
  "format": "team",
- "made": "2026-11-09T04:03Z",
+ "made": "2026-11-09T04:10Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -2260,7 +2260,7 @@
   "pass_marks": "page"
  },
  "notes": {
-  "_source": "analysis/drafts/amfootball/findings.md items 1, 2, 3, 5, 6, 7, 10; analysis/drafts/dim/competitive/final.md item 6 (offside counts, the capped squat); challenge from sports.json. Owner: edit or replace with your analysis.",
+  "_source": "R2 (11-08 evening). Line 1: dim/competitive/final.md #6 (AMF2-F13 offside duel); line 2: analysis/drafts/dim/teamsports/final.md R2 #11 and synthesis finding 7 (AMF2-F18); line 3: analysis/drafts/dim/teamsports/final.md #3 (Kimi kneel, then touchdowns); line 4: analysis/drafts/dim/teamsports/final.md #4 (34 matches, 0 completions). Built: analysis/drafts/dim/teamsports/final.md #1 and synthesis finding 7 (Astra get-up), amfootball/findings.md #6 and analysis/drafts/dim/teamsports/final.md #4 (Opus get-up fix). Changed from v1: Astra 'never got up' (contradicted by R2), pass count 32 -> 34 matches; dropped: the squat-cap line (space). Owner: edit or replace with your analysis.",
   "_status": "draft from the analysis drafts, for the sport owner to edit",
   "challenge": "Eight humanoids a side play tackle football. The program walks, blocks, tackles and protects the ball under contact, sees the play only through head cameras, and has to get fallen robots back up.",
   "achieved": [
@@ -2271,31 +2271,32 @@
     ]
    },
    {
-    "text": "The squat had no cap: on two snaps 6 and 4 Opus robots went down and Astra scored after both. In its next match Opus allowed at most two.",
+    "text": "In AMF2-F18 one Opus robot scored 15 touchdowns on the same outside run; Astra tried more than ten deep-safety variants during the match and never tackled an Opus ball carrier.",
     "evidence": [
-     "AMF2-F13",
-     "AMF2-F16"
+     "AMF2-F18"
     ]
    },
    {
-    "text": "Kimi 3.1 Pro's runner knelt on purpose at the opponents' 25 to take an automatic field goal: 11 field goals in one match.",
+    "text": "Kimi 3.1 Pro's runner first knelt on purpose at the opponents' 25 to take automatic field goals (11 in AMF2-F09, no touchdown); from AMF2-F12 it kept running past that spot and scored 3, 1, 4 and 5 touchdowns.",
     "evidence": [
-     "AMF2-F09"
+     "AMFC-F05",
+     "AMF2-F09",
+     "AMF2-F12"
     ]
    },
    {
-    "text": "No team completed a pass in 32 matches (11 attempts); every touchdown was carried in.",
+    "text": "No team completed a pass in 34 matches (11 attempts); every touchdown was carried in.",
     "evidence": [
      "all valid matches"
     ]
    }
   ],
   "built": {
+   "GPT-6 Astra": [
+    "After losing AMF2-F13 it trained a get-up from 72 of its own fallen states in a 2,048-world GPU curriculum; in its next match its robots got up 298 times and were removed 7 times (45 before)."
+   ],
    "Claude Opus 5.5": [
     "Found that its get-up commands were out of the allowed range and refused; after the fix its robots got up 42 to 130 times a match and removals fell from 61 to 0-16."
-   ],
-   "GPT-6 Astra": [
-    "Its robots never got up (0 in 10 matches, 319 removals); it kept an experiment ledger and reviewed its play on video contact sheets."
    ]
   }
  }

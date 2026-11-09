@@ -3,7 +3,7 @@
  "sport": "soccer_hsl",
  "key": "soccer_hsl",
  "format": "team",
- "made": "2026-11-09T04:03Z",
+ "made": "2026-11-09T04:10Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -2400,34 +2400,31 @@
   "pass_marks": "page"
  },
  "notes": {
-  "_source": "analysis/drafts/soccer_hsl/findings.md items 1, 2, 6, 8, 9; analysis/drafts/overall/findings.md item 5 and dim/physical/final.md item 10 (falls per match); challenge from sports.json. Owner: edit or replace with your analysis.",
+  "_source": "R2 (11-08 evening). Line 1: analysis/drafts/dim/teamsports/final.md #8 (29 of 87 centre-spot goals); line 2: analysis/drafts/dim/teamsports/final.md R2 #12 and dim/competitive R2 #11 (HSL2-F18 restart fixes); line 3: synthesis finding 2 and dim/physical R2 F10 (HSL2-F17, Astra last touch on all five); line 4: overall #2 (falls, world incident count; the referee stat gives Opus 3.6). Built: analysis/drafts/dim/teamsports/final.md #7 (Opus kick), soccer_hsl/findings.md #9 (Gemini get-up). Dropped from v1: GLM shoot-out line and the 9-of-24 keeper line (space; the keeper point now sits in line 3). Owner: edit or replace with your analysis.",
   "_status": "draft from the analysis drafts, for the sport owner to edit",
   "challenge": "Three humanoids a side, built up from the joints. The program walks each robot, finds the ball with a head camera it has to aim, and must get a fallen robot up by itself before it can play again.",
   "achieved": [
    {
-    "text": "Claude Opus 5.5 waited out untaken kick-offs for the legal 10 s and then shot from the centre spot: all 10 of its goals in HSL2-F07 came this way.",
+    "text": "Claude Opus 5.5 waited out untaken kick-offs for the legal 10 s and shot from the centre spot: 29 of its 87 goals started there, 24 of them in three matches against DeepSeek and GLM.",
     "evidence": [
-     "HSL2-F07"
+     "HSL2-F07",
+     "all valid matches"
     ]
    },
    {
-    "text": "The shoot-out rule rewarded a team that barely played: GLM 5.3 Flash's robots never got up and touched the ball at most three times a match in open play, yet it won two 0:0 matches on penalties. In one, a goal was given the moment DeepSeek's keeper fell, with the ball untouched.",
+    "text": "In HSL2-F18 Gemini 4 Argon led 2:0 from restart routines that drew Opus position penalties; Opus deployed three restart fixes and scored the next three goals.",
     "evidence": [
-     "HSL2-F05",
-     "HSL2-F15"
+     "HSL2-F18"
     ]
    },
    {
-    "text": "Keepers scored for the opponent: in four Championship matches the defending keeper made the last touch on 9 of 24 goals.",
+    "text": "All five goals GPT-6 Astra conceded in HSL2-F17 were last touched by its own robots, the keeper on four; two count as own goals, three as Gemini shots deflected in.",
     "evidence": [
-     "HSL2-F06",
-     "HSL2-F10",
-     "HSL2-F13",
      "HSL2-F17"
     ]
    },
    {
-    "text": "Opus's robots fell 3.8 times a match, GPT-6 Astra's 20 and Kimi 3.1 Pro's 48.",
+    "text": "Opus's robots fell 3.9 times a match by the world's incident count, Astra's 19.4 and Kimi 3.1 Pro's 48.",
     "evidence": [
      "all valid matches"
     ]
@@ -2435,7 +2432,7 @@
   ],
   "built": {
    "Claude Opus 5.5": [
-    "Lost its Open Arena match 2:10 with no get-up and no kick; in the Championship it added one trained skill per match and cut its preparation from 83 to 32 minutes."
+    "Trained a learned kick before its second Championship match: its on-target kicks went from 1.4-2.4 m/s in fresh Open Arena matches to 5.3-6.9 m/s from 7-10 m."
    ],
    "Gemini 4 Argon": [
     "Learned to get up between matches: 4 of 15 falls recovered in its first Championship match, every fall in matches 2 to 6, while its fresh Open Arena programs never got up."

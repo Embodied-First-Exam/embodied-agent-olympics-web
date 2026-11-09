@@ -3,7 +3,7 @@
  "sport": "basketball",
  "key": "basketball_g1",
  "format": "team",
- "made": "2026-11-09T04:03Z",
+ "made": "2026-11-09T04:10Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -2000,12 +2000,12 @@
   "pass_marks": "page"
  },
  "notes": {
-  "_source": "analysis/drafts/overall/findings.md items 4 and 12; analysis/drafts/dim/physical/final.md item 8 (field goals, release angles); analysis/drafts/dim/adaptive/final.md item 10 (GLM plan); challenge from sports.json. Owner: edit or replace with your analysis.",
+  "_source": "R2 (11-08 evening). Line 1: overall #5 (9 played 0:0 coin tosses, incl. BSK2-F19); line 2: dim/physical/final.md R2 F8 and R2b (field goals on all valid rows); line 3: physical R2 F8 (Kimi BSK2-F14 / BSK2-F16, Astra BSK2-F13); line 4: physical R2b F8 (BSK2-F18). Built: overall #12. Dropped from v1: GLM standing-still quote (space). Owner: edit or replace with your analysis.",
   "_status": "draft from the analysis drafts, for the sport owner to edit",
   "challenge": "Three humanoids a side on a half court. The program walks the ball in, stays up in contact and shoots under joint noise, and the check ball starts beyond any standing throw.",
   "achieved": [
    {
-    "text": "Eight matches ended 0:0: two humanoid teams played a whole game and nobody scored.",
+    "text": "Nine matches that were played ended 0:0 and went to a coin toss: two humanoid teams played a whole game and nobody scored.",
     "evidence": [
      "BSKA-F02",
      "BSKA-F13",
@@ -2014,26 +2014,29 @@
      "BSK2-F08",
      "BSK2-F12",
      "BSK2-F15",
+     "BSK2-F19",
      "BSKC-F05"
     ]
    },
    {
-    "text": "Shooting separated the field: GPT-6 Astra made 60 of 87 field goals, Claude Opus 5.5 32 of 71, Gemini 4 Argon 8 of 36, Kimi 3.1 Pro 1 of 43.",
+    "text": "Shooting separated the field: GPT-6 Astra made 68 of 103 field goals, Claude Opus 5.5 37 of 86, Gemini 4 Argon 8 of 36, Kimi 3.1 Pro 1 of 56.",
     "evidence": [
      "all valid matches"
     ]
    },
    {
-    "text": "Seven of Kimi's shots left 13 to 33 degrees off the line to the hoop and all missed; Astra's eight shots were within 3.2 degrees and seven went in.",
+    "text": "Kimi's shots kept leaving up to 33 degrees off the line to the hoop through its semifinal, with none made; Astra's eight shots in BSK2-F13 were within 3.2 degrees and seven went in.",
     "evidence": [
      "BSK2-F14",
+     "BSK2-F16",
      "BSK2-F13"
     ]
    },
    {
-    "text": "GLM 5.3 Flash's plan was to \"farm their fouls legally by standing still\".",
+    "text": "In BSK2-F18 Opus shot 0 of 7 with the same release that made 5 of 8 in its previous match; one Astra robot blocked 7 shots.",
     "evidence": [
-     "BSKA-F13"
+     "BSK2-F18",
+     "BSK2-F17"
     ]
    }
   ],

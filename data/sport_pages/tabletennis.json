@@ -3,7 +3,7 @@
  "sport": "tabletennis",
  "key": "tabletennis_g1",
  "format": "duel",
- "made": "2026-11-09T04:03Z",
+ "made": "2026-11-09T04:10Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -2203,38 +2203,43 @@
   "pass_marks": "page"
  },
  "notes": {
-  "_source": "analysis/drafts/dim/physical/final.md items 1 and 4; analysis/drafts/dim/adaptive/final.md items 2, 5, 9; challenge from sports.json. Owner: edit or replace with your analysis.",
+  "_source": "R2 (11-08 evening). Line 1: analysis/drafts/dim/othersports/final.md top 10 #3 and synthesis finding 3 (three receive failures, Championship state logs); line 2: analysis/drafts/dim/othersports/final.md #8 and synthesis finding 4 (Gemini TTN2-F10 -> F17); line 3: analysis/drafts/dim/othersports/final.md R2 NEW (TTN2-F18, TTN2-F19); line 4: analysis/drafts/dim/othersports/final.md #3 (Opus serve at the body). Built: dim/adaptive F2/F9 (GLM), analysis/drafts/dim/othersports/final.md table-tennis engineering / competitive columns (Astra). Dropped from v1: 'six third contacts, all with Astra' (contradicted: TTN2-F17 has a non-Astra one), the serve-holding and practice-vs-live lines (space). Owner: edit or replace with your analysis.",
   "_status": "draft from the analysis drafts, for the sport owner to edit",
   "challenge": "Two humanoids with real paddles and two fixed cameras, no ball coordinates. The program sees the ball, predicts its spin and path and hits with the whole body in real time.",
   "achieved": [
    {
-    "text": "Rallies are rare: only six points had a third contact, all with GPT-6 Astra at the table.",
+    "text": "Kimi 3.1 Pro, DeepSeek V4.1 Flash and GLM 5.3 Flash never won a point on a good serve, each failing differently: Kimi swung at 31 of 33 untouched serves and missed balls 0.50 m away, DeepSeek's missed balls passed 0.95 m away, GLM's arm moved on 0 of 15.",
     "evidence": [
-     "TTNA-F01",
-     "TTNA-F06"
+     "TTN2-F07",
+     "TTN2-F09",
+     "TTN2-F02"
     ]
    },
    {
-    "text": "Players barely move to the ball (median 0.00 to 0.27 m); Astra touched 12 of 21 balls on receive.",
+    "text": "Against the same recorded Opus serve setup Gemini 4 Argon touched 0 of 8 good serves in TTN2-F10 and 8 of 8 in TTN2-F17, won 5 of those points and came back from 0:3 to 11:5.",
     "evidence": [
-     "Open Arena matches"
+     "TTN2-F10",
+     "TTN2-F17"
     ]
    },
    {
-    "text": "Over the Championship series serving got safer: Kimi 3.1 Pro won 5 of 24 of its serve points early and 22 of 28 late, DeepSeek V4.1 Flash 4 of 27 and then 20 of 23.",
+    "text": "Serve holding returned at the end: in TTN2-F18 Gemini touched 8 of GPT-6 Astra's 10 serves and won none of those points, and in TTN2-F19 the server won all 29 points.",
     "evidence": [
-     "Championship matches"
+     "TTN2-F18",
+     "TTN2-F19"
     ]
    },
    {
-    "text": "Practice serving did not always survive real time: DeepSeek served 15 of 15 legally in a step-by-step test and then dropped tosses live; Kimi faulted 3 of 11 serves after 32 of 32 in practice.",
+    "text": "Claude Opus 5.5 aimed its serve at the receiver: 28 of the points it won on serve ended with the ball hitting the opponent's robot.",
     "evidence": [
-     "TTNA-F04",
-     "TTNA-F09"
+     "all valid matches"
     ]
    }
   ],
   "built": {
+   "GPT-6 Astra": [
+    "Searched its strokes on the GPU and picked its service side from where the opponent held its paddle; Opus noticed and wrote it down."
+   ],
    "GLM 5.3 Flash": [
     "Never won a point on its own serve (0 of 42); within one match it fixed a dropped toss, the fix caused delay faults, and the next fix brought the dropped toss back."
    ]
