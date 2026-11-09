@@ -1,5 +1,5 @@
 {
- "_note": "The six entries of the first edition. Each entry is a whole agent system: model + harness. Colours (Chi 11-09): close to each official brand colour, adjusted for distinctness; the renderers dress each model in it. colour = both themes; outline_dark = a thin light outline on every mark in the dark theme (Kimi black on the dark ground, Chi 11-09); outline_light = a thin dark outline in the light theme (GLM yellow on white). harness / effort / entry: the official release run's entrant definitions (evalops-r1107/entries/<entrant>.json: harness.name, model.params.reasoning_effort, entry_id).",
+ "_note": "The six entries of the first edition. Each entry is a whole agent system: model + harness. Colours (Chi 11-09): close to each official brand colour, adjusted for distinctness; the renderers dress each model in it. colour = both themes; outline_dark = a thin light outline on every mark in the dark theme (Kimi black on the dark ground, Chi 11-09); colour_light = the light-theme variant where the colour is too pale on white (GLM yellow -> deeper yellow #D9B800, no outline; Chi 11-09). harness / effort / entry: the official release run's entrant definitions (evalops-r1107/entries/<entrant>.json: harness.name, model.params.reasoning_effort, entry_id).",
  "models": [
   {
    "name": "Claude Opus 5.5",
@@ -49,7 +49,7 @@
    "colour": "#F0E442",
    "effort": "high",
    "entry": "glm-flash-sh@v2",
-   "outline_light": true
+   "colour_light": "#D9B800"
   }
  ]
 }

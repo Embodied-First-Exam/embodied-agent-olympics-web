@@ -206,10 +206,11 @@ def page(site: Site, *, path: str, title: str | None, body: str, description: st
 
 def model_vars(site: Site) -> str:
     """--m-<model>: the model colour (same in both themes) and --m-<model>-ol: a thin outline on every mark where the colour
-    would vanish into the ground (dark theme: Kimi black -> light outline; light theme: GLM yellow -> dark outline).
+    would vanish into the ground (dark theme: Kimi black -> light outline); colour_light replaces a colour that is too pale on white (GLM).
     Dark overlays on footage (.sbo, .stagebg, .shero) use the dark set in both themes."""
     dark = ";".join(f'--m-{m["css_key"]}:{m["hex"]};--m-{m["css_key"]}-ol:{m.get("outline_dark") or "transparent"}' for m in site.models)
-    light = ";".join(f'--m-{m["css_key"]}-ol:' + ("rgba(15,20,26,.6)" if m.get("outline_light") else "transparent") for m in site.models)
+    light = ";".join((f'--m-{m["css_key"]}:{m["colour_light"]};' if m.get("colour_light") else "") + f'--m-{m["css_key"]}-ol:transparent'
+                     for m in site.models)
     return f':root{{{dark}}}:root[data-theme="light"]{{{light}}}:root[data-theme="light"] .sbo,:root[data-theme="light"] .stagebg,:root[data-theme="light"] .shero{{{dark}}}'
 
 
