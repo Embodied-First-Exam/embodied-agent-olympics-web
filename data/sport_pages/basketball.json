@@ -3,7 +3,7 @@
  "sport": "basketball",
  "key": "basketball_g1",
  "format": "team",
- "made": "2026-11-09T07:55Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -1676,7 +1676,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-basketball-g1-champ2",
-   "made": "2026-11-09 01:28 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -2376,6 +2376,16 @@
         "cp": "final:1",
         "x": 1.0,
         "mean": 0.3319
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.3713
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.3231
        }
       ],
       "DeepSeek V4.1 Flash": [
@@ -2388,12 +2398,39 @@
         "cp": "final:1",
         "x": 1.0,
         "mean": 0.1667
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.1364
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.2
        }
       ],
       "GLM 5.3 Flash": [
        {
         "cp": "kickoff:1",
         "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
         "mean": 0.0
        }
       ],
@@ -2407,10 +2444,37 @@
         "cp": "final:1",
         "x": 1.0,
         "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.25
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.6571
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.7014
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.7786
        }
       ]
      },
-     "ok": 14,
+     "ok": 38,
      "planned": 68,
      "shared_count": false
     },
@@ -2919,6 +2983,234 @@
     "walks": {
      "status": "na",
      "checkpoint": "final:2"
+    }
+   },
+   "Gemini 4 Argon": {
+    "takes_shots": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "shoots": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "walk_in": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "view_loose": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "loose_ball": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "push_up": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "clean": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "on_time": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "defends": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "takes_shots": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "shoots": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "walk_in": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "view_loose": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "loose_ball": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "push_up": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "clean": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "on_time": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "defends": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    }
+   },
+   "DeepSeek V4.1 Flash": {
+    "takes_shots": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "shoots": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "walk_in": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "view_loose": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "loose_ball": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "push_up": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "clean": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "on_time": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "defends": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "takes_shots": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "shoots": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "walk_in": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "view_loose": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "loose_ball": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "push_up": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "clean": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "on_time": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
+    },
+    "defends": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Not measured: our test hardware. This real-time sport needs the 96-core machine the official matches ran on; on our cluster CPUs every run broke the world-lag limit"
     }
    }
   },

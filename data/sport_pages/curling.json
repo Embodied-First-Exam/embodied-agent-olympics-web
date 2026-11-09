@@ -3,7 +3,7 @@
  "sport": "curling",
  "key": "curling_g1",
  "format": "duel",
- "made": "2026-11-09T07:55Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -1670,7 +1670,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-curling-g1-champ2",
-   "made": "2026-11-09 01:28 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1685,11 +1685,11 @@
    "ref": 0.5167,
    "count": {
     "planned": 168,
-    "ok": 140,
+    "ok": 145,
     "invalid": 0,
-    "never_acted": 28,
+    "never_acted": 0,
     "model_called": 0,
-    "pending": 0
+    "pending": 23
    },
    "lines": {
     "GPT-6 Astra": [
@@ -1914,6 +1914,24 @@
       "lo": 0.3333,
       "hi": 0.4182,
       "n": 2
+     }
+    ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.3054,
+      "lo": 0.1964,
+      "hi": 0.4143,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.75,
+      "lo": null,
+      "hi": null,
+      "n": 1
      }
     ],
     "Claude Opus 5.5": [
@@ -2277,6 +2295,18 @@
         "mean": 0.4848
        }
       ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.2714
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.75
+       }
+      ],
       "Claude Opus 5.5": [
        {
         "cp": "kickoff:1",
@@ -2320,7 +2350,7 @@
        }
       ]
      },
-     "ok": 140,
+     "ok": 145,
      "planned": 168,
      "shared_count": true
     },
@@ -2609,6 +2639,13 @@
         "mean": 0.2667
        }
       ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3393
+       }
+      ],
       "Claude Opus 5.5": [
        {
         "cp": "kickoff:1",
@@ -2652,7 +2689,7 @@
        }
       ]
      },
-     "ok": 140,
+     "ok": 145,
      "planned": 168,
      "shared_count": true
     }
@@ -2997,43 +3034,53 @@
    "GLM 5.3 Flash": {
     "draw": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "ice": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "takeout": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "around": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "choose": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "both_turns": {
      "status": "na",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "hammer": {
      "status": "na",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "legal": {
      "status": "na",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "reach_play": {
      "status": "na",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "spins": {
      "status": "na",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     }
    },
    "Gemini 4 Argon": {
@@ -3075,6 +3122,48 @@
     },
     "spins": {
      "status": "na",
+     "checkpoint": "final:7"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "around": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "both_turns": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "choose": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "draw": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "hammer": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "ice": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "legal": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "reach_play": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "spins": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "takeout": {
+     "status": "pass",
      "checkpoint": "final:7"
     }
    }

@@ -82,3 +82,42 @@ def arena_panel(site: Site, fallback_boards: str) -> str:
             f'</tr></thead><tbody>{rows}</tbody></table></div>')
     upd = f' <span class="oa-upd">{E(st["line"])}</span>' if st.get("line") else ""
     return f'<p class="rp-note">{E(ARENA_NOTE)}{upd}</p><div class="oagrid">{"".join(cards)}</div>'
+
+
+# ---------------------------------------------------------------- win rate (results.json win_rate, from medals_sync.py)
+
+
+def win_rate_block(site: Site) -> str:
+    """Win % per model over the Olympics Championship's head-to-head matches (duel + team duel); one value per model."""
+    from layout import model_logo  # noqa: PLC0415
+    w = site.results.get("win_rate")
+    if not w:
+        return '<p class="rp-note">Win rates at release.</p>'
+    by = {m["name"]: m for m in site.models}
+    rows = [r for r in (w["scopes"].get("championship") or []) if r["model"] in by]
+    body = "".join(
+        f'<tr><td class="mt-rank">{i + 1}</td><td><span class="mt-model"><i class="flag" style="--c:{E(by[r["model"]]["colour"])}"></i>'
+        f'{model_logo(site, by[r["model"]])}<span class="mt-who"><strong>{E(model_name(r["model"]))}</strong>'
+        f'<small>{E(by[r["model"]].get("harness", ""))} · {E(by[r["model"]].get("effort", ""))} effort</small></span></span></td>'
+        f'<td class="wr-pc"><span class="wr-cell"><span class="wr-bar"><i style="--c:{E(by[r["model"]]["colour"])};width:{r["pct"] or 0}%"></i></span>'
+        f'<b>{"–" if r["pct"] is None else str(round(r["pct"])) + "%"}</b></span></td></tr>'
+        for i, r in enumerate(rows))
+    table = (f'<table class="mt mt--home wr"><thead><tr><th>#</th><th>AI agent</th><th>Win %</th></tr></thead><tbody>{body}</tbody></table>')
+    lv, ff = (w.get("level_decided") or {}).get("championship", 0), [f for f in w.get("forfeits") or [] if f.get("scope") == "championship"]
+    names = {s["id"]: s["name"] for s in site.sports}
+    run = ", ".join(names.get(x, x) for x in w.get("running") or [])
+    not_counted = ", ".join(names.get(x, x) for x in w.get("not_counted") or [])
+    ex = "; ".join(f'{f["fixture"]} ({names.get(f["sport"], f["sport"])}, {f["absent"]} {"did not start" if f.get("kind") == "no-show" else "stopped mid-match"})' for f in ff)
+    det = (f'<details class="wr-ex"><summary>How it is counted</summary><p>Olympics Championship matches of the {len(w.get("sports") or [])} duel and '
+           f'team-duel sports (round robin and knockout), official result; win % = wins / matches played. {lv} matches ended level and were decided '
+           f'by coin toss, lot, shoot-out or the sport\'s tie-break: they count as the official winner\'s win. Left out for both sides ({len(ff)}): '
+           f'{E(ex)}. Not included: {E(not_counted)}.' + (f' Provisional while it runs: {E(run)}.' if run else "") + '</p></details>')
+    return (f'{table}<p class="rp-note wr-note">Championship head-to-head matches; solo and race sports not included; no-shows excluded.</p>{det}')
+
+
+def medal_switch(site: Site, medal_html: str) -> str:
+    """Medals | Win rate toggle around a medal table (home medal section, leaderboard Championship tab)."""
+    return (f'<div class="mw" data-mw><div class="mw-sw" role="group" aria-label="View">'
+            '<button type="button" class="mw-b is-on" data-mw-v="medals" aria-pressed="true">Medals</button>'
+            '<button type="button" class="mw-b" data-mw-v="win" aria-pressed="false">Win rate</button></div>'
+            f'<div data-mw-p="medals">{medal_html}</div><div data-mw-p="win" hidden>{win_rate_block(site)}</div></div>')

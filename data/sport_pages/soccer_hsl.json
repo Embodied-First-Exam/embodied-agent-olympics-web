@@ -3,7 +3,7 @@
  "sport": "soccer_hsl",
  "key": "soccer_hsl",
  "format": "team",
- "made": "2026-11-09T07:55Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -1696,7 +1696,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-soccer-hsl-champ2",
-   "made": "2026-11-09 01:28 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1711,11 +1711,11 @@
    "ref": 0.0833,
    "count": {
     "planned": 144,
-    "ok": 90,
+    "ok": 128,
     "invalid": 0,
     "never_acted": 4,
     "model_called": 0,
-    "pending": 50
+    "pending": 12
    },
    "lines": {
     "GPT-6 Astra": [
@@ -1746,7 +1746,23 @@
      {
       "cp": "final:5",
       "x": 5.0,
-      "mean": 0.3625,
+      "mean": 0.4813,
+      "lo": 0.3625,
+      "hi": 0.6,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.4375,
+      "lo": 0.375,
+      "hi": 0.5,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 1.0,
       "lo": null,
       "hi": null,
       "n": 1
@@ -1834,6 +1850,30 @@
       "lo": 0.0,
       "hi": 0.0,
       "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
      }
     ],
     "GLM 5.3 Flash": [
@@ -1873,17 +1913,17 @@
       "cp": "final:5",
       "x": 5.0,
       "mean": 0.0,
-      "lo": null,
-      "hi": null,
-      "n": 1
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
      },
      {
       "cp": "final:6",
       "x": 6.0,
       "mean": 0.0,
-      "lo": null,
-      "hi": null,
-      "n": 1
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
      },
      {
       "cp": "final:7",
@@ -1910,6 +1950,14 @@
       "lo": 0.0,
       "hi": 0.0,
       "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
      }
     ],
     "Claude Opus 5.5": [
@@ -1927,6 +1975,22 @@
       "mean": 0.5045,
       "lo": 0.4375,
       "hi": 0.5714,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.406,
+      "lo": 0.3833,
+      "hi": 0.4286,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.55,
+      "lo": 0.5,
+      "hi": 0.6,
       "n": 2
      }
     ]
@@ -2051,7 +2115,17 @@
        {
         "cp": "final:5",
         "x": 5.0,
-        "mean": 0.6
+        "mean": 0.8
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.875
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 1.0
        }
       ],
       "DeepSeek V4.1 Flash": [
@@ -2106,6 +2180,21 @@
         "cp": "final:3",
         "x": 3.0,
         "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0
        }
       ],
       "GLM 5.3 Flash": [
@@ -2155,6 +2244,11 @@
         "cp": "final:4",
         "x": 4.0,
         "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
        }
       ],
       "Claude Opus 5.5": [
@@ -2167,10 +2261,20 @@
         "cp": "final:3",
         "x": 3.0,
         "mean": 0.9375
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.7286
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 1.0
        }
       ]
      },
-     "ok": 90,
+     "ok": 128,
      "planned": 144,
      "shared_count": true
     },
@@ -2285,7 +2389,12 @@
        {
         "cp": "final:5",
         "x": 5.0,
-        "mean": 0.125
+        "mean": 0.1625
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0
        }
       ],
       "DeepSeek V4.1 Flash": [
@@ -2307,6 +2416,11 @@
        {
         "cp": "final:3",
         "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
         "mean": 0.0
        },
        {
@@ -2334,6 +2448,21 @@
        {
         "cp": "final:3",
         "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
         "mean": 0.0
        }
       ],
@@ -2384,6 +2513,11 @@
         "cp": "final:4",
         "x": 4.0,
         "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
        }
       ],
       "Claude Opus 5.5": [
@@ -2396,10 +2530,20 @@
         "cp": "final:3",
         "x": 3.0,
         "mean": 0.0714
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0833
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.1
        }
       ]
      },
-     "ok": 90,
+     "ok": 128,
      "planned": 144,
      "shared_count": true
     }
@@ -2961,6 +3105,58 @@
     "loop": {
      "status": "na",
      "checkpoint": "final:1"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "gets_up": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "no_sendoff": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "ball_view": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "reaches_ball": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "loop": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+    },
+    "passes": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
     }
    }
   },

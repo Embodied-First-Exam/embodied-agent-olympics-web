@@ -3,7 +3,7 @@
  "sport": "billiards",
  "key": "billiards_g1",
  "format": "duel",
- "made": "2026-11-09T07:57Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -1666,7 +1666,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-billiards-g1-champ2",
-   "made": "2026-11-09 01:28 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1681,27 +1681,27 @@
    "ref": 0.3828,
    "count": {
     "planned": 176,
-    "ok": 74,
-    "invalid": 34,
-    "never_acted": 21,
+    "ok": 87,
+    "invalid": 9,
+    "never_acted": 18,
     "model_called": 0,
-    "pending": 47
+    "pending": 62
    },
    "lines": {
     "GPT-6 Astra": [
      {
       "cp": "kickoff:1",
       "x": 0.5,
-      "mean": 0.5,
-      "lo": null,
-      "hi": null,
-      "n": 1
+      "mean": 0.5179,
+      "lo": 0.5,
+      "hi": 0.5714,
+      "n": 2
      },
      {
       "cp": "final:1",
       "x": 1.0,
       "mean": 0.5535,
-      "lo": 0.5,
+      "lo": 0.5357,
       "hi": 0.5714,
       "n": 2
      },
@@ -1748,17 +1748,17 @@
      {
       "cp": "final:7",
       "x": 7.0,
-      "mean": 0.6137,
-      "lo": null,
-      "hi": null,
-      "n": 1
+      "mean": 0.5747,
+      "lo": 0.5714,
+      "hi": 0.6137,
+      "n": 2
      }
     ],
     "DeepSeek V4.1 Flash": [
      {
       "cp": "final:1",
       "x": 1.0,
-      "mean": 0.1237,
+      "mean": 0.096,
       "lo": 0.0,
       "hi": 0.1919,
       "n": 2
@@ -1802,6 +1802,14 @@
       "lo": null,
       "hi": null,
       "n": 1
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.1111,
+      "lo": null,
+      "hi": null,
+      "n": 1
      }
     ],
     "Gemini 4 Argon": [
@@ -1825,6 +1833,14 @@
       "cp": "final:4",
       "x": 4.0,
       "mean": 0.25,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.2,
       "lo": null,
       "hi": null,
       "n": 1
@@ -1884,9 +1900,9 @@
      {
       "cp": "final:3",
       "x": 3.0,
-      "mean": 0.127,
-      "lo": 0.127,
-      "hi": 0.1429,
+      "mean": 0.0992,
+      "lo": 0.0714,
+      "hi": 0.127,
       "n": 2
      },
      {
@@ -1918,10 +1934,10 @@
      {
       "cp": "final:2",
       "x": 2.0,
-      "mean": 0.6857,
-      "lo": null,
-      "hi": null,
-      "n": 1
+      "mean": 0.6675,
+      "lo": 0.6675,
+      "hi": 0.7273,
+      "n": 2
      },
      {
       "cp": "final:3",
@@ -1944,6 +1960,14 @@
       "x": 5.0,
       "mean": 0.6675,
       "lo": 0.6675,
+      "hi": 0.7273,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.7247,
+      "lo": 0.6857,
       "hi": 0.7273,
       "n": 2
      }
@@ -1978,7 +2002,7 @@
        {
         "cp": "kickoff:1",
         "x": 0.5,
-        "mean": 0.5
+        "mean": 0.5357
        },
        {
         "cp": "final:1",
@@ -2013,7 +2037,7 @@
        {
         "cp": "final:7",
         "x": 7.0,
-        "mean": 0.7273
+        "mean": 0.6493
        }
       ],
       "DeepSeek V4.1 Flash": [
@@ -2046,6 +2070,11 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.1111
        }
       ],
       "Gemini 4 Argon": [
@@ -2063,6 +2092,11 @@
         "cp": "final:4",
         "x": 4.0,
         "mean": 0.25
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.2
        }
       ],
       "GLM 5.3 Flash": [
@@ -2123,7 +2157,7 @@
        {
         "cp": "final:2",
         "x": 2.0,
-        "mean": 0.8
+        "mean": 0.7636
        },
        {
         "cp": "final:3",
@@ -2139,10 +2173,15 @@
         "cp": "final:5",
         "x": 5.0,
         "mean": 0.7636
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.6493
        }
       ]
      },
-     "ok": 74,
+     "ok": 87,
      "planned": 176,
      "shared_count": true
     },
@@ -2153,6 +2192,11 @@
      "short": "L3 · strong",
      "lines": {
       "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
        {
         "cp": "final:1",
         "x": 1.0,
@@ -2183,7 +2227,7 @@
        {
         "cp": "final:1",
         "x": 1.0,
-        "mean": 0.1111
+        "mean": 0.0556
        },
        {
         "cp": "final:2",
@@ -2198,6 +2242,11 @@
        {
         "cp": "final:5",
         "x": 5.0,
+        "mean": 0.1111
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
         "mean": 0.1111
        }
       ],
@@ -2229,7 +2278,7 @@
        {
         "cp": "final:3",
         "x": 3.0,
-        "mean": 0.1111
+        "mean": 0.0556
        },
        {
         "cp": "final:5",
@@ -2267,10 +2316,15 @@
         "cp": "final:5",
         "x": 5.0,
         "mean": 0.5714
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.8
        }
       ]
      },
-     "ok": 74,
+     "ok": 87,
      "planned": 176,
      "shared_count": true
     }

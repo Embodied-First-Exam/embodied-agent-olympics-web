@@ -1,6 +1,7 @@
 """The sport page (SPORTPAGE, 11-08): four blocks, one screen each where possible.
 
-    01 Overview                    footage, name, one line; body, format, observation, action, control, GPU kit
+    01 Overview                    footage, name, one line; body, format, observation, action, control, GPU kit;
+                                   what the athlete sees and controls (robot camera + broadcast, one line each)
     02 Competition records         podium; Olympics Championship by stage and Open Arena, every match with its score,
                                    result and replay (replays sit in the records, there is no separate replay wall)
     03 Challenges & capabilities   why the sport is hard = what it tests: the sport card's skills grouped by the four
@@ -27,6 +28,9 @@ Top-level keys the template reads:
                     checkpoint: {kind, measure, ref, count, lines: {model: [{cp, x, mean, n}]}, verdict: {model: text},
                     capability: {n, names, ref, lines: {model: [{cp, x, n_pass}]}}}}
   notes             hand-written: {challenge, achieved: [{text, evidence: [...]}], built: {model: [lines]}}
+  interface         hand-written + rendered: {sees, controls, details: [lines], moment, camera {src, w, h, label}
+                    (or {text, label} for a sport without a camera), broadcast {src, w, h, label}}; images under
+                    assets/img/pov/; absent = the card is hidden
 Replays link only when site.json replay_base is set (a public host of the media repo); until then each match shows its
 replay type and length with "at release".
 """
@@ -181,7 +185,10 @@ def overview(site: Site, s: dict, d: dict) -> str:
     fmt = next((f for f in site.cfg["formats"] if f["id"] == d.get("format")), {})
     tick = story.tick_ms(s)
     hz = f"{1000 // int(tick.split()[0])} Hz · every {tick}" if tick else None
-    action = (s.get("control") or "").split(" every ")[0].split(";")[0]
+    # the command without its rate (the Control cell has it): cut at "every <n> ms" only, so "A target for every joint
+    # every 20 ms" keeps "every joint"; a placeholder (TODO) shows as "At release"
+    action = re.sub(r"\s+every \d[\d.]*\s*(?:ms|s)\b.*$", "", (s.get("control") or "").split(";")[0]).strip()
+    action = None if action.upper() in ("", "TODO") else action
     sees = re.sub(r"\s*\([^)]*\)", "", (s.get("sees") or "").split(";")[0])
     team = (s.get("team") or "").split(";")[0]
     if (d.get("championship") or {}).get("trial"):  # race with a time trial: the stages are the format
@@ -190,6 +197,9 @@ def overview(site: Site, s: dict, d: dict) -> str:
         team = "series of six-car races"
     elif d.get("format") == "solo":
         team = "three-match series"
+    band = s.get("band") or {}                 # hand-checked cells from the official task (data/sports.json `band`)
+    action = band.get("action") or action
+    hz = band.get("control") or hz
     facts = [("Body", short_body(s)), ("Format", f'{fmt.get("name", "")} · {team}' if team else fmt.get("name")),
              ("Observation", sees), ("Action", action), ("Control", hz), ("Training", GPU_KIT.get(s["id"]))]
     spec = "".join(f'<div><dt class="kicker">{k}</dt><dd>{E(v) if v else "At release"}</dd></div>' for k, v in facts)
@@ -210,7 +220,43 @@ def overview(site: Site, s: dict, d: dict) -> str:
     <p class="shero-pitch">{E(s['pitch'])}</p></div>
   {tag}
 </section>
-<section class="sp-specband"><div class="wrap"><dl class="spec sp-spec">{spec}</dl></div></section>"""
+<section class="sp-specband"><div class="wrap"><dl class="spec sp-spec">{spec}</dl></div></section>""" + athlete_view(site, d)
+
+
+def athlete_view(site: Site, d: dict) -> str:
+    """01b 'What the athlete sees and controls' (POVCARD, 11-09): the robot's own camera and the broadcast at the same
+    instant of a real match, one line each for what the program receives and what it commands, the full interface
+    folded. Data: d["interface"] (see the module docstring). Hidden when the sport has no interface yet."""
+    it = d.get("interface")
+    if not it:
+        return ""
+
+    def fig(x: dict, cls: str) -> str:
+        if not x:
+            return ""
+        if x.get("src"):
+            w, h = int(x.get("w") or 16), int(x.get("h") or 9)
+            body = (f'<span class="pov-img"><img src="{E(site.asset(x["src"]))}" width="{w}" height="{h}" '
+                    f'alt="{E(x.get("alt") or x.get("label") or "")}" loading="lazy"></span>')
+        else:                                   # a sport without a camera: the observation as text
+            w, h = 4, 3
+            body = f'<span class="pov-img pov-txt"><pre>{E(x.get("text") or "")}</pre></span>'
+        return (f'<figure class="pov-fig {cls}" style="--ar:{w / h:.4f}">{body}'
+                f'<figcaption>{E(x.get("label") or "")}</figcaption></figure>')
+
+    lines = "".join(f"<li>{E(t)}</li>" for t in it.get("details") or [])
+    more = (f'<details class="pov-more"><summary>Full interface <span class="arr">▾</span></summary>'
+            f'<ul>{lines}</ul></details>') if lines else ""
+    moment = f'<p class="pov-moment">{E(it["moment"])}</p>' if it.get("moment") else ""
+    return f"""
+<section class="sp-pov" aria-labelledby="pov-h"><div class="wrap">
+  <h2 class="pov-h" id="pov-h">What the athlete sees and controls</h2>
+  <div class="pov-shots">{fig(it.get("camera") or {}, "is-cam")}{fig(it.get("broadcast") or {}, "is-bc")}</div>
+  {moment}
+  <dl class="pov-lines"><div><dt>Sees</dt><dd>{E(it.get("sees") or "At release")}</dd></div>
+    <div><dt>Controls</dt><dd>{E(it.get("controls") or "At release")}</dd></div></dl>
+  {more}
+</div></section>"""
 
 
 def subnav(site: Site) -> str:
@@ -528,8 +574,8 @@ def capabilities(site: Site, s: dict, d: dict) -> str:
                 r = (res.get(m) or {}).get(sk["id"])
                 stt = r["status"] if r else "na"
                 sym, word = mark[stt]
-                cells.append(f'<span class="sk-c sk-c--{stt}" title="{E(model_name(_m(site, m)))}: {word}">{sym}</span>')
-                if r and stt != "na":
+                cells.append(f'<span class="sk-c sk-c--{stt}" title="{E(model_name(_m(site, m)))}: {word}{(" (" + E(r["reading"]) + ")") if r and stt == "na" and r.get("reading") else ""}">{sym}</span>')
+                if r and (stt != "na" or r.get("reading")):
                     reads.append(f'<li>{who(site, m)}<span class="sk-rd sk-rd--{stt}">{word}</span>'
                                  f'<span class="sk-at">{E(r.get("reading") or "")}{" · " if r.get("reading") else ""}{E(r["checkpoint"])}</span></li>')
             badge = '<em class="sk-v" title="Passes all three test checks">Validated test</em>' if sk.get("three_checks") else ""

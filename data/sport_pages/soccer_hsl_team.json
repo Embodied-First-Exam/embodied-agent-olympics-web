@@ -3,7 +3,7 @@
  "sport": "soccer_hsl_team",
  "key": "soccer_hsl_team",
  "format": "team",
- "made": "2026-11-09T07:55Z",
+ "made": "2026-11-09T09:20Z",
  "status": "in_progress",
  "provisional": true,
  "podium": {
@@ -409,10 +409,19 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 711.4,
+       "path": "matches/soccer_hsl_team/rel-soccer-hsl-team-champ/HSTC-F07/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "HSTC-F07",
+       "key": "soccer_hsl_team",
+       "highlight": false
+      },
       "status": "resolved"
      },
      {
@@ -447,10 +456,19 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": null,
+      "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1894.3,
+       "path": "matches/soccer_hsl_team/rel-soccer-hsl-team-champ/HSTC-F08/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "HSTC-F08",
+       "key": "soccer_hsl_team",
+       "highlight": false
+      },
       "status": "resolved"
      },
      {
@@ -485,10 +503,19 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1177.1,
+       "path": "matches/soccer_hsl_team/rel-soccer-hsl-team-champ/HSTC-F09/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "HSTC-F09",
+       "key": "soccer_hsl_team",
+       "highlight": false
+      },
       "status": "resolved"
      },
      {
@@ -775,38 +802,38 @@
      {
       "rank": 4,
       "model": "Kimi 3.1 Pro",
-      "played": 3,
+      "played": 4,
       "won": 1,
       "drawn": 0,
-      "lost": 2,
+      "lost": 3,
       "points": 3,
       "for": 0,
       "against": 15,
-      "note": "1-0-2, score 0:15"
+      "note": "1-0-3, score 0:15"
      },
      {
       "rank": 5,
       "model": "DeepSeek V4.1 Flash",
-      "played": 2,
-      "won": 0,
+      "played": 4,
+      "won": 1,
       "drawn": 0,
-      "lost": 2,
-      "points": 0,
+      "lost": 3,
+      "points": 3,
       "for": 0,
       "against": 19,
-      "note": "0-0-2, score 0:19"
+      "note": "1-0-3, score 0:19"
      },
      {
       "rank": 6,
       "model": "GLM 5.3 Flash",
-      "played": 4,
-      "won": 0,
+      "played": 5,
+      "won": 1,
       "drawn": 0,
       "lost": 4,
-      "points": 0,
+      "points": 3,
       "for": 0,
       "against": 23,
-      "note": "0-0-4, score 0:23"
+      "note": "1-0-4, score 0:23"
      }
     ],
     "matches": [
@@ -1167,10 +1194,18 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": null,
+      "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "HSTA-F11",
+       "key": "soccer_hsl_team",
+       "highlight": false
+      },
       "status": "resolved"
      },
      {
@@ -1222,7 +1257,7 @@
         "seat": "A",
         "entrant": "glm-flash-sh",
         "model": "GLM 5.3 Flash",
-        "score": null,
+        "score": 0,
         "seats": [
          "A1",
          "A2",
@@ -1233,7 +1268,7 @@
         "seat": "B",
         "entrant": "deepseek-flash-sh",
         "model": "DeepSeek V4.1 Flash",
-        "score": null,
+        "score": 0,
         "seats": [
          "B1",
          "B2",
@@ -1241,11 +1276,12 @@
         ]
        }
       ],
-      "winner": null,
+      "winner": "GLM 5.3 Flash",
       "decided_by": null,
-      "note": "Pending",
+      "note": null,
+      "shootout": null,
       "replay": null,
-      "status": "pending"
+      "status": "resolved"
      },
      {
       "id": "HSTA-F14",
@@ -1308,7 +1344,7 @@
         "seat": "A",
         "entrant": "deepseek-flash-sh",
         "model": "DeepSeek V4.1 Flash",
-        "score": null,
+        "score": 0,
         "seats": [
          "A1",
          "A2",
@@ -1319,7 +1355,7 @@
         "seat": "B",
         "entrant": "kimi",
         "model": "Kimi 3.1 Pro",
-        "score": null,
+        "score": 0,
         "seats": [
          "B1",
          "B2",
@@ -1327,11 +1363,23 @@
         ]
        }
       ],
-      "winner": null,
-      "decided_by": null,
-      "note": "Pending",
-      "replay": null,
-      "status": "pending"
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "shootout",
+      "note": "Level; penalty shoot-out 1:0",
+      "shootout": {
+       "DeepSeek V4.1 Flash": 1,
+       "Kimi 3.1 Pro": 0
+      },
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release",
+       "fixture": "HSTA-F15",
+       "key": "soccer_hsl_team",
+       "highlight": false
+      },
+      "status": "resolved"
      },
      {
       "id": "HSTQ-F03",
@@ -1466,8 +1514,8 @@
     "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
    }
   ],
-  "played": 10,
-  "pending": 5,
+  "played": 12,
+  "pending": 3,
   "knockout_planned": false,
   "ranking": [
    {
@@ -1488,24 +1536,24 @@
    {
     "rank": 4,
     "model": "Kimi 3.1 Pro",
-    "note": "1-0-2, score 0:15"
+    "note": "1-0-3, score 0:15"
    },
    {
     "rank": 5,
     "model": "DeepSeek V4.1 Flash",
-    "note": "0-0-2, score 0:19"
+    "note": "1-0-3, score 0:19"
    },
    {
     "rank": 6,
     "model": "GLM 5.3 Flash",
-    "note": "0-0-4, score 0:23"
+    "note": "1-0-4, score 0:23"
    }
   ],
   "notes": [],
-  "as_of": "2026-11-09T06:48:14Z",
+  "as_of": "2026-11-09T09:03:12Z",
   "board": "rel-soccer-hsl-team-arena",
   "complete": false,
-  "status_line": "9 of 15 matches played"
+  "status_line": "11 of 15 matches played"
  },
  "agents": {
   "per_model": {
@@ -1615,7 +1663,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-soccer-hsl-team-champ",
-   "made": "2026-11-09 01:28 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1625,12 +1673,12 @@
    ],
    "ref": 0.1667,
    "count": {
-    "planned": 28,
+    "planned": 36,
     "ok": 20,
     "invalid": 0,
     "never_acted": 0,
     "model_called": 0,
-    "pending": 8
+    "pending": 16
    },
    "lines": {
     "Kimi 3.1 Pro": [
@@ -1831,7 +1879,7 @@
       ]
      },
      "ok": 20,
-     "planned": 28,
+     "planned": 36,
      "shared_count": false
     },
     {
@@ -1904,7 +1952,7 @@
       ]
      },
      "ok": 17,
-     "planned": 28,
+     "planned": 36,
      "shared_count": false
     }
    ],

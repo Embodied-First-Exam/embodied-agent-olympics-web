@@ -295,3 +295,17 @@
     if (m) load(m[1], false);
   }
 })();
+
+/* medal table: Medals | Win rate, and the win-rate scope (Both | Championship only | Open Arena only) */
+(() => {
+  document.querySelectorAll("[data-mw]").forEach((mw) => {
+    mw.querySelectorAll("[data-mw-v]").forEach((b) => b.addEventListener("click", () => {
+      mw.querySelectorAll("[data-mw-v]").forEach((x) => { x.classList.toggle("is-on", x === b); x.setAttribute("aria-pressed", x === b); });
+      mw.querySelectorAll("[data-mw-p]").forEach((p) => { p.hidden = p.dataset.mwP !== b.dataset.mwV; });
+    }));
+    mw.querySelectorAll("[data-wr]").forEach((b) => b.addEventListener("click", () => {
+      mw.querySelectorAll("[data-wr]").forEach((x) => { x.classList.toggle("is-on", x === b); x.setAttribute("aria-pressed", x === b); });
+      mw.querySelectorAll("[data-wr-p]").forEach((p) => { p.hidden = p.dataset.wrP !== b.dataset.wr; });
+    }));
+  });
+})();

@@ -60,7 +60,12 @@
     "status": "on main",
     "pr": null
    },
-   "footage": "Video available"
+   "footage": "Video available",
+   "band": {
+    "action": "Joint targets: 23 joints × 3 robots",
+    "control": "Real time · every 20 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "soccer_hsl_team",
@@ -102,7 +107,12 @@
     "status": "in review, PR #67",
     "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/67"
    },
-   "footage": "Still only (No match video of the team format yet)"
+   "footage": "Still only (No match video of the team format yet)",
+   "band": {
+    "action": "Joint targets for its own robot (23) + team messages",
+    "control": "Real time · every 20 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "soccer_ssl",
@@ -160,7 +170,12 @@
     "status": "on main",
     "pr": null
    },
-   "footage": "Video available"
+   "footage": "Video available",
+   "band": {
+    "action": "Velocity, kick and dribbler for each of 11 robots",
+    "control": "Real time · every 10 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "basketball",
@@ -217,7 +232,12 @@
     "status": "in review, PR #22",
     "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/22"
    },
-   "footage": "Video available"
+   "footage": "Video available",
+   "band": {
+    "action": "Joint targets: 29 joints × 3 robots, hands open / close",
+    "control": "Real time · every 20 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "beachvolleyball",
@@ -277,7 +297,12 @@
     "status": "in review, PR #27",
     "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/27"
    },
-   "footage": "Video available"
+   "footage": "Video available",
+   "band": {
+    "action": "Joint targets: 29 joints × 2 robots",
+    "control": "Real time · every 10 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "amfootball",
@@ -321,7 +346,12 @@
     "status": "in review, PR #68",
     "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/68"
    },
-   "footage": "Still only (No match video yet; one promo still only)"
+   "footage": "Still only (No match video yet; one promo still only)",
+   "band": {
+    "action": "Joint targets: 23 joints × 8 robots, grip and play actions",
+    "control": "Real time · every 20 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "baseball",
@@ -381,7 +411,12 @@
     "status": "in review, PR #27",
     "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/27"
    },
-   "footage": "Video available"
+   "footage": "Video available",
+   "band": {
+    "action": "Joint targets: 29 joints per robot, ball release, bat drop",
+    "control": "Real time · every 20 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "badminton",
@@ -440,7 +475,12 @@
     "status": "on main",
     "pr": null
    },
-   "footage": "Video available"
+   "footage": "Video available",
+   "band": {
+    "action": "Joint targets: 29 joints, shuttle toss to serve",
+    "control": "Real time · every 10 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "tennis",
@@ -482,7 +522,12 @@
     "status": "in review, PR #23",
     "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/23"
    },
-   "footage": "Still only (No G1 tennis video yet (existing render shows an earlier body))"
+   "footage": "Still only (No G1 tennis video yet (existing render shows an earlier body))",
+   "band": {
+    "action": "Joint targets: 29 joints, ball drop to serve",
+    "control": "Real time · every 10 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "tabletennis",
@@ -541,7 +586,12 @@
     "status": "in review, PR #33",
     "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/33"
    },
-   "footage": "Video available"
+   "footage": "Video available",
+   "band": {
+    "action": "Joint targets: 29 joints, ball toss to serve",
+    "control": "Real time · every 10 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "curling",
@@ -600,7 +650,12 @@
     "status": "in review, PR #27",
     "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/27"
    },
-   "footage": "Video available"
+   "footage": "Video available",
+   "band": {
+    "action": "One delivery: push-off, aim, release, arm targets",
+    "control": "Turn-based · one delivery per turn",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "billiards",
@@ -658,7 +713,12 @@
     "status": "in review, PR #27",
     "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/27"
    },
-   "footage": "Video available"
+   "footage": "Video available",
+   "band": {
+    "action": "One stroke: stance, bridge and a joint plan",
+    "control": "Turn-based · one stroke per shot",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "sprint",
@@ -697,7 +757,12 @@
     "status": "in review, PR #34",
     "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/34"
    },
-   "footage": "Still only (No G1 sprint video yet)"
+   "footage": "Still only (No G1 sprint video yet)",
+   "band": {
+    "action": "Joint targets: 29 joints",
+    "control": "Real time · every 10 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "hurdles",
@@ -736,7 +801,12 @@
     "status": "in review, PR #34",
     "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/34"
    },
-   "footage": "Still only (No G1 hurdles video yet (existing render shows an earlier body))"
+   "footage": "Still only (No G1 hurdles video yet (existing render shows an earlier body))",
+   "band": {
+    "action": "Joint targets: 29 joints",
+    "control": "Real time · every 10 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "javelin",
@@ -792,7 +862,12 @@
     "status": "in review, PR #27",
     "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/27"
    },
-   "footage": "Video available"
+   "footage": "Video available",
+   "band": {
+    "action": "Start position, joint targets (29) and the release",
+    "control": "Real time · every 10 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "racing",
@@ -852,7 +927,12 @@
     "status": "in review, PR #32",
     "pr": "https://github.com/CHIGUI0/embodied-olympics-site/pull/32"
    },
-   "footage": "Video available"
+   "footage": "Video available",
+   "band": {
+    "action": "Throttle, brake, steering and gear",
+    "control": "Real time · every 10 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "drone",
@@ -910,7 +990,12 @@
     "status": "on main",
     "pr": null
    },
-   "footage": "Video available"
+   "footage": "Video available",
+   "band": {
+    "action": "Throttle and body rates (acro)",
+    "control": "Real time · every 10 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   },
   {
    "id": "stuntcar",
@@ -984,7 +1069,12 @@
     "status": "on main",
     "pr": null
    },
-   "footage": "Video available"
+   "footage": "Video available",
+   "band": {
+    "action": "10 air-jet valves, wheel motors, brakes, steering",
+    "control": "Real time · every 10 ms",
+    "_source": "official rc4 instruction.md of the medal board's task (§4 Robot and control, Control timing)"
+   }
   }
  ]
 }

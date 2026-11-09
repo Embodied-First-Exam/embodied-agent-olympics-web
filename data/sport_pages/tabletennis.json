@@ -3,7 +3,7 @@
  "sport": "tabletennis",
  "key": "tabletennis_g1",
  "format": "duel",
- "made": "2026-11-09T07:55Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -1081,7 +1081,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "TTNA-F03",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1117,7 +1117,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "TTNA-F04",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1297,7 +1297,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "TTNA-F09",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1369,7 +1369,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "TTNA-F11",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1670,7 +1670,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-tabletennis-g1-champ2",
-   "made": "2026-11-09 01:28 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1685,11 +1685,11 @@
    "ref": 0.359,
    "count": {
     "planned": 164,
-    "ok": 142,
+    "ok": 164,
     "invalid": 0,
     "never_acted": 0,
     "model_called": 0,
-    "pending": 22
+    "pending": 0
    },
    "lines": {
     "Gemini 4 Argon": [
@@ -1748,6 +1748,14 @@
       "lo": 0.3854,
       "hi": 0.4015,
       "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.3761,
+      "lo": 0.3507,
+      "hi": 0.4015,
+      "n": 2
      }
     ],
     "GLM 5.3 Flash": [
@@ -1786,9 +1794,9 @@
      {
       "cp": "final:4",
       "x": 4.0,
-      "mean": 0.0208,
+      "mean": 0.0593,
       "lo": 0.0,
-      "hi": 0.0833,
+      "hi": 0.1186,
       "n": 2
      },
      {
@@ -1836,9 +1844,9 @@
      {
       "cp": "final:4",
       "x": 4.0,
-      "mean": 0.4015,
-      "lo": 0.3529,
-      "hi": 0.45,
+      "mean": 0.4113,
+      "lo": 0.387,
+      "hi": 0.4355,
       "n": 2
      },
      {
@@ -1898,6 +1906,14 @@
       "lo": 0.3825,
       "hi": 0.4149,
       "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.3333,
+      "lo": 0.3321,
+      "hi": 0.3344,
+      "n": 2
      }
     ],
     "GPT-6 Astra": [
@@ -1948,6 +1964,14 @@
       "lo": 0.4583,
       "hi": 0.518,
       "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.5144,
+      "lo": 0.4798,
+      "hi": 0.5491,
+      "n": 2
      }
     ],
     "DeepSeek V4.1 Flash": [
@@ -1970,10 +1994,10 @@
      {
       "cp": "final:3",
       "x": 3.0,
-      "mean": 0.4211,
-      "lo": null,
-      "hi": null,
-      "n": 1
+      "mean": 0.2562,
+      "lo": 0.2105,
+      "hi": 0.3019,
+      "n": 2
      },
      {
       "cp": "final:4",
@@ -1998,6 +2022,14 @@
       "lo": 0.225,
       "hi": 0.225,
       "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.2882,
+      "lo": 0.2708,
+      "hi": 0.3056,
+      "n": 2
      }
     ]
    },
@@ -2018,6 +2050,11 @@
      "lines": {
       "GPT-6 Astra": [
        {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.3327
+       },
+       {
         "cp": "final:1",
         "x": 1.0,
         "mean": 0.3507
@@ -2031,6 +2068,16 @@
         "cp": "final:5",
         "x": 5.0,
         "mean": 0.6673
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.4389
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.5985
        }
       ],
       "DeepSeek V4.1 Flash": [
@@ -2042,7 +2089,7 @@
        {
         "cp": "final:1",
         "x": 1.0,
-        "mean": 0.0833
+        "mean": 0.0417
        },
        {
         "cp": "final:3",
@@ -2175,7 +2222,7 @@
        {
         "cp": "final:5",
         "x": 5.0,
-        "mean": 0.1538
+        "mean": 0.2103
        },
        {
         "cp": "final:6",
@@ -2184,7 +2231,7 @@
        }
       ]
      },
-     "ok": 60,
+     "ok": 68,
      "planned": 74,
      "shared_count": false
     },
@@ -2229,6 +2276,11 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.4542
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.3327
        }
       ],
       "GLM 5.3 Flash": [
@@ -2285,6 +2337,11 @@
         "mean": 0.3439
        },
        {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.4211
+       },
+       {
         "cp": "final:5",
         "x": 5.0,
         "mean": 0.3668
@@ -2320,6 +2377,11 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.2332
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.2143
        }
       ],
       "GPT-6 Astra": [
@@ -2352,6 +2414,11 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.1944
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.3125
        }
       ],
       "DeepSeek V4.1 Flash": [
@@ -2364,6 +2431,11 @@
         "cp": "final:1",
         "x": 1.0,
         "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0769
        },
        {
         "cp": "final:4",
@@ -2379,10 +2451,15 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0417
        }
       ]
      },
-     "ok": 142,
+     "ok": 164,
      "planned": 164,
      "shared_count": true
     },
@@ -2610,6 +2687,11 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.3327
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.4194
        }
       ],
       "GLM 5.3 Flash": [
@@ -2636,7 +2718,7 @@
        {
         "cp": "final:4",
         "x": 4.0,
-        "mean": 0.0
+        "mean": 0.0769
        },
        {
         "cp": "final:5",
@@ -2706,6 +2788,11 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.5642
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.4523
        }
       ],
       "GPT-6 Astra": [
@@ -2738,6 +2825,11 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.7819
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.7164
        }
       ],
       "DeepSeek V4.1 Flash": [
@@ -2754,7 +2846,7 @@
        {
         "cp": "final:3",
         "x": 3.0,
-        "mean": 0.4211
+        "mean": 0.4355
        },
        {
         "cp": "final:4",
@@ -2770,10 +2862,15 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.45
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.5347
        }
       ]
      },
-     "ok": 142,
+     "ok": 164,
      "planned": 164,
      "shared_count": true
     }

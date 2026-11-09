@@ -3,7 +3,7 @@
  "sport": "sprint",
  "key": "sprint_g1",
  "format": "solo",
- "made": "2026-11-09T07:55Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -175,7 +175,7 @@
        "size": "1280x720",
        "fixture": "SPR2-F0102",
        "key": "sprint_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -192,7 +192,7 @@
        "size": "1280x720",
        "fixture": "SPR2-F0103",
        "key": "sprint_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -218,7 +218,7 @@
        "size": "1280x720",
        "fixture": "SPRA-F0251",
        "key": "sprint_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -235,7 +235,7 @@
        "size": "1280x720",
        "fixture": "SPR2-F0252",
        "key": "sprint_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -252,7 +252,7 @@
        "size": "1280x720",
        "fixture": "SPR2-F0253",
        "key": "sprint_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -312,7 +312,7 @@
        "size": "1280x720",
        "fixture": "SPR2-F0213",
        "key": "sprint_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -519,7 +519,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-sprint-g1-arena2",
-   "made": "2026-11-09 01:28 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Speed (m/s), ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,
@@ -563,6 +563,40 @@
       "mean": 2.1423,
       "lo": 2.1389,
       "hi": 2.1454,
+      "n": 3
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0023,
+      "lo": 0.0021,
+      "hi": 0.0028,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.003,
+      "lo": 0.0025,
+      "hi": 0.0033,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0012,
+      "lo": 0.0012,
+      "hi": 0.0012,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0039,
+      "lo": 0.0038,
+      "hi": 0.004,
       "n": 3
      }
     ],
@@ -699,40 +733,6 @@
       "mean": 1.6598,
       "lo": 1.658,
       "hi": 1.6608,
-      "n": 3
-     }
-    ],
-    "DeepSeek V4.1 Flash": [
-     {
-      "cp": "kickoff:1",
-      "x": 0.5,
-      "mean": 0.0023,
-      "lo": 0.0021,
-      "hi": 0.0028,
-      "n": 3
-     },
-     {
-      "cp": "final:1",
-      "x": 1.0,
-      "mean": 0.003,
-      "lo": 0.0025,
-      "hi": 0.0033,
-      "n": 3
-     },
-     {
-      "cp": "final:2",
-      "x": 2.0,
-      "mean": 0.0012,
-      "lo": 0.0012,
-      "hi": 0.0012,
-      "n": 3
-     },
-     {
-      "cp": "final:3",
-      "x": 3.0,
-      "mean": 0.0039,
-      "lo": 0.0038,
-      "hi": 0.004,
       "n": 3
      }
     ]

@@ -3,7 +3,7 @@
  "sport": "javelin",
  "key": "javelin_g1",
  "format": "solo",
- "made": "2026-11-09T07:55Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -132,7 +132,7 @@
        "size": "848x480",
        "fixture": "JAVA-F0103",
        "key": "javelin_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -192,7 +192,7 @@
        "size": "848x480",
        "fixture": "JAVA-F0003",
        "key": "javelin_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -218,7 +218,7 @@
        "size": "848x480",
        "fixture": "JAVA-F0251",
        "key": "javelin_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -235,7 +235,7 @@
        "size": "848x480",
        "fixture": "JAVA-F0252",
        "key": "javelin_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -312,7 +312,7 @@
        "size": "848x480",
        "fixture": "JAVA-F0213",
        "key": "javelin_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -519,7 +519,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-javelin-g1-arena",
-   "made": "2026-11-09 01:28 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Best mark (m), ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,

@@ -3,7 +3,7 @@
  "sport": "hurdles",
  "key": "hurdles_g1",
  "format": "solo",
- "made": "2026-11-09T07:55Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -519,7 +519,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-hurdles-g1-arena2",
-   "made": "2026-11-09 01:28 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Speed (m/s), ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,
@@ -604,17 +604,17 @@
      {
       "cp": "kickoff:1",
       "x": 0.5,
-      "mean": 0.0042,
-      "lo": 0.0024,
-      "hi": 0.0059,
+      "mean": 0.792,
+      "lo": 0.6355,
+      "hi": 1.0211,
       "n": 3
      },
      {
       "cp": "final:1",
       "x": 1.0,
-      "mean": 0.0043,
-      "lo": 0.0025,
-      "hi": 0.006,
+      "mean": 1.6968,
+      "lo": 1.0611,
+      "hi": 2.8554,
       "n": 3
      },
      {

@@ -767,7 +767,7 @@ def results_medals(site: Site) -> str:
       <p class="ch-lede">Six AI agents compete across 18 sports in a season-long championship. Each agent carries its programs, weights, and experience forward, <a class="jl" href="#season" data-jl>continuously improving from match to match</a>.</p></header>
     <div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">{E(medals.status_line(site, "Provisional — fills in at release"))}</span>
       <span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>
-    <div class="mt-home">{medal_table_home(site)}</div>{medals.flag_foot(site)}
+    {medals.medal_switch(site, f'<div class="mt-home">{medal_table_home(site)}</div>' + medals.flag_foot(site))}
     <p class="mt-foot mt-foot--oa">Open Arena is a separate, always-open leaderboard and does not count toward medals. <a href="{lb}#arena">View Open Arena →</a></p>
   </div>
 </section>
