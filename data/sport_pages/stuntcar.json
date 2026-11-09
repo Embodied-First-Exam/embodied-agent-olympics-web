@@ -3,7 +3,7 @@
  "sport": "stuntcar",
  "key": "stuntcar",
  "format": "solo",
- "made": "2026-11-09T04:28Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -98,7 +98,7 @@
        "size": "1280x720",
        "fixture": "STUA-F0001",
        "key": "stuntcar",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -115,7 +115,7 @@
        "size": "1280x720",
        "fixture": "STU2-F0002",
        "key": "stuntcar",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -192,7 +192,7 @@
        "size": "1280x720",
        "fixture": "STU2-F0103",
        "key": "stuntcar",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -235,7 +235,7 @@
        "size": "1280x720",
        "fixture": "STU2-F0252",
        "key": "stuntcar",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -252,7 +252,7 @@
        "size": "1280x720",
        "fixture": "STU2-F0253",
        "key": "stuntcar",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -355,7 +355,7 @@
        "size": "1280x720",
        "fixture": "STU2-F0152",
        "key": "stuntcar",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -519,15 +519,15 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-stuntcar-arena2",
-   "made": "2026-11-08 22:22 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Event points, ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,
    "count": {
     "planned": 72,
-    "ok": 69,
+    "ok": 72,
     "invalid": 0,
-    "never_acted": 3,
+    "never_acted": 0,
     "model_called": 0,
     "pending": 0
    },
@@ -563,6 +563,74 @@
       "mean": 4.4387,
       "lo": 4.334,
       "hi": 4.4956,
+      "n": 3
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.2889,
+      "lo": 0.2015,
+      "hi": 0.3775,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.7182,
+      "lo": 0.6285,
+      "hi": 0.7992,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.3251,
+      "lo": 0.3075,
+      "hi": 0.3428,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.4824,
+      "lo": 0.3074,
+      "hi": 0.7969,
+      "n": 3
+     }
+    ],
+    "Gemini 4 Argon": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.7586,
+      "lo": 0.3422,
+      "hi": 1.1971,
+      "n": 3
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 1.0715,
+      "lo": 0.9547,
+      "hi": 1.2445,
+      "n": 3
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 1.0714,
+      "lo": 0.9547,
+      "hi": 1.2441,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 5.1843,
+      "lo": 4.2457,
+      "hi": 5.6875,
       "n": 3
      }
     ],
@@ -667,66 +735,6 @@
       "hi": 4.717,
       "n": 3
      }
-    ],
-    "DeepSeek V4.1 Flash": [
-     {
-      "cp": "final:1",
-      "x": 1.0,
-      "mean": 0.7182,
-      "lo": 0.6285,
-      "hi": 0.7992,
-      "n": 3
-     },
-     {
-      "cp": "final:2",
-      "x": 2.0,
-      "mean": 0.3251,
-      "lo": 0.3075,
-      "hi": 0.3428,
-      "n": 3
-     },
-     {
-      "cp": "final:3",
-      "x": 3.0,
-      "mean": 0.4824,
-      "lo": 0.3074,
-      "hi": 0.7969,
-      "n": 3
-     }
-    ],
-    "Gemini 4 Argon": [
-     {
-      "cp": "kickoff:1",
-      "x": 0.5,
-      "mean": 0.7586,
-      "lo": 0.3422,
-      "hi": 1.1971,
-      "n": 3
-     },
-     {
-      "cp": "final:1",
-      "x": 1.0,
-      "mean": 1.0715,
-      "lo": 0.9547,
-      "hi": 1.2445,
-      "n": 3
-     },
-     {
-      "cp": "final:2",
-      "x": 2.0,
-      "mean": 1.0714,
-      "lo": 0.9547,
-      "hi": 1.2441,
-      "n": 3
-     },
-     {
-      "cp": "final:3",
-      "x": 3.0,
-      "mean": 5.1843,
-      "lo": 4.2457,
-      "hi": 5.6875,
-      "n": 3
-     }
     ]
    },
    "verdict": {
@@ -737,6 +745,8 @@
     "GLM 5.3 Flash": "improve",
     "DeepSeek V4.1 Flash": "one point only"
    },
+   "tiers": [],
+   "tier_note": null,
    "capability": {
     "n": 3,
     "names": [
@@ -752,6 +762,12 @@
        "x": 2.0,
        "n_pass": 3,
        "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 3,
+       "valid": 3
       }
      ],
      "DeepSeek V4.1 Flash": [
@@ -765,29 +781,87 @@
        "cp": "final:2",
        "x": 2.0,
        "n_pass": 0,
-       "valid": 2
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 3
+      }
+     ],
+     "Gemini 4 Argon": [
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 1,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 2,
+       "valid": 3
+      }
+     ],
+     "GLM 5.3 Flash": [
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 3
       }
      ],
      "Kimi 3.1 Pro": [
       {
        "cp": "kickoff:1",
        "x": 0.5,
-       "n_pass": 0,
-       "valid": 12
+       "n_pass": 1,
+       "valid": 15
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 3,
+       "valid": 3
       }
      ],
      "Claude Opus 5.5": [
       {
        "cp": "kickoff:1",
        "x": 0.5,
-       "n_pass": 0,
-       "valid": 4
+       "n_pass": 1,
+       "valid": 7
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 1,
        "valid": 9
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 2,
+       "valid": 3
       }
      ]
     },

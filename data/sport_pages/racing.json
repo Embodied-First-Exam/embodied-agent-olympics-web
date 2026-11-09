@@ -3,7 +3,7 @@
  "sport": "racing",
  "key": "racing_full",
  "format": "race",
- "made": "2026-11-09T04:28Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -47,7 +47,7 @@
      "size": "1280x720",
      "fixture": "RAC6-F01",
      "key": "racing_full",
-     "highlight": false
+     "highlight": true
     }
    },
    {
@@ -80,7 +80,7 @@
      "size": "1280x720",
      "fixture": "RAC6-F02",
      "key": "racing_full",
-     "highlight": false
+     "highlight": true
     }
    },
    {
@@ -113,7 +113,7 @@
      "size": "1280x720",
      "fixture": "RA6B-F03",
      "key": "racing_full",
-     "highlight": false
+     "highlight": true
     }
    }
   ],
@@ -189,13 +189,13 @@
  "agents": {
   "per_model": {
    "Claude Opus 5.5": {
-    "championship_place": "6 (provisional: places 3:1 6:1)",
+    "championship_place": "4 (provisional: places 3:2 6:1)",
     "open_arena": "n/a",
-    "matches": 2,
-    "versions": 2,
+    "matches": 3,
+    "versions": 3,
     "switches": 0,
-    "model_calls": 296,
-    "output_tokens": 178842,
+    "model_calls": 366,
+    "output_tokens": 212763,
     "reviews": "0/0",
     "gpu": null,
     "seat_matches": 3,
@@ -206,13 +206,13 @@
     "median_prep_min": 57
    },
    "GPT-6 Astra": {
-    "championship_place": "1 (provisional: places 1:2)",
+    "championship_place": "1 (provisional: places 1:2 6:1)",
     "open_arena": "n/a",
-    "matches": 2,
-    "versions": 3,
+    "matches": 3,
+    "versions": 4,
     "switches": 1,
-    "model_calls": 245,
-    "output_tokens": 120998,
+    "model_calls": 354,
+    "output_tokens": 162584,
     "reviews": "0/0",
     "gpu": null,
     "seat_matches": 3,
@@ -223,13 +223,13 @@
     "median_prep_min": 57
    },
    "Gemini 4 Argon": {
-    "championship_place": "2 (provisional: places 2:2)",
+    "championship_place": "2 (provisional: places 2:3)",
     "open_arena": "n/a",
-    "matches": 2,
-    "versions": 2,
+    "matches": 3,
+    "versions": 3,
     "switches": 0,
-    "model_calls": 381,
-    "output_tokens": 390043,
+    "model_calls": 618,
+    "output_tokens": 559465,
     "reviews": "0/0",
     "gpu": null,
     "seat_matches": 3,
@@ -240,13 +240,13 @@
     "median_prep_min": 57
    },
    "Kimi 3.1 Pro": {
-    "championship_place": "4 (provisional: places 4:1 6:1)",
+    "championship_place": "6 (provisional: places 4:1 5:1 6:1)",
     "open_arena": "n/a",
-    "matches": 2,
-    "versions": 2,
+    "matches": 3,
+    "versions": 3,
     "switches": 0,
-    "model_calls": 337,
-    "output_tokens": 180470,
+    "model_calls": 551,
+    "output_tokens": 282264,
     "reviews": "0/0",
     "gpu": null,
     "seat_matches": 3,
@@ -257,13 +257,13 @@
     "median_prep_min": 57
    },
    "DeepSeek V4.1 Flash": {
-    "championship_place": "3 (provisional: places 3:1 5:1)",
+    "championship_place": "5 (provisional: places 3:1 4:1 5:1)",
     "open_arena": "n/a",
-    "matches": 2,
-    "versions": 2,
+    "matches": 3,
+    "versions": 3,
     "switches": 0,
-    "model_calls": 309,
-    "output_tokens": 274361,
+    "model_calls": 406,
+    "output_tokens": 343561,
     "reviews": "0/0",
     "gpu": null,
     "seat_matches": 3,
@@ -274,13 +274,13 @@
     "median_prep_min": 57
    },
    "GLM 5.3 Flash": {
-    "championship_place": "5 (provisional: places 4:1 5:1)",
+    "championship_place": "3 (provisional: places 1:1 4:1 5:1)",
     "open_arena": "n/a",
-    "matches": 2,
-    "versions": 7,
+    "matches": 3,
+    "versions": 8,
     "switches": 5,
-    "model_calls": 246,
-    "output_tokens": 154157,
+    "model_calls": 307,
+    "output_tokens": 177814,
     "reviews": "0/0",
     "gpu": null,
     "seat_matches": 3,
@@ -294,17 +294,17 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-racing-full-champ-rc6",
-   "made": "2026-11-08 22:22 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Pace score, ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,
    "count": {
-    "planned": 90,
+    "planned": 72,
     "ok": 72,
     "invalid": 0,
-    "never_acted": 1,
+    "never_acted": 0,
     "model_called": 0,
-    "pending": 17
+    "pending": 0
    },
    "lines": {
     "GPT-6 Astra": [
@@ -465,13 +465,15 @@
     ]
    },
    "verdict": {
-    "GPT-6 Astra": null,
-    "Claude Opus 5.5": null,
-    "Gemini 4 Argon": null,
-    "Kimi 3.1 Pro": null,
-    "GLM 5.3 Flash": null,
-    "DeepSeek V4.1 Flash": null
+    "GPT-6 Astra": "flat",
+    "Claude Opus 5.5": "improve",
+    "Gemini 4 Argon": "flat",
+    "Kimi 3.1 Pro": "regress",
+    "GLM 5.3 Flash": "flat",
+    "DeepSeek V4.1 Flash": "improve"
    },
+   "tiers": [],
+   "tier_note": null,
    "capability": {
     "n": 3,
     "names": [

@@ -3,7 +3,7 @@
  "sport": "soccer_ssl",
  "key": "soccer_ssl",
  "format": "team",
- "made": "2026-11-09T04:28Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -166,7 +166,7 @@
        "size": "1280x720",
        "fixture": "SSLC-F01",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -203,7 +203,7 @@
        "size": "1280x720",
        "fixture": "SSLC-F03",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -392,7 +392,7 @@
        "size": "1280x720",
        "fixture": "SSL2-F08",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -430,7 +430,7 @@
        "size": "1280x720",
        "fixture": "SSL2-F09",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -471,7 +471,7 @@
        "size": "1280x720",
        "fixture": "SSL2-F10",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -707,7 +707,7 @@
        "size": "1280x720",
        "fixture": "SSL2-F16",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -754,7 +754,7 @@
        "size": "1280x720",
        "fixture": "SSL2-F17",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -804,7 +804,7 @@
        "size": "1280x720",
        "fixture": "SSL2-F18",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -854,7 +854,7 @@
        "size": "1280x720",
        "fixture": "SSL2-F19",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -1019,7 +1019,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "SSLA-F01",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1239,7 +1239,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "SSLA-F08",
        "key": "soccer_ssl",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1622,7 +1622,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-soccer-ssl-champ2",
-   "made": "2026-11-08 22:22 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1637,11 +1637,11 @@
    "ref": 0.4722,
    "count": {
     "planned": 152,
-    "ok": 144,
+    "ok": 150,
     "invalid": 0,
     "never_acted": 0,
     "model_called": 0,
-    "pending": 8
+    "pending": 2
    },
    "lines": {
     "Gemini 4 Argon": [
@@ -1720,6 +1720,14 @@
       "n": 2
      },
      {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
       "cp": "final:3",
       "x": 3.0,
       "mean": 0.0,
@@ -1748,6 +1756,14 @@
      {
       "cp": "final:1",
       "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
       "mean": 0.0,
       "lo": 0.0,
       "hi": 0.0,
@@ -1947,12 +1963,767 @@
    },
    "verdict": {
     "GPT-6 Astra": "unclear (seeds disagree)",
-    "Claude Opus 5.5": "unclear (seeds disagree)",
+    "Claude Opus 5.5": "improve",
     "Gemini 4 Argon": "unclear (seeds disagree)",
     "Kimi 3.1 Pro": "flat",
     "GLM 5.3 Flash": "flat",
     "DeepSeek V4.1 Flash": "flat"
    },
+   "tiers": [
+    {
+     "id": "L1",
+     "tier": "weak",
+     "label": "L1 = level-1 reference program (weak)",
+     "short": "L1 · weak",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.3125
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.4167
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.8333
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.75
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.5667
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1181
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.1458
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.899
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.8571
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.875
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.9286
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.2768
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.4318
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.25
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.125
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.8125
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.9
+       }
+      ]
+     },
+     "ok": 56,
+     "planned": 56,
+     "shared_count": false
+    },
+    {
+     "id": "L2",
+     "tier": "middle",
+     "label": "L2 = level-2 reference program (middle)",
+     "short": "L2 · middle",
+     "lines": {
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.7917
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.9167
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.875
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.8333
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0556
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.25
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.4167
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 1.0
+       }
+      ],
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3667
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.625
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.3333
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.3333
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.1667
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0455
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0625
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ]
+     },
+     "ok": 150,
+     "planned": 152,
+     "shared_count": true
+    },
+    {
+     "id": "L3",
+     "tier": "strong",
+     "label": "L3 = level-3 reference program (strong)",
+     "short": "L3 · strong",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.4167
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.625
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0455
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.6429
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.4583
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.4167
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.35
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.2083
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.1409
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.625
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.25
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.225
+       }
+      ]
+     },
+     "ok": 56,
+     "planned": 56,
+     "shared_count": false
+    },
+    {
+     "id": "Sumatra",
+     "tier": "strongest",
+     "label": "Sumatra = TIGERs' SSL program, the practice player (strongest)",
+     "short": "Sumatra",
+     "lines": {
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0556
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0714
+       }
+      ],
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0556
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ]
+     },
+     "ok": 150,
+     "planned": 152,
+     "shared_count": true
+    }
+   ],
+   "tier_note": null,
    "capability": {
     "n": 4,
     "names": [
@@ -1967,37 +2738,37 @@
       {
        "cp": "kickoff:1",
        "x": 0.5,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 5
       },
       {
        "cp": "final:1",
        "x": 1.0,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 5
       },
       {
        "cp": "final:3",
        "x": 3.0,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 4
       },
       {
        "cp": "final:5",
        "x": 5.0,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 5
       },
       {
        "cp": "final:6",
        "x": 6.0,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 4
       },
       {
        "cp": "final:7",
        "x": 7.0,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 5
       }
      ],
@@ -2005,31 +2776,31 @@
       {
        "cp": "kickoff:1",
        "x": 0.5,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 5
       },
       {
        "cp": "final:1",
        "x": 1.0,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 5
       },
       {
        "cp": "final:3",
        "x": 3.0,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 5
       },
       {
        "cp": "final:4",
        "x": 4.0,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 4
       },
       {
        "cp": "final:5",
        "x": 5.0,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 4
       }
      ],
@@ -2037,43 +2808,43 @@
       {
        "cp": "kickoff:1",
        "x": 0.5,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 8
       },
       {
        "cp": "final:1",
        "x": 1.0,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 6
       },
       {
        "cp": "final:3",
        "x": 3.0,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 4
       },
       {
        "cp": "final:4",
        "x": 4.0,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 4
       },
       {
        "cp": "final:5",
        "x": 5.0,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 5
       },
       {
        "cp": "final:6",
        "x": 6.0,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 4
       },
       {
        "cp": "final:7",
        "x": 7.0,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 5
       }
      ],
@@ -2081,13 +2852,13 @@
       {
        "cp": "kickoff:1",
        "x": 0.5,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 8
       },
       {
        "cp": "final:1",
        "x": 1.0,
-       "n_pass": 0,
+       "n_pass": 2,
        "valid": 8
       },
       {
@@ -2099,7 +2870,7 @@
       {
        "cp": "final:5",
        "x": 5.0,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 6
       }
      ],
@@ -2107,19 +2878,19 @@
       {
        "cp": "kickoff:1",
        "x": 0.5,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 8
       },
       {
        "cp": "final:1",
        "x": 1.0,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 8
       },
       {
        "cp": "final:3",
        "x": 3.0,
-       "n_pass": 0,
+       "n_pass": 2,
        "valid": 6
       },
       {
@@ -2131,19 +2902,19 @@
       {
        "cp": "final:5",
        "x": 5.0,
-       "n_pass": 0,
+       "n_pass": 2,
        "valid": 6
       },
       {
        "cp": "final:6",
        "x": 6.0,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 4
       },
       {
        "cp": "final:7",
        "x": 7.0,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 6
       }
      ],
@@ -2151,43 +2922,43 @@
       {
        "cp": "kickoff:1",
        "x": 0.5,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 7
       },
       {
        "cp": "final:1",
        "x": 1.0,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 5
       },
       {
        "cp": "final:3",
        "x": 3.0,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 6
       },
       {
        "cp": "final:4",
        "x": 4.0,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 4
       },
       {
        "cp": "final:5",
        "x": 5.0,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 6
       },
       {
        "cp": "final:6",
        "x": 6.0,
-       "n_pass": 0,
+       "n_pass": 4,
        "valid": 4
       },
       {
        "cp": "final:7",
        "x": 7.0,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 6
       }
      ]

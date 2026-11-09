@@ -3,7 +3,7 @@
  "sport": "curling",
  "key": "curling_g1",
  "format": "duel",
- "made": "2026-11-09T04:28Z",
+ "made": "2026-11-09T09:20Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -241,7 +241,7 @@
        "size": "848x480",
        "fixture": "CUR2-F04",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -279,7 +279,7 @@
        "size": "848x480",
        "fixture": "CUR2-F06",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -541,7 +541,7 @@
        "size": "848x480",
        "fixture": "CUR2-F12",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -578,7 +578,7 @@
        "size": "848x480",
        "fixture": "CUR2-F13",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -615,7 +615,7 @@
        "size": "848x480",
        "fixture": "CUR2-F14",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -698,7 +698,7 @@
        "size": "848x480",
        "fixture": "CUR2-F16",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -742,7 +742,7 @@
        "size": "848x480",
        "fixture": "CUR2-F17",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -792,7 +792,7 @@
        "size": "848x480",
        "fixture": "CUR2-F18",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -842,7 +842,7 @@
        "size": "848x480",
        "fixture": "CUR2-F19",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -1045,7 +1045,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F02",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1081,7 +1081,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F03",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1117,7 +1117,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F04",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1297,7 +1297,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F09",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1333,7 +1333,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F10",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1369,7 +1369,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F11",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1670,7 +1670,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-curling-g1-champ2",
-   "made": "2026-11-08 22:22 CST",
+   "made": "2026-11-09 03:09 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1685,11 +1685,11 @@
    "ref": 0.5167,
    "count": {
     "planned": 168,
-    "ok": 140,
+    "ok": 145,
     "invalid": 0,
-    "never_acted": 28,
+    "never_acted": 0,
     "model_called": 0,
-    "pending": 0
+    "pending": 23
    },
    "lines": {
     "GPT-6 Astra": [
@@ -1916,6 +1916,24 @@
       "n": 2
      }
     ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.3054,
+      "lo": 0.1964,
+      "hi": 0.4143,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.75,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
     "Claude Opus 5.5": [
      {
       "cp": "kickoff:1",
@@ -1991,6 +2009,692 @@
     "GLM 5.3 Flash": "improve",
     "DeepSeek V4.1 Flash": "improve"
    },
+   "tiers": [
+    {
+     "id": "L1",
+     "tier": "weak",
+     "label": "L1 = level-1 reference program (weak)",
+     "short": "L1 · weak",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3958
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.3958
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.3889
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.3333
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.4857
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.5794
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5972
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.5972
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.6429
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.6905
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.7
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.1
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.125
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.75
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.75
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.75
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.7321
+       }
+      ]
+     },
+     "ok": 46,
+     "planned": 56,
+     "shared_count": false
+    },
+    {
+     "id": "L2",
+     "tier": "middle",
+     "label": "L2 = level-2 reference program (middle)",
+     "short": "L2 · middle",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.3
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.3
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.4
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.4
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.3833
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1429
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.2
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.25
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.3095
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.3889
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.3875
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3875
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.5889
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.6932
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.75
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.8333
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.8125
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.2143
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.4848
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.4848
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.4848
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.4848
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.4848
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.2714
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.75
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.7143
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.6875
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.6875
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.6875
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.6875
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.8333
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.8333
+       }
+      ]
+     },
+     "ok": 145,
+     "planned": 168,
+     "shared_count": true
+    },
+    {
+     "id": "L3",
+     "tier": "strong",
+     "label": "L3 = level-3 reference program (strong)",
+     "short": "L3 · strong",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.1
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1125
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.2
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.3333
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3333
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.3667
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.3667
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.4143
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.2143
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3875
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.4286
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.4286
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.3889
+       }
+      ]
+     },
+     "ok": 46,
+     "planned": 56,
+     "shared_count": false
+    },
+    {
+     "id": "PP",
+     "tier": "strongest",
+     "label": "Practice player = the strongest program (our best)",
+     "short": "Practice player",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.125
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0625
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1429
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.2917
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.3333
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.125
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.2857
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.425
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.425
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.3333
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.425
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.5667
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.3667
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.1
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.2667
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.2667
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.2667
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.2667
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.2667
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3393
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.4583
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.4583
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.4583
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.4583
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.4583
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.2917
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.2917
+       }
+      ]
+     },
+     "ok": 145,
+     "planned": 168,
+     "shared_count": true
+    }
+   ],
+   "tier_note": null,
    "capability": {
     "n": 4,
     "names": [
