@@ -420,7 +420,7 @@
        "size": "848x480",
        "fixture": "HSTC-F07",
        "key": "soccer_hsl_team",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -467,7 +467,7 @@
        "size": "848x480",
        "fixture": "HSTC-F08",
        "key": "soccer_hsl_team",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -514,7 +514,7 @@
        "size": "848x480",
        "fixture": "HSTC-F09",
        "key": "soccer_hsl_team",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
