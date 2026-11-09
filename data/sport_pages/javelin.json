@@ -3,7 +3,7 @@
  "sport": "javelin",
  "key": "javelin_g1",
  "format": "solo",
- "made": "2026-11-08T19:11Z",
+ "made": "2026-11-09T04:03Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -447,17 +447,17 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-javelin-g1-arena",
-   "made": "2026-11-08 12:43 CST",
+   "made": "2026-11-08 21:37 CST",
    "measure": "Best mark (m), ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,
    "count": {
     "planned": 69,
     "ok": 37,
-    "invalid": 1,
+    "invalid": 29,
     "never_acted": 0,
     "model_called": 0,
-    "pending": 31
+    "pending": 3
    },
    "lines": {
     "GPT-6 Astra": [

@@ -3,19 +3,19 @@
  "sport": "amfootball",
  "key": "amfootball",
  "format": "team",
- "made": "2026-11-08T19:11Z",
- "status": "in_progress",
+ "made": "2026-11-09T04:03Z",
+ "status": "final",
  "provisional": true,
  "podium": {
-  "gold": null,
-  "silver": null,
-  "bronze": null
+  "gold": "Claude Opus 5.5",
+  "silver": "GPT-6 Astra",
+  "bronze": "Kimi 3.1 Pro"
  },
  "flag": null,
  "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
  "championship": {
   "rule": "round_robin_knockout_serial@1",
-  "final": false,
+  "final": true,
   "stages": [
    {
     "id": "round_robin",
@@ -665,7 +665,7 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "points",
       "note": null,
       "replay": {
        "kind": "full",
@@ -701,20 +701,26 @@
         "seat": "A",
         "entrant": "opus",
         "model": "Claude Opus 5.5",
-        "score": null
+        "score": 119
        },
        {
         "seat": "B",
         "entrant": "astra-sub",
         "model": "GPT-6 Astra",
-        "score": null
+        "score": 77
        }
       ],
-      "winner": null,
-      "decided_by": null,
-      "note": "Pending",
-      "replay": null,
-      "status": "pending",
+      "winner": "Claude Opus 5.5",
+      "decided_by": "points",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1803.0,
+       "path": "matches/amfootball/rel-amfootball-champ2/AMF2-F18/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved",
       "seeds": [
        1,
        2
@@ -751,9 +757,15 @@
        }
       ],
       "winner": "Kimi 3.1 Pro",
-      "decided_by": null,
+      "decided_by": "points",
       "note": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1398.3,
+       "path": "matches/amfootball/rel-amfootball-champ2/AMF2-F19/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
       "status": "resolved",
       "seeds": [
        3,
@@ -764,29 +776,29 @@
     ]
    }
   ],
-  "played": 18,
-  "pending": 1,
+  "played": 19,
+  "pending": 0,
   "knockout_planned": true,
   "ranking": [
    {
     "rank": 1,
+    "model": "Claude Opus 5.5",
+    "note": "final winner"
+   },
+   {
+    "rank": 2,
+    "model": "GPT-6 Astra",
+    "note": "final loser"
+   },
+   {
+    "rank": 3,
     "model": "Kimi 3.1 Pro",
     "note": "bronze winner"
    },
    {
-    "rank": 2,
+    "rank": 4,
     "model": "Gemini 4 Argon",
     "note": "bronze loser"
-   },
-   {
-    "rank": 3,
-    "model": "Claude Opus 5.5",
-    "note": "round robin 1st"
-   },
-   {
-    "rank": 4,
-    "model": "GPT-6 Astra",
-    "note": "round robin 2nd"
    },
    {
     "rank": 5,
@@ -800,7 +812,7 @@
    }
   ],
   "notes": [],
-  "as_of": "2026-11-08T18:55:16Z",
+  "as_of": "2026-11-08T20:03:36Z",
   "board": "rel-amfootball-champ2"
  },
  "open_arena": {
@@ -1431,8 +1443,8 @@
     "output_tokens": 1202805,
     "reviews": "91/98",
     "gpu": "yes in 10/11 (max 94 GPU-min)",
-    "seat_matches": 11,
-    "train_code": 10,
+    "seat_matches": 12,
+    "train_code": 11,
     "weights": 2,
     "practice_world": 3,
     "realtime_rehearsal": 3,
@@ -1448,8 +1460,8 @@
     "output_tokens": 1050902,
     "reviews": "103/104",
     "gpu": "yes in 9/11 (max 108 GPU-min)",
-    "seat_matches": 11,
-    "train_code": 7,
+    "seat_matches": 12,
+    "train_code": 8,
     "weights": 1,
     "practice_world": 2,
     "realtime_rehearsal": 2,
@@ -1465,10 +1477,10 @@
     "output_tokens": 3665506,
     "reviews": "49/56",
     "gpu": "yes in 6/11 (max 70 GPU-min)",
-    "seat_matches": 11,
-    "train_code": 10,
+    "seat_matches": 12,
+    "train_code": 11,
     "weights": 2,
-    "practice_world": 11,
+    "practice_world": 12,
     "realtime_rehearsal": 1,
     "median_prep_min": 108
    },
@@ -1482,12 +1494,12 @@
     "output_tokens": 1944785,
     "reviews": "97/99",
     "gpu": "yes in 9/11 (max 60 GPU-min)",
-    "seat_matches": 11,
+    "seat_matches": 12,
     "train_code": 2,
     "weights": 3,
     "practice_world": 4,
     "realtime_rehearsal": 3,
-    "median_prep_min": 57
+    "median_prep_min": 58
    },
    "DeepSeek V4.1 Flash": {
     "championship_place": "5 (provisional: round robin 5th)",
@@ -1527,7 +1539,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-amfootball-champ2",
-   "made": "2026-11-08 12:43 CST",
+   "made": "2026-11-08 21:37 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1541,8 +1553,8 @@
    ],
    "ref": 0.2225,
    "count": {
-    "planned": 160,
-    "ok": 137,
+    "planned": 168,
+    "ok": 145,
     "invalid": 7,
     "never_acted": 0,
     "model_called": 0,
@@ -1689,6 +1701,14 @@
       "lo": 0.0,
       "hi": 0.0,
       "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
      }
     ],
     "GLM 5.3 Flash": [
@@ -1788,6 +1808,14 @@
       "mean": 0.5741,
       "lo": 0.453,
       "hi": 0.6952,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.5181,
+      "lo": 0.4982,
+      "hi": 0.538,
       "n": 2
      }
     ],

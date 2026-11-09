@@ -3,19 +3,19 @@
  "sport": "racing",
  "key": "racing_full",
  "format": "race",
- "made": "2026-11-08T19:11Z",
- "status": "in_progress",
+ "made": "2026-11-09T04:03Z",
+ "status": "final",
  "provisional": true,
  "podium": {
-  "gold": null,
-  "silver": null,
-  "bronze": null
+  "gold": "GPT-6 Astra",
+  "silver": "Gemini 4 Argon",
+  "bronze": "GLM 5.3 Flash"
  },
- "flag": "Gemini's race-3 no-show was most likely an account-quota fault; whether race 3 is re-run is under review. Opus's bronze rests on race 3 (18 points to GLM's 15).",
+ "flag": null,
  "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
  "championship": {
   "rule": "points_total+last_race@1",
-  "final": false,
+  "final": true,
   "series": [
    {
     "race": 1,
@@ -42,7 +42,7 @@
     "replay": {
      "kind": "full",
      "seconds": 527.3,
-     "path": "matches/racing_full/rel-racing-full-champ-rc6/RAC6-F01/replay.mp4",
+     "path": "matches/racing_full/rel-racing-full-champ-rc6b/RAC6-F01/replay.mp4",
      "camera": "broadcast",
      "size": "1280x720"
     }
@@ -72,7 +72,7 @@
     "replay": {
      "kind": "full",
      "seconds": 497.0,
-     "path": "matches/racing_full/rel-racing-full-champ-rc6/RAC6-F02/replay.mp4",
+     "path": "matches/racing_full/rel-racing-full-champ-rc6b/RAC6-F02/replay.mp4",
      "camera": "broadcast",
      "size": "1280x720"
     }
@@ -81,11 +81,31 @@
     "race": 3,
     "id": "RA6B-F03",
     "grid": "race 2's finishing order",
-    "pending": true,
+    "pending": false,
     "replaces": "RAC6-F03",
-    "ranks": {},
-    "points": {},
-    "replay": null
+    "ranks": {
+     "GPT-6 Astra": 6,
+     "DeepSeek V4.1 Flash": 4,
+     "Gemini 4 Argon": 2,
+     "GLM 5.3 Flash": 1,
+     "Kimi 3.1 Pro": 5,
+     "Claude Opus 5.5": 3
+    },
+    "points": {
+     "GPT-6 Astra": 0,
+     "DeepSeek V4.1 Flash": 0,
+     "Gemini 4 Argon": 0,
+     "GLM 5.3 Flash": 25,
+     "Kimi 3.1 Pro": 0,
+     "Claude Opus 5.5": 0
+    },
+    "replay": {
+     "kind": "full",
+     "seconds": 617.7,
+     "path": "matches/racing_full/rel-racing-full-champ-rc6b/RA6B-F03/replay.mp4",
+     "camera": "broadcast",
+     "size": "1280x720"
+    }
    }
   ],
   "rows": [
@@ -93,42 +113,67 @@
     "rank": 1,
     "model": "GPT-6 Astra",
     "points": 50.0,
-    "note": "places 1:2"
+    "note": "places 1:2 6:1"
    },
    {
     "rank": 2,
     "model": "Gemini 4 Argon",
     "points": 36.0,
-    "note": "places 2:2"
+    "note": "places 2:3"
    },
    {
     "rank": 3,
-    "model": "DeepSeek V4.1 Flash",
-    "points": 0.0,
-    "note": "places 3:1 5:1"
+    "model": "GLM 5.3 Flash",
+    "points": 25.0,
+    "note": "places 1:1 4:1 5:1"
    },
    {
     "rank": 4,
-    "model": "Kimi 3.1 Pro",
+    "model": "Claude Opus 5.5",
     "points": 0.0,
-    "note": "places 4:1 6:1"
+    "note": "places 3:2 6:1"
    },
    {
     "rank": 5,
-    "model": "GLM 5.3 Flash",
+    "model": "DeepSeek V4.1 Flash",
     "points": 0.0,
-    "note": "places 4:1 5:1"
+    "note": "places 3:1 4:1 5:1"
    },
    {
     "rank": 6,
-    "model": "Claude Opus 5.5",
+    "model": "Kimi 3.1 Pro",
     "points": 0.0,
-    "note": "places 3:1 6:1"
+    "note": "places 4:1 5:1 6:1"
    }
   ],
-  "ranking": [],
+  "ranking": [
+   {
+    "rank": 1,
+    "model": "GPT-6 Astra"
+   },
+   {
+    "rank": 2,
+    "model": "Gemini 4 Argon"
+   },
+   {
+    "rank": 3,
+    "model": "GLM 5.3 Flash"
+   },
+   {
+    "rank": 4,
+    "model": "Claude Opus 5.5"
+   },
+   {
+    "rank": 5,
+    "model": "DeepSeek V4.1 Flash"
+   },
+   {
+    "rank": 6,
+    "model": "Kimi 3.1 Pro"
+   }
+  ],
   "scoring": "Six cars, 10 laps per race; F1 points 25-18-15-12-10-8 for classified finishers; ranked by total points over three races, ties by the last race. Race 1's grid by lot, later grids by the previous result.",
-  "as_of": "2026-11-08T16:27:47Z",
+  "as_of": "2026-11-08T20:40:15Z",
   "board": "rel-racing-full-champ-rc6b"
  },
  "open_arena": null,
@@ -144,11 +189,11 @@
     "output_tokens": 178842,
     "reviews": "0/0",
     "gpu": null,
-    "seat_matches": 2,
+    "seat_matches": 3,
     "train_code": 0,
     "weights": 0,
-    "practice_world": 0,
-    "realtime_rehearsal": 0,
+    "practice_world": 2,
+    "realtime_rehearsal": 2,
     "median_prep_min": 57
    },
    "GPT-6 Astra": {
@@ -161,11 +206,11 @@
     "output_tokens": 120998,
     "reviews": "0/0",
     "gpu": null,
-    "seat_matches": 2,
+    "seat_matches": 3,
     "train_code": 0,
     "weights": 0,
-    "practice_world": 0,
-    "realtime_rehearsal": 0,
+    "practice_world": 2,
+    "realtime_rehearsal": 2,
     "median_prep_min": 57
    },
    "Gemini 4 Argon": {
@@ -178,10 +223,10 @@
     "output_tokens": 390043,
     "reviews": "0/0",
     "gpu": null,
-    "seat_matches": 2,
+    "seat_matches": 3,
     "train_code": 0,
     "weights": 0,
-    "practice_world": 2,
+    "practice_world": 3,
     "realtime_rehearsal": 1,
     "median_prep_min": 57
    },
@@ -195,11 +240,11 @@
     "output_tokens": 180470,
     "reviews": "0/0",
     "gpu": null,
-    "seat_matches": 2,
+    "seat_matches": 3,
     "train_code": 0,
     "weights": 0,
-    "practice_world": 0,
-    "realtime_rehearsal": 0,
+    "practice_world": 2,
+    "realtime_rehearsal": 2,
     "median_prep_min": 57
    },
    "DeepSeek V4.1 Flash": {
@@ -212,11 +257,11 @@
     "output_tokens": 274361,
     "reviews": "0/0",
     "gpu": null,
-    "seat_matches": 2,
+    "seat_matches": 3,
     "train_code": 0,
     "weights": 0,
-    "practice_world": 2,
-    "realtime_rehearsal": 0,
+    "practice_world": 3,
+    "realtime_rehearsal": 1,
     "median_prep_min": 57
    },
    "GLM 5.3 Flash": {
@@ -229,18 +274,18 @@
     "output_tokens": 154157,
     "reviews": "0/0",
     "gpu": null,
-    "seat_matches": 2,
+    "seat_matches": 3,
     "train_code": 0,
     "weights": 0,
-    "practice_world": 2,
-    "realtime_rehearsal": 1,
+    "practice_world": 3,
+    "realtime_rehearsal": 2,
     "median_prep_min": 57
    }
   },
   "checkpoint": {
    "kind": "solo",
    "board": "rel-racing-full-champ-rc6",
-   "made": "2026-11-08 12:43 CST",
+   "made": "2026-11-08 21:37 CST",
    "measure": "Pace score, ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,
@@ -268,32 +313,166 @@
      "Execution at the limit",
      "Real-time control and latency compensation"
     ],
-    "ref": null,
+    "ref": 2.0,
     "lines": {
      "GPT-6 Astra": [
       {
        "cp": "kickoff:1",
        "x": 0.5,
+       "n_pass": 2,
+       "valid": 6
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 2,
+       "valid": 5
+      }
+     ],
+     "DeepSeek V4.1 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 1,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 3,
+       "valid": 3
+      }
+     ],
+     "Gemini 4 Argon": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 3,
+       "valid": 3
+      }
+     ],
+     "GLM 5.3 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
        "n_pass": 0,
-       "valid": 1
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 3
+      }
+     ],
+     "Kimi 3.1 Pro": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 3,
+       "valid": 4
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 3,
+       "valid": 3
       }
      ],
      "Claude Opus 5.5": [
       {
        "cp": "kickoff:1",
        "x": 0.5,
-       "n_pass": 0,
-       "valid": 1
+       "n_pass": 1,
+       "valid": 3
       },
       {
        "cp": "final:1",
        "x": 1.0,
-       "n_pass": 0,
-       "valid": 1
+       "n_pass": 2,
+       "valid": 3
       },
       {
        "cp": "final:2",
        "x": 2.0,
+       "n_pass": 1,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 2,
+       "valid": 3
+      },
+      {
+       "cp": "deploy:3",
+       "x": 3.0,
        "n_pass": 0,
        "valid": 1
       }

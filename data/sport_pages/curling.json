@@ -3,7 +3,7 @@
  "sport": "curling",
  "key": "curling_g1",
  "format": "duel",
- "made": "2026-11-08T19:11Z",
+ "made": "2026-11-09T04:03Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -11,7 +11,7 @@
   "silver": "Kimi 3.1 Pro",
   "bronze": "GPT-6 Astra"
  },
- "flag": "GLM's round-robin no-shows trace to a platform fault (its harness sent a video block the model endpoint refuses); a re-run of its line is under review, and that would replay the Kimi and Opus lines too. Seeds 1-3 were tied on points and ordered by score difference (tiebreak rule under review).",
+ "flag": null,
  "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
  "championship": {
   "rule": "round_robin_knockout_serial@1",
@@ -1534,7 +1534,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-curling-g1-champ2",
-   "made": "2026-11-08 12:43 CST",
+   "made": "2026-11-08 21:37 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {

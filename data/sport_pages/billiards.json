@@ -3,13 +3,13 @@
  "sport": "billiards",
  "key": "billiards_g1",
  "format": "duel",
- "made": "2026-11-08T19:11Z",
- "status": "in_progress",
+ "made": "2026-11-09T04:03Z",
+ "status": "final",
  "provisional": true,
  "podium": {
-  "gold": null,
-  "silver": null,
-  "bronze": null
+  "gold": "Claude Opus 5.5",
+  "silver": "GPT-6 Astra",
+  "bronze": "Gemini 4 Argon"
  },
  "flag": null,
  "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
@@ -544,9 +544,15 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": null,
+      "decided_by": "rack",
       "note": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 401.5,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F14/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720"
+      },
       "status": "resolved"
      },
      {
@@ -613,9 +619,15 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
-      "note": null,
-      "replay": null,
+      "decided_by": "forfeit",
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "full",
+       "seconds": 103.5,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F16/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720"
+      },
       "status": "resolved",
       "seeds": [
        4,
@@ -647,9 +659,15 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "rack",
       "note": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 92.5,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F17/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720"
+      },
       "status": "resolved",
       "seeds": [
        3,
@@ -687,9 +705,15 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "rack",
       "note": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 386.8,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F18/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720"
+      },
       "status": "resolved",
       "seeds": [
        1,
@@ -727,9 +751,15 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": null,
-      "note": null,
-      "replay": null,
+      "decided_by": "forfeit",
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "full",
+       "seconds": 266.6,
+       "path": "matches/billiards_g1/rel-billiards-g1-champ2/BIL2-F19/replay.mp4",
+       "camera": "off-tree wide + top inset",
+       "size": "1280x720"
+      },
       "status": "resolved",
       "seeds": [
        3,
@@ -1407,10 +1437,10 @@
     "output_tokens": 1842125,
     "reviews": "200/202",
     "gpu": null,
-    "seat_matches": 11,
+    "seat_matches": 12,
     "train_code": 0,
     "weights": 0,
-    "practice_world": 10,
+    "practice_world": 11,
     "realtime_rehearsal": 0,
     "median_prep_min": 52
    },
@@ -1424,10 +1454,10 @@
     "output_tokens": 1141795,
     "reviews": "169/169",
     "gpu": null,
-    "seat_matches": 11,
+    "seat_matches": 12,
     "train_code": 0,
     "weights": 0,
-    "practice_world": 11,
+    "practice_world": 12,
     "realtime_rehearsal": 0,
     "median_prep_min": 50
    },
@@ -1441,10 +1471,10 @@
     "output_tokens": 4603301,
     "reviews": "138/138",
     "gpu": null,
-    "seat_matches": 11,
+    "seat_matches": 12,
     "train_code": 0,
     "weights": 0,
-    "practice_world": 11,
+    "practice_world": 12,
     "realtime_rehearsal": 0,
     "median_prep_min": 116
    },
@@ -1475,10 +1505,10 @@
     "output_tokens": 2586724,
     "reviews": "249/273",
     "gpu": null,
-    "seat_matches": 11,
+    "seat_matches": 12,
     "train_code": 0,
     "weights": 0,
-    "practice_world": 11,
+    "practice_world": 12,
     "realtime_rehearsal": 0,
     "median_prep_min": 50
    },
@@ -1503,7 +1533,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-billiards-g1-champ2",
-   "made": "2026-11-08 12:43 CST",
+   "made": "2026-11-08 21:37 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1515,21 +1545,45 @@
      "tier": "strong"
     }
    ],
-   "ref": 1.0,
+   "ref": 0.3828,
    "count": {
-    "planned": 168,
-    "ok": 13,
-    "invalid": 16,
-    "never_acted": 13,
+    "planned": 176,
+    "ok": 40,
+    "invalid": 29,
+    "never_acted": 16,
     "model_called": 0,
-    "pending": 126
+    "pending": 91
    },
    "lines": {
     "GPT-6 Astra": [
      {
       "cp": "kickoff:1",
       "x": 0.5,
-      "mean": 0.4615,
+      "mean": 0.5,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.4039,
+      "lo": 0.4039,
+      "hi": 0.4506,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.5714,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.5714,
       "lo": null,
       "hi": null,
       "n": 1
@@ -1539,46 +1593,154 @@
      {
       "cp": "final:1",
       "x": 1.0,
-      "mean": 1.0,
-      "lo": 1.0,
-      "hi": 1.0,
+      "mean": 0.1237,
+      "lo": 0.0,
+      "hi": 0.1919,
       "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.1237,
+      "lo": 0.0,
+      "hi": 0.1919,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
+    "Gemini 4 Argon": [
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.25,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.25,
+      "lo": null,
+      "hi": null,
+      "n": 1
      }
     ],
     "GLM 5.3 Flash": [
      {
       "cp": "kickoff:1",
       "x": 0.5,
-      "mean": 1.0,
-      "lo": 1.0,
-      "hi": 1.0,
+      "mean": 0.1363,
+      "lo": 0.0,
+      "hi": 0.2727,
       "n": 2
      },
      {
       "cp": "final:1",
       "x": 1.0,
-      "mean": 1.0,
-      "lo": 1.0,
-      "hi": 1.0,
+      "mean": 0.1363,
+      "lo": 0.0,
+      "hi": 0.2727,
       "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.1363,
+      "lo": 0.0,
+      "hi": 0.2727,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
+    "Kimi 3.1 Pro": [
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.127,
+      "lo": null,
+      "hi": null,
+      "n": 1
      }
     ],
     "Claude Opus 5.5": [
      {
       "cp": "kickoff:1",
       "x": 0.5,
-      "mean": 0.0,
-      "lo": 0.0,
-      "hi": 0.0,
+      "mean": 0.6318,
+      "lo": 0.6137,
+      "hi": 0.8,
       "n": 2
      },
      {
       "cp": "final:1",
       "x": 1.0,
-      "mean": 0.0,
-      "lo": 0.0,
-      "hi": 0.0,
+      "mean": 0.5714,
+      "lo": 0.5714,
+      "hi": 0.5714,
       "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.6857,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.6857,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.8,
+      "lo": null,
+      "hi": null,
+      "n": 1
      }
     ]
    },

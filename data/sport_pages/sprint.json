@@ -3,7 +3,7 @@
  "sport": "sprint",
  "key": "sprint_g1",
  "format": "solo",
- "made": "2026-11-08T19:11Z",
+ "made": "2026-11-09T04:03Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -404,7 +404,7 @@
     "gpu": "yes in 3/3 (max 77 GPU-min)",
     "seat_matches": 3,
     "train_code": 3,
-    "weights": 1,
+    "weights": 2,
     "practice_world": 3,
     "realtime_rehearsal": 2,
     "median_prep_min": 46
@@ -438,7 +438,7 @@
     "gpu": "yes in 3/3 (max 89 GPU-min)",
     "seat_matches": 3,
     "train_code": 3,
-    "weights": 1,
+    "weights": 2,
     "practice_world": 3,
     "realtime_rehearsal": 1,
     "median_prep_min": 92
@@ -447,17 +447,17 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-sprint-g1-arena2",
-   "made": "2026-11-08 12:43 CST",
+   "made": "2026-11-08 21:37 CST",
    "measure": "Speed (m/s), ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,
    "count": {
     "planned": 72,
-    "ok": 67,
+    "ok": 72,
     "invalid": 0,
     "never_acted": 0,
     "model_called": 0,
-    "pending": 5
+    "pending": 0
    },
    "lines": {
     "GPT-6 Astra": [
@@ -590,10 +590,10 @@
      {
       "cp": "final:3",
       "x": 3.0,
-      "mean": 0.016,
-      "lo": null,
-      "hi": null,
-      "n": 1
+      "mean": 0.011,
+      "lo": 0.0083,
+      "hi": 0.016,
+      "n": 3
      }
     ],
     "Claude Opus 5.5": [
@@ -619,6 +619,14 @@
       "mean": 1.4627,
       "lo": 1.4625,
       "hi": 1.4629,
+      "n": 3
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 1.6598,
+      "lo": 1.658,
+      "hi": 1.6608,
       "n": 3
      }
     ],
@@ -673,7 +681,56 @@
      "Real-time control"
     ],
     "ref": null,
-    "lines": {},
+    "lines": {
+     "GPT-6 Astra": [
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 3,
+       "valid": 3
+      }
+     ],
+     "DeepSeek V4.1 Flash": [
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 3
+      }
+     ],
+     "Gemini 4 Argon": [
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 3,
+       "valid": 3
+      }
+     ],
+     "GLM 5.3 Flash": [
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 3
+      }
+     ],
+     "Kimi 3.1 Pro": [
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 3
+      }
+     ],
+     "Claude Opus 5.5": [
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 3,
+       "valid": 3
+      }
+     ]
+    },
     "status": "proposal"
    }
   }

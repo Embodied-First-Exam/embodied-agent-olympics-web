@@ -3,7 +3,7 @@
  "sport": "tennis",
  "key": "tennis_g1",
  "format": "duel",
- "made": "2026-11-08T19:11Z",
+ "made": "2026-11-09T04:03Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -1538,7 +1538,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-tennis-g1-champ2",
-   "made": "2026-11-08 12:43 CST",
+   "made": "2026-11-08 21:37 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {

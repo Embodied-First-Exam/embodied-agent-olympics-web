@@ -3,19 +3,19 @@
  "sport": "baseball",
  "key": "baseball_g1",
  "format": "duel",
- "made": "2026-11-08T19:11Z",
- "status": "in_progress",
+ "made": "2026-11-09T04:03Z",
+ "status": "final",
  "provisional": true,
  "podium": {
-  "gold": null,
-  "silver": null,
-  "bronze": null
+  "gold": "GPT-6 Astra",
+  "silver": "Claude Opus 5.5",
+  "bronze": "DeepSeek V4.1 Flash"
  },
  "flag": null,
  "replay_repo": "huggingface.co/datasets/embodied-olympics/release1-media (gated)",
  "championship": {
   "rule": "round_robin_knockout_serial@1",
-  "final": false,
+  "final": true,
   "stages": [
    {
     "id": "round_robin",
@@ -118,7 +118,7 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "full",
@@ -151,7 +151,7 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "full",
@@ -184,7 +184,7 @@
        }
       ],
       "winner": "GLM 5.3 Flash",
-      "decided_by": null,
+      "decided_by": "walks",
       "note": null,
       "replay": {
        "kind": "full",
@@ -218,7 +218,7 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "full",
@@ -252,7 +252,7 @@
        }
       ],
       "winner": "Kimi 3.1 Pro",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "full",
@@ -286,7 +286,7 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "full",
@@ -319,7 +319,7 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "full",
@@ -352,7 +352,7 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "full",
@@ -385,7 +385,7 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "full",
@@ -418,7 +418,7 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "full",
@@ -451,7 +451,7 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "full",
@@ -484,7 +484,7 @@
        }
       ],
       "winner": "DeepSeek V4.1 Flash",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "full",
@@ -517,9 +517,15 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 486.3,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F13/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
       "status": "resolved"
      },
      {
@@ -544,9 +550,15 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 750.3,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F14/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
       "status": "resolved"
      },
      {
@@ -571,7 +583,7 @@
        }
       ],
       "winner": "DeepSeek V4.1 Flash",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "full",
@@ -613,9 +625,15 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 276.6,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F16/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
       "status": "resolved",
       "seeds": [
        4,
@@ -637,20 +655,26 @@
         "seat": "A",
         "entrant": "opus",
         "model": "Claude Opus 5.5",
-        "score": null
+        "score": 8
        },
        {
         "seat": "B",
         "entrant": "deepseek-flash-sh",
         "model": "DeepSeek V4.1 Flash",
-        "score": null
+        "score": 0
        }
       ],
-      "winner": null,
-      "decided_by": null,
-      "note": "Pending",
-      "replay": null,
-      "status": "pending",
+      "winner": "Claude Opus 5.5",
+      "decided_by": "runs",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1565.2,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F17/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved",
       "seeds": [
        2,
        3
@@ -658,31 +682,123 @@
       "label": "Semifinal 2"
      }
     ]
+   },
+   {
+    "id": "final",
+    "name": "Final",
+    "matches": [
+     {
+      "id": "BSB2-F18",
+      "labels": {
+       "match": "F",
+       "pair": "opus vs astra-sub",
+       "round": 7,
+       "seeds": "1v2",
+       "stage": "final"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 6
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 7
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "runs",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1439.0,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F18/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved",
+      "seeds": [
+       2,
+       1
+      ],
+      "label": "Final"
+     }
+    ]
+   },
+   {
+    "id": "bronze",
+    "name": "Bronze match",
+    "matches": [
+     {
+      "id": "BSB2-F19",
+      "labels": {
+       "match": "B",
+       "pair": "gemini vs deepseek-flash-sh",
+       "round": 7,
+       "seeds": "3v4",
+       "stage": "bronze"
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "DeepSeek V4.1 Flash",
+      "decided_by": "lot",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 323.8,
+       "path": "matches/baseball_g1/rel-baseball-g1-champ2/BSB2-F19/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved",
+      "seeds": [
+       4,
+       3
+      ],
+      "label": "Bronze match"
+     }
+    ]
    }
   ],
-  "played": 16,
-  "pending": 1,
+  "played": 19,
+  "pending": 0,
   "knockout_planned": true,
   "ranking": [
    {
     "rank": 1,
     "model": "GPT-6 Astra",
-    "note": "round robin 1st"
+    "note": "final winner"
    },
    {
     "rank": 2,
     "model": "Claude Opus 5.5",
-    "note": "round robin 2nd"
+    "note": "final loser"
    },
    {
     "rank": 3,
     "model": "DeepSeek V4.1 Flash",
-    "note": "round robin 3rd"
+    "note": "bronze winner"
    },
    {
     "rank": 4,
     "model": "Gemini 4 Argon",
-    "note": "round robin 4th"
+    "note": "bronze loser"
    },
    {
     "rank": 5,
@@ -696,7 +812,7 @@
    }
   ],
   "notes": [],
-  "as_of": "2026-11-08T18:44:02Z",
+  "as_of": "2026-11-09T00:45:43Z",
   "board": "rel-baseball-g1-champ2"
  },
  "open_arena": {
@@ -803,7 +919,7 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "states",
@@ -835,7 +951,7 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "states",
@@ -867,7 +983,7 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "states",
@@ -899,7 +1015,7 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "states",
@@ -931,7 +1047,7 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "states",
@@ -963,7 +1079,7 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "states",
@@ -995,7 +1111,7 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "states",
@@ -1027,7 +1143,7 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "states",
@@ -1059,7 +1175,7 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "states",
@@ -1091,7 +1207,7 @@
        }
       ],
       "winner": "GLM 5.3 Flash",
-      "decided_by": null,
+      "decided_by": "walks",
       "note": null,
       "replay": {
        "kind": "states",
@@ -1123,7 +1239,7 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "states",
@@ -1155,7 +1271,7 @@
        }
       ],
       "winner": "GLM 5.3 Flash",
-      "decided_by": null,
+      "decided_by": "walks",
       "note": null,
       "replay": {
        "kind": "states",
@@ -1187,7 +1303,7 @@
        }
       ],
       "winner": "Kimi 3.1 Pro",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "states",
@@ -1219,7 +1335,7 @@
        }
       ],
       "winner": "Kimi 3.1 Pro",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "states",
@@ -1254,7 +1370,7 @@
        }
       ],
       "winner": "Kimi 3.1 Pro",
-      "decided_by": null,
+      "decided_by": "runs",
       "note": null,
       "replay": {
        "kind": "states",
@@ -1321,12 +1437,12 @@
     "output_tokens": 1125447,
     "reviews": "41/32",
     "gpu": "yes in 4/10 (max 77 GPU-min)",
-    "seat_matches": 10,
-    "train_code": 6,
+    "seat_matches": 12,
+    "train_code": 8,
     "weights": 2,
-    "practice_world": 6,
-    "realtime_rehearsal": 6,
-    "median_prep_min": 61
+    "practice_world": 8,
+    "realtime_rehearsal": 7,
+    "median_prep_min": 51
    },
    "GPT-6 Astra": {
     "championship_place": "1 (provisional: round robin 1st)",
@@ -1338,12 +1454,12 @@
     "output_tokens": 1028383,
     "reviews": "31/27",
     "gpu": "yes in 10/10 (max 56 GPU-min)",
-    "seat_matches": 10,
+    "seat_matches": 12,
     "train_code": 2,
     "weights": 1,
-    "practice_world": 3,
-    "realtime_rehearsal": 3,
-    "median_prep_min": 74
+    "practice_world": 4,
+    "realtime_rehearsal": 4,
+    "median_prep_min": 61
    },
    "Gemini 4 Argon": {
     "championship_place": "4 (provisional: round robin 4th)",
@@ -1355,12 +1471,12 @@
     "output_tokens": 3023038,
     "reviews": "30/40",
     "gpu": "yes in 4/10 (max 23 GPU-min)",
-    "seat_matches": 10,
+    "seat_matches": 12,
     "train_code": 2,
     "weights": 0,
-    "practice_world": 10,
-    "realtime_rehearsal": 0,
-    "median_prep_min": 117
+    "practice_world": 12,
+    "realtime_rehearsal": 1,
+    "median_prep_min": 106
    },
    "Kimi 3.1 Pro": {
     "championship_place": "5 (provisional: round robin 5th)",
@@ -1389,12 +1505,12 @@
     "output_tokens": 3088246,
     "reviews": "38/35",
     "gpu": "yes in 2/10 (max 42 GPU-min)",
-    "seat_matches": 10,
+    "seat_matches": 12,
     "train_code": 1,
-    "weights": 1,
-    "practice_world": 7,
-    "realtime_rehearsal": 5,
-    "median_prep_min": 79
+    "weights": 2,
+    "practice_world": 9,
+    "realtime_rehearsal": 7,
+    "median_prep_min": 76
    },
    "GLM 5.3 Flash": {
     "championship_place": "6 (provisional: round robin 6th)",
@@ -1417,7 +1533,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-baseball-g1-champ2",
-   "made": "2026-11-08 12:43 CST",
+   "made": "2026-11-08 21:37 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1427,14 +1543,90 @@
    ],
    "ref": 0.0,
    "count": {
-    "planned": 60,
-    "ok": 25,
-    "invalid": 7,
-    "never_acted": 0,
+    "planned": 68,
+    "ok": 37,
+    "invalid": 1,
+    "never_acted": 4,
     "model_called": 0,
-    "pending": 28
+    "pending": 26
    },
    "lines": {
+    "GPT-6 Astra": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0833,
+      "lo": 0.0,
+      "hi": 0.1667,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.2222,
+      "lo": 0.0,
+      "hi": 0.4444,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
+    "DeepSeek V4.1 Flash": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.0833,
+      "lo": 0.0,
+      "hi": 0.1667,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.4286,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
+     }
+    ],
     "Gemini 4 Argon": [
      {
       "cp": "kickoff:1",
@@ -1451,6 +1643,22 @@
       "lo": 0.0,
       "hi": 0.0,
       "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.0,
+      "lo": null,
+      "hi": null,
+      "n": 1
      }
     ],
     "GLM 5.3 Flash": [
@@ -1492,19 +1700,19 @@
       "cp": "final:3",
       "x": 3.0,
       "mean": 0.0,
-      "lo": null,
-      "hi": null,
-      "n": 1
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
      }
     ],
     "Claude Opus 5.5": [
      {
       "cp": "kickoff:1",
       "x": 0.5,
-      "mean": 0.4444,
-      "lo": null,
-      "hi": null,
-      "n": 1
+      "mean": 0.4901,
+      "lo": 0.4444,
+      "hi": 0.5357,
+      "n": 2
      },
      {
       "cp": "final:1",
@@ -1513,49 +1721,13 @@
       "lo": 0.5263,
       "hi": 0.6087,
       "n": 2
-     }
-    ],
-    "GPT-6 Astra": [
-     {
-      "cp": "kickoff:1",
-      "x": 0.5,
-      "mean": 0.0833,
-      "lo": 0.0,
-      "hi": 0.1667,
-      "n": 2
-     },
-     {
-      "cp": "final:1",
-      "x": 1.0,
-      "mean": 0.2222,
-      "lo": 0.0,
-      "hi": 0.4444,
-      "n": 2
      },
      {
       "cp": "final:3",
       "x": 3.0,
-      "mean": 0.0,
-      "lo": null,
-      "hi": null,
-      "n": 1
-     }
-    ],
-    "DeepSeek V4.1 Flash": [
-     {
-      "cp": "kickoff:1",
-      "x": 0.5,
-      "mean": 0.0833,
-      "lo": 0.0,
-      "hi": 0.1667,
-      "n": 2
-     },
-     {
-      "cp": "final:1",
-      "x": 1.0,
-      "mean": 0.0,
-      "lo": 0.0,
-      "hi": 0.0,
+      "mean": 0.527,
+      "lo": 0.4706,
+      "hi": 0.5833,
       "n": 2
      }
     ]

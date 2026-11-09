@@ -3,7 +3,7 @@
  "sport": "soccer_hsl_team",
  "key": "soccer_hsl_team",
  "format": "team",
- "made": "2026-11-08T19:11Z",
+ "made": "2026-11-09T04:03Z",
  "status": "in_progress",
  "provisional": true,
  "podium": {
@@ -36,50 +36,50 @@
      {
       "rank": 2,
       "model": "GPT-6 Astra",
-      "played": 1,
-      "won": 1,
+      "played": 2,
+      "won": 2,
       "drawn": 0,
       "lost": 0,
-      "points": 3,
-      "for": 10,
-      "against": 0,
-      "note": "1-0-0, score 10:0, decided by lots"
+      "points": 6,
+      "for": 14,
+      "against": 1,
+      "note": "2-0-0, score 14:1"
      },
      {
       "rank": 3,
       "model": "Gemini 4 Argon",
-      "played": 1,
+      "played": 2,
       "won": 1,
       "drawn": 0,
-      "lost": 0,
+      "lost": 1,
       "points": 3,
-      "for": 10,
-      "against": 0,
-      "note": "1-0-0, score 10:0, decided by lots"
+      "for": 11,
+      "against": 4,
+      "note": "1-0-1, score 11:4"
      },
      {
       "rank": 4,
-      "model": "GLM 5.3 Flash",
-      "played": 1,
-      "won": 0,
+      "model": "Kimi 3.1 Pro",
+      "played": 2,
+      "won": 1,
       "drawn": 0,
       "lost": 1,
-      "points": 0,
+      "points": 3,
       "for": 0,
       "against": 10,
-      "note": "0-0-1, score 0:10, decided by lots"
+      "note": "1-0-1, score 0:10, 1 won by forfeit"
      },
      {
       "rank": 5,
-      "model": "Kimi 3.1 Pro",
-      "played": 1,
+      "model": "GLM 5.3 Flash",
+      "played": 2,
       "won": 0,
       "drawn": 0,
-      "lost": 1,
+      "lost": 2,
       "points": 0,
       "for": 0,
       "against": 10,
-      "note": "0-0-1, score 0:10, decided by lots"
+      "note": "0-0-2, score 0:10, 1 no-show"
      },
      {
       "rank": 6,
@@ -127,7 +127,7 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "goals",
       "note": null,
       "replay": {
        "kind": "full",
@@ -170,7 +170,7 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "goals",
       "note": null,
       "replay": {
        "kind": "full",
@@ -213,9 +213,15 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": null,
+      "decided_by": "goals",
       "note": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1783.9,
+       "path": "matches/soccer_hsl_team/rel-soccer-hsl-team-champ/HSTC-F03/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
       "status": "resolved"
      },
      {
@@ -250,7 +256,7 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "goals",
       "note": null,
       "replay": {
        "kind": "full",
@@ -273,7 +279,7 @@
         "seat": "A",
         "entrant": "glm-flash-sh",
         "model": "GLM 5.3 Flash",
-        "score": null,
+        "score": 0,
         "seats": [
          "A1",
          "A2",
@@ -284,7 +290,7 @@
         "seat": "B",
         "entrant": "kimi",
         "model": "Kimi 3.1 Pro",
-        "score": null,
+        "score": 0,
         "seats": [
          "B1",
          "B2",
@@ -292,11 +298,17 @@
         ]
        }
       ],
-      "winner": null,
-      "decided_by": null,
-      "note": "Pending",
-      "replay": null,
-      "status": "pending"
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "forfeit",
+      "note": "Forfeit: opponent did not start",
+      "replay": {
+       "kind": "full",
+       "seconds": 0.0,
+       "path": "matches/soccer_hsl_team/rel-soccer-hsl-team-champ/HSTC-F05/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
      },
      {
       "id": "HSTC-F06",
@@ -310,7 +322,7 @@
         "seat": "A",
         "entrant": "astra-sub",
         "model": "GPT-6 Astra",
-        "score": null,
+        "score": 4,
         "seats": [
          "A1",
          "A2",
@@ -321,7 +333,7 @@
         "seat": "B",
         "entrant": "gemini",
         "model": "Gemini 4 Argon",
-        "score": null,
+        "score": 1,
         "seats": [
          "B1",
          "B2",
@@ -329,11 +341,17 @@
         ]
        }
       ],
-      "winner": null,
-      "decided_by": null,
-      "note": "Pending",
-      "replay": null,
-      "status": "pending"
+      "winner": "GPT-6 Astra",
+      "decided_by": "goals",
+      "note": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1894.3,
+       "path": "matches/soccer_hsl_team/rel-soccer-hsl-team-champ/HSTC-F06/replay.mp4",
+       "camera": "broadcast",
+       "size": "848x480"
+      },
+      "status": "resolved"
      },
      {
       "id": "HSTC-F07",
@@ -347,13 +365,23 @@
         "seat": "A",
         "entrant": "opus",
         "model": "Claude Opus 5.5",
-        "score": null
+        "score": null,
+        "seats": [
+         "A1",
+         "A2",
+         "A3"
+        ]
        },
        {
         "seat": "B",
         "entrant": "glm-flash-sh",
         "model": "GLM 5.3 Flash",
-        "score": null
+        "score": null,
+        "seats": [
+         "B1",
+         "B2",
+         "B3"
+        ]
        }
       ],
       "winner": null,
@@ -374,13 +402,23 @@
         "seat": "A",
         "entrant": "gemini",
         "model": "Gemini 4 Argon",
-        "score": null
+        "score": null,
+        "seats": [
+         "A1",
+         "A2",
+         "A3"
+        ]
        },
        {
         "seat": "B",
         "entrant": "deepseek-flash-sh",
         "model": "DeepSeek V4.1 Flash",
-        "score": null
+        "score": null,
+        "seats": [
+         "B1",
+         "B2",
+         "B3"
+        ]
        }
       ],
       "winner": null,
@@ -401,13 +439,23 @@
         "seat": "A",
         "entrant": "kimi",
         "model": "Kimi 3.1 Pro",
-        "score": null
+        "score": null,
+        "seats": [
+         "A1",
+         "A2",
+         "A3"
+        ]
        },
        {
         "seat": "B",
         "entrant": "astra-sub",
         "model": "GPT-6 Astra",
-        "score": null
+        "score": null,
+        "seats": [
+         "B1",
+         "B2",
+         "B3"
+        ]
        }
       ],
       "winner": null,
@@ -582,8 +630,8 @@
     "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
    }
   ],
-  "played": 4,
-  "pending": 11,
+  "played": 6,
+  "pending": 9,
   "knockout_planned": false,
   "ranking": [
    {
@@ -603,12 +651,12 @@
    },
    {
     "rank": 4,
-    "model": "GLM 5.3 Flash",
+    "model": "Kimi 3.1 Pro",
     "note": "round robin 4th"
    },
    {
     "rank": 5,
-    "model": "Kimi 3.1 Pro",
+    "model": "GLM 5.3 Flash",
     "note": "round robin 5th"
    },
    {
@@ -617,8 +665,10 @@
     "note": "round robin 6th"
    }
   ],
-  "notes": [],
-  "as_of": "2026-11-08T19:11:19Z",
+  "notes": [
+   "1 result(s) by forfeit (counted as a win, not played): kimi beat glm-flash-sh by forfeit (no-show), HSTC-F05/run-1"
+  ],
+  "as_of": "2026-11-08T23:37:52Z",
   "board": "rel-soccer-hsl-team-champ"
  },
  "open_arena": {
@@ -632,41 +682,53 @@
      {
       "rank": 1,
       "model": "Claude Opus 5.5",
-      "played": 3,
-      "won": 3,
+      "played": 4,
+      "won": 4,
       "drawn": 0,
       "lost": 0,
-      "points": 9,
-      "for": 14,
+      "points": 12,
+      "for": 23,
       "against": 3,
-      "note": "3-0-0, score 14:3"
+      "note": "4-0-0, score 23:3"
      },
      {
       "rank": 2,
       "model": "GPT-6 Astra",
-      "played": 3,
-      "won": 2,
+      "played": 4,
+      "won": 3,
       "drawn": 0,
       "lost": 1,
-      "points": 6,
-      "for": 21,
+      "points": 9,
+      "for": 26,
       "against": 2,
-      "note": "2-0-1, score 21:2"
+      "note": "3-0-1, score 26:2"
      },
      {
       "rank": 3,
       "model": "Gemini 4 Argon",
-      "played": 1,
-      "won": 0,
+      "played": 2,
+      "won": 1,
       "drawn": 0,
       "lost": 1,
-      "points": 0,
-      "for": 2,
+      "points": 3,
+      "for": 6,
       "against": 2,
-      "note": "0-0-1, score 2:2"
+      "note": "1-0-1, score 6:2"
      },
      {
       "rank": 4,
+      "model": "Kimi 3.1 Pro",
+      "played": 3,
+      "won": 1,
+      "drawn": 0,
+      "lost": 2,
+      "points": 3,
+      "for": 0,
+      "against": 15,
+      "note": "1-0-2, score 0:15"
+     },
+     {
+      "rank": 5,
       "model": "DeepSeek V4.1 Flash",
       "played": 1,
       "won": 0,
@@ -675,31 +737,19 @@
       "points": 0,
       "for": 0,
       "against": 10,
-      "note": "0-0-1, score 0:10, decided by lots"
-     },
-     {
-      "rank": 5,
-      "model": "Kimi 3.1 Pro",
-      "played": 1,
-      "won": 0,
-      "drawn": 0,
-      "lost": 1,
-      "points": 0,
-      "for": 0,
-      "against": 10,
-      "note": "0-0-1, score 0:10, decided by lots"
+      "note": "0-0-1, score 0:10"
      },
      {
       "rank": 6,
       "model": "GLM 5.3 Flash",
-      "played": 1,
+      "played": 4,
       "won": 0,
       "drawn": 0,
-      "lost": 1,
+      "lost": 4,
       "points": 0,
       "for": 0,
-      "against": 10,
-      "note": "0-0-1, score 0:10, decided by lots"
+      "against": 23,
+      "note": "0-0-4, score 0:23"
      }
     ],
     "matches": [
@@ -735,7 +785,7 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "goals",
       "note": null,
       "replay": {
        "kind": "states",
@@ -777,7 +827,7 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "shootout",
       "note": null,
       "replay": {
        "kind": "states",
@@ -819,9 +869,14 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": null,
+      "decided_by": "goals",
       "note": null,
-      "replay": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
       "status": "resolved"
      },
      {
@@ -856,9 +911,14 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "goals",
       "note": null,
-      "replay": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
       "status": "resolved"
      },
      {
@@ -893,9 +953,14 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": null,
+      "decided_by": "goals",
       "note": null,
-      "replay": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
       "status": "resolved"
      },
      {
@@ -910,7 +975,7 @@
         "seat": "A",
         "entrant": "kimi",
         "model": "Kimi 3.1 Pro",
-        "score": null,
+        "score": 0,
         "seats": [
          "A1",
          "A2",
@@ -921,7 +986,7 @@
         "seat": "B",
         "entrant": "astra-sub",
         "model": "GPT-6 Astra",
-        "score": null,
+        "score": 5,
         "seats": [
          "B1",
          "B2",
@@ -929,11 +994,16 @@
         ]
        }
       ],
-      "winner": null,
-      "decided_by": null,
-      "note": "Pending",
-      "replay": null,
-      "status": "pending"
+      "winner": "GPT-6 Astra",
+      "decided_by": "goals",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
      },
      {
       "id": "HSTA-F10",
@@ -947,7 +1017,7 @@
         "seat": "A",
         "entrant": "gemini",
         "model": "Gemini 4 Argon",
-        "score": null,
+        "score": 4,
         "seats": [
          "A1",
          "A2",
@@ -958,7 +1028,7 @@
         "seat": "B",
         "entrant": "glm-flash-sh",
         "model": "GLM 5.3 Flash",
-        "score": null,
+        "score": 0,
         "seats": [
          "B1",
          "B2",
@@ -966,11 +1036,16 @@
         ]
        }
       ],
-      "winner": null,
-      "decided_by": null,
-      "note": "Pending",
-      "replay": null,
-      "status": "pending"
+      "winner": "Gemini 4 Argon",
+      "decided_by": "goals",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
      },
      {
       "id": "HSTA-F11",
@@ -1095,7 +1170,7 @@
         "seat": "A",
         "entrant": "kimi",
         "model": "Kimi 3.1 Pro",
-        "score": null,
+        "score": 0,
         "seats": [
          "A1",
          "A2",
@@ -1106,7 +1181,7 @@
         "seat": "B",
         "entrant": "glm-flash-sh",
         "model": "GLM 5.3 Flash",
-        "score": null,
+        "score": 0,
         "seats": [
          "B1",
          "B2",
@@ -1114,11 +1189,16 @@
         ]
        }
       ],
-      "winner": null,
-      "decided_by": null,
-      "note": "Pending",
-      "replay": null,
-      "status": "pending"
+      "winner": "Kimi 3.1 Pro",
+      "decided_by": "shootout",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
      },
      {
       "id": "HSTA-F15",
@@ -1172,7 +1252,7 @@
         "seat": "A",
         "entrant": "glm-flash-sh",
         "model": "GLM 5.3 Flash",
-        "score": null,
+        "score": 0,
         "seats": [
          "A1",
          "A2",
@@ -1183,7 +1263,7 @@
         "seat": "B",
         "entrant": "opus",
         "model": "Claude Opus 5.5",
-        "score": null,
+        "score": 9,
         "seats": [
          "B1",
          "B2",
@@ -1191,11 +1271,16 @@
         ]
        }
       ],
-      "winner": null,
-      "decided_by": null,
-      "note": "Pending",
-      "replay": null,
-      "status": "pending"
+      "winner": "Claude Opus 5.5",
+      "decided_by": "goals",
+      "note": null,
+      "replay": {
+       "kind": "states",
+       "seconds": null,
+       "path": null,
+       "note": "Recorded states only; video drawn at release"
+      },
+      "status": "resolved"
      },
      {
       "id": "HSTQ-F04",
@@ -1281,46 +1366,46 @@
     "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
    }
   ],
-  "played": 5,
-  "pending": 10,
+  "played": 9,
+  "pending": 6,
   "knockout_planned": false,
   "ranking": [
    {
     "rank": 1,
     "model": "Claude Opus 5.5",
-    "note": "3-0-0, score 14:3"
+    "note": "4-0-0, score 23:3"
    },
    {
     "rank": 2,
     "model": "GPT-6 Astra",
-    "note": "2-0-1, score 21:2"
+    "note": "3-0-1, score 26:2"
    },
    {
     "rank": 3,
     "model": "Gemini 4 Argon",
-    "note": "0-0-1, score 2:2"
+    "note": "1-0-1, score 6:2"
    },
    {
     "rank": 4,
-    "model": "DeepSeek V4.1 Flash",
-    "note": "0-0-1, score 0:10, decided by lots"
+    "model": "Kimi 3.1 Pro",
+    "note": "1-0-2, score 0:15"
    },
    {
     "rank": 5,
-    "model": "Kimi 3.1 Pro",
-    "note": "0-0-1, score 0:10, decided by lots"
+    "model": "DeepSeek V4.1 Flash",
+    "note": "0-0-1, score 0:10"
    },
    {
     "rank": 6,
     "model": "GLM 5.3 Flash",
-    "note": "0-0-1, score 0:10, decided by lots"
+    "note": "0-0-4, score 0:23"
    }
   ],
   "notes": [],
-  "as_of": "2026-11-08T17:39:52Z",
+  "as_of": "2026-11-09T01:28:23Z",
   "board": "rel-soccer-hsl-team-arena",
   "complete": false,
-  "status_line": "2 of 15 matches played"
+  "status_line": "8 of 15 matches played"
  },
  "agents": {
   "per_model": {
@@ -1334,12 +1419,12 @@
     "output_tokens": 2628356,
     "reviews": "126/126",
     "gpu": "yes in 5/5 (max 82 GPU-min)",
-    "seat_matches": 15,
-    "train_code": 6,
-    "weights": 6,
-    "practice_world": 6,
-    "realtime_rehearsal": 6,
-    "median_prep_min": 88
+    "seat_matches": 18,
+    "train_code": 9,
+    "weights": 3,
+    "practice_world": 4,
+    "realtime_rehearsal": 4,
+    "median_prep_min": 104
    },
    "GPT-6 Astra": {
     "championship_place": "2 (provisional: round robin 2nd)",
@@ -1351,12 +1436,12 @@
     "output_tokens": 1772004,
     "reviews": "102/105",
     "gpu": "yes in 2/2 (max 87 GPU-min)",
-    "seat_matches": 12,
-    "train_code": 6,
-    "weights": 6,
+    "seat_matches": 18,
+    "train_code": 10,
+    "weights": 3,
     "practice_world": 8,
-    "realtime_rehearsal": 7,
-    "median_prep_min": 92
+    "realtime_rehearsal": 6,
+    "median_prep_min": 89
    },
    "Gemini 4 Argon": {
     "championship_place": "4 (provisional: round robin 4th)",
@@ -1368,12 +1453,12 @@
     "output_tokens": 1076466,
     "reviews": "16/21",
     "gpu": "yes in 1/1 (max 27 GPU-min)",
-    "seat_matches": 3,
+    "seat_matches": 12,
     "train_code": 1,
-    "weights": 0,
-    "practice_world": 3,
+    "weights": 2,
+    "practice_world": 12,
     "realtime_rehearsal": 0,
-    "median_prep_min": 116
+    "median_prep_min": 94
    },
    "Kimi 3.1 Pro": {
     "championship_place": "5 (provisional: round robin 5th)",
@@ -1385,12 +1470,12 @@
     "output_tokens": 1713661,
     "reviews": "54/60",
     "gpu": "yes in 2/2 (max 55 GPU-min)",
-    "seat_matches": 6,
-    "train_code": 1,
+    "seat_matches": 15,
+    "train_code": 5,
     "weights": 3,
-    "practice_world": 4,
-    "realtime_rehearsal": 4,
-    "median_prep_min": 104
+    "practice_world": 9,
+    "realtime_rehearsal": 9,
+    "median_prep_min": 65
    },
    "DeepSeek V4.1 Flash": {
     "championship_place": "6 (provisional: round robin 6th)",
@@ -1404,9 +1489,9 @@
     "gpu": "yes in 2/2 (max 82 GPU-min)",
     "seat_matches": 9,
     "train_code": 9,
-    "weights": 9,
-    "practice_world": 9,
-    "realtime_rehearsal": 7,
+    "weights": 4,
+    "practice_world": 6,
+    "realtime_rehearsal": 4,
     "median_prep_min": 89
    },
    "GLM 5.3 Flash": {
@@ -1419,18 +1504,18 @@
     "output_tokens": 592821,
     "reviews": "16/33",
     "gpu": null,
-    "seat_matches": 3,
-    "train_code": 1,
-    "weights": 0,
-    "practice_world": 2,
-    "realtime_rehearsal": 1,
-    "median_prep_min": 105
+    "seat_matches": 18,
+    "train_code": 5,
+    "weights": 6,
+    "practice_world": 8,
+    "realtime_rehearsal": 4,
+    "median_prep_min": 94
    }
   },
   "checkpoint": {
    "kind": "duel",
    "board": "rel-soccer-hsl-team-champ",
-   "made": "2026-11-08 12:43 CST",
+   "made": "2026-11-08 21:37 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [],
    "ref": null,
