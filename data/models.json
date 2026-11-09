@@ -1,5 +1,5 @@
 {
- "_note": "The six entries of the first edition. Each entry is a whole agent system: model + harness. Colours (Chi 11-09): close to each official brand colour, adjusted for distinctness; the renderers dress each model in it. colour = light theme; colour_dark = the dark-theme variant where the brand colour would vanish (Kimi black -> light silver); outline_light = thin dark outline on swatches / dots / bars in the light theme (GLM yellow on white). harness / effort / entry: the official release run's entrant definitions (evalops-r1107/entries/<entrant>.json: harness.name, model.params.reasoning_effort, entry_id).",
+ "_note": "The six entries of the first edition. Each entry is a whole agent system: model + harness. Colours (Chi 11-09): close to each official brand colour, adjusted for distinctness; the renderers dress each model in it. colour = both themes; outline_dark = a thin light outline on every mark in the dark theme (Kimi black on the dark ground, Chi 11-09); outline_light = a thin dark outline in the light theme (GLM yellow on white). harness / effort / entry: the official release run's entrant definitions (evalops-r1107/entries/<entrant>.json: harness.name, model.params.reasoning_effort, entry_id).",
  "models": [
   {
    "name": "Claude Opus 5.5",
@@ -32,7 +32,7 @@
    "colour": "#1A1A1A",
    "effort": "high",
    "entry": "kimi@v2",
-   "colour_dark": "#D9D9D9"
+   "outline_dark": "#D9D9D9"
   },
   {
    "name": "DeepSeek V4.1 Flash",

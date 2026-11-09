@@ -410,8 +410,9 @@ html.pl-fill-on,html.pl-fill-on body{overflow:hidden}
 @media (max-width:900px){.pl-stage.is-fill,.pl-stage:fullscreen{--sb:1.1}}
 @media (max-width:640px){.pl-stage.is-fill .sbo-lab{display:inline}}
 /* kit swatch: the colour the side wears in this video (the bar next to it stays the model's brand colour) */
-.sbo-kit{display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--c);box-shadow:0 0 0 1px rgba(255,255,255,.55);margin-right:4px;vertical-align:-1px}
+.sbo-kit{display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--c);box-shadow:0 0 0 1.2px var(--ol,rgba(255,255,255,.55));margin-right:4px;vertical-align:-1px}
 .sbo-nm small{display:block}
 .sbo-leg{display:flex;flex-wrap:wrap;gap:4px 10px;padding:5px 9px;border-radius:7px;background:rgba(8,9,11,.72);font-size:12px;font-weight:600}
 .sbo-leg span{display:inline-flex;align-items:center;gap:2px}
 .sbo-leg em{font:500 10px var(--f-mono);font-style:normal;color:rgba(242,241,236,.65);margin-left:3px}
+.cs path.cs-case{stroke:var(--ol,transparent);stroke-width:4.4}
