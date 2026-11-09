@@ -194,3 +194,14 @@
   dlg.addEventListener("click", (e) => { if (e.target === dlg) close(); });
   dlg.addEventListener("cancel", (e) => { e.preventDefault(); if (isFill()) setFill(false); else if (!fsEl()) close(); });
 })();
+
+/* Checkpoint Evaluation: opponent switch (All (mean) | L1 | L2 | L3 | practice player) */
+(() => {
+  document.querySelectorAll(".tv-row").forEach((row) => {
+    const fig = row.closest(".cfig");
+    row.querySelectorAll("[data-tv]").forEach((b) => b.addEventListener("click", () => {
+      row.querySelectorAll("[data-tv]").forEach((x) => { x.classList.toggle("is-on", x === b); x.setAttribute("aria-pressed", x === b); });
+      fig.querySelectorAll("[data-tvp]").forEach((p) => { p.hidden = p.dataset.tvp !== b.dataset.tv; });
+    }));
+  });
+})();

@@ -3,7 +3,7 @@
  "sport": "beachvolleyball",
  "key": "beachvolleyball_g1",
  "format": "team",
- "made": "2026-11-09T04:28Z",
+ "made": "2026-11-09T07:55Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -279,7 +279,7 @@
        "size": "848x480",
        "fixture": "BVB2-F06",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -354,7 +354,7 @@
        "size": "848x480",
        "fixture": "BVB2-F07",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -392,7 +392,7 @@
        "size": "848x480",
        "fixture": "BVB2-F08",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -578,7 +578,7 @@
        "size": "848x480",
        "fixture": "BVB2-F13",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -615,7 +615,7 @@
        "size": "848x480",
        "fixture": "BVB2-F14",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -652,7 +652,7 @@
        "size": "848x480",
        "fixture": "BVB2-F15",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      }
@@ -698,7 +698,7 @@
        "size": "848x480",
        "fixture": "BVB2-F16",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -742,7 +742,7 @@
        "size": "848x480",
        "fixture": "BVB2-F17",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -792,7 +792,7 @@
        "size": "848x480",
        "fixture": "BVB2-F18",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -842,7 +842,7 @@
        "size": "848x480",
        "fixture": "BVB2-F19",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -1079,7 +1079,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BVBA-F03",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1115,7 +1115,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BVBA-F05",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1331,7 +1331,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BVBA-F11",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1403,7 +1403,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "BVBA-F13",
        "key": "beachvolleyball_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1671,7 +1671,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-beachvolleyball-g1-champ2",
-   "made": "2026-11-08 22:22 CST",
+   "made": "2026-11-09 01:28 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1687,10 +1687,10 @@
    "count": {
     "planned": 172,
     "ok": 57,
-    "invalid": 74,
+    "invalid": 0,
     "never_acted": 0,
     "model_called": 0,
-    "pending": 41
+    "pending": 115
    },
    "lines": {
     "Gemini 4 Argon": [
@@ -1834,6 +1834,236 @@
     "GLM 5.3 Flash": "flat",
     "DeepSeek V4.1 Flash": "improve"
    },
+   "tiers": [
+    {
+     "id": "L1",
+     "tier": "weak",
+     "label": "L1 = level-1 reference program (weak)",
+     "short": "L1 · weak",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.476
+       }
+      ]
+     },
+     "ok": 2,
+     "planned": 56,
+     "shared_count": false
+    },
+    {
+     "id": "L2",
+     "tier": "middle",
+     "label": "L2 = level-2 reference program (middle)",
+     "short": "L2 · middle",
+     "lines": {
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.2083
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3478
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.375
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0588
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0901
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1176
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.3961
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3614
+       }
+      ],
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.4643
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.5206
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.476
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.1422
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.4643
+       }
+      ]
+     },
+     "ok": 57,
+     "planned": 172,
+     "shared_count": true
+    },
+    {
+     "id": "L3",
+     "tier": "strong",
+     "label": "L3 = level-3 reference program (strong)",
+     "short": "L3 · strong",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.375
+       }
+      ]
+     },
+     "ok": 1,
+     "planned": 56,
+     "shared_count": false
+    },
+    {
+     "id": "PP",
+     "tier": "strongest",
+     "label": "Practice player = the strongest program (our best)",
+     "short": "Practice player",
+     "lines": {
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0312
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0588
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.2841
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.375
+       }
+      ],
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.2588
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.2792
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.3614
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.3125
+       }
+      ]
+     },
+     "ok": 57,
+     "planned": 172,
+     "shared_count": true
+    }
+   ],
+   "tier_note": null,
    "capability": {
     "n": 4,
     "names": [
@@ -2189,5 +2419,34 @@
     "Fielded learned return and receive motions in two Open Arena matches, one of the few learned contact skills in the whole event."
    ]
   }
+ },
+ "interface": {
+  "sees": "One head camera per robot, the G1's real colour camera (424 × 240, a new frame every 10 ms), each robot's joints, balance sensor and position, the wind on the windsocks, and the referee's calls. No ball coordinates.",
+  "controls": "Targets for all 29 joints of both robots, one row or a plan of up to 300 rows of 10 ms, with optional speeds, torques, stiffness and damping. Real time, 100 times a second.",
+  "moment": "Final, Claude Opus 5.5 v GPT-6 Astra, match point with Opus ahead 15–14, 1:10 in the replay. Opus's serve is coming over the net; both of Astra's robots see it in their head cameras. Astra's robot 2 (ringed) plays it out, and Opus wins 16–14.",
+  "camera": {
+   "src": "img/pov/beachvolleyball-camera.jpg",
+   "w": 848,
+   "h": 240,
+   "label": "Robot cameras · Astra's two robots · 424 × 240 each"
+  },
+  "broadcast": {
+   "src": "img/pov/beachvolleyball-broadcast.jpg",
+   "w": 848,
+   "h": 480,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Cameras: one in each robot's trunk, the real G1's Intel RealSense D435i colour camera, 424 × 240, 69.4° × 42.5°, tilted 30° up. The G1 has no neck, so a robot looks elsewhere by turning its waist, leaning or turning its body.",
+   "A new frame every 10 ms; the newest a program can fetch is 20 ms old, both robots' tiles in one image, stamped with their step. To keep the cameras fast, their images leave out the stands and the crowd and draw the sky in flat colours.",
+   "Not given: where the ball is. The program finds it in the images; the windsocks show the wind.",
+   "Own robots: position, heading, trunk height and lean, velocity, all 29 joint angles and speeds, the pelvis IMU, the targets in force, and whether each robot is down.",
+   "Referee: score, set half, clock, situation (service, rally, between rallies), who serves, the 5 s service clock, the hits used on its side, and how the last point was won.",
+   "Command, per robot: targets for all 29 joints (or the 17 of waist and arms), one row or up to 300 rows, one per 10 ms step, or a plan for chosen joint groups from a chosen step; optional velocities, feed-forward torques and gains. Targets beyond the joint ranges or speeds are clipped; the joint controller runs every 2 ms through the motors' torque–speed curves.",
+   "No ready-made skills: no walking policy, hit or serve. On the default gains alone a robot falls within about 1.3 s. The ball rests on the server's left palm; the program tosses and strikes it within 5 s of the whistle.",
+   "Timing: a control step every 10 ms; the match runs at real speed and never waits; commands for both robots sent together act on the same step.",
+   "Rules: FIVB beach volleyball, 2 v 2 on an 8.4 × 4.2 m court, three hits a side, one set to 15 (at 16-all the next point wins), with wind.",
+   "Before the match: 2 hours of preparation with a full practice copy of the court, a practice opponent and a GPU training kit (half an RTX PRO 6000)."
+  ]
  }
 }

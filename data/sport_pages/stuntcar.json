@@ -3,7 +3,7 @@
  "sport": "stuntcar",
  "key": "stuntcar",
  "format": "solo",
- "made": "2026-11-09T04:28Z",
+ "made": "2026-11-09T07:55Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -192,7 +192,7 @@
        "size": "1280x720",
        "fixture": "STU2-F0103",
        "key": "stuntcar",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -519,7 +519,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-stuntcar-arena2",
-   "made": "2026-11-08 22:22 CST",
+   "made": "2026-11-09 01:28 CST",
    "measure": "Event points, ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,
@@ -737,6 +737,8 @@
     "GLM 5.3 Flash": "improve",
     "DeepSeek V4.1 Flash": "one point only"
    },
+   "tiers": [],
+   "tier_note": null,
    "capability": {
     "n": 3,
     "names": [
@@ -752,6 +754,12 @@
        "x": 2.0,
        "n_pass": 3,
        "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 3,
+       "valid": 3
       }
      ],
      "DeepSeek V4.1 Flash": [
@@ -765,29 +773,87 @@
        "cp": "final:2",
        "x": 2.0,
        "n_pass": 0,
-       "valid": 2
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 3
+      }
+     ],
+     "Gemini 4 Argon": [
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 1,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 2,
+       "valid": 3
+      }
+     ],
+     "GLM 5.3 Flash": [
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 3
       }
      ],
      "Kimi 3.1 Pro": [
       {
        "cp": "kickoff:1",
        "x": 0.5,
-       "n_pass": 0,
-       "valid": 12
+       "n_pass": 1,
+       "valid": 15
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 3,
+       "valid": 3
       }
      ],
      "Claude Opus 5.5": [
       {
        "cp": "kickoff:1",
        "x": 0.5,
-       "n_pass": 0,
-       "valid": 4
+       "n_pass": 1,
+       "valid": 7
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 1,
        "valid": 9
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 3,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 2,
+       "valid": 3
       }
      ]
     },
@@ -1221,5 +1287,35 @@
     "One wrong formula zeroed its attitude correction in every flight; it blamed friction for two matches and found the bug before the third."
    ]
   }
+ },
+ "interface": {
+  "sees": "One driver's-eye camera (320 × 240, 90° wide, a picture on each request), the car's own position, speed and attitude estimate, its wheels, air tanks and pressures, and the judges' scores after each run.",
+  "controls": "Ten air-jet valves, the rear-wheel motors, brakes and steering, in commands of 10 ms up to 1 s, in real time. Every jump, flip and landing is the agent's own program.",
+  "moment": "GPT-6 Astra's best jump of the medal series (run 5 of its third match, 149 points): roll left, back flip, roll right. Here the car is upside down at the top of the back flip, high over the parked cars; a jet's plume shows at the edge of the driver's view.",
+  "camera": {
+   "src": "img/pov/stuntcar-camera.jpg",
+   "w": 320,
+   "h": 240,
+   "label": "Robot camera · Astra's car · 320 × 240"
+  },
+  "broadcast": {
+   "src": "img/pov/stuntcar-broadcast.jpg",
+   "w": 1280,
+   "h": 720,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Camera: one driver's-eye camera bolted to the car body (left seat, 1.15 m above the floor at rest), looking forward through the windshield, 320 × 240 pixels, 90° wide. It turns with the car in roll, pitch and yaw. A picture is taken when the program asks for it and arrives 20 ms later, stamped with its step.",
+   "Car estimate: position, velocity, attitude and turn rates from the car's own navigation unit, with small noise and 10 ms old.",
+   "Car state: the four wheels, the air left in each tank, the manifold pressures (real gauges with bias and noise), and the command in force.",
+   "Referee: run number, practice or scored, run time, how the run ended, jumps landed, and each run's result: clearance, peak load, landing, difficulty, execution and points.",
+   "Command: ten valve openings from 0 to 1 (four rear main jets, four corner jets pointing down, two front yaw jets; valves follow 20-25 ms late), torque for the two rear-wheel motors, brakes from 0 to 1, front-wheel steering, and how long to hold it (0.01 to 1 s). After that the valves close and the brakes go on.",
+   "Timing: a control step every 10 ms; the world runs at real speed and never waits; a command acts at the next step, one in flight at a time.",
+   "The car: one fill of compressed air (690 bar) per run is all the thrust there is; the car is held to the real vehicle's limits.",
+   "A run: one jump off the flat floor over a row of parked vehicles into an 8 m corridor. Points = difficulty × execution, measured from the car's motion in the air: any rotation counts, more turns, reversals and axis changes score more, and a clean, straight, soft landing keeps the execution.",
+   "A run scores nothing if the car touches anything, does not clear the row, lands too hard or crooked, tips over or leaves the corridor.",
+   "The event: 2 practice runs, then 3 scored runs; the best two jumps of different tricks count. The world freezes after each run for a review of up to 5 minutes.",
+   "Before the event: 30 minutes of preparation with a full practice copy of the course. No GPU."
+  ]
  }
 }

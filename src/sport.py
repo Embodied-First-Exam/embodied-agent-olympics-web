@@ -700,11 +700,33 @@ def growth(site: Site, d: dict) -> str:
             f"{cnt.get('ok', 0)} of {cnt.get('planned', 0)} replays done. Provisional.")
     cap_h = (f'<figure class="cfig"><figcaption><strong>Capability growth</strong><span>Card capabilities passed, of {cap.get("n")}</span></figcaption>{capc}</figure>'
              if capc else "")
+    # opponent switch (Chi 11-09): "All (mean)" = the main curve; one view per tested opponent tier, weakest first
+    tiers = ck.get("tiers") or []
+    fmt2 = lambda v: f"{v:.2f}".rstrip("0").rstrip(".") if v else "0"  # noqa: E731
+    views = [("all", "All (mean)", f'<p class="tv-cap">{E(ck["measure"])}</p>{perf}')]
+    for tr in tiers:
+        tl = {m: v for m, v in tr["lines"].items() if v}
+        prog = (f'in progress, {tr["ok"]} of {tr["planned"]} replays done' if tr["ok"] < tr["planned"] else f'{tr["ok"]} replays')
+        if tl:
+            tv = max(p["mean"] for pts in tl.values() for p in pts)
+            ch = _chart(site, tl, "mean", 0.5 if tv <= 0.5 else 1.0, None, tr["label"], fmt2, xmax=xmax)
+        else:
+            ch = '<p class="cr-rule tv-empty">No checkpoint replays against this opponent yet.</p>'
+        views.append((tr["id"], tr["short"], f'<p class="tv-cap">Score share against {E(tr["label"])} · {E(prog)}</p>{ch}'))
+    if len(views) > 1:
+        sw = "".join(f'<button type="button" class="tv-b{" is-on" if k == 0 else ""}" data-tv="{E(v)}" aria-pressed="{"true" if k == 0 else "false"}">{E(lab)}</button>'
+                     for k, (v, lab, _) in enumerate(views))
+        panes = "".join(f'<div class="tv-p" data-tvp="{E(v)}"{"" if k == 0 else " hidden"}>{body}</div>' for k, (v, _, body) in enumerate(views))
+        note = f'<p class="cr-rule tv-note">{E(ck["tier_note"])}</p>' if ck.get("tier_note") else ""
+        perf_block = f'<div class="tv-row" role="group" aria-label="Opponent">{sw}</div>{panes}{note}'
+        mcap = "Score share (0.5 = even); pick the opponent"
+    else:
+        perf_block, mcap = perf, ck["measure"]
     return f"""
 <div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3>
   <div class="lg-row" data-lgs>{legend}</div>
   <div class="cgrid" data-charts>
-    <figure class="cfig"><figcaption><strong>Performance growth</strong><span>{E(ck["measure"])}</span></figcaption>{perf}</figure>
+    <figure class="cfig"><figcaption><strong>Performance growth</strong><span>{E(mcap)}</span></figcaption>{perf_block}</figure>
     {cap_h}
   </div>
   <p class="cr-rule">{E(foot)}</p>

@@ -3,7 +3,7 @@
  "sport": "amfootball",
  "key": "amfootball",
  "format": "team",
- "made": "2026-11-09T04:28Z",
+ "made": "2026-11-09T07:55Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -129,7 +129,7 @@
        "size": "848x480",
        "fixture": "AMF2-F02",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -203,7 +203,7 @@
        "size": "848x480",
        "fixture": "AMFC-F03",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -241,7 +241,7 @@
        "size": "848x480",
        "fixture": "AMF2-F04",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -316,7 +316,7 @@
        "size": "848x480",
        "fixture": "AMFC-F05",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -465,7 +465,7 @@
        "size": "848x480",
        "fixture": "AMF2-F10",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -502,7 +502,7 @@
        "size": "848x480",
        "fixture": "AMF2-F11",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -696,7 +696,7 @@
        "size": "848x480",
        "fixture": "AMF2-F16",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -740,7 +740,7 @@
        "size": "848x480",
        "fixture": "AMF2-F17",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -790,7 +790,7 @@
        "size": "848x480",
        "fixture": "AMF2-F18",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -840,7 +840,7 @@
        "size": "848x480",
        "fixture": "AMF2-F19",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved",
       "seeds": [
@@ -1005,7 +1005,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "AMFA-F01",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1041,7 +1041,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "AMFA-F02",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1221,7 +1221,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "AMFA-F09",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1257,7 +1257,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "AMFA-F12",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1518,7 +1518,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "AMFQ-F13",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      }
@@ -1570,15 +1570,15 @@
  "agents": {
   "per_model": {
    "Claude Opus 5.5": {
-    "championship_place": "1 (provisional: round robin 1st)",
+    "championship_place": "1 (Gold)",
     "open_arena": "2 (9 pts, 3-0-2)",
-    "matches": 11,
-    "versions": 70,
-    "switches": 59,
-    "model_calls": 1980,
-    "output_tokens": 1202805,
-    "reviews": "91/98",
-    "gpu": "yes in 10/11 (max 94 GPU-min)",
+    "matches": 12,
+    "versions": 76,
+    "switches": 64,
+    "model_calls": 2083,
+    "output_tokens": 1246091,
+    "reviews": "119/127",
+    "gpu": "yes in 10/12 (max 94 GPU-min)",
     "seat_matches": 12,
     "train_code": 11,
     "weights": 2,
@@ -1587,15 +1587,15 @@
     "median_prep_min": 73
    },
    "GPT-6 Astra": {
-    "championship_place": "2 (provisional: round robin 2nd)",
+    "championship_place": "2 (Silver)",
     "open_arena": "1 (15 pts, 5-0-0)",
-    "matches": 11,
-    "versions": 86,
-    "switches": 75,
-    "model_calls": 2307,
-    "output_tokens": 1050902,
-    "reviews": "103/104",
-    "gpu": "yes in 9/11 (max 108 GPU-min)",
+    "matches": 12,
+    "versions": 113,
+    "switches": 101,
+    "model_calls": 2605,
+    "output_tokens": 1144104,
+    "reviews": "131/133",
+    "gpu": "yes in 10/12 (max 108 GPU-min)",
     "seat_matches": 12,
     "train_code": 8,
     "weights": 1,
@@ -1604,15 +1604,15 @@
     "median_prep_min": 51
    },
    "Gemini 4 Argon": {
-    "championship_place": "4 (provisional: round robin 4th)",
+    "championship_place": "4",
     "open_arena": "4 (6 pts, 2-0-3)",
-    "matches": 11,
-    "versions": 62,
-    "switches": 52,
-    "model_calls": 5417,
-    "output_tokens": 3665506,
-    "reviews": "49/56",
-    "gpu": "yes in 6/11 (max 70 GPU-min)",
+    "matches": 12,
+    "versions": 76,
+    "switches": 65,
+    "model_calls": 5819,
+    "output_tokens": 3946968,
+    "reviews": "56/63",
+    "gpu": "yes in 6/12 (max 70 GPU-min)",
     "seat_matches": 12,
     "train_code": 11,
     "weights": 2,
@@ -1621,15 +1621,15 @@
     "median_prep_min": 108
    },
    "Kimi 3.1 Pro": {
-    "championship_place": "3 (provisional: round robin 3rd)",
+    "championship_place": "3 (Bronze)",
     "open_arena": "3 (9 pts, 3-0-2)",
-    "matches": 11,
-    "versions": 120,
-    "switches": 111,
-    "model_calls": 3517,
-    "output_tokens": 1944785,
-    "reviews": "97/99",
-    "gpu": "yes in 9/11 (max 60 GPU-min)",
+    "matches": 12,
+    "versions": 126,
+    "switches": 116,
+    "model_calls": 3742,
+    "output_tokens": 2058810,
+    "reviews": "104/106",
+    "gpu": "yes in 9/12 (max 60 GPU-min)",
     "seat_matches": 12,
     "train_code": 2,
     "weights": 3,
@@ -1638,7 +1638,7 @@
     "median_prep_min": 58
    },
    "DeepSeek V4.1 Flash": {
-    "championship_place": "5 (provisional: round robin 5th)",
+    "championship_place": "5",
     "open_arena": "5 (3 pts, 1-0-4)",
     "matches": 10,
     "versions": 49,
@@ -1655,7 +1655,7 @@
     "median_prep_min": 58
    },
    "GLM 5.3 Flash": {
-    "championship_place": "6 (provisional: round robin 6th)",
+    "championship_place": "6",
     "open_arena": "6 (3 pts, 1-0-4)",
     "matches": 10,
     "versions": 38,
@@ -1675,7 +1675,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-amfootball-champ2",
-   "made": "2026-11-08 22:22 CST",
+   "made": "2026-11-09 01:28 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1689,12 +1689,12 @@
    ],
    "ref": 0.2225,
    "count": {
-    "planned": 168,
-    "ok": 145,
-    "invalid": 7,
+    "planned": 176,
+    "ok": 171,
+    "invalid": 0,
     "never_acted": 0,
     "model_called": 0,
-    "pending": 16
+    "pending": 5
    },
    "lines": {
     "GPT-6 Astra": [
@@ -1712,6 +1712,14 @@
       "mean": 0.2059,
       "lo": 0.1993,
       "hi": 0.2125,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.5176,
+      "lo": 0.2382,
+      "hi": 0.7969,
       "n": 2
      },
      {
@@ -1745,6 +1753,14 @@
       "lo": 0.0833,
       "hi": 0.1912,
       "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.5942,
+      "lo": null,
+      "hi": null,
+      "n": 1
      }
     ],
     "DeepSeek V4.1 Flash": [
@@ -1759,6 +1775,14 @@
      {
       "cp": "final:1",
       "x": 1.0,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
       "mean": 0.0,
       "lo": 0.0,
       "hi": 0.0,
@@ -1804,6 +1828,14 @@
       "mean": 0.0,
       "lo": 0.0,
       "hi": 0.0,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.0242,
+      "lo": 0.0,
+      "hi": 0.0484,
       "n": 2
      },
      {
@@ -1868,9 +1900,9 @@
       "cp": "final:2",
       "x": 2.0,
       "mean": 0.0,
-      "lo": null,
-      "hi": null,
-      "n": 1
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 2
      },
      {
       "cp": "final:3",
@@ -1912,6 +1944,14 @@
       "mean": 0.1213,
       "lo": 0.1109,
       "hi": 0.1317,
+      "n": 2
+     },
+     {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.3611,
+      "lo": 0.3571,
+      "hi": 0.3651,
       "n": 2
      },
      {
@@ -1973,6 +2013,14 @@
       "n": 2
      },
      {
+      "cp": "final:2",
+      "x": 2.0,
+      "mean": 0.8824,
+      "lo": 0.8333,
+      "hi": 0.9314,
+      "n": 2
+     },
+     {
       "cp": "final:3",
       "x": 3.0,
       "mean": 0.8664,
@@ -2003,17 +2051,865 @@
       "lo": 0.8019,
       "hi": 0.8689,
       "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.875,
+      "lo": null,
+      "hi": null,
+      "n": 1
      }
     ]
    },
    "verdict": {
-    "GPT-6 Astra": "improve",
+    "GPT-6 Astra": "flat",
     "Claude Opus 5.5": "flat",
     "Gemini 4 Argon": "flat",
     "Kimi 3.1 Pro": "improve",
     "GLM 5.3 Flash": "flat",
     "DeepSeek V4.1 Flash": "flat"
    },
+   "tiers": [
+    {
+     "id": "L1",
+     "tier": "weak",
+     "label": "L1 = level-1 reference program (weak)",
+     "short": "L1 · weak",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.5287
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.221
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.2611
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.6775
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.4904
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.15
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.15
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0333
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.1111
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.2041
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.4391
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.5192
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.7
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.6101
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.5769
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.8978
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.9478
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.9286
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.8971
+       }
+      ]
+     },
+     "ok": 61,
+     "planned": 64,
+     "shared_count": false
+    },
+    {
+     "id": "L2",
+     "tier": "middle",
+     "label": "L2 = level-2 reference program (middle)",
+     "short": "L2 · middle",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.3045
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1507
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.65
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.55
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.319
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.6659
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.1912
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0435
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.0484
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.1875
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.2308
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.1507
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.4451
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.4052
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.6506
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.6489
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.6629
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.6347
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.87
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.8328
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.888
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.8853
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 1.0
+       }
+      ]
+     },
+     "ok": 171,
+     "planned": 176,
+     "shared_count": true
+    },
+    {
+     "id": "L3",
+     "tier": "strong",
+     "label": "L3 = level-3 reference program (strong)",
+     "short": "L3 · strong",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0882
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.3457
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.3974
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.4103
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0154
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0625
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.2143
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.4283
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.6075
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.4917
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.4064
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.9397
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 1.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.8889
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.7167
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.6203
+       }
+      ]
+     },
+     "ok": 61,
+     "planned": 64,
+     "shared_count": false
+    },
+    {
+     "id": "PP",
+     "tier": "strongest",
+     "label": "Practice player = the strongest program (our best)",
+     "short": "Practice player",
+     "lines": {
+      "GPT-6 Astra": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0484
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.2611
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.3851
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.4386
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.2795
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.3134
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0833
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.5942
+       }
+      ],
+      "DeepSeek V4.1 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Gemini 4 Argon": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0625
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0
+       }
+      ],
+      "GLM 5.3 Flash": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       }
+      ],
+      "Kimi 3.1 Pro": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0919
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.2772
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0776
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.4296
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.3333
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.4853
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.4015
+       }
+      ],
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.7387
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.67
+       },
+       {
+        "cp": "final:2",
+        "x": 2.0,
+        "mean": 0.7647
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.9
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.8898
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.7261
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.7855
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.75
+       }
+      ]
+     },
+     "ok": 171,
+     "planned": 176,
+     "shared_count": true
+    }
+   ],
+   "tier_note": null,
    "capability": {
     "n": 3,
     "names": [
@@ -2373,6 +3269,158 @@
      "status": "na",
      "checkpoint": "final:1"
     }
+   },
+   "DeepSeek V4.1 Flash": {
+    "ball_sec": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "push_up": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "gets_up": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "first_down": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "in_play": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "ball_seen": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "loose": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "tackle": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "GLM 5.3 Flash": {
+    "ball_sec": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "push_up": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "gets_up": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "in_play": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "ball_seen": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "first_down": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "loose": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "tackle": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   },
+   "Gemini 4 Argon": {
+    "tackle": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "ball_sec": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "loose": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "push_up": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "gets_up": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "in_play": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "ball_seen": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "first_down": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "first_down": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "push_up": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "gets_up": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "tackle": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "ball_sec": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "loose": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "in_play": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "ball_seen": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:7"
+    }
    }
   },
   "reference": {
@@ -2435,5 +3483,34 @@
     "Found that its get-up commands were out of the allowed range and refused; after the fix its robots got up 42 to 130 times a match and removals fell from 61 to 0-16."
    ]
   }
+ },
+ "interface": {
+  "sees": "One head camera per robot for all eight robots (320 × 240, 25 frames a second), each robot's joints, balance sensors, position and hold on the ball, and the referee's down, distance and clocks. The ball in play and the other robots appear only in the camera images.",
+  "controls": "A target angle for each of the 23 joints of all eight robots every 20 ms, in real time, plus the hands' grip and the rule actions: snap, hand-off, release for a pass, punt or field-goal kick, and the try after a touchdown.",
+  "moment": "Final, Claude Opus 5.5 v GPT-6 Astra (119–77), the first play, 0:18 in the replay. Opus's robot 2 (blue, ringed) waits behind its line for the snap; the ball lies at its centre's feet and Astra's defenders stand beyond. It takes the snap and runs in the first touchdown 24 s later.",
+  "camera": {
+   "src": "img/pov/amfootball-camera.jpg",
+   "w": 320,
+   "h": 240,
+   "label": "Robot camera · Opus robot 2 · 320 × 240"
+  },
+  "broadcast": {
+   "src": "img/pov/amfootball-broadcast.jpg",
+   "w": 848,
+   "h": 480,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Cameras: one in each robot's head, eight in all, 320 × 240 pixels, 80° vertical field of view, turned by the two head joints. Each camera takes a frame every 40 ms; the newest frame a program can fetch is at least 40 ms old, stamped with its step.",
+   "Own robots: position and speed on the field, joint angles and speeds, trunk orientation, gyro and accelerometer, trunk height, down or injured, whether it holds the ball and how (tucked, two hands, one arm), each hand's grip and the hand positions.",
+   "Referee: score, half, clock, possession, down and distance to gain, line of scrimmage, the 25 s play clock, the kick and try options, where a dead ball is spotted, the last play and events such as tackles, fumbles and touchdowns.",
+   "Not given: where the ball in play and the opponents are. The programs find them in the camera images.",
+   "Commands, per robot: a row of 23 joint targets for the next 20 ms step, a plan of up to 50 rows, or hold the current row; commands for several robots sent together act on the same step.",
+   "Ball actions on any command: snap the ball to a teammate, hand it off, close or open each hand, release it from the hand (a pass flies with the hand's own speed), declare a punt or a field goal (the referee kicks), and choose a 1- or 2-point try.",
+   "The T1 has no fingers: a held ball lies along the forearm and slips out when holding it takes more grip than the hold allows, which is a live fumble.",
+   "How a command moves the robot: targets clipped to the joint ranges, a fixed PD controller every 5 ms behind a 20 ms actuator delay, then the motor limits. Physics every 5 ms.",
+   "Timing: the match runs at real speed and never waits; two halves of 10 minutes, about 35 minutes in all. Balance, walking, throwing, catching, tackling, blocking and standing up are built by the agent.",
+   "Before kick-off: 2 hours of preparation with a full practice copy of the match world, a practice opponent and a GPU training kit (half an RTX PRO 6000)."
+  ]
  }
 }
