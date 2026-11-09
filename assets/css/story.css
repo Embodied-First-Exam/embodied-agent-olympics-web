@@ -21,7 +21,15 @@
 [data-t-clock]{font-variant-numeric:tabular-nums;color:rgba(255,255,255,.6)}
 @keyframes fadeIn{to{opacity:1}}
 .h2o-bottom{position:absolute;left:0;right:0;bottom:clamp(28px,5vh,56px);z-index:2}
-.wordmark{font-weight:600;text-transform:uppercase;line-height:.86;letter-spacing:.005em;color:#fff;white-space:nowrap;font-size:clamp(40px,10vw,190px)}
+/* The wordmark is sized in CSS so the first paint is already final: it fills the column (the .wrap content box, a size
+   container), font-size = column / the text's width in em. Measured in Inter Tight 600, uppercase, letter-spacing .005em:
+   "EMBODIED OLYMPICS" = 10.195 em (one line), the longer word "EMBODIED" = 5.03 em (two lines, <= 900 px); rounded up a
+   little so it never overflows. Its own @font-face uses font-display: block (the file is preloaded), so the fallback font
+   never paints at another width. home.js only fine-tunes after fonts are ready if the result is off by more than 2 %. */
+@font-face{font-family:"Inter Tight WM";src:url(../fonts/intertight-var.woff2) format("woff2");font-weight:100 900;font-display:block}
+.h2o-bottom.wrap{container-type:inline-size}
+.wordmark{font-family:"Inter Tight WM","Inter Tight",ui-sans-serif,system-ui,sans-serif;font-weight:600;text-transform:uppercase;line-height:.86;
+  letter-spacing:.005em;color:#fff;white-space:nowrap;font-size:clamp(40px,10vw,190px);font-size:min(calc(100cqw / 10.2),280px)}
 .fit-inner{display:inline-block}
 .wl{display:inline-block;transform:translateY(30%);opacity:0;animation:rise .9s var(--ease) .15s forwards}
 .wl+.wl{animation-delay:.28s}
@@ -290,7 +298,7 @@
   .num:nth-child(n+3){border-top:1px solid var(--hair)}
   .caps4{grid-template-columns:1fr 1fr}
   .h2o-row{flex-direction:column;align-items:flex-start}
-  .wordmark{white-space:normal}
+  .wordmark{white-space:normal;font-size:min(calc(100cqw / 5.04),280px)}
   .wl{display:block}
   .aw{grid-template-columns:1fr;gap:16px}
   .aw-box{min-height:0}
