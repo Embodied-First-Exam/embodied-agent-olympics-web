@@ -10,6 +10,34 @@
 .sp-spec div+div{padding-left:18px}
 .sp-spec dd{font-size:clamp(15px,1.25vw,19px);line-height:1.3}
 
+/* 01b what the athlete sees and controls (robot camera + broadcast at one instant) */
+.sp-pov{padding:0 0 clamp(40px,4.5vw,64px)}
+.sp-pov .wrap{border-top:1px solid var(--hair);padding-top:clamp(26px,2.8vw,40px)}
+.pov-h{font-size:clamp(22px,2vw,30px);font-weight:600;letter-spacing:-.01em;margin:0 0 clamp(16px,1.6vw,24px)}
+.pov-shots{display:flex;gap:clamp(10px,1.2vw,18px);align-items:flex-start}
+.pov-fig{margin:0;flex:var(--ar) 1 0;min-width:0}
+.pov-img{display:block;border-radius:10px;overflow:hidden;background:var(--bg-3);border:1px solid var(--hair)}
+.pov-img img{display:block;width:100%;height:auto}
+.pov-txt pre{margin:0;padding:16px;font:12px/1.5 var(--f-mono);white-space:pre-wrap;color:var(--fg-2);aspect-ratio:4/3;overflow:auto}
+.pov-fig figcaption{margin-top:8px;font:500 11.5px/1.35 var(--f-mono);letter-spacing:.04em;color:var(--fg-3)}
+.pov-fig.is-cam figcaption{color:var(--accent-ink)}
+.pov-moment{margin:14px 0 0;font-size:14px;color:var(--fg-2);max-width:900px}
+.pov-lines{display:grid;gap:10px;margin:clamp(18px,1.8vw,26px) 0 0;max-width:1000px}
+.pov-lines div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;align-items:baseline}
+.pov-lines dt{font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3)}
+.pov-lines dd{margin:0;font-size:clamp(15px,1.15vw,18px);line-height:1.45}
+.pov-more{margin-top:18px;border-top:1px solid var(--hair);max-width:1000px}
+.pov-more summary{cursor:pointer;list-style:none;padding:13px 0;font-size:14px;font-weight:600;color:var(--fg-2)}
+.pov-more summary::-webkit-details-marker{display:none}
+.pov-more summary .arr{display:inline-block;transition:transform .2s}
+.pov-more[open] summary .arr{transform:rotate(180deg)}
+.pov-more ul{margin:0 0 6px;padding-left:18px;display:grid;gap:7px;font-size:14.5px;line-height:1.5;color:var(--fg-2)}
+@media (max-width:720px){
+  .pov-shots{flex-direction:column}
+  .pov-fig{flex:none;width:100%}
+  .pov-lines div{grid-template-columns:1fr;gap:4px}
+}
+
 /* on-page nav: a quiet capsule under the top bar */
 .sp-sub{position:sticky;top:calc(var(--top) - 4px);z-index:40;pointer-events:none;margin-top:-8px}
 .sp-sub .wrap{display:flex;justify-content:center}

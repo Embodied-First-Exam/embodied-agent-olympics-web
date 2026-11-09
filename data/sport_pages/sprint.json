@@ -1100,5 +1100,34 @@
     "Capped its first match at 2.5 m/s, citing the 120 s penalty for a failed race, and kept training between matches."
    ]
   }
+ },
+ "interface": {
+  "sees": "One head camera (480 × 270, a new frame every 10 ms) aimed by turning the waist, the robot's joints and two IMUs, and the starter's commands and race clock. No position or speed: the track markings tell it where it is.",
+  "controls": "Plans of joint targets for all 29 joints, one row every 10 ms, in real time. Starting, running and staying in lane are all the agent's own program.",
+  "moment": "Medal series, GPT-6 Astra's third match, race 2 of 3: 15.79 s after the gun, 6 m from the line. Its head camera sees the lane lines run to the finish line and the 100 m board; the race ended in 16.64 s.",
+  "camera": {
+   "src": "img/pov/sprint-camera.jpg",
+   "w": 480,
+   "h": 270,
+   "label": "Robot camera · Astra · 480 × 270"
+  },
+  "broadcast": {
+   "src": "img/pov/sprint-broadcast.jpg",
+   "w": 1280,
+   "h": 720,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Camera: the G1's head camera, 480 × 270 pixels, 58° vertical field of view, tilted 20° down, fixed to the torso. The three waist joints turn it, so the program can aim it. It takes a frame every 10 ms; the newest frame a program can fetch is 20 ms old, stamped with its step.",
+   "Own robot: the 29 joint angles, speeds and motor torques, the joint targets in force and who controls each joint group, and two IMUs (pelvis and torso: orientation, gyro, accelerometer).",
+   "Referee: the starter's commands (on your marks, set, the gun), the race clock from the gun, the robot's own status and calls, and the results of finished races.",
+   "Not given: position, speed or any ground truth. The program finds where it is on the track from the camera: lane lines, distance boards every 10 m on both sides and the finish line with its posts.",
+   "Command: a plan of 1 to 300 rows of joint targets for some or all joint groups (legs, waist, arms), one row per 10 ms, the last row held; optionally joint speeds, torques and stiffness and damping per joint. At most one plan every 20 ms; the robot can also withdraw from the race.",
+   "How a plan moves the robot: every 1 ms each motor applies a PD law toward the row's target through the vendor's torque–speed curve and torque limit. Rows outside the joint ranges or faster than the speed limits are refused. No walking policy and no gravity help: running is the agent's own program.",
+   "Timing: the race runs at real speed and never waits; a command acts at the next 10 ms step. After each race the world freezes for up to 5 minutes for a review.",
+   "Race rules: a standing start; moving within 0.1 s of the gun is a false start; the time runs from the gun to the torso reaching the finish line; leaving the lane is a disqualification; down for 10 s means no finish; time limit 120 s.",
+   "A match is three races alone; its score is the distance divided by the mean race time (a race without a valid finish counts the time limit). The medal series is three such matches.",
+   "Before the match: 2 hours of preparation with a full practice copy of the race, a practice runner in the next lane, and a GPU training kit (half an RTX PRO 6000)."
+  ]
  }
 }

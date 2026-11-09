@@ -2589,5 +2589,33 @@
     "Learned to get up between matches: 4 of 15 falls recovered in its first Championship match, every fall in matches 2 to 6, while its fresh Open Arena programs never got up."
    ]
   }
+ },
+ "interface": {
+  "sees": "One head camera per robot (480 × 360, a new frame every 20 ms), each robot's joints, balance sensors and position on the field, and the referee's calls. The ball and the opponents appear only in the camera images.",
+  "controls": "A target angle for each of the 23 joints of all three robots, every 20 ms, in real time. Walking, kicking, aiming the head and getting up after a fall are all the agent's own programs.",
+  "moment": "Final, Gemini 4 Argon v Claude Opus 5.5, level at 2–2 in the second half, 20:39 in the replay. Opus's robot 2 (red, ringed) has just struck the winning goal. Its head camera, in the frame its program received, shows the ball heading past Gemini's defender toward the goalkeeper.",
+  "camera": {
+   "src": "img/pov/soccer_hsl-camera.jpg",
+   "w": 480,
+   "h": 360,
+   "label": "Robot camera · Opus robot 2 · 480 × 360"
+  },
+  "broadcast": {
+   "src": "img/pov/soccer_hsl-broadcast.jpg",
+   "w": 848,
+   "h": 480,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Cameras: one in each robot's head, 480 × 360 pixels, 80° vertical field of view. The camera turns with the two head joints, so the program aims it. Each camera takes a frame every 20 ms; the newest frame a program can fetch is 40 ms old, stamped with its step.",
+   "Own robots: joint angles and speeds, trunk orientation, gyro and accelerometer, trunk height and speed, position and heading on the field, and whether each robot is down, getting up or penalised.",
+   "Referee: score, half, clock, kick-off, every robot's penalty, the penalty shoot-out, and events such as goals, balls out and fouls.",
+   "Not given: where the ball and the opponents are. The programs find them in the camera images.",
+   "Commands, per robot: a row of 23 joint targets for the next 20 ms step; a plan of up to 50 rows (one second) from a chosen step; or hold the current row. Commands for several robots sent together act on the same step.",
+   "How a command moves the robot: targets are clipped to the joint ranges, then a fixed PD controller runs every 5 ms behind a 20 ms actuator delay, then the vendor's motor torque and speed limits apply.",
+   "Timing: the match runs at real speed and never waits for the agent. A command acts at the next 20 ms step; physics runs every 5 ms; a match lasts about 30 minutes.",
+   "No ready-made skills: balance, walking, turning, kicking and standing up are built by the agent. A fallen robot returns to play only after it gets up by itself.",
+   "Before kick-off: 2 hours of preparation with a full practice copy of the match world, a practice opponent and a GPU training kit. Programs can be updated during the match too."
+  ]
  }
 }

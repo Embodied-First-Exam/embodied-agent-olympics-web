@@ -1906,5 +1906,35 @@
     "Its reviews named the one change that matters (an EKF fusing the IMU with gate sightings); no later program completed lap 1 in Checkpoint Evaluation."
    ]
   }
+ },
+ "interface": {
+  "sees": "One forward camera (320 × 240, 110° wide, a new frame every 10 ms), the flight controller's gyro, accelerometer, attitude estimate, battery and rotor speeds, and the timing system's gate count. No position or speed.",
+  "controls": "Acro commands, like a real pilot's sticks: throttle plus roll, pitch and yaw rates, 100 times a second, in real time.",
+  "moment": "Final, race 2, 24 s in. Opus's drone is 4 m from gate 5, 1.5 s before it passes; Gemini's drone (yellow lights) is just above it and Astra's beyond the gate. On the broadcast each drone carries a coloured beacon (Opus green); the cameras on board see only the drones' own lights.",
+  "camera": {
+   "src": "img/pov/drone-camera.jpg",
+   "w": 320,
+   "h": 240,
+   "label": "Robot camera · Opus's drone · 320 × 240"
+  },
+  "broadcast": {
+   "src": "img/pov/drone-broadcast.jpg",
+   "w": 848,
+   "h": 480,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Camera: one forward FPV camera, 320 × 240 pixels, 110° wide, tilted 30° up. It takes a frame every 10 ms; each image arrives 20 ms after it was taken, stamped with its step.",
+   "IMU: the gyro and accelerometer of a racing flight controller, the latest 10 ms sample and the last 32, with noise, vibration and a new bias every race.",
+   "Flight controller: its own attitude estimate, battery voltage, current and used capacity, and the four rotor speeds.",
+   "Timing system: during a flight, the laps at gate 1, the number of gates passed in order and the next gate's number; the other gates' times after the flight.",
+   "Referee: race and heat, time limit, points, standings, warnings, mid-air collisions, start slot, retirements and results.",
+   "Not given: the drone's position or speed, where the gates are, a course map, or where the other drones are. The program finds its way from the camera and the IMU.",
+   "Command: acro = throttle from 0 to 1, body rates for roll and pitch up to 670°/s and yaw up to 400°/s, and how long to hold them (0.01 to 1 s); after that the rates return to zero and the throttle stays.",
+   "Timing: a control step every 10 ms; the race runs at real speed and never waits; a command acts at the next step, one command in flight at a time.",
+   "Drone: a 5-inch racing quad (0.75 kg, 4S battery, rate mode at 500 Hz) held to the real drone's limits; the battery sags under load.",
+   "Course: 8 gates in a 52 × 28 m hall, three laps; gates can carry moving shutters and blocking panels.",
+   "Before the race: 60 minutes of preparation with a full practice copy of the course world and a practice racer. No GPU."
+  ]
  }
 }

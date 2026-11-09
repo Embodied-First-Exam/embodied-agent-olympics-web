@@ -2230,5 +2230,35 @@
     "Wrote up to 1,710 files and 49 snapshots in one match; its Championship series fell apart: legal rest-bridge shots 16 of 24 in its fresh Arena matches against 28 of 82, called pots 5 to 0."
    ]
   }
+ },
+ "interface": {
+  "sees": "One head camera (1280 × 720), with up to 12 looks a shot from anywhere around the table, plus the referee's table facts and every shot's result. No ball coordinates.",
+  "controls": "One whole stroke per turn, sent before it starts: where the robot stands, the bridge, and targets for all 29 joints every 10 ms for up to 15 s. Turn-based: the table waits while the agent thinks.",
+  "moment": "Final, shot 13. Opus (solids, 5 left) looks along the table from the side rail before it calls the 7 into a corner pocket and pots it. A look moves only the camera, so the broadcast shows the robot already in its stance for the stroke.",
+  "camera": {
+   "src": "img/pov/billiards-camera.jpg",
+   "w": 1280,
+   "h": 720,
+   "label": "Robot camera · Opus · 1280 × 720 · a look before the shot"
+  },
+  "broadcast": {
+   "src": "img/pov/billiards-broadcast.jpg",
+   "w": 1280,
+   "h": 720,
+   "label": "Broadcast · at the stroke"
+  },
+  "details": [
+   "Camera: the real G1's head camera (an Intel RealSense D435i colour camera, 1280 × 720, 69.4° × 42.5°), fixed on the trunk and tilted 47.6° down. The G1 has no neck.",
+   "Looks: an observation shows the table from where the robot stands; a look places the robot anywhere legal around the table (position, facing, optional pose and bridge) to see it from there, up to 12 times a shot. Each image comes with the camera's exact pose and lens numbers.",
+   "Not given: where the balls are. The program finds every ball in the images.",
+   "Referee: shot number, balls on the table, who broke, each side's group and balls left, shots taken and the 60-shot limit, ball in hand, whether a side is on the 8, whether a call is required, and each shot since your last (first ball hit, balls potted and pockets, fouls, the call).",
+   "The stroke: where the robot stands (position on the floor and facing), the bridge (left hand on the cloth, hand on the rail, or a mechanical rest), and targets for all 29 joints, one row per 10 ms, up to 1500 rows (15 s).",
+   "Also in the stroke if wanted: joint speeds, extra torque, stiffness and damping, where the hand grips the cue, a cue extension of 0.30 or 0.60 m, and planned changes at chosen steps. Everything is decided before the stroke starts.",
+   "With ball in hand the stroke also places the cue ball; a called shot names the ball and the pocket, or a safety.",
+   "Nothing reaches the program during the stroke: the planned rows play out. Touching a ball with the robot, cue or bridge, no cue-ball contact within 15 s, a fall, or a cue that leaves the bridge is a foul.",
+   "Timing: turn-based. Nothing moves while the agent thinks; a 2-hour chess clock runs only on its turn, and a shot more than 120 s after its previous one is a foul.",
+   "Rules: WPA 8-ball, one rack, at most 60 shots each; after that, fewer balls left wins.",
+   "Before the match: 2 hours of preparation with a full practice copy of the table world and a practice opponent; the training kit runs on the CPU."
+  ]
  }
 }

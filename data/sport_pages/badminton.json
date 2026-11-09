@@ -2697,5 +2697,34 @@
     "Played without the GPU on top of the practice simulator's own perception and stroke code, and studied its earlier match against Opus from the library video and logs."
    ]
   }
+ },
+ "interface": {
+  "sees": "Two head cameras, the G1's stereo pair (480 × 360 each, a new frame every 10 ms), its own joints, balance sensor, position and racket pose, the sound of serves and hits, and the score. No shuttle coordinates.",
+  "controls": "Targets for all 29 joints in a plan of up to 300 rows of 10 ms, with optional speeds, torques, stiffness and damping; plus a shuttle toss to serve and where to stand to receive. Real time.",
+  "moment": "Final, Gemini 4 Argon v GPT-6 Astra, match point with Astra ahead 10–7, 1:15 in the replay. Gemini's shot is coming over the net to Astra's robot (ringed), 0.28 s before Astra plays it; Gemini's next shot lands out and Astra wins 11–7.",
+  "camera": {
+   "src": "img/pov/badminton-camera.jpg",
+   "w": 960,
+   "h": 360,
+   "label": "Robot cameras · Astra · 2 × 480 × 360"
+  },
+  "broadcast": {
+   "src": "img/pov/badminton-broadcast.jpg",
+   "w": 848,
+   "h": 480,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Cameras: the G1's two head cameras, 5 cm apart, fixed to the trunk and tilted 23° up, 480 × 360 each with a 58° vertical field of view, side by side in one image. A new frame every 10 ms; the newest a program can fetch is 20 ms old, with both cameras' poses.",
+   "Not given: where the shuttle is. It is drawn as an orange cork with a white skirt, and the program finds it in the images. A shuttle high above the robot or low at its feet is out of view.",
+   "Own robot: pelvis position, heading and trunk tilt, velocity, all 29 joint angles and speeds, the pelvis IMU, the targets and gains in force, whether it is down, and the racket's position, face direction and speed.",
+   "Referee: score, whose serve, the serve's phase and deadlines, whether the shuttle is coming to it, and what it heard: serves and hits, whose, and how long ago.",
+   "Command: a plan of joint targets for legs, waist and arms, one row per 10 ms step, up to 300 rows, with optional velocities, feed-forward torques and gains. Rows are clipped at the joint ranges and speed limits; the joint controller runs every 2 ms through the motors' torque–speed curves.",
+   "Serve and receive: a shuttle toss within 3 s of the serve opening, struck below 1.15 m by the program's own stroke; a stance command picks where the robot stands to receive.",
+   "No ready-made skills: no walking policy, balance, get-up or stroke planner. With the default gains alone the robot sinks and falls in about 1.5 s.",
+   "Timing: a control step every 10 ms; the world runs at real speed and never waits; a command acts at the next step, one command in flight. After each point the world pauses for reviews.",
+   "Rules: BWF badminton on a court at 0.4 of full size, one game to 11 (lead of 2, at most 15). No bounce: the shuttle must be hit before it lands.",
+   "Before the match: 2 hours of preparation with a full practice copy of the court, a practice opponent and a GPU training kit (half an RTX PRO 6000)."
+  ]
  }
 }

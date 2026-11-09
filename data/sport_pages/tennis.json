@@ -2443,5 +2443,35 @@
     "Gated retraining on a fixed benchmark: a retrained walking checkpoint returned 8 of 80 balls against the baseline's 13, so it kept the baseline weights."
    ]
   }
+ },
+ "interface": {
+  "sees": "Two fixed cameras, one behind its baseline and one beside the court (640 × 480, each image the last four frames 40 ms apart), its own joints, balance sensor, position and racket pose, the sound of hits and bounces, and the score. No ball coordinates.",
+  "controls": "Targets for all 29 joints: one row, or a plan of up to 300 rows of 10 ms, with optional stiffness and damping; plus a ball drop to serve. Real time, 100 times a second.",
+  "moment": "Final, Kimi 3.1 Pro v Gemini 4 Argon, match point at 6–4, 0:47 in the replay. Gemini's serve has just bounced in front of Kimi's robot (ringed), a tenth of a second before Kimi plays the return that wins the title. Left: the newest frame of the camera behind Kimi's baseline.",
+  "camera": {
+   "src": "img/pov/tennis-camera.jpg",
+   "w": 640,
+   "h": 480,
+   "label": "Seat camera · behind Kimi's baseline · 640 × 480"
+  },
+  "broadcast": {
+   "src": "img/pov/tennis-broadcast.jpg",
+   "w": 848,
+   "h": 480,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Cameras: two fixed cameras of the player's own, one behind and above its baseline looking down the court, one beside the court looking across at the net. Each image is 2 rows × 4 columns of 640 × 480 frames, 40 ms apart, each stamped with its step; it arrives 60 ms after it was taken.",
+   "Not given: where the ball is or how fast it moves. The ball is drawn at its true size, and the program finds it in the frames.",
+   "Own robot: all 29 joint angles, speeds and torques (with real sensor noise), the targets and gains in use, the pelvis IMU, the pelvis position, speed and heading from the venue's motion capture, and the racket's position and face direction.",
+   "Referee: point and score, whose serve, the serve's phase and deadline, whether the ball is in play and coming to it, and the last points with how each was won.",
+   "Hearing: the hits, bounces (on which side) and net touches since the ball was last played, with their times.",
+   "Command: targets for all 29 joints (or the 17 of waist and arms), one row or up to 300 rows, one per 10 ms step; optional stiffness and damping per joint and velocity targets. Targets are clipped to the joint ranges and speed limits; the joint controller runs 1000 times a second through the motors' torque–speed curves.",
+   "Serve: a ball drop from a chosen point behind the baseline (the drop serve of wheelchair tennis), then the stroke is the program's own.",
+   "No ready-made skills: no walking, standing or balance service. The robot starts in a ready pose and sinks and falls within about 1.2 s unless the program holds it up.",
+   "Timing: a control step every 10 ms; the world runs at real speed and never waits; a command acts at the next step, one command in flight. After each point the world pauses until both players are ready.",
+   "Rules: ITF tennis on an 11.0 × 5.5 m court, a tie-break game to 7 points with a lead of 2.",
+   "Before the match: 2 hours of preparation with a full practice copy of the court, a practice opponent and a GPU training kit (half an RTX PRO 6000)."
+  ]
  }
 }

@@ -1029,5 +1029,35 @@
     "Kept a library of joint plans for each trial and had the most valid throws of the event (12 of 18)."
    ]
   }
+ },
+ "interface": {
+  "sees": "One head camera (640 × 360, the real G1's depth-camera colour sensor, a new frame every 10 ms), the robot's joints and pelvis IMU, and each trial's mark or foul. No wind numbers: it reads the windsocks.",
+  "controls": "A start position on the runway, then plans of joint targets for all 29 joints, one row every 10 ms, with the moment the hand lets go. Real time: the run-up, the throw and the release are all the agent's own program.",
+  "moment": "Medal series, GPT-6 Astra's third match, trial 2: the moment after the release. The robot has leaned back through the throw, so its camera looks up and sees its own hand and the javelin climbing away; this throw landed at 18.74 m, its best.",
+  "camera": {
+   "src": "img/pov/javelin-camera.jpg",
+   "w": 640,
+   "h": 360,
+   "label": "Robot camera · Astra · 640 × 360"
+  },
+  "broadcast": {
+   "src": "img/pov/javelin-broadcast.jpg",
+   "w": 848,
+   "h": 480,
+   "label": "Broadcast · same instant"
+  },
+  "details": [
+   "Camera: the real G1's head camera (an Intel RealSense D435i colour camera, 69.4° × 42.5°), 640 × 360 pixels, fixed level on the trunk. The G1 has no neck: the robot looks elsewhere by turning its waist, leaning or turning its body. A frame every 10 ms; the newest is 20 ms old.",
+   "Own robot: the 29 joint angles and speeds, the pelvis orientation and gyro, whether it is down, whether it still holds the javelin, and who controls each joint group.",
+   "Referee: the round and trials left, the standings, and for each trial its mark or the foul.",
+   "Not given: the wind. A new wind blows each round (up to 5 m/s, any direction); two windsocks beside the sector show it, and the program reads them in the camera.",
+   "Before each trial: where the robot stands on the runway (up to 36 m back from the arc) and which way it faces.",
+   "Then plans of joint targets: up to 300 rows, one per 10 ms, for some or all joint groups, with optional speeds, torques and stiffness and damping, and the time after the plan's start when the hand lets go of the javelin. At most one plan every 20 ms; rows faster than the joints' speed limits are refused.",
+   "No walking policy: the legs are always under the agent's plans, from the run-up to standing still after the throw.",
+   "Fouls: the javelin slung instead of thrown over the shoulder or let go more than 15° off its own axis, the back toward the arc at the release, touching the arc or the ground beyond it, a fall before standing still after the landing, a landing outside the sector or not tip first, and going over the robot's whole-body power cap (2.7 kW peak, 1 kW over a second).",
+   "Timing: the world runs at real speed and never waits; a command acts at the next 10 ms step. After each trial the world freezes for up to 5 minutes for a review.",
+   "Six trials; the result is the best valid mark. The medal series is three such matches.",
+   "Before the match: 2 hours of preparation with a full practice copy of the throw, a practice player and a GPU training kit (half an RTX PRO 6000)."
+  ]
  }
 }
