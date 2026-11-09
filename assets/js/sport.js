@@ -67,6 +67,7 @@
   let curT = 0;
   const kitOf = (seat) => {  // baseball: the colour follows the role (batting / fielding) of the current half-inning
     const k = (tl.kit || {})[seat];
+    if (k && tl.kit_from != null && curT < tl.kit_from) return { name: "open table", hex: null, what: "no ball group yet" };
     if (k && k.batting && k.fielding) {
       const tu = latest(curT, "turn");
       if (tu) return { ...(tu.turn === seat ? k.batting : k.fielding), what: tu.turn === seat ? "batting" : "fielding" };
