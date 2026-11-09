@@ -232,7 +232,7 @@
        "size": "848x480",
        "fixture": "HSTC-F03",
        "key": "soccer_hsl_team",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -279,7 +279,7 @@
        "size": "848x480",
        "fixture": "HSTC-F04",
        "key": "soccer_hsl_team",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -373,7 +373,7 @@
        "size": "848x480",
        "fixture": "HSTC-F06",
        "key": "soccer_hsl_team",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -420,7 +420,7 @@
        "size": "848x480",
        "fixture": "HSTC-F07",
        "key": "soccer_hsl_team",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -467,7 +467,7 @@
        "size": "848x480",
        "fixture": "HSTC-F08",
        "key": "soccer_hsl_team",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -514,7 +514,7 @@
        "size": "848x480",
        "fixture": "HSTC-F09",
        "key": "soccer_hsl_team",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -974,7 +974,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "HSTA-F05",
        "key": "soccer_hsl_team",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1020,7 +1020,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "HSTA-F07",
        "key": "soccer_hsl_team",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1066,7 +1066,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "HSTA-F08",
        "key": "soccer_hsl_team",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1112,7 +1112,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "HSTA-F09",
        "key": "soccer_hsl_team",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },

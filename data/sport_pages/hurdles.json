@@ -38,7 +38,7 @@
        "size": "1280x720",
        "fixture": "HURA-F0051",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -72,7 +72,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0053",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -158,7 +158,7 @@
        "size": "1280x720",
        "fixture": "HURA-F0001",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -175,7 +175,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0002",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -192,7 +192,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0003",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -218,7 +218,7 @@
        "size": "1280x720",
        "fixture": "HURA-F0251",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -278,7 +278,7 @@
        "size": "1280x720",
        "fixture": "HURA-F0151",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -295,7 +295,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0152",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -312,7 +312,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0153",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -338,7 +338,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0211",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -355,7 +355,7 @@
        "size": "1280x720",
        "fixture": "HUR2-F0212",
        "key": "hurdles_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },

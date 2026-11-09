@@ -166,7 +166,7 @@
        "size": "848x480",
        "fixture": "AMFC-F01",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -279,7 +279,7 @@
        "size": "848x480",
        "fixture": "AMF2-F06",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -354,7 +354,7 @@
        "size": "848x480",
        "fixture": "AMF2-F07",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -391,7 +391,7 @@
        "size": "848x480",
        "fixture": "AMF2-F08",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -428,7 +428,7 @@
        "size": "848x480",
        "fixture": "AMF2-F09",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -539,7 +539,7 @@
        "size": "848x480",
        "fixture": "AMF2-F12",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -576,7 +576,7 @@
        "size": "848x480",
        "fixture": "AMF2-F13",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -613,7 +613,7 @@
        "size": "848x480",
        "fixture": "AMF2-F14",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1077,7 +1077,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "AMFA-F03",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1113,7 +1113,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "AMFA-F05",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1149,7 +1149,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "AMFA-F07",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1185,7 +1185,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "AMFA-F08",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1329,7 +1329,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "AMFA-F15",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1366,7 +1366,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "AMFQ-F04",
        "key": "amfootball",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },

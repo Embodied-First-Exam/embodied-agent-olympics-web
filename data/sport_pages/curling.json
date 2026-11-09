@@ -129,7 +129,7 @@
        "size": "848x480",
        "fixture": "CUR2-F02",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -166,7 +166,7 @@
        "size": "848x480",
        "fixture": "CURC-F01",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -203,7 +203,7 @@
        "size": "848x480",
        "fixture": "CURC-F03",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -392,7 +392,7 @@
        "size": "848x480",
        "fixture": "CUR2-F08",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -430,7 +430,7 @@
        "size": "848x480",
        "fixture": "CUR2-F09",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -467,7 +467,7 @@
        "size": "848x480",
        "fixture": "CUR2-F10",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1009,7 +1009,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F01",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1153,7 +1153,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F05",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1189,7 +1189,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F06",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1225,7 +1225,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F07",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1261,7 +1261,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F08",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1405,7 +1405,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F12",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1441,7 +1441,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F13",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1477,7 +1477,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F14",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1513,7 +1513,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "CURA-F15",
        "key": "curling_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      }

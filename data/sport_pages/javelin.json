@@ -38,7 +38,7 @@
        "size": "848x480",
        "fixture": "JAVA-F0051",
        "key": "javelin_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -55,7 +55,7 @@
        "size": "848x480",
        "fixture": "JAVA-F0052",
        "key": "javelin_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -72,7 +72,7 @@
        "size": "848x480",
        "fixture": "JAVA-F0053",
        "key": "javelin_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -252,7 +252,7 @@
        "size": "848x480",
        "fixture": "JAVA-F0253",
        "key": "javelin_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }
@@ -278,7 +278,7 @@
        "size": "848x480",
        "fixture": "JAVA-F0211",
        "key": "javelin_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -295,7 +295,7 @@
        "size": "848x480",
        "fixture": "JAVA-F0212",
        "key": "javelin_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -355,7 +355,7 @@
        "size": "848x480",
        "fixture": "JAVA-F0152",
        "key": "javelin_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      },
@@ -372,7 +372,7 @@
        "size": "848x480",
        "fixture": "JAVA-F0153",
        "key": "javelin_g1",
-       "highlight": false
+       "highlight": true
       },
       "pending": false
      }

@@ -129,7 +129,7 @@
        "size": "848x480",
        "fixture": "TTN2-F02",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -203,7 +203,7 @@
        "size": "848x480",
        "fixture": "TTNC-F03",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -241,7 +241,7 @@
        "size": "848x480",
        "fixture": "TTN2-F04",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -279,7 +279,7 @@
        "size": "848x480",
        "fixture": "TTN2-F06",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -316,7 +316,7 @@
        "size": "848x480",
        "fixture": "TTNC-F05",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -467,7 +467,7 @@
        "size": "848x480",
        "fixture": "TTN2-F10",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -541,7 +541,7 @@
        "size": "848x480",
        "fixture": "TTN2-F12",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -578,7 +578,7 @@
        "size": "848x480",
        "fixture": "TTN2-F13",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1009,7 +1009,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "TTNA-F01",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1153,7 +1153,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "TTNA-F05",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1189,7 +1189,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "TTNA-F06",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1225,7 +1225,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "TTNA-F07",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1261,7 +1261,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "TTNA-F08",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1405,7 +1405,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "TTNA-F12",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1441,7 +1441,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "TTNA-F13",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1477,7 +1477,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "TTNA-F14",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      },
@@ -1513,7 +1513,7 @@
        "note": "Recorded states only; video drawn at release",
        "fixture": "TTNA-F15",
        "key": "tabletennis_g1",
-       "highlight": false
+       "highlight": true
       },
       "status": "resolved"
      }
