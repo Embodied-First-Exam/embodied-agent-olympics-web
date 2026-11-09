@@ -354,4 +354,6 @@ img.mark--ink{display:none}
 .wr-wdl{white-space:nowrap}
 .wr-note{margin-top:12px;max-width:820px;font-size:12.5px;line-height:1.5}
 .wr-ex{margin-top:6px;font-size:12px;color:var(--fg-3)}.wr-ex summary{cursor:pointer}
-@media (max-width:640px){.wr-sw{margin-left:0;display:flex;width:max-content}.wr-bar{width:56px}.wr th:nth-child(3),.wr td:nth-child(3){display:none}}
+@media (max-width:640px){.wr-sw{margin-left:0;display:flex;width:max-content}.wr-bar{width:56px}}
+.wr th:last-child{text-align:right;width:auto}.wr td.wr-pc{width:46%}
+.wr-bar{width:clamp(80px,22vw,320px)}
