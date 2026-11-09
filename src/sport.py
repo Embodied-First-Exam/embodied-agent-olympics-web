@@ -195,6 +195,9 @@ def overview(site: Site, s: dict, d: dict) -> str:
         team = "series of six-car races"
     elif d.get("format") == "solo":
         team = "three-match series"
+    band = s.get("band") or {}                 # hand-checked cells from the official task (data/sports.json `band`)
+    action = band.get("action") or action
+    hz = band.get("control") or hz
     facts = [("Body", short_body(s)), ("Format", f'{fmt.get("name", "")} · {team}' if team else fmt.get("name")),
              ("Observation", sees), ("Action", action), ("Control", hz), ("Training", GPU_KIT.get(s["id"]))]
     spec = "".join(f'<div><dt class="kicker">{k}</dt><dd>{E(v) if v else "At release"}</dd></div>' for k, v in facts)
