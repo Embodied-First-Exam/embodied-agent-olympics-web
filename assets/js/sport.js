@@ -46,3 +46,23 @@
     links.forEach((a) => { const t = document.getElementById(a.dataset.spnavA); if (t) io.observe(t); });
   }
 })();
+
+/* cross-table cells link to their match row inside the folded list: open it, scroll, highlight */
+(() => {
+  const go = (id) => {
+    const row = document.getElementById(id);
+    if (!row) return;
+    const d = row.closest("details"); if (d) d.open = true;
+    const panel = row.closest("[data-sppanel]");
+    if (panel && !panel.classList.contains("is-on")) { const b = document.querySelector(`[data-sptab="${panel.dataset.sppanel}"]`); if (b) b.click(); }
+    document.querySelectorAll(".mx.is-hl").forEach((x) => x.classList.remove("is-hl"));
+    row.classList.add("is-hl");
+    row.scrollIntoView({ block: "center", behavior: "smooth" });
+  };
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a.xt-c[href^='#']");
+    if (!a) return;
+    e.preventDefault(); history.replaceState(null, "", a.getAttribute("href")); go(a.getAttribute("href").slice(1));
+  });
+  if (/^#(cm|am)-/.test(location.hash)) go(location.hash.slice(1));
+})();

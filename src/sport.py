@@ -199,32 +199,119 @@ def podium(site: Site, d: dict) -> str:
     return f'<div class="sp-pod">{cells}</div>'
 
 
+def _mark(m: dict) -> str:
+    """T = decided by coin toss or lot, F = forfeit or no-show (the opponent did not start)."""
+    db = (m.get("decided_by") or "").lower()
+    if db in ("coin_toss", "lot", "lots", "toss"):
+        return "T"
+    if db == "forfeit" or (m.get("note") or "").startswith("Forfeit"):
+        return "F"
+    return ""
+
+
+def cross_table(site: Site, rr: dict, qualify: int = 0, anchor: str = "m") -> str:
+    """Round robin as a 6 x 6 cross table in the home page grid's order and colours, scores from the row model's view,
+    plus a standings column (W-D-L, points, rank). A cell links to the match's row (replay entry) in the folded list."""
+    ms = site.models
+    names = [m["name"] for m in ms]
+    cell = {}
+    for m in rr.get("matches", []):
+        if len(m["sides"]) < 2:
+            continue
+        a, b = m["sides"][0], m["sides"][1]
+        for x, y in ((a, b), (b, a)):
+            if x["model"] in names and y["model"] in names:
+                prev = cell.get((x["model"], y["model"]))
+                if prev and prev.get("status") != "pending" and m.get("status") == "pending":
+                    continue
+                cell[(x["model"], y["model"])] = {**m, "_me": x, "_op": y}
+    st = {r["model"]: r for r in rr.get("standings", [])}
+    hdr = "".join(f'<span class="tm-h xt-hd" title="{E(model_name(m))}" style="--c:{E(m["colour"])}">{model_logo(site, m)}</span>' for m in ms)
+    body = []
+    for mi in ms:
+        row = [f'<span class="tm-h xt-rh" title="{E(model_name(mi))}" style="--c:{E(mi["colour"])}">{model_logo(site, mi)}</span>']
+        for mj in ms:
+            if mi is mj:
+                row.append('<i class="tm-x xt-x"></i>')
+                continue
+            c = cell.get((mi["name"], mj["name"]))
+            if not c or c.get("status") == "pending":
+                tip = f'{model_name(mi)} v {model_name(mj)}' + (f' · {c["id"]} · pending' if c else " · not played yet")
+                row.append(f'<span class="xt-c xt-p" title="{E(tip)}">–</span>')
+                continue
+            me, op = c["_me"], c["_op"]
+            res = "w" if c["winner"] == mi["name"] else ("l" if c["winner"] == mj["name"] else "d")
+            mk = _mark(c)
+            r = c.get("replay") or {}
+            rp = f' · {REPLAY_KIND.get(r.get("kind"), "Replay")} {mmss(r.get("seconds"))}'.rstrip() if r.get("path") else " · no replay yet"
+            tip = (f'{c["id"]} · {model_name(mi)} {me["score"]}:{op["score"]} {model_name(mj)}'
+                   + {"T": " · decided by coin toss", "F": " · forfeit (no-show)"}.get(mk, "") + rp)
+            href = (site.cfg["replay_base"].rstrip("/") + "/" + r["path"]) if site.cfg.get("replay_base") and r.get("path") else f'#{anchor}-{c["id"]}'
+            row.append(f'<a class="xt-c xt-{res}" href="{E(href)}" title="{E(tip)}">{E(str(me["score"]))}<i>:</i>{E(str(op["score"]))}'
+                       f'{f"<sup>{mk}</sup>" if mk else ""}</a>')
+        s = st.get(mi["name"], {})
+        q = qualify and s.get("rank") and s["rank"] <= qualify
+        row.append(f'<span class="xt-s xt-wdl">{s.get("won", 0)}-{s.get("drawn", 0)}-{s.get("lost", 0)}</span>'
+                   f'<span class="xt-s xt-pts">{s.get("points", 0)}</span>'
+                   f'<span class="xt-s xt-rk{" is-q" if q else ""}">{s.get("rank", "–")}</span>')
+        body.append("".join(row))
+    marks = {_mark(m) for m in rr.get("matches", [])} - {""}
+    legend = ('<span>Score: row model first</span><span><i class="xt-sw xt-w"></i>Win</span><span><i class="xt-sw xt-d"></i>Draw</span><span><i class="xt-sw xt-l"></i>Loss</span>'
+              '<span><b>–</b>Not played yet</span>'
+              + ('<span><sup>T</sup>Decided by coin toss</span>' if "T" in marks else "")
+              + ('<span><sup>F</sup>Forfeit: one side did not start</span>' if "F" in marks else "")
+              + (f'<span><i class="xt-sw xt-q"></i>Top {qualify} to the semifinals</span>' if qualify else ""))
+    return (f'<div class="xt-wrap"><div class="xt" style="--n:{len(ms)}"><span class="xt-corner"></span>{hdr}'
+            '<span class="xt-sh">W-D-L</span><span class="xt-sh">Pts</span><span class="xt-sh">#</span>'
+            f'{"".join(body)}</div></div><p class="xt-legend">{legend}</p>')
+
+
+def bracket(site: Site, st: dict, has_rr: bool) -> str:
+    """Semifinals on the left, final and bronze on the right, wired like the home page bracket."""
+    get = lambda sid, k: ((st.get(sid) or {}).get("matches") or [None, None])[k] if len((st.get(sid) or {}).get("matches") or []) > k else None  # noqa: E731
+    def card(m, title, cls=""):
+        if m:
+            return card_match(site, m, m.get("label") or title).replace('<article class="kc"', f'<article class="kc {cls}"', 1)
+        wait = {"Semifinal 1": "1st v 4th of the round robin", "Semifinal 2": "2nd v 3rd of the round robin"}.get(title, "After the semifinals")
+        return f'<article class="kc kc--tbd {cls}"><header><span class="kicker">{title}</span></header><p class="kc-note kc-wait">{wait}</p></article>'
+    sf = sorted((st.get("semi_final") or {}).get("matches", []), key=lambda m: m.get("label") or m["id"])
+    s1, s2 = (sf + [None, None])[:2]
+    fin, brz = get("final", 0), get("bronze", 0)
+    return f"""
+<div class="kb">
+  <div class="kb-col">{card(s1, "Semifinal 1")}{card(s2, "Semifinal 2")}</div>
+  <svg class="kb-wires" viewBox="0 0 40 200" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50 H20 V92 H40"/><path d="M0 150 H20 V108 H40"/></svg>
+  <div class="kb-col kb-col--r">{card(fin, "Final", "kc--fin")}{card(brz, "Bronze match", "kc--brz")}</div>
+</div>"""
+
+
+def rr_list(site: Site, rr: dict, anchor: str, numbered: bool = False) -> str:
+    ms = rr.get("matches", [])
+    if numbered:
+        rows = "".join(row_match(site, m, f"#{k + 1}").replace('<li class="mx', f'<li id="{anchor}-{m["id"]}" class="mx', 1) for k, m in enumerate(ms))
+    else:
+        by = {}
+        for m in ms:
+            by.setdefault(m["labels"].get("round") or 0, []).append(m)
+        rows = "".join(row_match(site, m, f"R{r}").replace('<li class="mx', f'<li id="{anchor}-{m["id"]}" class="mx', 1) for r in sorted(by) for m in by[r])
+    played = sum(1 for m in ms if m.get("status") != "pending")
+    return (f'<details class="cr-all" data-xt-list><summary>All {len(ms)} round-robin matches{f" · {played} played" if played < len(ms) else ""} · scores and replays '
+            f'<span class="arr">↓</span></summary><ol class="mxl">{rows}</ol></details>')
+
+
 def duel_champ(site: Site, ch: dict) -> str:
     st = {x["id"]: x for x in ch["stages"]}
-    rr = st.get("round_robin")
-    ko = []
-    for sid in ("final", "bronze", "semi_final"):
-        for m in (st.get(sid) or {}).get("matches", []):
-            ko.append(card_match(site, m, m.get("label") or sid))
-    if not ko and rr:
-        ko = [f'<article class="kc kc--tbd"><header><span class="kicker">{n}</span></header><p class="kc-note kc-wait">{w}</p></article>'
-              for n, w in (("Final", "After the semifinals"), ("Bronze match", "After the semifinals"),
-                           ("Semifinal 1", "1st v 4th of the round robin"), ("Semifinal 2", "2nd v 3rd of the round robin"))]
-    played = sum(1 for m in (rr or {}).get("matches", []) if m.get("status") != "pending")
-    total = len((rr or {}).get("matches", []))
-    rr_list = ""
-    if rr:
-        by_round = {}
-        for m in rr["matches"]:
-            by_round.setdefault(m["labels"].get("round") or 0, []).append(m)
-        rr_list = "".join(row_match(site, m, f"R{r}") for r in sorted(by_round) for m in by_round[r])
+    rr = st.get("round_robin") or {"matches": [], "standings": []}
+    played = sum(1 for m in rr["matches"] if m.get("status") != "pending")
+    total = len(rr["matches"])
+    sub = "top four to the semifinals" if played == total else f"{played} of {total} played · top four to the semifinals"
     return f"""
-<div class="cr-grid">
-  <div class="cr-ko"><h3 class="cr-h">Playoffs</h3><div class="kc-grid">{"".join(ko)}</div></div>
-  <div class="cr-rr"><h3 class="cr-h">Round robin <span>{"top four to the semifinals" if played == total else f"{played} of {total} played · top four to the semifinals"}</span></h3>{standings(site, rr["standings"], 4) if rr else ""}
-    <p class="cr-rule">{E(rr["rule"]) if rr else ""}</p></div>
-</div>
-<details class="cr-all"><summary>All {total} round-robin matches{f" · {played} played" if played < total else ""} <span class="arr">↓</span></summary><ol class="mxl">{rr_list}</ol></details>"""
+<h3 class="cr-h">Round robin <span>{sub}</span></h3>
+{cross_table(site, rr, 4, "cm")}
+<p class="cr-rule">{E(rr.get("rule") or "")}</p>
+<h3 class="cr-h cr-h--ko">Knockout</h3>
+{bracket(site, st, bool(rr))}
+{rr_list(site, rr, "cm")}"""
 
 
 def race_champ(site: Site, ch: dict) -> str:
@@ -299,14 +386,12 @@ def points_race_champ(site: Site, ch: dict) -> str:
 
 def arena(site: Site, oa: dict) -> str:
     rr = next(x for x in oa["stages"] if x["id"] == "round_robin")
-    rows = "".join(row_match(site, m, f'#{k + 1}') for k, m in enumerate(rr["matches"]))
     status = oa.get("status_line") or ""
     return f"""
-<div class="cr-grid cr-grid--oa">
-  <div class="cr-rr"><h3 class="cr-h">Standings <span>{E(status)}</span></h3>{standings(site, rr["standings"])}
-    <p class="cr-rule">Fresh: every match starts from an empty workspace. {E(rr["rule"])} Separate from the medals.</p></div>
-  <div><h3 class="cr-h">Matches</h3><ol class="mxl mxl--oa">{rows}</ol></div>
-</div>"""
+<h3 class="cr-h">Round robin <span>{E(status)}</span></h3>
+{cross_table(site, rr, 0, "am")}
+<p class="cr-rule">Fresh: every match starts from an empty workspace. {E(rr["rule"])} Separate from the medals.</p>
+{rr_list(site, rr, "am", numbered=True)}"""
 
 
 def records(site: Site, d: dict) -> str:
