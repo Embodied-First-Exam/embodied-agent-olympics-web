@@ -7,16 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const pad = (n) => String(Math.floor(n)).padStart(2, "0");
   const fmt = (t) => `${pad(t / 60)}:${pad(t % 60)}.${pad((t % 1) * 100)}`;
 
-  /* fit the wordmark to the column width */
+  /* wordmark: CSS sizes it to the column (story.css). This only fine-tunes, after the fonts are ready, when the text is
+     off by more than 2 % (e.g. a scrollbar or an older browser without container units); never before first paint. */
   const fit = () => $$("[data-fit]").forEach((el) => {
     const inner = $(".fit-inner", el);
-    el.style.fontSize = "100px";
-    const w = inner.getBoundingClientRect().width;
-    if (w) el.style.fontSize = Math.min(100 * el.clientWidth / w, 280) + "px";
+    el.style.fontSize = "";
+    const cur = parseFloat(getComputedStyle(el).fontSize), w = inner.getBoundingClientRect().width;
+    if (!w || !cur) return;
+    const want = Math.min(cur * el.clientWidth / w, 280);
+    if (Math.abs(want - cur) / cur > 0.02) el.style.fontSize = want + "px";
   });
-  fit();
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(fit);
-  addEventListener("resize", fit);
+  let rz = 0;
+  addEventListener("resize", () => { cancelAnimationFrame(rz); rz = requestAnimationFrame(fit); });
 
   /* hero: channel switcher + telemetry clock */
   const hero = $("[data-hero2]");
