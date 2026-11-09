@@ -64,6 +64,8 @@ def build(base: str | None = None) -> int:
     for f in sorted((ROOT / "assets").glob("css/*.css")) + sorted((ROOT / "assets").glob("js/*.js")):
         h.update(f.read_bytes())
     cfg["_v"] = h.hexdigest()[:10]
+    if os.environ.get("EO_KIMI_CHART"):  # preview variants of the dark-theme Kimi chart line (v1 / v2 / v3)
+        cfg["kimi_chart"] = os.environ["EO_KIMI_CHART"]
     for k in ("replay_base", "highlight_base"):  # a preview build can point the player at local copies
         if os.environ.get(f"EO_{k.upper()}"):
             cfg[k] = os.environ[f"EO_{k.upper()}"]

@@ -416,3 +416,15 @@ html.pl-fill-on,html.pl-fill-on body{overflow:hidden}
 .sbo-leg span{display:inline-flex;align-items:center;gap:2px}
 .sbo-leg em{font:500 10px var(--f-mono);font-style:normal;color:rgba(242,241,236,.65);margin-left:3px}
 .cs path.cs-case{stroke:var(--ol,transparent);stroke-width:4.4}
+
+/* Checkpoint Evaluation charts, dark theme: Kimi's black line variants (html[data-kc], site.json kimi_chart) */
+html[data-kc]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] .cs-case{stroke:transparent}
+html[data-kc="v1"]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] path{stroke:#8A8A8A}
+html[data-kc="v1"]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] circle{fill:#8A8A8A;stroke:var(--bg-2)}
+html[data-kc="v1"]:not([data-theme="light"]) .lg[data-lg="Kimi 3.1 Pro"] i{background:#8A8A8A;box-shadow:none}
+html[data-kc="v2"]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] path:not(.cs-case){filter:drop-shadow(0 0 2px rgba(217,217,217,.38)) drop-shadow(0 0 3.5px rgba(217,217,217,.22))}
+html[data-kc="v2"]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] circle{fill:#1A1A1A;stroke:#D9D9D9;stroke-width:1.5}
+html[data-kc="v2"]:not([data-theme="light"]) .lg[data-lg="Kimi 3.1 Pro"] i{box-shadow:0 0 4px 1px rgba(217,217,217,.4)}
+html[data-kc="v3"]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] path:not(.cs-case){stroke:#BFBFBF;stroke-dasharray:4 3}
+html[data-kc="v3"]:not([data-theme="light"]) .cs[data-series="Kimi 3.1 Pro"] circle{fill:var(--bg-2);stroke:#BFBFBF;stroke-width:1.5}
+html[data-kc="v3"]:not([data-theme="light"]) .lg[data-lg="Kimi 3.1 Pro"] i{background:repeating-linear-gradient(90deg,#BFBFBF 0 4px,transparent 4px 7px);box-shadow:none}

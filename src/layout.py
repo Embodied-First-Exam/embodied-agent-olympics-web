@@ -170,7 +170,7 @@ def page(site: Site, *, path: str, title: str | None, body: str, description: st
   </div>
 </header>"""
     return f"""<!doctype html>
-<html lang="en">
+<html lang="en"{f' data-kc="{E(site.cfg["kimi_chart"])}"' if site.cfg.get("kimi_chart") else ""}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
