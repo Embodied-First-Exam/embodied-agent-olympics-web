@@ -2330,43 +2330,53 @@
    "GLM 5.3 Flash": {
     "draw": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "ice": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "takeout": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "around": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "choose": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "both_turns": {
      "status": "na",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "hammer": {
      "status": "na",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "legal": {
      "status": "na",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "reach_play": {
      "status": "na",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     },
     "spins": {
      "status": "na",
-     "checkpoint": "final:5"
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
     }
    },
    "Gemini 4 Argon": {
@@ -2409,6 +2419,58 @@
     "spins": {
      "status": "na",
      "checkpoint": "final:7"
+    }
+   },
+   "Kimi 3.1 Pro": {
+    "around": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Could not start in our test: missing file (our snapshot)"
+    },
+    "both_turns": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Could not start in our test: missing file (our snapshot)"
+    },
+    "choose": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Could not start in our test: missing file (our snapshot)"
+    },
+    "draw": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Could not start in our test: missing file (our snapshot)"
+    },
+    "hammer": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Could not start in our test: missing file (our snapshot)"
+    },
+    "ice": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Could not start in our test: missing file (our snapshot)"
+    },
+    "legal": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Could not start in our test: missing file (our snapshot)"
+    },
+    "reach_play": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Could not start in our test: missing file (our snapshot)"
+    },
+    "spins": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Could not start in our test: missing file (our snapshot)"
+    },
+    "takeout": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "reading": "Could not start in our test: missing file (our snapshot)"
     }
    }
   },
