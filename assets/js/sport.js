@@ -64,14 +64,32 @@
   const fill = (txt) => { const n = names(); return String(txt).replace(/\{([A-Z])\}/g, (_, k) => n[k] || k); };
   const latest = (t, f) => { let v; for (const e of tl.events) { if (e.t > t) break; if (e[f] !== undefined) v = e; } return v; };
   const mmss = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+  let curT = 0;
+  const kitOf = (seat) => {  // baseball: the colour follows the role (batting / fielding) of the current half-inning
+    const k = (tl.kit || {})[seat];
+    if (k && k.batting && k.fielding) {
+      const tu = latest(curT, "turn");
+      if (tu) return { ...(tu.turn === seat ? k.batting : k.fielding), what: tu.turn === seat ? "batting" : "fielding" };
+    }
+    return k;
+  };
+  const sw = (k) => (k && k.hex ? `<i class="sbo-kit" style="--k:${esc(k.hex)}" title="${esc(k.what || "")}"></i>` : "");
   const side = (s, cls, mark) => {
-    const m = mdl[s.model] || {};
+    const m = mdl[s.model] || {}, k = kitOf(s.seat);
+    const kitTxt = k ? `${sw(k)}${esc(k.name)}` : "";
+    const sub = [kitTxt, s.agents ? `${s.agents} agents` : ""].filter(Boolean).join(" · ");
     return `<span class="sbo-side ${cls}" style="--c:${m.colour || "#888"}">${cls === "sbo-b" ? "" : mark}<i class="sbo-flag"></i>${m.logo || ""}`
-      + `<span class="sbo-nm">${esc(m.short || s.model)}${s.agents ? `<small>${s.agents} agents</small>` : ""}</span>${cls === "sbo-b" ? mark : ""}</span>`;
+      + `<span class="sbo-nm">${esc(m.short || s.model)}${sub ? `<small>${sub}</small>` : ""}</span>${cls === "sbo-b" ? mark : ""}</span>`;
+  };
+  const legend = () => {  // more than two entrants (drone, racing heats): a compact kit legend
+    if (!tl.kit || (tl.sides || []).length === 2) return "";
+    const items = tl.sides.filter((s) => kitOf(s.seat)).map((s) => `<span>${sw(kitOf(s.seat))}${esc((mdl[s.model] || {}).short || s.model)} <em>${esc(kitOf(s.seat).name)}</em></span>`);
+    return items.length ? `<div class="sbo-leg">${items.join("")}</div>` : "";
   };
   const render = () => {
     if (!tl || mode !== "full") return;
     const t = vid.currentTime || 0, two = (tl.sides || []).length === 2;
+    curT = t;
     const sc = latest(t, "score"), pe = latest(t, "period"), inf = latest(t, "info");
     const who = latest(t, "serve") || latest(t, "possession") || latest(t, "turn");
     const whoSeat = who ? (who.serve || who.possession || who.turn) : null;
@@ -87,6 +105,7 @@
     }
     const kind = two && tl.score_kind && !["points", "goals", "runs"].includes(tl.score_kind) ? tl.score_kind : "";
     const sub = [tl.label, kind, pe ? pe.period : "", clock, inf ? fill(inf.info) : "", whoSeat && !two ? `${names()[whoSeat] || whoSeat} · ${whoWord}` : ""].filter(Boolean);
+    if (!two) html += legend();
     html += `<div class="sbo-sub">${sub.map((x, i) => (i === 0 ? `<span class="sbo-lab">${esc(x)}${sub.length > 1 ? " · " : ""}</span>` : esc(x) + (i < sub.length - 1 ? " · " : ""))).join("")}${whoSeat && two ? ` <em>● ${whoWord}</em>` : ""}</div>`;
     if (sbo.innerHTML !== html) sbo.innerHTML = html;
     // toast: the latest toast event within the last 2.5 s
