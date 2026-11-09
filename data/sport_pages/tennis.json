@@ -3,7 +3,7 @@
  "sport": "tennis",
  "key": "tennis_g1",
  "format": "duel",
- "made": "2026-11-09T04:10Z",
+ "made": "2026-11-09T04:21Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -120,6 +120,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 53.4,
@@ -153,6 +154,7 @@
       "winner": "Kimi 3.1 Pro",
       "decided_by": "coin_toss",
       "note": "Level; decided by coin toss",
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 84.6,
@@ -186,6 +188,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 44.0,
@@ -220,6 +223,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 53.8,
@@ -254,6 +258,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 61.1,
@@ -287,6 +292,7 @@
       "winner": "Kimi 3.1 Pro",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 43.4,
@@ -321,6 +327,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 54.5,
@@ -355,6 +362,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 38.8,
@@ -389,6 +397,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "coin_toss",
       "note": "Level; decided by coin toss",
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 93.6,
@@ -422,6 +431,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 48.7,
@@ -455,6 +465,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 38.4,
@@ -488,6 +499,7 @@
       "winner": "Kimi 3.1 Pro",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 50.8,
@@ -521,6 +533,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 52.2,
@@ -554,6 +567,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": "coin_toss",
       "note": "Level; decided by coin toss",
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 83.1,
@@ -586,7 +600,8 @@
       ],
       "winner": "DeepSeek V4.1 Flash",
       "decided_by": "forfeit",
-      "note": "Forfeit: opponent did not start",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 0.0,
@@ -629,6 +644,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 48.0,
@@ -669,6 +685,7 @@
       "winner": "Kimi 3.1 Pro",
       "decided_by": "coin_toss",
       "note": "Level; decided by coin toss",
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 88.6,
@@ -715,6 +732,7 @@
       "winner": "Kimi 3.1 Pro",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 50.2,
@@ -761,6 +779,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 53.4,
@@ -925,6 +944,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "coin_toss",
       "note": "Level; decided by coin toss",
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -957,6 +977,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -989,6 +1010,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1021,6 +1043,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1053,6 +1076,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1085,6 +1109,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1117,6 +1142,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1149,6 +1175,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1181,6 +1208,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": null,
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1213,6 +1241,7 @@
       "winner": "Kimi 3.1 Pro",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1245,6 +1274,7 @@
       "winner": "DeepSeek V4.1 Flash",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1277,6 +1307,7 @@
       "winner": "Kimi 3.1 Pro",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1309,6 +1340,7 @@
       "winner": "Kimi 3.1 Pro",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1342,6 +1374,7 @@
       "winner": "DeepSeek V4.1 Flash",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1377,6 +1410,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "game",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1538,7 +1572,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-tennis-g1-champ2",
-   "made": "2026-11-08 21:37 CST",
+   "made": "2026-11-08 22:18 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {

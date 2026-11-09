@@ -3,7 +3,7 @@
  "sport": "drone",
  "key": "drone",
  "format": "race",
- "made": "2026-11-09T04:10Z",
+ "made": "2026-11-09T04:21Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -991,7 +991,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-drone-champ2",
-   "made": "2026-11-08 21:37 CST",
+   "made": "2026-11-08 22:18 CST",
    "measure": "Course progress, ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,

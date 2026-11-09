@@ -200,18 +200,26 @@ def podium(site: Site, d: dict) -> str:
 
 
 def _mark(m: dict) -> str:
-    """T = decided by coin toss or lot, F = forfeit or no-show (the opponent did not start)."""
+    """P = penalty shoot-out, T = coin toss or lot, F = forfeit / no-show, TB = the sport's other tie-break."""
     db = (m.get("decided_by") or "").lower()
+    if db in ("shootout", "sudden_death", "pso"):
+        return "P"
     if db in ("coin_toss", "lot", "lots", "toss"):
         return "T"
     if db == "forfeit" or (m.get("note") or "").startswith("Forfeit"):
         return "F"
+    if db in ("walks", "chess_clock"):
+        return "TB"
     return ""
 
 
-def cross_table(site: Site, rr: dict, qualify: int = 0, anchor: str = "m") -> str:
-    """Round robin as a 6 x 6 cross table in the home page grid's order and colours, scores from the row model's view,
-    plus a standings column (W-D-L, points, rank). A cell links to the match's row (replay entry) in the folded list."""
+MARK_WORDS = {"P": "won on penalties (shoot-out)", "T": "decided by coin toss or lot", "F": "forfeit: one side did not start",
+              "TB": "level, decided by the sport's tie-break rule"}
+
+
+def cross_table(site: Site, rr: dict, anchor: str = "m") -> str:
+    """Round robin as a 6 x 6 cross table in the home page grid's order and colours. Each cell: the result from the row
+    model's view (W / D / L) and the score, row model first; a click opens the match's row in the folded list."""
     ms = site.models
     names = [m["name"] for m in ms]
     cell = {}
@@ -225,9 +233,8 @@ def cross_table(site: Site, rr: dict, qualify: int = 0, anchor: str = "m") -> st
                 if prev and prev.get("status") != "pending" and m.get("status") == "pending":
                     continue
                 cell[(x["model"], y["model"])] = {**m, "_me": x, "_op": y}
-    st = {r["model"]: r for r in rr.get("standings", [])}
     hdr = "".join(f'<span class="tm-h xt-hd" title="{E(model_name(m))}" style="--c:{E(m["colour"])}">{model_logo(site, m)}</span>' for m in ms)
-    body = []
+    body, used = [], set()
     for mi in ms:
         row = [f'<span class="tm-h xt-rh" title="{E(model_name(mi))}" style="--c:{E(mi["colour"])}">{model_logo(site, mi)}</span>']
         for mj in ms:
@@ -236,34 +243,52 @@ def cross_table(site: Site, rr: dict, qualify: int = 0, anchor: str = "m") -> st
                 continue
             c = cell.get((mi["name"], mj["name"]))
             if not c or c.get("status") == "pending":
-                tip = f'{model_name(mi)} v {model_name(mj)}' + (f' · {c["id"]} · pending' if c else " · not played yet")
+                tip = f'{model_name(mi)} v {model_name(mj)}' + (f' · {c["id"]} · not played yet' if c else " · not played yet")
                 row.append(f'<span class="xt-c xt-p" title="{E(tip)}">–</span>')
                 continue
             me, op = c["_me"], c["_op"]
-            res = "w" if c["winner"] == mi["name"] else ("l" if c["winner"] == mj["name"] else "d")
+            res = "W" if c["winner"] == mi["name"] else ("L" if c["winner"] == mj["name"] else "D")
             mk = _mark(c)
+            used.add(mk)
+            so = c.get("shootout") or {}
+            sotxt = f' · shoot-out {so.get(mi["name"], "?")}:{so.get(mj["name"], "?")}' if so else ""
             r = c.get("replay") or {}
             rp = f' · {REPLAY_KIND.get(r.get("kind"), "Replay")} {mmss(r.get("seconds"))}'.rstrip() if r.get("path") else " · no replay yet"
-            tip = (f'{c["id"]} · {model_name(mi)} {me["score"]}:{op["score"]} {model_name(mj)}'
-                   + {"T": " · decided by coin toss", "F": " · forfeit (no-show)"}.get(mk, "") + rp)
+            word = {"W": "won", "L": "lost", "D": "drew"}[res]
+            tip = (f'{c["id"]} · {model_name(mi)} {word} {me["score"]}:{op["score"]} v {model_name(mj)}'
+                   + (f' · {MARK_WORDS[mk]}' if mk else "") + sotxt + rp)
             href = (site.cfg["replay_base"].rstrip("/") + "/" + r["path"]) if site.cfg.get("replay_base") and r.get("path") else f'#{anchor}-{c["id"]}'
-            row.append(f'<a class="xt-c xt-{res}" href="{E(href)}" title="{E(tip)}">{E(str(me["score"]))}<i>:</i>{E(str(op["score"]))}'
-                       f'{f"<sup>{mk}</sup>" if mk else ""}</a>')
-        s = st.get(mi["name"], {})
-        q = qualify and s.get("rank") and s["rank"] <= qualify
-        row.append(f'<span class="xt-s xt-wdl">{s.get("won", 0)}-{s.get("drawn", 0)}-{s.get("lost", 0)}</span>'
-                   f'<span class="xt-s xt-pts">{s.get("points", 0)}</span>'
-                   f'<span class="xt-s xt-rk{" is-q" if q else ""}">{s.get("rank", "–")}</span>')
+            tag = res + (f"·{mk}" if mk else "")
+            row.append(f'<a class="xt-c xt-{res.lower()}" href="{E(href)}" title="{E(tip)}"><b>{tag}</b>'
+                       f'<span>{E(str(me["score"]))}:{E(str(op["score"]))}</span></a>')
         body.append("".join(row))
-    marks = {_mark(m) for m in rr.get("matches", [])} - {""}
-    legend = ('<span>Score: row model first</span><span><i class="xt-sw xt-w"></i>Win</span><span><i class="xt-sw xt-d"></i>Draw</span><span><i class="xt-sw xt-l"></i>Loss</span>'
-              '<span><b>–</b>Not played yet</span>'
-              + ('<span><sup>T</sup>Decided by coin toss</span>' if "T" in marks else "")
-              + ('<span><sup>F</sup>Forfeit: one side did not start</span>' if "F" in marks else "")
-              + (f'<span><i class="xt-sw xt-q"></i>Top {qualify} to the semifinals</span>' if qualify else ""))
+    legend = ('<span><b class="xt-k xt-w">W</b>row model won</span><span><b class="xt-k xt-l">L</b>row model lost</span>'
+              '<span><b class="xt-k xt-d">D</b>draw</span><span><b class="xt-k xt-p">–</b>not played yet</span>'
+              + "".join(f'<span><b class="xt-k">·{k}</b>{MARK_WORDS[k]}</span>' for k in ("P", "T", "F", "TB") if k in used)
+              + '<span>Score: row model first</span>')
     return (f'<div class="xt-wrap"><div class="xt" style="--n:{len(ms)}"><span class="xt-corner"></span>{hdr}'
-            '<span class="xt-sh">W-D-L</span><span class="xt-sh">Pts</span><span class="xt-sh">#</span>'
             f'{"".join(body)}</div></div><p class="xt-legend">{legend}</p>')
+
+
+def standings_big(site: Site, rows: list, qualify: int = 0) -> str:
+    body = "".join(
+        f'<tr{" class=is-q" if qualify and r["rank"] <= qualify else ""}><td class="st-r">{r["rank"]}</td><td>{who(site, r["model"])}</td>'
+        f'<td class="st-n">{r["won"]}-{r["drawn"]}-{r["lost"]}</td>'
+        f'<td class="st-n">{("+" if (r["for"] or 0) - (r["against"] or 0) > 0 else "") + str((r["for"] or 0) - (r["against"] or 0))}</td>'
+        f'<td class="st-n st-p">{r["points"]}</td></tr>' for r in rows)
+    foot = (f'<p class="sb-q"><i></i>Top {qualify} go to the semifinals</p>' if qualify else "")
+    return ('<table class="st sb"><thead><tr><th>#</th><th>AI agent</th><th>W-D-L</th><th>Diff</th><th>Pts</th></tr></thead>'
+            f'<tbody>{body}</tbody></table>{foot}')
+
+
+def podium_box(site: Site, d: dict) -> str:
+    p = d.get("podium") or {}
+    if not any(p.values()):
+        return ('<div class="pb pb--wait"><h3 class="cr-h">Medals</h3><span class="tag tag--pending">'
+                f'{"Medals when the Championship ends" if d.get("status") != "final" else "Medals at release"}</span></div>')
+    cells = "".join(f'<div class="pb-m pb-{k}"><span class="kicker"><i class="medal medal--{k[0]}"></i>{k}</span>{who(site, p[k], sub=True)}</div>'
+                    for k in ("gold", "silver", "bronze") if p.get(k))
+    return f'<div class="pb"><h3 class="cr-h">Medals</h3>{cells}</div>'
 
 
 def bracket(site: Site, st: dict, has_rr: bool) -> str:
@@ -299,18 +324,21 @@ def rr_list(site: Site, rr: dict, anchor: str, numbered: bool = False) -> str:
             f'<span class="arr">↓</span></summary><ol class="mxl">{rows}</ol></details>')
 
 
-def duel_champ(site: Site, ch: dict) -> str:
+def duel_champ(site: Site, ch: dict, d: dict | None = None) -> str:
     st = {x["id"]: x for x in ch["stages"]}
     rr = st.get("round_robin") or {"matches": [], "standings": []}
     played = sum(1 for m in rr["matches"] if m.get("status") != "pending")
     total = len(rr["matches"])
-    sub = "top four to the semifinals" if played == total else f"{played} of {total} played · top four to the semifinals"
+    sub = "" if played == total else f"{played} of {total} played"
     return f"""
-<h3 class="cr-h">Round robin <span>{sub}</span></h3>
-{cross_table(site, rr, 4, "cm")}
-<p class="cr-rule">{E(rr.get("rule") or "")}</p>
-<h3 class="cr-h cr-h--ko">Knockout</h3>
-{bracket(site, st, bool(rr))}
+<div class="cx-row">
+  <div class="cx-l"><h3 class="cr-h">Round robin <span>{sub}</span></h3>{cross_table(site, rr, "cm")}</div>
+  <div class="cx-r"><h3 class="cr-h">Standings <span>win 3 · draw 1</span></h3>{standings_big(site, rr["standings"], 4)}</div>
+</div>
+<div class="cx-row cx-row--2">
+  <div class="cx-l"><h3 class="cr-h">Knockout</h3>{bracket(site, st, bool(rr))}</div>
+  <div class="cx-r">{podium_box(site, d or {})}</div>
+</div>
 {rr_list(site, rr, "cm")}"""
 
 
@@ -387,10 +415,15 @@ def points_race_champ(site: Site, ch: dict) -> str:
 def arena(site: Site, oa: dict) -> str:
     rr = next(x for x in oa["stages"] if x["id"] == "round_robin")
     status = oa.get("status_line") or ""
+    top = (rr.get("standings") or [{}])[0].get("model")
+    note = (f"Final standings: {model_name(_m(site, top))} tops the Open Arena." if oa.get("complete") and top
+            else f"Standings so far ({status.lower()}).")
     return f"""
-<h3 class="cr-h">Round robin <span>{E(status)}</span></h3>
-{cross_table(site, rr, 0, "am")}
-<p class="cr-rule">Fresh: every match starts from an empty workspace. {E(rr["rule"])} Separate from the medals.</p>
+<div class="cx-row">
+  <div class="cx-l"><h3 class="cr-h">Round robin <span>{E(status)}</span></h3>{cross_table(site, rr, "am")}</div>
+  <div class="cx-r"><h3 class="cr-h">Standings <span>win 3 · draw 1</span></h3>{standings_big(site, rr["standings"])}</div>
+</div>
+<p class="cr-rule cx-note">{E(note)} Fresh: every match starts from an empty workspace. Separate from the medals.</p>
 {rr_list(site, rr, "am", numbered=True)}"""
 
 
@@ -403,7 +436,7 @@ def records(site: Site, d: dict) -> str:
     elif ch.get("rows") is not None and ch.get("unit") is not None:
         champ = solo_champ(site, ch)
     elif ch.get("stages"):
-        champ = duel_champ(site, ch)
+        champ = duel_champ(site, ch, d)
     else:
         champ = '<p class="cr-rule">Records at release.</p>'
     status = "Final" if d.get("status") == "final" else "In progress"
@@ -424,7 +457,7 @@ def records(site: Site, d: dict) -> str:
 <section class="band sp-block" id="records" data-snav="Records">
   <div class="wrap">
     {head("02", "Competition records.", "", f'<div class="sp-head-r"><span class="tag tag--pending">{status}{prov}</span></div>')}
-    {podium(site, d)}
+    {"" if d.get("format") in ("duel", "team") else podium(site, d)}
     <div class="tabs sp-tabs" role="tablist" data-sptabs>{btns}</div>
     <div class="sp-panels">{panels}</div>
     <p class="rp-legend"><span class="rp rp--wait"><b>▶</b></span>{E(rp)}</p>

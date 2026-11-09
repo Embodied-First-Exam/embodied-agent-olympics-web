@@ -3,7 +3,7 @@
  "sport": "soccer_ssl",
  "key": "soccer_ssl",
  "format": "team",
- "made": "2026-11-09T04:10Z",
+ "made": "2026-11-09T04:21Z",
  "status": "final",
  "provisional": true,
  "podium": {
@@ -120,6 +120,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 1332.9,
@@ -153,6 +154,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 1090.3,
@@ -186,6 +188,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 1085.2,
@@ -220,6 +223,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 1644.6,
@@ -254,6 +258,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 806.3,
@@ -287,6 +292,7 @@
       "winner": "Kimi 3.1 Pro",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 1337.4,
@@ -321,6 +327,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 669.7,
@@ -355,6 +362,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 592.4,
@@ -389,6 +397,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 1000.4,
@@ -422,7 +431,11 @@
       ],
       "winner": "Claude Opus 5.5",
       "decided_by": "shootout",
-      "note": null,
+      "note": "Level; penalty shoot-out 2:0",
+      "shootout": {
+       "Claude Opus 5.5": 2,
+       "Gemini 4 Argon": 0
+      },
       "replay": {
        "kind": "full",
        "seconds": 990.4,
@@ -457,6 +470,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 532.4,
@@ -491,6 +505,7 @@
       "winner": "Kimi 3.1 Pro",
       "decided_by": "coin_toss",
       "note": "Level; decided by coin toss",
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 1795.0,
@@ -524,6 +539,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 962.0,
@@ -557,6 +573,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 710.9,
@@ -589,7 +606,11 @@
       ],
       "winner": "DeepSeek V4.1 Flash",
       "decided_by": "shootout",
-      "note": null,
+      "note": "Level; penalty shoot-out 0:3",
+      "shootout": {
+       "DeepSeek V4.1 Flash": 3,
+       "GLM 5.3 Flash": 0
+      },
       "replay": {
        "kind": "full",
        "seconds": 1219.8,
@@ -632,6 +653,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 1007.0,
@@ -671,7 +693,11 @@
       ],
       "winner": "GPT-6 Astra",
       "decided_by": "shootout",
-      "note": null,
+      "note": "Level; penalty shoot-out 3:1",
+      "shootout": {
+       "GPT-6 Astra": 3,
+       "Gemini 4 Argon": 1
+      },
       "replay": {
        "kind": "full",
        "seconds": 816.7,
@@ -718,6 +744,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 911.5,
@@ -764,6 +791,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "full",
        "seconds": 863.0,
@@ -926,6 +954,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -958,6 +987,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": null,
       "status": "resolved"
      },
@@ -984,7 +1014,8 @@
       ],
       "winner": "Claude Opus 5.5",
       "decided_by": "forfeit",
-      "note": "Forfeit: opponent did not start",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1017,6 +1048,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1049,6 +1081,7 @@
       "winner": "Claude Opus 5.5",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": null,
       "status": "resolved"
      },
@@ -1076,6 +1109,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": null,
       "status": "resolved"
      },
@@ -1103,6 +1137,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": null,
       "status": "resolved"
      },
@@ -1130,6 +1165,7 @@
       "winner": "GPT-6 Astra",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1161,7 +1197,8 @@
       ],
       "winner": "GPT-6 Astra",
       "decided_by": "forfeit",
-      "note": "Forfeit: opponent did not start",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1194,6 +1231,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1226,6 +1264,7 @@
       "winner": "GLM 5.3 Flash",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": null,
       "status": "resolved"
      },
@@ -1253,6 +1292,7 @@
       "winner": "Kimi 3.1 Pro",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": null,
       "status": "resolved"
      },
@@ -1280,6 +1320,7 @@
       "winner": "Kimi 3.1 Pro",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": {
        "kind": "states",
        "seconds": null,
@@ -1315,6 +1356,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": null,
       "status": "resolved"
      },
@@ -1345,6 +1387,7 @@
       "winner": "Gemini 4 Argon",
       "decided_by": "goals",
       "note": null,
+      "shootout": null,
       "replay": null,
       "status": "resolved"
      }
@@ -1501,7 +1544,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-soccer-ssl-champ2",
-   "made": "2026-11-08 21:37 CST",
+   "made": "2026-11-08 22:18 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
