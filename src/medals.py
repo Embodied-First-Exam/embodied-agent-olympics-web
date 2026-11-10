@@ -48,7 +48,7 @@ def flag_foot(site: Site, full: bool = False) -> str:
             f'<a href="{lb}#by-sport">By sport →</a></p>')
 
 
-ARENA_SHORT = "Each board: round robin, win 3, draw 1; ties by score difference, then head to head. Rating (Bradley-Terry) for reference."
+ARENA_SHORT = ("Duel and team-duel boards: round robin, win 3, draw 1; ties by score difference, then head to head; rating (Bradley-Terry) for reference. Solo boards: the first series match, higher score first, a no-show counts 0.")
 
 
 def arena_panel(site: Site, fallback_boards: str) -> str:
@@ -76,6 +76,15 @@ def arena_panel(site: Site, fallback_boards: str) -> str:
             f'<p class="oa-st">{E(b.get("status", ""))}{tag}</p>'
             '<table class="oa-tab"><thead><tr><th>#</th><th>Model</th><th>Pts</th><th>W-D-L</th><th>P</th><th>Rating</th>'
             f'</tr></thead><tbody>{rows}</tbody></table></div>')
+    units = {"sprint": "m/s", "hurdles": "m/s", "javelin": "m", "stuntcar": "pts"}
+    for sid, srows in solo_round1(site).items():
+        s = site.sport_by_id[sid]
+        body = "".join(f'<tr><td class="oa-r">{r["rank"]}</td><td class="oa-m">{E(model_name(r["model"]))}</td>'
+                       f'<td class="oa-p">{"no-show" if r["no_show"] else E(format(r["value"], ".2f" if r["value"] >= 1 else ".4f"))}</td></tr>'
+                       for r in srows)
+        cards.append(f'<div class="oa oa--t">{icon(sid)}<strong>{E(s["name"])}</strong><p class="oa-st">First series match · fresh workspace</p>'
+                     f'<table class="oa-tab"><thead><tr><th>#</th><th>Model</th><th>{E(units.get(sid, "Score"))}</th></tr></thead>'
+                     f'<tbody>{body}</tbody></table></div>')
     return f'<p class="rp-note wr-note">{E(ARENA_SHORT)}</p><div class="oagrid">{"".join(cards)}</div>'
 
 
@@ -203,26 +212,66 @@ EPISODIC_MEDAL_RULE = ("Medals = the top 3 of each sport's Episodic Learning boa
                        "win 3, draw 1; ties by score difference, then head to head.")
 
 
+def solo_round1(site: Site) -> dict:
+    """The solo sports' Episodic boards: each model's FIRST match of the medal series, played from a fresh workspace
+    (data/sport_pages/<sport>.json championship rows, match 1, from the official records). Ranked by that match's score
+    with the series' own rule: higher first; a match without a valid result (no-show) counts 0. Equal scores share a
+    rank (the series' later tie-breaks, best round and then lots, do not apply to a single round).
+    -> {sport: [{model, value, no_show, rank}]}"""
+    import json  # noqa: PLC0415
+    from pathlib import Path  # noqa: PLC0415
+    root = Path(__file__).resolve().parent.parent / "data" / "sport_pages"
+    solo = [x for f in site.cfg["formats"] if f["id"] == "solo" for x in f["sports"] if x in site.sport_by_id]
+    out = {}
+    for sid in solo:
+        f = root / f"{sid}.json"
+        if not f.is_file():
+            continue
+        ch = json.loads(f.read_text(encoding="utf-8")).get("championship") or {}
+        rows = []
+        for r in ch.get("rows") or []:
+            m1 = next((m for m in r.get("matches") or [] if m.get("match") == 1), None)
+            if m1 is None or m1.get("pending"):
+                continue
+            rows.append({"model": r["model"], "value": 0.0 if m1.get("no_show") else float(m1.get("value") or 0),
+                         "no_show": bool(m1.get("no_show")), "fixture": m1.get("id")})
+        rows.sort(key=lambda r: -r["value"])
+        for i, r in enumerate(rows):
+            r["rank"] = rows[i - 1]["rank"] if i and rows[i - 1]["value"] == r["value"] else i + 1
+        if rows:
+            out[sid] = rows
+    return out
+
+
 def episodic_medals(site: Site) -> dict:
-    """Gold / silver / bronze per model over the Episodic Learning boards, aggregated like the Championship medal table.
-    Per sport: the official rank of its fresh-workspace round-robin board (results.json open_arena rows, already ordered by
-    points, score difference, head to head); rank 1 / 2 / 3 -> gold / silver / bronze, a shared rank shares the medal, a
-    board with fewer than three ranked entrants gives fewer medals. Only complete boards count (an incomplete one is listed
-    as in progress). Sports without such a board (the solo sports, whose only board is their 3-match medal series with
-    the workspace carried over; drone racing; full-size racing) give no Episodic medals."""
+    """Gold / silver / bronze per model over the Episodic Learning boards (one match, fresh workspace), aggregated like the
+    Championship medal table. Boards: the 12 duel and team-duel Open Arena round robins (results.json open_arena rows,
+    official order: points, score difference, head to head) and the 4 solo sports' first series match (solo_round1).
+    Rank 1 / 2 / 3 -> gold / silver / bronze; a shared rank shares the medal; a board with fewer than three ranked
+    entrants gives fewer medals. Only complete boards count (an incomplete one is listed as in progress). Drone racing and
+    full-size racing have no Episodic board."""
     oa = site.results.get("open_arena") or {}
     names = [m["name"] for m in site.models]
     tally = {n: {"gold": 0, "silver": 0, "bronze": 0} for n in names}
     counted, pending, podiums, close = [], [], {}, []
+    solo = solo_round1(site)
     for s in site.sports:
         b = oa.get(s["id"])
-        if not isinstance(b, dict) or not b.get("rows"):
-            continue
-        if not b.get("complete"):
-            pending.append(s["id"])
+        if s["id"] in solo:
+            rows = [{"model": r["model"], "rank": r["rank"]} for r in solo[s["id"]]]
+        elif isinstance(b, dict) and b.get("rows"):
+            if not b.get("complete"):
+                pending.append(s["id"])
+                continue
+            rows = sorted(b["rows"], key=lambda r: r["rank"])
+            # medal places decided on a tie-break (equal points across a medal boundary): listed for review
+            for a, c in zip(rows, rows[1:]):
+                if a["points"] == c["points"] and a["rank"] <= 3:
+                    close.append({"sport": s["id"], "ranks": [a["rank"], c["rank"]], "models": [a["model"], c["model"]], "points": a["points"],
+                                  "diff": [a["score_for"] - a["score_against"], c["score_for"] - c["score_against"]]})
+        else:
             continue
         counted.append(s["id"])
-        rows = sorted(b["rows"], key=lambda r: r["rank"])
         pod = {}
         for r in rows:
             k = {1: "gold", 2: "silver", 3: "bronze"}.get(r["rank"])
@@ -230,11 +279,6 @@ def episodic_medals(site: Site) -> dict:
                 tally[r["model"]][k] += 1
                 pod.setdefault(k, []).append(r["model"])
         podiums[s["id"]] = pod
-        # medal places decided on a tie-break (equal points across a medal boundary): listed for review
-        for a, c in zip(rows, rows[1:]):
-            if a["points"] == c["points"] and a["rank"] <= 3:
-                close.append({"sport": s["id"], "ranks": [a["rank"], c["rank"]], "models": [a["model"], c["model"]], "points": a["points"],
-                              "diff": [a["score_for"] - a["score_against"], c["score_for"] - c["score_against"]]})
     key = lambda n: (tally[n]["gold"], tally[n]["silver"], tally[n]["bronze"])  # noqa: E731
     order = sorted(names, key=lambda n: tuple(-x for x in key(n)))
     table = []
@@ -242,7 +286,8 @@ def episodic_medals(site: Site) -> dict:
         rank = table[-1]["rank"] if table and key(order[i - 1]) == key(n) else i + 1
         table.append({"model": n, **tally[n], "rank": rank})
     no_board = [s["id"] for s in site.sports if s["id"] not in counted and s["id"] not in pending]
-    return {"table": table, "counted": counted, "pending": pending, "no_board": no_board, "podiums": podiums, "close": close}
+    return {"table": table, "counted": counted, "pending": pending, "no_board": no_board, "podiums": podiums, "close": close,
+            "solo": solo}
 
 
 def medal_rows_html(site: Site, table: list) -> str:
@@ -268,7 +313,7 @@ def episodic_medal_block(site: Site) -> str:
 def board_counts(site: Site) -> dict:
     """What each leaderboard is based on, counted from the sport-page records (data/sport_pages) and the official
     left-out list (results.json win_rate.forfeits: no-shows and matches a side did not finish):
-    episodic = sports with an Open Arena round robin, its matches played; continuous = all sports with a Championship,
+    episodic = sports with an Open Arena round robin (its matches played) plus the solo sports (their first series match); continuous = all sports with a Championship,
     every match played (duel / team-duel round robin and knockout, the solo sports' series matches, the drone time-trial
     matches, heats and final, the full-size races); h2h = the duel and team-duel matches behind win rate and head-to-head."""
     import json  # noqa: PLC0415
@@ -289,6 +334,7 @@ def board_counts(site: Site) -> dict:
             for v in o:
                 fixtures(v, out)
     c = {"ep_sports": 0, "ep_played": 0, "co_sports": 0, "co_played": 0, "co_h2h": 0}
+    solo1 = solo_round1(site)
     for s in site.sports:
         f = root / f"{s['id']}.json"
         if not f.is_file():
@@ -302,6 +348,9 @@ def board_counts(site: Site) -> dict:
         if oa:
             c["ep_sports"] += 1
             c["ep_played"] += played(oa, "arena")
+        elif s["id"] in solo1:  # solo: the first series match, fresh workspace
+            c["ep_sports"] += 1
+            c["ep_played"] += sum(1 for r in solo1[s["id"]] if not r["no_show"])
         if ch:
             c["co_sports"] += 1
             n = played(ch, "championship")

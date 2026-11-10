@@ -14,10 +14,12 @@ from layout import E, Site, model_logo, model_name
 ROOT = Path(__file__).resolve().parent.parent
 EXAMPLE_SPORT = "soccer_hsl"  # the example board: a complete Open Arena round robin
 
-EPISODIC_WS = "Fresh workspace: every match starts from an empty workspace."
+EPISODIC_WS = ("Fresh workspace: every match starts from an empty workspace. The solo sports count their first match of the "
+               "medal series, which also starts from an empty workspace; its score ranks the board.")
 CONTINUOUS_WS = "One workspace per model: programs, weights and notes carry from match to match through the whole championship."
-EPISODIC_RULE = ("Equal points: score difference, then head to head (billiards: fewer balls left is better). Win rate and "
-                 "head-to-head count every match; a level match counts for its official winner; no-shows are left out.")
+EPISODIC_RULE = ("Equal points: score difference, then head to head (billiards: fewer balls left is better). Solo: higher score "
+                 "first; a no-show counts 0. Win rate and head-to-head: duel and team-duel matches only; a level match counts for "
+                 "its official winner; no-shows are left out.")
 CONTINUOUS_RULE = ("A level knockout match goes to the sport's tie-break. Win rate and head-to-head: duel and team-duel matches "
                    "only, counted as in Episodic Learning.")
 
