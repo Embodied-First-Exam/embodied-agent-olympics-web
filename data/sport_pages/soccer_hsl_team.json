@@ -2972,327 +2972,327 @@
   ],
   "results": {
    "Claude Opus 5.5": {
+    "stays_up": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
     "push": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "walks": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "gets_up": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "no_sendoff": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "reaches_ball": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "loop": {
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "spreads": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "talks": {
      "status": "pass",
-     "checkpoint": "final:1"
-    },
-    "stays_up": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "ball_view": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "react": {
      "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "loop": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "passes": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "keeps_goal": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     }
    },
    "Kimi 3.1 Pro": {
+    "gets_up": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "no_sendoff": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
     "talks": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "push": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "walks": {
      "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "gets_up": {
-     "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "no_sendoff": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "ball_view": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "reaches_ball": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "react": {
+     "status": "fail",
+     "checkpoint": "final:7"
     },
     "passes": {
      "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "stays_up": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "reaches_ball": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "react": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "loop": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "spreads": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "keeps_goal": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "loop": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "spreads": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:7"
     }
    },
    "GPT-6 Astra": {
+    "walks": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
     "gets_up": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
+    },
+    "no_sendoff": {
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "ball_view": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
+    },
+    "spreads": {
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "talks": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
+    },
+    "stays_up": {
+     "status": "fail",
+     "checkpoint": "final:7"
     },
     "push": {
      "status": "fail",
-     "checkpoint": "final:2"
-    },
-    "walks": {
-     "status": "fail",
-     "checkpoint": "final:2"
-    },
-    "no_sendoff": {
-     "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
     "reaches_ball": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
     "react": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
+    },
+    "loop": {
+     "status": "fail",
+     "checkpoint": "final:7"
     },
     "passes": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
     "keeps_goal": {
      "status": "na",
-     "checkpoint": "final:2"
-    },
-    "loop": {
-     "status": "na",
-     "checkpoint": "final:2"
-    },
-    "spreads": {
-     "status": "na",
-     "checkpoint": "final:2"
-    },
-    "stays_up": {
-     "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     }
    },
    "Gemini 4 Argon": {
+    "walks": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "gets_up": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "ball_view": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "loop": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "spreads": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
     "talks": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
+    },
+    "stays_up": {
+     "status": "fail",
+     "checkpoint": "final:7"
     },
     "push": {
      "status": "fail",
-     "checkpoint": "final:2"
-    },
-    "walks": {
-     "status": "fail",
-     "checkpoint": "final:2"
-    },
-    "gets_up": {
-     "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
     "no_sendoff": {
      "status": "fail",
-     "checkpoint": "final:2"
-    },
-    "ball_view": {
-     "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
     "reaches_ball": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
     "react": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
     "passes": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
     "keeps_goal": {
      "status": "na",
-     "checkpoint": "final:2"
-    },
-    "loop": {
-     "status": "na",
-     "checkpoint": "final:2"
-    },
-    "spreads": {
-     "status": "na",
-     "checkpoint": "final:2"
-    },
-    "stays_up": {
-     "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     }
    },
    "GLM 5.3 Flash": {
     "push": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "walks": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "gets_up": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "no_sendoff": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "ball_view": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "reaches_ball": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "react": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "talks": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "passes": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "keeps_goal": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "loop": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "spreads": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "stays_up": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     }
    },
    "DeepSeek V4.1 Flash": {
     "push": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "walks": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "gets_up": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "no_sendoff": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "ball_view": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "reaches_ball": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "react": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "talks": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "passes": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "keeps_goal": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "loop": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "spreads": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     },
     "stays_up": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:5"
     }
    }
   },

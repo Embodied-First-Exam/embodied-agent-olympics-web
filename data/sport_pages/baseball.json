@@ -2938,91 +2938,91 @@
    "GPT-6 Astra": {
     "strikes": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "pitch_up": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "push_up": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "discipline": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "contact": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "to_first": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "fielded": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "to_first": {
+     "status": "na",
+     "checkpoint": "final:7"
     }
    },
    "Claude Opus 5.5": {
     "strikes": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "pitch_up": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "push_up": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "discipline": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "status": "fail",
+     "checkpoint": "final:7"
     },
     "contact": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "to_first": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "status": "fail",
+     "checkpoint": "final:7"
     },
     "fielded": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "to_first": {
+     "status": "na",
+     "checkpoint": "final:7"
     }
    },
    "Kimi 3.1 Pro": {
-    "contact": {
-     "status": "pass",
-     "checkpoint": "final:1"
-    },
     "strikes": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "status": "pass",
+     "checkpoint": "final:5"
     },
     "pitch_up": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "discipline": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
-    "push_up": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "to_first": {
-     "status": "na",
-     "checkpoint": "final:1"
+    "contact": {
+     "status": "fail",
+     "checkpoint": "final:5"
     },
     "fielded": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
+    },
+    "push_up": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "to_first": {
+     "status": "na",
+     "checkpoint": "final:5"
     }
    },
    "GLM 5.3 Flash": {

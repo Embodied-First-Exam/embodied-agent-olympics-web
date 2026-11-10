@@ -3255,85 +3255,85 @@
    "Claude Opus 5.5": {
     "legal": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "spins": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "both_turns": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "reach_play": {
      "status": "pass",
-     "checkpoint": "final:1"
-    },
-    "draw": {
-     "status": "pass",
-     "checkpoint": "final:1"
-    },
-    "ice": {
-     "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "takeout": {
      "status": "pass",
-     "checkpoint": "final:1"
-    },
-    "around": {
-     "status": "pass",
-     "checkpoint": "final:1"
-    },
-    "choose": {
-     "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "hammer": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "draw": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "ice": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "around": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "choose": {
+     "status": "fail",
+     "checkpoint": "final:7"
     }
    },
    "GPT-6 Astra": {
     "legal": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "spins": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "both_turns": {
      "status": "pass",
-     "checkpoint": "final:1"
-    },
-    "takeout": {
-     "status": "pass",
-     "checkpoint": "final:1"
-    },
-    "choose": {
-     "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "reach_play": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "draw": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "ice": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "takeout": {
+     "status": "fail",
+     "checkpoint": "final:7"
     },
     "around": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "choose": {
+     "status": "fail",
+     "checkpoint": "final:7"
     },
     "hammer": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     }
    },
    "DeepSeek V4.1 Flash": {

@@ -1044,105 +1044,105 @@
    "Gemini 4 Argon": {
     "upright": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "speed": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "lane": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "rhythm": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "fair": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "push": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     }
    },
    "GLM 5.3 Flash": {
     "rhythm": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "fair": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "lane": {
      "status": "fail",
-     "checkpoint": "final:2"
-    },
-    "upright": {
-     "status": "na",
-     "checkpoint": "final:2"
-    },
-    "speed": {
-     "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "push": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
+    },
+    "speed": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "upright": {
+     "status": "na",
+     "checkpoint": "final:3"
     }
    },
    "Kimi 3.1 Pro": {
     "rhythm": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "fair": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
+    },
+    "speed": {
+     "status": "fail",
+     "checkpoint": "final:3"
     },
     "lane": {
      "status": "fail",
-     "checkpoint": "final:2"
-    },
-    "upright": {
-     "status": "na",
-     "checkpoint": "final:2"
-    },
-    "speed": {
-     "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "push": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
+    },
+    "upright": {
+     "status": "na",
+     "checkpoint": "final:3"
     }
    },
    "DeepSeek V4.1 Flash": {
     "rhythm": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "fair": {
      "status": "pass",
-     "checkpoint": "final:2"
-    },
-    "upright": {
-     "status": "na",
-     "checkpoint": "final:2"
-    },
-    "speed": {
-     "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "lane": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "push": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
+    },
+    "speed": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "upright": {
+     "status": "na",
+     "checkpoint": "final:3"
     }
    }
   },

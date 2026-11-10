@@ -2955,169 +2955,169 @@
    "Claude Opus 5.5": {
     "aim": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "pots": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "cut": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "place": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "clean": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "break": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "legal": {
      "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "runs": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "safety": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "acts": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "runs": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "safety": {
+     "status": "na",
+     "checkpoint": "final:7"
     }
    },
    "GPT-6 Astra": {
     "aim": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "pots": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "cut": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "break": {
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "place": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "clean": {
      "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "break": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "legal": {
      "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "runs": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "safety": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "acts": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "runs": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "safety": {
+     "status": "na",
+     "checkpoint": "final:7"
     }
    },
    "GLM 5.3 Flash": {
     "aim": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "pots": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "cut": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "clean": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "break": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "place": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "legal": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "acts": {
      "status": "na",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "runs": {
      "status": "na",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "safety": {
      "status": "na",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     }
    },
    "Kimi 3.1 Pro": {
     "aim": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "pots": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "cut": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "clean": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "break": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "place": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "legal": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "acts": {
      "status": "na",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "runs": {
      "status": "na",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     },
     "safety": {
      "status": "na",
-     "checkpoint": "final:4"
+     "checkpoint": "final:5"
     }
    },
    "DeepSeek V4.1 Flash": {
