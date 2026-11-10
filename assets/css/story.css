@@ -1838,7 +1838,7 @@ td.hh-t .hh-p{font-size:16px}
 /* Episodic: the widget's round robin flowing into the points table. Rows keep the grid's entrant order (--i) and slide
    to their rank (--r) once the table is sorted; rank numbers and medal colours show only then */
 .tm-pts--ep{--rowh:30px;position:relative;display:block;max-width:300px;height:calc(var(--n) * var(--rowh))}
-.tm-pt--ep{position:absolute;left:0;right:0;top:calc(var(--i) * var(--rowh));height:var(--rowh);grid-template-columns:132px 1fr 28px;
+.tm-pt--ep{position:absolute;left:0;right:0;top:calc(var(--i) * var(--rowh));height:var(--rowh);grid-template-columns:132px 1fr 44px;
   transition:transform .7s var(--ease)}
 .tm-pts--ep.is-sorted .tm-pt--ep{transform:translateY(calc((var(--r) - var(--i)) * var(--rowh)))}
 .tm-pt--ep span{display:flex;align-items:center;gap:7px;color:var(--fg-2);font-family:var(--f-sans);font-size:13px}
@@ -1861,3 +1861,18 @@ td.hh-t .hh-p{font-size:16px}
 /* what each board is based on: one small line directly above the board */
 .lbx-count{margin:2px 0 0;font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--fg-3)}
 .rs-tables .lbx-count{margin:-12px 0 16px}
+/* Episodic widget: two tabs like the old widget; without JS both panels show */
+.tm--ep .tm-others--ep{grid-template-columns:repeat(2,minmax(0,1fr));margin:0 0 10px}
+.tm--ep.is-js .tm-pan:not(.is-on){display:none}
+.tm--ep:not(.is-js) .tm-pan+.tm-pan{margin-top:24px;padding-top:20px;border-top:1px solid var(--hair)}
+.tm--ep:not(.is-js) .tm-others--ep{display:none}
+.tm-ex{display:block;margin-top:4px;font:500 10.5px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--fg-3)}
+.ep-runs{display:grid;gap:6px;width:100%;max-width:280px}
+.ep-runs .tm-bl2{margin-bottom:4px}
+.ep-run{display:grid;grid-template-columns:30px 1fr auto;align-items:center;gap:10px;height:30px}
+.ep-run .tm-h{width:30px;height:30px}
+.ep-run-l{font-size:13px;color:var(--fg-2)}
+.ep-run-b{font:500 10.5px var(--f-mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-3);padding:3px 8px;border-radius:999px;border:1px solid var(--hair);opacity:.35;transition:opacity .3s,color .3s,border-color .3s}
+.ep-run.on .ep-run-b{opacity:1;color:var(--accent-ink);border-color:var(--accent)}
+.ep-run.ep-hit .ep-run-b{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+@media (max-width:900px){.tm--ep .tm-others--ep{grid-template-columns:1fr}}
