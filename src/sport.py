@@ -218,7 +218,7 @@ def overview(site: Site, s: dict, d: dict) -> str:
 <section class="shero sp-hero" id="overview">
   <div class="shero-media">{media}</div><div class="shero-shade"></div>
   <div class="wrap shero-crumb"><a class="crumb" href="{site.url('sports/')}">← All sports</a></div>
-  <div class="wrap shero-in"><span class="sp-n">01<i>/04</i> · Overview</span>{icon(s['id'], 'pic pic--xl')}<h1 class="display">{E(s['name'])}</h1>
+  <div class="wrap shero-in"><span class="sp-n">01<i>/{"04" if SHOW_03_04 else "03"}</i> · Overview</span>{icon(s['id'], 'pic pic--xl')}<h1 class="display">{E(s['name'])}</h1>
     <p class="shero-pitch">{E(s['pitch'])}</p></div>
   {tag}
 </section>
@@ -261,14 +261,17 @@ def athlete_view(site: Site, d: dict) -> str:
 </div></section>"""
 
 
+SHOW_03_04 = False   # Chi 11-10: off until revised
+
+
 def subnav(site: Site) -> str:
-    items = [("overview", "Overview"), ("records", "Records"), ("capabilities", "Capabilities"), ("agents", "Agents")]
+    items = [("overview", "Overview"), ("records", "Records")] + ([("capabilities", "Capabilities"), ("agents", "Agents")] if SHOW_03_04 else [("agents", "Checkpoints")])
     return ('<nav class="sp-sub" aria-label="On this page" data-spnav><div class="wrap">'
             + "".join(f'<a href="#{k}" data-spnav-a="{k}">{v}</a>' for k, v in items) + "</div></nav>")
 
 
 def head(n: str, title: str, lede: str = "", extra: str = "") -> str:
-    return (f'<header class="ch-head sp-head"><span class="ch-n">{n}<i>/04</i></span><h2>{title}</h2>'
+    return (f'<header class="ch-head sp-head"><span class="ch-n">{n}<i>/{"04" if SHOW_03_04 else "03"}</i></span><h2>{title}</h2>'
             f'{f"<p>{E(lede)}</p>" if lede else ""}{extra}</header>')
 
 
@@ -711,7 +714,7 @@ def _chart(site: Site, lines: dict, key: str, ymax: float, ref: float | None, yl
             f'<text x="{(L + W - R) / 2:.0f}" y="{H - 4}" class="ct ct-x" text-anchor="middle">Program saved after match n</text></svg>')
 
 
-def growth(site: Site, d: dict) -> str:
+def growth(site: Site, d: dict, perf_only: bool = False) -> str:
     ck = (d.get("agents") or {}).get("checkpoint")
     if not ck:
         return '<div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3><p class="cr-rule">Curves at release.</p></div>'
@@ -757,10 +760,12 @@ def growth(site: Site, d: dict) -> str:
             f"{cnt.get('ok', 0)} of {cnt.get('planned', 0)} replays done.")
     cap_h = (f'<figure class="cfig"><figcaption><strong>Capability growth</strong><span>Card capabilities passed, of {cap.get("n")}</span></figcaption>{capc}</figure>'
              if capc else "")
+    if perf_only:
+        cap_h = ""
     # opponent switch (Chi 11-09): "All (mean)" = the main curve; one view per tested opponent tier, weakest first
     tiers = ck.get("tiers") or []
     fmt2 = lambda v: f"{v:.2f}".rstrip("0").rstrip(".") if v else "0"  # noqa: E731
-    views = [("all", "All (mean)", f'<p class="tv-cap">{E(ck["measure"])}</p>{perf}')]
+    views = [("all", "All (mean)", (perf if perf_only else f'<p class="tv-cap">{E(ck["measure"])}</p>{perf}'))]
     for tr in tiers:
         tl = {m: v for m, v in tr["lines"].items() if v}
         prog = (f'{tr["ok"]} of {tr["planned"]} replays done' if tr["ok"] < tr["planned"] else f'{tr["ok"]} replays')
@@ -776,13 +781,20 @@ def growth(site: Site, d: dict) -> str:
         panes = "".join(f'<div class="tv-p" data-tvp="{E(v)}"{"" if k == 0 else " hidden"}>{body}</div>' for k, (v, _, body) in enumerate(views))
         note = f'<p class="cr-rule tv-note">{E(ck["tier_note"])}</p>' if ck.get("tier_note") else ""
         perf_block = f'<div class="tv-row" role="group" aria-label="Opponent">{sw}</div>{panes}{note}'
-        mcap = "Score share (0.5 = even); pick the opponent"
+        mcap = "Score share against fixed practice opponents (0.5 = even); pick the opponent"
     else:
         perf_block, mcap = perf, ck["measure"]
+    if perf_only:
+        names = {"L1": "L1 (weak)", "L2": "L2 (middle)", "L3": "L3 (strong)", "PP": "the practice player (our strongest)"}
+        core = " and ".join(names.get(o["id"], o["id"]) for o in ck.get("opponents") or [])
+        foot = ((f"All (mean) averages {core}. " if core else "") +
+                f"{cnt.get('ok', 0)} of {cnt.get('planned', 0)} replays done.")
+    head_c = "" if perf_only else '<h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3>'
+    grid_c = "cgrid cgrid--one" if perf_only else "cgrid"
     return f"""
-<div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3>
+<div class="ab-c{' ab-c--solo' if perf_only else ''}" id="growth">{head_c}
   <div class="lg-row" data-lgs>{legend}</div>
-  <div class="cgrid" data-charts>
+  <div class="{grid_c}" data-charts>
     <figure class="cfig"><figcaption><strong>Performance growth</strong><span>{E(mcap)}</span></figcaption>{perf_block}</figure>
     {cap_h}
   </div>
@@ -801,11 +813,31 @@ def agents(site: Site, d: dict) -> str:
 </section>"""
 
 
+CKPT_LEDE = ("Continual Learning: the control program each model saved after every Olympics Championship match, "
+             "replayed with no model calls against our fixed practice opponents, shows whether the system itself got "
+             "stronger from match to match.")
+
+
+def checkpoint_only(site: Site, d: dict) -> str:
+    """Chi 11-10: while 03/04 are hidden, keep the Checkpoint Evaluation performance chart (score share against the
+    fixed practice opponents, with the opponent switch) as its own section."""
+    return f"""
+<section class="band band--line sp-block" id="agents" data-snav="Checkpoints">
+  <div class="wrap">
+    {head("03", "Checkpoint Evaluation.", CKPT_LEDE)}
+    {growth(site, d, perf_only=True)}
+  </div>
+</section>"""
+
+
 # ---------------------------------------------------------------- page
 def render(site: Site, i: int, d: dict):
     s = site.sports[i]
     prev_s, next_s = site.sports[i - 1], site.sports[(i + 1) % len(site.sports)]
-    body = (overview(site, s, d) + subnav(site) + records(site, d) + capabilities(site, s, d) + agents(site, d)
+    # Chi 11-10: sections 03 (What it tests) and 04 (Agent performance and growth) hidden until he revises them;
+    # set SHOW_03_04 = True to bring them back.
+    body = (overview(site, s, d) + subnav(site) + records(site, d)
+            + ((capabilities(site, s, d) + agents(site, d)) if SHOW_03_04 else checkpoint_only(site, d))
             + f"""
 <nav class="wrap prevnext" aria-label="More sports">
   <a href="{site.sport_url(prev_s)}"><span>←</span>{icon(prev_s['id'])}<strong>{E(prev_s['name'])}</strong></a>
