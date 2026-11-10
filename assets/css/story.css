@@ -1703,8 +1703,8 @@ a.doc-row:hover{background:var(--bg-2)}
   .spr-chip{height:26px;padding:0 9px;font-size:10px}
 }
 /* architecture: real footage in the Competition Arena box (video under the transparent box, poster image until it plays) */
-.pl-scroll{position:relative}
-.pl-scroll .pl-svg{position:relative;z-index:1}
+.pl-scroll:has(.pl-avid){position:relative}
+.pl-scroll:has(.pl-avid) .pl-svg{position:relative;z-index:1}
 .pl-avid{position:absolute;z-index:0;object-fit:cover;border-radius:17px;background:#000}
 .pl-arena--v>rect{fill:transparent}
 .pl-fig.has-play .pl-apost{opacity:0;transition:opacity .4s}

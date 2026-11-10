@@ -184,7 +184,7 @@ def page2(site: Site, clips: dict, intro: str = "strip") -> str:
     c = site.cfg
     mods = "".join(f'<li class="gl-m" data-inview><svg class="gl-ic" viewBox="0 0 24 24" aria-hidden="true">{GLANCE_IC[k]}</svg>'
                    f'<strong>{E(t)}</strong><span>{E(l)}</span></li>' for k, t, l in GLANCE)
-    strip = sport_loops(site) if intro == "strip" else intro_grid(site, clips)
+    strip = sport_loops(site) if intro == "loops" else intro_grid(site, clips)  # "loops": real match footage row (off for now)
     return f"""
 <section class="pg pg2" id="about">
   <div class="wrap pg2-def">
@@ -203,7 +203,7 @@ def page2(site: Site, clips: dict, intro: str = "strip") -> str:
 ARENA_LOOP = "tennis"  # the clip in the architecture figure's Competition Arena box
 
 
-def physloop(site: Site, arena_mode: str = "video") -> str:
+def physloop(site: Site, arena_mode: str = "figures") -> str:
     """Agent–environment architecture. Each side: a workspace in which the agent builds and deploys a system; the system
     (its programs) observes and acts in the shared competition arena; the workspace also runs its own practice arena.
     Wording checked against the official run's seat instructions (handoff/webv3_1108.md, fact correction)."""
@@ -931,7 +931,8 @@ def head_to_head(site: Site) -> str:
 # ---------------------------------------------------------------- page
 
 
-def home(site: Site, measure_variant: str = "a", nav: str = "left", intro: str = "strip", arena: str = "video"):
+def home(site: Site, measure_variant: str = "a", nav: str = "left", intro: str = "strip", arena: str = "figures"):
+    """intro="loops" / arena="video" switch on the real-footage sports row and arena clip (kept for later, off by default)."""
     clips = clip_index(site)
     body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips, intro)
             + leaderboards(site) + head_to_head(site) + physloop(site, arena)
