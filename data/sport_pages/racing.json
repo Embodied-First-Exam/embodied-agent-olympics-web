@@ -294,7 +294,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-racing-full-champ-rc6",
-   "made": "2026-11-09 03:09 CST",
+   "made": "2026-11-09 20:49 CST",
    "measure": "Pace score, ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,
@@ -488,7 +488,7 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 2,
-       "valid": 6
+       "valid": 5
       },
       {
        "cp": "final:1",
@@ -508,7 +508,7 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 1,
-       "valid": 4
+       "valid": 3
       },
       {
        "cp": "final:1",
@@ -548,7 +548,7 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 0,
-       "valid": 4
+       "valid": 3
       },
       {
        "cp": "final:1",
@@ -568,7 +568,7 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 3,
-       "valid": 4
+       "valid": 3
       },
       {
        "cp": "final:1",
