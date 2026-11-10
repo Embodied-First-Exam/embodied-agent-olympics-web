@@ -1,0 +1,970 @@
+{
+ "schema": "eo-sportcaps/0",
+ "sport": "javelin",
+ "card": "javelin_g1",
+ "made": "2026-11-10 11:37 CST",
+ "status": "proposal",
+ "sources": {
+  "checkpoint": "capcurve data/javelin_g1.json (Checkpoint Evaluation, 11-10 10:38)",
+  "skill_tests": "sport page skill tests + SKILLFILL rows (not merged yet)"
+ },
+ "capabilities": [
+  {
+   "id": "power",
+   "name": "Release speed",
+   "layer": "Physical",
+   "meaning": "Whole-body power at release sets the distance; a fall voids the throw.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "release_speed",
+     "name": "Fast release",
+     "line": "Median release speed of the trials that threw >= 9 m/s (over the power cap or no release counts 0)",
+     "rule": {
+      "metric": "v_rel_med",
+      "op": ">=",
+      "value": 9.0,
+      "games": 0.6666666666666666,
+      "min_matches": 2
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint",
+     "line_value": 13.7231,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": false
+    }
+   ],
+   "evidence": [
+    "upright",
+    "rel_speed"
+   ],
+   "line": 13.7231,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 1,
+   "kept_by": 1
+  },
+  {
+   "id": "valid",
+   "name": "A valid throw",
+   "layer": "Physical",
+   "meaning": "Over the shoulder, along the shaft, tip first inside the sector.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "legal_release",
+     "name": "Legal release",
+     "line": ">= 80 % of the releases are over the shoulder, along the shaft, not facing away",
+     "rule": {
+      "num": "legal_rel",
+      "den": "judged_rel",
+      "min_n": 3,
+      "op": ">=",
+      "value": 0.8
+     },
+     "line_kind": "existing_metric_fixed",
+     "kind": "checkpoint",
+     "line_value": 1.0,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": true
+    }
+   ],
+   "evidence": [
+    "legal",
+    "flight",
+    "consistent"
+   ],
+   "line": 1.0,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 3,
+   "kept_by": 3
+  },
+  {
+   "id": "c3",
+   "name": "Real time",
+   "layer": "Physical",
+   "meaning": "Each trial allows 60 s from the whistle to the release; a late plan misses its joint path.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "fed",
+     "name": "No stall before the release",
+     "line": ">= 90 % of the trials that threw have no stretch of >= 100 ms before the release with every plan run out",
+     "rule": {
+      "num": "fed",
+      "den": "moved",
+      "min_n": 3,
+      "op": ">=",
+      "value": 0.9
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": []
+  }
+ ],
+ "eval": {
+  "Claude Opus 5.5": {
+   "cp": "final:3",
+   "caps": {
+    "c3": {
+     "status": "verified",
+     "skills": {
+      "fed": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 18.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "power": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "release_speed": {
+       "status": "fail",
+       "value": 13.402,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "valid": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "legal_release": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 18.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GPT-6 Astra": {
+   "cp": "final:3",
+   "caps": {
+    "c3": {
+     "status": "verified",
+     "skills": {
+      "fed": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 18.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "power": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "release_speed": {
+       "status": "fail",
+       "value": 13.2457,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "valid": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "legal_release": {
+       "status": "fail",
+       "value": 0.6667,
+       "n": 18.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Gemini 4 Argon": {
+   "cp": "final:3",
+   "caps": {
+    "c3": {
+     "status": "verified",
+     "skills": {
+      "fed": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 18.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "power": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "release_speed": {
+       "status": "pass",
+       "value": 16.9095,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "valid": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "legal_release": {
+       "status": "fail",
+       "value": 0.8889,
+       "n": 18.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "cp": "final:3",
+   "caps": {
+    "c3": {
+     "status": "verified",
+     "skills": {
+      "fed": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 18.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "power": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "release_speed": {
+       "status": "fail",
+       "value": 11.5905,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "valid": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "legal_release": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 18.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "cp": "final:3",
+   "caps": {
+    "c3": {
+     "status": "verified",
+     "skills": {
+      "fed": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 18.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "power": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "release_speed": {
+       "status": "fail",
+       "value": 5.3368,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "valid": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "legal_release": {
+       "status": "fail",
+       "value": 0.8889,
+       "n": 18.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GLM 5.3 Flash": {
+   "cp": "final:3",
+   "caps": {
+    "c3": {
+     "status": "verified",
+     "skills": {
+      "fed": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 18.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "power": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "release_speed": {
+       "status": "fail",
+       "value": 2.8832,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "valid": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "legal_release": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 18.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  }
+ },
+ "growth": {
+  "Claude Opus 5.5": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "power": "not_verified",
+     "valid": "verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "verified"
+    }
+   }
+  ],
+  "GPT-6 Astra": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "power": "not_verified",
+     "valid": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "not_verified"
+    }
+   }
+  ],
+  "Gemini 4 Argon": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "power": "insufficient",
+     "valid": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "power": "verified",
+     "valid": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "power": "verified",
+     "valid": "not_verified"
+    }
+   }
+  ],
+  "Kimi 3.1 Pro": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "power": "not_verified",
+     "valid": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "verified"
+    }
+   }
+  ],
+  "DeepSeek V4.1 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "power": "not_evaluated",
+     "valid": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "power": "not_evaluated",
+     "valid": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "not_verified"
+    }
+   }
+  ],
+  "GLM 5.3 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "power": "not_evaluated",
+     "valid": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "power": "not_verified",
+     "valid": "verified"
+    }
+   }
+  ]
+ },
+ "claims": {
+  "Claude Opus 5.5": {
+   "power": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "valid": {
+    "text": "Claude Opus 5.5 reached A valid throw at version 0 (start): 100 % vs line reference 100 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "GPT-6 Astra": {
+   "power": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "valid": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "Gemini 4 Argon": {
+   "power": {
+    "text": "Gemini 4 Argon reached Release speed at version 2: 16.92 vs line reference 13.72; kept at version 3",
+    "acquired": "final:2",
+    "lost": null,
+    "kept": true
+   },
+   "valid": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "power": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "valid": {
+    "text": "Kimi 3.1 Pro reached A valid throw at version 2: 100 % vs line reference 100 %; kept at version 3",
+    "acquired": "final:2",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "power": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "valid": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "GLM 5.3 Flash": {
+   "power": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "valid": {
+    "text": "GLM 5.3 Flash reached A valid throw at version 2: 100 % vs line reference 100 %; kept at version 3",
+    "acquired": "final:2",
+    "lost": null,
+    "kept": true
+   }
+  }
+ },
+ "evidence": {
+  "upright": {
+   "name": "Throws without falling",
+   "real": "A throw is a whole-body effort; the robot must stay standing after it (only its feet on the ground for settle_s after the landing).",
+   "measure": "the match record: among trials with a release, the share whose foul is not 'the robot fell' (gate ≥ 3). Scenario push03: 0.4 s after the motion starts (during the withdrawal) a 0.3 m/s sideways push at the pelvis; share of pushed trials without a fall (at 0.6 m/s every program and the reference fall in every trial; at 0.15 m/s the reference falls in 5 of 6).",
+   "line": "Match ≥ 90 %; scenario ≥ 2/3",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 18/18✓"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 18/18✓"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 18/18✓"
+    },
+    "GLM 5.3 Flash": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 18/18✓"
+    }
+   }
+  },
+  "rel_speed": {
+   "name": "Fast release (whole-body power)",
+   "real": "Release speed is the first factor of distance: legs, hips, trunk, shoulder and elbow accelerate in turn. The G1 is capped at 2.7 kW.",
+   "measure": "the match : median over trials with a release; a trial over the power cap counts 0.",
+   "line": "≥ 9 m/s",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 16.92✓"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 11.60✓"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 5.34✗"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 2.88✗"
+    }
+   }
+  },
+  "legal": {
+   "name": "Legal release (over the shoulder, along the shaft, facing the throw)",
+   "real": "The rules forbid a sling; a javelin not aligned with its path stalls.",
+   "measure": "the match record: among trials with a release and no fall or line foul, the share without a release-style foul (shoulder / axis / sling) or power-cap foul (gate ≥ 3).",
+   "line": "≥ 80 %",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 16/18✓"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 18/18✓"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 16/18✓"
+    },
+    "GLM 5.3 Flash": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 18/18✓"
+    }
+   }
+  },
+  "flight": {
+   "name": "Tip lands first, inside the sector",
+   "real": "Only a tip-first landing scores; the tumble at the release decides how it lands.",
+   "measure": "the match record: among legal releases, the share with a mark (gate ≥ 3).",
+   "line": "≥ 50 %",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 10/16✓"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 18/18✓"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 16/16✓"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 7/18✗"
+    }
+   }
+  },
+  "aim": {
+   "name": "Corrects its aim from the last throw",
+   "real": "An athlete adjusts stance and direction after seeing each landing; the observation carries the last release's heading.",
+   "measure": "Scenario turned: every stance is placed turned 18 deg further left than asked; an uncorrected throw leaves 18 deg off and lands outside the 14.5 deg half-sector. Reading: among trials 2-6 (released, no fall, no line foul) the share without 'outside the sector'.",
+   "line": "≥ 2/3",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:3",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:3",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:3",
+     "src": "skillfill"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:3",
+     "src": "skillfill"
+    }
+   }
+  },
+  "consistent": {
+   "name": "Repeats its throw",
+   "real": "Steady marks over the six trials.",
+   "measure": "the match record: share of finals with ≥ 3 valid marks and a CV ≤ 15 %.",
+   "line": "≥ 2/3 of finals",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 2/3✓"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 3/3✓"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 3/3✓"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 1/3✗"
+    }
+   }
+  },
+  "runup": {
+   "name": "Throws with run-up momentum (candidate)",
+   "real": "In real javelin 20-30 % of the release speed comes from the run-up, which must end braked, behind the arc.",
+   "measure": "Scenario runupend: at the motion start the pelvis gets forward momentum along its facing (the run-up's end); reading: share of those trials released with no fall and no line foul. At 0.8 m/s every program and the reference fall in every trial; calibration (seed 9101) at 0.3 m/s: reference 4/6, Opus k1 0/6, Astra k1 0/6; at 0.15 m/s: reference 0/6, Opus k1 5/6 (not monotonic). The reading uses 0.3 m/s (runup03).",
+   "line": "≥ 2/3",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:3",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:3",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:3",
+     "src": "skillfill"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:3",
+     "src": "skillfill"
+    }
+   }
+  },
+  "behind": {
+   "name": "Stays behind the arc (rule, secondary)",
+   "real": "TR 32: touching the arc or the ground beyond it is a foul.",
+   "measure": "the match record: among trials with a release, the share without a line foul.",
+   "line": "≥ 90 %",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 18/18✓"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 18/18✓"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 18/18✓"
+    },
+    "GLM 5.3 Flash": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 18/18✓"
+    }
+   }
+  }
+ },
+ "rule": "D3 (Chi 11-10): one headline per primary; pooled over 2 opponents x 2 seeds; acquired = 2 consecutive passing versions, lost = 2 consecutive failing; too few events = insufficient evidence",
+ "rules": [
+  "behind"
+ ],
+ "health": [],
+ "not_shown": [
+  {
+   "name": "Reading the wind",
+   "why": "Aiming 15 deg off changes the score by under 0.005."
+  }
+ ],
+ "notes_split": {}
+}

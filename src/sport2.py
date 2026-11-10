@@ -38,8 +38,9 @@ def cp_word(cp: str | None) -> str:
     return "Start" if cp.startswith("kickoff") else f"after match {cp.split(':')[1]}"
 
 
-def head(n: str, title: str, lede: str = "") -> str:
-    return (f'<header class="ch-head sp-head"><span class="ch-n">{n}<i>/04</i></span><h2>{title}</h2>'
+def head(n: str, title: str, lede: str = "", kicker: str = "") -> str:
+    k = f'<span class="s2-kick">{E(kicker)}</span>' if kicker else ""
+    return (f'<header class="ch-head sp-head"><span class="ch-n">{n}<i>/04</i></span><h2>{k}{title}</h2>'
             f'{f"<p>{E(lede)}</p>" if lede else ""}</header>')
 
 
@@ -163,7 +164,7 @@ def fmt_val(vd: dict, val) -> str:
 def bar(vd: dict, sk: dict) -> str:
     """Measured value against the pass line: a track, the value, a tick at the line."""
     r = vd.get("rule") or {}
-    val, thr = sk.get("value"), r.get("value")
+    val, thr = sk.get("value"), (vd["line_value"] if vd.get("line_value") is not None else r.get("value"))
     if val is None or thr is None:
         rd = sk.get("reading")
         if sk.get("src") == "skill test":
@@ -175,7 +176,8 @@ def bar(vd: dict, sk: dict) -> str:
     t = max(0.0, min(1.0, thr / scale)) * 100
     ok = sk.get("status") == "pass"
     nn = f' · n {int(sk["n"])}' if sk.get("n") else ""
-    tip = f'{vd["name"]}: {fmt_val(vd, val)} (line {r.get("op", "")} {fmt_val(vd, thr)}){nn}'
+    src = f' {vd["line_src"]}' if vd.get("line_src") in ("L1", "L2") else (" reference" if vd.get("line_src") else "")
+    tip = f'{vd["name"]}: {fmt_val(vd, val)} (line{src} {ops(r.get("op", ""))} {fmt_val(vd, thr)}){nn}'
     return (f'<span class="s2-bar{" is-ok" if ok else ""}" title="{E(tip)}"><span class="s2-tr"><i style="width:{w:.1f}%"></i>'
             f'<b style="left:{t:.1f}%"></b></span><em>{fmt_val(vd, val)}</em></span>')
 
@@ -188,7 +190,12 @@ def chip(st: str) -> str:
 def cap_cards(v: dict) -> str:
     cards = []
     for c in v["capabilities"]:
-        ver = "".join(f'<li>{E(x["name"])}{(": " + E(ops(x["line"]))) if x.get("line") else ""}</li>' for x in c["verify"])
+        def vli(x):
+            if x.get("line_value") is not None:
+                src = x["line_src"] if x["line_src"] in ("L1", "L2") else "reference program"
+                return f'<li>{E(x["name"])}: {E(ops(x.get("op") or ""))} {E(fmt_val(x, x["line_value"]))}, the {E(src)} reading, pooled over 2 opponents × 2 seeds</li>'
+            return f'<li>{E(x["name"])}{(": " + E(ops(x["line"]))) if x.get("line") else ""}</li>'
+        ver = "".join(vli(x) for x in c["verify"])
         cards.append(f'<article class="s2-cap s2-cap--{c["role"][0]}"><header><span class="s2-role">{"Primary" if c["role"] == "primary" else "Secondary"}</span>'
                      f'<span class="s2-layer">{E(c["layer"])}</span></header><h4>{E(c["name"])}</h4><p>{E(c["meaning"])}</p>'
                      f'<div class="s2-ver"><span class="kicker">Verified when</span><ul>{ver}</ul></div></article>')
@@ -236,7 +243,12 @@ def evaluation(site: Site, v: dict) -> str:
         n_ev = len(c["evidence"])
         evid = (f'<details class="s2-more"><summary>Supporting evidence · {n_ev} skill test{"s" if n_ev != 1 else ""} '
                 f'<span class="arr">▾</span></summary>{ev_rows(site, v, c["evidence"])}</details>') if n_ev else ""
-        meas = " · ".join(f'{x["name"]} ({ops(x.get("line")) or "pass line at release"})' for x in c["verify"])
+        def mline(x):
+            if x.get("line_value") is not None:
+                src = x["line_src"] if x["line_src"] in ("L1", "L2") else "the reference program"
+                return f'{x["name"]}; line = {src} {fmt_val(x, x["line_value"])}'
+            return f'{x["name"]} ({ops(x.get("line")) or "pass line at release"})'
+        meas = " · ".join(mline(x) for x in c["verify"])
         blocks.append(f'<div class="s2-eb"><div class="s2-eb-h"><h4>{E(c["name"])}</h4><span class="s2-role s2-role--{c["role"][0]}">{"Primary" if c["role"] == "primary" else "Secondary"}</span></div>'
                       f'<p class="s2-meas">Measured: {E(meas)}</p>'
                       f'<ol class="s2-rows">{"".join(rows)}</ol>{evid}</div>')
@@ -275,29 +287,30 @@ def growth(site: Site, v: dict) -> str:
             k = sum(1 for p in prim if g["caps"].get(p["id"]) == "verified")
             cells.append(f'<span class="s2-gc" title="{E(model_name(m))} · {E(cp_word(c))}: {k} of {len(prim)} verified">{sq}<b>{k}</b></span>')
         # acquired / kept per primary
-        notes = []
-        order = [c for c in cps if c in gl]
-        for p in prim:
-            seq = [(c, gl[c]["caps"].get(p["id"])) for c in order]
-            ok = [c for c, st in seq if st == "verified"]
-            if not ok:
-                continue
-            first = ok[0]
-            tail = [st for c, st in seq[order.index(first):]]
-            how = ("kept in every later version" if all(st == "verified" for st in tail)
-                   else f"verified in {len(ok)} of {len(seq)} versions, " + ("kept at the latest" if seq[-1][1] == "verified" else "lost by the latest"))
-            notes.append(f'{p["name"]}: {"from the start" if first.startswith("kickoff") else "acquired " + cp_word(first)}, {how}')
+        cl = (v.get("claims") or {}).get(m["name"]) or {}
+        notes = [cl[p["id"]]["text"] for p in prim if (cl.get(p["id"]) or {}).get("text")]
         rows.append(f'<div class="s2-gr"><span class="s2-gw">{sp.who(site, m["name"])}</span><span class="s2-gcs" style="--n:{len(cps)}">{"".join(cells)}</span>'
-                    f'<small class="s2-gn">{E(" · ".join(notes)) if notes else "No primary capability verified yet"}</small></div>')
+                    f'<small class="s2-gn">{"<br>".join(E(x) for x in notes) if notes else "No primary capability acquired yet (two passing versions in a row)"}</small></div>')
     key = "".join(f'<span><i class="s2-sq s2-sq--{k}"></i>{w}</span>' for k, w in (("v", "Verified"), ("n", "Not verified"), ("i", "Insufficient evidence"), ("x", "Not evaluated")))
     order = " · ".join(f"{k + 1} {p['name']}" for k, p in enumerate(prim))
-    return f"""
+    cnt = {m["name"]: [{"cp": g["cp"], "x": g["x"], "n_pass": sum(1 for p in prim if g["caps"].get(p["id"]) == "verified")}
+                       for g in v["growth"].get(m["name"]) or [] if any(g["caps"].get(p["id"]) in ("verified", "not_verified") for p in prim)]
+           for m in site.models}
+    cnt = {k: x for k, x in cnt.items() if x}
+    chart = ""
+    if cnt:
+        xmax = int(max(p["x"] for pts in cnt.values() for p in pts)) or 1
+        legend = "".join(f'<button type="button" class="lg" data-lg="{E(mm["name"])}" style="--c:{E(mm["colour"])}" aria-pressed="true"><i></i>{E(model_name(mm))}</button>'
+                         for mm in site.models if mm["name"] in cnt)
+        chart = (f'<figure class="cfig s2-cc"><figcaption><strong>Verified primary capabilities per saved version</strong><span>of {len(prim)}; versions without a verdict are left out</span></figcaption>'
+                 f'<div class="lg-row" data-lgs>{legend}</div><div data-charts>{sp._chart(site, cnt, "n_pass", max(len(prim), 1), None, "Verified primary capabilities", lambda q: f"{int(round(q))}", step=True, xmax=xmax, yticks=list(range(0, len(prim) + 1)))}</div></figure>')
+    return chart + f"""
 <div class="s2-grow">
   <div class="s2-gr s2-gr--h"><span class="s2-gw kicker">Saved version</span><span class="s2-gcs" style="--n:{len(cps)}">{hdr}</span><small class="s2-gn kicker">Primary capabilities</small></div>
   {"".join(rows)}
 </div>
 <p class="s2-key">{key}<span>Squares in order: {E(order)}</span></p>
-<p class="cr-rule">The number is how many of this sport's {len(prim)} primary capabilities a saved version verifies. Skill tests are evidence and are never added up; counts are not compared across sports.</p>"""
+<p class="cr-rule">A saved version passes a primary capability when its headline reading, pooled over the Checkpoint Evaluation runs (2 fixed opponents × 2 seeds), reaches the line. Acquired = two passing versions in a row; lost = two failing versions in a row. Too few events = insufficient evidence; no reading = not evaluated. Skill tests are evidence and are never added up; counts are not compared across sports.</p>"""
 
 
 def tests(site: Site, s: dict, d: dict, v: dict) -> str:
@@ -307,7 +320,7 @@ def tests(site: Site, s: dict, d: dict, v: dict) -> str:
     return f"""
 <section class="band band--line sp-block" id="capabilities" data-snav="Capabilities">
   <div class="wrap">
-    {head("03", "What it tests.", lede)}
+    {head("03", "What we measure.", lede, "What the system can do")}
     <div class="s2-part">{sub_h("A", "Core capabilities", f"{np_} primary capabilit{'y' if np_ == 1 else 'ies'} decide matches in this sport; {ns} secondary add to them.")}
       {cap_cards(v)}</div>
     <div class="s2-part">{sub_h("B", "Capability evaluation", "The measured value for each model, against the pass line.")}
@@ -324,7 +337,7 @@ def development(site: Site, d: dict, v: dict) -> str:
     return f"""
 <section class="band band--line sp-block" id="development" data-snav="Development">
   <div class="wrap">
-    {head("04", "Agent<br>development.", "How each agent built, trained, tested and changed its system over the season.")}
+    {head("04", "Agent<br>development.", "How each agent built, trained, tested and changed its system over the season.", "How the agent builds it")}
     <div class="ab-ab s2-dev">{sp.built(site, d)}{dev or '<div class="ab-a"></div>'}</div>
   </div>
 </section>"""
@@ -334,6 +347,11 @@ def render(site: Site, i: int, d: dict, v: dict):
     s = site.sports[i]
     prev_s, next_s = site.sports[i - 1], site.sports[(i + 1) % len(site.sports)]
     split = (v.get("notes_split") or {})
+    if not split:   # no hand split: findings about building / adapting go to 04, the rest to 02
+        items = ((d.get("notes") or {}).get("achieved")) or []
+        dev_words = ("practice", "rehears", "patch", "train", "replayed", "noticed", "changed", "review", "rewrote", "version", "studied", "tuned")
+        dev = [k for k, x in enumerate(items) if any(w in x["text"].lower() for w in dev_words)]
+        split = {"records": [k for k in range(len(items)) if k not in dev], "development": dev}
     v = {**v, "_moments": split.get("records", []), "_dev": split.get("development", [])}
     base_html = sp.render(site, i, d)[1]
     # reuse the current page's player dialog + model JSON (everything after the prev/next nav)

@@ -1,0 +1,1112 @@
+{
+ "schema": "eo-sportcaps/0",
+ "sport": "tennis",
+ "card": "tennis_g1",
+ "made": "2026-11-10 11:37 CST",
+ "status": "proposal",
+ "sources": {
+  "checkpoint": "capcurve data/tennis_g1.json (Checkpoint Evaluation, 11-10 10:38)",
+  "skill_tests": "sport page skill tests + SKILLFILL rows (not merged yet)"
+ },
+ "capabilities": [
+  {
+   "id": "balance",
+   "name": "Balance through the point",
+   "layer": "Physical",
+   "meaning": "A fallen robot lies until the point ends.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "stands",
+     "name": "Stays up through the point",
+     "line": "Points without a fall >= 90 % (2/3 of matches)",
+     "rule": {
+      "metric": "upright_point_frac",
+      "op": ">=",
+      "value": 0.9,
+      "games": 0.6666666666666666
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint",
+     "line_value": 0.6905,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": false
+    }
+   ],
+   "evidence": [
+    "stands",
+    "push"
+   ],
+   "line": 0.6905,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 4,
+   "kept_by": 3
+  },
+  {
+   "id": "receive",
+   "name": "Returning the serve",
+   "layer": "Physical",
+   "meaning": "The return decides whether the server wins the point outright.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "receives",
+     "name": "Returns the serve",
+     "line": "Opponent's good serves struck back >= 20 %",
+     "rule": {
+      "num": "c_receives_ok",
+      "den": "c_receives",
+      "min_n": 5,
+      "op": ">=",
+      "value": 0.2
+     },
+     "line_kind": "existing_metric_fixed",
+     "kind": "checkpoint",
+     "line_value": 0.625,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": true
+    }
+   ],
+   "evidence": [
+    "receives",
+    "near",
+    "moves_to"
+   ],
+   "line": 0.625,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 0,
+   "kept_by": 0
+  },
+  {
+   "id": "serve",
+   "name": "Serving in",
+   "layer": "Physical",
+   "meaning": "A point starts only with a serve that lands in the box; double faults give the point away.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "serve_in",
+     "name": "Serves in",
+     "line": "Own serves (good + fault) in >= 60 %",
+     "rule": {
+      "num": "rec_serves_in",
+      "den": "rec_serves",
+      "min_n": 5,
+      "op": ">=",
+      "value": 0.6
+     },
+     "line_kind": "existing",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": [
+    "serve_in"
+   ]
+  }
+ ],
+ "eval": {
+  "Claude Opus 5.5": {
+   "cp": "final:7",
+   "caps": {
+    "serve": {
+     "status": "verified",
+     "skills": {
+      "serve_in": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 42.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "balance": {
+     "status": "verified",
+     "cp": "final:7",
+     "skills": {
+      "stands": {
+       "status": "pass",
+       "value": 0.6961,
+       "n": 8,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "receive": {
+     "status": "not_verified",
+     "cp": "final:7",
+     "skills": {
+      "receives": {
+       "status": "fail",
+       "value": 0.0227,
+       "n": 44.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GPT-6 Astra": {
+   "cp": "final:7",
+   "caps": {
+    "serve": {
+     "status": "verified",
+     "skills": {
+      "serve_in": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 28.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "balance": {
+     "status": "verified",
+     "cp": "final:7",
+     "skills": {
+      "stands": {
+       "status": "pass",
+       "value": 0.854,
+       "n": 8,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "receive": {
+     "status": "not_verified",
+     "cp": "final:7",
+     "skills": {
+      "receives": {
+       "status": "fail",
+       "value": 0.2424,
+       "n": 33.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Gemini 4 Argon": {
+   "cp": "final:7",
+   "caps": {
+    "serve": {
+     "status": "verified",
+     "skills": {
+      "serve_in": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 27.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "balance": {
+     "status": "not_verified",
+     "cp": "final:7",
+     "skills": {
+      "stands": {
+       "status": "fail",
+       "value": 0.3429,
+       "n": 8,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "receive": {
+     "status": "not_verified",
+     "cp": "final:7",
+     "skills": {
+      "receives": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 34.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "cp": "final:7",
+   "caps": {
+    "serve": {
+     "status": "verified",
+     "skills": {
+      "serve_in": {
+       "status": "pass",
+       "value": 0.7368,
+       "n": 38.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "balance": {
+     "status": "verified",
+     "cp": "final:7",
+     "skills": {
+      "stands": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 8,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "receive": {
+     "status": "not_verified",
+     "cp": "final:7",
+     "skills": {
+      "receives": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 34.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "cp": "final:5",
+   "caps": {
+    "serve": {
+     "status": "not_verified",
+     "skills": {
+      "serve_in": {
+       "status": "fail",
+       "value": 0.3846,
+       "n": 39.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "balance": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "stands": {
+       "status": "fail",
+       "value": 0.4377,
+       "n": 8,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "receive": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "receives": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 32.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GLM 5.3 Flash": {
+   "cp": "final:5",
+   "caps": {
+    "serve": {
+     "status": "not_verified",
+     "skills": {
+      "serve_in": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 24.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "balance": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "stands": {
+       "status": "fail",
+       "value": 0.5,
+       "n": 8,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "receive": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "receives": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 16.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  }
+ },
+ "growth": {
+  "Claude Opus 5.5": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   }
+  ],
+  "GPT-6 Astra": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   }
+  ],
+  "Gemini 4 Argon": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   }
+  ],
+  "Kimi 3.1 Pro": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   }
+  ],
+  "DeepSeek V4.1 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "balance": "verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   }
+  ],
+  "GLM 5.3 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "balance": "not_verified",
+     "receive": "not_verified"
+    }
+   }
+  ]
+ },
+ "claims": {
+  "Claude Opus 5.5": {
+   "balance": {
+    "text": "Claude Opus 5.5 reached Balance through the point at version 3: 0.71 vs line reference 0.69; kept at version 4; lost at version 5",
+    "acquired": "final:3",
+    "lost": "final:5",
+    "kept": false
+   },
+   "receive": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "GPT-6 Astra": {
+   "balance": {
+    "text": "GPT-6 Astra reached Balance through the point at version 0 (start): 0.89 vs line reference 0.69; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   },
+   "receive": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "Gemini 4 Argon": {
+   "balance": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "receive": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "balance": {
+    "text": "Kimi 3.1 Pro reached Balance through the point at version 0 (start): 0.96 vs line reference 0.69; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   },
+   "receive": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "balance": {
+    "text": "DeepSeek V4.1 Flash reached Balance through the point at version 2: 0.79 vs line reference 0.69; kept at version 3",
+    "acquired": "final:2",
+    "lost": null,
+    "kept": true
+   },
+   "receive": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "GLM 5.3 Flash": {
+   "balance": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "receive": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  }
+ },
+ "evidence": {
+  "stands": {
+   "name": "Stays up through the point",
+   "real": "Nothing is given: no walking, standing or balance service; without commands the robot falls within 1.2 s. The program keeps it up itself.",
+   "measure": "Checkpoint Evaluation / scenario recv: share of points without a fall. Gate: the program acts, ≥ 1 swing a point on average (racket onsets above 2 m/s).",
+   "line": "≥ 90 % of points",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "push": {
+   "name": "Stays up when pushed",
+   "real": "Stable means taking a knock (contact, the swing's own reaction) and still standing and hitting.",
+   "measure": "Scenario push: the opponent serves every point; 50 ms after its strike the program's pelvis gets a sideways push (alternating); share of pushed points without a fall. Gate: the program acts, ≥ 1 swing a point.",
+   "line": "No fall in ≥ 2/3 of the pushed points",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "moves_to": {
+   "name": "Gets to the ball (footwork)",
+   "real": "An 11 × 5.5 m red court; the racket head reaches about 0.9 m from the pelvis, a ball further away needs steps.",
+   "measure": "Checkpoint Evaluation: of incoming balls needing a move, share where the pelvis closes ≥ 0.25 m on the path. Scenario reach: placed 1.0 m outside the receiving spot for each receive; share of serves struck; pelvis travel.",
+   "line": "Match ≥ 50 %; scenario: ≥ 30 % of the serves struck",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "serve_in": {
+   "name": "Serves in",
+   "real": "The wheelchair rules' drop serve: the toss device releases the ball, it bounces once, it is struck into the diagonal service box.",
+   "measure": "Checkpoint Evaluation: share of own serves in (pooled). Scenario serve: the program serves every point; share of serves judged good.",
+   "line": "≥ 60 % (Checkpoint Evaluation pooled ≥ 5 serves; scenario ≥ 3)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "touches": {
+   "name": "Strikes the incoming ball with the strings",
+   "real": "Only the strings play the ball; the frame, handle or body loses the point.",
+   "measure": "Checkpoint Evaluation: share of incoming balls the strings strike. Scenario recv: the same reading (the scenario record, hit).",
+   "line": "≥ 50 % (pooled, ≥ 5 incoming)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "receives": {
+   "name": "Returns the serve",
+   "real": "One chain from seeing the opponent's drop and strike to the own stroke.",
+   "measure": "Checkpoint Evaluation: share of the opponent's good serves struck back. Scenario recv: the opponent serves every point; share struck.",
+   "line": "≥ 20 % (pooled, ≥ 5 serves)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "returns_in": {
+   "name": "Returns land in",
+   "real": "A return clears the net and lands in the opponent's singles court.",
+   "measure": "Checkpoint Evaluation: share of incoming balls returned in. Scenario recv: the same reading.",
+   "line": "≥ 30 % (pooled, ≥ 5 incoming)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "near": {
+   "name": "Racket reaches the ball's path (camera perception and timing)",
+   "real": "Two cameras of four frames each; seen and timed right, the racket head is on the ball's path.",
+   "measure": "Checkpoint Evaluation: share of incoming balls at hittable height with the strings' centre within 0.25 m. Scenario recv: share of serves whose closest strings-to-ball distance is within 0.25 m.",
+   "line": "≥ 50 % (pooled, ≥ 5 incoming)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "rallies": {
+   "name": "Plays rallies",
+   "real": "Rallies are the body of a match.",
+   "measure": "Checkpoint Evaluation: share of points with ≥ 3 strokes (tennis runs no base scenario; its time went to the other four).",
+   "line": "≥ 20 % (pooled, ≥ 8 points)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   }
+  }
+ },
+ "rule": "D3 (Chi 11-10): one headline per primary; pooled over 2 opponents x 2 seeds; acquired = 2 consecutive passing versions, lost = 2 consecutive failing; too few events = insufficient evidence",
+ "rules": [],
+ "health": [],
+ "not_shown": [
+  {
+   "name": "Reading the opponent",
+   "why": "Match-result readings only."
+  },
+  {
+   "name": "Getting up",
+   "why": "Excluded by design: a fallen robot is placed again."
+  }
+ ],
+ "notes_split": {}
+}

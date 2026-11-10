@@ -1,0 +1,1308 @@
+{
+ "schema": "eo-sportcaps/0",
+ "sport": "basketball",
+ "card": "basketball_g1",
+ "made": "2026-11-10 11:37 CST",
+ "status": "proposal",
+ "sources": {
+  "checkpoint": "capcurve data/basketball_g1.json (Checkpoint Evaluation, 11-10 10:38)",
+  "skill_tests": "sport page skill tests + SKILLFILL rows (not merged yet)"
+ },
+ "capabilities": [
+  {
+   "id": "shot",
+   "name": "Scoring: the walk-in shot",
+   "layer": "Physical",
+   "meaning": "Walk in with the ball and shoot within the shot clock; points come only from shots.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "shoots",
+     "name": "Makes shots",
+     "line": "Field-goal rate >= 20 % (pooled)",
+     "rule": {
+      "num": "fgm",
+      "den": "fga",
+      "min_n": 5,
+      "op": ">=",
+      "value": 0.2
+     },
+     "line_kind": "existing",
+     "kind": "checkpoint",
+     "line_value": 0.88,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": true
+    }
+   ],
+   "evidence": [
+    "takes_shots",
+    "shoots",
+    "walk_in"
+   ],
+   "line": 0.88,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 0,
+   "kept_by": 0
+  },
+  {
+   "id": "upright",
+   "name": "Staying up in contact",
+   "layer": "Physical",
+   "meaning": "A fallen robot lies until the next possession.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "stays_up",
+     "name": "Stays up while moving",
+     "line": "In matches where the team walks >= 40 m upright, <= 2 falls per robot",
+     "rule": {
+      "metric": "stays_up",
+      "op": "==",
+      "value": 1,
+      "games": 0.6666666666666666,
+      "gate": [
+       "walk_up_m",
+       ">=",
+       40
+      ]
+     },
+     "line_kind": "existing_metric_fixed",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": [
+    "stays_up",
+    "push_up"
+   ]
+  },
+  {
+   "id": "c3",
+   "name": "Real-time control and timing",
+   "layer": "Physical",
+   "meaning": "Within a 12 s possession a player walks, sets and releases.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "on_time",
+     "name": "Acts on time",
+     "line": ">= 95 % of acts in effect at the step they answer (at least 50)",
+     "rule": {
+      "metric": "lag0",
+      "op": ">=",
+      "value": 0.95,
+      "games": 0.6666666666666666
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": [
+    "on_time"
+   ]
+  },
+  {
+   "id": "loose",
+   "name": "Loose balls",
+   "layer": "Physical",
+   "meaning": "Rebounds and loose balls decide extra possessions.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "view_loose",
+     "name": "Sees a loose ball",
+     "line": "While the ball is loose, in some upright own robot's head camera >= 25 % of the time",
+     "rule": {
+      "metric": "view_loose",
+      "op": ">=",
+      "value": 0.25,
+      "games": 0.6666666666666666
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": [
+    "view_loose",
+    "loose_ball"
+   ]
+  },
+  {
+   "id": "defend",
+   "name": "Defence",
+   "layer": "Competitive",
+   "meaning": "Holding the opponent's shooting.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "defends",
+     "name": "Holds the opponent's shooting",
+     "line": "Opponent field-goal rate <= 50 % (pooled)",
+     "rule": {
+      "num": "opp_fgm",
+      "den": "opp_fga",
+      "min_n": 5,
+      "op": "<=",
+      "value": 0.5
+     },
+     "line_kind": "existing",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": [
+    "defends"
+   ]
+  }
+ ],
+ "eval": {
+  "Claude Opus 5.5": {
+   "cp": "final:7",
+   "caps": {
+    "upright": {
+     "status": "insufficient",
+     "skills": {
+      "stays_up": {
+       "status": "not_examined",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "c3": {
+     "status": "not_verified",
+     "skills": {
+      "on_time": {
+       "status": "fail",
+       "value": 0.9217,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "loose": {
+     "status": "verified",
+     "skills": {
+      "view_loose": {
+       "status": "pass",
+       "value": 0.3187,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "defend": {
+     "status": "verified",
+     "skills": {
+      "defends": {
+       "status": "pass",
+       "value": 0.3125,
+       "n": 48.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "shot": {
+     "status": "not_verified",
+     "cp": "final:7",
+     "skills": {
+      "shoots": {
+       "status": "fail",
+       "value": 0.8542,
+       "n": 48.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GPT-6 Astra": {
+   "cp": "final:7",
+   "caps": {
+    "upright": {
+     "status": "insufficient",
+     "skills": {
+      "stays_up": {
+       "status": "not_examined",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "c3": {
+     "status": "not_verified",
+     "skills": {
+      "on_time": {
+       "status": "fail",
+       "value": 0.931,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "loose": {
+     "status": "not_verified",
+     "skills": {
+      "view_loose": {
+       "status": "fail",
+       "value": 0.2403,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "defend": {
+     "status": "verified",
+     "skills": {
+      "defends": {
+       "status": "pass",
+       "value": 0.3333,
+       "n": 48.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "shot": {
+     "status": "not_verified",
+     "cp": "final:7",
+     "skills": {
+      "shoots": {
+       "status": "fail",
+       "value": 0.7708,
+       "n": 48.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Gemini 4 Argon": {
+   "cp": "final:5",
+   "caps": {
+    "upright": {
+     "status": "insufficient",
+     "skills": {
+      "stays_up": {
+       "status": "not_examined",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "c3": {
+     "status": "not_verified",
+     "skills": {
+      "on_time": {
+       "status": "fail",
+       "value": 0.9437,
+       "n": 8,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "loose": {
+     "status": "verified",
+     "skills": {
+      "view_loose": {
+       "status": "pass",
+       "value": 0.4892,
+       "n": 8,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "defend": {
+     "status": "verified",
+     "skills": {
+      "defends": {
+       "status": "pass",
+       "value": 0.3934,
+       "n": 61.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "shot": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "shoots": {
+       "status": "fail",
+       "value": 0.7188,
+       "n": 32.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "cp": "final:7",
+   "caps": {
+    "upright": {
+     "status": "insufficient",
+     "skills": {
+      "stays_up": {
+       "status": "not_examined",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "c3": {
+     "status": "not_verified",
+     "skills": {
+      "on_time": {
+       "status": "fail",
+       "value": 0.903,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "loose": {
+     "status": "verified",
+     "skills": {
+      "view_loose": {
+       "status": "pass",
+       "value": 0.3451,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "defend": {
+     "status": "verified",
+     "skills": {
+      "defends": {
+       "status": "pass",
+       "value": 0.3778,
+       "n": 45.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "shot": {
+     "status": "not_verified",
+     "cp": "final:7",
+     "skills": {
+      "shoots": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 44.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "cp": "final:7",
+   "caps": {
+    "upright": {
+     "status": "insufficient",
+     "skills": {
+      "stays_up": {
+       "status": "not_examined",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "c3": {
+     "status": "not_verified",
+     "skills": {
+      "on_time": {
+       "status": "fail",
+       "value": 0.9145,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "loose": {
+     "status": "not_verified",
+     "skills": {
+      "view_loose": {
+       "status": "fail",
+       "value": 0.1565,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "defend": {
+     "status": "verified",
+     "skills": {
+      "defends": {
+       "status": "pass",
+       "value": 0.383,
+       "n": 47.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "shot": {
+     "status": "not_evaluated",
+     "cp": "final:7",
+     "skills": {
+      "shoots": {
+       "status": "not_evaluated",
+       "value": null,
+       "n": 0.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GLM 5.3 Flash": {
+   "cp": "final:5",
+   "caps": {
+    "upright": {
+     "status": "insufficient",
+     "skills": {
+      "stays_up": {
+       "status": "not_examined",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "c3": {
+     "status": "not_verified",
+     "skills": {
+      "on_time": {
+       "status": "fail",
+       "value": 0.8765,
+       "n": 8,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "loose": {
+     "status": "not_verified",
+     "skills": {
+      "view_loose": {
+       "status": "fail",
+       "value": 0.1156,
+       "n": 8,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "defend": {
+     "status": "verified",
+     "skills": {
+      "defends": {
+       "status": "pass",
+       "value": 0.3968,
+       "n": 63.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "shot": {
+     "status": "not_evaluated",
+     "cp": "final:5",
+     "skills": {
+      "shoots": {
+       "status": "not_evaluated",
+       "value": null,
+       "n": 0.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  }
+ },
+ "growth": {
+  "Claude Opus 5.5": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   }
+  ],
+  "GPT-6 Astra": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   }
+  ],
+  "Gemini 4 Argon": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "shot": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "shot": "verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   }
+  ],
+  "Kimi 3.1 Pro": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "shot": "not_verified"
+    }
+   }
+  ],
+  "DeepSeek V4.1 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "shot": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "shot": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "shot": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "shot": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "shot": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "shot": "not_evaluated"
+    }
+   }
+  ],
+  "GLM 5.3 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "shot": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "shot": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "shot": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "shot": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "shot": "not_evaluated"
+    }
+   }
+  ]
+ },
+ "claims": {
+  "Claude Opus 5.5": {
+   "shot": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "GPT-6 Astra": {
+   "shot": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "Gemini 4 Argon": {
+   "shot": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "shot": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "shot": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "GLM 5.3 Flash": {
+   "shot": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  }
+ },
+ "evidence": {
+  "takes_shots": {
+   "name": "Takes a shot each possession",
+   "real": "A 3x3 possession has a 12 s shot clock. A team with the ball has to get a shot off; running out the clock is a violation.",
+   "measure": "Scenario shot (every check ball the program's): the scenario record check balls; Checkpoint Evaluation: the match record fga / own check balls.",
+   "line": "≥ 0.5 (pooled, ≥ 6 own check balls)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "shot 1.000"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "shot 1.000"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "shot 0.500"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "shot 0.833"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "shot 0.000"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "shot 0.000"
+    }
+   }
+  },
+  "shoots": {
+   "name": "Makes shots",
+   "real": "A joint-level shot: release speed, angle and timing come from the program's own joint trajectories; the ring, the ball and the hand are physics.",
+   "measure": "Scenario shot: field goals made / attempted, seeds pooled; Checkpoint Evaluation: field goals made / attempted.",
+   "line": "≥ 20 % (pooled, ≥ 5 shots)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "shot 0.833"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "shot 1.000"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "shot 0.000"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "walk_in": {
+   "name": "Walks in with the ball before the shot",
+   "real": "The card's C1 claim: from the 8.5 m check-ball spot a standing shot does not score; the holder walks towards the ring with the ball (walking is dribbling, D19) and then shoots.",
+   "measure": "Scenario shot: share of the holder's shots released ≥ 1 m closer to the ring than its placement.",
+   "line": "≥ 50 % of shots (≥ 3 shots)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "shot 0.000"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "shot 0.000"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "shot 0.000"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "view_loose": {
+   "name": "Keeps a loose ball in view",
+   "real": "Rebounds, steals and floor balls rely on seeing the ball. The robot has only a head camera: a ball behind it has to be looked for.",
+   "measure": "Scenario floor: the ball lies still 1.5 m in front of the holder, 20-35 deg off its facing (it starts in its image); over live steps with nobody holding it, the share in which the ball is inside some upright own robot's head-camera frustum. Scenario loose puts it 1.3 m behind-beside (in nobody's image), recorded as the hard search version.",
+   "line": "≥ 25 % (pooled)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "floor 0.930"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "floor 1.000"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "floor 1.000"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "floor 1.000"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "floor 1.000"
+    },
+    "GLM 5.3 Flash": {
+     "status": "pass",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "floor 0.684"
+    }
+   }
+  },
+  "loose_ball": {
+   "name": "Recovers a loose ball",
+   "real": "A ball on the floor belongs to whoever gets there first: find it, walk to it, squat and pick it up (a joint-level squat takes about 2.9 s) while the opponent goes for it too.",
+   "measure": "Scenario floor (loose read the same way): share of check balls in which an own robot holds the ball before the opponent and before the 10 s held-ball rule.",
+   "line": "≥ 1/3 of check balls (≥ 6)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "floor 0.000"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "floor 0.000"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "floor 0.000"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "floor 0.000"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "floor 0.000"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "floor 0.000"
+    }
+   }
+  },
+  "push_up": {
+   "name": "Stays up after a knock",
+   "real": "Bumps are routine in a contact game. A robot that stays up keeps playing; a fallen one lies until the next check ball (rule D).",
+   "measure": "Scenario push: 1.5 s and 5 s after the ball is live each upright own robot gets 0.8 m/s sideways at the pelvis; each robot at each push time is a slot, the share of slots still up 2 s later (a robot already down at the push counts as not up; the scenario record, / k_end). Gate: the same program shoots on every check ball in scenario shot (it plays).",
+   "line": "≥ 2/3 of pushes without a fall",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "push 0.476"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "push 0.778"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "push 0.000"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "push 0.111"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "push 0.000"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "push 0.000"
+    }
+   }
+  },
+  "stays_up": {
+   "name": "Stays up while moving",
+   "real": "The G1 has no platform gait here; balance is the program's own.",
+   "measure": "Checkpoint Evaluation: the match record (upright walking from replay); gate: the team walks ≥ 40 m upright.",
+   "line": "≤ 2 falls per robot in 2/3 of matches",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "clean": {
+   "name": "No gain from contact",
+   "real": "Pushing and charging are fouls; from the 7th team foul each one gives the other team a point.",
+   "measure": "Checkpoint Evaluation: the match record; gate: body contact (≥ 1 s, replay).",
+   "line": "Team fouls ≤ 6 in 2/3 of matches",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "on_time": {
+   "name": "Acts on time",
+   "real": "Within a 12 s possession the robot walks, sets and releases; a late step throws the shot off.",
+   "measure": "Checkpoint Evaluation episode cmd rows: share of acts in effect at the step they answer (x1).",
+   "line": "≥ 95 % (≥ 50 acts)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "walks": {
+   "name": "Walks on its own controller",
+   "real": "The Engineer seat has no platform gait: walking is the program's own trained or written controller.",
+   "measure": "Checkpoint Evaluation: replayed pelvis, upright, from 1.5 s after a placement; scenarios: the scenario record",
+   "line": "The team walks ≥ 40 m upright a match (16 check balls)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "defends": {
+   "name": "Holds the opponent's shooting",
+   "real": "3x3 has one basket; the defence stands between the holder and the ring.",
+   "measure": "Checkpoint Evaluation: opponent field goals made / attempted (pooled).",
+   "line": "≤ 50 % (pooled, ≥ 5)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  }
+ },
+ "rule": "D3 (Chi 11-10): one headline per primary; pooled over 2 opponents x 2 seeds; acquired = 2 consecutive passing versions, lost = 2 consecutive failing; too few events = insufficient evidence",
+ "rules": [
+  "clean"
+ ],
+ "health": [
+  "on_time",
+  "walks"
+ ],
+ "not_shown": [
+  {
+   "name": "Teamwork (passes, screens)",
+   "why": "No program passes."
+  },
+  {
+   "name": "Getting up",
+   "why": "The reference has no get-up."
+  }
+ ],
+ "notes_split": {}
+}

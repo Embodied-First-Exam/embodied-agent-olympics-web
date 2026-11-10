@@ -1,0 +1,1296 @@
+{
+ "schema": "eo-sportcaps/0",
+ "sport": "baseball",
+ "card": "baseball_g1",
+ "made": "2026-11-10 11:37 CST",
+ "status": "proposal",
+ "sources": {
+  "checkpoint": "capcurve data/baseball_g1.json (Checkpoint Evaluation, 11-10 10:38)",
+  "skill_tests": "sport page skill tests + SKILLFILL rows (not merged yet)"
+ },
+ "capabilities": [
+  {
+   "id": "pitch",
+   "name": "Pitching strikes",
+   "layer": "Physical",
+   "meaning": "Balls walk batters; strikes put the at-bat in the pitcher's hands.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "strikes",
+     "name": "Throws strikes",
+     "line": "Strikes (fouls and balls in play included) / (pitches + timer awards) >= 40 %",
+     "rule": {
+      "num": "strikes",
+      "den": "pitch_chances",
+      "min_n": 20,
+      "op": ">=",
+      "value": 0.4
+     },
+     "line_kind": "existing_metric_fixed",
+     "kind": "checkpoint",
+     "line_value": 0.0625,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": true
+    }
+   ],
+   "evidence": [
+    "strikes",
+    "pitch_up",
+    "push_up"
+   ],
+   "line": 0.0625,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 2,
+   "kept_by": 2
+  },
+  {
+   "id": "field",
+   "name": "Fielding",
+   "layer": "Physical",
+   "meaning": "Getting the ball and throwing it in turns hits into outs.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "outs",
+     "name": "Records outs",
+     "line": "Opponent outs per half-inning fielded >= 1.5",
+     "rule": {
+      "num": "outs_made",
+      "den": "halves_fielded",
+      "min_n": 2,
+      "op": ">=",
+      "value": 1.5
+     },
+     "line_kind": "existing",
+     "kind": "checkpoint",
+     "line_value": 0.5,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": true
+    }
+   ],
+   "evidence": [
+    "fielded"
+   ],
+   "line": 0.5,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 2,
+   "kept_by": 2
+  },
+  {
+   "id": "c2",
+   "name": "Ball flight from cameras",
+   "layer": "Physical",
+   "meaning": "A pitch reaches the plate in 0.4-0.6 s; deciding a swing takes 150-250 ms.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "discipline",
+     "name": "Swings at strikes, takes balls",
+     "line": "Swing rate on zone pitches minus on balls >= 0.2",
+     "rule": {
+      "metric": "discipline",
+      "op": ">=",
+      "value": 0.2,
+      "games": 0.6666666666666666
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": [
+    "discipline"
+   ]
+  },
+  {
+   "id": "hit",
+   "name": "Hitting",
+   "layer": "Physical",
+   "meaning": "Swing at strikes, take balls, and make contact from what the cameras see.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "contact",
+     "name": "Swings make contact",
+     "line": "Swings that make contact (foul, foul tip, in play) >= 20 %",
+     "rule": {
+      "num": "contacts",
+      "den": "swings",
+      "min_n": 10,
+      "op": ">=",
+      "value": 0.2
+     },
+     "line_kind": "existing",
+     "kind": "checkpoint"
+    },
+    {
+     "id": "discipline",
+     "name": "Swings at strikes, takes balls",
+     "line": "Swing rate on zone pitches minus on balls >= 0.2",
+     "rule": {
+      "metric": "discipline",
+      "op": ">=",
+      "value": 0.2,
+      "games": 0.6666666666666666
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": [
+    "discipline",
+    "contact"
+   ]
+  },
+  {
+   "id": "c5",
+   "name": "Base running",
+   "layer": "Physical",
+   "meaning": "Speed decides infield hits.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "runs",
+     "name": "Scores runs",
+     "line": ">= 1 run in at least half of the matches",
+     "rule": {
+      "metric": "runs",
+      "op": ">=",
+      "value": 1,
+      "games": 0.5
+     },
+     "line_kind": "existing",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": []
+  }
+ ],
+ "eval": {
+  "Claude Opus 5.5": {
+   "cp": "kickoff:1",
+   "caps": {
+    "c2": {
+     "status": "not_evaluated",
+     "skills": {
+      "discipline": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "hit": {
+     "status": "not_evaluated",
+     "skills": {
+      "contact": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      },
+      "discipline": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "c5": {
+     "status": "not_evaluated",
+     "skills": {
+      "runs": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "pitch": {
+     "status": "verified",
+     "cp": "kickoff:1",
+     "skills": {
+      "strikes": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 21.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "field": {
+     "status": "insufficient",
+     "cp": "kickoff:1",
+     "skills": {
+      "outs": {
+       "status": "insufficient",
+       "value": null,
+       "n": 1.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GPT-6 Astra": {
+   "cp": "final:3",
+   "caps": {
+    "c2": {
+     "status": "not_evaluated",
+     "skills": {
+      "discipline": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "hit": {
+     "status": "not_evaluated",
+     "skills": {
+      "contact": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      },
+      "discipline": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "c5": {
+     "status": "not_evaluated",
+     "skills": {
+      "runs": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "pitch": {
+     "status": "insufficient",
+     "cp": "final:3",
+     "skills": {
+      "strikes": {
+       "status": "insufficient",
+       "value": null,
+       "n": 5.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "field": {
+     "status": "insufficient",
+     "cp": "final:3",
+     "skills": {
+      "outs": {
+       "status": "insufficient",
+       "value": null,
+       "n": 1.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Gemini 4 Argon": {
+   "cp": "final:2",
+   "caps": {
+    "c2": {
+     "status": "not_evaluated",
+     "skills": {
+      "discipline": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "hit": {
+     "status": "not_evaluated",
+     "skills": {
+      "contact": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      },
+      "discipline": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "c5": {
+     "status": "not_evaluated",
+     "skills": {
+      "runs": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "pitch": {
+     "status": "insufficient",
+     "cp": "final:2",
+     "skills": {
+      "strikes": {
+       "status": "insufficient",
+       "value": null,
+       "n": 18.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "field": {
+     "status": "insufficient",
+     "cp": "final:2",
+     "skills": {
+      "outs": {
+       "status": "insufficient",
+       "value": null,
+       "n": 1.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "cp": "final:3",
+   "caps": {
+    "c2": {
+     "status": "not_evaluated",
+     "skills": {
+      "discipline": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "hit": {
+     "status": "not_evaluated",
+     "skills": {
+      "contact": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      },
+      "discipline": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "c5": {
+     "status": "not_evaluated",
+     "skills": {
+      "runs": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "pitch": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "strikes": {
+       "status": "pass",
+       "value": 0.3438,
+       "n": 32.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "field": {
+     "status": "insufficient",
+     "cp": "final:3",
+     "skills": {
+      "outs": {
+       "status": "insufficient",
+       "value": null,
+       "n": 1.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "cp": "final:2",
+   "caps": {
+    "c2": {
+     "status": "not_evaluated",
+     "skills": {
+      "discipline": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "hit": {
+     "status": "not_evaluated",
+     "skills": {
+      "contact": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      },
+      "discipline": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "c5": {
+     "status": "not_evaluated",
+     "skills": {
+      "runs": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "pitch": {
+     "status": "verified",
+     "cp": "final:2",
+     "skills": {
+      "strikes": {
+       "status": "pass",
+       "value": 0.9167,
+       "n": 36.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "field": {
+     "status": "verified",
+     "cp": "final:2",
+     "skills": {
+      "outs": {
+       "status": "pass",
+       "value": 2.5,
+       "n": 2.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GLM 5.3 Flash": {
+   "cp": "final:1",
+   "caps": {
+    "c2": {
+     "status": "not_evaluated",
+     "skills": {
+      "discipline": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "hit": {
+     "status": "not_evaluated",
+     "skills": {
+      "contact": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      },
+      "discipline": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "c5": {
+     "status": "not_evaluated",
+     "skills": {
+      "runs": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "pitch": {
+     "status": "not_verified",
+     "cp": "final:1",
+     "skills": {
+      "strikes": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 22.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "field": {
+     "status": "not_verified",
+     "cp": "final:1",
+     "skills": {
+      "outs": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 2.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  }
+ },
+ "growth": {
+  "Claude Opus 5.5": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "pitch": "verified",
+     "field": "insufficient"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   }
+  ],
+  "GPT-6 Astra": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "pitch": "verified",
+     "field": "verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "pitch": "verified",
+     "field": "verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "pitch": "insufficient",
+     "field": "insufficient"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "pitch": "insufficient",
+     "field": "insufficient"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   }
+  ],
+  "Gemini 4 Argon": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "pitch": "not_verified",
+     "field": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "pitch": "not_verified",
+     "field": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "pitch": "insufficient",
+     "field": "insufficient"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   }
+  ],
+  "Kimi 3.1 Pro": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "pitch": "verified",
+     "field": "verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "pitch": "verified",
+     "field": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "pitch": "verified",
+     "field": "insufficient"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   }
+  ],
+  "DeepSeek V4.1 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "pitch": "verified",
+     "field": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   }
+  ],
+  "GLM 5.3 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "pitch": "not_verified",
+     "field": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "pitch": "not_verified",
+     "field": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "pitch": "not_evaluated",
+     "field": "not_evaluated"
+    }
+   }
+  ]
+ },
+ "claims": {
+  "Claude Opus 5.5": {
+   "pitch": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "field": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "GPT-6 Astra": {
+   "pitch": {
+    "text": "GPT-6 Astra reached Pitching strikes at version 0 (start): 100 % vs line reference 6 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   },
+   "field": {
+    "text": "GPT-6 Astra reached Fielding at version 0 (start): 150 % vs line reference 50 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "Gemini 4 Argon": {
+   "pitch": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "field": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "pitch": {
+    "text": "Kimi 3.1 Pro reached Pitching strikes at version 0 (start): 35 % vs line reference 6 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   },
+   "field": {
+    "text": "Kimi 3.1 Pro reached Fielding at version 0 (start): 150 % vs line reference 50 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "pitch": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "field": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "GLM 5.3 Flash": {
+   "pitch": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "field": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  }
+ },
+ "evidence": {
+  "strikes": {
+   "name": "Throws strikes",
+   "real": "In MLB 2025, 64 % of pitches were strikes and walks were 8.4 % of plate appearances. A pitcher who misses the zone gives walks away; the G1 throws 8-10.5 m/s by hand with 1.5 ms release scatter, all on its own joints.",
+   "measure": "Scenario pitch: the program fields every pitch, pitching to L2's batters; the umpire's strikes (fouls, foul tips, balls in play included) / its pitch chances (one per placing; a pitch-timer run-out without a pitch counts). Checkpoint Evaluation: strikes / pitch_chances.",
+   "line": "≥ 40 % (a checkpoint's two seeds pooled, ≥ 20 chances)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "pitch 96 % (n=24)"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "pitch 100 % (n=24)"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "pitch 62 % (n=24)"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "pitch_up": {
+   "name": "Stays up after the pitch",
+   "real": "A pitch is a whole-body motion; after the release the pitcher still has to stand and field (it covers the plate and takes throws). There is no walking policy, so balance is all the program's.",
+   "measure": "Scenario pitch: of the program's own releases, the share where its pitcher is not down (the world's fall rule, W.fell; the scenario record) within 2 s after the release; gate: ≥ 5 releases. Checkpoint Evaluation: pitch_upright.",
+   "line": "≥ 50 % of releases (two seeds pooled)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "pitch 100 % (n=24)"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "pitch 100 % (n=24)"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "pitch 17 % (n=24)"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "push_up": {
+   "name": "Keeps balance when bumped after the pitch",
+   "real": "In a real game a pitcher after the release gets knocked off balance by its own follow-through, a comebacker or a collision; staying up takes a reaction.",
+   "measure": "Scenario push: as pitch, and 0.4 s (20 control steps) after each of the program's releases its pitcher's pelvis gets a 0.6 m/s sideways push (alternating); of the pushed pitches, the share with the pitcher not down within 2 s after the release (the scenario record, pitcher_down).",
+   "line": "≥ 50 % of pushed pitches (two seeds pooled, ≥ 5)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "push 58 % (n=24)"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "push 83 % (n=24)"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "discipline": {
+   "name": "Swings at strikes, takes balls",
+   "real": "A pitch reaches the plate in 0.4-0.6 s and the swing decision takes 150-250 ms. MLB batters swing at about 65 % in the zone and 30 % outside; only a flight estimated from the cameras tells them apart.",
+   "measure": "Scenario bat: the program bats every pitch, L2 pitches; each pitch's zone from the released ball's true state flown to the plate's middle plane, the swing from the umpire (swung). Reading = swing rate in the zone − swing rate outside. Checkpoint Evaluation: discipline.",
+   "line": "≥ 0.2 (two seeds pooled; gate: ≥ 3 pitches in and out of the zone, ≥ 3 swings)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "base +0.17 (n=12)"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "base +0.62 (n=12)"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "base -0.17 (n=12)"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "contact": {
+   "name": "Swings make contact",
+   "real": "Swings that still hit well are off by 9 ms on average; about 7 ms early or late sends the ball foul. With one row of joint targets every 20 ms, the time and the height both have to be right.",
+   "measure": "Scenario bat: of the swings (the umpire's swung), the share that met the ball (result foul, foul_tip, in_play). Checkpoint Evaluation: contacts / swings.",
+   "line": "≥ 20 % (two seeds pooled, ≥ 10 swings)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill",
+     "reading": "bat 5 % (n=20)"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "bat 0 % (n=19)"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "to_first": {
+   "name": "Runs to first after a ball in play",
+   "real": "After a ball in play the batter drops the bat and runs 18.29 m to first; with no walking policy the program writes the batter-runner's gait. The card excludes running as beyond the body.",
+   "measure": "Scenario bat: of the balls in play, the share where the batter-runner's pelvis came within 1 m of first base's centre.",
+   "line": "Recorded only (candidate): gate ≥ 3 balls in play",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   }
+  },
+  "fielded": {
+   "name": "Fielded outs",
+   "real": "MLB fielders turn about 71 % of balls in play into outs; with no fingers a ball is caught only within 6 cm of the pocket, and then the fielder walks to the bag or throws.",
+   "measure": "Checkpoint Evaluation: fielded_outs / halves_fielded (catches, force-outs, tags; strikeouts and the opponent's fouls removed). Scenarios pitch and push see too few balls in play to read it.",
+   "line": "≥ 0.5 per half-inning fielded (proposal)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    }
+   }
+  }
+ },
+ "rule": "D3 (Chi 11-10): one headline per primary; pooled over 2 opponents x 2 seeds; acquired = 2 consecutive passing versions, lost = 2 consecutive failing; too few events = insufficient evidence",
+ "rules": [],
+ "health": [],
+ "not_shown": [
+  {
+   "name": "Base running",
+   "why": "Only run and hit counts (match results)."
+  }
+ ],
+ "notes_split": {}
+}

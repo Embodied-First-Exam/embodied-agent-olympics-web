@@ -118,3 +118,6 @@
 }
 .s2-meas{margin:0 0 6px;font-size:12.5px;color:var(--fg-3)}
 @media (max-width:440px){.sp2 .sp-sub a{padding:9px 8px;letter-spacing:.03em;font-size:11px}.sp2 .sp-sub a:first-child{padding-left:12px}.sp2 .sp-sub a:last-child{padding-right:12px}}
+.s2-kick{display:block;font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:12px}
+.s2-cc{margin:0 0 18px;max-width:720px}
+.s2-gn br+*{margin-top:2px}

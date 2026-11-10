@@ -2,10 +2,10 @@
  "schema": "eo-sportcaps/0",
  "sport": "sprint",
  "card": "sprint_g1",
- "made": "2026-11-10 09:35 CST",
+ "made": "2026-11-10 11:37 CST",
  "status": "proposal",
  "sources": {
-  "checkpoint": "capcurve data/sprint_g1.json (Checkpoint Evaluation, 11-10 09:01)",
+  "checkpoint": "capcurve data/sprint_g1.json (Checkpoint Evaluation, 11-10 10:38)",
   "skill_tests": "sport page skill tests + SKILLFILL rows (not merged yet)"
  },
  "capabilities": [
@@ -27,27 +27,22 @@
       "games": 0.6666666666666666
      },
      "line_kind": "proposed",
-     "kind": "checkpoint"
-    },
-    {
-     "id": "upright",
-     "name": "Runs without falling",
-     "line": "No fall after the start",
-     "rule": {
-      "num": "upright_started",
-      "den": "started",
-      "min_n": 3,
-      "op": ">=",
-      "value": 0.8
-     },
-     "line_kind": "existing_metric_fixed",
-     "kind": "checkpoint"
+     "kind": "checkpoint",
+     "line_value": 3.1534,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": false
     }
    ],
    "evidence": [
     "speed",
     "upright"
-   ]
+   ],
+   "line": 3.1534,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 3,
+   "kept_by": 3
   },
   {
    "id": "lane",
@@ -80,23 +75,6 @@
   "Claude Opus 5.5": {
    "cp": "final:3",
    "caps": {
-    "run": {
-     "status": "verified",
-     "skills": {
-      "speed": {
-       "status": "pass",
-       "value": 5.3115,
-       "n": 3,
-       "src": "checkpoint"
-      },
-      "upright": {
-       "status": "pass",
-       "value": 1.0,
-       "n": 9.0,
-       "src": "checkpoint"
-      }
-     }
-    },
     "lane": {
      "status": "verified",
      "skills": {
@@ -104,6 +82,18 @@
        "status": "pass",
        "value": 1.0,
        "n": 9.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "run": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "speed": {
+       "status": "pass",
+       "value": 5.3115,
+       "n": 3,
        "src": "checkpoint"
       }
      }
@@ -113,23 +103,6 @@
   "GPT-6 Astra": {
    "cp": "final:3",
    "caps": {
-    "run": {
-     "status": "verified",
-     "skills": {
-      "speed": {
-       "status": "pass",
-       "value": 7.2558,
-       "n": 3,
-       "src": "checkpoint"
-      },
-      "upright": {
-       "status": "pass",
-       "value": 1.0,
-       "n": 9.0,
-       "src": "checkpoint"
-      }
-     }
-    },
     "lane": {
      "status": "verified",
      "skills": {
@@ -137,6 +110,18 @@
        "status": "pass",
        "value": 1.0,
        "n": 9.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "run": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "speed": {
+       "status": "pass",
+       "value": 7.2558,
+       "n": 3,
        "src": "checkpoint"
       }
      }
@@ -146,23 +131,6 @@
   "Gemini 4 Argon": {
    "cp": "final:3",
    "caps": {
-    "run": {
-     "status": "verified",
-     "skills": {
-      "speed": {
-       "status": "pass",
-       "value": 3.8349,
-       "n": 3,
-       "src": "checkpoint"
-      },
-      "upright": {
-       "status": "pass",
-       "value": 1.0,
-       "n": 9.0,
-       "src": "checkpoint"
-      }
-     }
-    },
     "lane": {
      "status": "verified",
      "skills": {
@@ -173,29 +141,24 @@
        "src": "checkpoint"
       }
      }
+    },
+    "run": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "speed": {
+       "status": "pass",
+       "value": 3.8349,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
     }
    }
   },
   "Kimi 3.1 Pro": {
    "cp": "final:3",
    "caps": {
-    "run": {
-     "status": "not_verified",
-     "skills": {
-      "speed": {
-       "status": "fail",
-       "value": 0.6624,
-       "n": 3,
-       "src": "checkpoint"
-      },
-      "upright": {
-       "status": "not_examined",
-       "value": null,
-       "n": 2.0,
-       "src": "checkpoint"
-      }
-     }
-    },
     "lane": {
      "status": "insufficient",
      "skills": {
@@ -206,29 +169,24 @@
        "src": "checkpoint"
       }
      }
+    },
+    "run": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "speed": {
+       "status": "fail",
+       "value": 0.6624,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
     }
    }
   },
   "DeepSeek V4.1 Flash": {
    "cp": "final:3",
    "caps": {
-    "run": {
-     "status": "not_verified",
-     "skills": {
-      "speed": {
-       "status": "fail",
-       "value": 0.3668,
-       "n": 3,
-       "src": "checkpoint"
-      },
-      "upright": {
-       "status": "unavailable",
-       "value": null,
-       "n": 0.0,
-       "src": "checkpoint"
-      }
-     }
-    },
     "lane": {
      "status": "not_evaluated",
      "skills": {
@@ -236,6 +194,18 @@
        "status": "unavailable",
        "value": null,
        "n": 0.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "run": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "speed": {
+       "status": "fail",
+       "value": 0.3668,
+       "n": 3,
        "src": "checkpoint"
       }
      }
@@ -245,23 +215,6 @@
   "GLM 5.3 Flash": {
    "cp": "final:3",
    "caps": {
-    "run": {
-     "status": "not_verified",
-     "skills": {
-      "speed": {
-       "status": "fail",
-       "value": 0.6046,
-       "n": 3,
-       "src": "checkpoint"
-      },
-      "upright": {
-       "status": "unavailable",
-       "value": null,
-       "n": 0.0,
-       "src": "checkpoint"
-      }
-     }
-    },
     "lane": {
      "status": "not_evaluated",
      "skills": {
@@ -269,6 +222,18 @@
        "status": "unavailable",
        "value": null,
        "n": 0.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "run": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "speed": {
+       "status": "fail",
+       "value": 0.6046,
+       "n": 3,
        "src": "checkpoint"
       }
      }
@@ -282,14 +247,14 @@
     "cp": "kickoff:1",
     "x": 0.5,
     "caps": {
-     "run": "verified"
+     "run": "not_verified"
     }
    },
    {
     "cp": "final:1",
     "x": 1.0,
     "caps": {
-     "run": "verified"
+     "run": "not_verified"
     }
    },
    {
@@ -319,7 +284,7 @@
     "cp": "final:1",
     "x": 1.0,
     "caps": {
-     "run": "not_verified"
+     "run": "verified"
     }
    },
    {
@@ -457,6 +422,56 @@
     }
    }
   ]
+ },
+ "claims": {
+  "Claude Opus 5.5": {
+   "run": {
+    "text": "Claude Opus 5.5 reached Running gait at version 2: 4.6 vs line reference 3.15; kept at version 3",
+    "acquired": "final:2",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "GPT-6 Astra": {
+   "run": {
+    "text": "GPT-6 Astra reached Running gait at version 0 (start): 5.19 vs line reference 3.15; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "Gemini 4 Argon": {
+   "run": {
+    "text": "Gemini 4 Argon reached Running gait at version 0 (start): 3.85 vs line reference 3.15; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "run": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "run": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "GLM 5.3 Flash": {
+   "run": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  }
  },
  "evidence": {
   "upright": {
@@ -696,6 +711,7 @@
    }
   }
  },
+ "rule": "D3 (Chi 11-10): one headline per primary; pooled over 2 opponents x 2 seeds; acquired = 2 consecutive passing versions, lost = 2 consecutive failing; too few events = insufficient evidence",
  "rules": [
   "fair",
   "rhythm"
