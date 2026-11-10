@@ -357,3 +357,13 @@ img.mark--ink{display:none}
 @media (max-width:640px){.wr-sw{margin-left:0;display:flex;width:max-content}.wr-bar{width:56px}}
 .wr th:last-child{text-align:right;width:auto}.wr td.wr-pc{width:46%}
 .wr-bar{width:clamp(80px,22vw,320px)}
+
+/* exhibition sports (data/exhibition.json): tag, sport-page notice, board notes */
+.tag--exh{border-color:var(--gold);color:var(--fg)}
+.exh-note{padding-top:clamp(20px,3vw,40px);padding-bottom:0}
+.exh-box{border:1px solid var(--hair);border-left:4px solid var(--gold);background:var(--bg-2);border-radius:10px;padding:18px 22px;max-width:920px}
+.exh-h{font-size:clamp(18px,2.2vw,24px);margin:10px 0 8px;line-height:1.25}
+.exh-pts{margin:0;padding-left:1.1em;line-height:1.55}.exh-pts li{margin:6px 0}
+.hb-notes{margin-top:18px}.hb-notes h4{margin:0 0 6px;font-size:14px}
+.hb-notes ul{margin:0;padding-left:1.1em;font-size:13px;line-height:1.5;opacity:.9}.hb-notes li{margin:3px 0}
+@media (max-width:600px){.exh-box{padding:14px 16px}}

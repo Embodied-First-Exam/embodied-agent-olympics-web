@@ -3,7 +3,7 @@ the provisional line, shared ranks, per-sport podium cells and the dagger notes.
 falls back to the placeholder look (dashes, "fills in at release")."""
 from __future__ import annotations
 
-from layout import E, Site, model_name
+from layout import ROOT, E, Site, model_name
 
 
 def status_line(site: Site, default: str) -> str:
@@ -23,6 +23,8 @@ def _row(site: Site, sid: str) -> dict:
 
 
 def dagger(site: Site, sid: str) -> str:
+    if sid in exhibition_ids(site):
+        return f' <span class="tag tag--exh">{E(exhibition_label(site))}</span>'
     return '<sup class="mt-dag" title="May still change">†</sup>' if _row(site, sid).get("flag") else ""
 
 
@@ -71,6 +73,8 @@ def arena_panel(site: Site, fallback_boards: str) -> str:
             f'<td>{r["played"]}</td><td class="oa-x">{"" if r.get("rating") is None else E(format(r["rating"], ".0f"))}</td></tr>'
             for r in b["rows"])
         tag = "" if b.get("complete") else ' <span class="oa-inc">Incomplete</span>'
+        if s["id"] in exhibition_ids(site):
+            tag += f' <span class="tag tag--exh">{E(exhibition_label(site))}</span>'
         cards.append(
             f'<div class="oa oa--t{"" if b.get("complete") else " is-inc"}">{icon(s["id"])}<strong>{E(s["name"])}</strong>'
             f'<p class="oa-st">{E(b.get("status", ""))}{tag}</p>'
@@ -182,7 +186,8 @@ def h2h_records(site: Site) -> dict:
     idx = {n: i for i, n in enumerate(names)}
     w = site.results.get("win_rate") or {}
     left_out = {f["fixture"] for f in w.get("forfeits") or []}
-    h2h = [x for f in site.cfg["formats"] if f["id"] in ("duel", "team") for x in f["sports"] if x in site.sport_by_id]
+    h2h = [x for f in site.cfg["formats"] if f["id"] in ("duel", "team") for x in f["sports"]
+           if x in site.sport_by_id and x not in exhibition_ids(site)]
     sports, out = [], []
     for sid in h2h:
         f = root / f"{sid}.json"
@@ -257,6 +262,8 @@ def episodic_medals(site: Site) -> dict:
     solo = solo_round1(site)
     for s in site.sports:
         b = oa.get(s["id"])
+        if s["id"] in exhibition_ids(site):  # exhibition: board shown, no medals (data/exhibition.json)
+            continue
         if s["id"] in solo:
             rows = [{"model": r["model"], "rank": r["rank"]} for r in solo[s["id"]]]
         elif isinstance(b, dict) and b.get("rows"):
@@ -285,7 +292,8 @@ def episodic_medals(site: Site) -> dict:
     for i, n in enumerate(order):
         rank = table[-1]["rank"] if table and key(order[i - 1]) == key(n) else i + 1
         table.append({"model": n, **tally[n], "rank": rank})
-    no_board = [s["id"] for s in site.sports if s["id"] not in counted and s["id"] not in pending]
+    no_board = [s["id"] for s in site.sports if s["id"] not in counted and s["id"] not in pending
+                and s["id"] not in exhibition_ids(site)]
     return {"table": table, "counted": counted, "pending": pending, "no_board": no_board, "podiums": podiums, "close": close,
             "solo": solo}
 
@@ -321,7 +329,8 @@ def board_counts(site: Site) -> dict:
     from pathlib import Path  # noqa: PLC0415
     root = Path(__file__).resolve().parent.parent / "data" / "sport_pages"
     left = {(f["scope"], f["fixture"]) for f in (site.results.get("win_rate") or {}).get("forfeits") or []}
-    h2h = {x for f in site.cfg["formats"] if f["id"] in ("duel", "team") for x in f["sports"]}
+    exh = exhibition_ids(site)
+    h2h = {x for f in site.cfg["formats"] if f["id"] in ("duel", "team") for x in f["sports"] if x not in exh}
 
     def fixtures(o, out):
         if isinstance(o, dict):
@@ -333,11 +342,11 @@ def board_counts(site: Site) -> dict:
         elif isinstance(o, list):
             for v in o:
                 fixtures(v, out)
-    c = {"ep_sports": 0, "ep_played": 0, "co_sports": 0, "co_played": 0, "co_h2h": 0}
+    c = {"ep_sports": 0, "ep_played": 0, "ep_h2h": 0, "co_sports": 0, "co_played": 0, "co_h2h": 0}
     solo1 = solo_round1(site)
     for s in site.sports:
         f = root / f"{s['id']}.json"
-        if not f.is_file():
+        if not f.is_file() or s["id"] in exh:
             continue
         d = json.loads(f.read_text(encoding="utf-8"))
         oa, ch = {}, {}
@@ -348,6 +357,8 @@ def board_counts(site: Site) -> dict:
         if oa:
             c["ep_sports"] += 1
             c["ep_played"] += played(oa, "arena")
+            if s["id"] in h2h:
+                c["ep_h2h"] += played(oa, "arena")
         elif s["id"] in solo1:  # solo: the first series match, fresh workspace
             c["ep_sports"] += 1
             c["ep_played"] += sum(1 for r in solo1[s["id"]] if not r["no_show"])
@@ -371,6 +382,111 @@ def count_line(site: Site, key: str) -> str:
 def h2h_line(site: Site, scope: str) -> str:
     """The one footnote under Win rate and Head-to-head: what the totals are based on."""
     c = board_counts(site)
-    n = c["ep_played"] if scope == "arena" else c["co_h2h"]
+    n = c["ep_h2h"] if scope == "arena" else c["co_h2h"]
     return (f'{c["h2h_sports"]} duel and team-duel sports · {n} matches played. Solo sports, drone and racing have no '
             f'head-to-head matches.')
+
+
+# ---------------------------------------------------------------- exhibition sports (data/exhibition.json)
+# An exhibition sport keeps its page, results and replays but counts in no medal table, win rate or head-to-head, on
+# both boards and for every entrant (models added later included). apply_exhibition() runs once per build, after
+# results.json is loaded, and recomputes the medal table and win rate from the official data minus those sports, so a
+# re-run of medals_sync.py / sportpage_sync.py needs no change.
+
+
+def exhibition(site: Site) -> dict:
+    if "_exhibition" not in site.cfg:
+        import json  # noqa: PLC0415
+        f = ROOT / "data" / "exhibition.json"
+        site.cfg["_exhibition"] = json.loads(f.read_text(encoding="utf-8")) if f.is_file() else {}
+    return site.cfg["_exhibition"]
+
+
+def exhibition_ids(site: Site) -> set:
+    return {x for x in (exhibition(site).get("sports") or {}) if x in site.sport_by_id}
+
+
+def exhibition_label(site: Site) -> str:
+    return (exhibition(site).get("label") or {}).get("en") or "Exhibition (not in the medal table)"
+
+
+def _rank_table(rows: list) -> list:
+    """Gold, then silver, then bronze; equal records share a rank (1, 1, 3) — the rule of medals_sync.rank_table."""
+    key = lambda r: (r["gold"], r["silver"], r["bronze"])  # noqa: E731
+    rows = sorted(rows, key=lambda r: tuple(-x for x in key(r)))
+    for i, r in enumerate(rows):
+        r["rank"] = rows[i - 1]["rank"] if i and key(rows[i - 1]) == key(r) else i + 1
+    return rows
+
+
+def apply_exhibition(site: Site) -> None:
+    """Take the exhibition sports out of results.json's medal table and win rate (in memory, every build)."""
+    res = site.results
+    exh = exhibition_ids(site)
+    if not exh or not res or res.get("_exhibition_applied"):
+        return
+    res["_exhibition_applied"] = sorted(exh)
+    by = res.get("by_sport") or []
+    if by and any(r.get("gold") for r in by):
+        names = [m["name"] for m in site.models]
+        tally = {n: {"gold": 0, "silver": 0, "bronze": 0} for n in names}
+        for r in by:
+            if r.get("status") != "final" or r["sport"] in exh:
+                continue
+            for k in ("gold", "silver", "bronze"):
+                if r.get(k) in tally:
+                    tally[r[k]][k] += 1
+        res["medal_table"] = _rank_table([{"model": n, **c} for n, c in tally.items()])
+    w = res.get("win_rate")
+    if w:
+        d = h2h_records(site)  # official results of the duel / team-duel sports, exhibitions already left out
+        ms = d["models"]
+        scopes = {}
+        for key, mode in (("both", None), ("championship", 1), ("arena", 0)):
+            acc = {n: {"played": 0, "won": 0, "drawn": 0, "lost": 0} for n in ms}
+            for _, md, a, b, win, _ in d["matches"]:
+                if mode is not None and md != mode:
+                    continue
+                for e in (a, b):
+                    c = acc[ms[e]]
+                    c["played"] += 1
+                    c["won" if win == e else ("drawn" if win == -1 else "lost")] += 1
+            rows = [{"model": n, **c, "pct": round(100 * c["won"] / c["played"], 1) if c["played"] else None} for n, c in acc.items()]
+            rows.sort(key=lambda r: (-(r["pct"] or 0), -r["won"]))
+            scopes[key] = rows
+        lv = {"both": 0, "championship": 0, "arena": 0}
+        for _, md, _, _, _, level in d["matches"]:
+            lv["both"] += level
+            lv["arena" if md == 0 else "championship"] += level
+        w["scopes"], w["level_decided"] = scopes, lv
+        w["forfeits"] = [f for f in w.get("forfeits") or [] if f.get("sport") not in exh]
+        w["sports"] = [x for x in w.get("sports") or [] if x not in exh]
+        w["not_counted"] = list(w.get("not_counted") or []) + sorted(exh)
+
+
+def notes_fold(site: Site, key: str) -> str:
+    """Short notes on counted results and the exhibitions, inside a board's 'How this board is made' fold."""
+    ex = exhibition(site)
+    names = {s["id"]: s["name"] for s in site.sports}
+    exh = sorted(exhibition_ids(site), key=lambda x: [s["id"] for s in site.sports].index(x))
+    items = []
+    if exh:
+        items.append(f'<li><b>{E(" and ".join(names[x] for x in exh))}</b>: exhibitions in this edition. Their results and replays '
+                     'stay on their pages; they count in no medal table, win rate or head-to-head.</li>')
+    items += [f'<li><b>{E(names.get(sid, sid))}</b>: {E(en)}</li>' for sid, en, *_ in (ex.get("notes") or {}).get(key) or []
+              if sid in names and sid not in exh]
+    if not items:
+        return ""
+    return f'<div class="hb-notes"><h4>Notes on the results</h4><ul>{"".join(items)}</ul></div>'
+
+
+def exhibition_notice(site: Site, sid: str) -> str:
+    """The notice block on an exhibition sport's page."""
+    x = (exhibition(site).get("sports") or {}).get(sid)
+    if not x or sid not in site.sport_by_id:
+        return ""
+    en = x.get("en") or {}
+    pts = "".join(f"<li>{E(p)}</li>" for p in en.get("points") or [])
+    return (f'<section class="band exh-note" id="exhibition"><div class="wrap"><div class="exh-box">'
+            f'<span class="tag tag--exh">{E(exhibition_label(site))}</span><h2 class="exh-h">{E(en.get("title", ""))}</h2>'
+            f'<ul class="exh-pts">{pts}</ul></div></div></section>')

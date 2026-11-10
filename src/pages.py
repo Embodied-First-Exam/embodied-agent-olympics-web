@@ -83,7 +83,12 @@ def sport_page(site: Site, i: int):
     import sport  # noqa: PLC0415  the new four-block page, for every sport with data/sport_pages/<id>.json
     d = sport.load(site.sports[i]["id"])
     if d:
-        return sport.render(site, i, d)
+        path, html = sport.render(site, i, d)
+        note = medals.exhibition_notice(site, site.sports[i]["id"])  # exhibition sports: one notice above the records
+        if note:
+            m = re.search(r'<section[^>]*\bid="records"', html) or re.search(r'<nav class="sp-sub"', html)
+            html = html[:m.start()] + note + html[m.start():] if m else html
+        return path, html
     s = site.sports[i]
     prev_s, next_s = site.sports[i - 1], site.sports[(i + 1) % len(site.sports)]
     tick = story.tick_ms(s)

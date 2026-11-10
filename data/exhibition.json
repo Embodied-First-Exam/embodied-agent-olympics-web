@@ -1,0 +1,150 @@
+{
+  "_note": "Exhibition sports (Chi, 11-10): their pages, results and replays stay; they are left out of both medal tables (Episodic and Continual), win rate and head-to-head, for every entrant (any model added later included). Read by src/medals.py apply_exhibition at build time, so a re-run of medals_sync / sportpage_sync needs no change. notes = short per-board notes for results that stay counted (integrity audit /review/integrity_1110/). zh = Chinese copy for the bilingual review; the site renders en.",
+  "label": {
+    "en": "Exhibition (not in the medal table)",
+    "zh": "表演项目（不计入奖牌榜）"
+  },
+  "sports": {
+    "beachvolleyball": {
+      "en": {
+        "title": "Exhibition in this edition: serving decided the points.",
+        "points": [
+          "In 690 points of the 31 official matches the ball never came back over the net: every point ended on the serve (a fault, an ace, or a receiver touch that did not go back). When both teams served well the order of serve fixed the score at 16:14; 8 of the 31 matches, the final BVB2-F18 among them, were decided that way.",
+          "Receiving is physically possible: our practice player received 93% of the 435 legal serves the models hit in the official matches and sent 47% back over.",
+          "Under seat conditions (head cameras only, 2 hours of preparation, no walking policy) no agent built a working receiver, and our own camera-only reference program has not done so yet either. Whether 2 hours is enough is still open.",
+          "Results and replays stay on this page. They are not counted in the medal tables, win rates or head-to-head."
+        ]
+      },
+      "zh": {
+        "title": "本届为表演项目：得失分由发球决定。",
+        "points": [
+          "31 场正式比赛的 690 分里，球一次也没有被回过网：每一分都在发球后结束（发球失误、直接得分，或接发方碰到球但没过网）。双方都发得好时，比分由先发顺序定为 16:14；31 场里有 8 场这样决定，其中包括决赛 BVB2-F18。",
+          "接发球在物理上可行：我们的练习选手对模型在正式比赛里打出的 435 个合法发球接起 93%，并把 47% 送回对方场区。",
+          "在座位条件下（只有头部相机、2 小时准备、没有行走策略），没有智能体做出可用的接发程序，我们自己只用相机的参考程序目前也还没有做到。2 小时是否足够，仍是开放问题。",
+          "本页保留结果和回放，不计入奖牌榜、胜率和对位战绩。"
+        ]
+      }
+    },
+    "tennis": {
+      "en": {
+        "title": "Exhibition in this edition: serving decided the points.",
+        "points": [
+          "Of 258 legal serves in the official matches, 14 (5.4%) came back over the net and no rally went past the return; the server won 80% of points. Five matches reached 10:10 and went to a coin toss, semi-final TEN2-F17 among them.",
+          "Receiving is physically possible: our practice player returned 83% of real model serves replayed from the official matches (204 of 245).",
+          "Under seat conditions (cameras only, no ball coordinates, 2 hours of preparation, no walking policy) no agent built a working receiver. Our own camera-only reference program, built outside the 2-hour window, returns 39%. Whether 2 hours is enough is still open.",
+          "Results and replays stay on this page. They are not counted in the medal tables, win rates or head-to-head."
+        ]
+      },
+      "zh": {
+        "title": "本届为表演项目：得失分由发球决定。",
+        "points": [
+          "正式比赛 258 个合法发球里，只有 14 个（5.4%）被回过网，没有回合超过接发这一拍；发球方赢 80% 的分。5 场打到 10:10 由掷硬币决定，其中包括半决赛 TEN2-F17。",
+          "接发球在物理上可行：我们的练习选手对正式比赛里重建的真实模型发球回球 83%（245 个中 204 个）。",
+          "在座位条件下（只有相机、没有球坐标、2 小时准备、没有行走策略），没有智能体做出可用的接发程序。我们自己只用相机的参考程序在 2 小时窗口之外搭建，回球率 39%。2 小时是否足够，仍是开放问题。",
+          "本页保留结果和回放，不计入奖牌榜、胜率和对位战绩。"
+        ]
+      }
+    }
+  },
+  "notes": {
+    "episodic": [
+      [
+        "basketball",
+        "Bronze rests on a 0:0 coin toss (BSKA-F15).",
+        "铜牌取决于一场 0:0 掷硬币（BSKA-F15）。"
+      ],
+      [
+        "billiards",
+        "Places use the corrected score difference (fewer balls left is better).",
+        "名次按修正后的净胜球计算（剩余球越少越好）。"
+      ],
+      [
+        "hurdles",
+        "Hurdles are 0.08 m and knocking is free. Gemini's first match (a no-show) was re-run once by exception; counted as 0, silver and bronze would change.",
+        "栏高 0.08 m，撞栏不罚。Gemini 第 1 场（未到场）获准例外重赛一次；按 0 计，银、铜会变。"
+      ],
+      [
+        "javelin",
+        "Gemini's first match was a no-show and counts 0 (no re-run).",
+        "Gemini 第 1 场未到场，记 0（未重赛）。"
+      ],
+      [
+        "stuntcar",
+        "Gemini's first match (a no-show) was re-run once by exception; counted as 0, the bronze would change.",
+        "Gemini 第 1 场（未到场）获准例外重赛一次；按 0 计，铜牌会变。"
+      ],
+      [
+        "badminton",
+        "Mostly decided on the serve: the server won 82% of points.",
+        "以发球为主：发球方赢 82% 的分。"
+      ],
+      [
+        "tabletennis",
+        "Seat A served first in every match; mostly decided on the serve.",
+        "每场都是 A 座先发；以发球为主。"
+      ],
+      [
+        "baseball",
+        "48 of 345 runs came from batted balls; a side that never pitched won 20:20 ties on fewer walks (fixed next edition).",
+        "345 分里 48 分来自击出的球；不投球的一方在 20:20 时按保送少判胜（下一届修正）。"
+      ]
+    ],
+    "continuous": [
+      [
+        "basketball",
+        "Bronze match BSK2-F19 ended 0:0 and went to a coin toss.",
+        "铜牌赛 BSK2-F19 0:0，掷硬币决定。"
+      ],
+      [
+        "baseball",
+        "Bronze match BSB2-F19 ended 0:0 and was decided by lot.",
+        "铜牌赛 BSB2-F19 0:0，抽签决定。"
+      ],
+      [
+        "tabletennis",
+        "Bronze match TTN2-F19: all 29 points went to the server; seat A served first and won 15:14.",
+        "铜牌赛 TTN2-F19：29 分全归发球方，A 座先发 15:14 胜。"
+      ],
+      [
+        "badminton",
+        "Bronze match BAD3-F19: one break each; the first server won.",
+        "铜牌赛 BAD3-F19：双方各破发一次，先发方获胜。"
+      ],
+      [
+        "curling",
+        "GLM's 4 no-shows were a platform fault, counted as wins for its opponents; they shaped the semi-final pairs.",
+        "GLM 4 场未到场是平台故障，按规则记为对手胜，影响了半决赛对阵。"
+      ],
+      [
+        "billiards",
+        "Semi-final BIL2-F16 and bronze match BIL2-F19 ended in DeepSeek resignations.",
+        "半决赛 BIL2-F16 和铜牌赛 BIL2-F19 都以 DeepSeek 认输结束。"
+      ],
+      [
+        "hurdles",
+        "Hurdles are 0.08 m and knocking is free. Gemini's first match (a no-show) was re-run once by exception; counted as 0, silver and bronze would swap.",
+        "栏高 0.08 m，撞栏不罚。Gemini 第 1 场（未到场）获准例外重赛一次；按 0 计，银铜互换。"
+      ],
+      [
+        "javelin",
+        "Gemini's first match was a no-show and counts 0 (no re-run); it threw the longest mark, 22.35 m.",
+        "Gemini 第 1 场未到场记 0（未重赛）；它投出全场最远 22.35 m。"
+      ],
+      [
+        "stuntcar",
+        "Gemini's round 2 was a no-show and counts 0; its round-1 no-show was re-run once by exception.",
+        "Gemini 第 2 轮未到场记 0；第 1 轮未到场获准例外重赛一次。"
+      ],
+      [
+        "drone",
+        "Both lapping contacts in the final were ruled incidental and ranked by gates passed.",
+        "决赛两次套圈碰撞都判为意外，按过门数排名。"
+      ],
+      [
+        "racing",
+        "Race 3 was re-run for a platform reason; GLM was its only finisher.",
+        "第 3 场因平台原因重赛，GLM 是唯一完赛者。"
+      ]
+    ]
+  }
+}
