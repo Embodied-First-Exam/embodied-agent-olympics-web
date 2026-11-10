@@ -22,6 +22,7 @@ import medals
 import sport as sp
 from layout import ROOT, E, Site, icon, model_logo, model_name, page, slug
 
+SHOW_03_04 = False   # Chi 11-10: 03 What we measure and 04 Agent development wait for Chi's revision (as PR #27 for src/sport.py)
 STATUS = {"verified": ("Verified", "v"), "not_verified": ("Not verified", "n"), "insufficient": ("Insufficient evidence", "i"),
           "not_evaluated": ("Not evaluated", "x"), "no_program": ("Program did not act", "n")}
 MARK = {"pass": ("●", "Passed"), "fail": ("○", "Not passed"), "na": ("–", "Not evaluated")}
@@ -45,7 +46,8 @@ def head(n: str, title: str, lede: str = "", kicker: str = "") -> str:
 
 
 def subnav() -> str:
-    items = [("overview", "Overview"), ("competition", "Competition"), ("capabilities", "Capabilities"), ("development", "Development")]
+    items = [("overview", "Overview"), ("competition", "Competition")] + (
+        [("capabilities", "Capabilities"), ("development", "Development")] if SHOW_03_04 else [])
     return ('<nav class="sp-sub" aria-label="On this page" data-spnav><div class="wrap">'
             + "".join(f'<a href="#{k}" data-spnav-a="{k}">{v}</a>' for k, v in items) + "</div></nav>")
 
@@ -87,47 +89,85 @@ def moments(site: Site, d: dict, idx: list[int], title: str) -> str:
     return f'<div class="s2-moments"><h4 class="s2-h4">{E(title)}</h4><ol class="ach">{li}</ol></div>'
 
 
+# canonical fixed opponents (Chi 11-10: show every one that has readings, say which a sport lacks)
+OPP_ORDER = [("L1", "L1 · weak"), ("L2", "L2 · middle"), ("L3", "L3 · strong"), ("PP", "Practice player · strongest")]
+OPP_ALIAS = {"TRUTH": "L3", "TWIN": "PP", "Sumatra": "PP"}
+
+
 def evolution(site: Site, d: dict) -> str:
+    """Score per saved version against each fixed opponent: one small chart per opponent, one line per model."""
     ck = (d.get("agents") or {}).get("checkpoint") or {}
-    lines = {k: v for k, v in (ck.get("lines") or {}).items() if v}
-    if not lines:
-        return '<p class="cr-rule">Checkpoint Evaluation at release.</p>'
-    vmax = max([p["mean"] for pts in lines.values() for p in pts] + [ck.get("ref") or 0])
-    duel = ck.get("kind") == "duel"
-    ymax = 0.5 if duel and vmax <= 0.5 else (1.0 if vmax <= 1.0 else round(vmax + 0.25, 1))
-    xmax = int(max(p["x"] for pts in lines.values() for p in pts))
     fmt = lambda v: f"{v:.2f}".rstrip("0").rstrip(".") if v else "0"  # noqa: E731
-    chart = sp._chart(site, lines, "mean", ymax, ck.get("ref"), ck.get("measure", ""), fmt, xmax=xmax)
-    arrow = {"improve": ("↑", "Stronger"), "regress": ("↓", "Weaker"), "flat": ("→", "No clear change")}
+    panels = []                     # (code, title, lines, note)
+    for t in ck.get("tiers") or []:
+        lines = {k: v for k, v in (t.get("lines") or {}).items() if v}
+        code = OPP_ALIAS.get(t["id"], t["id"])
+        name = dict(OPP_ORDER).get(code, t.get("short") or t["id"])
+        if t["id"] != code:                                   # the sport's own name for that opponent (e.g. TRUTH)
+            name = f'{name} ({t["id"]})'
+        prog = f'{t.get("ok", 0)} of {t.get("planned", 0)} replays' if t.get("ok", 0) < t.get("planned", 0) else f'{t.get("ok", 0)} replays'
+        panels.append((code, name, lines, prog, t.get("label") or ""))
+    solo = not panels
+    if solo:
+        lines = {k: v for k, v in (ck.get("lines") or {}).items() if v}
+        if not lines:
+            return '<p class="cr-rule">Checkpoint Evaluation at release.</p>'
+        panels.append(("REF", ck.get("measure") or "Against the reference program", lines, f'{(ck.get("count") or {}).get("ok", 0)} replays', ""))
+    panels.sort(key=lambda p: [c for c, _ in OPP_ORDER].index(p[0]) if p[0] in dict(OPP_ORDER) else 9)
+    allpts = [p for _, _, ls, _, _ in panels for pts in ls.values() for p in pts]
+    xmax = int(max([p["x"] for p in allpts] or [1]))
+    vmax = max([p["mean"] for p in allpts] + [ck.get("ref") or 0, 0.01])
+    duel = ck.get("kind") in ("duel", "team") or not solo
+    ymax = 0.5 if duel and vmax <= 0.5 else (1.0 if vmax <= 1.0 else round(vmax + 0.25, 1))
+    figs = []
+    for code, name, ls, prog, label in panels:
+        ch = sp._chart(site, ls, "mean", ymax, ck.get("ref") if solo else None, name, fmt, xmax=xmax) if ls else \
+            '<p class="cr-rule tv-empty">No replays against this opponent.</p>'
+        figs.append(f'<figure class="cfig s2-op"><figcaption><strong>{E(name)}</strong><span>{E(prog)}</span></figcaption>{ch}</figure>')
+    have = {c for c, *_ in panels}
+    lack = [n for c, n in OPP_ORDER if c not in have]
+    seen = {m for _, _, ls, _, _ in panels for m in ls}
     legend = "".join(f'<button type="button" class="lg" data-lg="{E(m["name"])}" style="--c:{E(m["colour"])}" aria-pressed="true"><i></i>{E(model_name(m))}</button>'
-                     for m in site.models if m["name"] in lines)
+                     for m in site.models if m["name"] in seen)
+    if solo:
+        lack_txt = "Solo event: no opponent. Each saved version runs the course alone; the score is relative to the reference program (1.0 = reference)."
+    else:
+        lack_txt = ("Every fixed opponent has replays." if not lack else
+                    f'No replays against {", ".join(lack)} in this sport.') + " Score share: 0.5 = even with that opponent."
+    # first and latest version against each opponent
+    codes = [(c, n) for c, n, *_ in panels]
+    head_ = "".join(f"<th>{E(n.split(' · ')[0].split(' (')[0])}</th>" for _, n in codes)
     rows = []
     for m in site.models:
-        pts = sorted(lines.get(m["name"]) or [], key=lambda p: p["x"])
-        if not pts:
-            continue
-        a, b = pts[0], pts[-1]
-        dv = b["mean"] - a["mean"]
-        vd = ck.get("verdict", {}).get(m["name"]) or ""
-        sym, word = next((v for k, v in arrow.items() if vd.startswith(k)), ("~", "Unclear"))
-        why = vd[vd.find("(") + 1:vd.find(")")] if "(" in vd else ""
-        rows.append(f'<tr><td>{sp.who(site, m["name"])}</td><td class="st-n">{fmt(a["mean"])}</td>'
-                    f'<td class="st-n">{fmt(b["mean"])}<small>{E(cp_word(b["cp"]))}</small></td>'
-                    f'<td class="st-n s2-dv{" is-up" if dv > 0.02 else (" is-dn" if dv < -0.02 else "")}">{"+" if dv > 0 else ""}{dv:.2f}</td>'
-                    f'<td class="s2-vd"><b>{sym}</b> {E(word)}{f"<small>{E(why)}</small>" if why else ""}</td></tr>')
+        cells, any_ = [], False
+        for c, n, ls, *_ in panels:
+            pts = sorted(ls.get(m["name"]) or [], key=lambda p: p["x"])
+            if pts:
+                any_ = True
+                a, b = pts[0], pts[-1]
+                dv = b["mean"] - a["mean"]
+                cells.append(f'<td class="st-n">{fmt(a["mean"])} → <b class="{"is-up" if dv > 0.02 else ("is-dn" if dv < -0.02 else "")}">{fmt(b["mean"])}</b>'
+                             f'<small>{E(cp_word(b["cp"]))}</small></td>')
+            else:
+                cells.append('<td class="st-n">–</td>')
+        if any_:
+            rows.append(f'<tr><td>{sp.who(site, m["name"])}</td>{"".join(cells)}</tr>')
+    vd = ck.get("verdict") or {}
+    arrow = {"improve": "↑ stronger", "regress": "↓ weaker", "flat": "→ no clear change"}
+    verdicts = " · ".join(f'{SHORT_N(m)} {next((w for k, w in arrow.items() if (vd.get(m) or "").startswith(k)), "~ unclear")}' for m in [x["name"] for x in site.models] if m in vd)
     cnt = ck.get("count") or {}
-    opp = ", ".join(f'{o["id"]} ({o["tier"]})' for o in ck.get("opponents") or [])
-    foot = (f"Every saved version replayed with no model calls{' against the fixed opponents ' + opp if opp else ''}; "
-            f"{cnt.get('ok', 0)} of {cnt.get('planned', 0)} replays. ")
     return f"""
-<div class="s2-evo">
-  <figure class="cfig s2-evo-c"><figcaption><strong>Score per saved version</strong><span>{E(ck.get("measure", ""))}</span></figcaption>
-    <div class="lg-row" data-lgs>{legend}</div><div data-charts>{chart}</div></figure>
-  <div class="s2-evo-t"><h4 class="s2-h4">First and latest version</h4>
-    <table class="st s2-fl"><thead><tr><th>AI agent</th><th>Start</th><th>Latest</th><th>Change</th><th>Verdict</th></tr></thead><tbody>{"".join(rows)}</tbody></table>
-  </div>
+<div class="lg-row" data-lgs>{legend}</div>
+<div class="s2-ops" data-charts style="--np:{len(figs)}">{"".join(figs)}</div>
+<p class="cr-rule">{E(lack_txt)}</p>
+<div class="s2-evo-t"><h4 class="s2-h4">First → latest version{"" if solo else ", against each opponent"}</h4>
+  <div class="tw"><table class="st s2-fl"><thead><tr><th>AI agent</th>{head_}</tr></thead><tbody>{"".join(rows)}</tbody></table></div>
 </div>
-<p class="cr-rule">{E(foot)}The verdict needs every seed and opponent to agree. This curve answers whether the program got stronger; what it learned is in 03.</p>"""
+<p class="cr-rule">Every saved version replayed with no model calls; {cnt.get('ok', 0)} of {cnt.get('planned', 0)} replays. Verdict (all seeds and opponents must agree): {E(verdicts)}. This answers whether the program got stronger; what it can do is measured separately.</p>"""
+
+
+def SHORT_N(m: str) -> str:
+    return sp.SHORT.get(m, m)
 
 
 def competition(site: Site, d: dict, v: dict) -> str:
@@ -352,6 +392,8 @@ def render(site: Site, i: int, d: dict, v: dict):
         dev_words = ("practice", "rehears", "patch", "train", "replayed", "noticed", "changed", "review", "rewrote", "version", "studied", "tuned")
         dev = [k for k, x in enumerate(items) if any(w in x["text"].lower() for w in dev_words)]
         split = {"records": [k for k in range(len(items)) if k not in dev], "development": dev}
+    if not SHOW_03_04:   # 04 hidden: every finding stays with the records
+        split = {"records": sorted(split.get("records", []) + split.get("development", [])), "development": []}
     v = {**v, "_moments": split.get("records", []), "_dev": split.get("development", [])}
     base_html = sp.render(site, i, d)[1]
     # reuse the current page's player dialog + model JSON (everything after the prev/next nav)
@@ -359,7 +401,8 @@ def render(site: Site, i: int, d: dict, v: dict):
     tail = base_html[k:base_html.find('<script src="', k)] if k >= 0 else ""
     note_fn = getattr(medals, "exhibition_notice", None)   # PR #22: exhibition sports carry one notice above the records
     note = note_fn(site, s["id"]) if note_fn else ""
-    body = (sp.overview(site, s, d) + subnav() + (note or "") + competition(site, d, v) + tests(site, s, d, v) + development(site, d, v)
+    body = (sp.overview(site, s, d) + subnav() + (note or "") + competition(site, d, v)
+            + ((tests(site, s, d, v) + development(site, d, v)) if SHOW_03_04 else "")
             + f"""
 <nav class="wrap prevnext" aria-label="More sports">
   <a href="{site.sport_url(prev_s)}"><span>←</span>{icon(prev_s['id'])}<strong>{E(prev_s['name'])}</strong></a>

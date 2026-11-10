@@ -711,31 +711,8 @@ def _chart(site: Site, lines: dict, key: str, ymax: float, ref: float | None, yl
             f'<text x="{(L + W - R) / 2:.0f}" y="{H - 4}" class="ct ct-x" text-anchor="middle">Program saved after match n</text></svg>')
 
 
-def v2_capability(d: dict) -> dict | None:
-    """SPORTPAGE2 (Chi 11-10, D3): where data/sport_pages_v2/<id>.json exists, the capability curve counts verified primary
-    capabilities per saved version (headline reading pooled over 2 opponents x 2 seeds reaches the line), so this chart
-    agrees with the sport page's 03 C."""
-    import sport2  # noqa: PLC0415
-    v = sport2.load(d.get("sport") or "")
-    if not v:
-        return None
-    prim = [c["id"] for c in v["capabilities"] if c["role"] == "primary"]
-    lines = {}
-    for m, gl in (v.get("growth") or {}).items():
-        pts = [{"cp": g["cp"], "x": g["x"], "n_pass": sum(1 for p in prim if g["caps"].get(p) == "verified")}
-               for g in gl if any(g["caps"].get(p) in ("verified", "not_verified") for p in prim)]
-        if pts:
-            lines[m] = pts
-    return {"n": len(prim), "names": [c["name"] for c in v["capabilities"] if c["role"] == "primary"], "ref": None, "lines": lines,
-            "label": "Verified primary capabilities"}
-
-
 def growth(site: Site, d: dict) -> str:
     ck = (d.get("agents") or {}).get("checkpoint")
-    v2c = v2_capability(d) if ck else None
-    if v2c:
-        ck = {**ck, "capability": v2c}
-    CAPLAB = v2c["label"] if v2c else "Card capabilities passed"
     if not ck:
         return '<div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3><p class="cr-rule">Curves at release.</p></div>'
     lines = {k: v for k, v in (ck.get("lines") or {}).items() if v}
@@ -744,7 +721,7 @@ def growth(site: Site, d: dict) -> str:
         cap = ck["capability"]
         n = cap.get("n") or max(p["n_pass"] for pts in cap0.values() for p in pts)
         xmax = int(max(p["x"] for pts in cap0.values() for p in pts))
-        capc = _chart(site, cap0, "n_pass", n, cap.get("ref"), CAPLAB, lambda v: f"{int(round(v))}",
+        capc = _chart(site, cap0, "n_pass", n, cap.get("ref"), "Card capabilities passed", lambda v: f"{int(round(v))}",
                       step=True, xmax=xmax, yticks=list(range(0, int(n) + 1)))
         cnt = ck.get("count") or {}
         legend = "".join(f'<button type="button" class="lg" data-lg="{E(m["name"])}" style="--c:{E(m["colour"])}" aria-pressed="true"><i></i>{E(model_name(m))}</button>'
@@ -752,7 +729,7 @@ def growth(site: Site, d: dict) -> str:
         return (f'<div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3><div class="lg-row" data-lgs>{legend}</div>'
                 f'<div class="cgrid" data-charts><figure class="cfig"><figcaption><strong>Performance growth</strong><span>{E(ck["measure"])}</span></figcaption>'
                 f'<p class="cr-rule">At release: {cnt.get("ok", 0)} of {cnt.get("planned", 0)} replays done.</p></figure>'
-                f'<figure class="cfig"><figcaption><strong>Capability growth</strong><span>{CAPLAB}, of {n}</span></figcaption>{capc}</figure></div>'
+                f'<figure class="cfig"><figcaption><strong>Capability growth</strong><span>Card capabilities passed, of {n}</span></figcaption>{capc}</figure></div>'
                 '<p class="cr-rule">Frozen programs of every checkpoint replayed with no model calls.</p></div>')
     if not lines:
         cnt = ck.get("count") or {}
@@ -767,7 +744,7 @@ def growth(site: Site, d: dict) -> str:
     capc = ""
     if cap.get("lines"):
         n = cap.get("n") or max(p["n_pass"] for pts in cap["lines"].values() for p in pts)
-        capc = _chart(site, cap["lines"], "n_pass", n, cap.get("ref"), CAPLAB, lambda v: f"{int(round(v))}",
+        capc = _chart(site, cap["lines"], "n_pass", n, cap.get("ref"), "Card capabilities passed", lambda v: f"{int(round(v))}",
                       step=True, xmax=xmax, yticks=list(range(0, int(n) + 1)))
     arrow = {"improve": "↑ improved", "regress": "↓ weaker", "flat": "→ flat"}
     legend = "".join(
@@ -778,7 +755,7 @@ def growth(site: Site, d: dict) -> str:
     opp = ", ".join(f'{o["id"]} ({o["tier"]})' for o in ck.get("opponents") or [])
     foot = (f"Frozen programs of every checkpoint replayed with no model calls{' against the fixed practice opponents ' + opp if opp else ''}. "
             f"{cnt.get('ok', 0)} of {cnt.get('planned', 0)} replays done.")
-    cap_h = (f'<figure class="cfig"><figcaption><strong>Capability growth</strong><span>{CAPLAB}, of {cap.get("n")}</span></figcaption>{capc}</figure>'
+    cap_h = (f'<figure class="cfig"><figcaption><strong>Capability growth</strong><span>Card capabilities passed, of {cap.get("n")}</span></figcaption>{capc}</figure>'
              if capc else "")
     # opponent switch (Chi 11-09): "All (mean)" = the main curve; one view per tested opponent tier, weakest first
     tiers = ck.get("tiers") or []

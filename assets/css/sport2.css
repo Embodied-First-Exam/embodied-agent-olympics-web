@@ -121,3 +121,6 @@
 .s2-kick{display:block;font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:12px}
 .s2-cc{margin:0 0 18px;max-width:720px}
 .s2-gn br+*{margin-top:2px}
+.s2-ops{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,560px));gap:14px;margin:10px 0 4px}
+.s2-op{margin:0}.s2-op figcaption strong{font-size:14px}
+.s2-fl td.st-n b.is-up{color:var(--accent-ink)}.s2-fl td.st-n b.is-dn{color:var(--fg-3)}
