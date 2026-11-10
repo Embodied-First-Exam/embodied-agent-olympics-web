@@ -78,7 +78,7 @@ def build(base: str | None = None) -> int:
     medals.apply_exhibition(site)  # exhibition sports (data/exhibition.json) leave the medal tables and win rates
 
     out = [home.home(site), pages.sports_index(site), pages.match(site), pages.competitions(site),
-           pages.results(site), pages.documents(site), pages.watch(site), pages.not_found(site)]
+           pages.results(site), pages.watch(site), pages.not_found(site)]
     out += [pages.sport_page(site, i) for i in range(len(site.sports))]
 
     if DIST.exists():
