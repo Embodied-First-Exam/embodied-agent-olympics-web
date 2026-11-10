@@ -3,7 +3,7 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-  /* Championship / Open Arena tabs */
+  /* Continual Learning (Championship) / Episodic Learning (Open Arena) tabs */
   $$("[data-sptabs]").forEach((g) => {
     const box = g.parentElement;
     $$("[data-sptab]", g).forEach((b) => b.addEventListener("click", () => {
@@ -108,7 +108,7 @@
       html += `<div class="sbo-bar">${side(a, "sbo-a", mark(a.seat))}<span class="sbo-sc"><b>${s[a.seat] ?? 0}</b><i>:</i><b>${s[b.seat] ?? 0}</b></span>${side(b, "sbo-b", mark(b.seat))}</div>`;
     }
     const kind = two && tl.score_kind && !["points", "goals", "runs"].includes(tl.score_kind) ? tl.score_kind : "";
-    const sub = [tl.label, kind, pe ? pe.period : "", clock, inf ? fill(inf.info) : "", whoSeat && !two ? `${names()[whoSeat] || whoSeat} · ${whoWord}` : ""].filter(Boolean);
+    const sub = [(tl.label || "").replace(/^Open Arena\b/, "Medal series"), kind, pe ? pe.period : "", clock, inf ? fill(inf.info) : "", whoSeat && !two ? `${names()[whoSeat] || whoSeat} · ${whoWord}` : ""].filter(Boolean);
     if (!two) html += legend();
     html += `<div class="sbo-sub">${sub.map((x, i) => (i === 0 ? `<span class="sbo-lab">${esc(x)}${sub.length > 1 ? " · " : ""}</span>` : esc(x) + (i < sub.length - 1 ? " · " : ""))).join("")}${whoSeat && two ? ` <em>● ${whoWord}</em>` : ""}</div>`;
     if (sbo.innerHTML !== html) sbo.innerHTML = html;

@@ -182,7 +182,8 @@
     const cells = $$(".tm-c", root).sort((a, b) => a.style.getPropertyValue("--k") - b.style.getPropertyValue("--k"));
     const byK = {}; cells.forEach((c) => (byK[c.style.getPropertyValue("--k")] ??= []).push(c));
     const ks = Object.keys(byK).sort((a, b) => a - b);
-    const ko = [1, 2, 3, 4].map((n) => $(`[data-ko="${n}"]`, root)), medals = [".s", ".g", ".b"].map((s) => $(`.tm-medal.${s.slice(1)}`, root));
+    // the Episodic fold's round-robin widget has no knockout: keep only the parts this widget has
+    const ko = [1, 2, 3, 4].map((n) => $(`[data-ko="${n}"]`, root)).filter(Boolean), medals = [".s", ".g", ".b"].map((s) => $(`.tm-medal.${s.slice(1)}`, root)).filter(Boolean);
     let timers = [], on = false;
     const at = (ms, f) => timers.push(setTimeout(f, ms));
     const reset = () => { cells.forEach((c) => c.classList.remove("on", "cur")); ko.forEach((e) => e.classList.remove("on")); medals.forEach((m) => m.classList.remove("on")); };
@@ -307,5 +308,85 @@
       mw.querySelectorAll("[data-wr]").forEach((x) => { x.classList.toggle("is-on", x === b); x.setAttribute("aria-pressed", x === b); });
       mw.querySelectorAll("[data-wr-p]").forEach((p) => { p.hidden = p.dataset.wrP !== b.dataset.wr; });
     }));
+  });
+})();
+
+/* a link to something inside a closed fold (e.g. #formats) opens the fold first */
+(() => {
+  const open = () => {
+    const id = location.hash.slice(1); if (!id) return;
+    const el = document.getElementById(id), d = el && el.closest("details");
+    if (d && !d.open) { d.open = true; el.scrollIntoView(); }
+  };
+  open(); addEventListener("hashchange", open);
+})();
+
+/* Episodic fold: the ranking emerges from the results. Two tabs (Duel · Team duel, Solo) like the old widget. Served in
+   its final state (no-JS / reduced motion); with motion a panel starts from zero: rows in entrant order, results fill in
+   (round robin: each match lights its two cells and adds its points; solo: each first match lights and sets its score),
+   then the rows slide into rank order with ranks and medal colours, then the podium. Loops while on screen. */
+(() => {
+  document.querySelectorAll("[data-tm-ep]").forEach((root) => {
+    const D = JSON.parse(root.querySelector("[data-ep-data]").textContent);
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const tabs = [...root.querySelectorAll("[data-ep-tab]")], panels = [...root.querySelectorAll("[data-ep-panel]")];
+    root.classList.add("is-js");
+    let cur = "h2h", timers = [], on = false;
+    const at = (ms, f) => timers.push(setTimeout(f, ms));
+    const P = () => root.querySelector(`[data-ep-panel="${cur}"]`);
+    const fmt = (v, d) => (d ? v.toFixed(d) : String(v));
+    const setRow = (rows, k, v, d) => { const r = rows[k]; const mx = D[cur].max; r.querySelector("i").style.setProperty("--w", (v ? Math.max(4, Math.round(100 * v / mx)) : 0) + "%"); r.querySelector("b").textContent = fmt(v, d); };
+    const parts = () => { const p = P(); return { p, table: p.querySelector(".tm-pts--ep"), rows: [...p.querySelectorAll("[data-ep-row]")], marks: [...p.querySelectorAll("[data-ep-c]")], medals: [...p.querySelectorAll(".tm-medal")] }; };
+    const start = () => {
+      timers.forEach(clearTimeout); timers = [];
+      const { table, rows, marks, medals } = parts(), d = D[cur];
+      root.dataset.step = "rr"; table.classList.remove("is-sorted");
+      marks.forEach((c) => c.classList.remove("on", "ep-hit"));
+      rows.forEach((r, k) => setRow(rows, k, 0, d.dec)); medals.forEach((m) => m.classList.remove("on"));
+    };
+    const end = () => {
+      timers.forEach(clearTimeout); timers = [];
+      panels.forEach((p) => {
+        const d = D[p.dataset.epPanel], rows = [...p.querySelectorAll("[data-ep-row]")], keep = cur; cur = p.dataset.epPanel;
+        p.querySelector(".tm-pts--ep").classList.add("is-sorted");
+        p.querySelectorAll("[data-ep-c]").forEach((c) => { c.classList.add("on"); c.classList.remove("ep-hit"); });
+        rows.forEach((r, k) => setRow(rows, k, d.final[k], d.dec)); p.querySelectorAll(".tm-medal").forEach((m) => m.classList.add("on"));
+        cur = keep;
+      });
+      root.dataset.step = "md";
+    };
+    const play = () => {
+      start();
+      const { p, table, rows, medals } = parts(), d = D[cur], hit = (els) => { p.querySelectorAll(".ep-hit").forEach((c) => c.classList.remove("ep-hit")); els.forEach((c) => c && c.classList.add("on", "ep-hit")); };
+      let t = 500;
+      if (d.kind === "rr") {
+        const pts = d.final.map(() => 0);
+        d.games.forEach(([a, b, pa, pb]) => { at(t, () => { hit([p.querySelector(`[data-ep-c="${a}-${b}"]`), p.querySelector(`[data-ep-c="${b}-${a}"]`)]); pts[a] += pa; pts[b] += pb; setRow(rows, a, pts[a], d.dec); setRow(rows, b, pts[b], d.dec); }); t += 320; });
+      } else {
+        d.seq.forEach(([k, v]) => { at(t, () => { hit([p.querySelector(`[data-ep-c="${k}"]`)]); setRow(rows, k, v, d.dec); }); t += 650; });
+      }
+      at(t, () => p.querySelectorAll(".ep-hit").forEach((c) => c.classList.remove("ep-hit")));
+      at(t + 400, () => { root.dataset.step = "ko"; table.classList.add("is-sorted"); });
+      t += 1500;
+      at(t, () => { root.dataset.step = "md"; });
+      medals.slice().sort((x, y) => +x.textContent - +y.textContent).forEach((m, k) => at(t + 250 + k * 260, () => m.classList.add("on")));
+      at(t + 5200, () => on && play());
+    };
+    const pick = (key) => {
+      cur = key;
+      tabs.forEach((b) => { const o = b.dataset.epTab === key; b.classList.toggle("is-on", o); b.setAttribute("aria-pressed", o); });
+      panels.forEach((p) => p.classList.toggle("is-on", p.dataset.epPanel === key));
+      if (reduced) { end(); return; }
+      on ? play() : start();
+    };
+    tabs.forEach((b) => b.addEventListener("click", () => pick(b.dataset.epTab)));
+    panels.forEach((p) => p.classList.toggle("is-on", p.dataset.epPanel === cur));
+    if (reduced) return;
+    ["solo", "h2h"].forEach((k) => { cur = k; start(); });  // the first frame a reader sees is the start, never the result
+    cur = "h2h"; root.dataset.step = "rr";
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !on) { on = true; play(); }
+      else if (!e.isIntersecting && on) { on = false; end(); }
+    }, { threshold: 0, rootMargin: "0px 0px -30% 0px" }).observe(root);
   });
 })();

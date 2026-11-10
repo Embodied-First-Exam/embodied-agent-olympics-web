@@ -168,3 +168,128 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-jl]").forEach((a) => a.addEventListener("click", () => { from = scrollY; if (back) back.hidden = false; }));
   if (back) back.addEventListener("click", (e) => { e.preventDefault(); if (from != null) window.scrollTo({ top: from, behavior: "smooth" }); back.hidden = true; from = null; });
 });
+
+/* sports row: real match loops. A card's clip loads and plays only while the card is on screen (posters otherwise, and
+   always with reduced motion or Save-Data); the arrows and the format chips scroll the row. */
+document.addEventListener("DOMContentLoaded", () => {
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const saver = !!(navigator.connection && navigator.connection.saveData);
+  const still = reduced || saver;
+  const vio = new IntersectionObserver((es) => es.forEach((e) => {
+    const v = e.target;
+    if (e.isIntersecting && !still) {
+      if (!v.src) v.src = v.dataset.loop;
+      v.play().then(() => v.closest("[data-sr],.pl-fig")?.classList.add("has-play"), () => {});
+    } else if (!v.paused) v.pause();
+  }), { threshold: 0.35 });
+  document.querySelectorAll("video[data-loop]").forEach((v) => { if (still) v.removeAttribute("autoplay"); vio.observe(v); });
+
+  document.querySelectorAll("[data-sr]").forEach((root) => {
+    const track = root.querySelector("[data-sr-track]");
+    const cards = [...track.querySelectorAll(".spr-card")];
+    const step = () => (cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : track.clientWidth * 0.8);
+    const sync = () => {
+      const max = track.scrollWidth - track.clientWidth - 2;
+      root.querySelector('[data-sr-step="-1"]').disabled = track.scrollLeft < 2;
+      root.querySelector('[data-sr-step="1"]').disabled = track.scrollLeft > max;
+      // the chip of the format whose first card is nearest the left edge
+      let cur = null;
+      root.querySelectorAll("[data-sr-fmt]").forEach((c) => { if (c.offsetLeft - track.offsetLeft <= track.scrollLeft + step() / 2) cur = c.dataset.srFmt; });
+      root.querySelectorAll("[data-sr-go]").forEach((b) => b.classList.toggle("is-on", b.dataset.srGo === (cur || "duel")));
+    };
+    root.querySelectorAll("[data-sr-step]").forEach((b) => b.addEventListener("click", () => {
+      const n = Math.max(1, Math.floor(track.clientWidth / step()) - 1);
+      track.scrollBy({ left: +b.dataset.srStep * n * step(), behavior: reduced ? "auto" : "smooth" });
+    }));
+    root.querySelectorAll("[data-sr-go]").forEach((b) => b.addEventListener("click", () => {
+      const c = root.querySelector(`[data-sr-fmt="${b.dataset.srGo}"]`);
+      if (c) track.scrollTo({ left: c.offsetLeft - track.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft || 0), behavior: reduced ? "auto" : "smooth" });
+    }));
+    track.addEventListener("scroll", () => requestAnimationFrame(sync), { passive: true });
+    addEventListener("resize", sync); sync();
+  });
+
+  /* architecture: the arena clip sits under the figure's transparent arena box (kept in place on resize) */
+  document.querySelectorAll("[data-arena-vid]").forEach((v) => {
+    const host = v.parentElement, box = host.querySelector(".pl-arena > rect"), fig = host.closest(".pl-fig");
+    if (!box) return;
+    const place = () => {
+      const a = box.getBoundingClientRect(), h = host.getBoundingClientRect();
+      Object.assign(v.style, { left: a.left - h.left + host.scrollLeft + "px", top: a.top - h.top + "px", width: a.width + "px", height: a.height + "px" });
+    };
+    place(); addEventListener("resize", place); new ResizeObserver(place).observe(host);
+    v.addEventListener("playing", () => fig.classList.add("has-play"), { once: true });
+  });
+
+  /* leaderboard sections: Medals | Win rate | Head-to-head (without JS all three panels show one after another) */
+  document.querySelectorAll("[data-lbx]").forEach((root) => {
+    root.classList.add("is-js");
+    const tabs = [...root.querySelectorAll("[data-lbx-tab]")];
+    const pick = (k) => {
+      tabs.forEach((t) => { const on = t.dataset.lbxTab === k; t.classList.toggle("is-on", on); t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1; });
+      root.querySelectorAll("[data-lbx-p]").forEach((p) => p.classList.toggle("is-on", p.dataset.lbxP === k));
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener("click", () => pick(t.dataset.lbxTab));
+      t.addEventListener("keydown", (e) => {
+        const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (!d) return;
+        const n = tabs[(i + d + tabs.length) % tabs.length]; pick(n.dataset.lbxTab); n.focus();
+      });
+    });
+  });
+
+  /* head to head: redraw the matrix for a mode and a sport; a tooltip on hover or focus */
+  document.querySelectorAll("[data-hh-root]").forEach((root) => {
+    const D = JSON.parse(root.querySelector("[data-hh-data]").textContent);
+    const tip = root.querySelector("[data-hh-tip]"), sel = root.querySelector("[data-hh-sport]");
+    let sport = -1, C = [];
+    const fmt = (w, d, l) => (d ? `${w}–${d}–${l}` : `${w}–${l}`);
+    const count = () => {
+      const n = D.names.length;
+      C = Array.from({ length: n }, () => Array.from({ length: n }, () => [0, 0, 0, 0]));
+      D.m.forEach(([si, md, a, b, w, lv]) => {
+        if (sport !== -1 && si !== sport) return;
+        [[a, b], [b, a]].forEach(([x, y]) => { const r = C[x][y]; r[w === x ? 0 : w === -1 ? 1 : 2]++; r[3] += lv; });
+      });
+    };
+    const draw = () => {
+      count();
+      root.querySelectorAll("td[data-hh]").forEach((td) => {
+        const [i, j] = td.dataset.hh.split(",").map(Number), [w, d, l] = C[i][j], n = w + d + l;
+        td.classList.toggle("hh-c--0", !n);
+        td.tabIndex = n ? 0 : -1;
+        if (!n) { td.style.removeProperty("--v"); td.innerHTML = '<span class="hh-p">·</span>'; return; }
+        const p = 100 * w / n;
+        td.style.setProperty("--v", ((p - 50) / 50).toFixed(3));
+        td.innerHTML = `<span class="hh-p">${Math.round(p)}%</span><span class="hh-wl">${fmt(w, d, l)} (${n})</span>`;
+      });
+      root.querySelectorAll("td[data-hh-t]").forEach((td) => {
+        const i = +td.dataset.hhT; let w = 0, d = 0, l = 0;
+        C[i].forEach((r, j) => { if (j !== i) { w += r[0]; d += r[1]; l += r[2]; } });
+        const n = w + d + l;
+        td.innerHTML = n ? `<span class="hh-p">${Math.round(100 * w / n)}%</span><span class="hh-wl">${fmt(w, d, l)} (${n})</span>` : "·";
+      });
+    };
+    sel.addEventListener("change", () => { sport = +sel.value; draw(); hide(); });
+    const hide = () => { tip.hidden = true; };
+    const show = (td) => {
+      const [i, j] = td.dataset.hh.split(",").map(Number), [w, d, l, lv] = C[i][j], n = w + d + l;
+      if (!n) { hide(); return; }
+      const scope = `${D.mode} · ${sport === -1 ? "all " + D.sports.length + " sports" : D.sports[sport]}`;
+      tip.innerHTML = `<strong></strong><span class="hh-tip-v"></span><span class="hh-tip-s"></span>`;
+      tip.querySelector("strong").textContent = `${D.names[i]} v ${D.names[j]}`;
+      tip.querySelector(".hh-tip-v").textContent = `${Math.round(100 * w / n)}% · ${w} won${d ? `, ${d} drawn` : ""}, ${l} lost of ${n}` + (lv ? ` · ${lv} decided at a level score` : "");
+      tip.querySelector(".hh-tip-s").textContent = scope;
+      tip.hidden = false;
+      const r = td.getBoundingClientRect(), h = root.getBoundingClientRect();
+      const x = Math.min(Math.max(8, r.left - h.left + r.width / 2 - tip.offsetWidth / 2), h.width - tip.offsetWidth - 8);
+      tip.style.left = x + "px"; tip.style.top = r.top - h.top - tip.offsetHeight - 8 + "px";
+    };
+    root.addEventListener("mouseover", (e) => { const td = e.target.closest("td[data-hh]"); td ? show(td) : hide(); });
+    root.addEventListener("mouseleave", hide);
+    root.addEventListener("focusin", (e) => { const td = e.target.closest("td[data-hh]"); td ? show(td) : hide(); });
+    root.addEventListener("focusout", hide);
+    root.querySelector(".hh-scroll").addEventListener("scroll", hide, { passive: true });
+    draw();
+  });
+});
