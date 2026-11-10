@@ -1,18 +1,18 @@
 {
  "_note": "Written by /data/guichi/eao-hq/tools/web/medals_sync.py from the official release run (evalops-r1107 + race rc6). Medal table counts FINAL sports only; by_sport.status final / in_progress; flag = an open item that could still move that podium (shown with a dagger).",
  "edition": "TODO",
- "updated": "2026-11-09T02:49-06:00",
+ "updated": "2026-11-09T23:53-06:00",
  "medal_table": [
   {
    "model": "GPT-6 Astra",
    "gold": 9,
-   "silver": 5,
+   "silver": 6,
    "bronze": 3,
    "rank": 1
   },
   {
    "model": "Claude Opus 5.5",
-   "gold": 5,
+   "gold": 6,
    "silver": 4,
    "bronze": 4,
    "rank": 2
@@ -21,7 +21,7 @@
    "model": "Gemini 4 Argon",
    "gold": 2,
    "silver": 7,
-   "bronze": 4,
+   "bronze": 5,
    "rank": 3
   },
   {
@@ -58,10 +58,10 @@
   },
   {
    "sport": "soccer_hsl_team",
-   "status": "in_progress",
-   "gold": null,
-   "silver": null,
-   "bronze": null,
+   "status": "final",
+   "gold": "Claude Opus 5.5",
+   "silver": "GPT-6 Astra",
+   "bronze": "Gemini 4 Argon",
    "flag": null,
    "board": "rel-soccer-hsl-team-champ"
   },
@@ -969,18 +969,6 @@
    "rows": [
     {
      "rank": 1,
-     "model": "Claude Opus 5.5",
-     "points": 12,
-     "rating": 1596.6,
-     "won": 4,
-     "drawn": 0,
-     "lost": 1,
-     "played": 5,
-     "score_for": 5,
-     "score_against": 17
-    },
-    {
-     "rank": 2,
      "model": "GPT-6 Astra",
      "points": 12,
      "rating": 1596.6,
@@ -992,19 +980,19 @@
      "score_against": 26
     },
     {
-     "rank": 3,
-     "model": "DeepSeek V4.1 Flash",
-     "points": 9,
-     "rating": 1532.7,
-     "won": 3,
+     "rank": 2,
+     "model": "Claude Opus 5.5",
+     "points": 12,
+     "rating": 1596.6,
+     "won": 4,
      "drawn": 0,
-     "lost": 2,
+     "lost": 1,
      "played": 5,
-     "score_for": 35,
-     "score_against": 21
+     "score_for": 5,
+     "score_against": 17
     },
     {
-     "rank": 4,
+     "rank": 3,
      "model": "Kimi 3.1 Pro",
      "points": 9,
      "rating": 1532.7,
@@ -1014,6 +1002,18 @@
      "played": 5,
      "score_for": 18,
      "score_against": 22
+    },
+    {
+     "rank": 4,
+     "model": "DeepSeek V4.1 Flash",
+     "points": 9,
+     "rating": 1532.7,
+     "won": 3,
+     "drawn": 0,
+     "lost": 2,
+     "played": 5,
+     "score_for": 35,
+     "score_against": 21
     },
     {
      "rank": 5,
@@ -1039,7 +1039,9 @@
      "score_for": 34,
      "score_against": 10
     }
-   ]
+   ],
+   "score_direction": "lower",
+   "note": "Lower scores are better in this sport (balls left), so points ties are ordered by score against minus score for."
   },
   "amfootball": {
    "board": "rel-amfootball-arena",
@@ -1127,256 +1129,256 @@
   "soccer_hsl_team": {
    "board": "rel-soccer-hsl-team-arena",
    "rule": "points_table@1",
-   "complete": false,
-   "played": 11,
+   "complete": true,
+   "played": 15,
    "total": 15,
    "no_result": 0,
-   "status": "11 of 15 matches played",
+   "status": "Complete",
    "rows": [
     {
      "rank": 1,
      "model": "Claude Opus 5.5",
-     "points": 12,
-     "rating": 1672.8,
-     "won": 4,
+     "points": 15,
+     "rating": 1666.8,
+     "won": 5,
      "drawn": 0,
      "lost": 0,
-     "played": 4,
-     "score_for": 23,
+     "played": 5,
+     "score_for": 30,
      "score_against": 3
     },
     {
      "rank": 2,
-     "model": "GPT-6 Astra",
-     "points": 9,
-     "rating": 1565.6,
-     "won": 3,
+     "model": "Gemini 4 Argon",
+     "points": 12,
+     "rating": 1595.7,
+     "won": 4,
      "drawn": 0,
      "lost": 1,
-     "played": 4,
-     "score_for": 26,
-     "score_against": 2
+     "played": 5,
+     "score_for": 30,
+     "score_against": 6
     },
     {
      "rank": 3,
-     "model": "Gemini 4 Argon",
-     "points": 6,
-     "rating": 1554.7,
-     "won": 2,
+     "model": "GPT-6 Astra",
+     "points": 9,
+     "rating": 1530.5,
+     "won": 3,
      "drawn": 0,
-     "lost": 1,
-     "played": 3,
-     "score_for": 15,
-     "score_against": 2
+     "lost": 2,
+     "played": 5,
+     "score_for": 30,
+     "score_against": 7
     },
     {
      "rank": 4,
-     "model": "Kimi 3.1 Pro",
+     "model": "GLM 5.3 Flash",
      "points": 3,
-     "rating": 1409.5,
+     "rating": 1402.4,
      "won": 1,
      "drawn": 0,
-     "lost": 3,
-     "played": 4,
+     "lost": 4,
+     "played": 5,
      "score_for": 0,
-     "score_against": 15
+     "score_against": 23
     },
     {
      "rank": 5,
-     "model": "DeepSeek V4.1 Flash",
+     "model": "Kimi 3.1 Pro",
      "points": 3,
-     "rating": 1449.7,
+     "rating": 1402.4,
      "won": 1,
      "drawn": 0,
-     "lost": 2,
-     "played": 3,
+     "lost": 4,
+     "played": 5,
      "score_for": 0,
-     "score_against": 19
+     "score_against": 25
     },
     {
      "rank": 6,
-     "model": "GLM 5.3 Flash",
-     "points": 0,
-     "rating": 1347.6,
-     "won": 0,
+     "model": "DeepSeek V4.1 Flash",
+     "points": 3,
+     "rating": 1402.4,
+     "won": 1,
      "drawn": 0,
      "lost": 4,
-     "played": 4,
+     "played": 5,
      "score_for": 0,
-     "score_against": 23
+     "score_against": 26
     }
    ]
   }
  },
  "status": {
-  "provisional": true,
-  "decided": 17,
+  "provisional": false,
+  "decided": 18,
   "total": 18,
-  "line": "Provisional · 17 of 18 sports decided · updated Nov 9, 02:49 CT"
+  "line": "Final · all 18 sports decided · updated Nov 9, 23:53 CT"
  },
  "open_arena_status": {
-  "updated": "2026-11-09T02:49-06:00",
+  "updated": "2026-11-09T23:53-06:00",
   "boards": 12,
-  "complete": 11,
-  "line": "Updated Nov 9, 02:49 CT · 11 of 12 boards complete"
+  "complete": 12,
+  "line": "Updated Nov 9, 23:53 CT · 12 of 12 boards complete"
  },
  "win_rate": {
   "scopes": {
    "both": [
     {
      "model": "GPT-6 Astra",
-     "played": 131,
-     "won": 114,
+     "played": 136,
+     "won": 116,
      "drawn": 0,
-     "lost": 17,
-     "pct": 87.0
+     "lost": 20,
+     "pct": 85.3
     },
     {
      "model": "Claude Opus 5.5",
-     "played": 132,
-     "won": 99,
+     "played": 137,
+     "won": 103,
      "drawn": 0,
-     "lost": 33,
-     "pct": 75.0
+     "lost": 34,
+     "pct": 75.2
     },
     {
      "model": "Gemini 4 Argon",
-     "played": 120,
-     "won": 60,
+     "played": 126,
+     "won": 65,
      "drawn": 0,
-     "lost": 60,
-     "pct": 50.0
+     "lost": 61,
+     "pct": 51.6
     },
     {
      "model": "Kimi 3.1 Pro",
-     "played": 120,
-     "won": 46,
+     "played": 125,
+     "won": 47,
      "drawn": 0,
-     "lost": 74,
-     "pct": 38.3
+     "lost": 78,
+     "pct": 37.6
     },
     {
      "model": "DeepSeek V4.1 Flash",
-     "played": 115,
+     "played": 118,
      "won": 31,
      "drawn": 0,
-     "lost": 84,
-     "pct": 27.0
+     "lost": 87,
+     "pct": 26.3
     },
     {
      "model": "GLM 5.3 Flash",
-     "played": 102,
-     "won": 10,
+     "played": 104,
+     "won": 11,
      "drawn": 0,
-     "lost": 92,
-     "pct": 9.8
+     "lost": 93,
+     "pct": 10.6
     }
    ],
    "championship": [
     {
      "model": "GPT-6 Astra",
-     "played": 76,
-     "won": 65,
+     "played": 80,
+     "won": 67,
      "drawn": 0,
-     "lost": 11,
-     "pct": 85.5
+     "lost": 13,
+     "pct": 83.8
     },
     {
      "model": "Claude Opus 5.5",
-     "played": 78,
-     "won": 57,
+     "played": 82,
+     "won": 60,
      "drawn": 0,
-     "lost": 21,
-     "pct": 73.1
+     "lost": 22,
+     "pct": 73.2
     },
     {
      "model": "Gemini 4 Argon",
-     "played": 74,
-     "won": 38,
+     "played": 78,
+     "won": 41,
      "drawn": 0,
-     "lost": 36,
-     "pct": 51.4
+     "lost": 37,
+     "pct": 52.6
     },
     {
      "model": "Kimi 3.1 Pro",
-     "played": 66,
-     "won": 22,
+     "played": 70,
+     "won": 23,
      "drawn": 0,
-     "lost": 44,
-     "pct": 33.3
+     "lost": 47,
+     "pct": 32.9
     },
     {
      "model": "DeepSeek V4.1 Flash",
-     "played": 62,
+     "played": 63,
      "won": 18,
      "drawn": 0,
-     "lost": 44,
-     "pct": 29.0
+     "lost": 45,
+     "pct": 28.6
     },
     {
      "model": "GLM 5.3 Flash",
-     "played": 50,
+     "played": 51,
      "won": 3,
      "drawn": 0,
-     "lost": 47,
-     "pct": 6.0
+     "lost": 48,
+     "pct": 5.9
     }
    ],
    "arena": [
     {
      "model": "GPT-6 Astra",
-     "played": 55,
+     "played": 56,
      "won": 49,
      "drawn": 0,
-     "lost": 6,
-     "pct": 89.1
+     "lost": 7,
+     "pct": 87.5
     },
     {
      "model": "Claude Opus 5.5",
-     "played": 54,
-     "won": 42,
+     "played": 55,
+     "won": 43,
      "drawn": 0,
      "lost": 12,
-     "pct": 77.8
+     "pct": 78.2
     },
     {
      "model": "Gemini 4 Argon",
-     "played": 46,
-     "won": 22,
+     "played": 48,
+     "won": 24,
      "drawn": 0,
      "lost": 24,
-     "pct": 47.8
+     "pct": 50.0
     },
     {
      "model": "Kimi 3.1 Pro",
-     "played": 54,
+     "played": 55,
      "won": 24,
      "drawn": 0,
-     "lost": 30,
-     "pct": 44.4
+     "lost": 31,
+     "pct": 43.6
     },
     {
      "model": "DeepSeek V4.1 Flash",
-     "played": 53,
+     "played": 55,
      "won": 13,
      "drawn": 0,
-     "lost": 40,
-     "pct": 24.5
+     "lost": 42,
+     "pct": 23.6
     },
     {
      "model": "GLM 5.3 Flash",
-     "played": 52,
-     "won": 7,
+     "played": 53,
+     "won": 8,
      "drawn": 0,
      "lost": 45,
-     "pct": 13.5
+     "pct": 15.1
     }
    ]
   },
   "level_decided": {
-   "both": 33,
-   "championship": 19,
-   "arena": 14
+   "both": 35,
+   "championship": 20,
+   "arena": 15
   },
   "forfeits": [
    {
@@ -1616,11 +1618,16 @@
     "scope": "championship",
     "kind": "no-show",
     "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "HSTC-F15",
+    "sport": "soccer_hsl_team",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "GLM 5.3 Flash"
    }
   ],
-  "running": [
-   "soccer_hsl_team"
-  ],
+  "running": [],
   "sports": [
    "amfootball",
    "badminton",
