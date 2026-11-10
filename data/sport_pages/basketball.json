@@ -1688,7 +1688,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-basketball-g1-champ2",
-   "made": "2026-11-09 20:49 CST",
+   "made": "2026-11-10 05:24 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -2947,25 +2947,25 @@
       {
        "cp": "final:3",
        "x": 3.0,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 8
       },
       {
        "cp": "final:4",
        "x": 4.0,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 6
       },
       {
        "cp": "final:5",
        "x": 5.0,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 6
       },
       {
        "cp": "final:7",
        "x": 7.0,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 6
       }
      ]

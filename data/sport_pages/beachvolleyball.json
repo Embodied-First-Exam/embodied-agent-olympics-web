@@ -1683,7 +1683,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-beachvolleyball-g1-champ2",
-   "made": "2026-11-09 20:49 CST",
+   "made": "2026-11-10 05:24 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {

@@ -1679,7 +1679,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-billiards-g1-champ2",
-   "made": "2026-11-09 20:49 CST",
+   "made": "2026-11-10 05:24 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -2036,17 +2036,17 @@
        {
         "cp": "final:5",
         "x": 5.0,
-        "mean": 0.6154
+        "mean": 0.641
        },
        {
         "cp": "final:6",
         "x": 6.0,
-        "mean": 0.6667
+        "mean": 0.641
        },
        {
         "cp": "final:7",
         "x": 7.0,
-        "mean": 0.8889
+        "mean": 0.7521
        }
       ],
       "DeepSeek V4.1 Flash": [
@@ -2063,17 +2063,17 @@
        {
         "cp": "final:5",
         "x": 5.0,
-        "mean": 0.2
+        "mean": 0.1
        },
        {
         "cp": "final:6",
         "x": 6.0,
-        "mean": 0.2
+        "mean": 0.1
        },
        {
         "cp": "final:7",
         "x": 7.0,
-        "mean": 0.2
+        "mean": 0.1
        }
       ],
       "Gemini 4 Argon": [
@@ -2081,30 +2081,40 @@
         "cp": "final:3",
         "x": 3.0,
         "mean": 0.3333
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.1667
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.3333
        }
       ],
       "GLM 5.3 Flash": [
        {
         "cp": "final:3",
         "x": 3.0,
-        "mean": 0.2
+        "mean": 0.1
        },
        {
         "cp": "final:5",
         "x": 5.0,
-        "mean": 0.2
+        "mean": 0.1
        }
       ],
       "Kimi 3.1 Pro": [
        {
         "cp": "final:3",
         "x": 3.0,
-        "mean": 0.25
+        "mean": 0.1805
        },
        {
         "cp": "final:5",
         "x": 5.0,
-        "mean": 0.2
+        "mean": 0.1
        }
       ],
       "Claude Opus 5.5": [
@@ -2121,26 +2131,26 @@
        {
         "cp": "final:3",
         "x": 3.0,
-        "mean": 0.7273
+        "mean": 0.7636
        },
        {
         "cp": "final:5",
         "x": 5.0,
-        "mean": 0.6667
+        "mean": 0.641
        },
        {
         "cp": "final:6",
         "x": 6.0,
-        "mean": 0.5714
+        "mean": 0.619
        },
        {
         "cp": "final:7",
         "x": 7.0,
-        "mean": 0.6154
+        "mean": 0.7521
        }
       ]
      },
-     "ok": 29,
+     "ok": 45,
      "planned": 64,
      "shared_count": false
     },
@@ -2549,13 +2559,13 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 1,
-       "valid": 3
+       "valid": 4
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 1,
-       "valid": 4
+       "valid": 6
       },
       {
        "cp": "final:2",
@@ -2567,31 +2577,31 @@
        "cp": "final:3",
        "x": 3.0,
        "n_pass": 1,
-       "valid": 4
+       "valid": 6
       },
       {
        "cp": "final:4",
        "x": 4.0,
        "n_pass": 1,
-       "valid": 2
+       "valid": 4
       },
       {
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 1,
-       "valid": 4
+       "valid": 6
       },
       {
        "cp": "final:6",
        "x": 6.0,
        "n_pass": 1,
-       "valid": 3
+       "valid": 6
       },
       {
        "cp": "final:7",
        "x": 7.0,
        "n_pass": 1,
-       "valid": 4
+       "valid": 6
       }
      ],
      "DeepSeek V4.1 Flash": [
@@ -2599,13 +2609,13 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 0,
-       "valid": 4
+       "valid": 5
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 0,
-       "valid": 5
+       "valid": 6
       },
       {
        "cp": "final:2",
@@ -2617,31 +2627,31 @@
        "cp": "final:3",
        "x": 3.0,
        "n_pass": 0,
-       "valid": 5
+       "valid": 6
       },
       {
        "cp": "final:4",
        "x": 4.0,
        "n_pass": 0,
-       "valid": 2
+       "valid": 4
       },
       {
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 0,
-       "valid": 4
+       "valid": 6
       },
       {
        "cp": "final:6",
        "x": 6.0,
        "n_pass": 0,
-       "valid": 5
+       "valid": 6
       },
       {
        "cp": "final:7",
        "x": 7.0,
        "n_pass": 0,
-       "valid": 4
+       "valid": 6
       }
      ],
      "Gemini 4 Argon": [
@@ -2649,13 +2659,13 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 0,
-       "valid": 2
+       "valid": 3
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 0,
-       "valid": 4
+       "valid": 5
       },
       {
        "cp": "final:2",
@@ -2667,7 +2677,7 @@
        "cp": "final:3",
        "x": 3.0,
        "n_pass": 0,
-       "valid": 5
+       "valid": 6
       },
       {
        "cp": "final:4",
@@ -2679,19 +2689,19 @@
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 0,
-       "valid": 5
+       "valid": 6
       },
       {
        "cp": "final:6",
        "x": 6.0,
        "n_pass": 0,
-       "valid": 5
+       "valid": 6
       },
       {
        "cp": "final:7",
        "x": 7.0,
        "n_pass": 0,
-       "valid": 5
+       "valid": 6
       }
      ],
      "GLM 5.3 Flash": [
@@ -2717,7 +2727,7 @@
        "cp": "final:3",
        "x": 3.0,
        "n_pass": 0,
-       "valid": 5
+       "valid": 6
       },
       {
        "cp": "final:4",
@@ -2729,7 +2739,7 @@
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 0,
-       "valid": 5
+       "valid": 6
       }
      ],
      "Kimi 3.1 Pro": [
@@ -2737,13 +2747,13 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 0,
-       "valid": 4
+       "valid": 5
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 0,
-       "valid": 4
+       "valid": 5
       },
       {
        "cp": "final:2",
@@ -2755,7 +2765,7 @@
        "cp": "final:3",
        "x": 3.0,
        "n_pass": 0,
-       "valid": 5
+       "valid": 6
       },
       {
        "cp": "final:4",
@@ -2767,7 +2777,7 @@
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 0,
-       "valid": 4
+       "valid": 6
       }
      ],
      "Claude Opus 5.5": [
@@ -2775,13 +2785,13 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 1,
-       "valid": 5
+       "valid": 6
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 1,
-       "valid": 5
+       "valid": 6
       },
       {
        "cp": "final:2",
@@ -2793,7 +2803,7 @@
        "cp": "final:3",
        "x": 3.0,
        "n_pass": 1,
-       "valid": 5
+       "valid": 6
       },
       {
        "cp": "final:4",
@@ -2805,19 +2815,19 @@
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 1,
-       "valid": 4
+       "valid": 6
       },
       {
        "cp": "final:6",
        "x": 6.0,
        "n_pass": 1,
-       "valid": 5
+       "valid": 6
       },
       {
        "cp": "final:7",
        "x": 7.0,
        "n_pass": 1,
-       "valid": 5
+       "valid": 6
       }
      ]
     },
