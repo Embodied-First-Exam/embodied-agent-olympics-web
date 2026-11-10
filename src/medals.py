@@ -128,7 +128,6 @@ CONTINUOUS_DEF = ("One workspace kept across the season: programs, weights, note
 # the one line under each leaderboard heading (home and Leaderboard page): board · what the agent keeps
 EPISODIC_LINE = "Open Arena · Learns within each match. Every match starts from a fresh workspace."
 CONTINUOUS_LINE = "Olympics Championship · Learns within each match and across matches. One workspace carries through the whole championship."
-NOT_H2H = "Duel and team-duel sports only: solo sports, drone and racing have no head-to-head matches."
 
 
 def mode_text(s: str) -> str:
@@ -155,7 +154,7 @@ def mode_win_table(site: Site, scope: str = "arena") -> str:
         for i, r in enumerate(rows))
     head = '<tr><th>#</th><th>AI agent</th><th>W–L</th><th>Win %</th></tr>'
     return (f'<div class="mt-wrap"><table class="mt mt--home wr eb"><thead>{head}</thead><tbody>{body}</tbody></table></div>'
-            f'<p class="rp-note wr-note">{E(NOT_H2H)}</p>')
+            f'<p class="rp-note wr-note">{E(h2h_line(site, scope))}</p>')
 
 
 def episodic_board(site: Site) -> str:
@@ -264,3 +263,65 @@ def medal_rows_html(site: Site, table: list) -> str:
 def episodic_medal_block(site: Site) -> str:
     """The Episodic Learning medal table (rule: medals.episodic_medals)."""
     return f'<div class="mt-home">{medal_rows_html(site, episodic_medals(site)["table"])}</div>'
+
+
+def board_counts(site: Site) -> dict:
+    """What each leaderboard is based on, counted from the sport-page records (data/sport_pages) and the official
+    left-out list (results.json win_rate.forfeits: no-shows and matches a side did not finish):
+    episodic = sports with an Open Arena round robin, its matches played; continuous = all sports with a Championship,
+    every match played (duel / team-duel round robin and knockout, the solo sports' series matches, the drone time-trial
+    matches, heats and final, the full-size races); h2h = the duel and team-duel matches behind win rate and head-to-head."""
+    import json  # noqa: PLC0415
+    import re  # noqa: PLC0415
+    from pathlib import Path  # noqa: PLC0415
+    root = Path(__file__).resolve().parent.parent / "data" / "sport_pages"
+    left = {(f["scope"], f["fixture"]) for f in (site.results.get("win_rate") or {}).get("forfeits") or []}
+    h2h = {x for f in site.cfg["formats"] if f["id"] in ("duel", "team") for x in f["sports"]}
+
+    def fixtures(o, out):
+        if isinstance(o, dict):
+            i = o.get("id") or o.get("fixture")
+            if isinstance(i, str) and re.match(r"^[A-Z0-9]{4}-F\d+$", i):
+                out.setdefault(i, o)  # the match record, not its nested replay entry (same fixture id)
+            for v in o.values():
+                fixtures(v, out)
+        elif isinstance(o, list):
+            for v in o:
+                fixtures(v, out)
+    c = {"ep_sports": 0, "ep_played": 0, "co_sports": 0, "co_played": 0, "co_h2h": 0}
+    for s in site.sports:
+        f = root / f"{s['id']}.json"
+        if not f.is_file():
+            continue
+        d = json.loads(f.read_text(encoding="utf-8"))
+        oa, ch = {}, {}
+        fixtures(d.get("open_arena") or {}, oa)
+        fixtures(d.get("championship") or {}, ch)
+        played = lambda fx, scope: sum(1 for k, m in fx.items() if (scope, k) not in left and not m.get("no_show")  # noqa: E731
+                                       and m.get("status") in (None, "resolved") and not m.get("pending"))
+        if oa:
+            c["ep_sports"] += 1
+            c["ep_played"] += played(oa, "arena")
+        if ch:
+            c["co_sports"] += 1
+            n = played(ch, "championship")
+            c["co_played"] += n
+            if s["id"] in h2h:
+                c["co_h2h"] += n
+    c["h2h_sports"] = len([x for x in h2h if x in site.sport_by_id])
+    return c
+
+
+def count_line(site: Site, key: str) -> str:
+    c = board_counts(site)
+    if key == "episodic":
+        return f'{c["ep_sports"]} sports · {c["ep_played"]} matches played'
+    return f'{c["co_sports"]} sports · {c["co_played"]} matches and races played'
+
+
+def h2h_line(site: Site, scope: str) -> str:
+    """The one footnote under Win rate and Head-to-head: what the totals are based on."""
+    c = board_counts(site)
+    n = c["ep_played"] if scope == "arena" else c["co_h2h"]
+    return (f'{c["h2h_sports"]} duel and team-duel sports · {n} matches played. Solo sports, drone and racing have no '
+            f'head-to-head matches.')

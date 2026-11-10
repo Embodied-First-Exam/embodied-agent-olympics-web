@@ -226,9 +226,9 @@ def results(site: Site):
   <div class="sec-h"><h2 class="h2">Boards.</h2></div>
   <div class="tabs" role="tablist" style="margin-top:0">{tab_btns}</div>
   <div class="rs-panels">
-  <div class="panel" data-panel="medals"><p class="rp-note lbx-def">{E(medals.CONTINUOUS_LINE)}</p>{medals.medal_switch(site, story.medal_table_home(site) + medals.flag_foot(site), medals.mode_win_table(site, "championship"))}{story.board_fold(site, "continuous")}</div>
+  <div class="panel" data-panel="medals"><p class="rp-note lbx-def">{E(medals.CONTINUOUS_LINE)}</p><p class="lbx-count">{E(medals.count_line(site, "continuous"))}</p>{medals.medal_switch(site, story.medal_table_home(site) + medals.flag_foot(site), medals.mode_win_table(site, "championship"))}{story.board_fold(site, "continuous")}</div>
   <div class="panel" data-panel="by-sport">{by_sport}</div>
-  <div class="panel is-on" data-panel="arena"><p class="rp-note lbx-def">{E(medals.EPISODIC_LINE)}</p>{medals.medal_switch(site, medals.episodic_medal_block(site), medals.mode_win_table(site, "arena"))}{story.board_fold(site, "episodic")}<h3 class="rm-h rs-boards-h">Every sport&rsquo;s board</h3>{medals.arena_panel(site, boards)}</div>
+  <div class="panel is-on" data-panel="arena"><p class="rp-note lbx-def">{E(medals.EPISODIC_LINE)}</p><p class="lbx-count">{E(medals.count_line(site, "episodic"))}</p>{medals.medal_switch(site, medals.episodic_medal_block(site), medals.mode_win_table(site, "arena"))}{story.board_fold(site, "episodic")}<h3 class="rm-h rs-boards-h">Every sport&rsquo;s board</h3>{medals.arena_panel(site, boards)}</div>
   </div>
 </div></section>"""
     return "leaderboard/", page(site, path="leaderboard/", title="Leaderboard", body=body)

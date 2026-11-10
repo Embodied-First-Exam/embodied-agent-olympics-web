@@ -857,7 +857,7 @@ def h2h_matrix(site: Site, d: dict, order: list, mode: int, key: str) -> str:
         <thead><tr><th class="hh-corner"><span>Model</span><span>v opponent</span></th>{head}<th class="hh-th-t">All opponents</th></tr></thead>
         <tbody>{rows}</tbody></table></div>
       <div class="hh-key" aria-hidden="true"><span>0%</span><i class="hh-ramp"></i><span>100%</span><em>row model&rsquo;s win %</em></div>
-      <p class="rp-note hh-cap">Cell: the row model&rsquo;s win % and wins–losses (matches) against the column model. {E(medals.NOT_H2H)}</p>
+      <p class="rp-note hh-cap">Cell: the row model&rsquo;s win % and wins–losses (matches) against the column model. {E(medals.h2h_line(site, "arena" if mode == 0 else "championship"))}</p>
       <div class="hh-tip" role="tooltip" hidden data-hh-tip></div>
       <script type="application/json" data-hh-data>{json.dumps(data, separators=(",", ":"))}</script>
     </div>"""
@@ -905,6 +905,7 @@ def leaderboards(site: Site) -> str:
   <div class="wrap">
     <header class="ch-head ch-head--k"><span class="kicker lbx-k">Leaderboard {k + 1} of 2</span><h2>{E(name)}</h2>
       <p class="lbx-def">{E(line)}</p></header>
+    <p class="lbx-count">{E(medals.count_line(site, key))}</p>
     <div class="lbx" data-lbx><div class="lbx-tabs" role="tablist" aria-label="{E(name)}">{btns}</div>{panels}</div>
     {board_fold(site, key)}
   </div>

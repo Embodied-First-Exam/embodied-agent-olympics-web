@@ -1858,3 +1858,6 @@ td.hh-t .hh-p{font-size:16px}
   .lbx-how .tm-others{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (max-width:640px){.tm--ep .tm-sch{position:static;display:block;text-align:right;margin-top:8px}}
+/* what each board is based on: one small line directly above the board */
+.lbx-count{margin:2px 0 0;font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--fg-3)}
+.rs-tables .lbx-count{margin:-12px 0 16px}
