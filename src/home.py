@@ -812,9 +812,12 @@ def leaderboards(site: Site) -> str:
     """01 Leaderboards: one board per learning mode, Episodic Learning first (the Open Arena boards, code id arena), then
     Continuous Learning (the Olympics Championship medal table, code id championship). A one-line definition under each tab
     says what the agent keeps between matches. #episodic / #continuous (and the old #championship) open a tab."""
+    em = medals.episodic_medals(site)
+    em_line = f"{len(em['counted'])} of {len(em['counted']) + len(em['pending'])} boards complete"
     tabs = [("episodic", medals.EPISODIC, medals.EPISODIC_DEF, "Fresh workspace",
-             f'<div class="mt-head"><h3 class="rm-h">Win rate</h3><span class="mt-rule">All six models play every other on each sport&rsquo;s board. No medals.</span></div>'
-             f'<div class="mt-home">{medals.episodic_board(site)}</div>'),
+             f'<div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">{E(em_line)}</span>'
+             f'<span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>'
+             + medals.medal_switch(site, medals.episodic_medal_block(site), f'<div class="mt-home">{medals.episodic_board(site)}</div>')),
             ("continuous", medals.CONTINUOUS, medals.CONTINUOUS_DEF + ' <a class="jl" href="#season" data-jl>How it learns across a season</a>', "Olympics Championship · medals",
              f'<div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">{E(medals.status_line(site, "Provisional — fills in at release"))}</span>'
              f'<span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>'

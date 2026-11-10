@@ -230,7 +230,7 @@ def results(site: Site):
   <div class="rs-panels">
   <div class="panel" data-panel="medals"><p class="rp-note">{E(medals.CONTINUOUS_DEF)} The Olympics Championship&rsquo;s official medal standings, ranked by golds, then silvers, then bronzes. {E(medals.status_line(site, "Provisional — fills in at release."))}</p>{medals.medal_switch(site, story.medal_table_home(site) + medals.flag_foot(site))}</div>
   <div class="panel" data-panel="by-sport">{by_sport}</div>
-  <div class="panel is-on" data-panel="arena">{medals.arena_panel(site, boards)}</div>
+  <div class="panel is-on" data-panel="arena"><h3 class="rm-h">Medal table</h3>{medals.episodic_medal_block(site)}<h3 class="rm-h rs-boards-h">Every sport&rsquo;s board</h3>{medals.arena_panel(site, boards)}</div>
   </div>
 </div></section>"""
     return "leaderboard/", page(site, path="leaderboard/", title="Leaderboard", body=body)

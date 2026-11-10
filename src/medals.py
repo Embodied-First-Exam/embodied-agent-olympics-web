@@ -115,12 +115,13 @@ def win_rate_block(site: Site) -> str:
     return (f'{table}<p class="rp-note wr-note">Championship head-to-head matches; solo and race sports not included; no-shows excluded.</p>{det}')
 
 
-def medal_switch(site: Site, medal_html: str) -> str:
-    """Medals | Win rate toggle around a medal table (home medal section, leaderboard Championship tab)."""
+def medal_switch(site: Site, medal_html: str, win_html: str | None = None) -> str:
+    """Medals | Win rate toggle around a medal table (home medal sections, leaderboard tabs); the win-rate panel defaults
+    to the Championship's."""
     return (f'<div class="mw" data-mw><div class="mw-sw" role="group" aria-label="View">'
             '<button type="button" class="mw-b is-on" data-mw-v="medals" aria-pressed="true">Medals</button>'
             '<button type="button" class="mw-b" data-mw-v="win" aria-pressed="false">Win rate</button></div>'
-            f'<div data-mw-p="medals">{medal_html}</div><div data-mw-p="win" hidden>{win_rate_block(site)}</div></div>')
+            f'<div data-mw-p="medals">{medal_html}</div><div data-mw-p="win" hidden>{win_rate_block(site) if win_html is None else win_html}</div></div>')
 
 
 # ---------------------------------------------------------------- learning modes (display names; code ids stay championship / arena)
@@ -138,37 +139,29 @@ def mode_text(s: str) -> str:
 
 def episodic_board(site: Site) -> str:
     """The Episodic Learning board for the home page: win % per model over the fresh-workspace head-to-head matches
-    (results.json win_rate, scope arena) and how many of the per-sport boards each model tops (results.json open_arena)."""
+    (results.json win_rate, scope arena)."""
     from layout import model_logo  # noqa: PLC0415
     w = site.results.get("win_rate")
     if not w:
         return '<p class="rp-note">Results at release.</p>'
     by = {m["name"]: m for m in site.models}
-    oa = site.results.get("open_arena") or {}
-    tables = {k: b for k, b in oa.items() if isinstance(b, dict) and b.get("rows")}
-    led = {}
-    for b in tables.values():
-        for r in b["rows"]:
-            if r.get("rank") == 1:
-                led[r["model"]] = led.get(r["model"], 0) + 1
     rows = [r for r in (w["scopes"].get("arena") or []) if r["model"] in by]
     body = "".join(
         f'<tr><td class="mt-rank">{i + 1}</td><td><span class="mt-model"><i class="flag" style="--c:{E(by[r["model"]]["colour"])}"></i>'
         f'{model_logo(site, by[r["model"]])}<span class="mt-who"><strong>{E(model_name(r["model"]))}</strong>'
         f'<small>{E(by[r["model"]].get("harness", ""))} · {E(by[r["model"]].get("effort", ""))} effort</small></span></span></td>'
-        f'<td class="mt-n eb-led">{led.get(r["model"], 0)}<small> of {len(tables)}</small></td>'
         f'<td class="mt-n eb-wl">{r["won"]}–{r["lost"]}' + (f'–{r["drawn"]}' if r.get("drawn") else "") + '</td>'
         f'<td class="wr-pc"><span class="wr-cell"><span class="wr-bar"><i style="--c:{E(by[r["model"]]["colour"])};width:{r["pct"] or 0}%"></i></span>'
         f'<b>{"–" if r["pct"] is None else str(round(r["pct"])) + "%"}</b></span></td></tr>'
         for i, r in enumerate(rows))
-    head = '<tr><th>#</th><th>AI agent</th><th>Boards led</th><th>W–L</th><th>Win %</th></tr>'
+    head = '<tr><th>#</th><th>AI agent</th><th>W–L</th><th>Win %</th></tr>'
     lv = (w.get("level_decided") or {}).get("arena", 0)
     st = (site.results.get("open_arena_status") or {}).get("line")
     lb = site.url("leaderboard/")
     return (f'<div class="mt-wrap"><table class="mt mt--home wr eb">{f"<thead>{head}</thead>"}<tbody>{body}</tbody></table></div>'
             f'<p class="rp-note wr-note">Head-to-head matches of the {len(w.get("sports") or [])} duel and team-duel sports, official results; '
             f'win % = wins / matches played; {lv} matches level at full time count for the official winner (coin toss, lot, shoot-out or the '
-            f'sport\'s tie-break); no-shows left out. Boards led = sports whose round robin the model tops.'
+            f'sport\'s tie-break); no-shows left out.'
             + (f' {E(st)}.' if st else "") + f' <a class="link" href="{lb}#arena">Every sport\'s board →</a></p>')
 
 
@@ -206,3 +199,82 @@ def h2h_records(site: Site) -> dict:
                     level = int(win >= 0 and sc[a] == sc[b])
                     out.append([si, mode, idx[a], idx[b], win, level])
     return {"models": names, "sports": sports, "matches": out}
+
+
+# ---------------------------------------------------------------- Episodic Learning medal table (from results.json open_arena)
+
+EPISODIC_MEDAL_RULE = ("Medals = the top 3 of each sport's Episodic Learning board (Open Arena), in the board's official order: "
+                       "win 3, draw 1; ties by score difference, then head to head.")
+
+
+def episodic_medals(site: Site) -> dict:
+    """Gold / silver / bronze per model over the Episodic Learning boards, aggregated like the Championship medal table.
+    Per sport: the official rank of its fresh-workspace round-robin board (results.json open_arena rows, already ordered by
+    points, score difference, head to head); rank 1 / 2 / 3 -> gold / silver / bronze, a shared rank shares the medal, a
+    board with fewer than three ranked entrants gives fewer medals. Only complete boards count (an incomplete one is listed
+    as in progress). Sports without such a board (the solo sports, whose only board is their 3-match medal series with
+    the workspace carried over; drone racing; full-size racing) give no Episodic medals."""
+    oa = site.results.get("open_arena") or {}
+    names = [m["name"] for m in site.models]
+    tally = {n: {"gold": 0, "silver": 0, "bronze": 0} for n in names}
+    counted, pending, podiums, close = [], [], {}, []
+    for s in site.sports:
+        b = oa.get(s["id"])
+        if not isinstance(b, dict) or not b.get("rows"):
+            continue
+        if not b.get("complete"):
+            pending.append(s["id"])
+            continue
+        counted.append(s["id"])
+        rows = sorted(b["rows"], key=lambda r: r["rank"])
+        pod = {}
+        for r in rows:
+            k = {1: "gold", 2: "silver", 3: "bronze"}.get(r["rank"])
+            if k and r["model"] in tally:
+                tally[r["model"]][k] += 1
+                pod.setdefault(k, []).append(r["model"])
+        podiums[s["id"]] = pod
+        # medal places decided on a tie-break (equal points across a medal boundary): listed for review
+        for a, c in zip(rows, rows[1:]):
+            if a["points"] == c["points"] and a["rank"] <= 3:
+                close.append({"sport": s["id"], "ranks": [a["rank"], c["rank"]], "models": [a["model"], c["model"]], "points": a["points"],
+                              "diff": [a["score_for"] - a["score_against"], c["score_for"] - c["score_against"]]})
+    key = lambda n: (tally[n]["gold"], tally[n]["silver"], tally[n]["bronze"])  # noqa: E731
+    order = sorted(names, key=lambda n: tuple(-x for x in key(n)))
+    table = []
+    for i, n in enumerate(order):
+        rank = table[-1]["rank"] if table and key(order[i - 1]) == key(n) else i + 1
+        table.append({"model": n, **tally[n], "rank": rank})
+    no_board = [s["id"] for s in site.sports if s["id"] not in counted and s["id"] not in pending]
+    return {"table": table, "counted": counted, "pending": pending, "no_board": no_board, "podiums": podiums, "close": close}
+
+
+def medal_rows_html(site: Site, table: list) -> str:
+    """Rank · AI agent · Gold · Silver · Bronze, the home medal-table layout, for any list of {model, gold, silver, bronze, rank}."""
+    from layout import model_logo  # noqa: PLC0415
+    by = {m["name"]: m for m in site.models}
+    body = "".join(
+        f'<tr><td class="mt-rank">{r["rank"]}</td>'
+        f'<td><span class="mt-model"><i class="flag" style="--c:{E(by[r["model"]]["colour"])}"></i>{model_logo(site, by[r["model"]])}<span class="mt-who"><strong>{E(model_name(r["model"]))}</strong>'
+        f'<small>{E(by[r["model"]].get("harness", ""))} · {E(by[r["model"]].get("effort", ""))} effort</small></span></span></td>'
+        + "".join(f'<td class="mt-n">{r[c]}</td>' for c in ("gold", "silver", "bronze")) + "</tr>"
+        for r in table if r["model"] in by)
+    head = "".join(f"<th>{h}</th>" for h in ["Rank", "AI agent", '<i class="medal medal--g"></i>Gold',
+                                           '<i class="medal medal--s"></i>Silver', '<i class="medal medal--b"></i>Bronze'])
+    return f'<div class="mt-wrap"><table class="mt mt--home"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
+
+
+def episodic_medal_block(site: Site) -> str:
+    """The Episodic Learning medal table plus its one-line rule and what is not counted."""
+    em = episodic_medals(site)
+    names = {s["id"]: s["name"] for s in site.sports}
+    pend = ", ".join(names[x] for x in em["pending"])
+    solo_ids = {x for f in site.cfg["formats"] if f["id"] == "solo" for x in f["sports"]}
+    solo = ", ".join(names[x] for x in em["no_board"] if x in solo_ids)
+    other = ", ".join(names[x] for x in em["no_board"] if x not in solo_ids)
+    foot = (f'<p class="mt-foot em-foot">{E(EPISODIC_MEDAL_RULE)} Counts the {len(em["counted"])} complete boards'
+            + (f'; in progress: {E(pend)}' if pend else "") + '.'
+            + (f' {E(other)}: Olympics Championship only.' if other else "")
+            + (f' {E(solo)}: their one board is the three-match medal series, workspace carried over, so their medals are in the '
+               f'Continuous Learning table.' if solo else "") + '</p>')
+    return f'<div class="mt-home">{medal_rows_html(site, em["table"])}</div>{foot}'
