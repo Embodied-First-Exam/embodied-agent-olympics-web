@@ -3,9 +3,9 @@
  "sport": "drone",
  "key": "drone",
  "format": "race",
- "made": "2026-11-09T09:20Z",
+ "made": "2026-11-10T05:53Z",
  "status": "final",
- "provisional": true,
+ "provisional": false,
  "podium": {
   "gold": "Gemini 4 Argon",
   "silver": "GPT-6 Astra",

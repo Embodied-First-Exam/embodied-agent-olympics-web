@@ -3,9 +3,9 @@
  "sport": "racing",
  "key": "racing_full",
  "format": "race",
- "made": "2026-11-09T09:20Z",
+ "made": "2026-11-10T05:53Z",
  "status": "final",
- "provisional": true,
+ "provisional": false,
  "podium": {
   "gold": "GPT-6 Astra",
   "silver": "Gemini 4 Argon",
@@ -189,7 +189,7 @@
  "agents": {
   "per_model": {
    "Claude Opus 5.5": {
-    "championship_place": "4 (provisional: places 3:2 6:1)",
+    "championship_place": "4",
     "open_arena": "n/a",
     "matches": 3,
     "versions": 3,
@@ -206,7 +206,7 @@
     "median_prep_min": 57
    },
    "GPT-6 Astra": {
-    "championship_place": "1 (provisional: places 1:2 6:1)",
+    "championship_place": "1 (Gold)",
     "open_arena": "n/a",
     "matches": 3,
     "versions": 4,
@@ -223,7 +223,7 @@
     "median_prep_min": 57
    },
    "Gemini 4 Argon": {
-    "championship_place": "2 (provisional: places 2:3)",
+    "championship_place": "2 (Silver)",
     "open_arena": "n/a",
     "matches": 3,
     "versions": 3,
@@ -240,7 +240,7 @@
     "median_prep_min": 57
    },
    "Kimi 3.1 Pro": {
-    "championship_place": "6 (provisional: places 4:1 5:1 6:1)",
+    "championship_place": "6",
     "open_arena": "n/a",
     "matches": 3,
     "versions": 3,
@@ -257,7 +257,7 @@
     "median_prep_min": 57
    },
    "DeepSeek V4.1 Flash": {
-    "championship_place": "5 (provisional: places 3:1 4:1 5:1)",
+    "championship_place": "5",
     "open_arena": "n/a",
     "matches": 3,
     "versions": 3,
@@ -274,7 +274,7 @@
     "median_prep_min": 57
    },
    "GLM 5.3 Flash": {
-    "championship_place": "3 (provisional: places 1:1 4:1 5:1)",
+    "championship_place": "3 (Bronze)",
     "open_arena": "n/a",
     "matches": 3,
     "versions": 8,

@@ -3,9 +3,9 @@
  "sport": "tabletennis",
  "key": "tabletennis_g1",
  "format": "duel",
- "made": "2026-11-09T09:20Z",
+ "made": "2026-11-10T05:53Z",
  "status": "final",
- "provisional": true,
+ "provisional": false,
  "podium": {
   "gold": "GPT-6 Astra",
   "silver": "Gemini 4 Argon",
@@ -31,6 +31,7 @@
       "points": 15,
       "for": 44,
       "against": 19,
+      "diff": 25,
       "note": "5-0-0, score 44:19, 1 won by forfeit"
      },
      {
@@ -43,6 +44,7 @@
       "points": 9,
       "for": 44,
       "against": 32,
+      "diff": 12,
       "note": "3-0-2, score 44:32"
      },
      {
@@ -55,6 +57,7 @@
       "points": 9,
       "for": 46,
       "against": 40,
+      "diff": 6,
       "note": "3-0-2, score 46:40"
      },
      {
@@ -67,6 +70,7 @@
       "points": 9,
       "for": 39,
       "against": 36,
+      "diff": 3,
       "note": "3-0-2, score 39:36"
      },
      {
@@ -79,6 +83,7 @@
       "points": 3,
       "for": 33,
       "against": 47,
+      "diff": -14,
       "note": "1-0-4, score 33:47"
      },
      {
@@ -91,6 +96,7 @@
       "points": 0,
       "for": 8,
       "against": 40,
+      "diff": -32,
       "note": "0-0-5, score 8:40, 1 no-show"
      }
     ],
@@ -913,6 +919,7 @@
       "points": 15,
       "for": 53,
       "against": 17,
+      "diff": 36,
       "note": "5-0-0, score 53:17"
      },
      {
@@ -925,6 +932,7 @@
       "points": 12,
       "for": 46,
       "against": 15,
+      "diff": 31,
       "note": "4-0-1, score 46:15, 1 won by forfeit"
      },
      {
@@ -937,6 +945,7 @@
       "points": 6,
       "for": 26,
       "against": 11,
+      "diff": 15,
       "note": "2-0-3, score 26:11, 2 no-show"
      },
      {
@@ -949,6 +958,7 @@
       "points": 6,
       "for": 14,
       "against": 36,
+      "diff": -22,
       "note": "2-0-3, score 14:36"
      },
      {
@@ -961,6 +971,7 @@
       "points": 3,
       "for": 2,
       "against": 29,
+      "diff": -27,
       "note": "1-0-4, score 2:29, 1 won by forfeit"
      },
      {
@@ -973,6 +984,7 @@
       "points": 3,
       "for": 11,
       "against": 44,
+      "diff": -33,
       "note": "1-0-4, score 11:44"
      }
     ],

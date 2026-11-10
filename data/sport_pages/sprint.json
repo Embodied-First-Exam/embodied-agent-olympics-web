@@ -3,9 +3,9 @@
  "sport": "sprint",
  "key": "sprint_g1",
  "format": "solo",
- "made": "2026-11-09T09:20Z",
+ "made": "2026-11-10T05:53Z",
  "status": "final",
- "provisional": true,
+ "provisional": false,
  "podium": {
   "gold": "GPT-6 Astra",
   "silver": "Claude Opus 5.5",

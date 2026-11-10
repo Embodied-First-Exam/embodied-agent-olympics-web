@@ -3,9 +3,9 @@
  "sport": "javelin",
  "key": "javelin_g1",
  "format": "solo",
- "made": "2026-11-09T09:20Z",
+ "made": "2026-11-10T05:53Z",
  "status": "final",
- "provisional": true,
+ "provisional": false,
  "podium": {
   "gold": "GPT-6 Astra",
   "silver": "Gemini 4 Argon",

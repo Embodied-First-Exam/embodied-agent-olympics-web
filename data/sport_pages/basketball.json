@@ -3,9 +3,9 @@
  "sport": "basketball",
  "key": "basketball_g1",
  "format": "team",
- "made": "2026-11-09T09:20Z",
+ "made": "2026-11-10T05:53Z",
  "status": "final",
- "provisional": true,
+ "provisional": false,
  "podium": {
   "gold": "GPT-6 Astra",
   "silver": "Claude Opus 5.5",
@@ -31,6 +31,7 @@
       "points": 15,
       "for": 58,
       "against": 6,
+      "diff": 52,
       "note": "5-0-0, score 58:6"
      },
      {
@@ -43,6 +44,7 @@
       "points": 12,
       "for": 53,
       "against": 22,
+      "diff": 31,
       "note": "4-0-1, score 53:22"
      },
      {
@@ -55,6 +57,7 @@
       "points": 6,
       "for": 0,
       "against": 22,
+      "diff": -22,
       "note": "2-0-3, score 0:22"
      },
      {
@@ -67,6 +70,7 @@
       "points": 6,
       "for": 0,
       "against": 24,
+      "diff": -24,
       "note": "2-0-3, score 0:24"
      },
      {
@@ -79,6 +83,7 @@
       "points": 3,
       "for": 16,
       "against": 30,
+      "diff": -14,
       "note": "1-0-4, score 16:30, 1 no-show"
      },
      {
@@ -91,6 +96,7 @@
       "points": 3,
       "for": 0,
       "against": 23,
+      "diff": -23,
       "note": "1-0-4, score 0:23, 1 won by forfeit"
      }
     ],
@@ -913,6 +919,7 @@
       "points": 15,
       "for": 76,
       "against": 4,
+      "diff": 72,
       "note": "5-0-0, score 76:4"
      },
      {
@@ -925,6 +932,7 @@
       "points": 9,
       "for": 15,
       "against": 12,
+      "diff": 3,
       "note": "3-0-2, score 15:12, 1 won by forfeit"
      },
      {
@@ -937,6 +945,7 @@
       "points": 9,
       "for": 2,
       "against": 22,
+      "diff": -20,
       "note": "3-0-2, score 2:22, 1 won by forfeit"
      },
      {
@@ -949,6 +958,7 @@
       "points": 6,
       "for": 0,
       "against": 10,
+      "diff": -10,
       "note": "2-0-3, score 0:10, 1 won by forfeit, 1 no-show"
      },
      {
@@ -961,6 +971,7 @@
       "points": 3,
       "for": 0,
       "against": 10,
+      "diff": -10,
       "note": "1-0-4, score 0:10, 2 no-show"
      },
      {
@@ -973,6 +984,7 @@
       "points": 3,
       "for": 0,
       "against": 35,
+      "diff": -35,
       "note": "1-0-4, score 0:35"
      }
     ],

@@ -3,9 +3,9 @@
  "sport": "tennis",
  "key": "tennis_g1",
  "format": "duel",
- "made": "2026-11-09T09:20Z",
+ "made": "2026-11-10T05:53Z",
  "status": "final",
- "provisional": true,
+ "provisional": false,
  "podium": {
   "gold": "Kimi 3.1 Pro",
   "silver": "Gemini 4 Argon",
@@ -31,6 +31,7 @@
       "points": 15,
       "for": 34,
       "against": 20,
+      "diff": 14,
       "note": "5-0-0, score 34:20"
      },
      {
@@ -43,6 +44,7 @@
       "points": 9,
       "for": 36,
       "against": 24,
+      "diff": 12,
       "note": "3-0-2, score 36:24"
      },
      {
@@ -55,6 +57,7 @@
       "points": 9,
       "for": 42,
       "against": 34,
+      "diff": 8,
       "note": "3-0-2, score 42:34"
      },
      {
@@ -67,6 +70,7 @@
       "points": 9,
       "for": 29,
       "against": 27,
+      "diff": 2,
       "note": "3-0-2, score 29:27"
      },
      {
@@ -79,6 +83,7 @@
       "points": 3,
       "for": 8,
       "against": 27,
+      "diff": -19,
       "note": "1-0-4, score 8:27, 1 won by forfeit"
      },
      {
@@ -91,6 +96,7 @@
       "points": 0,
       "for": 1,
       "against": 18,
+      "diff": -17,
       "note": "0-0-5, score 1:18, 1 no-show"
      }
     ],
@@ -913,6 +919,7 @@
       "points": 15,
       "for": 34,
       "against": 17,
+      "diff": 17,
       "note": "5-0-0, score 34:17"
      },
      {
@@ -925,6 +932,7 @@
       "points": 9,
       "for": 28,
       "against": 15,
+      "diff": 13,
       "note": "3-0-2, score 28:15"
      },
      {
@@ -937,6 +945,7 @@
       "points": 9,
       "for": 18,
       "against": 18,
+      "diff": 0,
       "note": "3-0-2, score 18:18"
      },
      {
@@ -949,6 +958,7 @@
       "points": 6,
       "for": 7,
       "against": 13,
+      "diff": -6,
       "note": "2-0-3, score 7:13"
      },
      {
@@ -961,6 +971,7 @@
       "points": 6,
       "for": 14,
       "against": 23,
+      "diff": -9,
       "note": "2-0-3, score 14:23"
      },
      {
@@ -973,6 +984,7 @@
       "points": 0,
       "for": 1,
       "against": 16,
+      "diff": -15,
       "note": "0-0-5, score 1:16"
      }
     ],

@@ -3,9 +3,9 @@
  "sport": "baseball",
  "key": "baseball_g1",
  "format": "duel",
- "made": "2026-11-09T09:20Z",
+ "made": "2026-11-10T05:53Z",
  "status": "final",
- "provisional": true,
+ "provisional": false,
  "podium": {
   "gold": "GPT-6 Astra",
   "silver": "Claude Opus 5.5",
@@ -31,6 +31,7 @@
       "points": 15,
       "for": 32,
       "against": 2,
+      "diff": 30,
       "note": "5-0-0, score 32:2"
      },
      {
@@ -43,6 +44,7 @@
       "points": 12,
       "for": 33,
       "against": 4,
+      "diff": 29,
       "note": "4-0-1, score 33:4"
      },
      {
@@ -55,6 +57,7 @@
       "points": 6,
       "for": 8,
       "against": 16,
+      "diff": -8,
       "note": "2-0-3, score 8:16"
      },
      {
@@ -67,6 +70,7 @@
       "points": 6,
       "for": 27,
       "against": 39,
+      "diff": -12,
       "note": "2-0-3, score 27:39"
      },
      {
@@ -79,6 +83,7 @@
       "points": 3,
       "for": 6,
       "against": 24,
+      "diff": -18,
       "note": "1-0-4, score 6:24"
      },
      {
@@ -91,6 +96,7 @@
       "points": 3,
       "for": 24,
       "against": 45,
+      "diff": -21,
       "note": "1-0-4, score 24:45"
      }
     ],
@@ -909,6 +915,7 @@
       "points": 15,
       "for": 29,
       "against": 7,
+      "diff": 22,
       "note": "5-0-0, score 29:7"
      },
      {
@@ -921,6 +928,7 @@
       "points": 12,
       "for": 24,
       "against": 8,
+      "diff": 16,
       "note": "4-0-1, score 24:8"
      },
      {
@@ -933,6 +941,7 @@
       "points": 9,
       "for": 25,
       "against": 11,
+      "diff": 14,
       "note": "3-0-2, score 25:11"
      },
      {
@@ -945,6 +954,7 @@
       "points": 6,
       "for": 45,
       "against": 61,
+      "diff": -16,
       "note": "2-0-3, score 45:61"
      },
      {
@@ -957,6 +967,7 @@
       "points": 3,
       "for": 36,
       "against": 51,
+      "diff": -15,
       "note": "1-0-4, score 36:51"
      },
      {
@@ -969,6 +980,7 @@
       "points": 0,
       "for": 30,
       "against": 51,
+      "diff": -21,
       "note": "0-0-5, score 30:51"
      }
     ],
