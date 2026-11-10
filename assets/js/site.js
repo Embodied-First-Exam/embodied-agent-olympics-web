@@ -259,13 +259,6 @@
   if (location.hash) fromHash();
   addEventListener("hashchange", fromHash);
 
-  /* capability cards: hover shows the skills; a click (or tap) keeps them open */
-  $$("[data-cap]").forEach((b) => b.addEventListener("click", () => {
-    const open = !b.classList.contains("is-open");
-    $$("[data-cap]").forEach((x) => { x.classList.remove("is-open"); x.setAttribute("aria-expanded", "false"); });
-    b.classList.toggle("is-open", open); b.setAttribute("aria-expanded", open);
-  }));
-
   /* how medals are won (home): a chip opens its one-paragraph detail; without JS it links to the full diagram */
   const mchips = $$("[data-mchip]");
   mchips.forEach((c) => c.addEventListener("click", (e) => {

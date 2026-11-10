@@ -1158,19 +1158,23 @@
 .mc{display:grid;gap:6px;align-content:start;text-align:left;color:var(--fg)}
 .mc-img{position:relative;display:block;height:clamp(140px,calc((100svh - 330px) / 2),300px);border-radius:var(--r);overflow:hidden;background:#000;margin-bottom:6px}
 .mc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease),filter .5s}
-.mc--crop .mc-img img{transform:scale(1.3);transform-origin:50% 25%}
-.mc--build .mc-img img{filter:grayscale(1) brightness(.8)}
-.mc-grid{position:absolute;inset:0;opacity:0;pointer-events:none;
-  background:linear-gradient(rgba(120,190,255,.18) 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,rgba(120,190,255,.18) 1px,transparent 1px) 0 0/32px 32px}
-.mc--build .mc-grid{opacity:1}
 .mc-skills{position:absolute;inset:0;z-index:2;display:grid;align-content:end;padding:clamp(14px,1.6vw,22px);background:rgba(8,9,11,.82);
   opacity:0;transition:opacity .35s var(--ease)}
 .mc-skills li{padding:7px 0;border-top:1px solid rgba(255,255,255,.16);font-size:15px;color:#F2F1EC}
-.mc-plus{position:absolute;right:12px;top:12px;z-index:3;width:24px;height:24px;border-radius:50%;border:1px solid rgba(255,255,255,.45);transition:transform .3s var(--ease),background .3s}
-.mc-plus::before,.mc-plus::after{content:"";position:absolute;left:50%;top:50%;width:9px;height:1.5px;background:#fff;transform:translate(-50%,-50%)}
-.mc-plus::after{transform:translate(-50%,-50%) rotate(90deg)}
-.mc:hover .mc-skills,.mc:focus-visible .mc-skills,.mc.is-open .mc-skills{opacity:1}
-.mc:hover .mc-plus,.mc:focus-visible .mc-plus,.mc.is-open .mc-plus{transform:rotate(45deg);background:var(--accent);border-color:var(--accent)}
+.mc{cursor:pointer}
+/* the whole card opens that ability's film segment in a dialog (home.js) */
+.mc:hover .mc-skills,.mc:focus-visible .mc-skills{opacity:1}
+.mv{padding:0;border:0;background:transparent;max-width:min(1100px,94vw);width:100%;color:var(--fg)}
+.mv::backdrop{background:rgba(4,5,7,.8);backdrop-filter:blur(4px)}
+.mv-in{background:var(--bg-2);border:1px solid var(--hair);border-radius:16px;overflow:hidden}
+.mv-h{display:flex;align-items:center;gap:14px;padding:10px 12px 10px 18px;border-bottom:1px solid var(--hair)}
+.mv-h strong{font-size:15px;font-weight:600;flex:1;min-width:0}
+.mv-x{width:32px;height:32px;border-radius:50%;font-size:20px;line-height:1;color:var(--fg-2)}
+.mv-x:hover,.mv-x:focus-visible{background:var(--bg-3);color:var(--fg)}
+.mv-v{display:block;width:100%;aspect-ratio:16/9;max-height:74vh;background:#000;object-fit:contain}
+.mv-note{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;padding:9px 18px 11px;font-size:13px;color:var(--fg-2)}
+.mv-src{color:var(--fg-3)}
+@media (max-width:640px){.mv{max-width:100vw;margin:auto 0}.mv-in{border-radius:0;border-left:0;border-right:0}}
 .mc-name{font-weight:600;font-size:clamp(20px,1.7vw,26px);line-height:1.1;letter-spacing:-.02em}
 .mc-line{font-size:14.5px;line-height:1.4;color:var(--fg-2)}
 .ms-rel{display:flex;align-items:center;justify-content:center;gap:10px;margin:clamp(8px,1.4vh,14px) 0;font-size:13px;color:var(--fg-3);letter-spacing:.01em}
@@ -1187,7 +1191,6 @@
 @media (max-width:560px){.ms-cards{grid-template-columns:1fr}}
 .ms-lay{grid-template-columns:minmax(0,1.25fr) minmax(0,2fr)}
 .mc-img{height:clamp(140px,calc((100svh - 352px) / 2),290px)}
-.mc--crop .mc-img img{transform:none}
 @media (max-width:900px){.ms-lay{grid-template-columns:1fr}.mc-img{height:auto}}
 .ms-txt h2{text-wrap:balance}
 
@@ -1277,11 +1280,8 @@
   .mf-tabs{grid-template-columns:1fr 1fr}
 }
 .ms-lay{align-items:center}
-.mc--build .mc-img img{filter:none;object-position:28% 50%}
-.mc--build .mc-grid{opacity:.35}
 .pgs .g2-chart{height:clamp(110px,calc(100svh - 690px),230px)}
 .pgs .g2-panels{margin-top:10px}
-.mc--build .mc-img img{object-position:50% 45%}
 @media (max-width:900px){.pl-svg,.ml-svg{min-width:640px}}
 
 /* ================= 01 what we measure, round 8: four equal capabilities, two light groups, one loop */

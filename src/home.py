@@ -301,38 +301,57 @@ def chap_head(n: str, title: str, line: str = "", total: str = "04") -> str:
             f'{f"<p>{line}</p>" if line else ""}</header>')
 
 
-CAPS = [  # name, layer, still, card class, one line, skills (shown on hover / click only)
-    # TODO: the four stills below (third field) are PLACEHOLDERS. PLACEHOLDER image, to be replaced; candidates in /eo-web-preview/measure-candidates/, see handoff/pre_release_updates_1107.md
-    ("Physical", "sys", "tabletennis_g1", "", "Perceive, predict, and act in the physical world.",  # TODO: PLACEHOLDER image, to be replaced
+CAPS = [  # name, layer, media key (assets/media/eo/img/measure/<key>.jpg still = film frame, media/measure/<key>.mp4
+    #           = that ability's film segment), what the clip shows (button label), still alt text, one line, skills (hover / dialog)
+    ("Physical", "sys", "physical", "table tennis",
+     "A humanoid's bat meets the ball inside the contact point its program predicted; the predicted path is dashed yellow.",
+     "Perceive, predict, and act in the physical world.",
      ["State Estimation", "Prediction", "Execution", "Real-time Interaction"]),
-    ("Competitive", "sys", "soccer_hsl_3v3", "mc--crop", "Compete through strategy and interaction.",  # TODO: PLACEHOLDER image, to be replaced
+    ("Competitive", "sys", "competitive", "wheeled soccer and badminton",
+     "Wheeled soccer: the route of five passes and the shot that scores, drawn over the field.",
+     "Compete through strategy and interaction.",
      ["Strategy", "Opponent Modeling", "Collaboration"]),
-    ("Engineering", "build", "stuntcar_wave_wall", "mc--build", "Develop and validate effective systems.",  # TODO: PLACEHOLDER image, to be replaced
+    ("Engineering", "build", "engineering", "stunt car",
+     "Five versions of the agent's stunt-car program, v1 to v5, with the code lines it changed.",
+     "Develop and validate effective systems.",
      ["Development", "Testing", "Debugging"]),
-    ("Adaptive", "build", "drone_race_4", "", "Learn from feedback and improve continuously.",  # TODO: PLACEHOLDER image, to be replaced
+    ("Adaptive", "build", "adaptive", "American football",
+     "American football: the agent's humanoids get back up after falling, ringed in white.",
+     "Learn from feedback and improve continuously.",
      ["Feedback", "Continual Improvement"]),
 ]
+# media per card key, literal so tools/fetch_media.py --check sees them: still (film frame), clip, clip poster
+MEASURE_MEDIA = {
+    "physical": ("/eo/img/measure/physical.jpg", "/eo/media/measure/physical.mp4", "/eo/media/measure/physical_poster.jpg"),
+    "competitive": ("/eo/img/measure/competitive.jpg", "/eo/media/measure/competitive.mp4",
+                    "/eo/media/measure/competitive_poster.jpg"),
+    "engineering": ("/eo/img/measure/engineering.jpg", "/eo/media/measure/engineering.mp4",
+                    "/eo/media/measure/engineering_poster.jpg"),
+    "adaptive": ("/eo/img/measure/adaptive.jpg", "/eo/media/measure/adaptive.mp4", "/eo/media/measure/adaptive_poster.jpg"),
+}
 MEASURE_GROUPS = [("build", "How the Agent Builds It", ["Engineering", "Adaptive"]),
                   ("sys", "What the System Can Do", ["Physical", "Competitive"])]
 MEASURE_FLOW = ("builds and deploys the system", "match results and replays feed back")
 
 
 def measure(site: Site, clips: dict, variant: str = "a") -> str:
-    # TODO: card images are placeholders (PLACEHOLDER image, to be replaced; candidates in /eo-web-preview/measure-candidates/, see handoff/pre_release_updates_1107.md)
     """01 What we measure: four equal capabilities in two light groups, joined by a loop.
     A: 2 x 2 (agent group left, system group right) with the two flow arrows between the columns.
     B: one row of four, a thin bracket above each pair and the loop drawn under the row."""
     by = {c[0]: c for c in CAPS}
 
     def card(name):
-        _, _, cid, cls, line, subs = by[name]
-        c = clips.get(cid)
-        img = f'<img src="{E(c["poster"])}" alt="" loading="lazy">' if c else ""
+        _, _, key, what, alt, line, subs = by[name]
+        still, clip, poster = (site.murl(p) for p in MEASURE_MEDIA[key])
+        img = f'<img src="{E(still)}" alt="{E(alt)}" loading="lazy">' if still else ""
         skills = "".join(f"<li>{E(s)}</li>" for s in subs)
-        return (f'<button type="button" class="mc {cls}" data-cap aria-expanded="false">'
-                f'<span class="mc-img">{img}<span class="mc-grid"></span><ul class="mc-skills">{skills}</ul>'
-                f'<i class="mc-plus" aria-hidden="true"></i></span>'
-                f'<strong class="mc-name">{name}</strong><span class="mc-line">{E(line)}</span></button>')
+        lid = f"mc-{key}-line"
+        play = (f' data-mplay="{E(clip)}" data-poster="{E(poster or "")}"'
+                f' data-title="{E(name)} · {E(what)}" data-skills="{E(" · ".join(subs))}" aria-haspopup="dialog"'
+                f' aria-label="Play: {E(name)} — {E(what)}" aria-describedby="{lid}"') if clip else ""
+        return (f'<button type="button" class="mc"{play}>'
+                f'<span class="mc-img">{img}<ul class="mc-skills" aria-hidden="true">{skills}</ul></span>'
+                f'<strong class="mc-name">{name}</strong><span class="mc-line" id="{lid}">{E(line)}</span></button>')
     fwd, back = MEASURE_FLOW
     if variant == "b":
         groups = "".join(f'<div class="mb-g"><span class="mb-br kicker">{E(g)}</span><div class="mb-cards">{card(n1)}{card(n2)}</div></div>'
@@ -356,6 +375,13 @@ def measure(site: Site, clips: dict, variant: str = "a") -> str:
     {chap_head('03', 'What we measure.', 'We evaluate both the capabilities of the embodied system and the agent&rsquo;s ability to build and improve it.')}
     {body}
   </div>
+  <dialog class="mv" data-mv aria-label="Film segment">
+    <div class="mv-in">
+      <header class="mv-h"><strong data-mv-title></strong><button type="button" class="mv-x" data-mv-close aria-label="Close">×</button></header>
+      <video class="mv-v" controls playsinline preload="none" controlslist="nodownload" data-mv-video></video>
+      <p class="mv-note"><span data-mv-skills></span><span class="mv-src">From the Embodied Olympics film</span></p>
+    </div>
+  </dialog>
 </section>"""
 
 

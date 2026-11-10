@@ -7,6 +7,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const pad = (n) => String(Math.floor(n)).padStart(2, "0");
   const fmt = (t) => `${pad(t / 60)}:${pad(t % 60)}.${pad((t % 1) * 100)}`;
 
+  /* what we measure: a card opens that ability's film segment (its text is burned into the picture) in a dialog, sound
+     on (the click is the gesture). Nothing downloads before the click; closing (button, Esc, click outside) stops it
+     and drops the source. */
+  const mv = $("[data-mv]");
+  if (mv) {
+    const vid = $("[data-mv-video]", mv), ttl = $("[data-mv-title]", mv), sk = $("[data-mv-skills]", mv);
+    let opener = null;
+    const stop = () => { vid.pause(); vid.removeAttribute("src"); vid.removeAttribute("poster"); vid.load(); };
+    const open = (b) => {
+      opener = b; stop();
+      ttl.textContent = b.dataset.title || ""; sk.textContent = b.dataset.skills || "";
+      if (b.dataset.poster) vid.poster = b.dataset.poster;
+      vid.src = b.dataset.mplay; vid.muted = false;
+      if (mv.showModal) mv.showModal(); else mv.setAttribute("open", "");
+      vid.play().catch(() => {});
+    };
+    $$("[data-mplay]").forEach((b) => b.addEventListener("click", () => open(b)));
+    $("[data-mv-close]", mv).addEventListener("click", () => mv.close());
+    mv.addEventListener("click", (e) => { if (e.target === mv) mv.close(); });
+    mv.addEventListener("close", () => { stop(); if (opener) opener.focus(); });
+  }
+
   /* wordmark: CSS sizes it to the column (story.css). This only fine-tunes, after the fonts are ready, when the text is
      off by more than 2 % (e.g. a scrollbar or an older browser without container units); never before first paint. */
   const fit = () => $$("[data-fit]").forEach((el) => {
