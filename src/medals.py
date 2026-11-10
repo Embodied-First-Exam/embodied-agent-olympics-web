@@ -496,7 +496,7 @@ def exhibition_notice(site: Site, sid: str) -> str:
 
 CONTINUAL_BOARDS_ID = "continual-boards"  # the grid's anchor; the old "#by-sport" tab links land here too
 _DECIDED = {"coin_toss": "coin toss", "toss": "coin toss", "lot": "lot", "lots": "lot", "shootout": "penalties",
-            "pso": "penalties", "sudden_death": "sudden death", "walks": "tie-break", "chess_clock": "tie-break"}
+            "pso": "penalties", "sudden_death": "sudden death", "walks": "the sport's tie-break", "chess_clock": "the sport's tie-break"}
 _MEDAL_WORD = {1: ("g", "Gold"), 2: ("s", "Silver"), 3: ("b", "Bronze")}
 
 
@@ -507,20 +507,25 @@ def _sport_page(sid: str) -> dict:
 
 
 def _ko_line(m: dict | None, label: str, first: str | None, sid: str) -> str:
-    """One knockout match in one line, its winner's score first: 'Final · TEN2-F18 · 7:4'."""
+    """One knockout match in one line, both sides named, winner first:
+    'Final · GPT-6 Astra 7:6 Claude Opus 5.5', '... 0:0 ... · decided by lot', billiards 'A beat B · 0:5 balls left'."""
     if not m or m.get("status") not in (None, "resolved"):
         return ""
     db = (m.get("decided_by") or "").lower()
     sides = m.get("sides") or []
     a = next((s for s in sides if s.get("model") == (first or m.get("winner"))), sides[0] if sides else {})
     b = next((s for s in sides if s is not a), {})
+    wa, wb = E(model_name(a.get("model", ""))), E(model_name(b.get("model", "")))
+    sc = f'{a.get("score", "–")}:{b.get("score", "–")}'
     if db == "forfeit":
-        score = "forfeit"
+        txt = f"<b>{wa}</b> beat {wb} · forfeit"
+    elif sid == "billiards":
+        txt = f"<b>{wa}</b> beat {wb} · {sc} balls left"
     else:
-        score = f'{a.get("score", "–")}:{b.get("score", "–")}' + (" balls left" if sid == "billiards" else "")
-        if db in _DECIDED:
-            score += f", {_DECIDED[db]}"
-    return f'<p class="co-ko"><span>{E(label)}</span> · {E(m["id"])} · <b>{E(score)}</b></p>'
+        txt = f"<b>{wa}</b> <b class=co-sc>{sc}</b> {wb}"
+    if db in _DECIDED and db != "forfeit":
+        txt += f" · decided by {_DECIDED[db]}"
+    return f'<p class="co-ko"><span>{E(label)}</span> · {txt} <small class="co-id">{E(m["id"])}</small></p>'
 
 
 def _medal_label(rank) -> str:
@@ -564,7 +569,7 @@ def continual_panel(site: Site) -> str:
                 for k in ("gold", "silver", "bronze") if r.get(k) in by)
             fin = ((st.get("final") or {}).get("matches") or [None])[0]
             brz = ((st.get("bronze") or {}).get("matches") or [None])[0]
-            ko = _ko_line(fin, "Final", r.get("gold"), sid) + _ko_line(brz, "Bronze match", r.get("bronze"), sid)
+            ko = _ko_line(fin, "Final", r.get("gold"), sid) + _ko_line(brz, "Bronze", r.get("bronze"), sid)
             rr = sorted((st.get("round_robin") or {}).get("standings") or [], key=lambda x: x["rank"])
             table = ""
             if rr:
@@ -592,13 +597,19 @@ def continual_panel(site: Site) -> str:
                     for x in sorted(ch.get("ranking") or [], key=lambda x: x["rank"])]
             nr = max((len(x.get("places") or []) for x in fin.get("rows") or []), default=0)
             line = f"Time trial, two heats, then a four-drone final of {nr} races · fewer points is better"
-            body = _ranked_table("Final pts", rows) + (f'<p class="co-ko"><span>Final</span> · {E(fin["id"])}</p>' if fin.get("id") else "")
+            w = min(fin.get("rows") or [{}], key=lambda x: x.get("place", 99))
+            body = _ranked_table("Final pts", rows) + (
+                f'<p class="co-ko"><span>Final</span> · won by <b>{E(model_name(w["model"]))}</b>, {w["points"]} pts over {nr} races '
+                f'<small class="co-id">{E(fin.get("id", ""))}</small></p>' if w.get("model") else "")
             link, key = "Full results", "race"
         elif fmt == "race":  # full-size racing: points over the race series, ties by the last race
             rows = [(x["rank"], x["model"], format(x["points"], "g")) for x in sorted(ch.get("rows") or [], key=lambda x: x["rank"])]
             nr = len(ch.get("series") or [])
             line = f"{nr} races · F1 points for classified finishers · ties by the last race"
-            body = _ranked_table("Pts", rows)
+            top = min(ch.get("rows") or [{}], key=lambda x: x.get("rank", 99))
+            body = _ranked_table("Pts", rows) + (
+                f'<p class="co-ko"><span>Series</span> · won by <b>{E(model_name(top["model"]))}</b>, {format(top["points"], "g")} pts over {nr} races</p>'
+                if top.get("model") else "")
             link, key = "Full results", "race"
         else:
             continue
