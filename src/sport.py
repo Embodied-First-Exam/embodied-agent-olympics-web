@@ -765,7 +765,7 @@ def growth(site: Site, d: dict, perf_only: bool = False) -> str:
     # opponent switch (Chi 11-09): "All (mean)" = the main curve; one view per tested opponent tier, weakest first
     tiers = ck.get("tiers") or []
     fmt2 = lambda v: f"{v:.2f}".rstrip("0").rstrip(".") if v else "0"  # noqa: E731
-    views = [("all", "All (mean)", f'<p class="tv-cap">{E(ck["measure"])}</p>{perf}')]
+    views = [("all", "All (mean)", (perf if perf_only else f'<p class="tv-cap">{E(ck["measure"])}</p>{perf}'))]
     for tr in tiers:
         tl = {m: v for m, v in tr["lines"].items() if v}
         prog = (f'{tr["ok"]} of {tr["planned"]} replays done' if tr["ok"] < tr["planned"] else f'{tr["ok"]} replays')
@@ -781,13 +781,20 @@ def growth(site: Site, d: dict, perf_only: bool = False) -> str:
         panes = "".join(f'<div class="tv-p" data-tvp="{E(v)}"{"" if k == 0 else " hidden"}>{body}</div>' for k, (v, _, body) in enumerate(views))
         note = f'<p class="cr-rule tv-note">{E(ck["tier_note"])}</p>' if ck.get("tier_note") else ""
         perf_block = f'<div class="tv-row" role="group" aria-label="Opponent">{sw}</div>{panes}{note}'
-        mcap = "Score share (0.5 = even); pick the opponent"
+        mcap = "Score share against fixed practice opponents (0.5 = even); pick the opponent"
     else:
         perf_block, mcap = perf, ck["measure"]
+    if perf_only:
+        names = {"L1": "L1 (weak)", "L2": "L2 (middle)", "L3": "L3 (strong)", "PP": "the practice player (our strongest)"}
+        core = " and ".join(names.get(o["id"], o["id"]) for o in ck.get("opponents") or [])
+        foot = ((f"All (mean) averages {core}. " if core else "") +
+                f"{cnt.get('ok', 0)} of {cnt.get('planned', 0)} replays done.")
+    head_c = "" if perf_only else '<h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3>'
+    grid_c = "cgrid cgrid--one" if perf_only else "cgrid"
     return f"""
-<div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3>
+<div class="ab-c{' ab-c--solo' if perf_only else ''}" id="growth">{head_c}
   <div class="lg-row" data-lgs>{legend}</div>
-  <div class="cgrid" data-charts>
+  <div class="{grid_c}" data-charts>
     <figure class="cfig"><figcaption><strong>Performance growth</strong><span>{E(mcap)}</span></figcaption>{perf_block}</figure>
     {cap_h}
   </div>
@@ -806,13 +813,18 @@ def agents(site: Site, d: dict) -> str:
 </section>"""
 
 
+CKPT_LEDE = ("Continual Learning: the control program each model saved after every Olympics Championship match, "
+             "replayed with no model calls against our fixed practice opponents, shows whether the system itself got "
+             "stronger from match to match.")
+
+
 def checkpoint_only(site: Site, d: dict) -> str:
     """Chi 11-10: while 03/04 are hidden, keep the Checkpoint Evaluation performance chart (score share against the
     fixed practice opponents, with the opponent switch) as its own section."""
     return f"""
 <section class="band band--line sp-block" id="agents" data-snav="Checkpoints">
   <div class="wrap">
-    {head("03", "Checkpoint<br>Evaluation.")}
+    {head("03", "Checkpoint Evaluation.", CKPT_LEDE)}
     {growth(site, d, perf_only=True)}
   </div>
 </section>"""
