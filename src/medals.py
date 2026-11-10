@@ -48,10 +48,7 @@ def flag_foot(site: Site, full: bool = False) -> str:
             f'<a href="{lb}#by-sport">By sport →</a></p>')
 
 
-ARENA_NOTE = ("Episodic Learning: a fresh workspace every match; the agent keeps nothing between matches. An always-open "
-              "leaderboard, separate from the medal table; new agents can enter at any time. Round robin: win 3, draw 1; ties "
-              "by score difference. The rating (Bradley-Terry) is for reference. Drone racing and full-size racing run only in "
-              "the Olympics Championship (Continuous Learning); the four solo sports' three-run series are their medal events (By sport).")
+ARENA_SHORT = "Each board: round robin, win 3, draw 1; ties by score difference, then head to head. Rating (Bradley-Terry) for reference."
 
 
 def arena_panel(site: Site, fallback_boards: str) -> str:
@@ -63,7 +60,6 @@ def arena_panel(site: Site, fallback_boards: str) -> str:
                 'the medal table; new agents can enter at any time. Top three per sport. Drone racing, full-size '
                 f'racing and Humanoid Soccer · Team run only in the Olympics Championship.</p><div class="oagrid">{fallback_boards}</div>')
     from layout import icon  # noqa: PLC0415
-    st = site.results.get("open_arena_status") or {}
     cards = []
     for s in site.sports:
         b = oa.get(s["id"])
@@ -80,8 +76,7 @@ def arena_panel(site: Site, fallback_boards: str) -> str:
             f'<p class="oa-st">{E(b.get("status", ""))}{tag}</p>'
             '<table class="oa-tab"><thead><tr><th>#</th><th>Model</th><th>Pts</th><th>W-D-L</th><th>P</th><th>Rating</th>'
             f'</tr></thead><tbody>{rows}</tbody></table></div>')
-    upd = f' <span class="oa-upd">{E(st["line"])}</span>' if st.get("line") else ""
-    return f'<p class="rp-note">{E(ARENA_NOTE)}{upd}</p><div class="oagrid">{"".join(cards)}</div>'
+    return f'<p class="rp-note wr-note">{E(ARENA_SHORT)}</p><div class="oagrid">{"".join(cards)}</div>'
 
 
 # ---------------------------------------------------------------- win rate (results.json win_rate, from medals_sync.py)
@@ -130,6 +125,10 @@ EPISODIC, CONTINUOUS = "Episodic Learning", "Continuous Learning"
 EPISODIC_DEF = "A fresh workspace every match: the agent keeps nothing between matches."
 CONTINUOUS_DEF = ("One workspace kept across the season: programs, weights, notes and match videos carry into every next "
                   "match of the Olympics Championship.")
+# the one line under each leaderboard heading (home and Leaderboard page): board · what the agent keeps
+EPISODIC_LINE = "Open Arena boards · a fresh workspace every match."
+CONTINUOUS_LINE = "Olympics Championship · programs, weights and notes carry into every next match."
+NOT_H2H = "Duel and team-duel sports only: solo sports, drone and racing have no head-to-head matches."
 
 
 def mode_text(s: str) -> str:
@@ -155,23 +154,8 @@ def mode_win_table(site: Site, scope: str = "arena") -> str:
         f'<b>{"–" if r["pct"] is None else str(round(r["pct"])) + "%"}</b></span></td></tr>'
         for i, r in enumerate(rows))
     head = '<tr><th>#</th><th>AI agent</th><th>W–L</th><th>Win %</th></tr>'
-    lv = (w.get("level_decided") or {}).get(scope, 0)
-    n_ff = len([f for f in w.get("forfeits") or [] if f.get("scope") == scope])
-    lb = site.url("leaderboard/")
-    if scope == "arena":
-        what = f'Open Arena matches of the {len(w.get("sports") or [])} duel and team-duel sports (round robin)'
-        out = ('Not included: the four solo sports (their one board is the three-match medal series, scored on their own measure, '
-               'with no head-to-head matches), drone racing and full-size racing (Olympics Championship only).')
-        link = f' <a class="link" href="{lb}#arena">Every sport\'s board →</a>'
-    else:
-        what = f'Olympics Championship matches of the {len(w.get("sports") or [])} duel and team-duel sports (round robin and knockout)'
-        out = ('Not included: the four solo sports, drone racing and full-size racing, whose medals come from three-match series, '
-               'heats and races.')
-        link = f' <a class="link" href="{lb}#by-sport">Medals by sport →</a>'
     return (f'<div class="mt-wrap"><table class="mt mt--home wr eb"><thead>{head}</thead><tbody>{body}</tbody></table></div>'
-            f'<p class="rp-note wr-note">{what}, official results; win % = wins / matches played. {lv} matches level at full time count '
-            f'for the official winner (coin toss, lot, shoot-out or the sport\'s tie-break). {n_ff} no-shows and matches a side did not '
-            f'finish are left out for both sides. {out}{link}</p>')
+            f'<p class="rp-note wr-note">{E(NOT_H2H)}</p>')
 
 
 def episodic_board(site: Site) -> str:
@@ -278,16 +262,5 @@ def medal_rows_html(site: Site, table: list) -> str:
 
 
 def episodic_medal_block(site: Site) -> str:
-    """The Episodic Learning medal table plus its one-line rule and what is not counted."""
-    em = episodic_medals(site)
-    names = {s["id"]: s["name"] for s in site.sports}
-    pend = ", ".join(names[x] for x in em["pending"])
-    solo_ids = {x for f in site.cfg["formats"] if f["id"] == "solo" for x in f["sports"]}
-    solo = ", ".join(names[x] for x in em["no_board"] if x in solo_ids)
-    other = ", ".join(names[x] for x in em["no_board"] if x not in solo_ids)
-    foot = (f'<p class="mt-foot em-foot">{E(EPISODIC_MEDAL_RULE)} Counts the {len(em["counted"])} complete boards'
-            + (f'; in progress: {E(pend)}' if pend else "") + '.'
-            + (f' {E(other)}: Olympics Championship only.' if other else "")
-            + (f' {E(solo)}: their one board is the three-match medal series, workspace carried over, so their medals are in the '
-               f'Continuous Learning table.' if solo else "") + '</p>')
-    return f'<div class="mt-home">{medal_rows_html(site, em["table"])}</div>{foot}'
+    """The Episodic Learning medal table (rule: medals.episodic_medals)."""
+    return f'<div class="mt-home">{medal_rows_html(site, episodic_medals(site)["table"])}</div>'

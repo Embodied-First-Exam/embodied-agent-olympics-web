@@ -1819,3 +1819,8 @@ td.hh-t .hh-p{font-size:16px}
   .lbx .mt--home .mt-model{gap:10px}
   .lbx .tag{white-space:normal;height:auto;line-height:1.4;padding-top:3px;padding-bottom:3px}
 }
+/* 11-10 (Chi): homepage text runs the full content column; one-liners stay on one line at desktop width */
+.pg .ch-head p,.pg .ch-head .ch-lede,.pg .pl-lede,.pg .lc-sub p,.pg .tl-eng,.pg .pg2-p,.pg .rp-note,.pg .wr-note,.pg .hh-cap,.pg .mt-flags,
+.pg .mt-foot,.pg .g2-note,.lbx-def,.rs-tables .rp-note{max-width:none!important}
+.lbx-def{color:var(--fg-2);font-size:clamp(16px,1.3vw,19px)!important;margin-top:12px!important}
+.pg .hh-cap,.pg .wr-note,.rs-tables .wr-note{margin-top:10px;font-size:13px;color:var(--fg-3)}

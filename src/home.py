@@ -851,17 +851,13 @@ def h2h_matrix(site: Site, d: dict, order: list, mode: int, key: str) -> str:
     sel = "".join(f'<option value="{k}">{E(s["name"])}</option>' for k, s in enumerate(d["sports"]))
     name = medals.EPISODIC if mode == 0 else medals.CONTINUOUS
     data = {"names": [model_name(m) for m in ms], "sports": [s["name"] for s in d["sports"]], "m": recs, "mode": name}
-    board = "Open Arena boards (round robin)" if mode == 0 else "Olympics Championship (round robin and knockout)"
     return f"""<div class="hh" data-hh-root>
-      <div class="hh-ctl"><label class="hh-sel"><span>Sport</span><select data-hh-sport aria-label="Sport"><option value="-1">All {len(d["sports"])} sports</option>{sel}</select></label>
-        <span class="mt-rule">How often each model beat each other model: {E(board)}.</span></div>
+      <div class="hh-ctl"><label class="hh-sel"><span>Sport</span><select data-hh-sport aria-label="Sport"><option value="-1">All {len(d["sports"])} sports</option>{sel}</select></label></div>
       <div class="hh-scroll"><table class="hh-tab"><caption class="sr">{E(name)}: win rate of each row model against each column model</caption>
         <thead><tr><th class="hh-corner"><span>Model</span><span>v opponent</span></th>{head}<th class="hh-th-t">All opponents</th></tr></thead>
         <tbody>{rows}</tbody></table></div>
       <div class="hh-key" aria-hidden="true"><span>0%</span><i class="hh-ramp"></i><span>100%</span><em>row model&rsquo;s win %</em></div>
-      <p class="rp-note hh-cap">Each cell: the row model&rsquo;s win % against the column model, then wins–losses (matches), over the {len(d["sports"])} duel and team-duel sports.
-        Official results, as in the win-rate table: a match level at full time and decided by coin toss, lot, shoot-out or the sport&rsquo;s tie-break counts as a win
-        for the official winner. No-shows and matches a side did not finish are left out. Solo and race sports have no head-to-head matches.</p>
+      <p class="rp-note hh-cap">Cell: the row model&rsquo;s win % and wins–losses (matches) against the column model. {E(medals.NOT_H2H)}</p>
       <div class="hh-tip" role="tooltip" hidden data-hh-tip></div>
       <script type="application/json" data-hh-data>{json.dumps(data, separators=(",", ":"))}</script>
     </div>"""
@@ -879,40 +875,30 @@ def leaderboards(site: Site) -> str:
             tot[e][1] += 1
             tot[e][0] += w == e
     order = sorted(range(n), key=lambda i: -(tot[i][0] / tot[i][1] if tot[i][1] else 0))
-    em = medals.episodic_medals(site)
-    oa_st = (site.results.get("open_arena_status") or {}).get("line") or f"{len(em['counted'])} boards"
     sections = [
-        ("episodic", medals.EPISODIC, medals.EPISODIC_DEF,
-         "Open Arena boards: in each duel and team-duel sport every model plays every other once, always from an empty workspace. No knockout.",
-         [("medals", "Medals", f'<div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag">{E(oa_st)}</span>'
-                               f'<span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>' + medals.episodic_medal_block(site)),
+        ("episodic", medals.EPISODIC, medals.EPISODIC_LINE,
+         [("medals", "Medals", medals.episodic_medal_block(site)),
           ("win", "Win rate", f'<div class="mt-home">{medals.episodic_board(site)}</div>'),
           ("h2h", "Head-to-head", h2h_matrix(site, d, order, 0, "episodic"))]),
-        ("continuous", medals.CONTINUOUS, medals.CONTINUOUS_DEF + ' <a class="jl" href="#season" data-jl>How it learns across a season</a>',
-         "Olympics Championship: six models, one season, 18 sports; round robin, then semifinals, final and bronze; medals.",
-         [("medals", "Medals", f'<div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag{"" if not (site.results.get("status") or {}).get("provisional") else " tag--pending"}">'
-                               f'{E(medals.status_line(site, "Provisional — fills in at release"))}</span>'
-                               f'<span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>'
-                               f'<div class="mt-home">{medal_table_home(site)}</div>' + medals.flag_foot(site)),
+        ("continuous", medals.CONTINUOUS, medals.CONTINUOUS_LINE,
+         [("medals", "Medals", f'<div class="mt-home">{medal_table_home(site)}</div>' + medals.flag_foot(site)),
           ("win", "Win rate", f'<div class="mt-home">{medals.mode_win_table(site, "championship")}</div>'),
           ("h2h", "Head-to-head", h2h_matrix(site, d, order, 1, "continuous"))]),
     ]
     out = []
-    for k, (key, name, definition, board, tabs) in enumerate(sections):
+    for k, (key, name, line, tabs) in enumerate(sections):
         btns = "".join(f'<button type="button" role="tab" class="lbx-tab{" is-on" if i == 0 else ""}" id="lbt-{key}-{t}" data-lbx-tab="{t}" '
                        f'aria-selected="{str(i == 0).lower()}" aria-controls="lbp-{key}-{t}"{"" if i == 0 else " tabindex=-1"}>{E(label)}</button>'
                        for i, (t, label, _) in enumerate(tabs))
         panels = "".join(f'<div class="lbx-p{" is-on" if i == 0 else ""}" role="tabpanel" id="lbp-{key}-{t}" aria-labelledby="lbt-{key}-{t}" data-lbx-p="{t}">'
                          f'<h4 class="lbx-nojs">{E(label)}</h4>{body}</div>' for i, (t, label, body) in enumerate(tabs))
         anchor = '<span class="anchor" id="championship"></span><span class="anchor" id="leaderboards"></span>' if key == "continuous" else ""
-        lede = (f'<p class="ch-lede lbx-lede">Six AI agents compete across {len(site.sports)} sports in two learning modes, each with its own leaderboard.</p>'
-                if k == 0 else "")
         out.append(f"""
 <section class="{"chap " if k == 0 else ""}pg pgr2 pglb" data-inview id="{key}" data-snav="{E(name)}">
   {anchor}
   <div class="wrap">
-    <header class="ch-head ch-head--k"><span class="kicker lbx-k">Leaderboard {k + 1} of 2</span><h2>{E(name)}</h2>{lede}
-      <p class="lbx-def">{definition}</p><p class="lbx-board">{E(board)}</p></header>
+    <header class="ch-head ch-head--k"><span class="kicker lbx-k">Leaderboard {k + 1} of 2</span><h2>{E(name)}</h2>
+      <p class="lbx-def">{E(line)}</p></header>
     <div class="lbx" data-lbx><div class="lbx-tabs" role="tablist" aria-label="{E(name)}">{btns}</div>{panels}</div>
   </div>
 </section>""")
