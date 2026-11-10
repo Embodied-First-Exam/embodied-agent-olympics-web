@@ -218,7 +218,7 @@ def overview(site: Site, s: dict, d: dict) -> str:
 <section class="shero sp-hero" id="overview">
   <div class="shero-media">{media}</div><div class="shero-shade"></div>
   <div class="wrap shero-crumb"><a class="crumb" href="{site.url('sports/')}">← All sports</a></div>
-  <div class="wrap shero-in"><span class="sp-n">01<i>/{"04" if SHOW_03_04 else "02"}</i> · Overview</span>{icon(s['id'], 'pic pic--xl')}<h1 class="display">{E(s['name'])}</h1>
+  <div class="wrap shero-in"><span class="sp-n">01<i>/{"04" if SHOW_03_04 else "03"}</i> · Overview</span>{icon(s['id'], 'pic pic--xl')}<h1 class="display">{E(s['name'])}</h1>
     <p class="shero-pitch">{E(s['pitch'])}</p></div>
   {tag}
 </section>
@@ -265,13 +265,13 @@ SHOW_03_04 = False   # Chi 11-10: off until revised
 
 
 def subnav(site: Site) -> str:
-    items = [("overview", "Overview"), ("records", "Records")] + ([("capabilities", "Capabilities"), ("agents", "Agents")] if SHOW_03_04 else [])
+    items = [("overview", "Overview"), ("records", "Records")] + ([("capabilities", "Capabilities"), ("agents", "Agents")] if SHOW_03_04 else [("agents", "Checkpoints")])
     return ('<nav class="sp-sub" aria-label="On this page" data-spnav><div class="wrap">'
             + "".join(f'<a href="#{k}" data-spnav-a="{k}">{v}</a>' for k, v in items) + "</div></nav>")
 
 
 def head(n: str, title: str, lede: str = "", extra: str = "") -> str:
-    return (f'<header class="ch-head sp-head"><span class="ch-n">{n}<i>/{"04" if SHOW_03_04 else "02"}</i></span><h2>{title}</h2>'
+    return (f'<header class="ch-head sp-head"><span class="ch-n">{n}<i>/{"04" if SHOW_03_04 else "03"}</i></span><h2>{title}</h2>'
             f'{f"<p>{E(lede)}</p>" if lede else ""}{extra}</header>')
 
 
@@ -714,7 +714,7 @@ def _chart(site: Site, lines: dict, key: str, ymax: float, ref: float | None, yl
             f'<text x="{(L + W - R) / 2:.0f}" y="{H - 4}" class="ct ct-x" text-anchor="middle">Program saved after match n</text></svg>')
 
 
-def growth(site: Site, d: dict) -> str:
+def growth(site: Site, d: dict, perf_only: bool = False) -> str:
     ck = (d.get("agents") or {}).get("checkpoint")
     if not ck:
         return '<div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3><p class="cr-rule">Curves at release.</p></div>'
@@ -760,6 +760,8 @@ def growth(site: Site, d: dict) -> str:
             f"{cnt.get('ok', 0)} of {cnt.get('planned', 0)} replays done.")
     cap_h = (f'<figure class="cfig"><figcaption><strong>Capability growth</strong><span>Card capabilities passed, of {cap.get("n")}</span></figcaption>{capc}</figure>'
              if capc else "")
+    if perf_only:
+        cap_h = ""
     # opponent switch (Chi 11-09): "All (mean)" = the main curve; one view per tested opponent tier, weakest first
     tiers = ck.get("tiers") or []
     fmt2 = lambda v: f"{v:.2f}".rstrip("0").rstrip(".") if v else "0"  # noqa: E731
@@ -804,6 +806,18 @@ def agents(site: Site, d: dict) -> str:
 </section>"""
 
 
+def checkpoint_only(site: Site, d: dict) -> str:
+    """Chi 11-10: while 03/04 are hidden, keep the Checkpoint Evaluation performance chart (score share against the
+    fixed practice opponents, with the opponent switch) as its own section."""
+    return f"""
+<section class="band band--line sp-block" id="agents" data-snav="Checkpoints">
+  <div class="wrap">
+    {head("03", "Checkpoint<br>Evaluation.")}
+    {growth(site, d, perf_only=True)}
+  </div>
+</section>"""
+
+
 # ---------------------------------------------------------------- page
 def render(site: Site, i: int, d: dict):
     s = site.sports[i]
@@ -811,7 +825,7 @@ def render(site: Site, i: int, d: dict):
     # Chi 11-10: sections 03 (What it tests) and 04 (Agent performance and growth) hidden until he revises them;
     # set SHOW_03_04 = True to bring them back.
     body = (overview(site, s, d) + subnav(site) + records(site, d)
-            + ((capabilities(site, s, d) + agents(site, d)) if SHOW_03_04 else "")
+            + ((capabilities(site, s, d) + agents(site, d)) if SHOW_03_04 else checkpoint_only(site, d))
             + f"""
 <nav class="wrap prevnext" aria-label="More sports">
   <a href="{site.sport_url(prev_s)}"><span>←</span>{icon(prev_s['id'])}<strong>{E(prev_s['name'])}</strong></a>
