@@ -301,7 +301,7 @@ def chap_head(n: str, title: str, line: str = "", total: str = "04") -> str:
             f'{f"<p>{line}</p>" if line else ""}</header>')
 
 
-CAPS = [  # name, layer, media key (assets/media/eo/img/measure/<key>.jpg still = film frame, media/measure/<key>.mp4 + .vtt
+CAPS = [  # name, layer, media key (assets/media/eo/img/measure/<key>.jpg still = film frame, media/measure/<key>.mp4
     #           = that ability's film segment), what the clip shows (button label), still alt text, one line, skills (hover / dialog)
     ("Physical", "sys", "physical", "table tennis",
      "A humanoid's bat meets the ball inside the contact point its program predicted; the predicted path is dashed yellow.",
@@ -320,16 +320,14 @@ CAPS = [  # name, layer, media key (assets/media/eo/img/measure/<key>.jpg still 
      "Learn from feedback and improve continuously.",
      ["Feedback", "Continual Improvement"]),
 ]
-# media per card key, literal so tools/fetch_media.py --check sees them: still (film frame), clip, captions, clip poster
+# media per card key, literal so tools/fetch_media.py --check sees them: still (film frame), clip, clip poster
 MEASURE_MEDIA = {
-    "physical": ("/eo/img/measure/physical.jpg", "/eo/media/measure/physical.mp4",
-                 "/eo/media/measure/physical.vtt", "/eo/media/measure/physical_poster.jpg"),
+    "physical": ("/eo/img/measure/physical.jpg", "/eo/media/measure/physical.mp4", "/eo/media/measure/physical_poster.jpg"),
     "competitive": ("/eo/img/measure/competitive.jpg", "/eo/media/measure/competitive.mp4",
-                    "/eo/media/measure/competitive.vtt", "/eo/media/measure/competitive_poster.jpg"),
+                    "/eo/media/measure/competitive_poster.jpg"),
     "engineering": ("/eo/img/measure/engineering.jpg", "/eo/media/measure/engineering.mp4",
-                    "/eo/media/measure/engineering.vtt", "/eo/media/measure/engineering_poster.jpg"),
-    "adaptive": ("/eo/img/measure/adaptive.jpg", "/eo/media/measure/adaptive.mp4",
-                 "/eo/media/measure/adaptive.vtt", "/eo/media/measure/adaptive_poster.jpg"),
+                    "/eo/media/measure/engineering_poster.jpg"),
+    "adaptive": ("/eo/img/measure/adaptive.jpg", "/eo/media/measure/adaptive.mp4", "/eo/media/measure/adaptive_poster.jpg"),
 }
 MEASURE_GROUPS = [("build", "How the Agent Builds It", ["Engineering", "Adaptive"]),
                   ("sys", "What the System Can Do", ["Physical", "Competitive"])]
@@ -344,16 +342,15 @@ def measure(site: Site, clips: dict, variant: str = "a") -> str:
 
     def card(name):
         _, _, key, what, alt, line, subs = by[name]
-        still, clip, vtt, poster = (site.murl(p) for p in MEASURE_MEDIA[key])
+        still, clip, poster = (site.murl(p) for p in MEASURE_MEDIA[key])
         img = f'<img src="{E(still)}" alt="{E(alt)}" loading="lazy">' if still else ""
         skills = "".join(f"<li>{E(s)}</li>" for s in subs)
         lid = f"mc-{key}-line"
-        play = (f' data-mplay="{E(clip)}" data-vtt="{E(vtt or "")}" data-poster="{E(poster or "")}"'
+        play = (f' data-mplay="{E(clip)}" data-poster="{E(poster or "")}"'
                 f' data-title="{E(name)} · {E(what)}" data-skills="{E(" · ".join(subs))}" aria-haspopup="dialog"'
                 f' aria-label="Play: {E(name)} — {E(what)}" aria-describedby="{lid}"') if clip else ""
         return (f'<button type="button" class="mc"{play}>'
-                f'<span class="mc-img">{img}<ul class="mc-skills" aria-hidden="true">{skills}</ul>'
-                f'<i class="mc-play" aria-hidden="true"></i></span>'
+                f'<span class="mc-img">{img}<ul class="mc-skills" aria-hidden="true">{skills}</ul></span>'
                 f'<strong class="mc-name">{name}</strong><span class="mc-line" id="{lid}">{E(line)}</span></button>')
     fwd, back = MEASURE_FLOW
     if variant == "b":
