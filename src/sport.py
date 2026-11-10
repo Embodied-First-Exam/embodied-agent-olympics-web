@@ -288,7 +288,9 @@ def podium(site: Site, d: dict) -> str:
 
 
 def _mark(m: dict) -> str:
-    """P = penalty shoot-out, T = coin toss or lot, F = forfeit / no-show, TB = the sport's other tie-break."""
+    """P = penalty shoot-out, T = coin toss or lot, F = forfeit / no-show, R = a side resigned during the match,
+    C = a side ran out of its chess clock,
+    TB = the sport's other tie-break."""
     db = (m.get("decided_by") or "").lower()
     if db in ("shootout", "sudden_death", "pso"):
         return "P"
@@ -296,12 +298,18 @@ def _mark(m: dict) -> str:
         return "T"
     if db == "forfeit" or (m.get("note") or "").startswith("Forfeit"):
         return "F"
+    if db == "resigned":
+        return "R"
+    if db == "clock":
+        return "C"
     if db in ("walks", "chess_clock"):
         return "TB"
     return ""
 
 
 MARK_WORDS = {"P": "won on penalties (shoot-out)", "T": "decided by coin toss or lot", "F": "forfeit: one side did not start",
+              "R": "won by resignation: the other side resigned during the match",
+              "C": "won on time: the other side ran out of its clock",
               "TB": "level, decided by the sport's tie-break rule"}
 
 
@@ -358,7 +366,7 @@ def cross_table(site: Site, rr: dict, anchor: str = "m") -> str:
         body.append("".join(row))
     legend = ('<span><b class="xt-k xt-w">W</b>row model won</span><span><b class="xt-k xt-l">L</b>row model lost</span>'
               '<span><b class="xt-k xt-d">D</b>draw</span><span><b class="xt-k xt-p">–</b>not played yet</span>'
-              + "".join(f'<span><b class="xt-k">·{k}</b>{MARK_WORDS[k]}</span>' for k in ("P", "T", "F", "TB") if k in used)
+              + "".join(f'<span><b class="xt-k">·{k}</b>{MARK_WORDS[k]}</span>' for k in ("P", "T", "F", "R", "C", "TB") if k in used)
               + '<span>Score: row model first</span>')
     return (f'<div class="xt-wrap"><div class="xt" style="--n:{len(ms)}"><span class="xt-corner"></span>{hdr}'
             f'{"".join(body)}</div></div><p class="xt-legend">{legend}</p>')

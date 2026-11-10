@@ -1083,8 +1083,8 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "GLM 5.3 Flash ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1191,8 +1191,8 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "Gemini 4 Argon ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1371,8 +1371,8 @@
        }
       ],
       "winner": "DeepSeek V4.1 Flash",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "Gemini 4 Argon ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",

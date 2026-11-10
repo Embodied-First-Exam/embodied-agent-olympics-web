@@ -523,6 +523,7 @@ def _ko_line(m: dict | None, label: str, first: str | None, sid: str) -> str:
         txt = f"<b>{wa}</b> beat {wb} · {sc} balls left"
     else:
         txt = f"<b>{wa}</b> <b class=co-sc>{sc}</b> {wb}"
+    txt += {"resigned": f" · {wb} resigned", "clock": f" · {wb} ran out of its clock"}.get(db, "")
     if db in _DECIDED and db != "forfeit":
         txt += f" · decided by {_DECIDED[db]}"
     return f'<p class="co-ko"><span>{E(label)}</span> · {txt} <small class="co-id">{E(m["id"])}</small></p>'

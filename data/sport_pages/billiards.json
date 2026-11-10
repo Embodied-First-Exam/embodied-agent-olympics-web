@@ -3,7 +3,7 @@
  "sport": "billiards",
  "key": "billiards_g1",
  "format": "duel",
- "made": "2026-11-10T14:23Z",
+ "made": "2026-11-10T18:20Z",
  "status": "final",
  "provisional": false,
  "podium": {
@@ -124,8 +124,8 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "resigned",
+      "note": "DeepSeek V4.1 Flash resigned during the match",
       "shootout": null,
       "replay": {
        "kind": "full",
@@ -198,8 +198,8 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "GLM 5.3 Flash ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "full",
@@ -377,8 +377,8 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "resigned",
+      "note": "DeepSeek V4.1 Flash resigned during the match",
       "shootout": null,
       "replay": {
        "kind": "full",
@@ -682,8 +682,8 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "resigned",
+      "note": "DeepSeek V4.1 Flash resigned during the match",
       "shootout": null,
       "replay": {
        "kind": "full",
@@ -826,8 +826,8 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "resigned",
+      "note": "DeepSeek V4.1 Flash resigned during the match",
       "shootout": null,
       "replay": {
        "kind": "full",
@@ -1036,8 +1036,8 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "GLM 5.3 Flash ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1108,8 +1108,8 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "Gemini 4 Argon ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1252,8 +1252,8 @@
        }
       ],
       "winner": "DeepSeek V4.1 Flash",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "Gemini 4 Argon ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1288,8 +1288,8 @@
        }
       ],
       "winner": "Kimi 3.1 Pro",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "Gemini 4 Argon ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1324,8 +1324,8 @@
        }
       ],
       "winner": "DeepSeek V4.1 Flash",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "GLM 5.3 Flash ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1360,8 +1360,8 @@
        }
       ],
       "winner": "Kimi 3.1 Pro",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "GLM 5.3 Flash ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1565,7 +1565,7 @@
    }
   ],
   "notes": [],
-  "as_of": "2026-11-10T05:53:27Z",
+  "as_of": "2026-11-10T18:20:32Z",
   "score_direction": "lower",
   "board": "rel-billiards-g1-arena",
   "complete": true,
@@ -1679,7 +1679,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-billiards-g1-champ2",
-   "made": "2026-11-10 08:23 CST",
+   "made": "2026-11-10 11:52 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
