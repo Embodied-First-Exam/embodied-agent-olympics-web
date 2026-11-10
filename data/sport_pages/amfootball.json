@@ -3,9 +3,9 @@
  "sport": "amfootball",
  "key": "amfootball",
  "format": "team",
- "made": "2026-11-09T09:20Z",
+ "made": "2026-11-10T05:53Z",
  "status": "final",
- "provisional": true,
+ "provisional": false,
  "podium": {
   "gold": "Claude Opus 5.5",
   "silver": "GPT-6 Astra",
@@ -31,6 +31,7 @@
       "points": 15,
       "for": 374,
       "against": 27,
+      "diff": 347,
       "note": "5-0-0, score 374:27"
      },
      {
@@ -43,6 +44,7 @@
       "points": 12,
       "for": 274,
       "against": 124,
+      "diff": 150,
       "note": "4-0-1, score 274:124"
      },
      {
@@ -55,6 +57,7 @@
       "points": 9,
       "for": 112,
       "against": 207,
+      "diff": -95,
       "note": "3-0-2, score 112:207"
      },
      {
@@ -67,6 +70,7 @@
       "points": 6,
       "for": 11,
       "against": 138,
+      "diff": -127,
       "note": "2-0-3, score 11:138"
      },
      {
@@ -79,6 +83,7 @@
       "points": 3,
       "for": 63,
       "against": 145,
+      "diff": -82,
       "note": "1-0-4, score 63:145"
      },
      {
@@ -91,6 +96,7 @@
       "points": 0,
       "for": 8,
       "against": 201,
+      "diff": -193,
       "note": "0-0-5, score 8:201"
      }
     ],
@@ -909,6 +915,7 @@
       "points": 15,
       "for": 217,
       "against": 0,
+      "diff": 217,
       "note": "5-0-0, score 217:0"
      },
      {
@@ -921,6 +928,7 @@
       "points": 9,
       "for": 83,
       "against": 8,
+      "diff": 75,
       "note": "3-0-2, score 83:8"
      },
      {
@@ -933,6 +941,7 @@
       "points": 9,
       "for": 70,
       "against": 90,
+      "diff": -20,
       "note": "3-0-2, score 70:90"
      },
      {
@@ -945,6 +954,7 @@
       "points": 6,
       "for": 95,
       "against": 155,
+      "diff": -60,
       "note": "2-0-3, score 95:155"
      },
      {
@@ -957,6 +967,7 @@
       "points": 3,
       "for": 63,
       "against": 113,
+      "diff": -50,
       "note": "1-0-4, score 63:113"
      },
      {
@@ -969,6 +980,7 @@
       "points": 3,
       "for": 21,
       "against": 183,
+      "diff": -162,
       "note": "1-0-4, score 21:183"
      }
     ],

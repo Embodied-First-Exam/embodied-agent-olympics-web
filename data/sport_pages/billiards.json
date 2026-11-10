@@ -3,9 +3,9 @@
  "sport": "billiards",
  "key": "billiards_g1",
  "format": "duel",
- "made": "2026-11-09T09:20Z",
+ "made": "2026-11-10T05:53Z",
  "status": "final",
- "provisional": true,
+ "provisional": false,
  "podium": {
   "gold": "Claude Opus 5.5",
   "silver": "GPT-6 Astra",
@@ -31,6 +31,7 @@
       "points": 15,
       "for": 6,
       "against": 28,
+      "diff": -22,
       "note": "5-0-0, score 6:28, 1 won by forfeit"
      },
      {
@@ -43,6 +44,7 @@
       "points": 12,
       "for": 1,
       "against": 26,
+      "diff": -25,
       "note": "4-0-1, score 1:26"
      },
      {
@@ -55,6 +57,7 @@
       "points": 9,
       "for": 22,
       "against": 21,
+      "diff": 1,
       "note": "3-0-2, score 22:21, 1 won by forfeit"
      },
      {
@@ -67,6 +70,7 @@
       "points": 6,
       "for": 35,
       "against": 22,
+      "diff": 13,
       "note": "2-0-3, score 35:22, 2 forfeited"
      },
      {
@@ -79,6 +83,7 @@
       "points": 3,
       "for": 34,
       "against": 14,
+      "diff": 20,
       "note": "1-0-4, score 34:14"
      },
      {
@@ -91,6 +96,7 @@
       "points": 0,
       "for": 34,
       "against": 21,
+      "diff": 13,
       "note": "0-0-5, score 34:21"
      }
     ],
@@ -894,18 +900,6 @@
     "standings": [
      {
       "rank": 1,
-      "model": "Claude Opus 5.5",
-      "played": 5,
-      "won": 4,
-      "drawn": 0,
-      "lost": 1,
-      "points": 12,
-      "for": 5,
-      "against": 17,
-      "note": "4-0-1, score 5:17"
-     },
-     {
-      "rank": 2,
       "model": "GPT-6 Astra",
       "played": 5,
       "won": 4,
@@ -914,22 +908,24 @@
       "points": 12,
       "for": 8,
       "against": 26,
+      "diff": 18,
       "note": "4-0-1, score 8:26"
      },
      {
-      "rank": 3,
-      "model": "DeepSeek V4.1 Flash",
+      "rank": 2,
+      "model": "Claude Opus 5.5",
       "played": 5,
-      "won": 3,
+      "won": 4,
       "drawn": 0,
-      "lost": 2,
-      "points": 9,
-      "for": 35,
-      "against": 21,
-      "note": "3-0-2, score 35:21"
+      "lost": 1,
+      "points": 12,
+      "for": 5,
+      "against": 17,
+      "diff": 12,
+      "note": "4-0-1, score 5:17"
      },
      {
-      "rank": 4,
+      "rank": 3,
       "model": "Kimi 3.1 Pro",
       "played": 5,
       "won": 3,
@@ -938,7 +934,21 @@
       "points": 9,
       "for": 18,
       "against": 22,
+      "diff": 4,
       "note": "3-0-2, score 18:22"
+     },
+     {
+      "rank": 4,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 5,
+      "won": 3,
+      "drawn": 0,
+      "lost": 2,
+      "points": 9,
+      "for": 35,
+      "against": 21,
+      "diff": -14,
+      "note": "3-0-2, score 35:21"
      },
      {
       "rank": 5,
@@ -950,6 +960,7 @@
       "points": 3,
       "for": 24,
       "against": 28,
+      "diff": 4,
       "note": "1-0-4, score 24:28"
      },
      {
@@ -962,6 +973,7 @@
       "points": 0,
       "for": 34,
       "against": 10,
+      "diff": -24,
       "note": "0-0-5, score 34:10"
      }
     ],
@@ -1514,7 +1526,7 @@
       "status": "resolved"
      }
     ],
-    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+    "rule": "Win 3, draw 1, loss 0; ties by score difference (fewer balls left is better: balls against minus balls for), then head to head."
    }
   ],
   "played": 15,
@@ -1523,23 +1535,23 @@
   "ranking": [
    {
     "rank": 1,
-    "model": "Claude Opus 5.5",
-    "note": "4-0-1, score 5:17"
-   },
-   {
-    "rank": 2,
     "model": "GPT-6 Astra",
     "note": "4-0-1, score 8:26"
    },
    {
+    "rank": 2,
+    "model": "Claude Opus 5.5",
+    "note": "4-0-1, score 5:17"
+   },
+   {
     "rank": 3,
-    "model": "DeepSeek V4.1 Flash",
-    "note": "3-0-2, score 35:21"
+    "model": "Kimi 3.1 Pro",
+    "note": "3-0-2, score 18:22"
    },
    {
     "rank": 4,
-    "model": "Kimi 3.1 Pro",
-    "note": "3-0-2, score 18:22"
+    "model": "DeepSeek V4.1 Flash",
+    "note": "3-0-2, score 35:21"
    },
    {
     "rank": 5,
@@ -1553,7 +1565,8 @@
    }
   ],
   "notes": [],
-  "as_of": "2026-11-08T06:22:18Z",
+  "as_of": "2026-11-10T05:53:27Z",
+  "score_direction": "lower",
   "board": "rel-billiards-g1-arena",
   "complete": true,
   "status_line": "Complete"

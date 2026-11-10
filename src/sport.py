@@ -359,11 +359,20 @@ def cross_table(site: Site, rr: dict, anchor: str = "m") -> str:
             f'{"".join(body)}</div></div><p class="xt-legend">{legend}</p>')
 
 
+def _diff(r: dict) -> str:
+    """Score difference as the standings rank it (data "diff"; lower-is-better sports such as billiards give
+    against - for), else for - against."""
+    d = r.get("diff")
+    if d is None:
+        d = (r["for"] or 0) - (r["against"] or 0)
+    return ("+" if d > 0 else "") + str(d)
+
+
 def standings_big(site: Site, rows: list, qualify: int = 0) -> str:
     body = "".join(
         f'<tr{" class=is-q" if qualify and r["rank"] <= qualify else ""}><td class="st-r">{r["rank"]}</td><td>{who(site, r["model"])}</td>'
         f'<td class="st-n">{r["won"]}-{r["drawn"]}-{r["lost"]}</td>'
-        f'<td class="st-n">{("+" if (r["for"] or 0) - (r["against"] or 0) > 0 else "") + str((r["for"] or 0) - (r["against"] or 0))}</td>'
+        f'<td class="st-n">{_diff(r)}</td>'
         f'<td class="st-n st-p">{r["points"]}</td></tr>' for r in rows)
     foot = (f'<p class="sb-q"><i></i>Top {qualify} go to the semifinals</p>' if qualify else "")
     return ('<table class="st sb"><thead><tr><th>#</th><th>AI agent</th><th>W-D-L</th><th>Diff</th><th>Pts</th></tr></thead>'
@@ -809,7 +818,7 @@ def render(site: Site, i: int, d: dict):
       <button type="button" class="pl-fs" data-pl-fs aria-label="Full screen (F)" title="Full screen (F)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path class="fs-in" d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/><path class="fs-out" d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg></button>
       <p class="pl-rot" data-pl-rot hidden>Turn your phone sideways for a bigger picture</p>
       <div class="sbo" data-sbo hidden aria-live="polite"></div><div class="sbo-toast" data-sbo-toast hidden></div></div>
-    <p class="pl-note">Provisional results. Raw broadcast camera, unedited.</p>
+    <p class="pl-note">{"Provisional results. " if d.get("provisional") else ""}Raw broadcast camera, unedited.</p>
   </div>
 </dialog>
 <script type="application/json" data-pl-models>{json.dumps({m["name"]: {"short": SHORT.get(m["name"], m["name"]), "colour": m["colour"], "logo": model_logo(site, m, "sbo-logo")} for m in site.models})}</script>

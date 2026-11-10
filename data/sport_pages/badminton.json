@@ -3,9 +3,9 @@
  "sport": "badminton",
  "key": "badminton_g1",
  "format": "duel",
- "made": "2026-11-09T09:20Z",
+ "made": "2026-11-10T05:53Z",
  "status": "final",
- "provisional": true,
+ "provisional": false,
  "podium": {
   "gold": "GPT-6 Astra",
   "silver": "Gemini 4 Argon",
@@ -31,6 +31,7 @@
       "points": 15,
       "for": 55,
       "against": 13,
+      "diff": 42,
       "note": "5-0-0, score 55:13"
      },
      {
@@ -43,6 +44,7 @@
       "points": 12,
       "for": 52,
       "against": 16,
+      "diff": 36,
       "note": "4-0-1, score 52:16"
      },
      {
@@ -55,6 +57,7 @@
       "points": 9,
       "for": 40,
       "against": 29,
+      "diff": 11,
       "note": "3-0-2, score 40:29"
      },
      {
@@ -67,6 +70,7 @@
       "points": 6,
       "for": 28,
       "against": 33,
+      "diff": -5,
       "note": "2-0-3, score 28:33"
      },
      {
@@ -79,6 +83,7 @@
       "points": 3,
       "for": 12,
       "against": 50,
+      "diff": -38,
       "note": "1-0-4, score 12:50"
      },
      {
@@ -91,6 +96,7 @@
       "points": 0,
       "for": 9,
       "against": 55,
+      "diff": -46,
       "note": "0-0-5, score 9:55"
      }
     ],
@@ -914,6 +920,7 @@
       "points": 15,
       "for": 55,
       "against": 9,
+      "diff": 46,
       "note": "5-0-0, score 55:9"
      },
      {
@@ -926,6 +933,7 @@
       "points": 12,
       "for": 50,
       "against": 17,
+      "diff": 33,
       "note": "4-0-1, score 50:17"
      },
      {
@@ -938,6 +946,7 @@
       "points": 6,
       "for": 31,
       "against": 37,
+      "diff": -6,
       "note": "2-0-3, score 31:37"
      },
      {
@@ -950,6 +959,7 @@
       "points": 6,
       "for": 23,
       "against": 34,
+      "diff": -11,
       "note": "2-0-3, score 23:34"
      },
      {
@@ -962,6 +972,7 @@
       "points": 6,
       "for": 23,
       "against": 35,
+      "diff": -12,
       "note": "2-0-3, score 23:35"
      },
      {
@@ -974,6 +985,7 @@
       "points": 0,
       "for": 5,
       "against": 55,
+      "diff": -50,
       "note": "0-0-5, score 5:55"
      }
     ],

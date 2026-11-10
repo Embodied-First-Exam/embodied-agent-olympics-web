@@ -3,9 +3,9 @@
  "sport": "soccer_ssl",
  "key": "soccer_ssl",
  "format": "team",
- "made": "2026-11-09T09:20Z",
+ "made": "2026-11-10T05:53Z",
  "status": "final",
- "provisional": true,
+ "provisional": false,
  "podium": {
   "gold": "Claude Opus 5.5",
   "silver": "GPT-6 Astra",
@@ -31,6 +31,7 @@
       "points": 15,
       "for": 30,
       "against": 4,
+      "diff": 26,
       "note": "5-0-0, score 30:4"
      },
      {
@@ -43,6 +44,7 @@
       "points": 12,
       "for": 29,
       "against": 6,
+      "diff": 23,
       "note": "4-0-1, score 29:6"
      },
      {
@@ -55,6 +57,7 @@
       "points": 9,
       "for": 35,
       "against": 10,
+      "diff": 25,
       "note": "3-0-2, score 35:10"
      },
      {
@@ -67,6 +70,7 @@
       "points": 6,
       "for": 11,
       "against": 22,
+      "diff": -11,
       "note": "2-0-3, score 11:22"
      },
      {
@@ -79,6 +83,7 @@
       "points": 3,
       "for": 3,
       "against": 26,
+      "diff": -23,
       "note": "1-0-4, score 3:26"
      },
      {
@@ -91,6 +96,7 @@
       "points": 0,
       "for": 0,
       "against": 40,
+      "diff": -40,
       "note": "0-0-5, score 0:40"
      }
     ],
@@ -923,6 +929,7 @@
       "points": 15,
       "for": 29,
       "against": 5,
+      "diff": 24,
       "note": "5-0-0, score 29:5, 1 won by forfeit"
      },
      {
@@ -935,6 +942,7 @@
       "points": 12,
       "for": 33,
       "against": 5,
+      "diff": 28,
       "note": "4-0-1, score 33:5"
      },
      {
@@ -947,6 +955,7 @@
       "points": 9,
       "for": 20,
       "against": 7,
+      "diff": 13,
       "note": "3-0-2, score 20:7, 1 won by forfeit"
      },
      {
@@ -959,6 +968,7 @@
       "points": 6,
       "for": 11,
       "against": 20,
+      "diff": -9,
       "note": "2-0-3, score 11:20, 1 no-show"
      },
      {
@@ -971,6 +981,7 @@
       "points": 3,
       "for": 6,
       "against": 17,
+      "diff": -11,
       "note": "1-0-4, score 6:17, 1 no-show"
      },
      {
@@ -983,6 +994,7 @@
       "points": 0,
       "for": 1,
       "against": 46,
+      "diff": -45,
       "note": "0-0-5, score 1:46"
      }
     ],

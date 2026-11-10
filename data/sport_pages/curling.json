@@ -3,9 +3,9 @@
  "sport": "curling",
  "key": "curling_g1",
  "format": "duel",
- "made": "2026-11-09T09:20Z",
+ "made": "2026-11-10T05:53Z",
  "status": "final",
- "provisional": true,
+ "provisional": false,
  "podium": {
   "gold": "Gemini 4 Argon",
   "silver": "Kimi 3.1 Pro",
@@ -31,6 +31,7 @@
       "points": 12,
       "for": 18,
       "against": 7,
+      "diff": 11,
       "note": "4-0-1, score 18:7, 1 won by forfeit"
      },
      {
@@ -43,6 +44,7 @@
       "points": 12,
       "for": 18,
       "against": 9,
+      "diff": 9,
       "note": "4-0-1, score 18:9, 1 won by forfeit"
      },
      {
@@ -55,6 +57,7 @@
       "points": 12,
       "for": 16,
       "against": 12,
+      "diff": 4,
       "note": "4-0-1, score 16:12"
      },
      {
@@ -67,6 +70,7 @@
       "points": 6,
       "for": 10,
       "against": 12,
+      "diff": -2,
       "note": "2-0-3, score 10:12, 1 won by forfeit"
      },
      {
@@ -79,6 +83,7 @@
       "points": 3,
       "for": 6,
       "against": 24,
+      "diff": -18,
       "note": "1-0-4, score 6:24, 1 won by forfeit"
      },
      {
@@ -91,6 +96,7 @@
       "points": 0,
       "for": 1,
       "against": 5,
+      "diff": -4,
       "note": "0-0-5, score 1:5, 4 no-show"
      }
     ],
@@ -913,6 +919,7 @@
       "points": 15,
       "for": 25,
       "against": 9,
+      "diff": 16,
       "note": "5-0-0, score 25:9"
      },
      {
@@ -925,6 +932,7 @@
       "points": 9,
       "for": 15,
       "against": 12,
+      "diff": 3,
       "note": "3-0-2, score 15:12"
      },
      {
@@ -937,6 +945,7 @@
       "points": 9,
       "for": 13,
       "against": 12,
+      "diff": 1,
       "note": "3-0-2, score 13:12"
      },
      {
@@ -949,6 +958,7 @@
       "points": 6,
       "for": 17,
       "against": 12,
+      "diff": 5,
       "note": "2-0-3, score 17:12"
      },
      {
@@ -961,6 +971,7 @@
       "points": 6,
       "for": 11,
       "against": 11,
+      "diff": 0,
       "note": "2-0-3, score 11:11"
      },
      {
@@ -973,6 +984,7 @@
       "points": 0,
       "for": 7,
       "against": 32,
+      "diff": -25,
       "note": "0-0-5, score 7:32"
      }
     ],
