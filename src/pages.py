@@ -197,19 +197,6 @@ OA_EXCLUDED = ("drone", "racing", "soccer_hsl_team")  # Championship only in thi
 
 
 def results(site: Site):
-    by = {r["sport"]: r for r in site.results.get("by_sport", [])}
-    groups = []
-    tags = site.cfg.get("sport_tags", {})
-    for f in site.cfg["formats"]:  # grouped by format, as on the home page
-        rows = "".join(
-            f'<tr><td><a class="bs-sport" href="{site.sport_url(s)}">{icon(s["id"])}{E(s["name"])}</a>{medals.dagger(site, s["id"])}</td><td>{E((tags.get(s["id"]) or [""])[0])}</td>'
-            + medals.podium_cells(site, s["id"])
-            + "</tr>" for s in (site.sport_by_id[x] for x in f["sports"] if x in site.sport_by_id) if s.get("medals"))
-        if rows:
-            groups.append(f'<tbody><tr class="bs-cat"><th colspan="5">{E(f["name"])}</th></tr>{rows}</tbody>')
-    by_sport = ('<table class="bs"><thead><tr><th>Sport</th><th>Body</th><th><i class="medal medal--g"></i>Gold</th>'
-                f'<th><i class="medal medal--s"></i>Silver</th><th><i class="medal medal--b"></i>Bronze</th></tr></thead>{"".join(groups)}</table>'
-                + medals.flag_foot(site, full=True))
     oa = site.results.get("open_arena")
     oa = oa if isinstance(oa, dict) and not any(isinstance(v, dict) for v in oa.values()) else {}  # real tables: medals.arena_panel
     boards = "".join(
@@ -225,15 +212,14 @@ def results(site: Site):
         for s in site.sports for c in s["clips"][:1])
     replays = (f'<p class="rp-note">Replays from development. Match replays of each sport appear here at release.</p>'
                f'<div class="wgrid rp-grid">{reps}</div>')
-    tabs = [("arena", medals.EPISODIC), ("medals", medals.CONTINUOUS), ("by-sport", "By sport")]
+    tabs = [("arena", medals.EPISODIC), ("medals", medals.CONTINUOUS)]
     tab_btns = "".join(f'<button role="tab" class="tab{" is-on" if k == 0 else ""}" data-tab="{t}">{l}</button>' for k, (t, l) in enumerate(tabs))
     body = phead("Leaderboard.", "The Episodic Learning and Continual Learning boards, and the replays.")
     body += f"""<section class="band band--line rs-tables" id="tables"><div class="wrap">
   <div class="sec-h"><h2 class="h2">Boards.</h2></div>
   <div class="tabs" role="tablist" style="margin-top:0">{tab_btns}</div>
   <div class="rs-panels">
-  <div class="panel" data-panel="medals"><p class="rp-note lbx-def">{E(medals.CONTINUOUS_LINE)}</p><p class="lbx-count">{E(medals.count_line(site, "continuous"))}</p>{medals.medal_switch(site, story.medal_table_home(site) + medals.flag_foot(site), medals.mode_win_table(site, "championship"))}{story.board_fold(site, "continuous")}</div>
-  <div class="panel" data-panel="by-sport">{by_sport}</div>
+  <div class="panel" data-panel="medals"><p class="rp-note lbx-def">{E(medals.CONTINUOUS_LINE)}</p><p class="lbx-count">{E(medals.count_line(site, "continuous"))}</p>{medals.medal_switch(site, story.medal_table_home(site) + medals.flag_foot(site), medals.mode_win_table(site, "championship"))}{story.board_fold(site, "continuous")}{medals.continual_panel(site)}</div>
   <div class="panel is-on" data-panel="arena"><p class="rp-note lbx-def">{E(medals.EPISODIC_LINE)}</p><p class="lbx-count">{E(medals.count_line(site, "episodic"))}</p>{medals.medal_switch(site, medals.episodic_medal_block(site), medals.mode_win_table(site, "arena"))}{story.board_fold(site, "episodic")}<h3 class="rm-h rs-boards-h">Every sport&rsquo;s board</h3>{medals.arena_panel(site, boards)}</div>
   </div>
 </div></section>"""

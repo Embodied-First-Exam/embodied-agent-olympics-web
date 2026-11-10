@@ -1794,6 +1794,28 @@ td.hh-t .hh-p{font-size:16px}
   .hh-c,.hh-x{height:52px}.hh-p{font-size:16px}.hh-wl{font-size:10.5px}
 }
 .rs-boards-h{margin-top:clamp(28px,4vw,48px)}
+/* medal-table column heads: Gold / Silver / Bronze as legible as the rows */
+.mt--home th.mt-mh{color:var(--fg);font-weight:600}
+/* Continual Learning: every sport's board (medals.continual_panel), on the Episodic cards (.oa) */
+.co-pod{grid-column:1/-1;list-style:none;margin:6px 0 0;padding:0;border-top:1px solid var(--hair)}
+.co-pd{display:grid;grid-template-columns:84px minmax(0,1fr);align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--hair)}
+.co-ml{font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--fg);white-space:nowrap}
+.co-ml .medal{margin-right:7px}
+.co-who{display:flex;align-items:center;gap:8px;min-width:0}
+.co-who .mlogo{width:18px;height:18px;flex:none}
+.co-who b{display:block;font-weight:600;font-size:15px;color:var(--fg);line-height:1.25}
+.co-who small{display:block;font-size:12.5px;color:var(--fg-3);line-height:1.3}
+.co-ko{grid-column:1/-1;margin:2px 0 0;font-size:13.5px;color:var(--fg-3);font-variant-numeric:tabular-nums}
+.co-ko{color:var(--fg-2);line-height:1.45}.co-ko span{color:var(--fg-3);font-weight:600}.co-ko b{color:var(--fg);font-weight:600}
+.co-ko .co-sc{margin:0 2px}.co-id{font:500 10.5px var(--f-mono);color:var(--fg-3);letter-spacing:.04em;margin-left:4px;white-space:nowrap}
+.co-pod+.co-ko{margin-top:8px}
+.co-sub{grid-column:1/-1;margin:10px 0 0;font:500 10.5px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--fg-3)}
+.co-sub+.oa-tab{margin-top:-4px}
+.co-tab td.co-mr{white-space:nowrap}
+.co-tab td.co-mr.is-m{color:var(--fg);font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.co-tab td.co-mr .medal{margin-right:7px}
+.co-more{grid-column:1/-1;justify-self:start;margin-top:6px;font-size:13.5px;font-weight:600;color:var(--fg-2);border-bottom:1px solid var(--hair)}
+.co-more:hover{color:var(--accent)}
 /* leaderboard sections (Episodic Learning, Continual Learning): Medals | Win rate | Head-to-head */
 .pglb .ch-head{margin-bottom:clamp(8px,1.4vh,14px)}
 .lbx-k{color:var(--accent);display:block;margin-bottom:8px}

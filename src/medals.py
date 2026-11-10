@@ -37,7 +37,7 @@ def podium_cells(site: Site, sid: str) -> str:
 
 
 def flag_foot(site: Site, full: bool = False) -> str:
-    """The dagger note: one short line (home, medal table) or one line per flagged sport (By sport)."""
+    """The dagger note: one short line (home, medal table) or one line per flagged sport."""
     flagged = [r for r in site.results.get("by_sport", []) if r.get("status") == "final" and r.get("flag")]
     if not flagged:
         return ""
@@ -47,7 +47,7 @@ def flag_foot(site: Site, full: bool = False) -> str:
         return f'<div class="mt-flags"><p>† Counted, but could still change:</p><ul>{items}</ul></div>'
     lb = site.url("leaderboard/")
     return (f'<p class="mt-flags">† Counted, but could still change: {E(", ".join(names))}. '
-            f'<a href="{lb}#by-sport">By sport →</a></p>')
+            f'<a href="{lb}#{CONTINUAL_BOARDS_ID}">Every sport&rsquo;s board →</a></p>')
 
 
 ARENA_SHORT = ("Duel and team-duel boards: round robin, win 3, draw 1; ties by score difference, then head to head; rating (Bradley-Terry) for reference. Solo boards: the first series match, higher score first, a no-show counts 0.")
@@ -308,8 +308,8 @@ def medal_rows_html(site: Site, table: list) -> str:
         f'<small>{E(by[r["model"]].get("harness", ""))} · {E(by[r["model"]].get("effort", ""))} effort</small></span></span></td>'
         + "".join(f'<td class="mt-n">{r[c]}</td>' for c in ("gold", "silver", "bronze")) + "</tr>"
         for r in table if r["model"] in by)
-    head = "".join(f"<th>{h}</th>" for h in ["Rank", "AI agent", '<i class="medal medal--g"></i>Gold',
-                                           '<i class="medal medal--s"></i>Silver', '<i class="medal medal--b"></i>Bronze'])
+    head = "".join(f"<th>{h}</th>" for h in ["Rank", "AI agent"]) + "".join(
+        f'<th class="mt-mh"><i class="medal medal--{c}"></i>{w}</th>' for c, w in (("g", "Gold"), ("s", "Silver"), ("b", "Bronze")))
     return f'<div class="mt-wrap"><table class="mt mt--home"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
 
 
@@ -490,3 +490,138 @@ def exhibition_notice(site: Site, sid: str) -> str:
     return (f'<section class="band exh-note" id="exhibition"><div class="wrap"><div class="exh-box">'
             f'<span class="tag tag--exh">{E(exhibition_label(site))}</span><h2 class="exh-h">{E(en.get("title", ""))}</h2>'
             f'<ul class="exh-pts">{pts}</ul></div></div></section>')
+
+
+# ---------------------------------------------------------------- Continual Learning: every sport's board (Olympics Championship)
+
+CONTINUAL_BOARDS_ID = "continual-boards"  # the grid's anchor; the old "#by-sport" tab links land here too
+_DECIDED = {"coin_toss": "coin toss", "toss": "coin toss", "lot": "lot", "lots": "lot", "shootout": "penalties",
+            "pso": "penalties", "sudden_death": "sudden death", "walks": "the sport's tie-break", "chess_clock": "the sport's tie-break"}
+_MEDAL_WORD = {1: ("g", "Gold"), 2: ("s", "Silver"), 3: ("b", "Bronze")}
+
+
+def _sport_page(sid: str) -> dict:
+    import json  # noqa: PLC0415
+    f = ROOT / "data" / "sport_pages" / f"{sid}.json"
+    return json.loads(f.read_text(encoding="utf-8")) if f.is_file() else {}
+
+
+def _ko_line(m: dict | None, label: str, first: str | None, sid: str) -> str:
+    """One knockout match in one line, both sides named, winner first:
+    'Final · GPT-6 Astra 7:6 Claude Opus 5.5', '... 0:0 ... · decided by lot', billiards 'A beat B · 0:5 balls left'."""
+    if not m or m.get("status") not in (None, "resolved"):
+        return ""
+    db = (m.get("decided_by") or "").lower()
+    sides = m.get("sides") or []
+    a = next((s for s in sides if s.get("model") == (first or m.get("winner"))), sides[0] if sides else {})
+    b = next((s for s in sides if s is not a), {})
+    wa, wb = E(model_name(a.get("model", ""))), E(model_name(b.get("model", "")))
+    sc = f'{a.get("score", "–")}:{b.get("score", "–")}'
+    if db == "forfeit":
+        txt = f"<b>{wa}</b> beat {wb} · forfeit"
+    elif sid == "billiards":
+        txt = f"<b>{wa}</b> beat {wb} · {sc} balls left"
+    else:
+        txt = f"<b>{wa}</b> <b class=co-sc>{sc}</b> {wb}"
+    if db in _DECIDED and db != "forfeit":
+        txt += f" · decided by {_DECIDED[db]}"
+    return f'<p class="co-ko"><span>{E(label)}</span> · {txt} <small class="co-id">{E(m["id"])}</small></p>'
+
+
+def _medal_label(rank) -> str:
+    c, w = _MEDAL_WORD.get(rank, ("", ""))
+    return f'<i class="medal medal--{c}"></i>{w}' if w else E(str(rank))
+
+
+def _ranked_table(head: str, rows: list) -> str:
+    """Place · Model · value rows (solo and race boards): medal label on places 1-3."""
+    body = "".join(f'<tr><td class="oa-r co-mr{" is-m" if r in _MEDAL_WORD else ""}">{_medal_label(r)}</td>'
+                   f'<td class="oa-m">{E(model_name(m))}</td><td class="oa-p">{E(v)}</td></tr>' for r, m, v in rows)
+    return (f'<table class="oa-tab co-tab"><thead><tr><th>Place</th><th>Model</th><th>{E(head)}</th></tr></thead>'
+            f'<tbody>{body}</tbody></table>')
+
+
+def continual_panel(site: Site) -> str:
+    """The Continual Learning tab's per-sport boards (Olympics Championship), the Episodic grid's card style and order:
+    duel and team-duel sports first (podium of the knockout, final and bronze-match scores, round-robin standings), then
+    the solo sports (mean of three matches) and the race sports (drone: final race series; racing: points over three
+    races). Medals from results.json by_sport; matches and standings from data/sport_pages (read only)."""
+    from layout import icon, model_logo  # noqa: PLC0415
+    by = {m["name"]: m for m in site.models}
+    fmt_of = {x: f["id"] for f in site.cfg["formats"] for x in f["sports"]}
+    groups = {"h2h": [], "solo": [], "race": []}
+    for s in site.sports:
+        sid, d = s["id"], _sport_page(s["id"])
+        ch, r = d.get("championship") or {}, _row(site, s["id"])
+        if not ch or not r:
+            continue
+        tag = f' <span class="tag tag--exh">{E(exhibition_label(site))}</span>' if sid in exhibition_ids(site) else ""
+        if r.get("status") != "final":
+            tag += ' <span class="oa-inc">In progress</span>'
+        more = site.sport_url(s) + "#records"
+        fmt = fmt_of.get(sid)
+        if fmt in ("duel", "team"):
+            st = {x["id"]: x for x in ch.get("stages") or []}
+            pod = "".join(
+                f'<div class="co-pd"><span class="co-ml"><i class="medal medal--{k[0]}"></i>{k.title()}</span>'
+                f'<span class="co-who">{model_logo(site, by[r[k]])}<span><b>{E(model_name(r[k]))}</b>'
+                f'<small>{E(by[r[k]].get("harness", ""))} · {E(by[r[k]].get("effort", ""))} effort</small></span></span></div>'
+                for k in ("gold", "silver", "bronze") if r.get(k) in by)
+            fin = ((st.get("final") or {}).get("matches") or [None])[0]
+            brz = ((st.get("bronze") or {}).get("matches") or [None])[0]
+            ko = _ko_line(fin, "Final", r.get("gold"), sid) + _ko_line(brz, "Bronze", r.get("bronze"), sid)
+            rr = sorted((st.get("round_robin") or {}).get("standings") or [], key=lambda x: x["rank"])
+            table = ""
+            if rr:
+                table = ('<p class="co-sub">Round robin · win 3, draw 1</p>'
+                         '<table class="oa-tab"><thead><tr><th>#</th><th>Model</th><th>Pts</th><th>W-D-L</th><th>P</th></tr></thead><tbody>'
+                         + "".join(f'<tr><td class="oa-r">{x["rank"]}</td><td class="oa-m">{E(model_name(x["model"]))}</td>'
+                                   f'<td class="oa-p">{x["points"]}</td><td>{x["won"]}-{x["drawn"]}-{x["lost"]}</td><td>{x["played"]}</td></tr>'
+                                   for x in rr) + '</tbody></table>')
+            n = ch.get("played")
+            line = "Round robin, then semifinals and final" + (f" · {n} matches" if n else "")
+            body = f'<div class="co-pod">{pod}</div>{ko}{table}'
+            link = "Full bracket"
+            key = "h2h"
+        elif fmt == "solo":
+            unit = ch.get("unit") or "Score"
+            dec = lambda v: format(v, ".2f" if v >= 1 else ".4f")  # noqa: E731  the Episodic solo cards' format
+            rows = [(x["rank"], x["model"], dec(float(x["mean"] or 0))) for x in sorted(ch.get("rows") or [], key=lambda x: x["rank"])]
+            line = "Mean of three matches · workspace kept between matches"
+            body = _ranked_table(f"Mean · {'pts' if unit == 'pts' else unit}", rows)
+            link, key = "Full results", "solo"
+        elif fmt == "race" and ch.get("races"):  # drone: time trial -> two heats -> four-drone final; medals from the final
+            fin = next((x for x in ch["races"] if x.get("stage") == "final"), {})
+            pts = {x["model"]: x["points"] for x in fin.get("rows") or []}
+            rows = [(x["rank"], x["model"], str(pts[x["model"]]) if x["model"] in pts else "out in heats")
+                    for x in sorted(ch.get("ranking") or [], key=lambda x: x["rank"])]
+            nr = max((len(x.get("places") or []) for x in fin.get("rows") or []), default=0)
+            line = f"Time trial, two heats, then a four-drone final of {nr} races · fewer points is better"
+            w = min(fin.get("rows") or [{}], key=lambda x: x.get("place", 99))
+            body = _ranked_table("Final pts", rows) + (
+                f'<p class="co-ko"><span>Final</span> · won by <b>{E(model_name(w["model"]))}</b>, {w["points"]} pts over {nr} races '
+                f'<small class="co-id">{E(fin.get("id", ""))}</small></p>' if w.get("model") else "")
+            link, key = "Full results", "race"
+        elif fmt == "race":  # full-size racing: points over the race series, ties by the last race
+            rows = [(x["rank"], x["model"], format(x["points"], "g")) for x in sorted(ch.get("rows") or [], key=lambda x: x["rank"])]
+            nr = len(ch.get("series") or [])
+            line = f"{nr} races · F1 points for classified finishers · ties by the last race"
+            top = min(ch.get("rows") or [{}], key=lambda x: x.get("rank", 99))
+            body = _ranked_table("Pts", rows) + (
+                f'<p class="co-ko"><span>Series</span> · won by <b>{E(model_name(top["model"]))}</b>, {format(top["points"], "g")} pts over {nr} races</p>'
+                if top.get("model") else "")
+            link, key = "Full results", "race"
+        else:
+            continue
+        groups[key].append(
+            f'<div class="oa oa--t co">{icon(sid)}<strong>{E(s["name"])}</strong><p class="oa-st">{E(line)}{tag}</p>'
+            f'{body}<a class="co-more" href="{E(more)}">{link} →</a></div>')
+    cards = groups["h2h"] + groups["solo"] + groups["race"]
+    if not cards:
+        return ""
+    return (f'<span class="anchor" id="{CONTINUAL_BOARDS_ID}"></span><span class="anchor" id="by-sport"></span>'
+            '<h3 class="rm-h rs-boards-h">Every sport&rsquo;s board</h3>'
+            '<p class="rp-note wr-note">Olympics Championship podium of each sport. Duel and team sports: medals from the '
+            'final and the bronze match. Solo sports: the mean of three matches. Drone: the final race series. Full-size racing: '
+            'points over the race series.</p>'
+            f'<div class="oagrid">{"".join(cards)}</div>')
