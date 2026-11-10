@@ -1794,3 +1794,28 @@ td.hh-t .hh-p{font-size:16px}
   .hh-c,.hh-x{height:52px}.hh-p{font-size:16px}.hh-wl{font-size:10.5px}
 }
 .rs-boards-h{margin-top:clamp(28px,4vw,48px)}
+/* leaderboard sections (Episodic Learning, Continuous Learning): Medals | Win rate | Head-to-head */
+.pglb .ch-head{margin-bottom:clamp(8px,1.4vh,14px)}
+.lbx-k{color:var(--accent);display:block;margin-bottom:8px}
+.lbx-lede{margin-top:10px!important}
+.lbx-def{margin-top:10px!important;max-width:900px;font-size:clamp(16px,1.25vw,18px)!important;color:var(--fg)}
+.lbx-board{margin-top:4px!important;max-width:900px;font-size:14px!important;color:var(--fg-3)}
+.lbx-tabs{display:flex;gap:0 28px;border-bottom:1px solid var(--hair);margin:clamp(6px,1.2vh,12px) 0 clamp(10px,1.6vh,16px)}
+.lbx-tab{position:relative;padding:10px 0 12px;font-weight:600;font-size:clamp(15px,1.15vw,17px);color:var(--fg-3);transition:color .2s}
+.lbx-tab:hover{color:var(--fg-2)}
+.lbx-tab.is-on{color:var(--fg)}
+.lbx-tab.is-on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent)}
+.lbx-tabs{display:none}.lbx.is-js .lbx-tabs{display:flex}
+.lbx-nojs{font-weight:600;font-size:18px;margin:22px 0 8px}
+.lbx.is-js .lbx-nojs{display:none}
+.lbx.is-js .lbx-p:not(.is-on){display:none}
+.lbx .mt-head{flex-wrap:wrap;row-gap:2px;margin-top:0}
+.lbx .hh-ctl{margin-top:0}
+.lbx .hh-ctl .mt-rule{font-size:13.5px}
+@media (max-width:640px){.lbx-tabs{gap:0 18px}.lbx .mt-head .rm-h{margin-bottom:0}}
+@media (max-width:640px){
+  .mt--home th:last-child,.mt--home td:last-child{display:table-cell}
+  .lbx .mt--home .mt-who small{display:none}
+  .lbx .mt--home .mt-model{gap:10px}
+  .lbx .tag{white-space:normal;height:auto;line-height:1.4;padding-top:3px;padding-bottom:3px}
+}

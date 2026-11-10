@@ -137,15 +137,15 @@ def mode_text(s: str) -> str:
     return s.replace("Open Arena", EPISODIC) if isinstance(s, str) else s
 
 
-def episodic_board(site: Site) -> str:
-    """The Episodic Learning board for the home page: win % per model over the fresh-workspace head-to-head matches
-    (results.json win_rate, scope arena)."""
+def mode_win_table(site: Site, scope: str = "arena") -> str:
+    """Win % per model over one mode's head-to-head matches (results.json win_rate; scope arena = Episodic Learning, the
+    Open Arena boards; championship = Continuous Learning, the Olympics Championship): # · AI agent · W–L · Win %."""
     from layout import model_logo  # noqa: PLC0415
     w = site.results.get("win_rate")
     if not w:
         return '<p class="rp-note">Results at release.</p>'
     by = {m["name"]: m for m in site.models}
-    rows = [r for r in (w["scopes"].get("arena") or []) if r["model"] in by]
+    rows = [r for r in (w["scopes"].get(scope) or []) if r["model"] in by]
     body = "".join(
         f'<tr><td class="mt-rank">{i + 1}</td><td><span class="mt-model"><i class="flag" style="--c:{E(by[r["model"]]["colour"])}"></i>'
         f'{model_logo(site, by[r["model"]])}<span class="mt-who"><strong>{E(model_name(r["model"]))}</strong>'
@@ -155,14 +155,27 @@ def episodic_board(site: Site) -> str:
         f'<b>{"–" if r["pct"] is None else str(round(r["pct"])) + "%"}</b></span></td></tr>'
         for i, r in enumerate(rows))
     head = '<tr><th>#</th><th>AI agent</th><th>W–L</th><th>Win %</th></tr>'
-    lv = (w.get("level_decided") or {}).get("arena", 0)
-    st = (site.results.get("open_arena_status") or {}).get("line")
+    lv = (w.get("level_decided") or {}).get(scope, 0)
+    n_ff = len([f for f in w.get("forfeits") or [] if f.get("scope") == scope])
     lb = site.url("leaderboard/")
-    return (f'<div class="mt-wrap"><table class="mt mt--home wr eb">{f"<thead>{head}</thead>"}<tbody>{body}</tbody></table></div>'
-            f'<p class="rp-note wr-note">Head-to-head matches of the {len(w.get("sports") or [])} duel and team-duel sports, official results; '
-            f'win % = wins / matches played; {lv} matches level at full time count for the official winner (coin toss, lot, shoot-out or the '
-            f'sport\'s tie-break); no-shows left out.'
-            + (f' {E(st)}.' if st else "") + f' <a class="link" href="{lb}#arena">Every sport\'s board →</a></p>')
+    if scope == "arena":
+        what = f'Open Arena matches of the {len(w.get("sports") or [])} duel and team-duel sports (round robin)'
+        out = ('Not included: the four solo sports (their one board is the three-match medal series, scored on their own measure, '
+               'with no head-to-head matches), drone racing and full-size racing (Olympics Championship only).')
+        link = f' <a class="link" href="{lb}#arena">Every sport\'s board →</a>'
+    else:
+        what = f'Olympics Championship matches of the {len(w.get("sports") or [])} duel and team-duel sports (round robin and knockout)'
+        out = ('Not included: the four solo sports, drone racing and full-size racing, whose medals come from three-match series, '
+               'heats and races.')
+        link = f' <a class="link" href="{lb}#by-sport">Medals by sport →</a>'
+    return (f'<div class="mt-wrap"><table class="mt mt--home wr eb"><thead>{head}</thead><tbody>{body}</tbody></table></div>'
+            f'<p class="rp-note wr-note">{what}, official results; win % = wins / matches played. {lv} matches level at full time count '
+            f'for the official winner (coin toss, lot, shoot-out or the sport\'s tie-break). {n_ff} no-shows and matches a side did not '
+            f'finish are left out for both sides. {out}{link}</p>')
+
+
+def episodic_board(site: Site) -> str:
+    return mode_win_table(site, "arena")
 
 
 def h2h_records(site: Site) -> dict:

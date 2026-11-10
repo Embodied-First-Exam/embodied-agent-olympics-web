@@ -221,39 +221,34 @@ document.addEventListener("DOMContentLoaded", () => {
     v.addEventListener("playing", () => fig.classList.add("has-play"), { once: true });
   });
 
-  /* leaderboards: Episodic Learning | Continuous Learning; #episodic, #continuous (or the old #championship) open a tab */
-  document.querySelectorAll("[data-lb]").forEach((root) => {
-    const tabs = [...root.querySelectorAll("[data-lb-tab]")];
+  /* leaderboard sections: Medals | Win rate | Head-to-head (without JS all three panels show one after another) */
+  document.querySelectorAll("[data-lbx]").forEach((root) => {
+    root.classList.add("is-js");
+    const tabs = [...root.querySelectorAll("[data-lbx-tab]")];
     const pick = (k) => {
-      tabs.forEach((t) => { const on = t.dataset.lbTab === k; t.classList.toggle("is-on", on); t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1; });
-      root.querySelectorAll("[data-lb-panel]").forEach((p) => { p.hidden = p.dataset.lbPanel !== k; });
+      tabs.forEach((t) => { const on = t.dataset.lbxTab === k; t.classList.toggle("is-on", on); t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1; });
+      root.querySelectorAll("[data-lbx-p]").forEach((p) => p.classList.toggle("is-on", p.dataset.lbxP === k));
     };
     tabs.forEach((t, i) => {
-      t.addEventListener("click", () => pick(t.dataset.lbTab));
+      t.addEventListener("click", () => pick(t.dataset.lbxTab));
       t.addEventListener("keydown", (e) => {
         const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (!d) return;
-        const n = tabs[(i + d + tabs.length) % tabs.length]; pick(n.dataset.lbTab); n.focus();
+        const n = tabs[(i + d + tabs.length) % tabs.length]; pick(n.dataset.lbxTab); n.focus();
       });
     });
-    const fromHash = () => {
-      const h = location.hash.slice(1);
-      if (h === "episodic") pick("episodic");
-      if (h === "continuous" || h === "championship") pick("continuous");
-    };
-    fromHash(); addEventListener("hashchange", fromHash);
   });
 
   /* head to head: redraw the matrix for a mode and a sport; a tooltip on hover or focus */
   document.querySelectorAll("[data-hh-root]").forEach((root) => {
     const D = JSON.parse(root.querySelector("[data-hh-data]").textContent);
     const tip = root.querySelector("[data-hh-tip]"), sel = root.querySelector("[data-hh-sport]");
-    let mode = 0, sport = -1, C = [];
+    let sport = -1, C = [];
     const fmt = (w, d, l) => (d ? `${w}–${d}–${l}` : `${w}–${l}`);
     const count = () => {
       const n = D.names.length;
       C = Array.from({ length: n }, () => Array.from({ length: n }, () => [0, 0, 0, 0]));
       D.m.forEach(([si, md, a, b, w, lv]) => {
-        if ((mode !== -1 && md !== mode) || (sport !== -1 && si !== sport)) return;
+        if (sport !== -1 && si !== sport) return;
         [[a, b], [b, a]].forEach(([x, y]) => { const r = C[x][y]; r[w === x ? 0 : w === -1 ? 1 : 2]++; r[3] += lv; });
       });
     };
@@ -275,17 +270,12 @@ document.addEventListener("DOMContentLoaded", () => {
         td.innerHTML = n ? `<span class="hh-p">${Math.round(100 * w / n)}%</span><span class="hh-wl">${fmt(w, d, l)} (${n})</span>` : "·";
       });
     };
-    root.querySelectorAll("[data-hh-mode]").forEach((b) => b.addEventListener("click", () => {
-      mode = +b.dataset.hhMode;
-      root.querySelectorAll("[data-hh-mode]").forEach((x) => { x.classList.toggle("is-on", x === b); x.setAttribute("aria-pressed", x === b); });
-      draw(); hide();
-    }));
     sel.addEventListener("change", () => { sport = +sel.value; draw(); hide(); });
     const hide = () => { tip.hidden = true; };
     const show = (td) => {
       const [i, j] = td.dataset.hh.split(",").map(Number), [w, d, l, lv] = C[i][j], n = w + d + l;
       if (!n) { hide(); return; }
-      const scope = `${D.modes[String(mode)]} · ${sport === -1 ? "all " + D.sports.length + " sports" : D.sports[sport]}`;
+      const scope = `${D.mode} · ${sport === -1 ? "all " + D.sports.length + " sports" : D.sports[sport]}`;
       tip.innerHTML = `<strong></strong><span class="hh-tip-v"></span><span class="hh-tip-s"></span>`;
       tip.querySelector("strong").textContent = `${D.names[i]} v ${D.names[j]}`;
       tip.querySelector(".hh-tip-v").textContent = `${Math.round(100 * w / n)}% · ${w} won${d ? `, ${d} drawn` : ""}, ${l} lost of ${n}` + (lv ? ` · ${lv} decided at a level score` : "");

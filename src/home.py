@@ -808,118 +808,115 @@ def medal_table_home(site: Site) -> str:
     return f'<div class="mt-wrap"><table class="mt mt--home{"" if released else " is-empty"}"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
 
 
-def leaderboards(site: Site) -> str:
-    """01 Leaderboards: one board per learning mode, Episodic Learning first (the Open Arena boards, code id arena), then
-    Continuous Learning (the Olympics Championship medal table, code id championship). A one-line definition under each tab
-    says what the agent keeps between matches. #episodic / #continuous (and the old #championship) open a tab."""
-    em = medals.episodic_medals(site)
-    em_line = f"{len(em['counted'])} of {len(em['counted']) + len(em['pending'])} boards complete"
-    tabs = [("episodic", medals.EPISODIC, medals.EPISODIC_DEF, "Fresh workspace",
-             f'<div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">{E(em_line)}</span>'
-             f'<span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>'
-             + medals.medal_switch(site, medals.episodic_medal_block(site), f'<div class="mt-home">{medals.episodic_board(site)}</div>')),
-            ("continuous", medals.CONTINUOUS, medals.CONTINUOUS_DEF + ' <a class="jl" href="#season" data-jl>How it learns across a season</a>', "Olympics Championship · medals",
-             f'<div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">{E(medals.status_line(site, "Provisional — fills in at release"))}</span>'
-             f'<span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>'
-             + medals.medal_switch(site, f'<div class="mt-home">{medal_table_home(site)}</div>' + medals.flag_foot(site)))]
-    btns = "".join(f'<button type="button" role="tab" class="lb-tab{" is-on" if k == 0 else ""}" id="lbt-{key}" data-lb-tab="{key}" '
-                   f'aria-selected="{str(k == 0).lower()}" aria-controls="lbp-{key}"><strong>{E(name)}</strong><small>{E(sub)}</small></button>'
-                   for k, (key, name, _, sub, _) in enumerate(tabs))
-    panels = "".join(f'<div class="lb-panel" role="tabpanel" id="lbp-{key}" aria-labelledby="lbt-{key}" data-lb-panel="{key}"{"" if k == 0 else " hidden"}>'
-                     f'<p class="lb-def">{d}</p>{body}</div>'
-                     for k, (key, name, d, _, body) in enumerate(tabs))
-    return f"""
-<section class="chap pg pgr2" data-inview id="leaderboards" data-snav="Leaderboards">
-  <span class="anchor" id="championship"></span><span class="anchor" id="episodic"></span><span class="anchor" id="continuous"></span>
-  <div class="wrap">
-    <header class="ch-head ch-head--k"><span class="ch-n">01<i>/04</i></span><h2>Leaderboards</h2>
-      <p class="ch-lede">Six AI agents compete across {len(site.sports)} sports in two learning modes. In one, every match starts from scratch; in the other, each agent carries everything it built from match to match.</p></header>
-    <div class="lb" data-lb><div class="lb-tabs" role="tablist" aria-label="Learning mode">{btns}</div>{panels}</div>
-  </div>
-</section>"""
-
-
-def head_to_head(site: Site) -> str:
-    """Head to head: a model-by-model win-rate matrix (rows = model, columns = opponent, cell = the row model's win % and
-    W–L (n)), Episodic Learning | Continuous Learning | All, with a per-sport filter. Built from the sport-page match records
-    (medals.h2h_records); site.js redraws it for each view. The server draws the default view (Episodic Learning, all sports)."""
-    d = medals.h2h_records(site)
+def h2h_matrix(site: Site, d: dict, order: list, mode: int, key: str) -> str:
+    """One mode's head-to-head matrix: rows = model, columns = opponent, cell = the row model's win % and W–L (n), plus an
+    All-opponents column; a per-sport filter (site.js redraws from the embedded records). Rows and columns keep one order
+    (strongest overall first) in both modes, so a model sits in the same place everywhere."""
     ms = [next(m for m in site.models if m["name"] == n) for n in d["models"]]
-    n = len(ms)
-    # rows and columns: strongest first (win % over every counted match), fixed for every view so colours never move
-    tot = [[0, 0] for _ in ms]
-    for _, _, a, b, w, _ in d["matches"]:
-        for e in (a, b):
-            tot[e][1] += 1
-            tot[e][0] += w == e
-    order = sorted(range(n), key=lambda i: -(tot[i][0] / tot[i][1] if tot[i][1] else 0))
+    recs = [x for x in d["matches"] if x[1] == mode]
+    c = [[[0, 0, 0, 0] for _ in ms] for _ in ms]  # won, drawn, lost, level-decided
+    for si, md, a, b, w, lv in recs:
+        for x, y in ((a, b), (b, a)):
+            r = c[x][y]
+            r[0 if w == x else 1 if w == -1 else 2] += 1
+            r[3] += lv
 
-    def view(mode, sport=-1):
-        c = [[[0, 0, 0, 0] for _ in ms] for _ in ms]  # won, drawn, lost, level-decided
-        for si, md, a, b, w, lv in d["matches"]:
-            if (mode != -1 and md != mode) or (sport != -1 and si != sport):
-                continue
-            for x, y in ((a, b), (b, a)):
-                r = c[x][y]
-                r[0 if w == x else 1 if w == -1 else 2] += 1
-                r[3] += lv
-        return c
+    def wl(w_, dr, l_):
+        return f"{w_}–{dr}–{l_}" if dr else f"{w_}–{l_}"
 
     def cell(r, i, j):
         if i == j:
             return '<td class="hh-x" aria-label="same model">—</td>'
-        w_, dr, l_, lv = r
-        played = w_ + dr + l_
-        if not played:
-            return '<td class="hh-c hh-c--0" data-hh="{i},{j}"><span class="hh-p">·</span></td>'.format(i=i, j=j)
-        pct = 100 * w_ / played
-        wl = f"{w_}–{dr}–{l_}" if dr else f"{w_}–{l_}"
+        w_, dr, l_, _ = r
+        n = w_ + dr + l_
+        if not n:
+            return f'<td class="hh-c hh-c--0" data-hh="{i},{j}"><span class="hh-p">·</span></td>'
+        pct = 100 * w_ / n
         return (f'<td class="hh-c" data-hh="{i},{j}" tabindex="0" style="--v:{(pct - 50) / 50:.3f}">'
-                f'<span class="hh-p">{round(pct)}%</span><span class="hh-wl">{wl} ({played})</span></td>')
+                f'<span class="hh-p">{round(pct)}%</span><span class="hh-wl">{wl(w_, dr, l_)} ({n})</span></td>')
 
     def total(row, i):
         w_, dr, l_ = (sum(r[k] for j, r in enumerate(row) if j != i) for k in range(3))
-        played = w_ + dr + l_
-        if not played:
-            return "·"
-        wl = f"{w_}–{dr}–{l_}" if dr else f"{w_}–{l_}"
-        return f'<span class="hh-p">{round(100 * w_ / played)}%</span><span class="hh-wl">{wl} ({played})</span>'
+        n = w_ + dr + l_
+        return f'<span class="hh-p">{round(100 * w_ / n)}%</span><span class="hh-wl">{wl(w_, dr, l_)} ({n})</span>' if n else "·"
 
     def who(m, short=False):
         return (f'<span class="hh-who" style="--c:{E(m["colour"])}"><i class="flag"></i>{model_logo(site, m)}'
                 + (f'<span>{E(model_name(m).split(" ")[0])}</span>' if short else
                    f'<span class="hh-full">{E(model_name(m))}</span><span class="hh-short">{E(model_name(m).split(" ")[0])}</span>')
                 + '</span>')
-    c = view(0)
     head = "".join(f'<th scope="col" title="{E(model_name(ms[j]))}">{who(ms[j], True)}</th>' for j in order)
     rows = "".join(f'<tr><th scope="row">{who(ms[i])}</th>' + "".join(cell(c[i][j], i, j) for j in order) +
                    f'<td class="hh-t" data-hh-t="{i}">{total(c[i], i)}</td></tr>' for i in order)
     sel = "".join(f'<option value="{k}">{E(s["name"])}</option>' for k, s in enumerate(d["sports"]))
-    modes = [("0", medals.EPISODIC), ("1", medals.CONTINUOUS), ("-1", "All")]
-    btns = "".join(f'<button type="button" class="mw-b{" is-on" if k == 0 else ""}" data-hh-mode="{v}" aria-pressed="{str(k == 0).lower()}">{E(l)}</button>'
-                   for k, (v, l) in enumerate(modes))
-    data = {"order": order, "names": [model_name(m) for m in ms], "sports": [s["name"] for s in d["sports"]], "m": d["matches"],
-            "modes": {"0": medals.EPISODIC, "1": medals.CONTINUOUS, "-1": "both modes"}}
-    return f"""
-<section class="pg pghh" data-inview id="head-to-head" data-snav="Head to head">
-  <div class="wrap">
-    <div class="hh-top"><h3 class="rm-h">Head to head</h3>
-      <p class="mt-rule">How often each model beat each other model, over the {len(d["sports"])} duel and team-duel sports.</p></div>
-    <div class="hh" data-hh-root>
-      <div class="hh-ctl"><div class="mw-sw" role="group" aria-label="Learning mode">{btns}</div>
-        <label class="hh-sel"><span>Sport</span><select data-hh-sport><option value="-1">All {len(d["sports"])} sports</option>{sel}</select></label></div>
-      <div class="hh-scroll"><table class="hh-tab"><caption class="sr">Win rate of each row model against each column model</caption>
+    name = medals.EPISODIC if mode == 0 else medals.CONTINUOUS
+    data = {"names": [model_name(m) for m in ms], "sports": [s["name"] for s in d["sports"]], "m": recs, "mode": name}
+    board = "Open Arena boards (round robin)" if mode == 0 else "Olympics Championship (round robin and knockout)"
+    return f"""<div class="hh" data-hh-root>
+      <div class="hh-ctl"><label class="hh-sel"><span>Sport</span><select data-hh-sport aria-label="Sport"><option value="-1">All {len(d["sports"])} sports</option>{sel}</select></label>
+        <span class="mt-rule">How often each model beat each other model: {E(board)}.</span></div>
+      <div class="hh-scroll"><table class="hh-tab"><caption class="sr">{E(name)}: win rate of each row model against each column model</caption>
         <thead><tr><th class="hh-corner"><span>Model</span><span>v opponent</span></th>{head}<th class="hh-th-t">All opponents</th></tr></thead>
         <tbody>{rows}</tbody></table></div>
       <div class="hh-key" aria-hidden="true"><span>0%</span><i class="hh-ramp"></i><span>100%</span><em>row model&rsquo;s win %</em></div>
-      <p class="rp-note hh-cap">Each cell: the row model&rsquo;s win % against the column model, then wins–losses (matches). Official results, as in the win-rate tables:
-        a match level at full time and decided by coin toss, lot, shoot-out or the sport&rsquo;s tie-break counts as a win for the official winner.
-        No-shows and matches a side did not finish are left out. Solo and race sports are not included.</p>
+      <p class="rp-note hh-cap">Each cell: the row model&rsquo;s win % against the column model, then wins–losses (matches), over the {len(d["sports"])} duel and team-duel sports.
+        Official results, as in the win-rate table: a match level at full time and decided by coin toss, lot, shoot-out or the sport&rsquo;s tie-break counts as a win
+        for the official winner. No-shows and matches a side did not finish are left out. Solo and race sports have no head-to-head matches.</p>
       <div class="hh-tip" role="tooltip" hidden data-hh-tip></div>
       <script type="application/json" data-hh-data>{json.dumps(data, separators=(",", ":"))}</script>
-    </div>
+    </div>"""
+
+
+def leaderboards(site: Site) -> str:
+    """Two leaderboard sections, Episodic Learning first (code id arena: the Open Arena boards), then Continuous Learning
+    (code id championship: the Olympics Championship). Each has the same three tabs, Medals | Win rate | Head-to-head;
+    Medals is the default. Without JS all three panels show one after another (site.js adds .is-js and hides the others)."""
+    d = medals.h2h_records(site)
+    n = len(d["models"])
+    tot = [[0, 0] for _ in range(n)]
+    for _, _, a, b, w, _ in d["matches"]:
+        for e in (a, b):
+            tot[e][1] += 1
+            tot[e][0] += w == e
+    order = sorted(range(n), key=lambda i: -(tot[i][0] / tot[i][1] if tot[i][1] else 0))
+    em = medals.episodic_medals(site)
+    oa_st = (site.results.get("open_arena_status") or {}).get("line") or f"{len(em['counted'])} boards"
+    sections = [
+        ("episodic", medals.EPISODIC, medals.EPISODIC_DEF,
+         "Open Arena boards: in each duel and team-duel sport every model plays every other once, always from an empty workspace. No knockout.",
+         [("medals", "Medals", f'<div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag">{E(oa_st)}</span>'
+                               f'<span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>' + medals.episodic_medal_block(site)),
+          ("win", "Win rate", f'<div class="mt-home">{medals.episodic_board(site)}</div>'),
+          ("h2h", "Head-to-head", h2h_matrix(site, d, order, 0, "episodic"))]),
+        ("continuous", medals.CONTINUOUS, medals.CONTINUOUS_DEF + ' <a class="jl" href="#season" data-jl>How it learns across a season</a>',
+         "Olympics Championship: six models, one season, 18 sports; round robin, then semifinals, final and bronze; medals.",
+         [("medals", "Medals", f'<div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag{"" if not (site.results.get("status") or {}).get("provisional") else " tag--pending"}">'
+                               f'{E(medals.status_line(site, "Provisional — fills in at release"))}</span>'
+                               f'<span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>'
+                               f'<div class="mt-home">{medal_table_home(site)}</div>' + medals.flag_foot(site)),
+          ("win", "Win rate", f'<div class="mt-home">{medals.mode_win_table(site, "championship")}</div>'),
+          ("h2h", "Head-to-head", h2h_matrix(site, d, order, 1, "continuous"))]),
+    ]
+    out = []
+    for k, (key, name, definition, board, tabs) in enumerate(sections):
+        btns = "".join(f'<button type="button" role="tab" class="lbx-tab{" is-on" if i == 0 else ""}" id="lbt-{key}-{t}" data-lbx-tab="{t}" '
+                       f'aria-selected="{str(i == 0).lower()}" aria-controls="lbp-{key}-{t}"{"" if i == 0 else " tabindex=-1"}>{E(label)}</button>'
+                       for i, (t, label, _) in enumerate(tabs))
+        panels = "".join(f'<div class="lbx-p{" is-on" if i == 0 else ""}" role="tabpanel" id="lbp-{key}-{t}" aria-labelledby="lbt-{key}-{t}" data-lbx-p="{t}">'
+                         f'<h4 class="lbx-nojs">{E(label)}</h4>{body}</div>' for i, (t, label, body) in enumerate(tabs))
+        anchor = '<span class="anchor" id="championship"></span><span class="anchor" id="leaderboards"></span>' if key == "continuous" else ""
+        lede = (f'<p class="ch-lede lbx-lede">Six AI agents compete across {len(site.sports)} sports in two learning modes, each with its own leaderboard.</p>'
+                if k == 0 else "")
+        out.append(f"""
+<section class="{"chap " if k == 0 else ""}pg pgr2 pglb" data-inview id="{key}" data-snav="{E(name)}">
+  {anchor}
+  <div class="wrap">
+    <header class="ch-head ch-head--k"><span class="kicker lbx-k">Leaderboard {k + 1} of 2</span><h2>{E(name)}</h2>{lede}
+      <p class="lbx-def">{definition}</p><p class="lbx-board">{E(board)}</p></header>
+    <div class="lbx" data-lbx><div class="lbx-tabs" role="tablist" aria-label="{E(name)}">{btns}</div>{panels}</div>
   </div>
-</section>
+</section>""")
+    return "".join(out) + f"""
 <section class="pg pgmt" data-inview id="medal-allocation" data-snav="Competition format">
   <div class="wrap">
     <h3 class="rm-h">Competition Format and Medal Allocation</h3>
@@ -935,7 +932,7 @@ def home(site: Site, measure_variant: str = "a", nav: str = "left", intro: str =
     """intro="loops" / arena="video" switch on the real-footage sports row and arena clip (kept for later, off by default)."""
     clips = clip_index(site)
     body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips, intro)
-            + leaderboards(site) + head_to_head(site) + physloop(site, arena)
+            + leaderboards(site) + physloop(site, arena)
             + measure(site, clips, measure_variant) + match_screen() + season_screen()
             + f'<nav class="snav{" snav--left" if nav == "left" else ""}" aria-label="Sections" data-snav-bar></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')
