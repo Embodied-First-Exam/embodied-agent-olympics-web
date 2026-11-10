@@ -1824,3 +1824,15 @@ td.hh-t .hh-p{font-size:16px}
 .pg .mt-foot,.pg .g2-note,.lbx-def,.rs-tables .rp-note{max-width:none!important}
 .lbx-def{color:var(--fg-2);font-size:clamp(16px,1.3vw,19px)!important;margin-top:12px!important}
 .pg .hh-cap,.pg .wr-note,.rs-tables .wr-note{margin-top:10px;font-size:13px;color:var(--fg-3)}
+/* "How this board is made": a closed fold under each leaderboard */
+.lbx-how{margin-top:clamp(14px,2vh,22px);border-top:1px solid var(--hair);padding-top:10px}
+.lbx-how>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--fg-2)}
+.lbx-how>summary::-webkit-details-marker{display:none}
+.lbx-how>summary::before{content:"+";display:inline-grid;place-items:center;width:20px;height:20px;border:1px solid var(--hair);border-radius:50%;font-weight:500;font-size:14px;line-height:1}
+.lbx-how[open]>summary::before{content:"–"}
+.lbx-how>summary:hover{color:var(--fg)}
+.lbx-how-l{display:grid;gap:6px;margin:12px 0 4px;font-size:14.5px;line-height:1.5;color:var(--fg-2)}
+.lbx-how-l b{color:var(--fg);font-weight:600}
+.lbx-how-d{margin-top:16px}
+.lbx-how-d .kicker{display:block;margin-bottom:10px}
+.lbx-how-d .tm{margin-top:0}.lbx-how-d .tm-card{padding:clamp(12px,1.4vw,20px)}

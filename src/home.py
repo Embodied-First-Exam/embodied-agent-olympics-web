@@ -650,7 +650,7 @@ def tournament(site: Site, head: bool = True, home: bool = False) -> str:
       <div class="tm-col"><div class="tm-heats">{heat("Group A · 3 drones together", ["#1", "#4", "#5"])}{heat("Group B · 3 drones together", ["#2", "#3", "#6"])}</div></div>
       <div class="tm-col"><div class="tm-final4"><span class="tm-bl2">Final · 4 drones</span><b data-g="md">Group A top 2</b><b data-g="md">Group B top 2</b></div>{_podium(seq=True)}</div>
     </div>
-    <p class="tm-rule">Fastest of 3 solo laps sets #1–#6 · top 2 of each group reach the final</p>
+    <p class="tm-rule">Mean of 3 time-trial matches sets #1–#6 · top 2 of each group reach the final</p>
   </div>"""
 
     races = "".join(f'<div class="tm-race" data-g="rr"><b>Race {k}</b><span>10 laps · 6 cars</span><i></i></div>' for k in (1, 2, 3))
@@ -717,7 +717,7 @@ def _medal_forms_home(h2h: str, solo: str, title: str = "") -> str:
     race = f"""<div class="tm-pan" data-fmt-panel="race" hidden>
     {_stepper(["Qualify", "Race", "Medals"], static=True)}
     <div class="tm-lanes">
-      {lane("drone", "Drone racing", ["Time trial", "2 heats of 3", "Final of 4", "Medals"], "Fastest of 3 solo laps sets the seeding · top 2 of each heat reach the final")}
+      {lane("drone", "Drone racing", ["Time trial", "2 heats of 3", "Final of 4", "Medals"], "Mean of 3 time-trial matches sets the seeding · top 2 of each heat reach the final")}
       {lane("racing", "Full-size racing", ["Race 1", "Race 2", "Race 3", "F1 points", "Medals"], "All cars on one track · 25-18-15-12-10-8 points, summed over the three races")}
     </div>
   </div>"""
@@ -782,7 +782,7 @@ MEDAL_FLOWS = [  # id, name, sports, steps, one line
     ("h2h", "Duel · Team duel", "12 sports", ["Round robin", "Semifinals", "Final + bronze", "Medals"],
      "Win 3 · draw 1 · the top four reach the semifinals (1st v 4th, 2nd v 3rd)."),
     ("drone", "Drone racing", "1 sport", ["Time trial", "Heats · 2 × 3", "Final · 4", "Medals"],
-     "The fastest of three solo laps sets the seeding; the top two of each heat fly the final."),
+     "The mean of three time-trial matches sets the seeding; the top two of each heat fly the final."),
     ("racing", "Full-size racing", "1 sport", ["Race 1", "Race 2", "Race 3", "Points", "Medals"],
      "Every car on one track; F1-style points summed over the three races."),
 ]
@@ -863,6 +863,57 @@ def h2h_matrix(site: Site, d: dict, order: list, mode: int, key: str) -> str:
     </div>"""
 
 
+BOARD_HOW = {  # the "How this board is made" folds under each leaderboard (home and Leaderboard page)
+    "episodic": [
+        ("Format", "Open Arena round robin. In each of the 12 duel and team-duel sports every model plays every other model once "
+                   "(15 matches per sport). No knockout."),
+        ("Workspace", "Every match starts from an empty workspace: the agent keeps nothing between matches."),
+        ("Scoring", "Win 3, draw 1, loss 0. Equal points: score difference, then head to head (in billiards fewer balls left "
+                    "counts as better)."),
+        ("Medals", "Gold, silver and bronze to the top 3 of each of the 12 boards; the table adds them up and ranks by golds, "
+                   "then silvers, then bronzes."),
+        ("Win rate", "Wins / matches played over all these matches. A match level at full time and decided by coin toss, lot, "
+                     "shoot-out or the sport's tie-break counts as a win for the official winner. No-shows and matches a side "
+                     "did not finish are left out for both sides."),
+        ("Head-to-head", "The same matches, split by opponent: each cell is the row model's win % and wins–losses (matches)."),
+        ("Not on this board", "The four solo sports, drone racing and full-size racing: they run only in the Olympics "
+                              "Championship."),
+    ],
+    "continuous": [
+        ("Workspace", "One workspace per model for the whole season: programs, trained weights, notes, memory and match videos "
+                      "carry into every next match."),
+        ("Duel and team duel (12 sports)", "Round robin first: every model plays every other once; win 3, draw 1; equal points "
+                                           "by score difference, then head to head. The top four reach the semifinals, 1st v "
+                                           "4th and 2nd v 3rd. The winners play the final for gold and silver; the semifinal "
+                                           "losers play for bronze. A knockout match level at full time goes to the sport's "
+                                           "tie-break."),
+        ("Solo (Sprint, Hurdles, Javelin, Stunt Car)", "A medal series of three matches on the same hidden course; the agent may change "
+                                                       "its code between matches. Each match is scored on the sport's own "
+                                                       "measure (speed, distance or trick points); ranked by the mean of the three."),
+        ("Drone racing", "Time trial: three matches of three flights, the best flight counts; the mean seeds two heats of three "
+                         "(1st, 4th, 5th and 2nd, 3rd, 6th). Each heat runs three races, points 1-2-3, fewer is better; the top "
+                         "two of each heat fly a four-drone final of four races, which gives the medals."),
+        ("Full-size racing", "Six cars, three races of 10 laps; F1 points 25-18-15-12-10-8 for classified finishers; ranked by "
+                             "total points, ties by the last race. Race 1's grid by lot, later grids by the previous result."),
+        ("Medals", "One gold, silver and bronze per sport from these results; the table ranks by golds, then silvers, then bronzes."),
+        ("Win rate and head-to-head", "Only the duel and team-duel matches (round robin and knockout), counted as in Episodic "
+                                      "Learning: a level match counts for the official winner; no-shows and matches a side did "
+                                      "not finish are left out."),
+    ],
+}
+
+
+def board_fold(site: Site, key: str, diagram: bool = True) -> str:
+    """'How this board is made': a closed <details> under each leaderboard with the board's format, scoring, medals and
+    counting rules; the Continuous fold also holds the Championship's format diagram."""
+    items = "".join(f"<li><b>{E(h)}.</b> {E(x)}</li>" for h, x in BOARD_HOW[key])
+    diag = ""
+    if key == "continuous" and diagram:
+        diag = f'<div class="lbx-how-d"><span class="kicker">Championship formats</span>{tournament(site, head=False, home=True)}</div>'
+    anchors = '<span class="anchor" id="medal-allocation"></span><span class="anchor" id="formats"></span>' if key == "continuous" else ""
+    return (f'<details class="lbx-how">{anchors}<summary>How this board is made</summary><ul class="lbx-how-l">{items}</ul>{diag}</details>')
+
+
 def leaderboards(site: Site) -> str:
     """Two leaderboard sections, Episodic Learning first (code id arena: the Open Arena boards), then Continuous Learning
     (code id championship: the Olympics Championship). Each has the same three tabs, Medals | Win rate | Head-to-head;
@@ -900,15 +951,10 @@ def leaderboards(site: Site) -> str:
     <header class="ch-head ch-head--k"><span class="kicker lbx-k">Leaderboard {k + 1} of 2</span><h2>{E(name)}</h2>
       <p class="lbx-def">{E(line)}</p></header>
     <div class="lbx" data-lbx><div class="lbx-tabs" role="tablist" aria-label="{E(name)}">{btns}</div>{panels}</div>
+    {board_fold(site, key)}
   </div>
 </section>""")
-    return "".join(out) + f"""
-<section class="pg pgmt" data-inview id="medal-allocation" data-snav="Competition format">
-  <div class="wrap">
-    <h3 class="rm-h">Competition Format and Medal Allocation</h3>
-    {tournament(site, head=False, home=True)}
-  </div>
-</section>"""
+    return "".join(out)
 
 
 # ---------------------------------------------------------------- page

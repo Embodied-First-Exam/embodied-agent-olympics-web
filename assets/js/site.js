@@ -309,3 +309,13 @@
     }));
   });
 })();
+
+/* a link to something inside a closed fold (e.g. #formats) opens the fold first */
+(() => {
+  const open = () => {
+    const id = location.hash.slice(1); if (!id) return;
+    const el = document.getElementById(id), d = el && el.closest("details");
+    if (d && !d.open) { d.open = true; el.scrollIntoView(); }
+  };
+  open(); addEventListener("hashchange", open);
+})();
