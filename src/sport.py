@@ -218,7 +218,7 @@ def overview(site: Site, s: dict, d: dict) -> str:
 <section class="shero sp-hero" id="overview">
   <div class="shero-media">{media}</div><div class="shero-shade"></div>
   <div class="wrap shero-crumb"><a class="crumb" href="{site.url('sports/')}">← All sports</a></div>
-  <div class="wrap shero-in"><span class="sp-n">01<i>/04</i> · Overview</span>{icon(s['id'], 'pic pic--xl')}<h1 class="display">{E(s['name'])}</h1>
+  <div class="wrap shero-in"><span class="sp-n">01<i>/{"04" if SHOW_03_04 else "02"}</i> · Overview</span>{icon(s['id'], 'pic pic--xl')}<h1 class="display">{E(s['name'])}</h1>
     <p class="shero-pitch">{E(s['pitch'])}</p></div>
   {tag}
 </section>
@@ -261,14 +261,17 @@ def athlete_view(site: Site, d: dict) -> str:
 </div></section>"""
 
 
+SHOW_03_04 = False   # Chi 11-10: off until revised
+
+
 def subnav(site: Site) -> str:
-    items = [("overview", "Overview"), ("records", "Records"), ("capabilities", "Capabilities"), ("agents", "Agents")]
+    items = [("overview", "Overview"), ("records", "Records")] + ([("capabilities", "Capabilities"), ("agents", "Agents")] if SHOW_03_04 else [])
     return ('<nav class="sp-sub" aria-label="On this page" data-spnav><div class="wrap">'
             + "".join(f'<a href="#{k}" data-spnav-a="{k}">{v}</a>' for k, v in items) + "</div></nav>")
 
 
 def head(n: str, title: str, lede: str = "", extra: str = "") -> str:
-    return (f'<header class="ch-head sp-head"><span class="ch-n">{n}<i>/04</i></span><h2>{title}</h2>'
+    return (f'<header class="ch-head sp-head"><span class="ch-n">{n}<i>/{"04" if SHOW_03_04 else "02"}</i></span><h2>{title}</h2>'
             f'{f"<p>{E(lede)}</p>" if lede else ""}{extra}</header>')
 
 
@@ -805,7 +808,10 @@ def agents(site: Site, d: dict) -> str:
 def render(site: Site, i: int, d: dict):
     s = site.sports[i]
     prev_s, next_s = site.sports[i - 1], site.sports[(i + 1) % len(site.sports)]
-    body = (overview(site, s, d) + subnav(site) + records(site, d) + capabilities(site, s, d) + agents(site, d)
+    # Chi 11-10: sections 03 (What it tests) and 04 (Agent performance and growth) hidden until he revises them;
+    # set SHOW_03_04 = True to bring them back.
+    body = (overview(site, s, d) + subnav(site) + records(site, d)
+            + ((capabilities(site, s, d) + agents(site, d)) if SHOW_03_04 else "")
             + f"""
 <nav class="wrap prevnext" aria-label="More sports">
   <a href="{site.sport_url(prev_s)}"><span>←</span>{icon(prev_s['id'])}<strong>{E(prev_s['name'])}</strong></a>
