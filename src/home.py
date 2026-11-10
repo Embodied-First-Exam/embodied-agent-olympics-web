@@ -320,6 +320,17 @@ CAPS = [  # name, layer, media key (assets/media/eo/img/measure/<key>.jpg still 
      "Learn from feedback and improve continuously.",
      ["Feedback", "Continual Improvement"]),
 ]
+# media per card key, literal so tools/fetch_media.py --check sees them: still (film frame), clip, captions, clip poster
+MEASURE_MEDIA = {
+    "physical": ("/eo/img/measure/physical.jpg", "/eo/media/measure/physical.mp4",
+                 "/eo/media/measure/physical.vtt", "/eo/media/measure/physical_poster.jpg"),
+    "competitive": ("/eo/img/measure/competitive.jpg", "/eo/media/measure/competitive.mp4",
+                    "/eo/media/measure/competitive.vtt", "/eo/media/measure/competitive_poster.jpg"),
+    "engineering": ("/eo/img/measure/engineering.jpg", "/eo/media/measure/engineering.mp4",
+                    "/eo/media/measure/engineering.vtt", "/eo/media/measure/engineering_poster.jpg"),
+    "adaptive": ("/eo/img/measure/adaptive.jpg", "/eo/media/measure/adaptive.mp4",
+                 "/eo/media/measure/adaptive.vtt", "/eo/media/measure/adaptive_poster.jpg"),
+}
 MEASURE_GROUPS = [("build", "How the Agent Builds It", ["Engineering", "Adaptive"]),
                   ("sys", "What the System Can Do", ["Physical", "Competitive"])]
 MEASURE_FLOW = ("builds and deploys the system", "match results and replays feed back")
@@ -333,12 +344,11 @@ def measure(site: Site, clips: dict, variant: str = "a") -> str:
 
     def card(name):
         _, _, key, what, alt, line, subs = by[name]
-        still, clip = site.murl(f"/eo/img/measure/{key}.jpg"), site.murl(f"/eo/media/measure/{key}.mp4")
+        still, clip, vtt, poster = (site.murl(p) for p in MEASURE_MEDIA[key])
         img = f'<img src="{E(still)}" alt="{E(alt)}" loading="lazy">' if still else ""
         skills = "".join(f"<li>{E(s)}</li>" for s in subs)
         lid = f"mc-{key}-line"
-        play = (f' data-mplay="{E(clip)}" data-vtt="{E(site.murl(f"/eo/media/measure/{key}.vtt") or "")}"'
-                f' data-poster="{E(site.murl(f"/eo/media/measure/{key}_poster.jpg") or "")}"'
+        play = (f' data-mplay="{E(clip)}" data-vtt="{E(vtt or "")}" data-poster="{E(poster or "")}"'
                 f' data-title="{E(name)} · {E(what)}" data-skills="{E(" · ".join(subs))}" aria-haspopup="dialog"'
                 f' aria-label="Play: {E(name)} — {E(what)}" aria-describedby="{lid}"') if clip else ""
         return (f'<button type="button" class="mc"{play}>'
