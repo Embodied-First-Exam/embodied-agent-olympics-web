@@ -3,7 +3,7 @@
  "sport": "soccer_ssl",
  "key": "soccer_ssl",
  "format": "team",
- "made": "2026-11-10T05:53Z",
+ "made": "2026-11-10T14:23Z",
  "status": "final",
  "provisional": false,
  "podium": {
@@ -1634,7 +1634,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-soccer-ssl-champ2",
-   "made": "2026-11-10 05:24 CST",
+   "made": "2026-11-10 08:23 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1649,11 +1649,11 @@
    "ref": 0.4722,
    "count": {
     "planned": 152,
-    "ok": 150,
+    "ok": 152,
     "invalid": 0,
     "never_acted": 0,
     "model_called": 0,
-    "pending": 2
+    "pending": 0
    },
    "lines": {
     "Gemini 4 Argon": [
@@ -2354,7 +2354,7 @@
        }
       ]
      },
-     "ok": 150,
+     "ok": 152,
      "planned": 152,
      "shared_count": true
     },
@@ -2730,7 +2730,7 @@
        }
       ]
      },
-     "ok": 150,
+     "ok": 152,
      "planned": 152,
      "shared_count": true
     }

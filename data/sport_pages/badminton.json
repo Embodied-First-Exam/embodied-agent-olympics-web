@@ -3,7 +3,7 @@
  "sport": "badminton",
  "key": "badminton_g1",
  "format": "duel",
- "made": "2026-11-10T05:53Z",
+ "made": "2026-11-10T14:23Z",
  "status": "final",
  "provisional": false,
  "podium": {
@@ -1697,7 +1697,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-badminton-g1-champ3",
-   "made": "2026-11-10 05:24 CST",
+   "made": "2026-11-10 08:23 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {

@@ -3,7 +3,7 @@
  "sport": "racing",
  "key": "racing_full",
  "format": "race",
- "made": "2026-11-10T05:53Z",
+ "made": "2026-11-10T14:23Z",
  "status": "final",
  "provisional": false,
  "podium": {
@@ -294,7 +294,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-racing-full-champ-rc6",
-   "made": "2026-11-10 05:24 CST",
+   "made": "2026-11-10 08:23 CST",
    "measure": "Pace score, ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,

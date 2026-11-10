@@ -3,7 +3,7 @@
  "sport": "tennis",
  "key": "tennis_g1",
  "format": "duel",
- "made": "2026-11-10T05:53Z",
+ "made": "2026-11-10T14:23Z",
  "status": "final",
  "provisional": false,
  "podium": {
@@ -1686,7 +1686,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-tennis-g1-champ2",
-   "made": "2026-11-10 05:24 CST",
+   "made": "2026-11-10 08:23 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1708,6 +1708,64 @@
     "pending": 0
    },
    "lines": {
+    "Claude Opus 5.5": [
+     {
+      "cp": "kickoff:1",
+      "x": 0.5,
+      "mean": 0.2321,
+      "lo": 0.2143,
+      "hi": 0.25,
+      "n": 2
+     },
+     {
+      "cp": "final:1",
+      "x": 1.0,
+      "mean": 0.2159,
+      "lo": 0.1818,
+      "hi": 0.25,
+      "n": 2
+     },
+     {
+      "cp": "final:3",
+      "x": 3.0,
+      "mean": 0.25,
+      "lo": 0.25,
+      "hi": 0.25,
+      "n": 2
+     },
+     {
+      "cp": "final:4",
+      "x": 4.0,
+      "mean": 0.25,
+      "lo": 0.25,
+      "hi": 0.25,
+      "n": 2
+     },
+     {
+      "cp": "final:5",
+      "x": 5.0,
+      "mean": 0.2367,
+      "lo": 0.1818,
+      "hi": 0.2917,
+      "n": 2
+     },
+     {
+      "cp": "final:6",
+      "x": 6.0,
+      "mean": 0.1818,
+      "lo": 0.1818,
+      "hi": 0.1818,
+      "n": 2
+     },
+     {
+      "cp": "final:7",
+      "x": 7.0,
+      "mean": 0.25,
+      "lo": 0.25,
+      "hi": 0.25,
+      "n": 2
+     }
+    ],
     "Gemini 4 Argon": [
      {
       "cp": "kickoff:1",
@@ -1879,64 +1937,6 @@
       "mean": 0.1777,
       "lo": 0.0625,
       "hi": 0.2929,
-      "n": 2
-     }
-    ],
-    "Claude Opus 5.5": [
-     {
-      "cp": "kickoff:1",
-      "x": 0.5,
-      "mean": 0.2321,
-      "lo": 0.2143,
-      "hi": 0.25,
-      "n": 2
-     },
-     {
-      "cp": "final:1",
-      "x": 1.0,
-      "mean": 0.2159,
-      "lo": 0.1818,
-      "hi": 0.25,
-      "n": 2
-     },
-     {
-      "cp": "final:3",
-      "x": 3.0,
-      "mean": 0.25,
-      "lo": 0.25,
-      "hi": 0.25,
-      "n": 2
-     },
-     {
-      "cp": "final:4",
-      "x": 4.0,
-      "mean": 0.25,
-      "lo": 0.25,
-      "hi": 0.25,
-      "n": 2
-     },
-     {
-      "cp": "final:5",
-      "x": 5.0,
-      "mean": 0.2159,
-      "lo": 0.1818,
-      "hi": 0.25,
-      "n": 2
-     },
-     {
-      "cp": "final:6",
-      "x": 6.0,
-      "mean": 0.1818,
-      "lo": 0.1818,
-      "hi": 0.1818,
-      "n": 2
-     },
-     {
-      "cp": "final:7",
-      "x": 7.0,
-      "mean": 0.25,
-      "lo": 0.25,
-      "hi": 0.25,
       "n": 2
      }
     ],
@@ -2227,6 +2227,43 @@
      "label": "L2 = level-2 reference program (middle)",
      "short": "L2 · middle",
      "lines": {
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.4643
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.4318
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.5
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.4735
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.3636
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.5
+       }
+      ],
       "Gemini 4 Argon": [
        {
         "cp": "kickoff:1",
@@ -2336,43 +2373,6 @@
         "cp": "final:7",
         "x": 7.0,
         "mean": 0.2443
-       }
-      ],
-      "Claude Opus 5.5": [
-       {
-        "cp": "kickoff:1",
-        "x": 0.5,
-        "mean": 0.4643
-       },
-       {
-        "cp": "final:1",
-        "x": 1.0,
-        "mean": 0.4318
-       },
-       {
-        "cp": "final:3",
-        "x": 3.0,
-        "mean": 0.5
-       },
-       {
-        "cp": "final:4",
-        "x": 4.0,
-        "mean": 0.5
-       },
-       {
-        "cp": "final:5",
-        "x": 5.0,
-        "mean": 0.4318
-       },
-       {
-        "cp": "final:6",
-        "x": 6.0,
-        "mean": 0.3636
-       },
-       {
-        "cp": "final:7",
-        "x": 7.0,
-        "mean": 0.5
        }
       ],
       "GPT-6 Astra": [
@@ -2618,6 +2618,43 @@
      "label": "Practice player = the strongest program (our best)",
      "short": "Practice player",
      "lines": {
+      "Claude Opus 5.5": [
+       {
+        "cp": "kickoff:1",
+        "x": 0.5,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:1",
+        "x": 1.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:3",
+        "x": 3.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:4",
+        "x": 4.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:6",
+        "x": 6.0,
+        "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0
+       }
+      ],
       "Gemini 4 Argon": [
        {
         "cp": "kickoff:1",
@@ -2727,43 +2764,6 @@
         "cp": "final:7",
         "x": 7.0,
         "mean": 0.1111
-       }
-      ],
-      "Claude Opus 5.5": [
-       {
-        "cp": "kickoff:1",
-        "x": 0.5,
-        "mean": 0.0
-       },
-       {
-        "cp": "final:1",
-        "x": 1.0,
-        "mean": 0.0
-       },
-       {
-        "cp": "final:3",
-        "x": 3.0,
-        "mean": 0.0
-       },
-       {
-        "cp": "final:4",
-        "x": 4.0,
-        "mean": 0.0
-       },
-       {
-        "cp": "final:5",
-        "x": 5.0,
-        "mean": 0.0
-       },
-       {
-        "cp": "final:6",
-        "x": 6.0,
-        "mean": 0.0
-       },
-       {
-        "cp": "final:7",
-        "x": 7.0,
-        "mean": 0.0
        }
       ],
       "GPT-6 Astra": [

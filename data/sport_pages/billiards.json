@@ -3,7 +3,7 @@
  "sport": "billiards",
  "key": "billiards_g1",
  "format": "duel",
- "made": "2026-11-10T05:53Z",
+ "made": "2026-11-10T14:23Z",
  "status": "final",
  "provisional": false,
  "podium": {
@@ -1679,7 +1679,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-billiards-g1-champ2",
-   "made": "2026-11-10 05:24 CST",
+   "made": "2026-11-10 08:23 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -1694,18 +1694,18 @@
    "ref": 0.3828,
    "count": {
     "planned": 176,
-    "ok": 135,
+    "ok": 136,
     "invalid": 11,
-    "never_acted": 27,
+    "never_acted": 29,
     "model_called": 0,
-    "pending": 3
+    "pending": 0
    },
    "lines": {
     "GPT-6 Astra": [
      {
       "cp": "kickoff:1",
       "x": 0.5,
-      "mean": 0.5179,
+      "mean": 0.5357,
       "lo": 0.5,
       "hi": 0.5714,
       "n": 2
@@ -2353,7 +2353,7 @@
        }
       ]
      },
-     "ok": 135,
+     "ok": 136,
      "planned": 176,
      "shared_count": true
     },
@@ -2367,7 +2367,7 @@
        {
         "cp": "kickoff:1",
         "x": 0.5,
-        "mean": 0.5
+        "mean": 0.5357
        },
        {
         "cp": "final:1",
@@ -2541,7 +2541,7 @@
        }
       ]
      },
-     "ok": 135,
+     "ok": 136,
      "planned": 176,
      "shared_count": true
     }
@@ -2559,7 +2559,7 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 1,
-       "valid": 4
+       "valid": 5
       },
       {
        "cp": "final:1",
@@ -2659,7 +2659,7 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 0,
-       "valid": 3
+       "valid": 5
       },
       {
        "cp": "final:1",

@@ -3,7 +3,7 @@
  "sport": "soccer_hsl_team",
  "key": "soccer_hsl_team",
  "format": "team",
- "made": "2026-11-10T05:53Z",
+ "made": "2026-11-10T14:23Z",
  "status": "final",
  "provisional": false,
  "podium": {
@@ -2000,7 +2000,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-soccer-hsl-team-champ",
-   "made": "2026-11-10 05:24 CST",
+   "made": "2026-11-10 08:23 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -2012,10 +2012,10 @@
    "count": {
     "planned": 76,
     "ok": 53,
-    "invalid": 23,
+    "invalid": 0,
     "never_acted": 0,
     "model_called": 0,
-    "pending": 0
+    "pending": 23
    },
    "lines": {
     "Claude Opus 5.5": [
