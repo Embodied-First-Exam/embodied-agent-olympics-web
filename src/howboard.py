@@ -123,14 +123,14 @@ def _example(site: Site) -> dict | None:
 
 
 def _rr_grid(site: Site, ex: dict) -> str:
-    n, c, x0, y0 = len(ex["order"]), 34, 100, 30
+    n, c, x0, y0 = len(ex["order"]), 34, 96, 30  # names in x 4-90, cells from 96
     out = []
     for j, name in enumerate(ex["order"]):
         out.append(f'<circle cx="{x0 + j * c + c / 2}" cy="{y0 - 12}" r="6" fill="{_colour(site, name)}" stroke="{_ring(site, name)}"/>')
     for i, a in enumerate(ex["order"]):
         y = y0 + i * c
-        out.append(f'<circle cx="{x0 - 58}" cy="{y + c / 2}" r="6" fill="{_colour(site, a)}" stroke="{_ring(site, a)}"/>'
-                   f'<text class="hb-c hb-c--l" x="{x0 - 46}" y="{y + c / 2 + 4.5}">{E(_short(a))}</text>')
+        out.append(f'<circle cx="10" cy="{y + c / 2}" r="6" fill="{_colour(site, a)}" stroke="{_ring(site, a)}"/>'
+                   f'<text class="hb-c hb-c--l" x="22" y="{y + c / 2 + 4.5}">{E(_short(a))}</text>')
         for j, b in enumerate(ex["order"]):
             x = x0 + j * c
             if i == j:
