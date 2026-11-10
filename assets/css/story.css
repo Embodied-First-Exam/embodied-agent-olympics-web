@@ -1794,7 +1794,7 @@ td.hh-t .hh-p{font-size:16px}
   .hh-c,.hh-x{height:52px}.hh-p{font-size:16px}.hh-wl{font-size:10.5px}
 }
 .rs-boards-h{margin-top:clamp(28px,4vw,48px)}
-/* leaderboard sections (Episodic Learning, Continuous Learning): Medals | Win rate | Head-to-head */
+/* leaderboard sections (Episodic Learning, Continual Learning): Medals | Win rate | Head-to-head */
 .pglb .ch-head{margin-bottom:clamp(8px,1.4vh,14px)}
 .lbx-k{color:var(--accent);display:block;margin-bottom:8px}
 .lbx-lede{margin-top:10px!important}

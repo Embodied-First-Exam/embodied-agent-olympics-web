@@ -130,7 +130,7 @@ def medal_switch(site: Site, medal_html: str, win_html: str | None = None) -> st
 
 # ---------------------------------------------------------------- learning modes (display names; code ids stay championship / arena)
 
-EPISODIC, CONTINUOUS = "Episodic Learning", "Continuous Learning"
+EPISODIC, CONTINUOUS = "Episodic Learning", "Continual Learning"
 EPISODIC_DEF = "A fresh workspace every match: the agent keeps nothing between matches."
 CONTINUOUS_DEF = ("One workspace kept across the season: programs, weights, notes and match videos carry into every next "
                   "match of the Olympics Championship.")
@@ -146,7 +146,7 @@ def mode_text(s: str) -> str:
 
 def mode_win_table(site: Site, scope: str = "arena") -> str:
     """Win % per model over one mode's head-to-head matches (results.json win_rate; scope arena = Episodic Learning, the
-    Open Arena boards; championship = Continuous Learning, the Olympics Championship): # · AI agent · W–L · Win %."""
+    Open Arena boards; championship = Continual Learning, the Olympics Championship): # · AI agent · W–L · Win %."""
     from layout import model_logo  # noqa: PLC0415
     w = site.results.get("win_rate")
     if not w:
@@ -172,7 +172,7 @@ def episodic_board(site: Site) -> str:
 
 def h2h_records(site: Site) -> dict:
     """Every counted head-to-head match of the duel and team-duel sports, from the sport-page data (data/sport_pages):
-    [sport index, mode (0 = Episodic / Open Arena board, 1 = Continuous / Championship), row model, other model, winner
+    [sport index, mode (0 = Episodic / Open Arena board, 1 = Continual / Championship), row model, other model, winner
     (model index, -1 = draw), level (1 = decided at a level score)]. Same rule as the win-rate table: official result, a
     level match counts for the official winner; forfeits, no-shows and matches a side did not finish are left out."""
     import json  # noqa: PLC0415

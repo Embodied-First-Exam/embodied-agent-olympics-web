@@ -1,7 +1,7 @@
 """'How this board is made': the closed fold under each leaderboard (home and Leaderboard page).
 
 Both folds reuse the homepage's original format widget (home.tournament, its components and its animation in site.js):
-Continuous Learning shows the widget as it was (duel / team-duel bracket, solo, race tabs); Episodic Learning shows the
+Continual Learning shows the widget as it was (duel / team-duel bracket, solo, race tabs); Episodic Learning shows the
 same widget style with the round robin only, flowing into the board's points table, the top three of which take the medals
 (one example Open Arena board). One sentence on the workspace above each, one small rule line below."""
 from __future__ import annotations

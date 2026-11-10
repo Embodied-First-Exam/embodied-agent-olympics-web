@@ -3,7 +3,7 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-  /* Continuous Learning (Championship) / Episodic Learning (Open Arena) tabs */
+  /* Continual Learning (Championship) / Episodic Learning (Open Arena) tabs */
   $$("[data-sptabs]").forEach((g) => {
     const box = g.parentElement;
     $$("[data-sptab]", g).forEach((b) => b.addEventListener("click", () => {

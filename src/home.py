@@ -870,7 +870,7 @@ def board_fold(site: Site, key: str) -> str:
 
 
 def leaderboards(site: Site) -> str:
-    """Two leaderboard sections, Episodic Learning first (code id arena: the Open Arena boards), then Continuous Learning
+    """Two leaderboard sections, Episodic Learning first (code id arena: the Open Arena boards), then Continual Learning
     (code id championship: the Olympics Championship). Each has the same three tabs, Medals | Win rate | Head-to-head;
     Medals is the default. Without JS all three panels show one after another (site.js adds .is-js and hides the others)."""
     d = medals.h2h_records(site)
@@ -898,9 +898,12 @@ def leaderboards(site: Site) -> str:
                        for i, (t, label, _) in enumerate(tabs))
         panels = "".join(f'<div class="lbx-p{" is-on" if i == 0 else ""}" role="tabpanel" id="lbp-{key}-{t}" aria-labelledby="lbt-{key}-{t}" data-lbx-p="{t}">'
                          f'<h4 class="lbx-nojs">{E(label)}</h4>{body}</div>' for i, (t, label, body) in enumerate(tabs))
-        anchor = '<span class="anchor" id="championship"></span><span class="anchor" id="leaderboards"></span>' if key == "continuous" else ""
+        # Continual Learning: the section id is "continual"; the old #continuous and #championship links still land here
+        anchor = ('<span class="anchor" id="continuous"></span><span class="anchor" id="championship"></span>'
+                  '<span class="anchor" id="leaderboards"></span>') if key == "continuous" else ""
+        sid = "continual" if key == "continuous" else key
         out.append(f"""
-<section class="{"chap " if k == 0 else ""}pg pgr2 pglb" data-inview id="{key}" data-snav="{E(name)}">
+<section class="{"chap " if k == 0 else ""}pg pgr2 pglb" data-inview id="{sid}" data-snav="{E(name)}">
   {anchor}
   <div class="wrap">
     <header class="ch-head ch-head--k"><span class="kicker lbx-k">Leaderboard {k + 1} of 2</span><h2>{E(name)}</h2>

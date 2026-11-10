@@ -221,7 +221,7 @@ def results(site: Site):
                f'<div class="wgrid rp-grid">{reps}</div>')
     tabs = [("arena", medals.EPISODIC), ("medals", medals.CONTINUOUS), ("by-sport", "By sport")]
     tab_btns = "".join(f'<button role="tab" class="tab{" is-on" if k == 0 else ""}" data-tab="{t}">{l}</button>' for k, (t, l) in enumerate(tabs))
-    body = phead("Leaderboard.", "The Episodic Learning and Continuous Learning boards, and the replays.")
+    body = phead("Leaderboard.", "The Episodic Learning and Continual Learning boards, and the replays.")
     body += f"""<section class="band band--line rs-tables" id="tables"><div class="wrap">
   <div class="sec-h"><h2 class="h2">Boards.</h2></div>
   <div class="tabs" role="tablist" style="margin-top:0">{tab_btns}</div>
