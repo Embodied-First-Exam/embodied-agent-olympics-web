@@ -82,6 +82,10 @@ def sports_index(site: Site):
 def sport_page(site: Site, i: int):
     import sport  # noqa: PLC0415  the new four-block page, for every sport with data/sport_pages/<id>.json
     d = sport.load(site.sports[i]["id"])
+    import sport2  # noqa: PLC0415  SPORTPAGE2 proposal: the restructured page, only where data/sport_pages_v2/<id>.json exists
+    v2 = sport2.load(site.sports[i]["id"]) if d else None
+    if v2:
+        return sport2.render(site, i, d, v2)
     if d:
         path, html = sport.render(site, i, d)
         note = medals.exhibition_notice(site, site.sports[i]["id"])  # exhibition sports: one notice above the records
