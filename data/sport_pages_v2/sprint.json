@@ -2,20 +2,33 @@
  "schema": "eo-sportcaps/0",
  "sport": "sprint",
  "card": "sprint_g1",
- "made": "2026-11-10 08:48 CST",
+ "made": "2026-11-10 09:35 CST",
  "status": "proposal",
  "sources": {
-  "checkpoint": "capcurve data/sprint_g1.json (Checkpoint Evaluation, 11-10 08:03)",
+  "checkpoint": "capcurve data/sprint_g1.json (Checkpoint Evaluation, 11-10 09:01)",
   "skill_tests": "sport page skill tests + SKILLFILL rows (not merged yet)"
  },
  "capabilities": [
   {
    "id": "run",
-   "name": "Running fast without falling",
+   "name": "Running gait",
    "layer": "Physical",
    "meaning": "The Engineer builds the gait from the joints up; speed counts only if the robot stays up.",
    "role": "primary",
    "verify": [
+    {
+     "id": "speed",
+     "name": "Runs fast enough",
+     "line": "Running speed p90 >= 2.6 m/s",
+     "rule": {
+      "metric": "v_p90",
+      "op": ">=",
+      "value": 2.6,
+      "games": 0.6666666666666666
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint"
+    },
     {
      "id": "upright",
      "name": "Runs without falling",
@@ -29,33 +42,19 @@
      },
      "line_kind": "existing_metric_fixed",
      "kind": "checkpoint"
-    },
-    {
-     "id": "speed",
-     "name": "Runs fast enough",
-     "line": "Running speed p90 >= 2.6 m/s",
-     "rule": {
-      "metric": "v_p90",
-      "op": ">=",
-      "value": 2.6,
-      "games": 0.6666666666666666
-     },
-     "line_kind": "proposed",
-     "kind": "checkpoint"
     }
    ],
    "evidence": [
-    "upright",
     "speed",
-    "rhythm"
+    "upright"
    ]
   },
   {
    "id": "lane",
-   "name": "Staying in lane from the camera",
+   "name": "Stay in the lane from camera",
    "layer": "Physical",
    "meaning": "Leaving the lane disqualifies the race; the head camera is the only guide.",
-   "role": "primary",
+   "role": "secondary",
    "verify": [
     {
      "id": "lane",
@@ -75,24 +74,6 @@
    "evidence": [
     "lane"
    ]
-  },
-  {
-   "id": "push",
-   "name": "Taking a push",
-   "layer": "Physical",
-   "meaning": "A sideways push: no fall, back in lane.",
-   "role": "secondary",
-   "verify": [
-    {
-     "id": "page:push",
-     "name": "Takes a sideways push: no fall, back in lane",
-     "line": "≥ 2/3 of the pushed races",
-     "kind": "skill test"
-    }
-   ],
-   "evidence": [
-    "push"
-   ]
   }
  ],
  "eval": {
@@ -102,16 +83,16 @@
     "run": {
      "status": "verified",
      "skills": {
-      "upright": {
-       "status": "pass",
-       "value": 1.0,
-       "n": 9.0,
-       "src": "checkpoint"
-      },
       "speed": {
        "status": "pass",
        "value": 5.3115,
        "n": 3,
+       "src": "checkpoint"
+      },
+      "upright": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 9.0,
        "src": "checkpoint"
       }
      }
@@ -124,17 +105,6 @@
        "value": 1.0,
        "n": 9.0,
        "src": "checkpoint"
-      }
-     }
-    },
-    "push": {
-     "status": "verified",
-     "skills": {
-      "page:push": {
-       "status": "pass",
-       "reading": null,
-       "checkpoint": "final:3",
-       "src": "skill test"
       }
      }
     }
@@ -146,16 +116,16 @@
     "run": {
      "status": "verified",
      "skills": {
-      "upright": {
-       "status": "pass",
-       "value": 1.0,
-       "n": 9.0,
-       "src": "checkpoint"
-      },
       "speed": {
        "status": "pass",
        "value": 7.2558,
        "n": 3,
+       "src": "checkpoint"
+      },
+      "upright": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 9.0,
        "src": "checkpoint"
       }
      }
@@ -168,17 +138,6 @@
        "value": 1.0,
        "n": 9.0,
        "src": "checkpoint"
-      }
-     }
-    },
-    "push": {
-     "status": "verified",
-     "skills": {
-      "page:push": {
-       "status": "pass",
-       "reading": null,
-       "checkpoint": "final:3",
-       "src": "skill test"
       }
      }
     }
@@ -190,16 +149,16 @@
     "run": {
      "status": "verified",
      "skills": {
-      "upright": {
-       "status": "pass",
-       "value": 1.0,
-       "n": 9.0,
-       "src": "checkpoint"
-      },
       "speed": {
        "status": "pass",
        "value": 3.8349,
        "n": 3,
+       "src": "checkpoint"
+      },
+      "upright": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 9.0,
        "src": "checkpoint"
       }
      }
@@ -214,17 +173,6 @@
        "src": "checkpoint"
       }
      }
-    },
-    "push": {
-     "status": "not_evaluated",
-     "skills": {
-      "page:push": {
-       "status": "unavailable",
-       "reading": null,
-       "checkpoint": "final:3",
-       "src": "skill test"
-      }
-     }
     }
    }
   },
@@ -234,16 +182,16 @@
     "run": {
      "status": "not_verified",
      "skills": {
-      "upright": {
-       "status": "not_examined",
-       "value": null,
-       "n": 2.0,
-       "src": "checkpoint"
-      },
       "speed": {
        "status": "fail",
        "value": 0.6624,
        "n": 3,
+       "src": "checkpoint"
+      },
+      "upright": {
+       "status": "not_examined",
+       "value": null,
+       "n": 2.0,
        "src": "checkpoint"
       }
      }
@@ -258,17 +206,6 @@
        "src": "checkpoint"
       }
      }
-    },
-    "push": {
-     "status": "not_evaluated",
-     "skills": {
-      "page:push": {
-       "status": "unavailable",
-       "reading": null,
-       "checkpoint": "final:3",
-       "src": "skill test"
-      }
-     }
     }
    }
   },
@@ -278,16 +215,16 @@
     "run": {
      "status": "not_verified",
      "skills": {
-      "upright": {
-       "status": "unavailable",
-       "value": null,
-       "n": 0.0,
-       "src": "checkpoint"
-      },
       "speed": {
        "status": "fail",
        "value": 0.3668,
        "n": 3,
+       "src": "checkpoint"
+      },
+      "upright": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0.0,
        "src": "checkpoint"
       }
      }
@@ -300,17 +237,6 @@
        "value": null,
        "n": 0.0,
        "src": "checkpoint"
-      }
-     }
-    },
-    "push": {
-     "status": "not_evaluated",
-     "skills": {
-      "page:push": {
-       "status": "unavailable",
-       "reading": null,
-       "checkpoint": "final:3",
-       "src": "skill test"
       }
      }
     }
@@ -322,16 +248,16 @@
     "run": {
      "status": "not_verified",
      "skills": {
-      "upright": {
-       "status": "unavailable",
-       "value": null,
-       "n": 0.0,
-       "src": "checkpoint"
-      },
       "speed": {
        "status": "fail",
        "value": 0.6046,
        "n": 3,
+       "src": "checkpoint"
+      },
+      "upright": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0.0,
        "src": "checkpoint"
       }
      }
@@ -344,17 +270,6 @@
        "value": null,
        "n": 0.0,
        "src": "checkpoint"
-      }
-     }
-    },
-    "push": {
-     "status": "not_evaluated",
-     "skills": {
-      "page:push": {
-       "status": "unavailable",
-       "reading": null,
-       "checkpoint": "final:3",
-       "src": "skill test"
       }
      }
     }
@@ -367,32 +282,28 @@
     "cp": "kickoff:1",
     "x": 0.5,
     "caps": {
-     "run": "verified",
-     "lane": "not_verified"
+     "run": "verified"
     }
    },
    {
     "cp": "final:1",
     "x": 1.0,
     "caps": {
-     "run": "verified",
-     "lane": "verified"
+     "run": "verified"
     }
    },
    {
     "cp": "final:2",
     "x": 2.0,
     "caps": {
-     "run": "verified",
-     "lane": "verified"
+     "run": "verified"
     }
    },
    {
     "cp": "final:3",
     "x": 3.0,
     "caps": {
-     "run": "verified",
-     "lane": "verified"
+     "run": "verified"
     }
    }
   ],
@@ -401,32 +312,28 @@
     "cp": "kickoff:1",
     "x": 0.5,
     "caps": {
-     "run": "verified",
-     "lane": "verified"
+     "run": "verified"
     }
    },
    {
     "cp": "final:1",
     "x": 1.0,
     "caps": {
-     "run": "not_verified",
-     "lane": "not_verified"
+     "run": "not_verified"
     }
    },
    {
     "cp": "final:2",
     "x": 2.0,
     "caps": {
-     "run": "verified",
-     "lane": "verified"
+     "run": "verified"
     }
    },
    {
     "cp": "final:3",
     "x": 3.0,
     "caps": {
-     "run": "verified",
-     "lane": "verified"
+     "run": "verified"
     }
    }
   ],
@@ -435,32 +342,28 @@
     "cp": "kickoff:1",
     "x": 0.5,
     "caps": {
-     "run": "verified",
-     "lane": "verified"
+     "run": "verified"
     }
    },
    {
     "cp": "final:1",
     "x": 1.0,
     "caps": {
-     "run": "verified",
-     "lane": "verified"
+     "run": "verified"
     }
    },
    {
     "cp": "final:2",
     "x": 2.0,
     "caps": {
-     "run": "verified",
-     "lane": "verified"
+     "run": "verified"
     }
    },
    {
     "cp": "final:3",
     "x": 3.0,
     "caps": {
-     "run": "verified",
-     "lane": "verified"
+     "run": "verified"
     }
    }
   ],
@@ -469,32 +372,28 @@
     "cp": "kickoff:1",
     "x": 0.5,
     "caps": {
-     "run": "not_verified",
-     "lane": "not_verified"
+     "run": "not_verified"
     }
    },
    {
     "cp": "final:1",
     "x": 1.0,
     "caps": {
-     "run": "not_verified",
-     "lane": "insufficient"
+     "run": "not_verified"
     }
    },
    {
     "cp": "final:2",
     "x": 2.0,
     "caps": {
-     "run": "not_verified",
-     "lane": "not_evaluated"
+     "run": "not_verified"
     }
    },
    {
     "cp": "final:3",
     "x": 3.0,
     "caps": {
-     "run": "not_verified",
-     "lane": "insufficient"
+     "run": "not_verified"
     }
    }
   ],
@@ -503,32 +402,28 @@
     "cp": "kickoff:1",
     "x": 0.5,
     "caps": {
-     "run": "not_evaluated",
-     "lane": "not_evaluated"
+     "run": "not_evaluated"
     }
    },
    {
     "cp": "final:1",
     "x": 1.0,
     "caps": {
-     "run": "not_verified",
-     "lane": "not_evaluated"
+     "run": "not_verified"
     }
    },
    {
     "cp": "final:2",
     "x": 2.0,
     "caps": {
-     "run": "not_verified",
-     "lane": "not_evaluated"
+     "run": "not_verified"
     }
    },
    {
     "cp": "final:3",
     "x": 3.0,
     "caps": {
-     "run": "not_verified",
-     "lane": "not_evaluated"
+     "run": "not_verified"
     }
    }
   ],
@@ -537,32 +432,28 @@
     "cp": "kickoff:1",
     "x": 0.5,
     "caps": {
-     "run": "not_verified",
-     "lane": "not_evaluated"
+     "run": "not_verified"
     }
    },
    {
     "cp": "final:1",
     "x": 1.0,
     "caps": {
-     "run": "not_verified",
-     "lane": "not_evaluated"
+     "run": "not_verified"
     }
    },
    {
     "cp": "final:2",
     "x": 2.0,
     "caps": {
-     "run": "not_verified",
-     "lane": "not_evaluated"
+     "run": "not_verified"
     }
    },
    {
     "cp": "final:3",
     "x": 3.0,
     "caps": {
-     "run": "not_verified",
-     "lane": "not_evaluated"
+     "run": "not_verified"
     }
    }
   ]
@@ -806,7 +697,8 @@
   }
  },
  "rules": [
-  "fair"
+  "fair",
+  "rhythm"
  ],
  "health": [],
  "not_shown": [

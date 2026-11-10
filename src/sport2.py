@@ -242,8 +242,8 @@ def evaluation(site: Site, v: dict) -> str:
                       f'<ol class="s2-rows">{"".join(rows)}</ol>{evid}</div>')
     extra = []
     if v.get("rules"):
-        extra.append(f'<details class="s2-more s2-rules"><summary>Rule checks · {len(v["rules"])} <span class="arr">▾</span></summary>'
-                     f'<p class="cr-rule">Playing within the rules is a condition for scoring and is checked on its own, outside the capability count.</p>{ev_rows(site, v, v["rules"])}</details>')
+        extra.append(f'<details class="s2-more s2-rules"><summary>Rules and prerequisites · {len(v["rules"])} <span class="arr">▾</span></summary>'
+                     f'<p class="cr-rule">Playing within the rules and keeping the control loop running are conditions for scoring, checked on their own and outside the capability count.</p>{ev_rows(site, v, v["rules"])}</details>')
     if v.get("health"):
         extra.append(f'<details class="s2-more s2-rules"><summary>Control-loop checks · {len(v["health"])} <span class="arr">▾</span></summary>'
                      f'<p class="cr-rule">How the agent engineers its controller; read with Agent development (04).</p>{ev_rows(site, v, v["health"])}</details>')
