@@ -3135,263 +3135,253 @@
    "Claude Opus 5.5": {
     "stays_up": {
      "status": "pass",
-     "checkpoint": "kickoff:1"
+     "checkpoint": "final:7"
+    },
+    "push": {
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "walks": {
      "status": "pass",
-     "checkpoint": "kickoff:1"
+     "checkpoint": "final:7"
     },
     "gets_up": {
      "status": "pass",
-     "checkpoint": "kickoff:1"
-    },
-    "no_sendoff": {
-     "status": "pass",
-     "checkpoint": "kickoff:1"
+     "checkpoint": "final:7"
     },
     "ball_view": {
      "status": "pass",
-     "checkpoint": "kickoff:1"
+     "checkpoint": "final:7"
     },
     "reaches_ball": {
      "status": "pass",
-     "checkpoint": "kickoff:1"
-    },
-    "react": {
-     "status": "pass",
-     "checkpoint": "kickoff:1"
+     "checkpoint": "final:7"
     },
     "passes": {
      "status": "pass",
-     "checkpoint": "kickoff:1"
+     "checkpoint": "final:7"
     },
-    "push": {
+    "no_sendoff": {
      "status": "fail",
-     "checkpoint": "kickoff:1"
+     "checkpoint": "final:7"
+    },
+    "react": {
+     "status": "fail",
+     "checkpoint": "final:7"
     },
     "loop": {
      "status": "na",
-     "checkpoint": "kickoff:1"
+     "checkpoint": "final:7"
     }
    },
    "GPT-6 Astra": {
     "walks": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "gets_up": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "no_sendoff": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "ball_view": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "reaches_ball": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "stays_up": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "push": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "react": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "passes": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "loop": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     }
    },
    "Gemini 4 Argon": {
     "gets_up": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "no_sendoff": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "reaches_ball": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "passes": {
      "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "stays_up": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "push": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "walks": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "ball_view": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "react": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "loop": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:7"
     }
    },
    "GLM 5.3 Flash": {
     "walks": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
     "gets_up": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
     "no_sendoff": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
     "ball_view": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
     "reaches_ball": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
     "react": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
-    "stays_up": {
-     "status": "na",
-     "checkpoint": "final:2"
-    },
-    "push": {
-     "status": "na",
-     "checkpoint": "final:2"
+    "passes": {
+     "status": "fail",
+     "checkpoint": "final:7"
     },
     "loop": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
     },
-    "passes": {
+    "push": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:7"
+    },
+    "stays_up": {
+     "status": "na",
+     "checkpoint": "final:7"
     }
    },
    "DeepSeek V4.1 Flash": {
+    "stays_up": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "gets_up": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "no_sendoff": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
     "reaches_ball": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "passes": {
      "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "stays_up": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "push": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "walks": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "gets_up": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "no_sendoff": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "ball_view": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "react": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "loop": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
+    },
+    "push": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:5"
     }
    },
    "Kimi 3.1 Pro": {
+    "walks": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
     "stays_up": {
-     "status": "na",
-     "checkpoint": "final:5",
-     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+     "status": "fail",
+     "checkpoint": "final:5"
     },
     "push": {
-     "status": "na",
-     "checkpoint": "final:5",
-     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
-    },
-    "walks": {
-     "status": "na",
-     "checkpoint": "final:5",
-     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+     "status": "fail",
+     "checkpoint": "final:5"
     },
     "gets_up": {
-     "status": "na",
-     "checkpoint": "final:5",
-     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+     "status": "fail",
+     "checkpoint": "final:5"
     },
     "no_sendoff": {
-     "status": "na",
-     "checkpoint": "final:5",
-     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+     "status": "fail",
+     "checkpoint": "final:5"
     },
     "ball_view": {
-     "status": "na",
-     "checkpoint": "final:5",
-     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+     "status": "fail",
+     "checkpoint": "final:5"
     },
     "reaches_ball": {
-     "status": "na",
-     "checkpoint": "final:5",
-     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+     "status": "fail",
+     "checkpoint": "final:5"
     },
     "react": {
-     "status": "na",
-     "checkpoint": "final:5",
-     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "passes": {
+     "status": "fail",
+     "checkpoint": "final:5"
     },
     "loop": {
      "status": "na",
-     "checkpoint": "final:5",
-     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
-    },
-    "passes": {
-     "status": "na",
-     "checkpoint": "final:5",
-     "reading": "Not measured yet: our re-run was cut short (world lag on our test host); the program itself is not the cause"
+     "checkpoint": "final:5"
     }
    }
   },

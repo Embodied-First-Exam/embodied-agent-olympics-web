@@ -3232,77 +3232,77 @@
    "Claude Opus 5.5": {
     "moves_to": {
      "status": "pass",
-     "checkpoint": "final:6"
+     "checkpoint": "final:7"
     },
     "serve_in": {
      "status": "pass",
-     "checkpoint": "final:6"
+     "checkpoint": "final:7"
     },
     "stands": {
      "status": "fail",
-     "checkpoint": "final:6"
+     "checkpoint": "final:7"
     },
     "push": {
      "status": "fail",
-     "checkpoint": "final:6"
+     "checkpoint": "final:7"
     },
     "touches": {
      "status": "fail",
-     "checkpoint": "final:6"
+     "checkpoint": "final:7"
     },
     "receives": {
      "status": "fail",
-     "checkpoint": "final:6"
+     "checkpoint": "final:7"
     },
     "returns_in": {
      "status": "fail",
-     "checkpoint": "final:6"
+     "checkpoint": "final:7"
     },
     "near": {
      "status": "fail",
-     "checkpoint": "final:6"
+     "checkpoint": "final:7"
     },
     "rallies": {
      "status": "na",
-     "checkpoint": "final:6"
+     "checkpoint": "final:7"
     }
    },
    "GPT-6 Astra": {
+    "push": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
     "serve_in": {
      "status": "pass",
-     "checkpoint": "final:5"
+     "checkpoint": "final:7"
     },
     "stands": {
      "status": "fail",
-     "checkpoint": "final:5"
-    },
-    "push": {
-     "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:7"
     },
     "moves_to": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:7"
     },
     "touches": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:7"
     },
     "receives": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:7"
     },
     "returns_in": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:7"
     },
     "near": {
      "status": "fail",
-     "checkpoint": "final:5"
+     "checkpoint": "final:7"
     },
     "rallies": {
      "status": "na",
-     "checkpoint": "final:5"
+     "checkpoint": "final:7"
     }
    },
    "GLM 5.3 Flash": {

@@ -1724,43 +1724,43 @@
     "gate1": {
      "status": "pass",
      "reading": "10/10",
-     "checkpoint": "final:2",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "in_control": {
      "status": "fail",
-     "reading": "5/10",
-     "checkpoint": "final:2",
+     "reading": "1/10",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "lap1": {
      "status": "fail",
-     "reading": "2/10",
-     "checkpoint": "final:2",
+     "reading": "4/10",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "shutters": {
-     "status": "pass",
-     "reading": "scenario 6/6",
-     "checkpoint": "final:3",
-     "source": "Scenario"
+     "status": "fail",
+     "reading": "6/8",
+     "checkpoint": "final:5",
+     "source": "Checkpoint Evaluation"
     },
     "finishes": {
      "status": "fail",
-     "reading": "0/10",
-     "checkpoint": "final:2",
+     "reading": "1/10",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "loop": {
      "status": "pass",
      "reading": "5/5",
-     "checkpoint": "final:2",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "pace": {
      "status": "fail",
-     "reading": "3.3 m/s",
-     "checkpoint": "final:3"
+     "reading": "3.1 m/s",
+     "checkpoint": "final:5"
     },
     "gust": {
      "status": "pass",
@@ -1779,43 +1779,43 @@
     "gate1": {
      "status": "pass",
      "reading": "10/10",
-     "checkpoint": "final:3",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "in_control": {
      "status": "pass",
      "reading": "8/10",
-     "checkpoint": "final:3",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "lap1": {
      "status": "pass",
-     "reading": "10/10",
-     "checkpoint": "final:3",
+     "reading": "7/10",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "shutters": {
      "status": "pass",
-     "reading": "10/10 · scenario 5/6",
-     "checkpoint": "final:3",
+     "reading": "10/10",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "finishes": {
      "status": "pass",
-     "reading": "8/10",
-     "checkpoint": "final:3",
+     "reading": "6/10",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "loop": {
      "status": "pass",
      "reading": "5/5",
-     "checkpoint": "final:3",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "pace": {
      "status": "fail",
-     "reading": "2.7 m/s",
-     "checkpoint": "final:3"
+     "reading": "2.6 m/s",
+     "checkpoint": "final:5"
     },
     "gust": {
      "status": "pass",
@@ -1834,50 +1834,50 @@
     "gate1": {
      "status": "pass",
      "reading": "10/10",
-     "checkpoint": "final:3",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "in_control": {
-     "status": "fail",
-     "reading": "6/10",
-     "checkpoint": "final:3",
+     "status": "pass",
+     "reading": "7/10",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "lap1": {
      "status": "pass",
-     "reading": "7/10",
-     "checkpoint": "final:3",
+     "reading": "9/10",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "shutters": {
      "status": "pass",
-     "reading": "9/9",
-     "checkpoint": "final:3",
+     "reading": "10/10",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "finishes": {
-     "status": "fail",
-     "reading": "4/10",
-     "checkpoint": "final:3",
+     "status": "pass",
+     "reading": "6/10",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "loop": {
      "status": "pass",
      "reading": "5/5",
-     "checkpoint": "final:3",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "pace": {
      "status": "pass",
-     "reading": "5.7 m/s",
-     "checkpoint": "final:3"
+     "reading": "5.6 m/s",
+     "checkpoint": "final:5"
     }
    },
    "GLM 5.3 Flash": {
     "gate1": {
      "status": "fail",
-     "reading": "7/10",
-     "checkpoint": "final:3",
+     "reading": "1/10",
+     "checkpoint": "final:4",
      "source": "Checkpoint Evaluation"
     },
     "in_control": {
@@ -1889,7 +1889,7 @@
     "lap1": {
      "status": "fail",
      "reading": "0/10",
-     "checkpoint": "final:3",
+     "checkpoint": "final:4",
      "source": "Checkpoint Evaluation"
     },
     "shutters": {
@@ -1901,45 +1901,51 @@
     "finishes": {
      "status": "fail",
      "reading": "0/10",
-     "checkpoint": "final:3",
+     "checkpoint": "final:4",
      "source": "Checkpoint Evaluation"
     },
     "loop": {
      "status": "pass",
      "reading": "5/5",
-     "checkpoint": "final:3",
+     "checkpoint": "final:4",
      "source": "Checkpoint Evaluation"
     }
    },
    "Kimi 3.1 Pro": {
     "gate1": {
-     "status": "fail",
-     "reading": "3/10",
-     "checkpoint": "final:3",
+     "status": "pass",
+     "reading": "10/10",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "in_control": {
      "status": "fail",
-     "reading": "0/5",
-     "checkpoint": "final:2",
+     "reading": "0/10",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "lap1": {
      "status": "fail",
      "reading": "0/10",
-     "checkpoint": "final:3",
+     "checkpoint": "final:5",
+     "source": "Checkpoint Evaluation"
+    },
+    "shutters": {
+     "status": "fail",
+     "reading": "0/4",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "finishes": {
      "status": "fail",
      "reading": "0/10",
-     "checkpoint": "final:3",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     },
     "loop": {
      "status": "pass",
      "reading": "5/5",
-     "checkpoint": "final:3",
+     "checkpoint": "final:5",
      "source": "Checkpoint Evaluation"
     }
    },
@@ -1947,19 +1953,19 @@
     "gate1": {
      "status": "pass",
      "reading": "10/10",
-     "checkpoint": "final:3",
+     "checkpoint": "final:4",
      "source": "Checkpoint Evaluation"
     },
     "in_control": {
      "status": "fail",
      "reading": "0/10",
-     "checkpoint": "final:3",
+     "checkpoint": "final:4",
      "source": "Checkpoint Evaluation"
     },
     "lap1": {
      "status": "fail",
      "reading": "0/10",
-     "checkpoint": "final:3",
+     "checkpoint": "final:4",
      "source": "Checkpoint Evaluation"
     },
     "shutters": {
@@ -1971,13 +1977,13 @@
     "finishes": {
      "status": "fail",
      "reading": "0/10",
-     "checkpoint": "final:3",
+     "checkpoint": "final:4",
      "source": "Checkpoint Evaluation"
     },
     "loop": {
      "status": "pass",
      "reading": "5/5",
-     "checkpoint": "final:3",
+     "checkpoint": "final:4",
      "source": "Checkpoint Evaluation"
     }
    }

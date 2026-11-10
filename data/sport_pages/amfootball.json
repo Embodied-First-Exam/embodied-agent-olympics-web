@@ -3326,77 +3326,77 @@
    "Claude Opus 5.5": {
     "push_up": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "gets_up": {
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "tackle": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "ball_sec": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "loose": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "first_down": {
      "status": "pass",
-     "checkpoint": "final:1"
-    },
-    "gets_up": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "in_play": {
-     "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "walks": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "ball_seen": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:7"
     }
    },
    "GPT-6 Astra": {
-    "tackle": {
+    "gets_up": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "ball_sec": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "loose": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "first_down": {
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "push_up": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
-    "gets_up": {
+    "tackle": {
      "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "first_down": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "in_play": {
      "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "walks": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "ball_seen": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "walks": {
+     "status": "na",
+     "checkpoint": "final:7"
     }
    },
    "DeepSeek V4.1 Flash": {

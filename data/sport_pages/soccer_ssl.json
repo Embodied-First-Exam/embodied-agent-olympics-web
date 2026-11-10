@@ -3131,277 +3131,277 @@
    "Claude Opus 5.5": {
     "plays_ball": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "loop": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "within_rules": {
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "places_ball": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "holds_ball": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "drives_clean": {
      "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "within_rules": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "drives": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "react": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "no_swarm": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "saves": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "passes": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "saves": {
+     "status": "na",
+     "checkpoint": "final:7"
     }
    },
    "GPT-6 Astra": {
     "plays_ball": {
      "status": "pass",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     },
     "loop": {
      "status": "pass",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     },
     "drives_clean": {
      "status": "pass",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     },
     "within_rules": {
      "status": "pass",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     },
     "places_ball": {
      "status": "pass",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     },
     "holds_ball": {
      "status": "pass",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     },
     "drives": {
      "status": "na",
-     "checkpoint": "final:3"
-    },
-    "react": {
-     "status": "na",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     },
     "no_swarm": {
      "status": "na",
-     "checkpoint": "final:3"
-    },
-    "saves": {
-     "status": "na",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     },
     "passes": {
      "status": "na",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "saves": {
+     "status": "na",
+     "checkpoint": "final:7"
     }
    },
    "Gemini 4 Argon": {
+    "plays_ball": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
     "loop": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "drives_clean": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "within_rules": {
      "status": "pass",
-     "checkpoint": "final:1"
-    },
-    "plays_ball": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "places_ball": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "holds_ball": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "drives": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "react": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "no_swarm": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "saves": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "passes": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "saves": {
+     "status": "na",
+     "checkpoint": "final:7"
     }
    },
    "GLM 5.3 Flash": {
+    "loop": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
     "plays_ball": {
      "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "loop": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "drives_clean": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "within_rules": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "places_ball": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "drives": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "react": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "no_swarm": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "saves": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "passes": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "holds_ball": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
+    },
+    "no_swarm": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "passes": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "saves": {
+     "status": "na",
+     "checkpoint": "final:5"
     }
    },
    "Kimi 3.1 Pro": {
     "plays_ball": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "loop": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "drives_clean": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "within_rules": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "places_ball": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "holds_ball": {
-     "status": "pass",
-     "checkpoint": "final:1"
+     "status": "fail",
+     "checkpoint": "final:7"
     },
     "drives": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "react": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "no_swarm": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "saves": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
     },
     "passes": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:7"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "saves": {
+     "status": "na",
+     "checkpoint": "final:7"
     }
    },
    "DeepSeek V4.1 Flash": {
     "plays_ball": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "loop": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "drives_clean": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "within_rules": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "status": "pass",
+     "checkpoint": "final:5"
     },
     "places_ball": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "holds_ball": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "drives": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "react": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "no_swarm": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "saves": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
     },
     "passes": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:5"
+    },
+    "react": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "saves": {
+     "status": "na",
+     "checkpoint": "final:5"
     }
    }
   },

@@ -3293,77 +3293,77 @@
    "Claude Opus 5.5": {
     "push": {
      "status": "pass",
-     "checkpoint": "final:4"
+     "checkpoint": "final:7"
     },
     "stays_up": {
      "status": "pass",
-     "checkpoint": "final:4"
+     "checkpoint": "final:7"
     },
     "legal_serve": {
      "status": "pass",
-     "checkpoint": "final:4"
+     "checkpoint": "final:7"
+    },
+    "on_time": {
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "centred": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:7"
     },
     "touches": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:7"
     },
     "receives": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:7"
     },
     "returns": {
      "status": "fail",
-     "checkpoint": "final:4"
-    },
-    "on_time": {
-     "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:7"
     },
     "rallies": {
      "status": "fail",
-     "checkpoint": "final:4"
+     "checkpoint": "final:7"
     }
    },
    "GPT-6 Astra": {
     "centred": {
      "status": "pass",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     },
     "touches": {
      "status": "pass",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
+    },
+    "receives": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "returns": {
+     "status": "pass",
+     "checkpoint": "final:7"
     },
     "push": {
      "status": "pass",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     },
     "stays_up": {
      "status": "pass",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     },
     "legal_serve": {
      "status": "pass",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     },
     "rallies": {
      "status": "pass",
-     "checkpoint": "final:3"
-    },
-    "receives": {
-     "status": "fail",
-     "checkpoint": "final:3"
-    },
-    "returns": {
-     "status": "fail",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     },
     "on_time": {
      "status": "fail",
-     "checkpoint": "final:3"
+     "checkpoint": "final:7"
     }
    },
    "Kimi 3.1 Pro": {

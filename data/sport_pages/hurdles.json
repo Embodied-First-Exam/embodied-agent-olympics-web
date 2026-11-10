@@ -995,39 +995,39 @@
    "Claude Opus 5.5": {
     "upright": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "clear": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "jump": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "first_hurdle": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
+    },
+    "lane": {
+     "status": "pass",
+     "checkpoint": "final:3"
     },
     "rhythm": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "fair": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "speed": {
      "status": "fail",
-     "checkpoint": "final:2"
-    },
-    "lane": {
-     "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "push": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     }
    },
    "GPT-6 Astra": {
@@ -1069,117 +1069,117 @@
     }
    },
    "Gemini 4 Argon": {
+    "upright": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "speed": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "clear": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "first_hurdle": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
     "rhythm": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     },
     "fair": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     },
-    "upright": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "speed": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "clear": {
-     "status": "na",
-     "checkpoint": "final:1"
+    "lane": {
+     "status": "fail",
+     "checkpoint": "final:3"
     },
     "jump": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "first_hurdle": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "lane": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     },
     "push": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     }
    },
    "GLM 5.3 Flash": {
     "rhythm": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:2"
     },
     "fair": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:2"
     },
     "upright": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "status": "fail",
+     "checkpoint": "final:2"
     },
     "speed": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "status": "fail",
+     "checkpoint": "final:2"
     },
     "clear": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "first_hurdle": {
+     "status": "fail",
+     "checkpoint": "final:2"
+    },
+    "lane": {
+     "status": "fail",
+     "checkpoint": "final:2"
     },
     "jump": {
      "status": "na",
-     "checkpoint": "final:1"
-    },
-    "first_hurdle": {
-     "status": "na",
-     "checkpoint": "final:1"
-    },
-    "lane": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:2"
     },
     "push": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:2"
     }
    },
    "Kimi 3.1 Pro": {
     "rhythm": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:2"
     },
     "fair": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:2"
     },
     "upright": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:2"
     },
     "speed": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:2"
     },
     "clear": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:2"
     },
     "first_hurdle": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:2"
     },
     "lane": {
      "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:2"
     },
     "jump": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:2"
     },
     "push": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:2"
     }
    },
    "DeepSeek V4.1 Flash": {

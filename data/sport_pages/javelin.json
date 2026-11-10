@@ -1062,137 +1062,137 @@
    "GLM 5.3 Flash": {
     "upright": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "legal": {
      "status": "pass",
-     "checkpoint": "final:2"
-    },
-    "flight": {
-     "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "behind": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "rel_speed": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
+    },
+    "flight": {
+     "status": "fail",
+     "checkpoint": "final:3"
     },
     "consistent": {
      "status": "fail",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "aim": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "runup": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     }
    },
    "Kimi 3.1 Pro": {
     "upright": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     },
     "rel_speed": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     },
     "legal": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     },
     "flight": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     },
     "consistent": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     },
     "behind": {
      "status": "pass",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     },
     "aim": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     },
     "runup": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     }
    },
    "DeepSeek V4.1 Flash": {
+    "upright": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "legal": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "flight": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "consistent": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
     "behind": {
      "status": "pass",
-     "checkpoint": "final:1"
-    },
-    "upright": {
-     "status": "fail",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     },
     "rel_speed": {
      "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "legal": {
-     "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "consistent": {
-     "status": "fail",
-     "checkpoint": "final:1"
-    },
-    "flight": {
-     "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     },
     "aim": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     },
     "runup": {
      "status": "na",
-     "checkpoint": "final:1"
+     "checkpoint": "final:3"
     }
    },
    "Gemini 4 Argon": {
     "upright": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "rel_speed": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "legal": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "flight": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "consistent": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "behind": {
      "status": "pass",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "aim": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     },
     "runup": {
      "status": "na",
-     "checkpoint": "final:2"
+     "checkpoint": "final:3"
     }
    }
   },
