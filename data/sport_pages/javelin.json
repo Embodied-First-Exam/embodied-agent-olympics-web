@@ -519,7 +519,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-javelin-g1-arena",
-   "made": "2026-11-09 03:09 CST",
+   "made": "2026-11-09 20:49 CST",
    "measure": "Best mark (m), ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,
@@ -725,9 +725,9 @@
     "GPT-6 Astra": "improve",
     "Claude Opus 5.5": "improve",
     "Gemini 4 Argon": "one point only",
-    "Kimi 3.1 Pro": "regress",
-    "GLM 5.3 Flash": "flat",
-    "DeepSeek V4.1 Flash": "flat"
+    "Kimi 3.1 Pro": "flat",
+    "GLM 5.3 Flash": "improve",
+    "DeepSeek V4.1 Flash": "improve"
    },
    "tiers": [],
    "tier_note": null,
@@ -737,8 +737,159 @@
      "Whole-body power and staying stable (release speed)",
      "Javelin flight: release timing, angle, alignment, tip first"
     ],
-    "ref": null,
-    "lines": {},
+    "ref": 2.0,
+    "lines": {
+     "GPT-6 Astra": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 2,
+       "valid": 3
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 2,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 1,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 1,
+       "valid": 3
+      }
+     ],
+     "DeepSeek V4.1 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 1,
+       "valid": 3
+      }
+     ],
+     "Gemini 4 Argon": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 1,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 1,
+       "valid": 3
+      }
+     ],
+     "GLM 5.3 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 3
+      }
+     ],
+     "Kimi 3.1 Pro": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 2,
+       "valid": 3
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 1,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 1,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 2,
+       "valid": 3
+      }
+     ],
+     "Claude Opus 5.5": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 1,
+       "valid": 3
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 1,
+       "valid": 3
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 1,
+       "valid": 3
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 2,
+       "valid": 3
+      }
+     ]
+    },
     "status": "proposal"
    }
   }

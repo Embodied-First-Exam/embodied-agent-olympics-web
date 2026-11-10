@@ -1670,7 +1670,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-tabletennis-g1-champ2",
-   "made": "2026-11-09 03:09 CST",
+   "made": "2026-11-09 20:49 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -2110,6 +2110,11 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.2667
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.1071
        }
       ],
       "Gemini 4 Argon": [
@@ -2142,6 +2147,11 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.4855
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.4958
        }
       ],
       "GLM 5.3 Flash": [
@@ -2228,10 +2238,15 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.4618
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.2103
        }
       ]
      },
-     "ok": 68,
+     "ok": 74,
      "planned": 74,
      "shared_count": false
     },
@@ -2488,12 +2503,17 @@
        {
         "cp": "final:5",
         "x": 5.0,
-        "mean": 0.3529
+        "mean": 0.2836
        },
        {
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.0417
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.175
        }
       ],
       "DeepSeek V4.1 Flash": [
@@ -2518,9 +2538,19 @@
         "mean": 0.0833
        },
        {
+        "cp": "final:5",
+        "x": 5.0,
+        "mean": 0.1186
+       },
+       {
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.0
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0769
        }
       ],
       "Gemini 4 Argon": [
@@ -2553,6 +2583,11 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.175
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.0769
        }
       ],
       "GLM 5.3 Flash": [
@@ -2639,10 +2674,15 @@
         "cp": "final:6",
         "x": 6.0,
         "mean": 0.1488
+       },
+       {
+        "cp": "final:7",
+        "x": 7.0,
+        "mean": 0.1488
        }
       ]
      },
-     "ok": 63,
+     "ok": 74,
      "planned": 74,
      "shared_count": false
     },
@@ -2885,26 +2925,44 @@
      "Serving",
      "Real-time timing"
     ],
-    "ref": null,
+    "ref": 1.0,
     "lines": {
      "GPT-6 Astra": [
       {
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 2,
-       "valid": 4
+       "valid": 6
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 2,
-       "valid": 4
+       "valid": 8
       },
       {
        "cp": "final:2",
        "x": 2.0,
        "n_pass": 3,
-       "valid": 4
+       "valid": 8
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 2,
+       "valid": 10
+      },
+      {
+       "cp": "final:5",
+       "x": 5.0,
+       "n_pass": 3,
+       "valid": 7
+      },
+      {
+       "cp": "final:6",
+       "x": 6.0,
+       "n_pass": 2,
+       "valid": 6
       }
      ],
      "DeepSeek V4.1 Flash": [
@@ -2912,13 +2970,37 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 0,
-       "valid": 4
+       "valid": 8
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 0,
-       "valid": 4
+       "valid": 7
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 1,
+       "valid": 5
+      },
+      {
+       "cp": "final:4",
+       "x": 4.0,
+       "n_pass": 1,
+       "valid": 8
+      },
+      {
+       "cp": "final:5",
+       "x": 5.0,
+       "n_pass": 1,
+       "valid": 6
+      },
+      {
+       "cp": "final:6",
+       "x": 6.0,
+       "n_pass": 1,
+       "valid": 8
       }
      ],
      "Gemini 4 Argon": [
@@ -2926,19 +3008,43 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 0,
-       "valid": 22
+       "valid": 26
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 0,
-       "valid": 12
+       "valid": 16
       },
       {
        "cp": "final:2",
        "x": 2.0,
+       "n_pass": 2,
+       "valid": 8
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 2,
+       "valid": 8
+      },
+      {
+       "cp": "final:4",
+       "x": 4.0,
        "n_pass": 1,
-       "valid": 4
+       "valid": 8
+      },
+      {
+       "cp": "final:5",
+       "x": 5.0,
+       "n_pass": 1,
+       "valid": 8
+      },
+      {
+       "cp": "final:6",
+       "x": 6.0,
+       "n_pass": 2,
+       "valid": 8
       }
      ],
      "GLM 5.3 Flash": [
@@ -2946,19 +3052,37 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 0,
-       "valid": 12
+       "valid": 16
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 0,
-       "valid": 12
+       "valid": 16
       },
       {
        "cp": "final:2",
        "x": 2.0,
        "n_pass": 0,
-       "valid": 1
+       "valid": 4
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 0,
+       "valid": 8
+      },
+      {
+       "cp": "final:4",
+       "x": 4.0,
+       "n_pass": 0,
+       "valid": 7
+      },
+      {
+       "cp": "final:5",
+       "x": 5.0,
+       "n_pass": 0,
+       "valid": 8
       }
      ],
      "Kimi 3.1 Pro": [
@@ -2966,13 +3090,37 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 0,
-       "valid": 5
+       "valid": 9
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 0,
-       "valid": 10
+       "valid": 14
+      },
+      {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 4
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 1,
+       "valid": 8
+      },
+      {
+       "cp": "final:4",
+       "x": 4.0,
+       "n_pass": 1,
+       "valid": 6
+      },
+      {
+       "cp": "final:5",
+       "x": 5.0,
+       "n_pass": 1,
+       "valid": 8
       }
      ],
      "Claude Opus 5.5": [
@@ -2980,13 +3128,37 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 0,
-       "valid": 4
+       "valid": 8
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 1,
-       "valid": 4
+       "valid": 8
+      },
+      {
+       "cp": "final:3",
+       "x": 3.0,
+       "n_pass": 1,
+       "valid": 8
+      },
+      {
+       "cp": "final:4",
+       "x": 4.0,
+       "n_pass": 1,
+       "valid": 8
+      },
+      {
+       "cp": "final:5",
+       "x": 5.0,
+       "n_pass": 1,
+       "valid": 7
+      },
+      {
+       "cp": "final:6",
+       "x": 6.0,
+       "n_pass": 1,
+       "valid": 8
       }
      ]
     },

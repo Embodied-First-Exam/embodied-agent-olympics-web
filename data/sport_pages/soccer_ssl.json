@@ -1622,7 +1622,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-soccer-ssl-champ2",
-   "made": "2026-11-09 03:09 CST",
+   "made": "2026-11-09 20:49 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -2732,32 +2732,32 @@
      "Positioning & spatial structure",
      "Playing within the rules"
     ],
-    "ref": null,
+    "ref": 4.0,
     "lines": {
      "GPT-6 Astra": [
       {
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 4,
-       "valid": 5
+       "valid": 8
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 4,
-       "valid": 5
+       "valid": 8
       },
       {
        "cp": "final:3",
        "x": 3.0,
        "n_pass": 4,
-       "valid": 4
+       "valid": 8
       },
       {
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 4,
-       "valid": 5
+       "valid": 8
       },
       {
        "cp": "final:6",
@@ -2769,7 +2769,7 @@
        "cp": "final:7",
        "x": 7.0,
        "n_pass": 4,
-       "valid": 5
+       "valid": 8
       }
      ],
      "DeepSeek V4.1 Flash": [
@@ -2777,19 +2777,19 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 3,
-       "valid": 5
+       "valid": 8
       },
       {
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 3,
-       "valid": 5
+       "valid": 8
       },
       {
        "cp": "final:3",
        "x": 3.0,
        "n_pass": 3,
-       "valid": 5
+       "valid": 8
       },
       {
        "cp": "final:4",
@@ -2801,7 +2801,7 @@
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 3,
-       "valid": 4
+       "valid": 8
       }
      ],
      "Gemini 4 Argon": [
@@ -2815,13 +2815,13 @@
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 3,
-       "valid": 6
+       "valid": 8
       },
       {
        "cp": "final:3",
        "x": 3.0,
        "n_pass": 3,
-       "valid": 4
+       "valid": 8
       },
       {
        "cp": "final:4",
@@ -2833,7 +2833,7 @@
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 4,
-       "valid": 5
+       "valid": 8
       },
       {
        "cp": "final:6",
@@ -2845,7 +2845,7 @@
        "cp": "final:7",
        "x": 7.0,
        "n_pass": 4,
-       "valid": 5
+       "valid": 8
       }
      ],
      "GLM 5.3 Flash": [
@@ -2862,16 +2862,22 @@
        "valid": 8
       },
       {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 3
+      },
+      {
        "cp": "final:3",
        "x": 3.0,
        "n_pass": 0,
-       "valid": 6
+       "valid": 8
       },
       {
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 1,
-       "valid": 6
+       "valid": 8
       }
      ],
      "Kimi 3.1 Pro": [
@@ -2888,10 +2894,16 @@
        "valid": 8
       },
       {
+       "cp": "final:2",
+       "x": 2.0,
+       "n_pass": 0,
+       "valid": 2
+      },
+      {
        "cp": "final:3",
        "x": 3.0,
        "n_pass": 2,
-       "valid": 6
+       "valid": 8
       },
       {
        "cp": "final:4",
@@ -2903,7 +2915,7 @@
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 2,
-       "valid": 6
+       "valid": 8
       },
       {
        "cp": "final:6",
@@ -2915,7 +2927,7 @@
        "cp": "final:7",
        "x": 7.0,
        "n_pass": 1,
-       "valid": 6
+       "valid": 8
       }
      ],
      "Claude Opus 5.5": [
@@ -2923,19 +2935,19 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 4,
-       "valid": 7
+       "valid": 8
       },
       {
        "cp": "final:1",
        "x": 1.0,
-       "n_pass": 3,
-       "valid": 5
+       "n_pass": 4,
+       "valid": 8
       },
       {
        "cp": "final:3",
        "x": 3.0,
        "n_pass": 4,
-       "valid": 6
+       "valid": 8
       },
       {
        "cp": "final:4",
@@ -2947,7 +2959,7 @@
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 4,
-       "valid": 6
+       "valid": 8
       },
       {
        "cp": "final:6",
@@ -2959,7 +2971,7 @@
        "cp": "final:7",
        "x": 7.0,
        "n_pass": 3,
-       "valid": 6
+       "valid": 8
       }
      ]
     },

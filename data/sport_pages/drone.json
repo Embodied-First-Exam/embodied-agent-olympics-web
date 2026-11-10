@@ -1054,7 +1054,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-drone-champ2",
-   "made": "2026-11-09 03:09 CST",
+   "made": "2026-11-09 20:49 CST",
    "measure": "Course progress, ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,
@@ -1374,6 +1374,18 @@
     "lines": {
      "GPT-6 Astra": [
       {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 3,
+       "valid": 5
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 1,
+       "valid": 5
+      },
+      {
        "cp": "final:2",
        "x": 2.0,
        "n_pass": 1,
@@ -1388,17 +1400,29 @@
       {
        "cp": "final:4",
        "x": 4.0,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 5
       },
       {
        "cp": "final:5",
        "x": 5.0,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 5
       }
      ],
      "DeepSeek V4.1 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 5
+      },
       {
        "cp": "final:2",
        "x": 2.0,
@@ -1420,6 +1444,18 @@
      ],
      "Gemini 4 Argon": [
       {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 1,
+       "valid": 5
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 1,
+       "valid": 5
+      },
+      {
        "cp": "final:2",
        "x": 2.0,
        "n_pass": 1,
@@ -1434,17 +1470,29 @@
       {
        "cp": "final:4",
        "x": 4.0,
-       "n_pass": 0,
+       "n_pass": 2,
        "valid": 5
       },
       {
        "cp": "final:5",
        "x": 5.0,
-       "n_pass": 0,
+       "n_pass": 3,
        "valid": 5
       }
      ],
      "GLM 5.3 Flash": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 5
+      },
       {
        "cp": "final:2",
        "x": 2.0,
@@ -1466,6 +1514,18 @@
      ],
      "Kimi 3.1 Pro": [
       {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 0,
+       "valid": 5
+      },
+      {
        "cp": "final:2",
        "x": 2.0,
        "n_pass": 0,
@@ -1480,17 +1540,29 @@
       {
        "cp": "final:4",
        "x": 4.0,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 5
       },
       {
        "cp": "final:5",
        "x": 5.0,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 5
       }
      ],
      "Claude Opus 5.5": [
+      {
+       "cp": "kickoff:1",
+       "x": 0.5,
+       "n_pass": 1,
+       "valid": 5
+      },
+      {
+       "cp": "final:1",
+       "x": 1.0,
+       "n_pass": 1,
+       "valid": 5
+      },
       {
        "cp": "final:2",
        "x": 2.0,
@@ -1500,19 +1572,19 @@
       {
        "cp": "final:3",
        "x": 3.0,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 5
       },
       {
        "cp": "final:4",
        "x": 4.0,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 5
       },
       {
        "cp": "final:5",
        "x": 5.0,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 5
       }
      ]
