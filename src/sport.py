@@ -209,7 +209,8 @@ def overview(site: Site, s: dict, d: dict) -> str:
         media = (f'<video muted loop playsinline preload="none" poster="{E(site.murl(c["poster"]["url"]))}" data-lazy data-autoplay '
                  f'data-web="{E(site.murl(c["web_720p"]["url"]))}"'
                  + (f' data-hd="{E(hd)}"' if (hd := site.murl(c["master_1440p"]["url"])) else "") + '></video>')
-        tag = '<span class="tag shero-tag">Development replay</span>'
+        tag = (f'<span class="tag shero-tag">Official match · {E(c["match"])}</span>' if c.get("match")
+               else '<span class="tag shero-tag">Development replay</span>')
     else:
         media = f'<img src="{E(best_still(site, s))}" alt="">'
         tag = '<span class="tag shero-tag">Video at release</span>'
