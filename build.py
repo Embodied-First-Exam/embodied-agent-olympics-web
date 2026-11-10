@@ -26,6 +26,7 @@ sys.path.insert(0, str(ROOT / "src"))
 import importlib  # noqa: E402
 
 import layout  # noqa: E402
+import medals  # noqa: E402
 import home  # noqa: E402
 import pages  # noqa: E402
 
@@ -53,6 +54,7 @@ def icon_sprite() -> str:
 
 def build(base: str | None = None) -> int:
     importlib.reload(layout)  # pick up template edits while serving
+    importlib.reload(medals)
     importlib.reload(home)
     importlib.reload(pages)
     cfg = load("site.json")

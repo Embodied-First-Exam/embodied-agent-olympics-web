@@ -134,6 +134,41 @@ def intro_grid(site: Site, clips: dict) -> str:
     return f'<div class="wrap ig">{out}</div>'
 
 
+def body_short(s: dict) -> str:
+    """'Unitree G1 humanoid (29 joints), ...' -> 'Unitree G1 humanoid' (the robot body, for the sports row)."""
+    t = re.split(r"\s*[(:;,]\s*", s.get("body") or "")[0]
+    return re.sub(r"^Original\s+", "", t).strip()
+
+
+def sport_loops(site: Site) -> str:
+    """The intro's 18 sports as one horizontal row of real match footage: a short muted loop per sport (media.json sport_loops,
+    cut from that match's highlight reel), grouped by format. site.js loads and plays only the cards on screen; the poster
+    shows until then (and always with reduced motion or Save-Data). Each card links to its sport page."""
+    loops = site.media.get("sport_loops") or {}
+    fm = {f["id"]: f for f in site.cfg["formats"]}
+    order = [(k, [x for x in fm[k]["sports"] if x in site.sport_by_id]) for k in ("duel", "team", "solo", "race")]
+    cards, chips = [], []
+    for k, ids in order:
+        chips.append(f'<button type="button" class="spr-chip" data-sr-go="{k}">{E(fm[k]["name"])} <b>{len(ids)}</b></button>')
+        for n, sid in enumerate(ids):
+            s, lp = site.sport_by_id[sid], loops.get(sid)
+            if lp:
+                media = (f'<video muted loop playsinline autoplay preload="none" poster="{E(site.murl(lp["poster"]["url"]))}" '
+                         f'data-loop="{E(site.murl(lp["web"]["url"]))}" aria-hidden="true"></video>')
+            else:
+                media = f'<img src="{E(site.murl(s["thumb"]["url"]))}" alt="" loading="lazy">'
+            cards.append(f'<a class="spr-card" href="{site.sport_url(s)}"{f" data-sr-fmt={k}" if n == 0 else ""}>'
+                         f'<span class="spr-media">{media}</span><span class="spr-fmt">{E(fm[k]["name"])}</span>'
+                         f'<span class="spr-txt"><strong>{E(s["name"])}</strong><span>{E(body_short(s))}</span></span></a>')
+    nav = ('<span class="spr-nav"><button type="button" class="spr-arr" data-sr-step="-1" aria-label="Previous sports">←</button>'
+           '<button type="button" class="spr-arr" data-sr-step="1" aria-label="More sports">→</button></span>')
+    return f"""<div class="spr" data-sr>
+    <div class="wrap spr-head"><span class="spr-total">{len(site.sports)} sports</span><span class="spr-chips">{"".join(chips)}</span>{nav}</div>
+    <div class="spr-track" data-sr-track tabindex="0" aria-label="The {len(site.sports)} sports: real match footage">{"".join(cards)}</div>
+    <p class="wrap note spr-note">Match footage from the first edition</p>
+  </div>"""
+
+
 def intro_icons(site: Site) -> str:
     """Variant of the intro's sport strip: the 18 sport pictograms, grouped by the four formats."""
     groups = []
@@ -149,7 +184,7 @@ def page2(site: Site, clips: dict, intro: str = "strip") -> str:
     c = site.cfg
     mods = "".join(f'<li class="gl-m" data-inview><svg class="gl-ic" viewBox="0 0 24 24" aria-hidden="true">{GLANCE_IC[k]}</svg>'
                    f'<strong>{E(t)}</strong><span>{E(l)}</span></li>' for k, t, l in GLANCE)
-    strip = intro_grid(site, clips)
+    strip = sport_loops(site) if intro == "strip" else intro_grid(site, clips)
     return f"""
 <section class="pg pg2" id="about">
   <div class="wrap pg2-def">
@@ -165,7 +200,10 @@ def page2(site: Site, clips: dict, intro: str = "strip") -> str:
 </section>"""
 
 
-def physloop(site: Site, arena_mode: str = "figures") -> str:
+ARENA_LOOP = "tennis"  # the clip in the architecture figure's Competition Arena box
+
+
+def physloop(site: Site, arena_mode: str = "video") -> str:
     """Agent–environment architecture. Each side: a workspace in which the agent builds and deploys a system; the system
     (its programs) observes and acts in the shared competition arena; the workspace also runs its own practice arena.
     Wording checked against the official run's seat instructions (handoff/webv3_1108.md, fact correction)."""
@@ -217,7 +255,17 @@ def physloop(site: Site, arena_mode: str = "figures") -> str:
            '<rect x="13" y="14" width="12" height="16" rx="2"/>'
            '<path d="M13 17 9 24 10 31M25 17 31 23 36 20M16 30 14 39 15 48M22 30 25 39 24 48M12 48h6M22 48h6"/>'
            + "".join(f'<circle cx="{x}" cy="{y}" r="1.35"/>' for x, y in joints))
-    if arena_mode == "still":
+    loop = (site.media.get("sport_loops") or {}).get(ARENA_LOOP)
+    if arena_mode == "video" and loop:
+        # real match footage in the arena box: the poster as an SVG image (also the no-JS view); site.js lays the looping
+        # video under the transparent arena box and hides the poster once it plays. A shade keeps the labels readable.
+        inner = (f'<clipPath id="pl-ac"><rect x="481" y="151" width="238" height="303" rx="17"/></clipPath>'
+                 f'<image class="pl-apost" href="{E(site.murl(loop["poster"]["url"]))}" x="481" y="151" width="238" height="303" '
+                 f'preserveAspectRatio="xMidYMid slice" clip-path="url(#pl-ac)"/>'
+                 '<linearGradient id="pl-ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#08090B" stop-opacity=".82"/>'
+                 '<stop offset=".34" stop-color="#08090B" stop-opacity=".1"/><stop offset="1" stop-color="#08090B" stop-opacity="0"/></linearGradient>'
+                 '<rect class="pl-agrad" x="481" y="151" width="238" height="303" rx="17" fill="url(#pl-ag)"/>')
+    elif arena_mode == "still":
         still = site.murl("/eo/img/poster/soccer_hsl_3v3.jpg")
         inner = (f'<clipPath id="pl-ac"><rect x="481" y="151" width="238" height="303" rx="17"/></clipPath>'
                  f'<image href="{E(still)}" x="481" y="151" width="238" height="303" preserveAspectRatio="xMidYMid slice" clip-path="url(#pl-ac)"/>'
@@ -226,19 +274,23 @@ def physloop(site: Site, arena_mode: str = "figures") -> str:
         inner = (f'<g class="pl-bot pl-bot--a" transform="translate(490 252) scale(2.55)">{fig}</g>'
                  f'<g class="pl-bot pl-bot--b" transform="translate(710 252) scale(-2.55 2.55)">{fig}</g>'
                  f'<circle class="pl-ball" cx="600" cy="370" r="6"/>')
-    arena = (f'<g class="pl-arena"><rect x="480" y="150" width="240" height="305" rx="18"/>{inner}'
+    video = arena_mode == "video" and loop
+    arena = (f'<g class="pl-arena{" pl-arena--v" if video else ""}"><rect x="480" y="150" width="240" height="305" rx="18"/>{inner}'
              f'<text class="pl-t" x="600" y="194">Competition Arena</text>'
              f'<text class="pl-s" x="600" y="220">Shared physical world</text>'
-             + ('' if arena_mode == "still" else '<text class="pl-vs" x="600" y="330">vs</text>') + '</g>')
+             + ('' if arena_mode in ("still", "video") else '<text class="pl-vs" x="600" y="330">vs</text>') + '</g>')
     svg = (f'<svg class="pl-svg" viewBox="0 0 {W} 468" role="img" aria-label="Each system is an agent and the code it builds and deploys; '
            f'the system observes and acts in a shared competition arena; each system has its own practice arena">'
            f'{side(True, "A")}{side(False, "B")}{arena}{lines}{build_lab}{io(365)}{io(835)}<g class="pl-pulses">{pulses}</g></svg>')
+    vtag = (f'<video class="pl-avid" muted loop playsinline autoplay preload="none" data-arena-vid data-loop="{E(site.murl(loop["web"]["url"]))}" '
+            f'aria-hidden="true"></video>' if video else "")
+    note = f'Schematic · footage: {E(site.sport_by_id[ARENA_LOOP]["name"])} final' if video else "Schematic"
     return f"""
 <section class="chap pg pgl" data-inview id="architecture" data-snav="Architecture">
   <div class="wrap">
     <header class="pl-head-t ch-head"><span class="ch-n">02<i>/04</i></span><h2>Agent–Environment Architecture</h2>
       <p class="pl-lede">Agent systems interact with physical environments through observations and actions, learning in independent practice arenas and competing in a shared competition arena. Both agents get the same time and compute budget, including GPUs for training in most sports.</p></header>
-    <div class="pl-fig"><div class="pl-scroll">{svg}</div><p class="note pl-note">Schematic</p></div>
+    <div class="pl-fig"><div class="pl-scroll">{vtag}{svg}</div><p class="note pl-note">{note}</p></div>
   </div>
 </section>"""
 
@@ -756,19 +808,113 @@ def medal_table_home(site: Site) -> str:
     return f'<div class="mt-wrap"><table class="mt mt--home{"" if released else " is-empty"}"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
 
 
-def results_medals(site: Site) -> str:
-    """01 Championship. Screen 1: title, lede and the medal table (the board first). Screen 2: competition format and
-    medal allocation (three forms), then one quiet line on the Open Arena."""
-    lb = site.url("leaderboard/")
+def leaderboards(site: Site) -> str:
+    """01 Leaderboards: one board per learning mode, Episodic Learning first (the Open Arena boards, code id arena), then
+    Continuous Learning (the Olympics Championship medal table, code id championship). A one-line definition under each tab
+    says what the agent keeps between matches. #episodic / #continuous (and the old #championship) open a tab."""
+    tabs = [("episodic", medals.EPISODIC, medals.EPISODIC_DEF, "Fresh workspace",
+             f'<div class="mt-head"><h3 class="rm-h">Win rate</h3><span class="mt-rule">All six models play every other on each sport&rsquo;s board. No medals.</span></div>'
+             f'<div class="mt-home">{medals.episodic_board(site)}</div>'),
+            ("continuous", medals.CONTINUOUS, medals.CONTINUOUS_DEF + ' <a class="jl" href="#season" data-jl>How it learns across a season</a>', "Olympics Championship · medals",
+             f'<div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">{E(medals.status_line(site, "Provisional — fills in at release"))}</span>'
+             f'<span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>'
+             + medals.medal_switch(site, f'<div class="mt-home">{medal_table_home(site)}</div>' + medals.flag_foot(site)))]
+    btns = "".join(f'<button type="button" role="tab" class="lb-tab{" is-on" if k == 0 else ""}" id="lbt-{key}" data-lb-tab="{key}" '
+                   f'aria-selected="{str(k == 0).lower()}" aria-controls="lbp-{key}"><strong>{E(name)}</strong><small>{E(sub)}</small></button>'
+                   for k, (key, name, _, sub, _) in enumerate(tabs))
+    panels = "".join(f'<div class="lb-panel" role="tabpanel" id="lbp-{key}" aria-labelledby="lbt-{key}" data-lb-panel="{key}"{"" if k == 0 else " hidden"}>'
+                     f'<p class="lb-def">{d}</p>{body}</div>'
+                     for k, (key, name, d, _, body) in enumerate(tabs))
     return f"""
-<section class="chap pg pgr2" data-inview id="championship" data-snav="Medal table">
+<section class="chap pg pgr2" data-inview id="leaderboards" data-snav="Leaderboards">
+  <span class="anchor" id="championship"></span><span class="anchor" id="episodic"></span><span class="anchor" id="continuous"></span>
   <div class="wrap">
-    <header class="ch-head ch-head--k"><span class="ch-n">01<i>/04</i></span><h2>Embodied Olympics Championship</h2>
-      <p class="ch-lede">Six AI agents compete across 18 sports in a season-long championship. Each agent carries its programs, weights, and experience forward, <a class="jl" href="#season" data-jl>continuously improving from match to match</a>.</p></header>
-    <div class="mt-head"><h3 class="rm-h">Medal table</h3><span class="tag tag--pending">{E(medals.status_line(site, "Provisional — fills in at release"))}</span>
-      <span class="mt-rule">Ranked by golds, then silvers, then bronzes.</span></div>
-    {medals.medal_switch(site, f'<div class="mt-home">{medal_table_home(site)}</div>' + medals.flag_foot(site))}
-    <p class="mt-foot mt-foot--oa">Open Arena is a separate, always-open leaderboard and does not count toward medals. <a href="{lb}#arena">View Open Arena →</a></p>
+    <header class="ch-head ch-head--k"><span class="ch-n">01<i>/04</i></span><h2>Leaderboards</h2>
+      <p class="ch-lede">Six AI agents compete across {len(site.sports)} sports in two learning modes. In one, every match starts from scratch; in the other, each agent carries everything it built from match to match.</p></header>
+    <div class="lb" data-lb><div class="lb-tabs" role="tablist" aria-label="Learning mode">{btns}</div>{panels}</div>
+  </div>
+</section>"""
+
+
+def head_to_head(site: Site) -> str:
+    """Head to head: a model-by-model win-rate matrix (rows = model, columns = opponent, cell = the row model's win % and
+    W–L (n)), Episodic Learning | Continuous Learning | All, with a per-sport filter. Built from the sport-page match records
+    (medals.h2h_records); site.js redraws it for each view. The server draws the default view (Episodic Learning, all sports)."""
+    d = medals.h2h_records(site)
+    ms = [next(m for m in site.models if m["name"] == n) for n in d["models"]]
+    n = len(ms)
+    # rows and columns: strongest first (win % over every counted match), fixed for every view so colours never move
+    tot = [[0, 0] for _ in ms]
+    for _, _, a, b, w, _ in d["matches"]:
+        for e in (a, b):
+            tot[e][1] += 1
+            tot[e][0] += w == e
+    order = sorted(range(n), key=lambda i: -(tot[i][0] / tot[i][1] if tot[i][1] else 0))
+
+    def view(mode, sport=-1):
+        c = [[[0, 0, 0, 0] for _ in ms] for _ in ms]  # won, drawn, lost, level-decided
+        for si, md, a, b, w, lv in d["matches"]:
+            if (mode != -1 and md != mode) or (sport != -1 and si != sport):
+                continue
+            for x, y in ((a, b), (b, a)):
+                r = c[x][y]
+                r[0 if w == x else 1 if w == -1 else 2] += 1
+                r[3] += lv
+        return c
+
+    def cell(r, i, j):
+        if i == j:
+            return '<td class="hh-x" aria-label="same model">—</td>'
+        w_, dr, l_, lv = r
+        played = w_ + dr + l_
+        if not played:
+            return '<td class="hh-c hh-c--0" data-hh="{i},{j}"><span class="hh-p">·</span></td>'.format(i=i, j=j)
+        pct = 100 * w_ / played
+        wl = f"{w_}–{dr}–{l_}" if dr else f"{w_}–{l_}"
+        return (f'<td class="hh-c" data-hh="{i},{j}" tabindex="0" style="--v:{(pct - 50) / 50:.3f}">'
+                f'<span class="hh-p">{round(pct)}%</span><span class="hh-wl">{wl} ({played})</span></td>')
+
+    def total(row, i):
+        w_, dr, l_ = (sum(r[k] for j, r in enumerate(row) if j != i) for k in range(3))
+        played = w_ + dr + l_
+        if not played:
+            return "·"
+        wl = f"{w_}–{dr}–{l_}" if dr else f"{w_}–{l_}"
+        return f'<span class="hh-p">{round(100 * w_ / played)}%</span><span class="hh-wl">{wl} ({played})</span>'
+
+    def who(m, short=False):
+        return (f'<span class="hh-who" style="--c:{E(m["colour"])}"><i class="flag"></i>{model_logo(site, m)}'
+                + (f'<span>{E(model_name(m).split(" ")[0])}</span>' if short else
+                   f'<span class="hh-full">{E(model_name(m))}</span><span class="hh-short">{E(model_name(m).split(" ")[0])}</span>')
+                + '</span>')
+    c = view(0)
+    head = "".join(f'<th scope="col" title="{E(model_name(ms[j]))}">{who(ms[j], True)}</th>' for j in order)
+    rows = "".join(f'<tr><th scope="row">{who(ms[i])}</th>' + "".join(cell(c[i][j], i, j) for j in order) +
+                   f'<td class="hh-t" data-hh-t="{i}">{total(c[i], i)}</td></tr>' for i in order)
+    sel = "".join(f'<option value="{k}">{E(s["name"])}</option>' for k, s in enumerate(d["sports"]))
+    modes = [("0", medals.EPISODIC), ("1", medals.CONTINUOUS), ("-1", "All")]
+    btns = "".join(f'<button type="button" class="mw-b{" is-on" if k == 0 else ""}" data-hh-mode="{v}" aria-pressed="{str(k == 0).lower()}">{E(l)}</button>'
+                   for k, (v, l) in enumerate(modes))
+    data = {"order": order, "names": [model_name(m) for m in ms], "sports": [s["name"] for s in d["sports"]], "m": d["matches"],
+            "modes": {"0": medals.EPISODIC, "1": medals.CONTINUOUS, "-1": "both modes"}}
+    return f"""
+<section class="pg pghh" data-inview id="head-to-head" data-snav="Head to head">
+  <div class="wrap">
+    <div class="hh-top"><h3 class="rm-h">Head to head</h3>
+      <p class="mt-rule">How often each model beat each other model, over the {len(d["sports"])} duel and team-duel sports.</p></div>
+    <div class="hh" data-hh-root>
+      <div class="hh-ctl"><div class="mw-sw" role="group" aria-label="Learning mode">{btns}</div>
+        <label class="hh-sel"><span>Sport</span><select data-hh-sport><option value="-1">All {len(d["sports"])} sports</option>{sel}</select></label></div>
+      <div class="hh-scroll"><table class="hh-tab"><caption class="sr">Win rate of each row model against each column model</caption>
+        <thead><tr><th class="hh-corner"><span>Model</span><span>v opponent</span></th>{head}<th class="hh-th-t">All opponents</th></tr></thead>
+        <tbody>{rows}</tbody></table></div>
+      <div class="hh-key" aria-hidden="true"><span>0%</span><i class="hh-ramp"></i><span>100%</span><em>row model&rsquo;s win %</em></div>
+      <p class="rp-note hh-cap">Each cell: the row model&rsquo;s win % against the column model, then wins–losses (matches). Official results, as in the win-rate tables:
+        a match level at full time and decided by coin toss, lot, shoot-out or the sport&rsquo;s tie-break counts as a win for the official winner.
+        No-shows and matches a side did not finish are left out. Solo and race sports are not included.</p>
+      <div class="hh-tip" role="tooltip" hidden data-hh-tip></div>
+      <script type="application/json" data-hh-data>{json.dumps(data, separators=(",", ":"))}</script>
+    </div>
   </div>
 </section>
 <section class="pg pgmt" data-inview id="medal-allocation" data-snav="Competition format">
@@ -782,10 +928,10 @@ def results_medals(site: Site) -> str:
 # ---------------------------------------------------------------- page
 
 
-def home(site: Site, measure_variant: str = "a", nav: str = "left", intro: str = "strip", arena: str = "figures"):
+def home(site: Site, measure_variant: str = "a", nav: str = "left", intro: str = "strip", arena: str = "video"):
     clips = clip_index(site)
     body = ('<div class="stagebg" data-hero2>' + hero(site, clips) + '</div>' + page2(site, clips, intro)
-            + results_medals(site) + physloop(site, arena)
+            + leaderboards(site) + head_to_head(site) + physloop(site, arena)
             + measure(site, clips, measure_variant) + match_screen() + season_screen()
             + f'<nav class="snav{" snav--left" if nav == "left" else ""}" aria-label="Sections" data-snav-bar></nav>'
             + f'<script src="{site.asset("js/home.js")}" defer></script>')

@@ -145,8 +145,8 @@ def match(site: Site):
 
 # ---------------------------------------------------------------- Competitions
 def competitions(site: Site):
-    boards = [("var(--gold)", "Medals · Persistent", "Olympics Championship", ["Six models, one schedule.", "Code, weights and notes carry over.", "Round robin, semifinals, final."]),
-              ("var(--accent)", "Always open · Fresh", "Open Arena", ["New models join any time.", "Every match starts from scratch.", "Every agent plays every other."])]
+    boards = [("var(--accent)", "Always open · Fresh workspace", medals.EPISODIC, ["New models join any time.", "Every match starts from an empty workspace.", "Every agent plays every other."]),
+              ("var(--gold)", "Olympics Championship · Medals", medals.CONTINUOUS, ["Six models, one schedule.", "One workspace per agent, kept across the season: code, weights and notes carry over.", "Round robin, semifinals, final."])]
     bh = "".join(f'<article class="board" style="--c:{c}"><span class="kicker">{k}</span><h2>{n}</h2>'
                  f'<ul>{"".join(f"<li>{x}</li>" for x in pts)}</ul></article>' for c, k, n, pts in boards)
     short_line = {"duel": "One against one.", "team": "Team against team.", "race": "Many on one course.", "solo": "Three runs. Improve between."}
@@ -219,18 +219,18 @@ def results(site: Site):
         for s in site.sports for c in s["clips"][:1])
     replays = (f'<p class="rp-note">Replays from development. Match replays of each sport appear here at release.</p>'
                f'<div class="wgrid rp-grid">{reps}</div>')
-    tabs = [("medals", "Olympics Championship"), ("by-sport", "By sport"), ("arena", "Open Arena")]
+    tabs = [("arena", medals.EPISODIC), ("medals", medals.CONTINUOUS), ("by-sport", "By sport")]
     tab_btns = "".join(f'<button role="tab" class="tab{" is-on" if k == 0 else ""}" data-tab="{t}">{l}</button>' for k, (t, l) in enumerate(tabs))
-    body = phead("Leaderboard.", "The Olympics Championship medal table, the Open Arena boards and the replays.",
+    body = phead("Leaderboard.", "The Episodic Learning boards, the Olympics Championship medal table (Continuous Learning) and the replays.",
                  f'<div class="phead-row" style="margin-top:28px"><span class="tag tag--pending">{E(medals.status_line(site, "Results at release"))}</span></div>')
     body += f'<section class="band rs-fmt" id="formats" style="padding-top:0"><div class="wrap">{story.tournament(site, home=True)}</div></section>'
     body += f"""<section class="band band--line rs-tables" id="tables"><div class="wrap">
   <div class="sec-h"><h2 class="h2">Boards.</h2></div>
   <div class="tabs" role="tablist" style="margin-top:0">{tab_btns}</div>
   <div class="rs-panels">
-  <div class="panel is-on" data-panel="medals"><p class="rp-note">The official medal standings. Ranked by golds, then silvers, then bronzes. {E(medals.status_line(site, "Provisional — fills in at release."))}</p>{medals.medal_switch(site, story.medal_table_home(site) + medals.flag_foot(site))}</div>
+  <div class="panel" data-panel="medals"><p class="rp-note">{E(medals.CONTINUOUS_DEF)} The Olympics Championship&rsquo;s official medal standings, ranked by golds, then silvers, then bronzes. {E(medals.status_line(site, "Provisional — fills in at release."))}</p>{medals.medal_switch(site, story.medal_table_home(site) + medals.flag_foot(site))}</div>
   <div class="panel" data-panel="by-sport">{by_sport}</div>
-  <div class="panel" data-panel="arena">{medals.arena_panel(site, boards)}</div>
+  <div class="panel is-on" data-panel="arena">{medals.arena_panel(site, boards)}</div>
   </div>
 </div></section>"""
     return "leaderboard/", page(site, path="leaderboard/", title="Leaderboard", body=body)

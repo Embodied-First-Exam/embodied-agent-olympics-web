@@ -40,6 +40,7 @@ import json
 import re
 
 import home as story
+import medals
 from layout import ROOT, E, Site, icon, model_logo, model_name, page, slug
 
 GROUPS = [("phys", "Physical"), ("comp", "Competitive"), ("eng", "Engineering"), ("adap", "Adaptive")]
@@ -513,14 +514,14 @@ def arena(site: Site, oa: dict) -> str:
     rr = next(x for x in oa["stages"] if x["id"] == "round_robin")
     status = oa.get("status_line") or ""
     top = (rr.get("standings") or [{}])[0].get("model")
-    note = (f"Final standings: {model_name(_m(site, top))} tops the Open Arena." if oa.get("complete") and top
+    note = (f"Final standings: {model_name(_m(site, top))} tops the Episodic Learning board." if oa.get("complete") and top
             else f"Standings so far ({status.lower()}).")
     return f"""
 <div class="cx-row">
   <div class="cx-l"><h3 class="cr-h">Round robin <span>{E(status)}</span></h3>{cross_table(site, rr, "am")}</div>
   <div class="cx-r"><h3 class="cr-h">Standings <span>win 3 · draw 1</span></h3>{standings_big(site, rr["standings"])}</div>
 </div>
-<p class="cr-rule cx-note">{E(note)} Fresh: every match starts from an empty workspace. Separate from the medals.</p>"""
+<p class="cr-rule cx-note">{E(note)} Episodic Learning: every match starts from an empty workspace. Separate from the medals.</p>"""
 
 
 def records(site: Site, d: dict) -> str:
@@ -540,10 +541,10 @@ def records(site: Site, d: dict) -> str:
     team_note = ""
     if any(s.get("seats") for st in ch.get("stages", []) for m in st.get("matches", []) for s in m["sides"]):
         team_note = '<p class="cr-rule cr-team">Each robot is its own agent: a side is three agents of the same model, one per seat.</p>'
-    champ_sub = "Persistent · medals" if d.get("format") != "solo" else "Persistent · 3-match series · medals"
-    tabs = [("champ", "Olympics Championship" if d.get("format") != "solo" else "Medal series", champ_sub, team_note + champ)]
+    champ_sub = "Olympics Championship · medals" if d.get("format") != "solo" else "Medal series · 3 matches"
+    tabs = [("champ", medals.CONTINUOUS, champ_sub, team_note + champ)]
     if oa:
-        tabs.append(("arena", "Open Arena", "Fresh · always open", arena(site, oa)))
+        tabs.append(("arena", medals.EPISODIC, "Fresh workspace · always open", arena(site, oa)))
     btns = "".join(f'<button type="button" class="tab{" is-on" if k == 0 else ""}" data-sptab="{t}" role="tab">{l}<small>{E(sub)}</small></button>'
                    for k, (t, l, sub, _) in enumerate(tabs))
     panels = "".join(f'<div class="sp-panel{" is-on" if k == 0 else ""}" data-sppanel="{t}">{body}</div>' for k, (t, _, _, body) in enumerate(tabs))
@@ -654,11 +655,11 @@ def built(site: Site, d: dict) -> str:
             _fact("Reviews written", E(p["reviews"].replace("/", " of ")) if p.get("reviews") else None),
             _fact("Model calls", E(f'{p["model_calls"]:,}' + (f' · {tok} output tokens' if tok else "")) if p.get("model_calls") else None),
         ])
-        lines = "".join(f"<li>{E(x)}</li>" for x in notes.get(n, []))
+        lines = "".join(f"<li>{E(medals.mode_text(x))}</li>" for x in notes.get(n, []))
         panels.append(f'<div class="mp{" is-on" if k == 0 else ""}" data-mpanel="{k}"><div class="mp-h">{who(site, n, sub=True)}</div>'
                       f'<dl class="mp-f">{facts}</dl>{f"<ul class=mp-n>{lines}</ul>" if lines else ""}</div>')
     return (f'<div class="ab-b"><h3 class="ab-h"><span>B</span>How they built it</h3><div class="ms-row" role="tablist">{chips}</div>'
-            f'{"".join(panels)}<p class="cr-rule">Counts over each model\'s official matches of this sport (Championship and Open Arena). '
+            f'{"".join(panels)}<p class="cr-rule">Counts over each model\'s official matches of this sport (Olympics Championship and Episodic Learning). '
             f'Training code = matches whose saved output holds training scripts. Provisional.</p></div>')
 
 
@@ -666,7 +667,7 @@ def achieved(site: Site, d: dict) -> str:
     items = ((d.get("notes") or {}).get("achieved")) or []
     if not items:
         return '<div class="ab-a"><h3 class="ab-h"><span>A</span>What agents achieved</h3><p class="cr-rule">Analysis at release.</p></div>'
-    li = "".join(f'<li><p>{E(x["text"])}</p><span class="ev">{" ".join(f"<em>{E(e)}</em>" for e in x.get("evidence", []))}</span></li>' for x in items)
+    li = "".join(f'<li><p>{E(medals.mode_text(x["text"]))}</p><span class="ev">{" ".join(f"<em>{E(medals.mode_text(e))}</em>" for e in x.get("evidence", []))}</span></li>' for x in items)
     return f'<div class="ab-a"><h3 class="ab-h"><span>A</span>What agents achieved</h3><ol class="ach">{li}</ol></div>'
 
 

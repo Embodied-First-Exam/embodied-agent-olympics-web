@@ -536,5 +536,332 @@
     }
    ]
   }
+ },
+ "_sport_loops_note": "Home page sports row: one short muted loop per sport (640x360, no sound), cut from that match's highlight reel on the public HF dataset embodied-olympics/release1-replays (highlights/<key>/<fixture>.mp4), caption band cropped off; t = seconds in the reel. The Championship final where there is one.",
+ "sport_loops": {
+  "soccer_hsl": {
+   "source": {
+    "key": "soccer_hsl",
+    "fixture": "HSL2-F18",
+    "t": [
+     5.44,
+     12.36
+    ],
+    "moment": "Goal! A2 scores for Gemini"
+   },
+   "web": {
+    "url": "/eo/loops/soccer_hsl.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/soccer_hsl.jpg",
+    "size": "640x360"
+   }
+  },
+  "soccer_hsl_team": {
+   "source": {
+    "key": "soccer_hsl_team",
+    "fixture": "HSTC-F09",
+    "t": [
+     8.52,
+     15.52
+    ],
+    "moment": "Goal: B3 scores for Astra"
+   },
+   "web": {
+    "url": "/eo/loops/soccer_hsl_team.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/soccer_hsl_team.jpg",
+    "size": "640x360"
+   }
+  },
+  "soccer_ssl": {
+   "source": {
+    "key": "soccer_ssl",
+    "fixture": "SSL2-F18",
+    "t": [
+     4.32,
+     10.08
+    ],
+    "moment": "yellow3 (Opus) shoots: saved by keeper blue0"
+   },
+   "web": {
+    "url": "/eo/loops/soccer_ssl.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/soccer_ssl.jpg",
+    "size": "640x360"
+   }
+  },
+  "basketball": {
+   "source": {
+    "key": "basketball_g1",
+    "fixture": "BSK2-F18",
+    "t": [
+     8.64,
+     12.88
+    ],
+    "moment": "Basket! B1 scores 2 for Astra from 8.2 m"
+   },
+   "web": {
+    "url": "/eo/loops/basketball.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/basketball.jpg",
+    "size": "640x360"
+   }
+  },
+  "beachvolleyball": {
+   "source": {
+    "key": "beachvolleyball_g1",
+    "fixture": "BVB2-F18",
+    "t": [
+     3.8,
+     8.04
+    ],
+    "moment": "r3 gets a hand to Opus's serve but cannot keep it up · Opus takes the lead"
+   },
+   "web": {
+    "url": "/eo/loops/beachvolleyball.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/beachvolleyball.jpg",
+    "size": "640x360"
+   }
+  },
+  "amfootball": {
+   "source": {
+    "key": "amfootball",
+    "fixture": "AMF2-F18",
+    "t": [
+     7.24,
+     14.24
+    ],
+    "moment": "Touchdown Astra: B1 carries it 23 m + extra point · level"
+   },
+   "web": {
+    "url": "/eo/loops/amfootball.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/amfootball.jpg",
+    "size": "640x360"
+   }
+  },
+  "baseball": {
+   "source": {
+    "key": "baseball_g1",
+    "fixture": "BSB2-F18",
+    "t": [
+     4.96,
+     11.88
+    ],
+    "moment": "Base hit for Opus · 1 run scores on the play"
+   },
+   "web": {
+    "url": "/eo/loops/baseball.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/baseball.jpg",
+    "size": "640x360"
+   }
+  },
+  "badminton": {
+   "source": {
+    "key": "badminton_g1",
+    "fixture": "BAD3-F18",
+    "t": [
+     16.68,
+     21.24
+    ],
+    "moment": "Astra wins a 3-shot rally"
+   },
+   "web": {
+    "url": "/eo/loops/badminton.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/badminton.jpg",
+    "size": "640x360"
+   }
+  },
+  "tennis": {
+   "source": {
+    "key": "tennis_g1",
+    "fixture": "TEN2-F18",
+    "t": [
+     30.96,
+     37.96
+    ],
+    "moment": "Kimi return wins the point · Kimi falls"
+   },
+   "web": {
+    "url": "/eo/loops/tennis.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/tennis.jpg",
+    "size": "640x360"
+   }
+  },
+  "tabletennis": {
+   "source": {
+    "key": "tabletennis_g1",
+    "fixture": "TTN2-F18",
+    "t": [
+     15.6,
+     20.72
+    ],
+    "moment": "Gemini misses Astra's return"
+   },
+   "web": {
+    "url": "/eo/loops/tabletennis.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/tabletennis.jpg",
+    "size": "640x360"
+   }
+  },
+  "curling": {
+   "source": {
+    "key": "curling_g1",
+    "fixture": "CUR2-F18",
+    "t": [
+     5.16,
+     11.88
+    ],
+    "moment": "Gemini's stone hits a stone · Gemini's stone stops 3 cm from the button, the closest of the match"
+   },
+   "web": {
+    "url": "/eo/loops/curling.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/curling.jpg",
+    "size": "640x360"
+   }
+  },
+  "billiards": {
+   "source": {
+    "key": "billiards_g1",
+    "fixture": "BIL2-F18",
+    "t": [
+     6.6,
+     13.12
+    ],
+    "moment": "Opus pots the 4 in the right side pocket as called"
+   },
+   "web": {
+    "url": "/eo/loops/billiards.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/billiards.jpg",
+    "size": "640x360"
+   }
+  },
+  "sprint": {
+   "source": {
+    "key": "sprint_g1",
+    "fixture": "SPR2-F0053",
+    "t": [
+     15.56,
+     20.64
+    ],
+    "moment": "Run 2 · full speed 6.9 m/s at 55 m"
+   },
+   "web": {
+    "url": "/eo/loops/sprint.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/sprint.jpg",
+    "size": "640x360"
+   }
+  },
+  "hurdles": {
+   "source": {
+    "key": "hurdles_g1",
+    "fixture": "HUR2-F0052",
+    "t": [
+     4.28,
+     8.92
+    ],
+    "moment": "Run 1 · hurdle 1 cleared clean at 3.7 m/s"
+   },
+   "web": {
+    "url": "/eo/loops/hurdles.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/hurdles.jpg",
+    "size": "640x360"
+   }
+  },
+  "javelin": {
+   "source": {
+    "key": "javelin_g1",
+    "fixture": "JAVA-F0053",
+    "t": [
+     4.4,
+     8.88
+    ],
+    "moment": "Throw 2: 18.74 m · the best throw"
+   },
+   "web": {
+    "url": "/eo/loops/javelin.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/javelin.jpg",
+    "size": "640x360"
+   }
+  },
+  "racing": {
+   "source": {
+    "key": "racing_full",
+    "fixture": "RAC6-F01",
+    "t": [
+     21.04,
+     24.68
+    ],
+    "moment": "Gemini passes Kimi for P2"
+   },
+   "web": {
+    "url": "/eo/loops/racing.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/racing.jpg",
+    "size": "640x360"
+   }
+  },
+  "drone": {
+   "source": {
+    "key": "drone",
+    "fixture": "DRN2-F21",
+    "t": [
+     2.72,
+     8.2
+    ],
+    "moment": "Gemini through gates 14-17"
+   },
+   "web": {
+    "url": "/eo/loops/drone.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/drone.jpg",
+    "size": "640x360"
+   }
+  },
+  "stuntcar": {
+   "source": {
+    "key": "stuntcar",
+    "fixture": "STU2-F0053",
+    "t": [
+     9.52,
+     16.52
+    ],
+    "moment": "Trick 3 · roll left + pitch front · 71.4 pts"
+   },
+   "web": {
+    "url": "/eo/loops/stuntcar.mp4"
+   },
+   "poster": {
+    "url": "/eo/loops/stuntcar.jpg",
+    "size": "640x360"
+   }
+  }
  }
 }
