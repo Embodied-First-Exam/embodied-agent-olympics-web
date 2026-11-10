@@ -150,4 +150,6 @@ def fold(site: Site, key: str) -> str:
         body = (f'<p class="hb-ws">{E(CONTINUOUS_WS)}</p>{home.tournament(site, head=False, home=True)}'
                 f'<p class="hb-rule">{E(CONTINUOUS_RULE)}</p>')
         anchors = '<span class="anchor" id="medal-allocation"></span><span class="anchor" id="formats"></span>'
+    import medals  # noqa: PLC0415
+    body += medals.notes_fold(site, key)
     return f'<details class="lbx-how">{anchors}<summary>How this board is made</summary><div class="hb">{body}</div></details>'

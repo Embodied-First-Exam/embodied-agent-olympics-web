@@ -75,6 +75,7 @@ def build(base: str | None = None) -> int:
             cfg[k] = os.environ[f"EO_{k.upper()}"]
     site = layout.Site(cfg, load("data/sports.json")["sports"], load("data/models.json")["models"],
                 load("data/media.json"), load("data/results.json"))
+    medals.apply_exhibition(site)  # exhibition sports (data/exhibition.json) leave the medal tables and win rates
 
     out = [home.home(site), pages.sports_index(site), pages.match(site), pages.competitions(site),
            pages.results(site), pages.documents(site), pages.watch(site), pages.not_found(site)]
