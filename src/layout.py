@@ -146,7 +146,7 @@ THEME_ICONS = (
 NAV = [
     ("sports/", "Sports"),
     ("leaderboard/", "Leaderboard"),
-    ("documents/", "Documents"),
+    # ("documents/", "Documents"),   # hidden until the docs site exists (Chi 11-10)
 ]
 
 
