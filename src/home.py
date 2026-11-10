@@ -863,55 +863,10 @@ def h2h_matrix(site: Site, d: dict, order: list, mode: int, key: str) -> str:
     </div>"""
 
 
-BOARD_HOW = {  # the "How this board is made" folds under each leaderboard (home and Leaderboard page)
-    "episodic": [
-        ("Format", "Open Arena round robin. In each of the 12 duel and team-duel sports every model plays every other model once "
-                   "(15 matches per sport). No knockout."),
-        ("Workspace", "Every match starts from an empty workspace: the agent keeps nothing between matches."),
-        ("Scoring", "Win 3, draw 1, loss 0. Equal points: score difference, then head to head (in billiards fewer balls left "
-                    "counts as better)."),
-        ("Medals", "Gold, silver and bronze to the top 3 of each of the 12 boards; the table adds them up and ranks by golds, "
-                   "then silvers, then bronzes."),
-        ("Win rate", "Wins / matches played over all these matches. A match level at full time and decided by coin toss, lot, "
-                     "shoot-out or the sport's tie-break counts as a win for the official winner. No-shows and matches a side "
-                     "did not finish are left out for both sides."),
-        ("Head-to-head", "The same matches, split by opponent: each cell is the row model's win % and wins–losses (matches)."),
-        ("Not on this board", "The four solo sports, drone racing and full-size racing: they run only in the Olympics "
-                              "Championship."),
-    ],
-    "continuous": [
-        ("Workspace", "One workspace per model for the whole season: programs, trained weights, notes, memory and match videos "
-                      "carry into every next match."),
-        ("Duel and team duel (12 sports)", "Round robin first: every model plays every other once; win 3, draw 1; equal points "
-                                           "by score difference, then head to head. The top four reach the semifinals, 1st v "
-                                           "4th and 2nd v 3rd. The winners play the final for gold and silver; the semifinal "
-                                           "losers play for bronze. A knockout match level at full time goes to the sport's "
-                                           "tie-break."),
-        ("Solo (Sprint, Hurdles, Javelin, Stunt Car)", "A medal series of three matches on the same hidden course; the agent may change "
-                                                       "its code between matches. Each match is scored on the sport's own "
-                                                       "measure (speed, distance or trick points); ranked by the mean of the three."),
-        ("Drone racing", "Time trial: three matches of three flights, the best flight counts; the mean seeds two heats of three "
-                         "(1st, 4th, 5th and 2nd, 3rd, 6th). Each heat runs three races, points 1-2-3, fewer is better; the top "
-                         "two of each heat fly a four-drone final of four races, which gives the medals."),
-        ("Full-size racing", "Six cars, three races of 10 laps; F1 points 25-18-15-12-10-8 for classified finishers; ranked by "
-                             "total points, ties by the last race. Race 1's grid by lot, later grids by the previous result."),
-        ("Medals", "One gold, silver and bronze per sport from these results; the table ranks by golds, then silvers, then bronzes."),
-        ("Win rate and head-to-head", "Only the duel and team-duel matches (round robin and knockout), counted as in Episodic "
-                                      "Learning: a level match counts for the official winner; no-shows and matches a side did "
-                                      "not finish are left out."),
-    ],
-}
-
-
-def board_fold(site: Site, key: str, diagram: bool = True) -> str:
-    """'How this board is made': a closed <details> under each leaderboard with the board's format, scoring, medals and
-    counting rules; the Continuous fold also holds the Championship's format diagram."""
-    items = "".join(f"<li><b>{E(h)}.</b> {E(x)}</li>" for h, x in BOARD_HOW[key])
-    diag = ""
-    if key == "continuous" and diagram:
-        diag = f'<div class="lbx-how-d"><span class="kicker">Championship formats</span>{tournament(site, head=False, home=True)}</div>'
-    anchors = '<span class="anchor" id="medal-allocation"></span><span class="anchor" id="formats"></span>' if key == "continuous" else ""
-    return (f'<details class="lbx-how">{anchors}<summary>How this board is made</summary><ul class="lbx-how-l">{items}</ul>{diag}</details>')
+def board_fold(site: Site, key: str) -> str:
+    """'How this board is made': the closed diagram fold under each leaderboard (src/howboard.py)."""
+    import howboard  # noqa: PLC0415
+    return howboard.fold(site, key)
 
 
 def leaderboards(site: Site) -> str:

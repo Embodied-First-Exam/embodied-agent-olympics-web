@@ -126,8 +126,8 @@ EPISODIC_DEF = "A fresh workspace every match: the agent keeps nothing between m
 CONTINUOUS_DEF = ("One workspace kept across the season: programs, weights, notes and match videos carry into every next "
                   "match of the Olympics Championship.")
 # the one line under each leaderboard heading (home and Leaderboard page): board · what the agent keeps
-EPISODIC_LINE = "Open Arena boards · a fresh workspace every match."
-CONTINUOUS_LINE = "Olympics Championship · programs, weights and notes carry into every next match."
+EPISODIC_LINE = "Open Arena · Learns within each match. Every match starts from a fresh workspace."
+CONTINUOUS_LINE = "Olympics Championship · Learns within each match and across matches. One workspace carries through the whole championship."
 NOT_H2H = "Duel and team-duel sports only: solo sports, drone and racing have no head-to-head matches."
 
 
