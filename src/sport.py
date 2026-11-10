@@ -729,7 +729,7 @@ def growth(site: Site, d: dict) -> str:
                 f'<div class="cgrid" data-charts><figure class="cfig"><figcaption><strong>Performance growth</strong><span>{E(ck["measure"])}</span></figcaption>'
                 f'<p class="cr-rule">At release: {cnt.get("ok", 0)} of {cnt.get("planned", 0)} replays done.</p></figure>'
                 f'<figure class="cfig"><figcaption><strong>Capability growth</strong><span>Card capabilities passed, of {n}</span></figcaption>{capc}</figure></div>'
-                '<p class="cr-rule">Frozen programs of every checkpoint replayed with no model calls. Provisional.</p></div>')
+                '<p class="cr-rule">Frozen programs of every checkpoint replayed with no model calls.</p></div>')
     if not lines:
         cnt = ck.get("count") or {}
         return ('<div class="ab-c" id="growth"><h3 class="ab-h"><span>C</span>Checkpoint Evaluation</h3>'
@@ -753,7 +753,7 @@ def growth(site: Site, d: dict) -> str:
     cnt = ck.get("count") or {}
     opp = ", ".join(f'{o["id"]} ({o["tier"]})' for o in ck.get("opponents") or [])
     foot = (f"Frozen programs of every checkpoint replayed with no model calls{' against the fixed practice opponents ' + opp if opp else ''}. "
-            f"{cnt.get('ok', 0)} of {cnt.get('planned', 0)} replays done. Provisional.")
+            f"{cnt.get('ok', 0)} of {cnt.get('planned', 0)} replays done.")
     cap_h = (f'<figure class="cfig"><figcaption><strong>Capability growth</strong><span>Card capabilities passed, of {cap.get("n")}</span></figcaption>{capc}</figure>'
              if capc else "")
     # opponent switch (Chi 11-09): "All (mean)" = the main curve; one view per tested opponent tier, weakest first
@@ -762,7 +762,7 @@ def growth(site: Site, d: dict) -> str:
     views = [("all", "All (mean)", f'<p class="tv-cap">{E(ck["measure"])}</p>{perf}')]
     for tr in tiers:
         tl = {m: v for m, v in tr["lines"].items() if v}
-        prog = (f'in progress, {tr["ok"]} of {tr["planned"]} replays done' if tr["ok"] < tr["planned"] else f'{tr["ok"]} replays')
+        prog = (f'{tr["ok"]} of {tr["planned"]} replays done' if tr["ok"] < tr["planned"] else f'{tr["ok"]} replays')
         if tl:
             tv = max(p["mean"] for pts in tl.values() for p in pts)
             ch = _chart(site, tl, "mean", 0.5 if tv <= 0.5 else 1.0, None, tr["label"], fmt2, xmax=xmax)

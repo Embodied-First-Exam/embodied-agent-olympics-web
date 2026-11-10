@@ -3,7 +3,7 @@
  "sport": "sprint",
  "key": "sprint_g1",
  "format": "solo",
- "made": "2026-11-10T05:53Z",
+ "made": "2026-11-10T14:23Z",
  "status": "final",
  "provisional": false,
  "podium": {
@@ -519,7 +519,7 @@
   "checkpoint": {
    "kind": "solo",
    "board": "rel-sprint-g1-arena2",
-   "made": "2026-11-09 20:49 CST",
+   "made": "2026-11-10 08:23 CST",
    "measure": "Speed (m/s), ratio to the reference program (1.0 = reference)",
    "opponents": [],
    "ref": 1.0,

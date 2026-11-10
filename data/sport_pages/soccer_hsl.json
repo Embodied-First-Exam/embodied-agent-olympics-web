@@ -3,7 +3,7 @@
  "sport": "soccer_hsl",
  "key": "soccer_hsl",
  "format": "team",
- "made": "2026-11-10T05:53Z",
+ "made": "2026-11-10T14:23Z",
  "status": "final",
  "provisional": false,
  "podium": {
@@ -1708,7 +1708,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-soccer-hsl-champ2",
-   "made": "2026-11-09 20:49 CST",
+   "made": "2026-11-10 08:23 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -2811,7 +2811,7 @@
       {
        "cp": "final:7",
        "x": 7.0,
-       "n_pass": 0,
+       "n_pass": 1,
        "valid": 13
       }
      ],
@@ -3001,7 +3001,7 @@
       {
        "cp": "final:7",
        "x": 7.0,
-       "n_pass": 4,
+       "n_pass": 5,
        "valid": 16
       }
      ]

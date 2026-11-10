@@ -3,7 +3,7 @@
  "sport": "tabletennis",
  "key": "tabletennis_g1",
  "format": "duel",
- "made": "2026-11-10T05:53Z",
+ "made": "2026-11-10T14:23Z",
  "status": "final",
  "provisional": false,
  "podium": {
@@ -1682,7 +1682,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-tabletennis-g1-champ2",
-   "made": "2026-11-09 20:49 CST",
+   "made": "2026-11-10 08:23 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {
@@ -2944,7 +2944,7 @@
        "cp": "kickoff:1",
        "x": 0.5,
        "n_pass": 2,
-       "valid": 6
+       "valid": 8
       },
       {
        "cp": "final:1",
@@ -2968,13 +2968,19 @@
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 3,
-       "valid": 7
+       "valid": 8
       },
       {
        "cp": "final:6",
        "x": 6.0,
        "n_pass": 2,
-       "valid": 6
+       "valid": 8
+      },
+      {
+       "cp": "final:7",
+       "x": 7.0,
+       "n_pass": 2,
+       "valid": 8
       }
      ],
      "DeepSeek V4.1 Flash": [
@@ -2988,13 +2994,13 @@
        "cp": "final:1",
        "x": 1.0,
        "n_pass": 0,
-       "valid": 7
+       "valid": 8
       },
       {
        "cp": "final:3",
        "x": 3.0,
        "n_pass": 1,
-       "valid": 5
+       "valid": 8
       },
       {
        "cp": "final:4",
@@ -3006,11 +3012,17 @@
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 1,
-       "valid": 6
+       "valid": 8
       },
       {
        "cp": "final:6",
        "x": 6.0,
+       "n_pass": 1,
+       "valid": 8
+      },
+      {
+       "cp": "final:7",
+       "x": 7.0,
        "n_pass": 1,
        "valid": 8
       }
@@ -3057,6 +3069,12 @@
        "x": 6.0,
        "n_pass": 2,
        "valid": 8
+      },
+      {
+       "cp": "final:7",
+       "x": 7.0,
+       "n_pass": 2,
+       "valid": 8
       }
      ],
      "GLM 5.3 Flash": [
@@ -3088,7 +3106,7 @@
        "cp": "final:4",
        "x": 4.0,
        "n_pass": 0,
-       "valid": 7
+       "valid": 8
       },
       {
        "cp": "final:5",
@@ -3126,7 +3144,7 @@
        "cp": "final:4",
        "x": 4.0,
        "n_pass": 1,
-       "valid": 6
+       "valid": 8
       },
       {
        "cp": "final:5",
@@ -3164,11 +3182,17 @@
        "cp": "final:5",
        "x": 5.0,
        "n_pass": 1,
-       "valid": 7
+       "valid": 8
       },
       {
        "cp": "final:6",
        "x": 6.0,
+       "n_pass": 1,
+       "valid": 8
+      },
+      {
+       "cp": "final:7",
+       "x": 7.0,
        "n_pass": 1,
        "valid": 8
       }
