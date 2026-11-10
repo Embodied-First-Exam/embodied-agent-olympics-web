@@ -1,5 +1,5 @@
 {
- "_note": "Every video/still slot. All footage is replays of recorded simulation runs, path-traced in Blender for display; no new renders.",
+ "_note": "Every video/still slot. Sport-head clips: venue renders (Blender Cycles) of recorded simulation states; the re-rendered and re-selected sports show official r1107 matches, the others development showcase renders.",
  "home_hero_sequence": [
   {
    "id": "soccer_hsl_3v3",
@@ -47,19 +47,20 @@
    }
   },
   {
-   "id": "f1_night_race",
-   "duration_s": 17.37,
+   "id": "racing_r1107",
+   "duration_s": 14.8,
    "aspect": "16:9",
    "web_720p": {
-    "url": "/eo/media/f1_night_race.mp4"
+    "url": "/eo/media/racing_r1107.mp4"
    },
    "master_1440p": {
-    "url": "/exam-media/masters/f1_night_race/video.mp4"
+    "url": "/exam-media/masters/racing_r1107/video.mp4"
    },
    "poster": {
-    "url": "/eo/img/poster/f1_night_race.jpg",
+    "url": "/eo/img/poster/racing_r1107.jpg",
     "size": "1280x720"
-   }
+   },
+   "match": "RAC6-F01"
   },
   {
    "id": "basketball_3x3",
@@ -77,19 +78,20 @@
    }
   },
   {
-   "id": "badminton_g1",
-   "duration_s": 17.47,
+   "id": "badminton_r1107",
+   "duration_s": 17.67,
    "aspect": "16:9",
    "web_720p": {
-    "url": "/eo/media/badminton_g1.mp4"
+    "url": "/eo/media/badminton_r1107.mp4"
    },
    "master_1440p": {
-    "url": "/exam-media/masters/badminton_g1/video.mp4"
+    "url": "/exam-media/masters/badminton_r1107/video.mp4"
    },
    "poster": {
-    "url": "/eo/img/poster/badminton_g1.jpg",
+    "url": "/eo/img/poster/badminton_r1107.jpg",
     "size": "1280x720"
-   }
+   },
+   "match": "BAD3-F18"
   },
   {
    "id": "stuntcar_replica",
@@ -107,19 +109,20 @@
    }
   },
   {
-   "id": "tabletennis_g1",
-   "duration_s": 18.43,
+   "id": "tabletennis_r1107",
+   "duration_s": 15.6,
    "aspect": "16:9",
    "web_720p": {
-    "url": "/eo/media/tabletennis_g1.mp4"
+    "url": "/eo/media/tabletennis_r1107.mp4"
    },
    "master_1440p": {
-    "url": "/exam-media/masters/tabletennis_g1/video.mp4"
+    "url": "/exam-media/masters/tabletennis_r1107/video.mp4"
    },
    "poster": {
-    "url": "/eo/img/poster/tabletennis_g1.jpg",
+    "url": "/eo/img/poster/tabletennis_r1107.jpg",
     "size": "1280x720"
-   }
+   },
+   "match": "TTN2-F18"
   }
  ],
  "per_sport": {
@@ -128,15 +131,12 @@
     "url": "/eo/img/sports/soccer_hsl.jpg",
     "size": "640x360"
    },
-   "still": {
-    "url": "/eo/img/hero-close.jpg",
-    "size": "1920x1080"
-   },
+   "still": null,
    "clips": [
     {
      "id": "soccer_hsl_3v3",
      "shows": "Three-a-side match, a goal from open play",
-     "status": "Showcase render from development; earlier rules version",
+     "status": "Showcase render from development; earlier rules version (shoulder-top numbers removed)",
      "duration_s": 18.9,
      "aspect": "16:9",
      "web_720p": {
@@ -161,7 +161,26 @@
     "url": "/eo/img/sports/soccer_hsl_team.jpg",
     "size": "640x360"
    },
-   "clips": []
+   "clips": [
+    {
+     "id": "soccer_hsl_team_r1107",
+     "shows": "Final: a midfield contest and a long-range goal",
+     "status": "Official r1107 match, venue render (Blender Cycles) of the recorded states",
+     "duration_s": 15.83,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/soccer_hsl_team_r1107.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/soccer_hsl_team_r1107/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/soccer_hsl_team_r1107.jpg",
+      "size": "1280x720"
+     },
+     "match": "HSTC-F18"
+    }
+   ]
   },
   "soccer_ssl": {
    "thumbnail": {
@@ -220,10 +239,7 @@
     "url": "/eo/img/sports/beachvolleyball_g1.jpg",
     "size": "640x360"
    },
-   "still": {
-    "url": "/eo/img/bv-wide.jpg",
-    "size": "1600x900"
-   },
+   "still": null,
    "clips": [
     {
      "id": "beach_volleyball",
@@ -260,10 +276,7 @@
     "url": "/eo/img/sports/baseball_g1.jpg",
     "size": "640x360"
    },
-   "still": {
-    "url": "/eo/img/baseball-wide.jpg",
-    "size": "1600x900"
-   },
+   "still": null,
    "clips": [
     {
      "id": "baseball_g1",
@@ -292,21 +305,22 @@
    "still": null,
    "clips": [
     {
-     "id": "badminton_g1",
-     "shows": "A G1 returns the shuttle over the net",
-     "status": "Showcase render from development",
-     "duration_s": 17.47,
+     "id": "badminton_r1107",
+     "shows": "Final: a three-shot rally and the match point",
+     "status": "Official r1107 match, venue render (Blender Cycles) of the recorded states",
+     "duration_s": 17.67,
      "aspect": "16:9",
      "web_720p": {
-      "url": "/eo/media/badminton_g1.mp4"
+      "url": "/eo/media/badminton_r1107.mp4"
      },
      "master_1440p": {
-      "url": "/exam-media/masters/badminton_g1/video.mp4"
+      "url": "/exam-media/masters/badminton_r1107/video.mp4"
      },
      "poster": {
-      "url": "/eo/img/poster/badminton_g1.jpg",
+      "url": "/eo/img/poster/badminton_r1107.jpg",
       "size": "1280x720"
-     }
+     },
+     "match": "BAD3-F18"
     }
    ]
   },
@@ -316,7 +330,26 @@
     "size": "640x360"
    },
    "still": null,
-   "clips": []
+   "clips": [
+    {
+     "id": "tennis_r1107",
+     "shows": "Match point: serve, return winner",
+     "status": "Official r1107 match, venue render (Blender Cycles) of the recorded states",
+     "duration_s": 14.83,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/tennis_r1107.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/tennis_r1107/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/tennis_r1107.jpg",
+      "size": "1280x720"
+     },
+     "match": "TEN2-F04"
+    }
+   ]
   },
   "tabletennis": {
    "thumbnail": {
@@ -325,6 +358,24 @@
    },
    "still": null,
    "clips": [
+    {
+     "id": "tabletennis_r1107",
+     "shows": "Final: rallies and the match point",
+     "status": "Official r1107 match, venue render (Blender Cycles) of the recorded states",
+     "duration_s": 15.6,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/tabletennis_r1107.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/tabletennis_r1107/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/tabletennis_r1107.jpg",
+      "size": "1280x720"
+     },
+     "match": "TTN2-F18"
+    },
     {
      "id": "tabletennis_g1",
      "shows": "A G1 rally",
@@ -352,21 +403,22 @@
    "still": null,
    "clips": [
     {
-     "id": "curling_match",
-     "shows": "A take-out, from the hack to the far house",
-     "status": "Showcase render of an earlier version; no G1 visible",
-     "duration_s": 13.63,
+     "id": "curling_r1107",
+     "shows": "A G1 slide delivery; the stone stops 3 cm from the button",
+     "status": "Official r1107 match, venue render (Blender Cycles) of the recorded states",
+     "duration_s": 20.5,
      "aspect": "16:9",
      "web_720p": {
-      "url": "/eo/media/curling_match.mp4"
+      "url": "/eo/media/curling_r1107.mp4"
      },
      "master_1440p": {
-      "url": "/exam-media/masters/curling_match/video.mp4"
+      "url": "/exam-media/masters/curling_r1107/video.mp4"
      },
      "poster": {
-      "url": "/eo/img/poster/curling_match.jpg",
+      "url": "/eo/img/poster/curling_r1107.jpg",
       "size": "1280x720"
-     }
+     },
+     "match": "CUR2-F18"
     }
    ]
   },
@@ -378,21 +430,22 @@
    "still": null,
    "clips": [
     {
-     "id": "billiards_8ball",
-     "shows": "The break and a called 8, top view",
-     "status": "Showcase render of an earlier version; no G1 visible",
-     "duration_s": 11.37,
+     "id": "billiards_r1107",
+     "shows": "The break, then the called 8 that wins the match",
+     "status": "Official r1107 match, venue render (Blender Cycles) of the recorded states",
+     "duration_s": 14.8,
      "aspect": "16:9",
      "web_720p": {
-      "url": "/eo/media/billiards_8ball.mp4"
+      "url": "/eo/media/billiards_r1107.mp4"
      },
      "master_1440p": {
-      "url": "/exam-media/masters/billiards_8ball/video.mp4"
+      "url": "/exam-media/masters/billiards_r1107/video.mp4"
      },
      "poster": {
-      "url": "/eo/img/poster/billiards_8ball.jpg",
+      "url": "/eo/img/poster/billiards_r1107.jpg",
       "size": "1280x720"
-     }
+     },
+     "match": "BIL2-F13"
     }
    ]
   },
@@ -402,7 +455,26 @@
     "size": "640x360"
    },
    "still": null,
-   "clips": []
+   "clips": [
+    {
+     "id": "sprint_r1107",
+     "shows": "A 100 m race to the line",
+     "status": "Official r1107 match, venue render (Blender Cycles) of the recorded states",
+     "duration_s": 15.53,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/sprint_r1107.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/sprint_r1107/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/sprint_r1107.jpg",
+      "size": "1280x720"
+     },
+     "match": "SPR2-F0003"
+    }
+   ]
   },
   "hurdles": {
    "thumbnail": {
@@ -410,7 +482,26 @@
     "size": "640x360"
    },
    "still": null,
-   "clips": []
+   "clips": [
+    {
+     "id": "hurdles_r1107",
+     "shows": "110 m hurdles, a clearance in slow motion",
+     "status": "Official r1107 match, venue render (Blender Cycles) of the recorded states",
+     "duration_s": 15.73,
+     "aspect": "16:9",
+     "web_720p": {
+      "url": "/eo/media/hurdles_r1107.mp4"
+     },
+     "master_1440p": {
+      "url": "/exam-media/masters/hurdles_r1107/video.mp4"
+     },
+     "poster": {
+      "url": "/eo/img/poster/hurdles_r1107.jpg",
+      "size": "1280x720"
+     },
+     "match": "HUR2-F0102"
+    }
+   ]
   },
   "javelin": {
    "thumbnail": {
@@ -443,27 +534,25 @@
     "url": "/eo/img/sports/f1full.jpg",
     "size": "640x360"
    },
-   "still": {
-    "url": "/eo/img/racing-close.jpg",
-    "size": "1600x900"
-   },
+   "still": null,
    "clips": [
     {
-     "id": "f1_night_race",
-     "shows": "Night circuit, braking and a pass",
-     "status": "Showcase render from development; shows several cars, the release event is a single-car time trial",
-     "duration_s": 17.37,
+     "id": "racing_r1107",
+     "shows": "Six cars on lap 1 of a Championship race: a pass for the lead in slow motion",
+     "status": "Official r1107 match, venue render (Blender Cycles) of the recorded states",
+     "duration_s": 14.8,
      "aspect": "16:9",
      "web_720p": {
-      "url": "/eo/media/f1_night_race.mp4"
+      "url": "/eo/media/racing_r1107.mp4"
      },
      "master_1440p": {
-      "url": "/exam-media/masters/f1_night_race/video.mp4"
+      "url": "/exam-media/masters/racing_r1107/video.mp4"
      },
      "poster": {
-      "url": "/eo/img/poster/f1_night_race.jpg",
+      "url": "/eo/img/poster/racing_r1107.jpg",
       "size": "1280x720"
-     }
+     },
+     "match": "RAC6-F01"
     }
    ]
   },

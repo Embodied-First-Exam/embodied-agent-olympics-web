@@ -52,11 +52,11 @@
     "soccer_hsl_3v3": "Booster T1 · 3 v 3",
     "drone_race_4": "5-inch quad · heats",
     "beach_volleyball": "Unitree G1 · 2 v 2",
-    "f1_night_race": "EAV24-class single-seater",
+    "racing_r1107": "EAV24-class single-seaters · 6-car race",
     "basketball_3x3": "Unitree G1 · 3 v 3",
-    "badminton_g1": "Unitree G1 · singles",
+    "badminton_r1107": "Unitree G1 · singles",
     "stuntcar_replica": "Cold-gas thruster car · solo",
-    "tabletennis_g1": "Unitree G1 · singles"
+    "tabletennis_r1107": "Unitree G1 · singles"
   },
 
   "formats": [
