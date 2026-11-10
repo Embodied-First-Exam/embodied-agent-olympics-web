@@ -182,7 +182,8 @@
     const cells = $$(".tm-c", root).sort((a, b) => a.style.getPropertyValue("--k") - b.style.getPropertyValue("--k"));
     const byK = {}; cells.forEach((c) => (byK[c.style.getPropertyValue("--k")] ??= []).push(c));
     const ks = Object.keys(byK).sort((a, b) => a - b);
-    const ko = [1, 2, 3, 4].map((n) => $(`[data-ko="${n}"]`, root)), medals = [".s", ".g", ".b"].map((s) => $(`.tm-medal.${s.slice(1)}`, root));
+    // the Episodic fold's round-robin widget has no knockout: keep only the parts this widget has
+    const ko = [1, 2, 3, 4].map((n) => $(`[data-ko="${n}"]`, root)).filter(Boolean), medals = [".s", ".g", ".b"].map((s) => $(`.tm-medal.${s.slice(1)}`, root)).filter(Boolean);
     let timers = [], on = false;
     const at = (ms, f) => timers.push(setTimeout(f, ms));
     const reset = () => { cells.forEach((c) => c.classList.remove("on", "cur")); ko.forEach((e) => e.classList.remove("on")); medals.forEach((m) => m.classList.remove("on")); };
