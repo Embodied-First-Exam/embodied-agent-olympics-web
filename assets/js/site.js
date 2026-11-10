@@ -320,3 +320,54 @@
   };
   open(); addEventListener("hashchange", open);
 })();
+
+/* Episodic fold: the ranking emerges from the matches. Served in its final state (no-JS / reduced motion); with motion it
+   starts from zero: rows in entrant order, each match lights its two grid cells and adds its points, then the rows slide
+   into rank order with ranks and medal colours, then the podium. Loops while on screen; off screen it shows the end. */
+(() => {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  document.querySelectorAll("[data-tm-ep]").forEach((root) => {
+    const D = JSON.parse(root.querySelector("[data-ep-data]").textContent);
+    const table = root.querySelector(".tm-pts--ep"), rows = [...root.querySelectorAll("[data-ep-row]")];
+    const cell = (i, j) => root.querySelector(`[data-ep-c="${i}-${j}"]`);
+    const medals = [...root.querySelectorAll(".tm-medal")];
+    let timers = [], on = false;
+    const at = (ms, f) => timers.push(setTimeout(f, ms));
+    const setRow = (k, v) => { const r = rows[k]; r.querySelector("i").style.setProperty("--w", (v ? Math.max(4, Math.round(100 * v / D.max)) : 0) + "%"); r.querySelector("b").textContent = v; };
+    const start = () => {
+      timers.forEach(clearTimeout); timers = [];
+      root.dataset.step = "rr"; table.classList.remove("is-sorted");
+      root.querySelectorAll("[data-ep-c]").forEach((c) => c.classList.remove("on", "ep-hit"));
+      rows.forEach((r, k) => setRow(k, 0)); medals.forEach((m) => m.classList.remove("on"));
+    };
+    const end = () => {
+      timers.forEach(clearTimeout); timers = [];
+      root.dataset.step = "md"; table.classList.add("is-sorted");
+      root.querySelectorAll("[data-ep-c]").forEach((c) => { c.classList.add("on"); c.classList.remove("ep-hit"); });
+      rows.forEach((r, k) => setRow(k, D.final[k])); medals.forEach((m) => m.classList.add("on"));
+    };
+    const play = () => {
+      start();
+      const pts = D.final.map(() => 0); let t = 500;
+      D.games.forEach(([a, b, pa, pb]) => {
+        at(t, () => {
+          root.querySelectorAll(".ep-hit").forEach((c) => c.classList.remove("ep-hit"));
+          [cell(a, b), cell(b, a)].forEach((c) => c && c.classList.add("on", "ep-hit"));
+          pts[a] += pa; pts[b] += pb; setRow(a, pts[a]); setRow(b, pts[b]);
+        });
+        t += 320;
+      });
+      at(t, () => root.querySelectorAll(".ep-hit").forEach((c) => c.classList.remove("ep-hit")));
+      at(t + 400, () => { root.dataset.step = "ko"; table.classList.add("is-sorted"); });
+      t += 1500;
+      at(t, () => { root.dataset.step = "md"; });
+      medals.slice().sort((x, y) => +x.textContent - +y.textContent).forEach((m, k) => at(t + 250 + k * 260, () => m.classList.add("on")));
+      at(t + 5200, () => on && play());
+    };
+    start();  // the first frame a reader sees is the start, never the result
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !on) { on = true; play(); }
+      else if (!e.isIntersecting && on) { on = false; end(); }
+    }, { threshold: 0, rootMargin: "0px 0px -30% 0px" }).observe(root);
+  });
+})();

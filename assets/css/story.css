@@ -1835,14 +1835,22 @@ td.hh-t .hh-p{font-size:16px}
 .hb-ws{margin:0 0 12px;font-size:clamp(15px,1.15vw,17px);color:var(--fg)}
 .hb-rule{margin-top:10px;font-size:12.5px;line-height:1.5;color:var(--fg-3)}
 .hb .tm{margin-top:0}
-/* Episodic: the widget's round robin flowing into the points table; the top three bars in medal colours */
-.tm-pts--ep{max-width:300px}
-.tm-pt--ep{grid-template-columns:118px 1fr 28px}
+/* Episodic: the widget's round robin flowing into the points table. Rows keep the grid's entrant order (--i) and slide
+   to their rank (--r) once the table is sorted; rank numbers and medal colours show only then */
+.tm-pts--ep{--rowh:30px;position:relative;display:block;max-width:300px;height:calc(var(--n) * var(--rowh))}
+.tm-pt--ep{position:absolute;left:0;right:0;top:calc(var(--i) * var(--rowh));height:var(--rowh);grid-template-columns:132px 1fr 28px;
+  transition:transform .7s var(--ease)}
+.tm-pts--ep.is-sorted .tm-pt--ep{transform:translateY(calc((var(--r) - var(--i)) * var(--rowh)))}
 .tm-pt--ep span{display:flex;align-items:center;gap:7px;color:var(--fg-2);font-family:var(--f-sans);font-size:13px}
 .tm-pt--ep span .mlogo{width:15px;height:15px;color:var(--fg)}
-.tm-pt--ep i{background:var(--fg-3)}
-.tm-pt--g i{background:var(--gold)}.tm-pt--s i{background:var(--silver)}.tm-pt--b i{background:var(--bronze)}
-.tm-pt--g span,.tm-pt--s span,.tm-pt--b span{color:var(--fg)}
+.tm-pt--ep .ep-rk{width:12px;font:500 11.5px var(--f-mono);font-style:normal;color:var(--fg-3);opacity:0;transition:opacity .4s}
+.tm-pts--ep.is-sorted .ep-rk{opacity:1}
+.tm-pt--ep i{background:var(--fg-3);transition:width .35s var(--ease),background .4s}
+.tm-pts--ep.is-sorted .tm-pt--g i{background:var(--gold)}.tm-pts--ep.is-sorted .tm-pt--s i{background:var(--silver)}
+.tm-pts--ep.is-sorted .tm-pt--b i{background:var(--bronze)}
+.tm-pts--ep.is-sorted .tm-pt--g span,.tm-pts--ep.is-sorted .tm-pt--s span,.tm-pts--ep.is-sorted .tm-pt--b span{color:var(--fg)}
+.tm-pt--ep b{opacity:1!important}
+.tm-c.ep-hit{background:var(--fg)}.tm-c.ep-hit::after{background:var(--bg)}
 @media (min-width:900px) and (max-width:1080px){
   .lbx-how .tm-body,.lbx-how .tm-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
   .lbx-how .tm-steps li:not(:first-child){display:flex}

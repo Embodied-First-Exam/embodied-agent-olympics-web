@@ -22,43 +22,64 @@ CONTINUOUS_RULE = ("A level knockout match goes to the sport's tie-break. Win ra
                    "only, counted as in Episodic Learning.")
 
 
-def _standings(site: Site) -> tuple[str, list]:
+def _board(site: Site) -> tuple[str, list, list]:
+    """The example board: (sport name, standings, matches as [row index, column index, row points, column points]),
+    indices in the site's model order (the order of the widget's grid and of the unsorted points table)."""
     f = ROOT / "data" / "sport_pages" / f"{EXAMPLE_SPORT}.json"
     if not f.is_file():
-        return "", []
+        return "", [], []
     d = json.loads(f.read_text(encoding="utf-8"))
-    rr = next((s for s in (d.get("open_arena") or {}).get("stages") or [] if s["id"] == "round_robin"), None)
+    rr = next((s for s in (d.get("open_arena") or {}).get("stages") or [] if s["id"] == "round_robin"), None) or {}
     name = site.sport_by_id[EXAMPLE_SPORT]["name"] if EXAMPLE_SPORT in site.sport_by_id else EXAMPLE_SPORT
-    return name, sorted((rr or {}).get("standings") or [], key=lambda r: r["rank"])
+    idx = {m["name"]: k for k, m in enumerate(site.models)}
+    games = []
+    for m in rr.get("matches") or []:
+        if m.get("status") != "resolved":
+            continue
+        a, b = (s["model"] for s in m["sides"])
+        if a not in idx or b not in idx:
+            continue
+        w = m.get("winner")
+        games.append([idx[a], idx[b], 3 if w == a else 1 if w is None else 0, 3 if w == b else 1 if w is None else 0])
+    return name, sorted(rr.get("standings") or [], key=lambda r: r["rank"]), games
 
 
 def episodic_widget(site: Site) -> str:
-    """The format widget's look with one panel: Round robin -> Points table -> Medals. site.js animates it like the
-    widget's other panels (data-g = rr, ko, md light up stage by stage)."""
+    """The format widget's look with one panel: Round robin -> Points table -> Medals, from one real Open Arena board.
+    The page is served in its final state (dots on, table sorted by rank with medal colours, podium up), which is what
+    no-JS and reduced-motion readers see. site.js ([data-tm-ep]) resets it to the start before it is shown: the table in
+    the grid's entrant order with zero points and no ranks; each match then lights its two grid cells and adds its points;
+    when the round robin is complete the rows slide into rank order, ranks and medal colours appear, then the podium."""
     import home  # noqa: PLC0415  (the widget's own pieces)
     ms = site.models
-    sport, rows = _standings(site)
-    by = {m["name"]: m for m in ms}
+    sport, rows, games = _board(site)
+    rank = {r["model"]: r["rank"] for r in rows}
+    final = {r["model"]: r["points"] for r in rows}
+    mx = max(final.values(), default=1) or 1
     seat = lambda m: f'<span class="tm-h" title="{E(model_name(m))}" style="--c:{E(m["colour"])}">{model_logo(site, m)}</span>'  # noqa: E731
     grid = f'<span></span>{"".join(seat(m) for m in ms)}'
     for i, mi in enumerate(ms):
-        grid += seat(mi) + "".join('<i class="tm-x"></i>' if i == j else '<i class="tm-c" data-g="rr"></i>' for j in range(len(ms)))
-    mx = max((r["points"] for r in rows), default=1) or 1
-    pts = "".join(
-        f'<div class="tm-pt tm-pt--ep{" tm-pt--" + "gsb"[r["rank"] - 1] if r["rank"] <= 3 else ""}" data-g="ko">'
-        f'<span>{r["rank"]}{model_logo(site, by[r["model"]]) if r["model"] in by else ""}{E(model_name(r["model"]).split(" ")[0])}</span>'
-        f'<i style="--w:{max(4, round(100 * r["points"] / mx))}%"></i><b>{r["points"]}</b></div>'
-        for r in rows)
-    return f"""<div class="tm tm--home tm--ep" data-tm data-fmt="rr">
-  <div class="tm-card"><div class="tm-pan" data-fmt-panel="rr">
+        grid += seat(mi) + "".join('<i class="tm-x"></i>' if i == j else f'<i class="tm-c on" data-ep-c="{i}-{j}"></i>' for j in range(len(ms)))
+    pts = ""
+    for i, m in enumerate(ms):
+        r = rank.get(m["name"], len(ms))
+        medal = {1: " tm-pt--g", 2: " tm-pt--s", 3: " tm-pt--b"}.get(r, "")
+        pts += (f'<div class="tm-pt tm-pt--ep on{medal}" data-ep-row="{i}" style="--i:{i};--r:{r - 1}">'
+                f'<span><em class="ep-rk">{r}</em>{model_logo(site, m)}{E(model_name(m).split(" ")[0])}</span>'
+                f'<i style="--w:{max(4, round(100 * final.get(m["name"], 0) / mx))}%"></i><b>{final.get(m["name"], 0)}</b></div>')
+    data = json.dumps({"games": games, "max": mx, "final": [final.get(m["name"], 0) for m in ms]}, separators=(",", ":"))
+    pod = home._podium().replace('class="tm-medal ', 'class="tm-medal on ')
+    return f"""<div class="tm tm--home tm--ep" data-tm-ep data-step="md">
+  <div class="tm-card"><div class="tm-pan">
     {home._stepper(["Round robin", "Points table", "Medals"])}
     <div class="tm-body">
       <div class="tm-col" data-st="rr"><div class="tm-grid" style="--n:{len(ms)}">{grid}</div></div>
-      <div class="tm-col" data-st="ko"><div class="tm-pts tm-pts--ep">{pts}</div></div>
-      <div class="tm-col" data-st="md">{home._podium(seq=True)}</div>
+      <div class="tm-col" data-st="ko"><div class="tm-pts tm-pts--ep is-sorted" style="--n:{len(ms)}">{pts}</div></div>
+      <div class="tm-col" data-st="md">{pod}</div>
     </div>
     <p class="tm-rule">Each pair plays once · win 3, draw 1 · the top three take the medals</p>
   </div><span class="note tm-sch">Example: {E(sport)}</span></div>
+  <script type="application/json" data-ep-data>{data}</script>
 </div>"""
 
 
