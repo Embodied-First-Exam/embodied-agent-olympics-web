@@ -41,3 +41,5 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+        with:
+          timeout: 1800000   # 30 min: a ~300 MB site with video takes longer than the 10-min default to sync
