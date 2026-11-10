@@ -245,7 +245,14 @@
     const h = location.hash.slice(1);
     const fb = h.startsWith("fmt-") && $(`.tm-o[data-fmt="${h.slice(4)}"]`);
     if (fb) { fb.click(); $("#formats") && $("#formats").scrollIntoView(); return; }
-    if (tabs.some((t) => t.dataset.tab === h)) { pick(h); const s = $("#tables"); if (s) s.scrollIntoView(); }
+    if (tabs.some((t) => t.dataset.tab === h)) { pick(h); const s = $("#tables"); if (s) s.scrollIntoView(); return; }
+    const inP = panelOf(h);  /* an anchor inside a panel (e.g. #continual-boards, old #by-sport links): open that panel */
+    if (inP && tabs.length) { pick(inP[0]); inP[1].scrollIntoView(); }
+  };
+  const panelOf = (h) => {
+    const el = h && document.getElementById(h);
+    const p = el && el.closest("[data-panel]");
+    return p ? [p.dataset.panel, el] : null;
   };
   const pick = (id) => {
     if (!tabs.some((t) => t.dataset.tab === id)) id = tabs[0].dataset.tab;
@@ -254,7 +261,8 @@
   };
   if (tabs.length) {
     tabs.forEach((t) => t.addEventListener("click", () => { pick(t.dataset.tab); history.replaceState(null, "", "#" + t.dataset.tab); }));
-    pick(location.hash.slice(1));
+    const h0 = location.hash.slice(1);
+    pick((panelOf(h0) || [h0])[0]);
   }
   if (location.hash) fromHash();
   addEventListener("hashchange", fromHash);

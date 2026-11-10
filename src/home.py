@@ -829,8 +829,8 @@ def medal_table_home(site: Site) -> str:
         f'<small>{E(m.get("harness", ""))} · {E(m.get("effort", ""))} effort</small></span></span></td>'
         + "".join(f'<td class="mt-n">{cell(rows.get(m["name"], {}).get(c))}</td>' for c in ("gold", "silver", "bronze")) + "</tr>"
         for k, m in enumerate(models))
-    head = "".join(f"<th>{h}</th>" for h in ["Rank", "AI agent", '<i class="medal medal--g"></i>Gold',
-                                           '<i class="medal medal--s"></i>Silver', '<i class="medal medal--b"></i>Bronze'])
+    head = "".join(f"<th>{h}</th>" for h in ["Rank", "AI agent"]) + "".join(
+        f'<th class="mt-mh"><i class="medal medal--{c}"></i>{w}</th>' for c, w in (("g", "Gold"), ("s", "Silver"), ("b", "Bronze")))
     return f'<div class="mt-wrap"><table class="mt mt--home{"" if released else " is-empty"}"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
 
 
