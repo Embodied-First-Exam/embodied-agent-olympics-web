@@ -3,7 +3,7 @@
  "sport": "billiards",
  "key": "billiards_g1",
  "format": "duel",
- "made": "2026-11-10T14:23Z",
+ "made": "2026-11-10T18:25Z",
  "status": "final",
  "provisional": false,
  "podium": {
@@ -31,7 +31,7 @@
       "points": 15,
       "for": 6,
       "against": 28,
-      "diff": -22,
+      "diff": 22,
       "note": "5-0-0, score 6:28, 1 won by forfeit"
      },
      {
@@ -44,7 +44,7 @@
       "points": 12,
       "for": 1,
       "against": 26,
-      "diff": -25,
+      "diff": 25,
       "note": "4-0-1, score 1:26"
      },
      {
@@ -57,7 +57,7 @@
       "points": 9,
       "for": 22,
       "against": 21,
-      "diff": 1,
+      "diff": -1,
       "note": "3-0-2, score 22:21, 1 won by forfeit"
      },
      {
@@ -70,7 +70,7 @@
       "points": 6,
       "for": 35,
       "against": 22,
-      "diff": 13,
+      "diff": -13,
       "note": "2-0-3, score 35:22, 2 forfeited"
      },
      {
@@ -83,7 +83,7 @@
       "points": 3,
       "for": 34,
       "against": 14,
-      "diff": 20,
+      "diff": -20,
       "note": "1-0-4, score 34:14"
      },
      {
@@ -96,7 +96,7 @@
       "points": 0,
       "for": 34,
       "against": 21,
-      "diff": 13,
+      "diff": -13,
       "note": "0-0-5, score 34:21"
      }
     ],
@@ -124,8 +124,8 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "resigned",
+      "note": "DeepSeek V4.1 Flash resigned during the match",
       "shootout": null,
       "replay": {
        "kind": "full",
@@ -198,8 +198,8 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "GLM 5.3 Flash ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "full",
@@ -377,8 +377,8 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "resigned",
+      "note": "DeepSeek V4.1 Flash resigned during the match",
       "shootout": null,
       "replay": {
        "kind": "full",
@@ -652,7 +652,7 @@
       "status": "resolved"
      }
     ],
-    "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
+    "rule": "Win 3, draw 1, loss 0; ties by score difference (fewer balls left is better: balls against minus balls for), then head to head."
    },
    {
     "id": "semi_final",
@@ -682,8 +682,8 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "resigned",
+      "note": "DeepSeek V4.1 Flash resigned during the match",
       "shootout": null,
       "replay": {
        "kind": "full",
@@ -826,8 +826,8 @@
        }
       ],
       "winner": "Gemini 4 Argon",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "resigned",
+      "note": "DeepSeek V4.1 Flash resigned during the match",
       "shootout": null,
       "replay": {
        "kind": "full",
@@ -887,7 +887,8 @@
   "notes": [
    "2 result(s) by forfeit (counted as a win, not played): astra-sub beat deepseek-flash-sh by forfeit (resigned), BIL2-F02/run-1; gemini beat deepseek-flash-sh by forfeit (resigned), BIL2-F08/run-1"
   ],
-  "as_of": "2026-11-08T18:38:54Z",
+  "as_of": "2026-11-10T18:25:19Z",
+  "score_direction": "lower",
   "board": "rel-billiards-g1-champ2"
  },
  "open_arena": {
@@ -1036,8 +1037,8 @@
        }
       ],
       "winner": "Claude Opus 5.5",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "GLM 5.3 Flash ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1108,8 +1109,8 @@
        }
       ],
       "winner": "GPT-6 Astra",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "Gemini 4 Argon ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1252,8 +1253,8 @@
        }
       ],
       "winner": "DeepSeek V4.1 Flash",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "Gemini 4 Argon ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1288,8 +1289,8 @@
        }
       ],
       "winner": "Kimi 3.1 Pro",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "Gemini 4 Argon ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1324,8 +1325,8 @@
        }
       ],
       "winner": "DeepSeek V4.1 Flash",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "GLM 5.3 Flash ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1360,8 +1361,8 @@
        }
       ],
       "winner": "Kimi 3.1 Pro",
-      "decided_by": "forfeit",
-      "note": "Forfeit: one side did not start",
+      "decided_by": "clock",
+      "note": "GLM 5.3 Flash ran out of its clock",
       "shootout": null,
       "replay": {
        "kind": "states",
@@ -1565,7 +1566,7 @@
    }
   ],
   "notes": [],
-  "as_of": "2026-11-10T05:53:27Z",
+  "as_of": "2026-11-10T18:25:19Z",
   "score_direction": "lower",
   "board": "rel-billiards-g1-arena",
   "complete": true,
@@ -1679,7 +1680,7 @@
   "checkpoint": {
    "kind": "duel",
    "board": "rel-billiards-g1-champ2",
-   "made": "2026-11-10 08:23 CST",
+   "made": "2026-11-10 12:24 CST",
    "measure": "Score share against fixed practice opponents (0.5 = even)",
    "opponents": [
     {

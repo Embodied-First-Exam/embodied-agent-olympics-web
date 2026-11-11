@@ -1,7 +1,7 @@
 {
  "_note": "Written by /data/guichi/eao-hq/tools/web/medals_sync.py from the official release run (evalops-r1107 + race rc6). Medal table counts FINAL sports only; by_sport.status final / in_progress; flag = an open item that could still move that podium (shown with a dagger).",
  "edition": "TODO",
- "updated": "2026-11-09T23:53-06:00",
+ "updated": "2026-11-10T12:17-06:00",
  "medal_table": [
   {
    "model": "GPT-6 Astra",
@@ -1214,24 +1214,24 @@
   "provisional": false,
   "decided": 18,
   "total": 18,
-  "line": "Final · all 18 sports decided · updated Nov 9, 23:53 CT"
+  "line": "Final · all 18 sports decided · updated Nov 10, 12:17 CT"
  },
  "open_arena_status": {
-  "updated": "2026-11-09T23:53-06:00",
+  "updated": "2026-11-10T12:17-06:00",
   "boards": 12,
   "complete": 12,
-  "line": "Updated Nov 9, 23:53 CT · 12 of 12 boards complete"
+  "line": "Updated Nov 10, 12:17 CT · 12 of 12 boards complete"
  },
  "win_rate": {
   "scopes": {
    "both": [
     {
      "model": "GPT-6 Astra",
-     "played": 136,
-     "won": 116,
+     "played": 138,
+     "won": 118,
      "drawn": 0,
      "lost": 20,
-     "pct": 85.3
+     "pct": 85.5
     },
     {
      "model": "Claude Opus 5.5",
@@ -1243,11 +1243,11 @@
     },
     {
      "model": "Gemini 4 Argon",
-     "played": 126,
-     "won": 65,
+     "played": 128,
+     "won": 67,
      "drawn": 0,
      "lost": 61,
-     "pct": 51.6
+     "pct": 52.3
     },
     {
      "model": "Kimi 3.1 Pro",
@@ -1259,11 +1259,11 @@
     },
     {
      "model": "DeepSeek V4.1 Flash",
-     "played": 118,
+     "played": 122,
      "won": 31,
      "drawn": 0,
-     "lost": 87,
-     "pct": 26.3
+     "lost": 91,
+     "pct": 25.4
     },
     {
      "model": "GLM 5.3 Flash",
@@ -1277,11 +1277,11 @@
    "championship": [
     {
      "model": "GPT-6 Astra",
-     "played": 80,
-     "won": 67,
+     "played": 82,
+     "won": 69,
      "drawn": 0,
      "lost": 13,
-     "pct": 83.8
+     "pct": 84.1
     },
     {
      "model": "Claude Opus 5.5",
@@ -1293,11 +1293,11 @@
     },
     {
      "model": "Gemini 4 Argon",
-     "played": 78,
-     "won": 41,
+     "played": 80,
+     "won": 43,
      "drawn": 0,
      "lost": 37,
-     "pct": 52.6
+     "pct": 53.8
     },
     {
      "model": "Kimi 3.1 Pro",
@@ -1309,11 +1309,11 @@
     },
     {
      "model": "DeepSeek V4.1 Flash",
-     "played": 63,
+     "played": 67,
      "won": 18,
      "drawn": 0,
-     "lost": 45,
-     "pct": 28.6
+     "lost": 49,
+     "pct": 26.9
     },
     {
      "model": "GLM 5.3 Flash",
@@ -1529,13 +1529,6 @@
     "absent": "Gemini 4 Argon"
    },
    {
-    "fixture": "BIL2-F02",
-    "sport": "billiards",
-    "scope": "championship",
-    "kind": "no-show",
-    "absent": "DeepSeek V4.1 Flash"
-   },
-   {
     "fixture": "BILC-F03",
     "sport": "billiards",
     "scope": "championship",
@@ -1548,27 +1541,6 @@
     "scope": "championship",
     "kind": "did not finish",
     "absent": "GLM 5.3 Flash"
-   },
-   {
-    "fixture": "BIL2-F08",
-    "sport": "billiards",
-    "scope": "championship",
-    "kind": "no-show",
-    "absent": "DeepSeek V4.1 Flash"
-   },
-   {
-    "fixture": "BIL2-F16",
-    "sport": "billiards",
-    "scope": "championship",
-    "kind": "no-show",
-    "absent": "DeepSeek V4.1 Flash"
-   },
-   {
-    "fixture": "BIL2-F19",
-    "sport": "billiards",
-    "scope": "championship",
-    "kind": "no-show",
-    "absent": "DeepSeek V4.1 Flash"
    },
    {
     "fixture": "BILA-F03",

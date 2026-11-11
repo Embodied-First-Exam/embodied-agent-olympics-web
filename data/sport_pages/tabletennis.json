@@ -3635,6 +3635,7 @@
    "No ready-made skills: no walking or balance service; the legs belong to the program from the start of every point.",
    "Timing: a control step every 10 ms; the world runs at real speed and never waits; a command acts at the next step, one command in flight.",
    "Rules: ITTF table tennis, one game to 11 with a lead of 2 (or first to 15).",
+   "Serve order: each pair plays one game and the player in seat A serves first, so at 14:14 seat A also serves the deciding point. Seat A follows the published schedule in the round robin and a lot in the knockout.",
    "Before the match: 2 hours of preparation with a full practice copy of the table, a practice opponent and a GPU training kit (half an RTX PRO 6000)."
   ]
  }
