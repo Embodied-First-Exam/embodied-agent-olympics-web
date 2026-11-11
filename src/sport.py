@@ -438,10 +438,7 @@ def duel_champ(site: Site, ch: dict, d: dict | None = None) -> str:
   <div class="cx-l"><h3 class="cr-h">Round robin <span>{sub}</span></h3>{cross_table(site, rr, "cm")}</div>
   <div class="cx-r"><h3 class="cr-h">Standings <span>win 3 · draw 1</span></h3>{standings_big(site, rr["standings"], 4)}</div>
 </div>
-<div class="cx-row cx-row--2">
-  <div class="cx-l"><h3 class="cr-h">Knockout</h3>{bracket(site, st, bool(rr))}</div>
-  <div class="cx-r">{podium_box(site, d or {})}</div>
-</div>"""
+<div class="cx-ko"><h3 class="cr-h">Knockout</h3>{bracket(site, st, bool(rr))}</div>"""
 
 
 def race_champ(site: Site, ch: dict) -> str:
@@ -558,7 +555,7 @@ def records(site: Site, d: dict) -> str:
 <section class="band sp-block" id="records" data-snav="Records">
   <div class="wrap">
     {head("02", "Competition records.", "", f'<div class="sp-head-r"><span class="tag tag--pending">{status}{prov}</span></div>')}
-    {"" if d.get("format") in ("duel", "team") else podium(site, d)}
+    {podium(site, d)}
     <div class="tabs sp-tabs" role="tablist" data-sptabs>{btns}</div>
     <div class="sp-panels">{panels}</div>
     <p class="rp-legend"><span class="rp rp--wait"><b>▶</b></span>{E(rp)}</p>
