@@ -214,13 +214,14 @@ def results(site: Site):
                f'<div class="wgrid rp-grid">{reps}</div>')
     tabs = [("arena", medals.EPISODIC), ("medals", medals.CONTINUOUS)]
     tab_btns = "".join(f'<button role="tab" class="tab{" is-on" if k == 0 else ""}" data-tab="{t}">{l}</button>' for k, (t, l) in enumerate(tabs))
-    body = phead("Leaderboard.", "The Episodic Learning and Continual Learning boards, and the replays.")
-    body += f"""<section class="band band--line rs-tables" id="tables"><div class="wrap">
-  <div class="sec-h"><h2 class="h2">Boards.</h2></div>
-  <div class="tabs" role="tablist" style="margin-top:0">{tab_btns}</div>
+    tab_btns = "".join(f'<button role="tab" class="tab lb-mode{" is-on" if k == 0 else ""}" data-tab="{t}">{l}</button>' for k, (t, l) in enumerate(tabs))
+    body = f"""<section class="phead lb-phead" id="tables"><div class="wrap">
+  <div class="lb-modes" role="tablist">{tab_btns}</div>
+</div></section>
+<section class="band rs-tables lb-body"><div class="wrap">
   <div class="rs-panels">
-  <div class="panel" data-panel="medals"><p class="rp-note lbx-def">{E(medals.CONTINUOUS_LINE)}</p><p class="lbx-count">{E(medals.count_line(site, "continuous"))}</p>{medals.medal_switch(site, story.medal_table_home(site) + medals.flag_foot(site), medals.mode_win_table(site, "championship"))}{story.board_fold(site, "continuous")}{medals.continual_panel(site)}</div>
-  <div class="panel is-on" data-panel="arena"><p class="rp-note lbx-def">{E(medals.EPISODIC_LINE)}</p><p class="lbx-count">{E(medals.count_line(site, "episodic"))}</p>{medals.medal_switch(site, medals.episodic_medal_block(site), medals.mode_win_table(site, "arena"))}{story.board_fold(site, "episodic")}<h3 class="rm-h rs-boards-h">Every sport&rsquo;s board</h3>{medals.arena_panel(site, boards)}</div>
+  <div class="panel" data-panel="medals"><p class="lb-line">{E(medals.CONTINUOUS_LINE)}</p>{medals.medal_switch(site, story.medal_table_home(site) + medals.flag_foot(site), medals.mode_win_table(site, "championship"))}{story.board_fold(site, "continuous")}{medals.continual_panel(site)}</div>
+  <div class="panel is-on" data-panel="arena"><p class="lb-line">{E(medals.EPISODIC_LINE)}</p>{medals.medal_switch(site, medals.episodic_medal_block(site), medals.mode_win_table(site, "arena"))}{story.board_fold(site, "episodic")}<h3 class="lb-h3">Every sport</h3>{medals.arena_panel(site, boards)}</div>
   </div>
 </div></section>"""
     return "leaderboard/", page(site, path="leaderboard/", title="Leaderboard", body=body)

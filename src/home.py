@@ -815,23 +815,16 @@ MEDAL_FLOWS = [  # id, name, sports, steps, one line
 
 
 def medal_table_home(site: Site) -> str:
-    """The Olympics Championship medal table as the GPT design chat specifies: Rank · AI agent · Gold · Silver · Bronze,
-    ranked by golds, then silvers, then bronzes; dashes until release (layout.model_name drops TODO notes)."""
+    """The Olympics Championship medal board (src/boards.py), ranked by golds, then silvers, then bronzes; dashes until release."""
+    import boards  # noqa: PLC0415
     rows = {r["model"]: r for r in site.results.get("medal_table", [])}
     released = any(r.get("gold") is not None for r in rows.values())
     models = list(site.models)
     if released:
         models.sort(key=lambda m: tuple(-(rows.get(m["name"], {}).get(k) or 0) for k in ("gold", "silver", "bronze")))
-    cell = lambda v: "—" if v is None else E(str(v))  # noqa: E731
-    body = "".join(
-        f'<tr><td class="mt-rank">{medals.rank_of(site, m["name"], k + 1) if released else "—"}</td>'
-        f'<td><span class="mt-model"><i class="flag" style="--c:{E(m["colour"])}"></i>{model_logo(site, m)}<span class="mt-who"><strong>{E(model_name(m))}</strong>'
-        f'<small>{E(m.get("harness", ""))} · {E(m.get("effort", ""))} effort</small></span></span></td>'
-        + "".join(f'<td class="mt-n">{cell(rows.get(m["name"], {}).get(c))}</td>' for c in ("gold", "silver", "bronze")) + "</tr>"
-        for k, m in enumerate(models))
-    head = "".join(f"<th>{h}</th>" for h in ["Rank", "AI agent"]) + "".join(
-        f'<th class="mt-mh"><i class="medal medal--{c}"></i>{w}</th>' for c, w in (("g", "Gold"), ("s", "Silver"), ("b", "Bronze")))
-    return f'<div class="mt-wrap"><table class="mt mt--home{"" if released else " is-empty"}"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
+    table = [{"model": m["name"], **{c: rows.get(m["name"], {}).get(c) for c in ("gold", "silver", "bronze")},
+              "rank": medals.rank_of(site, m["name"], k + 1)} for k, m in enumerate(models)]
+    return boards.medal_board(site, table, released)
 
 
 def h2h_matrix(site: Site, d: dict, order: list, mode: int, key: str) -> str:
@@ -932,9 +925,8 @@ def leaderboards(site: Site) -> str:
 <section class="{"chap " if k == 0 else ""}pg pgr2 pglb" data-inview id="{sid}" data-snav="{E(name)}">
   {anchor}
   <div class="wrap">
-    <header class="ch-head ch-head--k"><span class="kicker lbx-k">Leaderboard {k + 1} of 2</span><h2>{E(name)}</h2>
+    <header class="ch-head ch-head--k"><h2>{E(name)}</h2>
       <p class="lbx-def">{E(line)}</p></header>
-    <p class="lbx-count">{E(medals.count_line(site, key))}</p>
     <div class="lbx" data-lbx><div class="lbx-tabs" role="tablist" aria-label="{E(name)}">{btns}</div>{panels}</div>
     {board_fold(site, key)}
   </div>

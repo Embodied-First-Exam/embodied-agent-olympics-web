@@ -1,0 +1,229 @@
+/* Design pass (loaded last): medal board, sport cards, leaderboard titles, and less small print.
+   Rule of thumb used here: if a line of text is under 14px it either becomes a real label (>= 14px) or goes away. */
+
+/* ================= medal discs (shared) */
+.mdisc{display:inline-block;flex:none;width:14px;height:14px;border-radius:50%;
+  box-shadow:inset 0 -1.5px 2px rgba(0,0,0,.28),inset 0 1.5px 1.5px rgba(255,255,255,.5)}
+.mdisc--g{background:radial-gradient(circle at 35% 30%,#FFF1B0,#E9C94A 40%,#B8901E)}
+.mdisc--s{background:radial-gradient(circle at 35% 30%,#FFFFFF,#D3D9E0 40%,#98A1AC)}
+.mdisc--b{background:radial-gradient(circle at 35% 30%,#F7C9A1,#D18E5C 40%,#A4643A)}
+
+/* ================= the medal board: every medal is drawn once, counts sit beside them */
+.mdb{font-variant-numeric:tabular-nums}
+.mdb-row{display:grid;grid-template-columns:56px clamp(260px,26vw,340px) minmax(0,1fr) repeat(3,84px);align-items:center;column-gap:0;
+  min-height:clamp(52px,7.2vh,66px);border-top:1px solid var(--hair);transition:background .2s}
+.mdb-row:last-child{border-bottom:1px solid var(--hair)}
+.mdb-row:not(.mdb-head):hover{background:var(--bg-2)}
+.mdb-head{grid-template-columns:56px clamp(260px,26vw,340px) minmax(0,1fr) repeat(3,84px);min-height:0;border:0;padding-bottom:12px}
+.mdb-head>.sr{position:absolute}
+.mdb-head>span:nth-child(3){grid-column:1/4}
+.mdb-h{text-align:center;line-height:0}
+.mdb-h .mdisc{width:22px;height:22px}
+.mdb-rank{padding-left:6px;font-weight:600;font-size:22px;color:var(--fg-3)}
+.mdb-who{display:flex;align-items:center;gap:16px;padding-right:44px;white-space:nowrap}
+.mdb-who .mlogo{width:26px;height:26px;flex:none;color:var(--fg)}
+.mdb-who strong{font-weight:600;font-size:clamp(19px,1.6vw,23px);letter-spacing:-.012em}
+.mdb-dots{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px}
+.mdb-dots>span{display:flex;gap:5px}
+.mdb-dots .mdisc{animation:mbIn .5s cubic-bezier(.3,1.5,.5,1) both;animation-delay:calc(var(--i) * 28ms + .1s)}
+@keyframes mbIn{from{transform:scale(0);opacity:0}}
+.mdb-n{text-align:center;font-weight:600;font-size:clamp(22px,1.9vw,27px)}
+.mdb-n.is-0{color:var(--fg-3);opacity:.45;font-weight:400}
+.mdb-row.is-1 .mdb-rank{color:var(--fg)}
+.mdb-row.is-1 .mdb-who strong{font-size:clamp(22px,1.9vw,27px)}
+.mdb-row.is-1 .mdb-who .mlogo{width:30px;height:30px}
+.mdb.is-empty .mdb-n{color:var(--fg-3)}
+@media (max-width:900px){.mdb-row,.mdb-head{grid-template-columns:36px minmax(0,1fr) 0 repeat(3,48px)}.mdb-dots{display:none}.mdb-who{padding-right:8px;white-space:normal;gap:10px}}
+@media (prefers-reduced-motion:reduce){.mdb-dots .mdisc{animation:none}}
+
+/* the other ranked tables on the boards (win rate): same calm rows, no sub-labels */
+.mt-who small{display:none!important}
+.mt--home th{font-size:14px!important;letter-spacing:.06em!important}
+.mw-b,.wr-b{height:36px!important;padding:0 18px!important;font-size:15px!important}
+.mw-sw,.wr-sw{margin-bottom:18px!important}
+
+/* ================= leaderboard titles */
+.lbx-tab{font-size:clamp(18px,1.5vw,22px)!important;padding:12px 0 14px!important}
+.lbx-tabs{gap:0 36px!important}
+.lbx-how>summary{font-size:16px!important}
+.pglb .ch-head h2{font-size:clamp(44px,5.6vw,84px)}
+
+/* Leaderboard page: the two modes are the page title */
+.lb-phead{padding-bottom:0!important}
+.lb-modes{display:flex;flex-wrap:wrap;gap:6px clamp(24px,4vw,56px);border-bottom:1px solid var(--hair)}
+.lb-mode{font-size:clamp(28px,4.2vw,60px)!important;font-weight:600;letter-spacing:-.032em;line-height:1;padding:0 0 clamp(14px,1.6vw,22px)!important;
+  color:var(--fg-3)!important;opacity:.55;transition:opacity .25s,color .25s}
+.lb-mode:hover{opacity:.85}
+.lb-mode.is-on{color:var(--fg)!important;opacity:1}
+.lb-mode.is-on::after{height:3px!important}
+.lb-body{padding-top:clamp(24px,3vw,40px)!important}
+.lb-line{font-size:clamp(17px,1.4vw,20px);color:var(--fg-2);margin:0 0 clamp(20px,2.4vw,32px)}
+.lb-h3{font-weight:600;font-size:clamp(30px,3.6vw,52px);letter-spacing:-.03em;line-height:1;margin:clamp(56px,7vw,96px) 0 clamp(20px,2.4vw,32px)}
+
+/* ================= one sport, one card */
+.bcgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.bc{position:relative;border-radius:var(--r);background:var(--bg-2);padding:22px 22px 18px;display:flex;flex-direction:column;gap:14px;
+  transition:transform .35s var(--ease),box-shadow .35s}
+:root[data-theme="light"] .bc{border:1px solid var(--hair)}
+.bc:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.22)}
+.bc-h{display:flex;align-items:center;gap:12px;min-height:34px}
+.bc-h .pic{width:30px;height:30px;flex:none;color:var(--fg)}
+.bc-h h4{font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.1}
+.bc-u{margin-left:auto;padding-right:30px;font-size:14px;color:var(--fg-3);white-space:nowrap}
+.bc-tag{font-size:12.5px;font-weight:500;padding:3px 9px;border-radius:999px;border:1px solid var(--hair);color:var(--fg-2);white-space:nowrap}
+.bc-rows{display:grid;gap:2px}
+.bc-row{display:grid;grid-template-columns:22px 20px minmax(0,auto) minmax(24px,1fr) auto;align-items:center;gap:10px;height:34px;color:var(--fg-2)}
+.bc-row .mlogo{width:18px;height:18px;color:currentColor}
+.bc-row b{font-weight:500;font-size:15.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bc-r{font-weight:600;font-size:14px;color:var(--fg-3);text-align:center;font-variant-numeric:tabular-nums}
+.bc-row .mdisc{justify-self:center}
+.bc-bar{height:6px;border-radius:3px;background:var(--hair);overflow:hidden}
+.bc-bar i{display:block;height:100%;border-radius:3px;background:var(--c);box-shadow:inset 0 0 0 1.2px var(--ol,transparent);min-width:0}
+.bc-row em{font-style:normal;font-weight:600;font-size:15.5px;font-variant-numeric:tabular-nums;min-width:2ch;text-align:right;color:var(--fg)}
+.bc-row.is-1{color:var(--fg);height:40px}
+.bc-row.is-1 b{font-weight:600;font-size:18px}
+.bc-row.is-1 em{font-size:18px}
+.bc-row.is-1 .mlogo{width:20px;height:20px}
+.bc-row--p{grid-template-columns:22px 22px 1fr;height:40px;color:var(--fg)}
+.bc-row--p b{font-size:17px;font-weight:600}
+.bc-row--p.is-1 b{font-size:20px}
+.bc-final{display:flex;align-items:baseline;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--hair);font-size:15px;color:var(--fg-3)}
+.bc-final b{font-weight:600;font-size:20px;color:var(--fg);font-variant-numeric:tabular-nums}
+.bc-final i{font-style:normal}
+.bc-more{position:absolute;right:16px;top:20px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:var(--fg-3);
+  transition:background .2s,color .2s}
+.bc-more::after{content:"";position:absolute;inset:-20px -16px -400px -1000px}   /* the whole card is the link */
+.bc:hover .bc-more{background:var(--accent);color:#fff}
+.bc{overflow:hidden}
+@media (max-width:1080px){.bcgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.bcgrid{grid-template-columns:1fr}.lb-mode{font-size:30px!important}}
+
+/* ================= less small print on the home page */
+.pg2-k,.gl-h,.gl-m span,.pl-note,.tm-sch,.sw-key,.gp .kicker,.g2-p>.kicker,.lbx-count{display:none!important}
+.ig-h{font-size:13.5px!important;letter-spacing:.1em!important}
+.ma-tag{font:600 16px var(--f-sans)!important;letter-spacing:-.005em!important;text-transform:none!important;color:var(--fg)!important}
+.tl-lab{font-size:13px!important}
+.g2-note,.note.g2-note{font:400 14px var(--f-sans)!important;letter-spacing:0!important;text-transform:none!important}
+.mt-flags{font-size:14px!important}
+:root[data-theme="light"] .mdisc{box-shadow:inset 0 -1.5px 2px rgba(0,0,0,.22),inset 0 1.5px 1.5px rgba(255,255,255,.6),0 0 0 .75px rgba(15,23,42,.22)}
+
+/* cards: bars start and end on shared lines; a colour that vanishes on the dark ground uses its light twin */
+.bc-row{grid-template-columns:22px 20px 150px minmax(24px,1fr) minmax(5ch,auto)}
+.bc-bar i{background:var(--cd,var(--c));box-shadow:none}
+:root[data-theme="light"] .bc-bar i{background:var(--c)}
+.bc-rows--plain .bc-bar{visibility:hidden}
+.bc-u{padding-right:40px}
+.bc-row--p{grid-template-columns:22px 22px 1fr}
+@media (max-width:1280px){.bc-row{grid-template-columns:22px 20px 132px minmax(16px,1fr) minmax(4ch,auto)}.bc-row b{font-size:14.5px}.bc-row.is-1 b{font-size:16px}}
+
+/* ================= sport pages: same content, far less small print =================
+   Removed: counters, fixture ids, legends that restate colour, technical footnotes, harness sub-labels.
+   Kept and enlarged: every label a reader needs to tell two things apart. */
+.sp-n,.sp-hero .ch-n,.sp-block .ch-n,.shero-tag,.mx-id,.sp-who-t small,.pov-moment,.xt-legend,.rp-legend,.cr-h span,.cr-rule,.tv-note,
+.sp-tabs .tab small,.sp-block .tag--pending{display:none!important}
+.sp-block .ch-head{grid-template-columns:1fr!important}
+
+/* spec band: label + value, both readable */
+.sp-specband dt,.sp-specband .kicker{font:500 14px var(--f-sans)!important;letter-spacing:0!important;text-transform:none!important;color:var(--fg-3)!important}
+.sp-specband dd{font-size:clamp(18px,1.5vw,22px)!important;line-height:1.25}
+
+/* what the athlete sees */
+.pov-fig figcaption{font:500 14px var(--f-sans)!important;letter-spacing:0!important;text-transform:none!important;color:var(--fg-2)!important}
+.pov-lines dt{font:600 14px var(--f-sans)!important;letter-spacing:0!important;text-transform:none!important;color:var(--fg-3)!important}
+.pov-lines dd{font-size:clamp(17px,1.35vw,20px)!important}
+.pov-more{font-size:16px!important}
+
+/* records: the two boards are real tabs */
+.sp-tabs .tab{font-size:clamp(20px,1.8vw,26px)!important;padding:14px 0 16px!important}
+.sp-block h3,.sp-block .rm-h{font-size:clamp(20px,1.7vw,24px)!important}
+
+/* cross table: colour already says won / lost, so the cell is just the score */
+.xt-c b{display:none!important}
+.xt-c span{font-size:16px!important;font-weight:600}
+.xt-c{justify-content:center!important}
+
+/* standings */
+.st th,.st.sb th{font:500 13.5px var(--f-sans)!important;letter-spacing:0!important;text-transform:none!important}
+.st td{font-size:17px}
+.sb-q{font-size:15px!important}
+
+/* knockout cards */
+.mx .kicker,.sp-block .mx>header .kicker,.ko .kicker{font:600 14px var(--f-sans)!important;letter-spacing:0!important;text-transform:none!important;color:var(--fg-2)!important}
+button.rp,a.rp{font:500 14px var(--f-sans)!important;letter-spacing:0!important;padding:8px 14px!important}
+button.rp b,a.rp b{font-size:11px!important}
+
+/* checkpoint evaluation */
+.lg{font-size:15px!important;padding:8px 14px!important}
+.lg small{font:500 13.5px var(--f-sans)!important;letter-spacing:0!important}
+.cfig{font-size:15px!important}
+.tv-b{font-size:14px!important;padding:8px 14px!important}
+.sp-subnav a,a.wrap{font-size:13px!important}
+.crumb{font-size:13.5px!important}
+
+/* names stay, larger; section sub-headings stay, larger; fixture ids go */
+.sp-who-t strong{font-size:17px!important}
+h3.cr-h{font:600 clamp(20px,1.7vw,24px) var(--f-sans)!important;letter-spacing:-.01em!important;text-transform:none!important;color:var(--fg)!important;margin-bottom:14px!important}
+.sp-block .kicker{font:600 14px var(--f-sans)!important;letter-spacing:0!important;text-transform:none!important;color:var(--fg-2)!important}
+.sp-block header .kicker+*,.sp-block [class*="-id"]{display:none!important}
+.pb .sp-who-t strong{font-size:19px!important}
+.sp-block .kicker{text-transform:capitalize!important}
+
+
+/* ================= sport pages: layout =================
+   One reading order on every sport: the podium first, then how it was decided. Everything sits on the same two edges. */
+
+/* on-page nav: out of the headings' way (right edge), and anchors land below the bars */
+.sp-sub .wrap{justify-content:flex-end!important}
+.sp-block,.sp-pov{scroll-margin-top:calc(var(--top) + 24px)}
+
+/* spec: 3 x 2, equal cells, hairlines only between cells */
+.spec.sp-spec{grid-template-columns:repeat(3,minmax(0,1fr))!important;border-top:1px solid var(--hair);border-bottom:0!important}
+.sp-spec div{padding:22px 28px 24px 0!important;border-left:0!important;border-bottom:1px solid var(--hair);min-height:112px}
+.sp-spec div:not(:nth-child(3n+1)){padding-left:28px!important;border-left:1px solid var(--hair)!important}
+.sp-spec div:nth-child(n+4){border-top:0!important}
+@media (max-width:760px){.spec.sp-spec{grid-template-columns:1fr 1fr!important}
+  .sp-spec div:not(:nth-child(3n+1)){padding-left:0!important;border-left:0!important}
+  .sp-spec div:nth-child(2n){padding-left:18px!important;border-left:1px solid var(--hair)!important}}
+
+/* what the athlete sees / controls: two columns under the two pictures */
+.pov-h{font-size:clamp(30px,3.6vw,52px)!important;letter-spacing:-.03em!important;line-height:1!important;margin-bottom:clamp(20px,2.4vw,32px)!important}
+.pov-img{border-radius:var(--r)!important}
+.pov-lines{grid-template-columns:1fr 1fr!important;gap:clamp(24px,3vw,48px)!important;max-width:none!important;margin-top:clamp(24px,2.6vw,36px)!important}
+.pov-lines div{grid-template-columns:1fr!important;gap:8px!important;padding-top:16px;border-top:1px solid var(--fg)}
+.pov-more{max-width:none!important;margin-top:28px!important}
+@media (max-width:760px){.pov-lines{grid-template-columns:1fr!important}}
+
+/* records: podium strip, then round robin | standings on one grid, then the knockout across the full width */
+.sp-block .ch-head{margin-bottom:clamp(24px,3vw,40px)!important}
+.sp-pod{gap:14px!important;margin-bottom:clamp(36px,4vw,56px)!important}
+.sp-pd{padding:20px 22px 22px!important;border-radius:var(--r)!important;gap:14px!important}
+.sp-pd .sp-who-t strong{font-size:clamp(20px,1.8vw,26px)!important}
+.sp-pd .sp-who .mlogo{width:26px;height:26px}
+.sp-tabs{margin-bottom:clamp(28px,3vw,40px)!important}
+.cx-row{grid-template-columns:auto minmax(0,1fr)!important;gap:clamp(32px,4vw,64px)!important}
+.cx-ko{margin-top:clamp(40px,5vw,64px)}
+.kb{max-width:none!important;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr)!important;align-items:stretch}
+.kb-col{grid-template-columns:1fr 1fr;gap:14px!important;align-content:stretch!important}
+.kb-wires{visibility:hidden;min-height:0!important;height:auto!important}
+.kb{position:relative}
+.kb::after{content:"→";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:24px;color:var(--fg-3)}
+.kc{padding:18px 20px 16px!important;border-radius:var(--r)!important;gap:8px!important}
+.kc--fin{border-color:color-mix(in srgb,var(--gold) 60%,transparent)!important}
+.kc--brz{border-color:color-mix(in srgb,var(--bronze) 55%,transparent)!important}
+@media (max-width:1080px){.kb{grid-template-columns:1fr!important}.kb::after{display:none}.kb-col--r{margin-top:14px}}
+@media (max-width:640px){.kb-col{grid-template-columns:1fr}}
+
+/* checkpoint evaluation: chart left, the models as a list beside it */
+.ab-c--solo{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(24px,3vw,48px);align-items:start}
+.ab-c--solo .cgrid--one{grid-template-columns:1fr!important;order:1;grid-column:1}
+.ab-c--solo .lg-row{order:2;grid-column:2;display:grid!important;gap:0!important;border-top:1px solid var(--fg)}
+.ab-c--solo .lg{width:100%;height:auto!important;justify-content:flex-start;border:0!important;border-bottom:1px solid var(--hair)!important;border-radius:0!important;
+  padding:16px 2px!important;font-size:17px!important;font-weight:600!important}
+.ab-c--solo .lg small{margin-left:auto;color:var(--fg-3)}
+.ab-c--solo .lg[aria-pressed="false"]{opacity:.35}
+.cfig{border-radius:var(--r)!important;padding:22px 22px 12px!important}
+.cfig figcaption strong{font-size:22px!important}
+.sp-head p{max-width:820px}
+@media (max-width:1080px){.ab-c--solo{grid-template-columns:1fr}.ab-c--solo .lg-row{grid-column:1;order:0}}
+.tv-b{height:auto!important;line-height:1.2!important}
+.tv-row{margin:10px 0 14px!important}

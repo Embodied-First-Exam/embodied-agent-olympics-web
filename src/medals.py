@@ -61,35 +61,23 @@ def arena_panel(site: Site, fallback_boards: str) -> str:
         return ('<p class="rp-note">Episodic Learning: a fresh workspace every match. An always-open leaderboard, separate from '
                 'the medal table; new agents can enter at any time. Top three per sport. Drone racing, full-size '
                 f'racing and Humanoid Soccer · Team run only in the Olympics Championship.</p><div class="oagrid">{fallback_boards}</div>')
-    from layout import icon  # noqa: PLC0415
+    import boards  # noqa: PLC0415
+    exh = lambda sid: (f'<span class="bc-tag" title="{E(exhibition_label(site))}">Exhibition</span>'  # noqa: E731
+                       if sid in exhibition_ids(site) else "")
     cards = []
     for s in site.sports:
         b = oa.get(s["id"])
         if not b:
             continue
-        rows = "".join(
-            f'<tr><td class="oa-r">{E(str(r["rank"]))}</td><td class="oa-m">{E(model_name(r["model"]))}</td>'
-            f'<td class="oa-p">{E(str(r["points"]))}</td><td>{r["won"]}-{r["drawn"]}-{r["lost"]}</td>'
-            f'<td>{r["played"]}</td><td class="oa-x">{"" if r.get("rating") is None else E(format(r["rating"], ".0f"))}</td></tr>'
-            for r in b["rows"])
-        tag = "" if b.get("complete") else ' <span class="oa-inc">Incomplete</span>'
-        if s["id"] in exhibition_ids(site):
-            tag += f' <span class="tag tag--exh">{E(exhibition_label(site))}</span>'
-        cards.append(
-            f'<div class="oa oa--t{"" if b.get("complete") else " is-inc"}">{icon(s["id"])}<strong>{E(s["name"])}</strong>'
-            f'<p class="oa-st">{E(b.get("status", ""))}{tag}</p>'
-            '<table class="oa-tab"><thead><tr><th>#</th><th>Model</th><th>Pts</th><th>W-D-L</th><th>P</th><th>Rating</th>'
-            f'</tr></thead><tbody>{rows}</tbody></table></div>')
+        rows = [(r["rank"], r["model"], r["points"], None) for r in b["rows"]]
+        tag = exh(s["id"]) + ("" if b.get("complete") else '<span class="bc-tag">In progress</span>')
+        cards.append(boards.sport_card(site, s, rows, "pts", site.sport_url(s) + "#records", tag))
     units = {"sprint": "m/s", "hurdles": "m/s", "javelin": "m", "stuntcar": "pts"}
     for sid, srows in solo_round1(site).items():
         s = site.sport_by_id[sid]
-        body = "".join(f'<tr><td class="oa-r">{r["rank"]}</td><td class="oa-m">{E(model_name(r["model"]))}</td>'
-                       f'<td class="oa-p">{"no-show" if r["no_show"] else E(format(r["value"], ".2f" if r["value"] >= 1 else ".4f"))}</td></tr>'
-                       for r in srows)
-        cards.append(f'<div class="oa oa--t">{icon(sid)}<strong>{E(s["name"])}</strong><p class="oa-st">First series match · fresh workspace</p>'
-                     f'<table class="oa-tab"><thead><tr><th>#</th><th>Model</th><th>{E(units.get(sid, "Score"))}</th></tr></thead>'
-                     f'<tbody>{body}</tbody></table></div>')
-    return f'<p class="rp-note wr-note">{E(ARENA_SHORT)}</p><div class="oagrid">{"".join(cards)}</div>'
+        rows = [(r["rank"], r["model"], None if r["no_show"] else r["value"], "no-show" if r["no_show"] else None) for r in srows]
+        cards.append(boards.sport_card(site, s, rows, units.get(sid, ""), site.sport_url(s) + "#records", exh(sid)))
+    return f'<div class="bcgrid">{"".join(cards)}</div>'
 
 
 # ---------------------------------------------------------------- win rate (results.json win_rate, from medals_sync.py)
@@ -299,18 +287,9 @@ def episodic_medals(site: Site) -> dict:
 
 
 def medal_rows_html(site: Site, table: list) -> str:
-    """Rank · AI agent · Gold · Silver · Bronze, the home medal-table layout, for any list of {model, gold, silver, bronze, rank}."""
-    from layout import model_logo  # noqa: PLC0415
-    by = {m["name"]: m for m in site.models}
-    body = "".join(
-        f'<tr><td class="mt-rank">{r["rank"]}</td>'
-        f'<td><span class="mt-model"><i class="flag" style="--c:{E(by[r["model"]]["colour"])}"></i>{model_logo(site, by[r["model"]])}<span class="mt-who"><strong>{E(model_name(r["model"]))}</strong>'
-        f'<small>{E(by[r["model"]].get("harness", ""))} · {E(by[r["model"]].get("effort", ""))} effort</small></span></span></td>'
-        + "".join(f'<td class="mt-n">{r[c]}</td>' for c in ("gold", "silver", "bronze")) + "</tr>"
-        for r in table if r["model"] in by)
-    head = "".join(f"<th>{h}</th>" for h in ["Rank", "AI agent"]) + "".join(
-        f'<th class="mt-mh"><i class="medal medal--{c}"></i>{w}</th>' for c, w in (("g", "Gold"), ("s", "Silver"), ("b", "Bronze")))
-    return f'<div class="mt-wrap"><table class="mt mt--home"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
+    """The medal board (src/boards.py) for any list of {model, gold, silver, bronze, rank}."""
+    import boards  # noqa: PLC0415
+    return boards.medal_board(site, table)
 
 
 def episodic_medal_block(site: Site) -> str:
@@ -546,8 +525,7 @@ def continual_panel(site: Site) -> str:
     duel and team-duel sports first (podium of the knockout, final and bronze-match scores, round-robin standings), then
     the solo sports (mean of three matches) and the race sports (drone: final race series; racing: points over three
     races). Medals from results.json by_sport; matches and standings from data/sport_pages (read only)."""
-    from layout import icon, model_logo  # noqa: PLC0415
-    by = {m["name"]: m for m in site.models}
+    import boards  # noqa: PLC0415
     fmt_of = {x: f["id"] for f in site.cfg["formats"] for x in f["sports"]}
     groups = {"h2h": [], "solo": [], "race": []}
     for s in site.sports:
@@ -555,73 +533,49 @@ def continual_panel(site: Site) -> str:
         ch, r = d.get("championship") or {}, _row(site, s["id"])
         if not ch or not r:
             continue
-        tag = f' <span class="tag tag--exh">{E(exhibition_label(site))}</span>' if sid in exhibition_ids(site) else ""
+        tag = f'<span class="bc-tag" title="{E(exhibition_label(site))}">Exhibition</span>' if sid in exhibition_ids(site) else ""
         if r.get("status") != "final":
-            tag += ' <span class="oa-inc">In progress</span>'
+            tag += '<span class="bc-tag">In progress</span>'
         more = site.sport_url(s) + "#records"
         fmt = fmt_of.get(sid)
         if fmt in ("duel", "team"):
             st = {x["id"]: x for x in ch.get("stages") or []}
-            pod = "".join(
-                f'<div class="co-pd"><span class="co-ml"><i class="medal medal--{k[0]}"></i>{k.title()}</span>'
-                f'<span class="co-who">{model_logo(site, by[r[k]])}<span><b>{E(model_name(r[k]))}</b>'
-                f'<small>{E(by[r[k]].get("harness", ""))} · {E(by[r[k]].get("effort", ""))} effort</small></span></span></div>'
-                for k in ("gold", "silver", "bronze") if r.get(k) in by)
             fin = ((st.get("final") or {}).get("matches") or [None])[0]
-            brz = ((st.get("bronze") or {}).get("matches") or [None])[0]
-            ko = _ko_line(fin, "Final", r.get("gold"), sid) + _ko_line(brz, "Bronze", r.get("bronze"), sid)
-            rr = sorted((st.get("round_robin") or {}).get("standings") or [], key=lambda x: x["rank"])
-            table = ""
-            if rr:
-                table = ('<p class="co-sub">Round robin · win 3, draw 1</p>'
-                         '<table class="oa-tab"><thead><tr><th>#</th><th>Model</th><th>Pts</th><th>W-D-L</th><th>P</th></tr></thead><tbody>'
-                         + "".join(f'<tr><td class="oa-r">{x["rank"]}</td><td class="oa-m">{E(model_name(x["model"]))}</td>'
-                                   f'<td class="oa-p">{x["points"]}</td><td>{x["won"]}-{x["drawn"]}-{x["lost"]}</td><td>{x["played"]}</td></tr>'
-                                   for x in rr) + '</tbody></table>')
-            n = ch.get("played")
-            line = "Round robin, then semifinals and final" + (f" · {n} matches" if n else "")
-            body = f'<div class="co-pod">{pod}</div>{ko}{table}'
-            link = "Full bracket"
-            key = "h2h"
+            groups["h2h"].append(boards.podium_card(
+                site, s, [(k[0], r[k]) for k in ("gold", "silver", "bronze") if r.get(k)], _final_line(fin, r.get("gold"), sid), more, tag))
         elif fmt == "solo":
-            unit = ch.get("unit") or "Score"
-            dec = lambda v: format(v, ".2f" if v >= 1 else ".4f")  # noqa: E731  the Episodic solo cards' format
-            rows = [(x["rank"], x["model"], dec(float(x["mean"] or 0))) for x in sorted(ch.get("rows") or [], key=lambda x: x["rank"])]
-            line = "Mean of three matches · workspace kept between matches"
-            body = _ranked_table(f"Mean · {'pts' if unit == 'pts' else unit}", rows)
-            link, key = "Full results", "solo"
-        elif fmt == "race" and ch.get("races"):  # drone: time trial -> two heats -> four-drone final; medals from the final
+            unit = ch.get("unit") or ""
+            rows = [(x["rank"], x["model"], float(x["mean"] or 0), None) for x in sorted(ch.get("rows") or [], key=lambda x: x["rank"])]
+            groups["solo"].append(boards.sport_card(site, s, rows, unit, more, tag, medals=True))
+        elif fmt == "race" and ch.get("races"):  # drone: medals from the four-drone final; fewer points is better, so no bars
             fin = next((x for x in ch["races"] if x.get("stage") == "final"), {})
             pts = {x["model"]: x["points"] for x in fin.get("rows") or []}
-            rows = [(x["rank"], x["model"], str(pts[x["model"]]) if x["model"] in pts else "out in heats")
+            rows = [(x["rank"], x["model"], None, str(pts[x["model"]]) if x["model"] in pts else "—")
                     for x in sorted(ch.get("ranking") or [], key=lambda x: x["rank"])]
-            nr = max((len(x.get("places") or []) for x in fin.get("rows") or []), default=0)
-            line = f"Time trial, two heats, then a four-drone final of {nr} races · fewer points is better"
-            w = min(fin.get("rows") or [{}], key=lambda x: x.get("place", 99))
-            body = _ranked_table("Final pts", rows) + (
-                f'<p class="co-ko"><span>Final</span> · won by <b>{E(model_name(w["model"]))}</b>, {w["points"]} pts over {nr} races '
-                f'<small class="co-id">{E(fin.get("id", ""))}</small></p>' if w.get("model") else "")
-            link, key = "Full results", "race"
-        elif fmt == "race":  # full-size racing: points over the race series, ties by the last race
-            rows = [(x["rank"], x["model"], format(x["points"], "g")) for x in sorted(ch.get("rows") or [], key=lambda x: x["rank"])]
-            nr = len(ch.get("series") or [])
-            line = f"{nr} races · F1 points for classified finishers · ties by the last race"
-            top = min(ch.get("rows") or [{}], key=lambda x: x.get("rank", 99))
-            body = _ranked_table("Pts", rows) + (
-                f'<p class="co-ko"><span>Series</span> · won by <b>{E(model_name(top["model"]))}</b>, {format(top["points"], "g")} pts over {nr} races</p>'
-                if top.get("model") else "")
-            link, key = "Full results", "race"
-        else:
-            continue
-        groups[key].append(
-            f'<div class="oa oa--t co">{icon(sid)}<strong>{E(s["name"])}</strong><p class="oa-st">{E(line)}{tag}</p>'
-            f'{body}<a class="co-more" href="{E(more)}">{link} →</a></div>')
+            groups["race"].append(boards.sport_card(site, s, rows, "final pts · fewer wins", more, tag, medals=True))
+        elif fmt == "race":  # full-size racing: points over the race series
+            rows = [(x["rank"], x["model"], x["points"], None) for x in sorted(ch.get("rows") or [], key=lambda x: x["rank"])]
+            groups["race"].append(boards.sport_card(site, s, rows, "pts", more, tag, medals=True))
     cards = groups["h2h"] + groups["solo"] + groups["race"]
     if not cards:
         return ""
     return (f'<span class="anchor" id="{CONTINUAL_BOARDS_ID}"></span><span class="anchor" id="by-sport"></span>'
-            '<h3 class="rm-h rs-boards-h">Every sport&rsquo;s board</h3>'
-            '<p class="rp-note wr-note">Olympics Championship podium of each sport. Duel and team sports: medals from the '
-            'final and the bronze match. Solo sports: the mean of three matches. Drone: the final race series. Full-size racing: '
-            'points over the race series.</p>'
-            f'<div class="oagrid">{"".join(cards)}</div>')
+            f'<h3 class="lb-h3">Every sport</h3><div class="bcgrid">{"".join(cards)}</div>')
+
+
+def _final_line(m: dict | None, first: str | None, sid: str) -> str:
+    """The final's score under a podium, winner first: 'Final 7 : 6' (+ how a level final was decided)."""
+    if not m or m.get("status") not in (None, "resolved"):
+        return ""
+    db = (m.get("decided_by") or "").lower()
+    sides = m.get("sides") or []
+    a = next((x for x in sides if x.get("model") == (first or m.get("winner"))), sides[0] if sides else {})
+    b = next((x for x in sides if x is not a), {})
+    if db == "forfeit":
+        sc = "forfeit"
+    elif sid == "billiards":
+        sc = ""
+    else:
+        sc = f'{a.get("score", "–")} : {b.get("score", "–")}'
+    how = f'<i>{E(_DECIDED[db])}</i>' if db in _DECIDED and db != "forfeit" else ""
+    return f'<p class="bc-final"><span>Final</span><b>{E(sc)}</b>{how}</p>' if (sc or how) else ""
