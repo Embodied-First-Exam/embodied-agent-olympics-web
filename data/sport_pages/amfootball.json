@@ -908,80 +908,93 @@
      {
       "rank": 1,
       "model": "GPT-6 Astra",
-      "played": 5,
+      "played": 6,
       "won": 5,
       "drawn": 0,
-      "lost": 0,
+      "lost": 1,
       "points": 15,
       "for": 217,
-      "against": 0,
-      "diff": 217,
-      "note": "5-0-0, score 217:0"
+      "against": 28,
+      "diff": 189,
+      "note": "5-0-1, score 217:28"
      },
      {
       "rank": 2,
-      "model": "Claude Opus 5.5",
-      "played": 5,
-      "won": 3,
+      "model": "Claude Fable 5.2",
+      "played": 6,
+      "won": 4,
       "drawn": 0,
       "lost": 2,
-      "points": 9,
-      "for": 83,
-      "against": 8,
-      "diff": 75,
-      "note": "3-0-2, score 83:8"
+      "points": 12,
+      "for": 497,
+      "against": 23,
+      "diff": 474,
+      "note": "4-0-2, score 497:23, 1 won by forfeit"
      },
      {
       "rank": 3,
-      "model": "Kimi 3.1 Pro",
-      "played": 5,
-      "won": 3,
+      "model": "Claude Opus 5.5",
+      "played": 6,
+      "won": 4,
       "drawn": 0,
       "lost": 2,
-      "points": 9,
-      "for": 70,
-      "against": 90,
-      "diff": -20,
-      "note": "3-0-2, score 70:90"
+      "points": 12,
+      "for": 100,
+      "against": 15,
+      "diff": 85,
+      "note": "4-0-2, score 100:15"
      },
      {
       "rank": 4,
       "model": "Gemini 4 Argon",
-      "played": 5,
-      "won": 2,
+      "played": 6,
+      "won": 3,
       "drawn": 0,
       "lost": 3,
-      "points": 6,
-      "for": 95,
+      "points": 9,
+      "for": 101,
       "against": 155,
-      "diff": -60,
-      "note": "2-0-3, score 95:155"
+      "diff": -54,
+      "note": "3-0-3, score 101:155"
      },
      {
       "rank": 5,
-      "model": "DeepSeek V4.1 Flash",
-      "played": 5,
-      "won": 1,
+      "model": "Kimi 3.1 Pro",
+      "played": 6,
+      "won": 3,
       "drawn": 0,
-      "lost": 4,
-      "points": 3,
-      "for": 63,
-      "against": 113,
-      "diff": -50,
-      "note": "1-0-4, score 63:113"
+      "lost": 3,
+      "points": 9,
+      "for": 70,
+      "against": 258,
+      "diff": -188,
+      "note": "3-0-3, score 70:258"
      },
      {
       "rank": 6,
-      "model": "GLM 5.3 Flash",
-      "played": 5,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 6,
       "won": 1,
       "drawn": 0,
-      "lost": 4,
+      "lost": 5,
+      "points": 3,
+      "for": 63,
+      "against": 302,
+      "diff": -239,
+      "note": "1-0-5, score 63:302, 1 forfeited"
+     },
+     {
+      "rank": 7,
+      "model": "GLM 5.3 Flash",
+      "played": 6,
+      "won": 1,
+      "drawn": 0,
+      "lost": 5,
       "points": 3,
       "for": 21,
-      "against": 183,
-      "diff": -162,
-      "note": "1-0-4, score 21:183"
+      "against": 288,
+      "diff": -267,
+      "note": "1-0-5, score 21:288"
      }
     ],
     "matches": [
@@ -1533,51 +1546,239 @@
        "highlight": true
       },
       "status": "resolved"
+     },
+     {
+      "id": "AMFF-F01",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 17
+       }
+      ],
+      "winner": "Claude Opus 5.5",
+      "decided_by": "points",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-amfootball-arena"
+     },
+     {
+      "id": "AMFF-F02",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 28
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "points",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-amfootball-arena"
+     },
+     {
+      "id": "AMFF-F03",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 6
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 0
+       }
+      ],
+      "winner": "Gemini 4 Argon",
+      "decided_by": "points",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-amfootball-arena"
+     },
+     {
+      "id": "AMFF-F04",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 168
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "points",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-amfootball-arena"
+     },
+     {
+      "id": "AMFF-F05",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 189
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "resigned",
+      "note": "DeepSeek V4.1 Flash resigned during the match",
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-amfootball-arena"
+     },
+     {
+      "id": "AMFF-F06",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 105
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "points",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-amfootball-arena"
      }
     ],
     "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
    }
   ],
-  "played": 15,
+  "played": 21,
   "pending": 0,
   "knockout_planned": false,
   "ranking": [
    {
     "rank": 1,
     "model": "GPT-6 Astra",
-    "note": "5-0-0, score 217:0"
+    "note": "5-0-1, score 217:28"
    },
    {
     "rank": 2,
-    "model": "Claude Opus 5.5",
-    "note": "3-0-2, score 83:8"
+    "model": "Claude Fable 5.2",
+    "note": "4-0-2, score 497:23, 1 won by forfeit"
    },
    {
     "rank": 3,
-    "model": "Kimi 3.1 Pro",
-    "note": "3-0-2, score 70:90"
+    "model": "Claude Opus 5.5",
+    "note": "4-0-2, score 100:15"
    },
    {
     "rank": 4,
     "model": "Gemini 4 Argon",
-    "note": "2-0-3, score 95:155"
+    "note": "3-0-3, score 101:155"
    },
    {
     "rank": 5,
-    "model": "DeepSeek V4.1 Flash",
-    "note": "1-0-4, score 63:113"
+    "model": "Kimi 3.1 Pro",
+    "note": "3-0-3, score 70:258"
    },
    {
     "rank": 6,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "1-0-5, score 63:302, 1 forfeited"
+   },
+   {
+    "rank": 7,
     "model": "GLM 5.3 Flash",
-    "note": "1-0-4, score 21:183"
+    "note": "1-0-5, score 21:288"
    }
   ],
-  "notes": [],
+  "notes": [
+   "1 result(s) by forfeit (counted as a win, not played): fable52-cc322 beat deepseek-flash-sh by forfeit (resigned), AMFF-F05/run-1"
+  ],
   "as_of": "2026-11-08T05:10:30Z",
   "board": "rel-amfootball-arena",
   "complete": true,
-  "status_line": "Complete"
+  "status_line": "Complete",
+  "extra_boards": [
+   {
+    "entrant": "Claude Fable 5.2",
+    "board": "f-amfootball-arena",
+    "run": "r1110f"
+   }
+  ]
  },
  "agents": {
   "per_model": {

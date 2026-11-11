@@ -1793,6 +1793,19 @@ td.hh-t .hh-p{font-size:16px}
   .hh-short{display:inline!important}
   .hh-c,.hh-x{height:52px}.hh-p{font-size:16px}.hh-wl{font-size:10.5px}
 }
+/* phones: the 7 x 7 matrix fits the screen without scrolling: win % only (W–L in the tooltip), names upright in the
+   row heads and vertical in the column heads */
+@media (max-width:480px){
+  .hh-tab{min-width:0;border-spacing:2px}
+  .hh-tab tbody th,.hh-corner{width:68px}
+  .hh-tab tbody th{padding-right:4px}
+  .hh-corner span{display:none}
+  .hh-who{gap:4px}.hh-who span{font-size:11px}
+  thead .hh-who span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;max-height:64px}
+  .hh-th-t{width:40px;padding-right:2px!important;text-align:center!important}
+  .hh-c,.hh-x{height:38px;border-radius:5px}.hh-p{font-size:12px}.hh-wl{display:none}
+  td.hh-t{padding-right:2px;text-align:center}td.hh-t .hh-p{font-size:12px}
+}
 .rs-boards-h{margin-top:clamp(28px,4vw,48px)}
 /* medal-table column heads: Gold / Silver / Bronze as legible as the rows */
 .mt--home th.mt-mh{color:var(--fg);font-weight:600}

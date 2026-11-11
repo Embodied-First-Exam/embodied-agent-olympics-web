@@ -1239,5 +1239,22 @@
    "A match is three races alone; its score is the distance divided by the mean race time (a race without a valid finish counts the time limit). The medal series is three such matches.",
    "Before the match: 2 hours of preparation with a full practice copy of the race, a practice runner in the next lane, and a GPU training kit (half an RTX PRO 6000)."
   ]
+ },
+ "episodic_extra": {
+  "note": "First series match of entrants that play Episodic Learning only (fresh workspace).",
+  "rows": [
+   {
+    "model": "Claude Fable 5.2",
+    "entrant": "fable52-cc322",
+    "match": 1,
+    "id": "SPRF-F0001",
+    "value": 4.72858,
+    "no_show": false,
+    "pending": false,
+    "replay": null,
+    "board": "f-sprint-g1-arena",
+    "run": "r1110f"
+   }
+  ]
  }
 }

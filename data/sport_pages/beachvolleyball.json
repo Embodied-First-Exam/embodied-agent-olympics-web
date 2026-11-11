@@ -910,80 +910,93 @@
      {
       "rank": 1,
       "model": "GPT-6 Astra",
-      "played": 5,
-      "won": 5,
+      "played": 6,
+      "won": 6,
       "drawn": 0,
       "lost": 0,
-      "points": 15,
-      "for": 61,
-      "against": 24,
-      "diff": 37,
-      "note": "5-0-0, score 61:24, 1 won by forfeit"
+      "points": 18,
+      "for": 77,
+      "against": 38,
+      "diff": 39,
+      "note": "6-0-0, score 77:38, 1 won by forfeit"
      },
      {
       "rank": 2,
-      "model": "Claude Opus 5.5",
-      "played": 5,
-      "won": 4,
+      "model": "Claude Fable 5.2",
+      "played": 6,
+      "won": 5,
       "drawn": 0,
       "lost": 1,
-      "points": 12,
-      "for": 74,
-      "against": 35,
-      "diff": 39,
-      "note": "4-0-1, score 74:35"
+      "points": 15,
+      "for": 75,
+      "against": 30,
+      "diff": 45,
+      "note": "5-0-1, score 75:30, 1 won by forfeit"
      },
      {
       "rank": 3,
-      "model": "Kimi 3.1 Pro",
-      "played": 5,
-      "won": 2,
+      "model": "Claude Opus 5.5",
+      "played": 6,
+      "won": 4,
       "drawn": 0,
-      "lost": 3,
-      "points": 6,
-      "for": 43,
-      "against": 60,
-      "diff": -17,
-      "note": "2-0-3, score 43:60, 1 won by forfeit"
+      "lost": 2,
+      "points": 12,
+      "for": 88,
+      "against": 51,
+      "diff": 37,
+      "note": "4-0-2, score 88:51"
      },
      {
       "rank": 4,
-      "model": "GLM 5.3 Flash",
-      "played": 5,
+      "model": "Kimi 3.1 Pro",
+      "played": 6,
       "won": 2,
       "drawn": 0,
-      "lost": 3,
+      "lost": 4,
       "points": 6,
-      "for": 34,
-      "against": 60,
-      "diff": -26,
-      "note": "2-0-3, score 34:60, 1 won by forfeit"
+      "for": 43,
+      "against": 75,
+      "diff": -32,
+      "note": "2-0-4, score 43:75, 1 won by forfeit"
      },
      {
       "rank": 5,
-      "model": "Gemini 4 Argon",
-      "played": 5,
-      "won": 1,
+      "model": "GLM 5.3 Flash",
+      "played": 6,
+      "won": 2,
       "drawn": 0,
       "lost": 4,
+      "points": 6,
+      "for": 34,
+      "against": 75,
+      "diff": -41,
+      "note": "2-0-4, score 34:75, 1 won by forfeit"
+     },
+     {
+      "rank": 6,
+      "model": "Gemini 4 Argon",
+      "played": 6,
+      "won": 1,
+      "drawn": 0,
+      "lost": 5,
       "points": 3,
       "for": 27,
       "against": 21,
       "diff": 6,
-      "note": "1-0-4, score 27:21, 3 no-show"
+      "note": "1-0-5, score 27:21, 4 no-show"
      },
      {
-      "rank": 6,
+      "rank": 7,
       "model": "DeepSeek V4.1 Flash",
-      "played": 5,
+      "played": 6,
       "won": 1,
       "drawn": 0,
-      "lost": 4,
+      "lost": 5,
       "points": 3,
       "for": 36,
-      "against": 75,
-      "diff": -39,
-      "note": "1-0-4, score 36:75"
+      "against": 90,
+      "diff": -54,
+      "note": "1-0-5, score 36:90"
      }
     ],
     "matches": [
@@ -1529,51 +1542,239 @@
        "highlight": true
       },
       "status": "resolved"
+     },
+     {
+      "id": "BVBF-F01",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 14
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 16
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-beachvolleyball-g1-arena"
+     },
+     {
+      "id": "BVBF-F02",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 14
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 16
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-beachvolleyball-g1-arena"
+     },
+     {
+      "id": "BVBF-F03",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs gemini",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-beachvolleyball-g1-arena"
+     },
+     {
+      "id": "BVBF-F04",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 15
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-beachvolleyball-g1-arena"
+     },
+     {
+      "id": "BVBF-F05",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 15
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-beachvolleyball-g1-arena"
+     },
+     {
+      "id": "BVBF-F06",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 15
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "set_score",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-beachvolleyball-g1-arena"
      }
     ],
     "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
    }
   ],
-  "played": 15,
+  "played": 21,
   "pending": 0,
   "knockout_planned": false,
   "ranking": [
    {
     "rank": 1,
     "model": "GPT-6 Astra",
-    "note": "5-0-0, score 61:24, 1 won by forfeit"
+    "note": "6-0-0, score 77:38, 1 won by forfeit"
    },
    {
     "rank": 2,
-    "model": "Claude Opus 5.5",
-    "note": "4-0-1, score 74:35"
+    "model": "Claude Fable 5.2",
+    "note": "5-0-1, score 75:30, 1 won by forfeit"
    },
    {
     "rank": 3,
-    "model": "Kimi 3.1 Pro",
-    "note": "2-0-3, score 43:60, 1 won by forfeit"
+    "model": "Claude Opus 5.5",
+    "note": "4-0-2, score 88:51"
    },
    {
     "rank": 4,
-    "model": "GLM 5.3 Flash",
-    "note": "2-0-3, score 34:60, 1 won by forfeit"
+    "model": "Kimi 3.1 Pro",
+    "note": "2-0-4, score 43:75, 1 won by forfeit"
    },
    {
     "rank": 5,
-    "model": "Gemini 4 Argon",
-    "note": "1-0-4, score 27:21, 3 no-show"
+    "model": "GLM 5.3 Flash",
+    "note": "2-0-4, score 34:75, 1 won by forfeit"
    },
    {
     "rank": 6,
+    "model": "Gemini 4 Argon",
+    "note": "1-0-5, score 27:21, 4 no-show"
+   },
+   {
+    "rank": 7,
     "model": "DeepSeek V4.1 Flash",
-    "note": "1-0-4, score 36:75"
+    "note": "1-0-5, score 36:90"
    }
   ],
-  "notes": [],
+  "notes": [
+   "4 result(s) by forfeit (counted as a win, not played): astra-sub beat gemini by forfeit (no-show), BVBA-F06/run-1; glm-flash-sh beat gemini by forfeit (no-show), BVBA-F10/run-1; kimi beat gemini by forfeit (no-show), BVBA-F12/run-1; fable52-cc322 beat gemini by forfeit (no-show), BVBF-F03/run-1"
+  ],
   "as_of": "2026-11-08T10:44:59Z",
   "board": "rel-beachvolleyball-g1-arena",
   "complete": true,
-  "status_line": "Complete"
+  "status_line": "Complete",
+  "extra_boards": [
+   {
+    "entrant": "Claude Fable 5.2",
+    "board": "f-beachvolleyball-g1-arena",
+    "run": "r1110f"
+   }
+  ]
  },
  "agents": {
   "per_model": {

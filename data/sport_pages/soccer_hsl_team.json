@@ -1890,7 +1890,10 @@
   "as_of": "2026-11-09T11:55:56Z",
   "board": "rel-soccer-hsl-team-arena",
   "complete": true,
-  "status_line": "Complete"
+  "status_line": "Complete",
+  "did_not_enter": [
+   "Claude Fable 5.2"
+  ]
  },
  "agents": {
   "per_model": {

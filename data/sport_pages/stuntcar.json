@@ -1373,5 +1373,22 @@
    "The event: 2 practice runs, then 3 scored runs; the best two jumps of different tricks count. The world freezes after each run for a review of up to 5 minutes.",
    "Before the event: 30 minutes of preparation with a full practice copy of the course. No GPU."
   ]
+ },
+ "episodic_extra": {
+  "note": "First series match of entrants that play Episodic Learning only (fresh workspace).",
+  "rows": [
+   {
+    "model": "Claude Fable 5.2",
+    "entrant": "fable52-cc322",
+    "match": 1,
+    "id": "STUF-F0001",
+    "value": 251.155,
+    "no_show": false,
+    "pending": false,
+    "replay": null,
+    "board": "f-stuntcar-arena",
+    "run": "r1110f"
+   }
+  ]
  }
 }

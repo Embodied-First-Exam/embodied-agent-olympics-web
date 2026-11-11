@@ -45,7 +45,7 @@ from layout import ROOT, E, Site, icon, model_logo, model_name, page, slug
 
 GROUPS = [("phys", "Physical"), ("comp", "Competitive"), ("eng", "Engineering"), ("adap", "Adaptive")]
 SHORT = {"Claude Opus 5.5": "Opus", "GPT-6 Astra": "Astra", "Gemini 4 Argon": "Gemini", "Kimi 3.1 Pro": "Kimi",
-         "DeepSeek V4.1 Flash": "DeepSeek", "GLM 5.3 Flash": "GLM"}
+         "DeepSeek V4.1 Flash": "DeepSeek", "GLM 5.3 Flash": "GLM", "Claude Fable 5.2": "Fable"}
 REPLAY_KIND = {"full": "Full match replay", "compressed": "Time-compressed replay", "highlight": "Selected highlight",
                "states": "Replay"}
 
@@ -306,9 +306,11 @@ MARK_WORDS = {"P": "won on penalties (shoot-out)", "T": "decided by coin toss or
 
 
 def cross_table(site: Site, rr: dict, anchor: str = "m") -> str:
-    """Round robin as a 6 x 6 cross table in the home page grid's order and colours. Each cell: the result from the row
-    model's view (W / D / L) and the score, row model first; a click opens the match's row in the folded list."""
-    ms = site.models
+    """Round robin as an N x N cross table in the home page grid's order and colours. Each cell: the result from the row
+    model's view (W / D / L) and the score, row model first; a click opens the match's row in the folded list. The board's
+    own entrants only (its standings): Continual Learning boards have six, Episodic boards seven where Fable entered."""
+    on = {r["model"] for r in rr.get("standings") or []}
+    ms = [m for m in site.models if m["name"] in on] if on else site.continual_models
     names = [m["name"] for m in ms]
     cell = {}
     for m in rr.get("matches", []):
@@ -495,6 +497,24 @@ def solo_champ(site: Site, ch: dict) -> str:
   <p class="cr-rule">{E(ch.get("scoring") or "")}{" A no-show (the program did not start) counts 0." if any(m.get("no_show") for r in ch["rows"] for m in r["matches"]) else ""}</p></div>"""
 
 
+def solo_arena(site: Site, ch: dict, rows: list) -> str:
+    """The solo sports' Episodic board: each model's first match of the series (fresh workspace), ranked by its score
+    (medals.solo_round1, which also holds the Episodic-only entrants' first match)."""
+    u = ch.get("unit") or ""
+    fmtv = (lambda v: f"{v:.2f}") if u in ("m/s", "m") else (lambda v: f"{v:.1f}")  # noqa: E731
+    rp = {m.get("id"): m.get("replay") for r in ch.get("rows") or [] for m in r.get("matches") or []}
+    body = "".join(
+        f'<tr><td class="st-r">{r["rank"]}</td><td>{who(site, r["model"])}</td>'
+        + (f'<td class="st-n tt is-ns" title="Did not start: counts 0">{fmtv(0)}<small>no-show</small></td>' if r["no_show"] else
+           f'<td class="st-n tt">{fmtv(r["value"])}{replay(site, rp.get(r.get("fixture")), compact=True)}</td>')
+        + f'<td class="st-n mx-id">{E(r.get("fixture") or "")}</td></tr>' for r in rows)
+    return f"""
+<div class="cr-solo"><h3 class="cr-h">First series match <span>ranked by its score · {E(u)}</span></h3>
+  <table class="st st--tt st--solo"><thead><tr><th>#</th><th>AI agent</th><th>Match 1 ({E(u)})</th><th>Match</th></tr></thead>
+  <tbody>{body}</tbody></table>
+  <p class="cr-rule">Episodic Learning: each model's first match of the series, played from an empty workspace. Higher score first; a no-show counts 0. Separate from the medals.</p></div>"""
+
+
 def points_race_champ(site: Site, ch: dict) -> str:
     races = ch.get("series") or []
     hd = "".join(f'<th>Race {r["race"]}<span class="th-rp">{replay(site, r.get("replay"), compact=True) if not r["pending"] else "Pending"}</span></th>' for r in races)
@@ -520,6 +540,9 @@ def arena(site: Site, oa: dict) -> str:
     top = (rr.get("standings") or [{}])[0].get("model")
     note = (f"Final standings: {model_name(_m(site, top))} tops the Episodic Learning board." if oa.get("complete") and top
             else f"Standings so far ({status.lower()}).")
+    dne = oa.get("did_not_enter") or []
+    if dne:
+        note += f" {' and '.join(model_name(n) for n in dne)} did not enter this sport."
     return f"""
 <div class="cx-row">
   <div class="cx-l"><h3 class="cr-h">Round robin <span>{E(status)}</span></h3>{cross_table(site, rr, "am")}</div>
@@ -549,6 +572,8 @@ def records(site: Site, d: dict) -> str:
     tabs = [("champ", medals.CONTINUOUS, champ_sub, team_note + champ)]
     if oa:
         tabs.append(("arena", medals.EPISODIC, "Fresh workspace · always open", arena(site, oa)))
+    elif d.get("format") == "solo" and (s1 := medals.solo_round1(site).get(d.get("sport"))):
+        tabs.append(("arena", medals.EPISODIC, "First series match · fresh workspace", solo_arena(site, ch, s1)))
     btns = "".join(f'<button type="button" class="tab{" is-on" if k == 0 else ""}" data-sptab="{t}" role="tab">{l}<small>{E(sub)}</small></button>'
                    for k, (t, l, sub, _) in enumerate(tabs))
     panels = "".join(f'<div class="sp-panel{" is-on" if k == 0 else ""}" data-sppanel="{t}">{body}</div>' for k, (t, _, _, body) in enumerate(tabs))
@@ -571,7 +596,7 @@ def capabilities(site: Site, s: dict, d: dict) -> str:
     cap = d.get("capabilities") or {}
     notes = d.get("notes") or {}
     lede = notes.get("challenge") or s.get("pitch")
-    models = [m["name"] for m in site.models]
+    models = [m["name"] for m in site.continual_models]  # skill tests read the Championship programs
     res = cap.get("results") or {}
     tested = [m for m in models if res.get(m)]
     hdr = "".join(f'<span class="sk-m" title="{E(model_name(_m(site, m)))}">{model_logo(site, _m(site, m))}'

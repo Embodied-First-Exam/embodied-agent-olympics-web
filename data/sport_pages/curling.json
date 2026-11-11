@@ -911,81 +911,94 @@
     "standings": [
      {
       "rank": 1,
-      "model": "Claude Opus 5.5",
-      "played": 5,
+      "model": "Claude Fable 5.2",
+      "played": 6,
       "won": 5,
       "drawn": 0,
-      "lost": 0,
+      "lost": 1,
       "points": 15,
       "for": 25,
-      "against": 9,
-      "diff": 16,
-      "note": "5-0-0, score 25:9"
+      "against": 12,
+      "diff": 13,
+      "note": "5-0-1, score 25:12, decided by head-to-head points"
      },
      {
       "rank": 2,
-      "model": "DeepSeek V4.1 Flash",
-      "played": 5,
-      "won": 3,
+      "model": "Claude Opus 5.5",
+      "played": 6,
+      "won": 5,
       "drawn": 0,
-      "lost": 2,
-      "points": 9,
-      "for": 15,
-      "against": 12,
-      "diff": 3,
-      "note": "3-0-2, score 15:12"
+      "lost": 1,
+      "points": 15,
+      "for": 27,
+      "against": 14,
+      "diff": 13,
+      "note": "5-0-1, score 27:14, decided by head-to-head points"
      },
      {
       "rank": 3,
       "model": "GPT-6 Astra",
-      "played": 5,
-      "won": 3,
+      "played": 6,
+      "won": 4,
       "drawn": 0,
       "lost": 2,
-      "points": 9,
-      "for": 13,
-      "against": 12,
-      "diff": 1,
-      "note": "3-0-2, score 13:12"
+      "points": 12,
+      "for": 17,
+      "against": 14,
+      "diff": 3,
+      "note": "4-0-2, score 17:14"
      },
      {
       "rank": 4,
-      "model": "Kimi 3.1 Pro",
-      "played": 5,
-      "won": 2,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 6,
+      "won": 3,
       "drawn": 0,
       "lost": 3,
-      "points": 6,
+      "points": 9,
       "for": 17,
-      "against": 12,
-      "diff": 5,
-      "note": "2-0-3, score 17:12"
+      "against": 16,
+      "diff": 1,
+      "note": "3-0-3, score 17:16"
      },
      {
       "rank": 5,
-      "model": "Gemini 4 Argon",
-      "played": 5,
+      "model": "Kimi 3.1 Pro",
+      "played": 6,
       "won": 2,
       "drawn": 0,
-      "lost": 3,
+      "lost": 4,
       "points": 6,
-      "for": 11,
-      "against": 11,
-      "diff": 0,
-      "note": "2-0-3, score 11:11"
+      "for": 18,
+      "against": 17,
+      "diff": 1,
+      "note": "2-0-4, score 18:17"
      },
      {
       "rank": 6,
+      "model": "Gemini 4 Argon",
+      "played": 6,
+      "won": 2,
+      "drawn": 0,
+      "lost": 4,
+      "points": 6,
+      "for": 12,
+      "against": 16,
+      "diff": -4,
+      "note": "2-0-4, score 12:16"
+     },
+     {
+      "rank": 7,
       "model": "GLM 5.3 Flash",
-      "played": 5,
+      "played": 6,
       "won": 0,
       "drawn": 0,
-      "lost": 5,
+      "lost": 6,
       "points": 0,
-      "for": 7,
-      "against": 32,
-      "diff": -25,
-      "note": "0-0-5, score 7:32"
+      "for": 9,
+      "against": 36,
+      "diff": -27,
+      "note": "0-0-6, score 9:36"
      }
     ],
     "matches": [
@@ -1528,51 +1541,237 @@
        "highlight": true
       },
       "status": "resolved"
+     },
+     {
+      "id": "CURF-F01",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 5
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 2
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "points",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-curling-g1-arena"
+     },
+     {
+      "id": "CURF-F02",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 4
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 2
+       }
+      ],
+      "winner": "GPT-6 Astra",
+      "decided_by": "points",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-curling-g1-arena"
+     },
+     {
+      "id": "CURF-F03",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 5
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "points",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-curling-g1-arena"
+     },
+     {
+      "id": "CURF-F04",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 5
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "points",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-curling-g1-arena"
+     },
+     {
+      "id": "CURF-F05",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs deepseek-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 4
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 2
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "points",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-curling-g1-arena"
+     },
+     {
+      "id": "CURF-F06",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 4
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 2
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "points",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-curling-g1-arena"
      }
     ],
     "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
    }
   ],
-  "played": 15,
+  "played": 21,
   "pending": 0,
   "knockout_planned": false,
   "ranking": [
    {
     "rank": 1,
-    "model": "Claude Opus 5.5",
-    "note": "5-0-0, score 25:9"
+    "model": "Claude Fable 5.2",
+    "note": "5-0-1, score 25:12, decided by head-to-head points"
    },
    {
     "rank": 2,
-    "model": "DeepSeek V4.1 Flash",
-    "note": "3-0-2, score 15:12"
+    "model": "Claude Opus 5.5",
+    "note": "5-0-1, score 27:14, decided by head-to-head points"
    },
    {
     "rank": 3,
     "model": "GPT-6 Astra",
-    "note": "3-0-2, score 13:12"
+    "note": "4-0-2, score 17:14"
    },
    {
     "rank": 4,
-    "model": "Kimi 3.1 Pro",
-    "note": "2-0-3, score 17:12"
+    "model": "DeepSeek V4.1 Flash",
+    "note": "3-0-3, score 17:16"
    },
    {
     "rank": 5,
-    "model": "Gemini 4 Argon",
-    "note": "2-0-3, score 11:11"
+    "model": "Kimi 3.1 Pro",
+    "note": "2-0-4, score 18:17"
    },
    {
     "rank": 6,
+    "model": "Gemini 4 Argon",
+    "note": "2-0-4, score 12:16"
+   },
+   {
+    "rank": 7,
     "model": "GLM 5.3 Flash",
-    "note": "0-0-5, score 7:32"
+    "note": "0-0-6, score 9:36"
    }
   ],
   "notes": [],
   "as_of": "2026-11-08T09:43:03Z",
   "board": "rel-curling-g1-arena",
   "complete": true,
-  "status_line": "Complete"
+  "status_line": "Complete",
+  "extra_boards": [
+   {
+    "entrant": "Claude Fable 5.2",
+    "board": "f-curling-g1-arena",
+    "run": "r1110f"
+   }
+  ]
  },
  "agents": {
   "per_model": {

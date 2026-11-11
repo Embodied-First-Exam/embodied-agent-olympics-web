@@ -345,6 +345,14 @@ a.xt-c:hover{box-shadow:inset 0 0 0 1.5px var(--fg-2)}
   .xt-c{height:38px;font-size:12px;gap:4px}.xt-c b{font-size:10px}
   .sb{font-size:13.5px}.sb td{padding:8px 5px}
 }
+/* phones: the round-robin cross table (up to 7 x 7) fits the screen; result over score in each cell */
+@media (max-width:480px){
+  .xt-wrap{overflow-x:visible}
+  .xt{grid-template-columns:24px repeat(var(--n),minmax(0,1fr));gap:2px;width:100%}
+  .xt .tm-h{width:24px;height:24px}.xt-x{width:auto;height:38px}
+  .xt-c{flex-direction:column;gap:2px;height:38px;font-size:10.5px;min-width:0}.xt-c b{font-size:9.5px}
+  .xt button.xt-c{font-size:10.5px}
+}
 /* knockout bracket */
 .kb{display:grid;grid-template-columns:minmax(0,1fr) 40px minmax(0,1fr);max-width:860px;align-items:stretch}
 .kb-col{display:grid;gap:12px;align-content:space-between}

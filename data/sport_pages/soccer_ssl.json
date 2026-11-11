@@ -921,81 +921,94 @@
     "standings": [
      {
       "rank": 1,
-      "model": "Claude Opus 5.5",
-      "played": 5,
-      "won": 5,
+      "model": "Claude Fable 5.2",
+      "played": 6,
+      "won": 6,
       "drawn": 0,
       "lost": 0,
-      "points": 15,
-      "for": 29,
-      "against": 5,
-      "diff": 24,
-      "note": "5-0-0, score 29:5, 1 won by forfeit"
+      "points": 18,
+      "for": 40,
+      "against": 2,
+      "diff": 38,
+      "note": "6-0-0, score 40:2"
      },
      {
       "rank": 2,
-      "model": "Gemini 4 Argon",
-      "played": 5,
-      "won": 4,
+      "model": "Claude Opus 5.5",
+      "played": 6,
+      "won": 5,
       "drawn": 0,
       "lost": 1,
-      "points": 12,
-      "for": 33,
-      "against": 5,
-      "diff": 28,
-      "note": "4-0-1, score 33:5"
+      "points": 15,
+      "for": 30,
+      "against": 6,
+      "diff": 24,
+      "note": "5-0-1, score 30:6, 1 won by forfeit"
      },
      {
       "rank": 3,
-      "model": "GPT-6 Astra",
-      "played": 5,
-      "won": 3,
+      "model": "Gemini 4 Argon",
+      "played": 6,
+      "won": 4,
       "drawn": 0,
       "lost": 2,
-      "points": 9,
-      "for": 20,
+      "points": 12,
+      "for": 34,
       "against": 7,
-      "diff": 13,
-      "note": "3-0-2, score 20:7, 1 won by forfeit"
+      "diff": 27,
+      "note": "4-0-2, score 34:7"
      },
      {
       "rank": 4,
-      "model": "Kimi 3.1 Pro",
-      "played": 5,
-      "won": 2,
+      "model": "GPT-6 Astra",
+      "played": 6,
+      "won": 3,
       "drawn": 0,
       "lost": 3,
-      "points": 6,
-      "for": 11,
-      "against": 20,
-      "diff": -9,
-      "note": "2-0-3, score 11:20, 1 no-show"
+      "points": 9,
+      "for": 20,
+      "against": 14,
+      "diff": 6,
+      "note": "3-0-3, score 20:14, 1 won by forfeit"
      },
      {
       "rank": 5,
-      "model": "GLM 5.3 Flash",
-      "played": 5,
-      "won": 1,
+      "model": "Kimi 3.1 Pro",
+      "played": 6,
+      "won": 2,
       "drawn": 0,
       "lost": 4,
-      "points": 3,
-      "for": 6,
-      "against": 17,
-      "diff": -11,
-      "note": "1-0-4, score 6:17, 1 no-show"
+      "points": 6,
+      "for": 11,
+      "against": 30,
+      "diff": -19,
+      "note": "2-0-4, score 11:30, 1 no-show"
      },
      {
       "rank": 6,
-      "model": "DeepSeek V4.1 Flash",
-      "played": 5,
-      "won": 0,
+      "model": "GLM 5.3 Flash",
+      "played": 6,
+      "won": 1,
       "drawn": 0,
       "lost": 5,
+      "points": 3,
+      "for": 6,
+      "against": 27,
+      "diff": -21,
+      "note": "1-0-5, score 6:27, 1 no-show"
+     },
+     {
+      "rank": 7,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 6,
+      "won": 0,
+      "drawn": 0,
+      "lost": 6,
       "points": 0,
       "for": 1,
-      "against": 46,
-      "diff": -45,
-      "note": "0-0-5, score 1:46"
+      "against": 56,
+      "diff": -55,
+      "note": "0-0-6, score 1:56"
      }
     ],
     "matches": [
@@ -1480,51 +1493,242 @@
       "shootout": null,
       "replay": null,
       "status": "resolved"
+     },
+     {
+      "id": "SSLF-F01",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 1
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "shootout",
+      "note": "Level; penalty shoot-out 3:1",
+      "shootout": {
+       "Claude Fable 5.2": 3,
+       "Claude Opus 5.5": 1
+      },
+      "replay": null,
+      "status": "resolved",
+      "board": "f-soccer-ssl-arena"
+     },
+     {
+      "id": "SSLF-F02",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-soccer-ssl-arena"
+     },
+     {
+      "id": "SSLF-F03",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 2
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-soccer-ssl-arena"
+     },
+     {
+      "id": "SSLF-F04",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 10
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-soccer-ssl-arena"
+     },
+     {
+      "id": "SSLF-F05",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 10
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-soccer-ssl-arena"
+     },
+     {
+      "id": "SSLF-F06",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "goals",
+      "note": null,
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-soccer-ssl-arena"
      }
     ],
     "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
    }
   ],
-  "played": 15,
+  "played": 21,
   "pending": 0,
   "knockout_planned": false,
   "ranking": [
    {
     "rank": 1,
-    "model": "Claude Opus 5.5",
-    "note": "5-0-0, score 29:5, 1 won by forfeit"
+    "model": "Claude Fable 5.2",
+    "note": "6-0-0, score 40:2"
    },
    {
     "rank": 2,
-    "model": "Gemini 4 Argon",
-    "note": "4-0-1, score 33:5"
+    "model": "Claude Opus 5.5",
+    "note": "5-0-1, score 30:6, 1 won by forfeit"
    },
    {
     "rank": 3,
-    "model": "GPT-6 Astra",
-    "note": "3-0-2, score 20:7, 1 won by forfeit"
+    "model": "Gemini 4 Argon",
+    "note": "4-0-2, score 34:7"
    },
    {
     "rank": 4,
-    "model": "Kimi 3.1 Pro",
-    "note": "2-0-3, score 11:20, 1 no-show"
+    "model": "GPT-6 Astra",
+    "note": "3-0-3, score 20:14, 1 won by forfeit"
    },
    {
     "rank": 5,
-    "model": "GLM 5.3 Flash",
-    "note": "1-0-4, score 6:17, 1 no-show"
+    "model": "Kimi 3.1 Pro",
+    "note": "2-0-4, score 11:30, 1 no-show"
    },
    {
     "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "note": "1-0-5, score 6:27, 1 no-show"
+   },
+   {
+    "rank": 7,
     "model": "DeepSeek V4.1 Flash",
-    "note": "0-0-5, score 1:46"
+    "note": "0-0-6, score 1:56"
    }
   ],
-  "notes": [],
+  "notes": [
+   "2 result(s) by forfeit (counted as a win, not played): opus beat glm-flash-sh by forfeit (no-show), SSLA-F03/run-1; astra-sub beat kimi by forfeit (no-show), SSLA-F09/run-1"
+  ],
   "as_of": "2026-11-08T08:13:24Z",
   "board": "rel-soccer-ssl-arena",
   "complete": true,
-  "status_line": "Complete"
+  "status_line": "Complete",
+  "extra_boards": [
+   {
+    "entrant": "Claude Fable 5.2",
+    "board": "f-soccer-ssl-arena",
+    "run": "r1110f"
+   }
+  ]
  },
  "agents": {
   "per_model": {
