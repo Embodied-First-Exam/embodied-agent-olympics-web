@@ -1568,7 +1568,17 @@
       "decided_by": "set_score",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 94.6,
+       "path": "replays/beachvolleyball_g1/BVBF-F01.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVBF-F01",
+       "key": "beachvolleyball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-beachvolleyball-g1-arena"
      },
@@ -1597,7 +1607,17 @@
       "decided_by": "set_score",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 82.8,
+       "path": "replays/beachvolleyball_g1/BVBF-F02.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVBF-F02",
+       "key": "beachvolleyball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-beachvolleyball-g1-arena"
      },
@@ -1655,7 +1675,17 @@
       "decided_by": "set_score",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 29.2,
+       "path": "replays/beachvolleyball_g1/BVBF-F04.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVBF-F04",
+       "key": "beachvolleyball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-beachvolleyball-g1-arena"
      },
@@ -1684,7 +1714,17 @@
       "decided_by": "set_score",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 37.4,
+       "path": "replays/beachvolleyball_g1/BVBF-F05.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVBF-F05",
+       "key": "beachvolleyball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-beachvolleyball-g1-arena"
      },
@@ -1713,7 +1753,17 @@
       "decided_by": "set_score",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 52.8,
+       "path": "replays/beachvolleyball_g1/BVBF-F06.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BVBF-F06",
+       "key": "beachvolleyball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-beachvolleyball-g1-arena"
      }

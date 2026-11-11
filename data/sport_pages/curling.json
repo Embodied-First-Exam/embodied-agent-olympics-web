@@ -1567,7 +1567,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 156.6,
+       "path": "replays/curling_g1/CURF-F01.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "CURF-F01",
+       "key": "curling_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-curling-g1-arena"
      },
@@ -1596,7 +1606,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 155.1,
+       "path": "replays/curling_g1/CURF-F02.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "CURF-F02",
+       "key": "curling_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-curling-g1-arena"
      },
@@ -1625,7 +1645,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 157.4,
+       "path": "replays/curling_g1/CURF-F03.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "CURF-F03",
+       "key": "curling_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-curling-g1-arena"
      },
@@ -1654,7 +1684,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 158.0,
+       "path": "replays/curling_g1/CURF-F04.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "CURF-F04",
+       "key": "curling_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-curling-g1-arena"
      },
@@ -1683,7 +1723,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 157.7,
+       "path": "replays/curling_g1/CURF-F05.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "CURF-F05",
+       "key": "curling_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-curling-g1-arena"
      },
@@ -1712,7 +1762,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 154.8,
+       "path": "replays/curling_g1/CURF-F06.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "CURF-F06",
+       "key": "curling_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-curling-g1-arena"
      }

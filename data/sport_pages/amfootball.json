@@ -1572,7 +1572,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1350.9,
+       "path": "replays/amfootball/AMFF-F01.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "AMFF-F01",
+       "key": "amfootball",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-amfootball-arena"
      },
@@ -1601,7 +1611,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1363.0,
+       "path": "replays/amfootball/AMFF-F02.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "AMFF-F02",
+       "key": "amfootball",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-amfootball-arena"
      },
@@ -1630,7 +1650,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1328.5,
+       "path": "replays/amfootball/AMFF-F03.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "AMFF-F03",
+       "key": "amfootball",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-amfootball-arena"
      },
@@ -1659,7 +1689,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1572.4,
+       "path": "replays/amfootball/AMFF-F04.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "AMFF-F04",
+       "key": "amfootball",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-amfootball-arena"
      },
@@ -1688,7 +1728,17 @@
       "decided_by": "resigned",
       "note": "DeepSeek V4.1 Flash resigned during the match",
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1934.9,
+       "path": "replays/amfootball/AMFF-F05.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "AMFF-F05",
+       "key": "amfootball",
+       "highlight": false,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-amfootball-arena"
      },
@@ -1717,7 +1767,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1452.8,
+       "path": "replays/amfootball/AMFF-F06.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "AMFF-F06",
+       "key": "amfootball",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-amfootball-arena"
      }

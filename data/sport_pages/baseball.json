@@ -1566,7 +1566,17 @@
       "decided_by": "runs",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 986.9,
+       "path": "replays/baseball_g1/BSBF-F01.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSBF-F01",
+       "key": "baseball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-baseball-g1-arena"
      },
@@ -1595,7 +1605,17 @@
       "decided_by": "runs",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 706.2,
+       "path": "replays/baseball_g1/BSBF-F03.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSBF-F03",
+       "key": "baseball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-baseball-g1-arena"
      },
@@ -1656,7 +1676,17 @@
       "decided_by": "runs",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 474.0,
+       "path": "replays/baseball_g1/BSBQ-F04.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSBQ-F04",
+       "key": "baseball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-baseball-g1-arena"
      },
@@ -1688,7 +1718,17 @@
       "decided_by": "runs",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 279.6,
+       "path": "replays/baseball_g1/BSBQ-F05.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSBQ-F05",
+       "key": "baseball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-baseball-g1-arena"
      },
@@ -1720,7 +1760,17 @@
       "decided_by": "runs",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 789.0,
+       "path": "replays/baseball_g1/BSBQ-F02.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSBQ-F02",
+       "key": "baseball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-baseball-g1-arena"
      }

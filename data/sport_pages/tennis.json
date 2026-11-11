@@ -1571,7 +1571,17 @@
       "decided_by": "game",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 61.2,
+       "path": "replays/tennis_g1/TENF-F01.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TENF-F01",
+       "key": "tennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-tennis-g1-arena"
      },
@@ -1600,7 +1610,17 @@
       "decided_by": "coin_toss",
       "note": "Level; decided by coin toss",
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 83.5,
+       "path": "replays/tennis_g1/TENF-F02.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TENF-F02",
+       "key": "tennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-tennis-g1-arena"
      },
@@ -1629,7 +1649,17 @@
       "decided_by": "game",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 33.5,
+       "path": "replays/tennis_g1/TENF-F03.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TENF-F03",
+       "key": "tennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-tennis-g1-arena"
      },
@@ -1658,7 +1688,17 @@
       "decided_by": "game",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 32.6,
+       "path": "replays/tennis_g1/TENF-F04.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TENF-F04",
+       "key": "tennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-tennis-g1-arena"
      },
@@ -1687,7 +1727,17 @@
       "decided_by": "game",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 45.5,
+       "path": "replays/tennis_g1/TENF-F05.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TENF-F05",
+       "key": "tennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-tennis-g1-arena"
      },
@@ -1716,7 +1766,17 @@
       "decided_by": "game",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 39.5,
+       "path": "replays/tennis_g1/TENF-F06.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TENF-F06",
+       "key": "tennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-tennis-g1-arena"
      }

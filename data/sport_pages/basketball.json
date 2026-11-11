@@ -1573,7 +1573,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 79.0,
+       "path": "replays/basketball_g1/BSKF-F01.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSKF-F01",
+       "key": "basketball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-basketball-g1-arena"
      },
@@ -1602,7 +1612,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 150.2,
+       "path": "replays/basketball_g1/BSKF-F02.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSKF-F02",
+       "key": "basketball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-basketball-g1-arena"
      },
@@ -1660,7 +1680,17 @@
       "decided_by": "coin_toss",
       "note": "Level; decided by coin toss",
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 176.1,
+       "path": "replays/basketball_g1/BSKF-F04.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSKF-F04",
+       "key": "basketball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-basketball-g1-arena"
      },
@@ -1689,7 +1719,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 148.6,
+       "path": "replays/basketball_g1/BSKF-F06.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSKF-F06",
+       "key": "basketball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-basketball-g1-arena"
      },
@@ -1721,7 +1761,17 @@
       "decided_by": "points",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 104.1,
+       "path": "replays/basketball_g1/BSKQ-F25.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSKQ-F25",
+       "key": "basketball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-basketball-g1-arena"
      }

@@ -1563,7 +1563,17 @@
       "decided_by": "rack",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 349.8,
+       "path": "replays/billiards_g1/BILF-F01.mp4",
+       "camera": "bilcam",
+       "size": "1280x720",
+       "fixture": "BILF-F01",
+       "key": "billiards_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-billiards-g1-arena"
      },
@@ -1592,7 +1602,17 @@
       "decided_by": "rack",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 480.8,
+       "path": "replays/billiards_g1/BILF-F02.mp4",
+       "camera": "bilcam",
+       "size": "1280x720",
+       "fixture": "BILF-F02",
+       "key": "billiards_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-billiards-g1-arena"
      },
@@ -1650,7 +1670,17 @@
       "decided_by": "rack",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 235.0,
+       "path": "replays/billiards_g1/BILF-F04.mp4",
+       "camera": "bilcam",
+       "size": "1280x720",
+       "fixture": "BILF-F04",
+       "key": "billiards_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-billiards-g1-arena"
      },
@@ -1682,7 +1712,17 @@
       "decided_by": "rack",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 251.6,
+       "path": "replays/billiards_g1/BILQ-F25.mp4",
+       "camera": "bilcam",
+       "size": "1280x720",
+       "fixture": "BILQ-F25",
+       "key": "billiards_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-billiards-g1-arena"
      },
@@ -1714,7 +1754,17 @@
       "decided_by": "rack",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 360.5,
+       "path": "replays/billiards_g1/BILQ-F26.mp4",
+       "camera": "bilcam",
+       "size": "1280x720",
+       "fixture": "BILQ-F26",
+       "key": "billiards_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-billiards-g1-arena"
      }

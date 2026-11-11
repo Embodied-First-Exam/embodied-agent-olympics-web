@@ -248,7 +248,7 @@ def solo_round1(site: Site) -> dict:
         for m1 in ((d.get("episodic_extra") or {}).get("rows") or []):
             if m1.get("match") == 1 and not m1.get("pending"):
                 rows.append({"model": m1["model"], "value": 0.0 if m1.get("no_show") else float(m1.get("value") or 0),
-                             "no_show": bool(m1.get("no_show")), "fixture": m1.get("id")})
+                             "no_show": bool(m1.get("no_show")), "fixture": m1.get("id"), "replay": m1.get("replay")})
         rows.sort(key=lambda r: -r["value"])
         for i, r in enumerate(rows):
             r["rank"] = rows[i - 1]["rank"] if i and rows[i - 1]["value"] == r["value"] else i + 1

@@ -1567,7 +1567,17 @@
       "decided_by": "game",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 44.3,
+       "path": "replays/tabletennis_g1/TTNF-F01.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TTNF-F01",
+       "key": "tabletennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-tabletennis-g1-arena"
      },
@@ -1596,7 +1606,17 @@
       "decided_by": "game",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 79.1,
+       "path": "replays/tabletennis_g1/TTNF-F02.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TTNF-F02",
+       "key": "tabletennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-tabletennis-g1-arena"
      },
@@ -1654,7 +1674,17 @@
       "decided_by": "game",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 24.0,
+       "path": "replays/tabletennis_g1/TTNF-F04.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TTNF-F04",
+       "key": "tabletennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-tabletennis-g1-arena"
      },
@@ -1683,7 +1713,17 @@
       "decided_by": "game",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 36.4,
+       "path": "replays/tabletennis_g1/TTNF-F05.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TTNF-F05",
+       "key": "tabletennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-tabletennis-g1-arena"
      },
@@ -1712,7 +1752,17 @@
       "decided_by": "game",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 27.2,
+       "path": "replays/tabletennis_g1/TTNF-F06.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TTNF-F06",
+       "key": "tabletennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-tabletennis-g1-arena"
      }

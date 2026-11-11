@@ -1593,7 +1593,17 @@
       "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1294.2,
+       "path": "replays/soccer_hsl/HSLF-F01.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "HSLF-F01",
+       "key": "soccer_hsl",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-soccer-hsl-arena"
      },
@@ -1622,7 +1632,17 @@
       "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1415.3,
+       "path": "replays/soccer_hsl/HSLF-F02.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "HSLF-F02",
+       "key": "soccer_hsl",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-soccer-hsl-arena"
      },
@@ -1651,7 +1671,17 @@
       "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 703.3,
+       "path": "replays/soccer_hsl/HSLF-F03.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "HSLF-F03",
+       "key": "soccer_hsl",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-soccer-hsl-arena"
      },
@@ -1680,7 +1710,17 @@
       "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 985.8,
+       "path": "replays/soccer_hsl/HSLF-F04.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "HSLF-F04",
+       "key": "soccer_hsl",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-soccer-hsl-arena"
      },
@@ -1709,7 +1749,17 @@
       "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 715.2,
+       "path": "replays/soccer_hsl/HSLF-F05.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "HSLF-F05",
+       "key": "soccer_hsl",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-soccer-hsl-arena"
      },
@@ -1738,7 +1788,17 @@
       "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 644.9,
+       "path": "replays/soccer_hsl/HSLF-F06.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "HSLF-F06",
+       "key": "soccer_hsl",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-soccer-hsl-arena"
      }

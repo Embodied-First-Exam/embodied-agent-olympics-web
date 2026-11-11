@@ -1522,7 +1522,17 @@
        "Claude Fable 5.2": 3,
        "Claude Opus 5.5": 1
       },
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 965.4,
+       "path": "replays/soccer_ssl/SSLF-F01.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSLF-F01",
+       "key": "soccer_ssl",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-soccer-ssl-arena"
      },
@@ -1551,7 +1561,17 @@
       "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 981.8,
+       "path": "replays/soccer_ssl/SSLF-F02.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSLF-F02",
+       "key": "soccer_ssl",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-soccer-ssl-arena"
      },
@@ -1580,7 +1600,17 @@
       "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1373.5,
+       "path": "replays/soccer_ssl/SSLF-F03.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSLF-F03",
+       "key": "soccer_ssl",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-soccer-ssl-arena"
      },
@@ -1609,7 +1639,17 @@
       "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 1084.3,
+       "path": "replays/soccer_ssl/SSLF-F04.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSLF-F04",
+       "key": "soccer_ssl",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-soccer-ssl-arena"
      },
@@ -1638,7 +1678,17 @@
       "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 546.3,
+       "path": "replays/soccer_ssl/SSLF-F05.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSLF-F05",
+       "key": "soccer_ssl",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-soccer-ssl-arena"
      },
@@ -1667,7 +1717,17 @@
       "decided_by": "goals",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 526.8,
+       "path": "replays/soccer_ssl/SSLF-F06.mp4",
+       "camera": "broadcast",
+       "size": "1280x720",
+       "fixture": "SSLF-F06",
+       "key": "soccer_ssl",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-soccer-ssl-arena"
      }

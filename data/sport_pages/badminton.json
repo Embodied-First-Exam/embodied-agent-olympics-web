@@ -1582,7 +1582,17 @@
       "decided_by": "score",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 41.3,
+       "path": "replays/badminton_g1/BADF-F01.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BADF-F01",
+       "key": "badminton_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-badminton-g1-arena"
      },
@@ -1611,7 +1621,17 @@
       "decided_by": "score",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 62.3,
+       "path": "replays/badminton_g1/BADF-F02.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BADF-F02",
+       "key": "badminton_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-badminton-g1-arena"
      },
@@ -1669,7 +1689,17 @@
       "decided_by": "score",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 40.2,
+       "path": "replays/badminton_g1/BADF-F04.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BADF-F04",
+       "key": "badminton_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-badminton-g1-arena"
      },
@@ -1698,7 +1728,17 @@
       "decided_by": "score",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 20.4,
+       "path": "replays/badminton_g1/BADF-F05.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BADF-F05",
+       "key": "badminton_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-badminton-g1-arena"
      },
@@ -1727,7 +1767,17 @@
       "decided_by": "score",
       "note": null,
       "shootout": null,
-      "replay": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 14.3,
+       "path": "replays/badminton_g1/BADF-F06.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BADF-F06",
+       "key": "badminton_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
       "status": "resolved",
       "board": "f-badminton-g1-arena"
      }

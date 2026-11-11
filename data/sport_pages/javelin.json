@@ -1296,7 +1296,17 @@
     "value": 13.89,
     "no_show": false,
     "pending": false,
-    "replay": null,
+    "replay": {
+     "kind": "full",
+     "seconds": 30.0,
+     "path": "replays/javelin_g1/JAVF-F0001.mp4",
+     "camera": "broadcast",
+     "size": "848x480",
+     "fixture": "JAVF-F0001",
+     "key": "javelin_g1",
+     "highlight": true,
+     "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+    },
     "board": "f-javelin-g1-arena",
     "run": "r1110f"
    }

@@ -506,7 +506,7 @@ def solo_arena(site: Site, ch: dict, rows: list) -> str:
     body = "".join(
         f'<tr><td class="st-r">{r["rank"]}</td><td>{who(site, r["model"])}</td>'
         + (f'<td class="st-n tt is-ns" title="Did not start: counts 0">{fmtv(0)}<small>no-show</small></td>' if r["no_show"] else
-           f'<td class="st-n tt">{fmtv(r["value"])}{replay(site, rp.get(r.get("fixture")), compact=True)}</td>')
+           f'<td class="st-n tt">{fmtv(r["value"])}{replay(site, rp.get(r.get("fixture")) or r.get("replay"), compact=True)}</td>')
         + f'<td class="st-n mx-id">{E(r.get("fixture") or "")}</td></tr>' for r in rows)
     return f"""
 <div class="cr-solo"><h3 class="cr-h">First series match <span>ranked by its score · {E(u)}</span></h3>
