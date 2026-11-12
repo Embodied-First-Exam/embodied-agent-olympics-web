@@ -557,7 +557,8 @@ def continual_panel(site: Site) -> str:
             st = {x["id"]: x for x in ch.get("stages") or []}
             fin = ((st.get("final") or {}).get("matches") or [None])[0]
             groups["h2h"].append(boards.podium_card(
-                site, s, [(k[0], r[k]) for k in ("gold", "silver", "bronze") if r.get(k)], _final_line(fin, r.get("gold"), sid), more, tag))
+                site, s, [(k[0], r[k]) for k in ("gold", "silver", "bronze") if r.get(k)], _final_line(fin, r.get("gold"), sid), more, tag,
+                places=sid in exhibition_ids(site)))
         elif fmt == "solo":
             unit = ch.get("unit") or ""
             rows = [(x["rank"], x["model"], float(x["mean"] or 0), None) for x in sorted(ch.get("rows") or [], key=lambda x: x["rank"])]

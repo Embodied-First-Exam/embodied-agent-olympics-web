@@ -88,11 +88,14 @@ def sport_card(site: Site, s: dict, rows: list, unit: str, href: str | None = No
     return _card(site, s, f'<ol class="bc-rows{"" if vals else " bc-rows--plain"}">{"".join(items)}</ol>{foot}', unit, href, tag)
 
 
-def podium_card(site: Site, s: dict, podium: list, final: str = "", href: str | None = None, tag: str = "") -> str:
-    """podium: [(medal class g|s|b, model name)]; final: the final's score line (already HTML)."""
+def podium_card(site: Site, s: dict, podium: list, final: str = "", href: str | None = None, tag: str = "",
+                places: bool = False) -> str:
+    """podium: [(medal class g|s|b, model name)]; final: the final's score line (already HTML).
+    places=True (an exhibition sport, outside the medal tables): rank numbers 1 / 2 / 3 in place of the medal discs."""
     by = _by(site)
+    mark = lambda c: (f'<span class="bc-r">{"gsb".index(c) + 1}</span>' if places else f'<i class="mdisc mdisc--{c}"></i>')  # noqa: E731
     items = "".join(
-        f'<li class="bc-row bc-row--p{" is-1" if c == "g" else ""}" title="{E(_tip(by[n]))}"><i class="mdisc mdisc--{c}"></i>'
+        f'<li class="bc-row bc-row--p{" is-1" if c == "g" else ""}" title="{E(_tip(by[n]))}">{mark(c)}'
         f'{model_logo(site, by[n])}<b>{E(model_name(n))}</b></li>' for c, n in podium if n in by)
     return _card(site, s, f'<ol class="bc-rows">{items}</ol>{final}', "", href, tag)
 

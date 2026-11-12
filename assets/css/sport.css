@@ -66,6 +66,8 @@
 .sp-pd .kicker{display:flex;align-items:center}
 .sp-pd .sp-who strong{font-size:20px}
 .sp-pod.is-empty{display:block}
+.sp-pd--place{border-top-color:var(--hair)}  /* exhibition: places, no medal */
+.sp-pod-note{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:calc(-1 * clamp(20px,2.5vw,36px)) 0 clamp(28px,3vw,40px);font-size:15px;line-height:1.45;color:var(--fg-2)}  /* tie-break / exhibition line under a podium */
 .sp-who{display:inline-flex;align-items:center;gap:10px;min-width:0}
 .sp-who .flag{height:20px;width:5px}
 .sp-who .mlogo{width:18px;height:18px;flex:none;color:var(--fg)}
