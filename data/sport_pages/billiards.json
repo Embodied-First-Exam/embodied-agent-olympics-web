@@ -900,81 +900,94 @@
     "standings": [
      {
       "rank": 1,
-      "model": "GPT-6 Astra",
-      "played": 5,
-      "won": 4,
+      "model": "Claude Fable 5.2",
+      "played": 6,
+      "won": 6,
       "drawn": 0,
-      "lost": 1,
-      "points": 12,
-      "for": 8,
-      "against": 26,
-      "diff": 18,
-      "note": "4-0-1, score 8:26"
+      "lost": 0,
+      "points": 18,
+      "for": 7,
+      "against": 33,
+      "diff": 26,
+      "note": "6-0-0, score 7:33, 1 won by forfeit"
      },
      {
       "rank": 2,
-      "model": "Claude Opus 5.5",
-      "played": 5,
+      "model": "GPT-6 Astra",
+      "played": 6,
       "won": 4,
       "drawn": 0,
-      "lost": 1,
+      "lost": 2,
       "points": 12,
-      "for": 5,
-      "against": 17,
-      "diff": 12,
-      "note": "4-0-1, score 5:17"
+      "for": 10,
+      "against": 26,
+      "diff": 16,
+      "note": "4-0-2, score 10:26"
      },
      {
       "rank": 3,
-      "model": "Kimi 3.1 Pro",
-      "played": 5,
-      "won": 3,
+      "model": "Claude Opus 5.5",
+      "played": 6,
+      "won": 4,
       "drawn": 0,
       "lost": 2,
-      "points": 9,
-      "for": 18,
-      "against": 22,
-      "diff": 4,
-      "note": "3-0-2, score 18:22"
+      "points": 12,
+      "for": 9,
+      "against": 17,
+      "diff": 8,
+      "note": "4-0-2, score 9:17"
      },
      {
       "rank": 4,
-      "model": "DeepSeek V4.1 Flash",
-      "played": 5,
+      "model": "Kimi 3.1 Pro",
+      "played": 6,
       "won": 3,
       "drawn": 0,
-      "lost": 2,
+      "lost": 3,
       "points": 9,
-      "for": 35,
-      "against": 21,
-      "diff": -14,
-      "note": "3-0-2, score 35:21"
+      "for": 24,
+      "against": 22,
+      "diff": -2,
+      "note": "3-0-3, score 24:22"
      },
      {
       "rank": 5,
-      "model": "Gemini 4 Argon",
-      "played": 5,
-      "won": 1,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 6,
+      "won": 3,
       "drawn": 0,
-      "lost": 4,
-      "points": 3,
-      "for": 24,
-      "against": 28,
-      "diff": 4,
-      "note": "1-0-4, score 24:28"
+      "lost": 3,
+      "points": 9,
+      "for": 42,
+      "against": 21,
+      "diff": -21,
+      "note": "3-0-3, score 42:21"
      },
      {
       "rank": 6,
-      "model": "GLM 5.3 Flash",
-      "played": 5,
-      "won": 0,
+      "model": "Gemini 4 Argon",
+      "played": 6,
+      "won": 1,
       "drawn": 0,
       "lost": 5,
+      "points": 3,
+      "for": 31,
+      "against": 35,
+      "diff": 4,
+      "note": "1-0-5, score 31:35, 1 no-show"
+     },
+     {
+      "rank": 7,
+      "model": "GLM 5.3 Flash",
+      "played": 6,
+      "won": 0,
+      "drawn": 0,
+      "lost": 6,
       "points": 0,
-      "for": 34,
+      "for": 41,
       "against": 10,
-      "diff": -24,
-      "note": "0-0-5, score 34:10"
+      "diff": -31,
+      "note": "0-0-6, score 41:10"
      }
     ],
     "matches": [
@@ -1524,52 +1537,296 @@
        "highlight": false
       },
       "status": "resolved"
+     },
+     {
+      "id": "BILF-F01",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 4
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 349.8,
+       "path": "replays/billiards_g1/BILF-F01.mp4",
+       "camera": "bilcam",
+       "size": "1280x720",
+       "fixture": "BILF-F01",
+       "key": "billiards_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-billiards-g1-arena"
+     },
+     {
+      "id": "BILF-F02",
+      "labels": {
+       "order": 1,
+       "pair": "astra-sub vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 2
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 480.8,
+       "path": "replays/billiards_g1/BILF-F02.mp4",
+       "camera": "bilcam",
+       "size": "1280x720",
+       "fixture": "BILF-F02",
+       "key": "billiards_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-billiards-g1-arena"
+     },
+     {
+      "id": "BILF-F03",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs gemini",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 7
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-billiards-g1-arena"
+     },
+     {
+      "id": "BILF-F04",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 6
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 235.0,
+       "path": "replays/billiards_g1/BILF-F04.mp4",
+       "camera": "bilcam",
+       "size": "1280x720",
+       "fixture": "BILF-F04",
+       "key": "billiards_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-billiards-g1-arena"
+     },
+     {
+      "id": "BILQ-F25",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs deepseek-flash-sh",
+       "replaces": "BILQ-F05",
+       "replay_cause": "platform_no_result",
+       "replay_reason": "no result: run ended by the operator on 11-10 12:58 (slot 7 / 19 Fable quota could not carry it to the end); replay on slot 7 after Chi's 11-10 reset card",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 7
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 251.6,
+       "path": "replays/billiards_g1/BILQ-F25.mp4",
+       "camera": "bilcam",
+       "size": "1280x720",
+       "fixture": "BILQ-F25",
+       "key": "billiards_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-billiards-g1-arena"
+     },
+     {
+      "id": "BILQ-F26",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs fable52-cc322",
+       "replaces": "BILQ-F06",
+       "replay_cause": "platform_no_result",
+       "replay_reason": "no result: run ended by the operator on 11-10 12:58 (slot 7 / 19 Fable quota could not carry it to the end); replay on slot 7 after Chi's 11-10 reset card",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 7
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "rack",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 360.5,
+       "path": "replays/billiards_g1/BILQ-F26.mp4",
+       "camera": "bilcam",
+       "size": "1280x720",
+       "fixture": "BILQ-F26",
+       "key": "billiards_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-billiards-g1-arena"
      }
     ],
     "rule": "Win 3, draw 1, loss 0; ties by score difference (fewer balls left is better: balls against minus balls for), then head to head."
    }
   ],
-  "played": 15,
+  "played": 21,
   "pending": 0,
   "knockout_planned": false,
   "ranking": [
    {
     "rank": 1,
-    "model": "GPT-6 Astra",
-    "note": "4-0-1, score 8:26"
+    "model": "Claude Fable 5.2",
+    "note": "6-0-0, score 7:33, 1 won by forfeit"
    },
    {
     "rank": 2,
-    "model": "Claude Opus 5.5",
-    "note": "4-0-1, score 5:17"
+    "model": "GPT-6 Astra",
+    "note": "4-0-2, score 10:26"
    },
    {
     "rank": 3,
-    "model": "Kimi 3.1 Pro",
-    "note": "3-0-2, score 18:22"
+    "model": "Claude Opus 5.5",
+    "note": "4-0-2, score 9:17"
    },
    {
     "rank": 4,
-    "model": "DeepSeek V4.1 Flash",
-    "note": "3-0-2, score 35:21"
+    "model": "Kimi 3.1 Pro",
+    "note": "3-0-3, score 24:22"
    },
    {
     "rank": 5,
-    "model": "Gemini 4 Argon",
-    "note": "1-0-4, score 24:28"
+    "model": "DeepSeek V4.1 Flash",
+    "note": "3-0-3, score 42:21"
    },
    {
     "rank": 6,
+    "model": "Gemini 4 Argon",
+    "note": "1-0-5, score 31:35, 1 no-show"
+   },
+   {
+    "rank": 7,
     "model": "GLM 5.3 Flash",
-    "note": "0-0-5, score 34:10"
+    "note": "0-0-6, score 41:10"
    }
   ],
-  "notes": [],
+  "notes": [
+   "1 result(s) by forfeit (counted as a win, not played): fable52-cc322 beat gemini by forfeit (no-show), BILF-F03/run-1"
+  ],
   "as_of": "2026-11-10T05:53:27Z",
   "score_direction": "lower",
   "board": "rel-billiards-g1-arena",
   "complete": true,
-  "status_line": "Complete"
+  "status_line": "Complete",
+  "extra_boards": [
+   {
+    "entrant": "Claude Fable 5.2",
+    "board": "f-billiards-g1-arena",
+    "run": "r1110f"
+   }
+  ]
  },
  "agents": {
   "per_model": {

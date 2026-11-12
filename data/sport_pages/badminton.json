@@ -912,81 +912,94 @@
     "standings": [
      {
       "rank": 1,
-      "model": "GPT-6 Astra",
-      "played": 5,
-      "won": 5,
+      "model": "Claude Fable 5.2",
+      "played": 6,
+      "won": 6,
       "drawn": 0,
       "lost": 0,
-      "points": 15,
+      "points": 18,
       "for": 55,
-      "against": 9,
-      "diff": 46,
-      "note": "5-0-0, score 55:9"
+      "against": 6,
+      "diff": 49,
+      "note": "6-0-0, score 55:6, 1 won by forfeit"
      },
      {
       "rank": 2,
-      "model": "Claude Opus 5.5",
-      "played": 5,
-      "won": 4,
+      "model": "GPT-6 Astra",
+      "played": 6,
+      "won": 5,
       "drawn": 0,
       "lost": 1,
-      "points": 12,
-      "for": 50,
-      "against": 17,
-      "diff": 33,
-      "note": "4-0-1, score 50:17"
+      "points": 15,
+      "for": 59,
+      "against": 20,
+      "diff": 39,
+      "note": "5-0-1, score 59:20"
      },
      {
       "rank": 3,
-      "model": "Kimi 3.1 Pro",
-      "played": 5,
-      "won": 2,
+      "model": "Claude Opus 5.5",
+      "played": 6,
+      "won": 4,
       "drawn": 0,
-      "lost": 3,
-      "points": 6,
-      "for": 31,
-      "against": 37,
-      "diff": -6,
-      "note": "2-0-3, score 31:37"
+      "lost": 2,
+      "points": 12,
+      "for": 51,
+      "against": 28,
+      "diff": 23,
+      "note": "4-0-2, score 51:28"
      },
      {
       "rank": 4,
       "model": "Gemini 4 Argon",
-      "played": 5,
+      "played": 6,
       "won": 2,
       "drawn": 0,
-      "lost": 3,
+      "lost": 4,
       "points": 6,
       "for": 23,
       "against": 34,
       "diff": -11,
-      "note": "2-0-3, score 23:34"
+      "note": "2-0-4, score 23:34, 1 no-show"
      },
      {
       "rank": 5,
-      "model": "DeepSeek V4.1 Flash",
-      "played": 5,
+      "model": "Kimi 3.1 Pro",
+      "played": 6,
       "won": 2,
       "drawn": 0,
-      "lost": 3,
+      "lost": 4,
       "points": 6,
-      "for": 23,
-      "against": 35,
-      "diff": -12,
-      "note": "2-0-3, score 23:35"
+      "for": 32,
+      "against": 48,
+      "diff": -16,
+      "note": "2-0-4, score 32:48"
      },
      {
       "rank": 6,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 6,
+      "won": 2,
+      "drawn": 0,
+      "lost": 4,
+      "points": 6,
+      "for": 23,
+      "against": 46,
+      "diff": -23,
+      "note": "2-0-4, score 23:46"
+     },
+     {
+      "rank": 7,
       "model": "GLM 5.3 Flash",
-      "played": 5,
+      "played": 6,
       "won": 0,
       "drawn": 0,
-      "lost": 5,
+      "lost": 6,
       "points": 0,
       "for": 5,
-      "against": 55,
-      "diff": -50,
-      "note": "0-0-5, score 5:55"
+      "against": 66,
+      "diff": -61,
+      "note": "0-0-6, score 5:66"
      }
     ],
     "matches": [
@@ -1543,51 +1556,289 @@
        "highlight": true
       },
       "status": "resolved"
+     },
+     {
+      "id": "BADF-F01",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 11
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 1
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 41.3,
+       "path": "replays/badminton_g1/BADF-F01.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BADF-F01",
+       "key": "badminton_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-badminton-g1-arena"
+     },
+     {
+      "id": "BADF-F02",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 11
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 4
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 62.3,
+       "path": "replays/badminton_g1/BADF-F02.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BADF-F02",
+       "key": "badminton_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-badminton-g1-arena"
+     },
+     {
+      "id": "BADF-F03",
+      "labels": {
+       "order": 1,
+       "pair": "gemini vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-badminton-g1-arena"
+     },
+     {
+      "id": "BADF-F04",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 11
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 40.2,
+       "path": "replays/badminton_g1/BADF-F04.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BADF-F04",
+       "key": "badminton_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-badminton-g1-arena"
+     },
+     {
+      "id": "BADF-F05",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 11
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 20.4,
+       "path": "replays/badminton_g1/BADF-F05.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BADF-F05",
+       "key": "badminton_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-badminton-g1-arena"
+     },
+     {
+      "id": "BADF-F06",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs glm-flash-sh",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 11
+       },
+       {
+        "seat": "B",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "score",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 14.3,
+       "path": "replays/badminton_g1/BADF-F06.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BADF-F06",
+       "key": "badminton_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-badminton-g1-arena"
      }
     ],
     "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
    }
   ],
-  "played": 15,
+  "played": 21,
   "pending": 0,
   "knockout_planned": false,
   "ranking": [
    {
     "rank": 1,
-    "model": "GPT-6 Astra",
-    "note": "5-0-0, score 55:9"
+    "model": "Claude Fable 5.2",
+    "note": "6-0-0, score 55:6, 1 won by forfeit"
    },
    {
     "rank": 2,
-    "model": "Claude Opus 5.5",
-    "note": "4-0-1, score 50:17"
+    "model": "GPT-6 Astra",
+    "note": "5-0-1, score 59:20"
    },
    {
     "rank": 3,
-    "model": "Kimi 3.1 Pro",
-    "note": "2-0-3, score 31:37"
+    "model": "Claude Opus 5.5",
+    "note": "4-0-2, score 51:28"
    },
    {
     "rank": 4,
     "model": "Gemini 4 Argon",
-    "note": "2-0-3, score 23:34"
+    "note": "2-0-4, score 23:34, 1 no-show"
    },
    {
     "rank": 5,
-    "model": "DeepSeek V4.1 Flash",
-    "note": "2-0-3, score 23:35"
+    "model": "Kimi 3.1 Pro",
+    "note": "2-0-4, score 32:48"
    },
    {
     "rank": 6,
+    "model": "DeepSeek V4.1 Flash",
+    "note": "2-0-4, score 23:46"
+   },
+   {
+    "rank": 7,
     "model": "GLM 5.3 Flash",
-    "note": "0-0-5, score 5:55"
+    "note": "0-0-6, score 5:66"
    }
   ],
-  "notes": [],
+  "notes": [
+   "1 result(s) by forfeit (counted as a win, not played): fable52-cc322 beat gemini by forfeit (no-show), BADF-F03/run-1"
+  ],
   "as_of": "2026-11-08T03:12:20Z",
   "board": "rel-badminton-g1-arena",
   "complete": true,
-  "status_line": "Complete"
+  "status_line": "Complete",
+  "extra_boards": [
+   {
+    "entrant": "Claude Fable 5.2",
+    "board": "f-badminton-g1-arena",
+    "run": "r1110f"
+   }
+  ]
  },
  "agents": {
   "per_model": {

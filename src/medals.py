@@ -70,6 +70,8 @@ def arena_panel(site: Site, fallback_boards: str) -> str:
         if not b:
             continue
         rows = [(r["rank"], r["model"], r["points"], None) for r in b["rows"]]
+        # an entrant that did not enter this board (Claude Fable 5.2 on Humanoid Soccer · Team): listed last, no value
+        rows += [("–", n, None, "did not enter") for n in b.get("did_not_enter") or []]
         tag = exh(s["id"]) + ("" if b.get("complete") else '<span class="bc-tag">In progress</span>')
         cards.append(boards.sport_card(site, s, rows, "pts", site.sport_url(s) + "#records", tag))
     units = {"sprint": "m/s", "hurdles": "m/s", "javelin": "m", "stuntcar": "pts"}
@@ -89,7 +91,7 @@ def win_rate_block(site: Site) -> str:
     w = site.results.get("win_rate")
     if not w:
         return '<p class="rp-note">Win rates at release.</p>'
-    by = {m["name"]: m for m in site.models}
+    by = {m["name"]: m for m in site.continual_models}
     rows = [r for r in (w["scopes"].get("championship") or []) if r["model"] in by]
     body = "".join(
         f'<tr><td class="mt-rank">{i + 1}</td><td><span class="mt-model"><i class="flag" style="--c:{E(by[r["model"]]["colour"])}"></i>'
@@ -143,7 +145,7 @@ def mode_win_table(site: Site, scope: str = "arena") -> str:
     w = site.results.get("win_rate")
     if not w:
         return '<p class="rp-note">Results at release.</p>'
-    by = {m["name"]: m for m in site.models}
+    by = {m["name"]: m for m in (site.models if scope == "arena" else site.continual_models)}
     rows = [r for r in (w["scopes"].get(scope) or []) if r["model"] in by]
     body = "".join(
         f'<tr><td class="mt-rank">{i + 1}</td><td><span class="mt-model"><i class="flag" style="--c:{E(by[r["model"]]["colour"])}"></i>'
@@ -220,7 +222,8 @@ def solo_round1(site: Site) -> dict:
         f = root / f"{sid}.json"
         if not f.is_file():
             continue
-        ch = json.loads(f.read_text(encoding="utf-8")).get("championship") or {}
+        d = json.loads(f.read_text(encoding="utf-8"))
+        ch = d.get("championship") or {}
         rows = []
         for r in ch.get("rows") or []:
             m1 = next((m for m in r.get("matches") or [] if m.get("match") == 1), None)
@@ -228,6 +231,12 @@ def solo_round1(site: Site) -> dict:
                 continue
             rows.append({"model": r["model"], "value": 0.0 if m1.get("no_show") else float(m1.get("value") or 0),
                          "no_show": bool(m1.get("no_show")), "fixture": m1.get("id")})
+        # Episodic-only entrants (no Championship series): their first series match, from the same file's
+        # episodic_extra (tools/web/episodic_extra.py, read-only on the eval state)
+        for m1 in ((d.get("episodic_extra") or {}).get("rows") or []):
+            if m1.get("match") == 1 and not m1.get("pending"):
+                rows.append({"model": m1["model"], "value": 0.0 if m1.get("no_show") else float(m1.get("value") or 0),
+                             "no_show": bool(m1.get("no_show")), "fixture": m1.get("id"), "replay": m1.get("replay")})
         rows.sort(key=lambda r: -r["value"])
         for i, r in enumerate(rows):
             r["rank"] = rows[i - 1]["rank"] if i and rows[i - 1]["value"] == r["value"] else i + 1
@@ -407,7 +416,7 @@ def apply_exhibition(site: Site) -> None:
     res["_exhibition_applied"] = sorted(exh)
     by = res.get("by_sport") or []
     if by and any(r.get("gold") for r in by):
-        names = [m["name"] for m in site.models]
+        names = [m["name"] for m in site.continual_models]
         tally = {n: {"gold": 0, "silver": 0, "bronze": 0} for n in names}
         for r in by:
             if r.get("status") != "final" or r["sport"] in exh:
@@ -432,6 +441,9 @@ def apply_exhibition(site: Site) -> None:
                     c["won" if win == e else ("drawn" if win == -1 else "lost")] += 1
             rows = [{"model": n, **c, "pct": round(100 * c["won"] / c["played"], 1) if c["played"] else None} for n, c in acc.items()]
             rows.sort(key=lambda r: (-(r["pct"] or 0), -r["won"]))
+            if key == "championship":
+                cont = {m["name"] for m in site.continual_models}
+                rows = [r for r in rows if r["model"] in cont]
             scopes[key] = rows
         lv = {"both": 0, "championship": 0, "arena": 0}
         for _, md, _, _, _, level in d["matches"]:
@@ -452,6 +464,9 @@ def notes_fold(site: Site, key: str) -> str:
     if exh:
         items.append(f'<li><b>{E(" and ".join(names[x] for x in exh))}</b>: exhibitions in this edition. Their results and replays '
                      'stay on their pages; they count in no medal table, win rate or head-to-head.</li>')
+    if key == "episodic":  # an entrant's own note (models.json episodic_note: e.g. an entrant that joined later)
+        items += [f'<li><b>{E(model_name(m))}</b>: {E(m["episodic_note"]["en"])}</li>' for m in site.models
+                  if (m.get("episodic_note") or {}).get("en")]
     items += [f'<li><b>{E(names.get(sid, sid))}</b>: {E(en)}</li>' for sid, en, *_ in (ex.get("notes") or {}).get(key) or []
               if sid in names and sid not in exh]
     if not items:
@@ -542,7 +557,8 @@ def continual_panel(site: Site) -> str:
             st = {x["id"]: x for x in ch.get("stages") or []}
             fin = ((st.get("final") or {}).get("matches") or [None])[0]
             groups["h2h"].append(boards.podium_card(
-                site, s, [(k[0], r[k]) for k in ("gold", "silver", "bronze") if r.get(k)], _final_line(fin, r.get("gold"), sid), more, tag))
+                site, s, [(k[0], r[k]) for k in ("gold", "silver", "bronze") if r.get(k)], _final_line(fin, r.get("gold"), sid), more, tag,
+                places=sid in exhibition_ids(site)))
         elif fmt == "solo":
             unit = ch.get("unit") or ""
             rows = [(x["rank"], x["model"], float(x["mean"] or 0), None) for x in sorted(ch.get("rows") or [], key=lambda x: x["rank"])]

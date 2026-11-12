@@ -329,6 +329,7 @@ a:hover .arr{transform:translateX(4px)}
 .oa-tab td.oa-m{color:var(--fg);white-space:nowrap}
 .oa-tab td.oa-p{color:var(--fg);font-weight:600}
 .oa-tab td.oa-r,.oa-tab td.oa-x{color:var(--fg-3)}.oa-tab td.oa-x{font-size:12.5px}
+.oa-tab tr.oa-dne td{color:var(--fg-3)}.oa-tab tr.oa-dne td:last-child{text-align:left;font-style:italic}
 .oa-upd{display:block;margin-top:6px;font-size:13px;color:var(--fg-3)}
 /* the 01 Arena mark (Chi): silver in the dark theme, black ink in the light theme */
 img.mark{width:auto;height:22px;flex:none}

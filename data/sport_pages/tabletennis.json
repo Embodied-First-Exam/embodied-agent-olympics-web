@@ -911,81 +911,94 @@
     "standings": [
      {
       "rank": 1,
-      "model": "GPT-6 Astra",
-      "played": 5,
-      "won": 5,
+      "model": "Claude Fable 5.2",
+      "played": 6,
+      "won": 6,
       "drawn": 0,
       "lost": 0,
-      "points": 15,
-      "for": 53,
-      "against": 17,
-      "diff": 36,
-      "note": "5-0-0, score 53:17"
+      "points": 18,
+      "for": 55,
+      "against": 8,
+      "diff": 47,
+      "note": "6-0-0, score 55:8, 1 won by forfeit"
      },
      {
       "rank": 2,
-      "model": "Claude Opus 5.5",
-      "played": 5,
-      "won": 4,
+      "model": "GPT-6 Astra",
+      "played": 6,
+      "won": 5,
       "drawn": 0,
       "lost": 1,
-      "points": 12,
-      "for": 46,
-      "against": 15,
-      "diff": 31,
-      "note": "4-0-1, score 46:15, 1 won by forfeit"
+      "points": 15,
+      "for": 60,
+      "against": 28,
+      "diff": 32,
+      "note": "5-0-1, score 60:28"
      },
      {
       "rank": 3,
+      "model": "Claude Opus 5.5",
+      "played": 6,
+      "won": 4,
+      "drawn": 0,
+      "lost": 2,
+      "points": 12,
+      "for": 47,
+      "against": 26,
+      "diff": 21,
+      "note": "4-0-2, score 47:26, 1 won by forfeit"
+     },
+     {
+      "rank": 4,
       "model": "Gemini 4 Argon",
-      "played": 5,
+      "played": 6,
       "won": 2,
       "drawn": 0,
-      "lost": 3,
+      "lost": 4,
       "points": 6,
       "for": 26,
       "against": 11,
       "diff": 15,
-      "note": "2-0-3, score 26:11, 2 no-show"
-     },
-     {
-      "rank": 4,
-      "model": "Kimi 3.1 Pro",
-      "played": 5,
-      "won": 2,
-      "drawn": 0,
-      "lost": 3,
-      "points": 6,
-      "for": 14,
-      "against": 36,
-      "diff": -22,
-      "note": "2-0-3, score 14:36"
+      "note": "2-0-4, score 26:11, 3 no-show"
      },
      {
       "rank": 5,
-      "model": "GLM 5.3 Flash",
-      "played": 5,
-      "won": 1,
+      "model": "Kimi 3.1 Pro",
+      "played": 6,
+      "won": 2,
       "drawn": 0,
       "lost": 4,
-      "points": 3,
-      "for": 2,
-      "against": 29,
-      "diff": -27,
-      "note": "1-0-4, score 2:29, 1 won by forfeit"
+      "points": 6,
+      "for": 14,
+      "against": 47,
+      "diff": -33,
+      "note": "2-0-4, score 14:47"
      },
      {
       "rank": 6,
-      "model": "DeepSeek V4.1 Flash",
-      "played": 5,
+      "model": "GLM 5.3 Flash",
+      "played": 6,
       "won": 1,
       "drawn": 0,
-      "lost": 4,
+      "lost": 5,
+      "points": 3,
+      "for": 2,
+      "against": 40,
+      "diff": -38,
+      "note": "1-0-5, score 2:40, 1 won by forfeit"
+     },
+     {
+      "rank": 7,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 6,
+      "won": 1,
+      "drawn": 0,
+      "lost": 5,
       "points": 3,
       "for": 11,
-      "against": 44,
-      "diff": -33,
-      "note": "1-0-4, score 11:44"
+      "against": 55,
+      "diff": -44,
+      "note": "1-0-5, score 11:55"
      }
     ],
     "matches": [
@@ -1528,51 +1541,289 @@
        "highlight": true
       },
       "status": "resolved"
+     },
+     {
+      "id": "TTNF-F01",
+      "labels": {
+       "order": 1,
+       "pair": "opus vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 1
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 11
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "game",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 44.3,
+       "path": "replays/tabletennis_g1/TTNF-F01.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TTNF-F01",
+       "key": "tabletennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-tabletennis-g1-arena"
+     },
+     {
+      "id": "TTNF-F02",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs astra-sub",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 11
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 7
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "game",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 79.1,
+       "path": "replays/tabletennis_g1/TTNF-F02.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TTNF-F02",
+       "key": "tabletennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-tabletennis-g1-arena"
+     },
+     {
+      "id": "TTNF-F03",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs gemini",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-tabletennis-g1-arena"
+     },
+     {
+      "id": "TTNF-F04",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs kimi",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 11
+       },
+       {
+        "seat": "B",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "game",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 24.0,
+       "path": "replays/tabletennis_g1/TTNF-F04.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TTNF-F04",
+       "key": "tabletennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-tabletennis-g1-arena"
+     },
+     {
+      "id": "TTNF-F05",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 11
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "game",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 36.4,
+       "path": "replays/tabletennis_g1/TTNF-F05.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TTNF-F05",
+       "key": "tabletennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-tabletennis-g1-arena"
+     },
+     {
+      "id": "TTNF-F06",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 11
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "game",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 27.2,
+       "path": "replays/tabletennis_g1/TTNF-F06.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "TTNF-F06",
+       "key": "tabletennis_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-tabletennis-g1-arena"
      }
     ],
     "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
    }
   ],
-  "played": 15,
+  "played": 21,
   "pending": 0,
   "knockout_planned": false,
   "ranking": [
    {
     "rank": 1,
-    "model": "GPT-6 Astra",
-    "note": "5-0-0, score 53:17"
+    "model": "Claude Fable 5.2",
+    "note": "6-0-0, score 55:8, 1 won by forfeit"
    },
    {
     "rank": 2,
-    "model": "Claude Opus 5.5",
-    "note": "4-0-1, score 46:15, 1 won by forfeit"
+    "model": "GPT-6 Astra",
+    "note": "5-0-1, score 60:28"
    },
    {
     "rank": 3,
-    "model": "Gemini 4 Argon",
-    "note": "2-0-3, score 26:11, 2 no-show"
+    "model": "Claude Opus 5.5",
+    "note": "4-0-2, score 47:26, 1 won by forfeit"
    },
    {
     "rank": 4,
-    "model": "Kimi 3.1 Pro",
-    "note": "2-0-3, score 14:36"
+    "model": "Gemini 4 Argon",
+    "note": "2-0-4, score 26:11, 3 no-show"
    },
    {
     "rank": 5,
-    "model": "GLM 5.3 Flash",
-    "note": "1-0-4, score 2:29, 1 won by forfeit"
+    "model": "Kimi 3.1 Pro",
+    "note": "2-0-4, score 14:47"
    },
    {
     "rank": 6,
+    "model": "GLM 5.3 Flash",
+    "note": "1-0-5, score 2:40, 1 won by forfeit"
+   },
+   {
+    "rank": 7,
     "model": "DeepSeek V4.1 Flash",
-    "note": "1-0-4, score 11:44"
+    "note": "1-0-5, score 11:55"
    }
   ],
-  "notes": [],
+  "notes": [
+   "3 result(s) by forfeit (counted as a win, not played): opus beat gemini by forfeit (no-show), TTNA-F02/run-1; glm-flash-sh beat gemini by forfeit (no-show), TTNA-F10/run-1; fable52-cc322 beat gemini by forfeit (no-show), TTNF-F03/run-1"
+  ],
   "as_of": "2026-11-08T09:07:26Z",
   "board": "rel-tabletennis-g1-arena",
   "complete": true,
-  "status_line": "Complete"
+  "status_line": "Complete",
+  "extra_boards": [
+   {
+    "entrant": "Claude Fable 5.2",
+    "board": "f-tabletennis-g1-arena",
+    "run": "r1110f"
+   }
+  ]
  },
  "agents": {
   "per_model": {

@@ -215,82 +215,102 @@
    "board": "rel-soccer-hsl-arena",
    "rule": "points_table@1",
    "complete": true,
-   "played": 15,
-   "total": 15,
+   "played": 21,
+   "total": 21,
    "no_result": 0,
    "status": "Complete",
    "rows": [
     {
      "rank": 1,
-     "model": "GPT-6 Astra",
-     "points": 15,
-     "rating": 1664.6,
-     "won": 5,
+     "model": "Claude Fable 5.2",
+     "points": 18,
+     "rating": 1671.8,
+     "won": 6,
      "drawn": 0,
      "lost": 0,
-     "played": 5,
-     "score_for": 40,
-     "score_against": 5
+     "played": 6,
+     "score_for": 58,
+     "score_against": 4
     },
     {
      "rank": 2,
-     "model": "Claude Opus 5.5",
-     "points": 12,
-     "rating": 1594.2,
-     "won": 4,
+     "model": "GPT-6 Astra",
+     "points": 15,
+     "rating": 1609.9,
+     "won": 5,
      "drawn": 0,
      "lost": 1,
-     "played": 5,
+     "played": 6,
      "score_for": 42,
-     "score_against": 10
-    },
-    {
-     "rank": 3,
-     "model": "Gemini 4 Argon",
-     "points": 6,
-     "rating": 1467.3,
-     "won": 2,
-     "drawn": 0,
-     "lost": 3,
-     "played": 5,
-     "score_for": 18,
-     "score_against": 21
-    },
-    {
-     "rank": 4,
-     "model": "Kimi 3.1 Pro",
-     "points": 6,
-     "rating": 1467.3,
-     "won": 2,
-     "drawn": 0,
-     "lost": 3,
-     "played": 5,
-     "score_for": 4,
      "score_against": 15
     },
     {
-     "rank": 5,
-     "model": "DeepSeek V4.1 Flash",
-     "points": 3,
-     "rating": 1403.4,
-     "won": 1,
+     "rank": 3,
+     "model": "Claude Opus 5.5",
+     "points": 12,
+     "rating": 1553.2,
+     "won": 4,
+     "drawn": 0,
+     "lost": 2,
+     "played": 6,
+     "score_for": 44,
+     "score_against": 18
+    },
+    {
+     "rank": 4,
+     "model": "Gemini 4 Argon",
+     "points": 6,
+     "rating": 1444.4,
+     "won": 2,
      "drawn": 0,
      "lost": 4,
-     "played": 5,
-     "score_for": 0,
-     "score_against": 23
+     "played": 6,
+     "score_for": 18,
+     "score_against": 31
+    },
+    {
+     "rank": 5,
+     "model": "Kimi 3.1 Pro",
+     "points": 6,
+     "rating": 1444.4,
+     "won": 2,
+     "drawn": 0,
+     "lost": 4,
+     "played": 6,
+     "score_for": 4,
+     "score_against": 25
     },
     {
      "rank": 6,
-     "model": "GLM 5.3 Flash",
+     "model": "DeepSeek V4.1 Flash",
      "points": 3,
-     "rating": 1403.4,
+     "rating": 1388.2,
      "won": 1,
      "drawn": 0,
-     "lost": 4,
-     "played": 5,
+     "lost": 5,
+     "played": 6,
      "score_for": 0,
-     "score_against": 30
+     "score_against": 33
+    },
+    {
+     "rank": 7,
+     "model": "GLM 5.3 Flash",
+     "points": 3,
+     "rating": 1388.2,
+     "won": 1,
+     "drawn": 0,
+     "lost": 5,
+     "played": 6,
+     "score_for": 0,
+     "score_against": 40
+    }
+   ],
+   "extra_boards": [
+    {
+     "entrant": "Claude Fable 5.2",
+     "board": "f-soccer-hsl-arena",
+     "run": "r1110f",
+     "matches": 6
     }
    ]
   },
@@ -298,82 +318,102 @@
    "board": "rel-soccer-ssl-arena",
    "rule": "points_table@1",
    "complete": true,
-   "played": 15,
-   "total": 15,
+   "played": 21,
+   "total": 21,
    "no_result": 0,
    "status": "Complete",
    "rows": [
     {
      "rank": 1,
-     "model": "Claude Opus 5.5",
-     "points": 15,
-     "rating": 1669.5,
-     "won": 5,
+     "model": "Claude Fable 5.2",
+     "points": 18,
+     "rating": 1675.1,
+     "won": 6,
      "drawn": 0,
      "lost": 0,
-     "played": 5,
-     "score_for": 29,
-     "score_against": 5
+     "played": 6,
+     "score_for": 40,
+     "score_against": 2
     },
     {
      "rank": 2,
-     "model": "Gemini 4 Argon",
-     "points": 12,
-     "rating": 1598.0,
-     "won": 4,
+     "model": "Claude Opus 5.5",
+     "points": 15,
+     "rating": 1612.8,
+     "won": 5,
      "drawn": 0,
      "lost": 1,
-     "played": 5,
-     "score_for": 33,
-     "score_against": 5
+     "played": 6,
+     "score_for": 30,
+     "score_against": 6
     },
     {
      "rank": 3,
-     "model": "GPT-6 Astra",
-     "points": 9,
-     "rating": 1532.1,
-     "won": 3,
+     "model": "Gemini 4 Argon",
+     "points": 12,
+     "rating": 1555.3,
+     "won": 4,
      "drawn": 0,
      "lost": 2,
-     "played": 5,
-     "score_for": 20,
+     "played": 6,
+     "score_for": 34,
      "score_against": 7
     },
     {
      "rank": 4,
-     "model": "Kimi 3.1 Pro",
-     "points": 6,
-     "rating": 1467.9,
-     "won": 2,
+     "model": "GPT-6 Astra",
+     "points": 9,
+     "rating": 1500.0,
+     "won": 3,
      "drawn": 0,
      "lost": 3,
-     "played": 5,
-     "score_for": 11,
-     "score_against": 20
+     "played": 6,
+     "score_for": 20,
+     "score_against": 14
     },
     {
      "rank": 5,
-     "model": "GLM 5.3 Flash",
-     "points": 3,
-     "rating": 1402.0,
-     "won": 1,
+     "model": "Kimi 3.1 Pro",
+     "points": 6,
+     "rating": 1444.7,
+     "won": 2,
      "drawn": 0,
      "lost": 4,
-     "played": 5,
-     "score_for": 6,
-     "score_against": 17
+     "played": 6,
+     "score_for": 11,
+     "score_against": 30
     },
     {
      "rank": 6,
-     "model": "DeepSeek V4.1 Flash",
-     "points": 0,
-     "rating": 1330.5,
-     "won": 0,
+     "model": "GLM 5.3 Flash",
+     "points": 3,
+     "rating": 1387.2,
+     "won": 1,
      "drawn": 0,
      "lost": 5,
-     "played": 5,
+     "played": 6,
+     "score_for": 6,
+     "score_against": 27
+    },
+    {
+     "rank": 7,
+     "model": "DeepSeek V4.1 Flash",
+     "points": 0,
+     "rating": 1324.9,
+     "won": 0,
+     "drawn": 0,
+     "lost": 6,
+     "played": 6,
      "score_for": 1,
-     "score_against": 46
+     "score_against": 56
+    }
+   ],
+   "extra_boards": [
+    {
+     "entrant": "Claude Fable 5.2",
+     "board": "f-soccer-ssl-arena",
+     "run": "r1110f",
+     "matches": 6
     }
    ]
   },
@@ -381,82 +421,102 @@
    "board": "rel-tabletennis-g1-arena",
    "rule": "points_table@1",
    "complete": true,
-   "played": 15,
-   "total": 15,
+   "played": 21,
+   "total": 21,
    "no_result": 0,
    "status": "Complete",
    "rows": [
     {
      "rank": 1,
-     "model": "GPT-6 Astra",
-     "points": 15,
-     "rating": 1664.6,
-     "won": 5,
+     "model": "Claude Fable 5.2",
+     "points": 18,
+     "rating": 1671.8,
+     "won": 6,
      "drawn": 0,
      "lost": 0,
-     "played": 5,
-     "score_for": 53,
-     "score_against": 17
+     "played": 6,
+     "score_for": 55,
+     "score_against": 8
     },
     {
      "rank": 2,
-     "model": "Claude Opus 5.5",
-     "points": 12,
-     "rating": 1594.2,
-     "won": 4,
+     "model": "GPT-6 Astra",
+     "points": 15,
+     "rating": 1609.9,
+     "won": 5,
      "drawn": 0,
      "lost": 1,
-     "played": 5,
-     "score_for": 46,
-     "score_against": 15
+     "played": 6,
+     "score_for": 60,
+     "score_against": 28
     },
     {
      "rank": 3,
+     "model": "Claude Opus 5.5",
+     "points": 12,
+     "rating": 1553.2,
+     "won": 4,
+     "drawn": 0,
+     "lost": 2,
+     "played": 6,
+     "score_for": 47,
+     "score_against": 26
+    },
+    {
+     "rank": 4,
      "model": "Gemini 4 Argon",
      "points": 6,
-     "rating": 1467.3,
+     "rating": 1444.4,
      "won": 2,
      "drawn": 0,
-     "lost": 3,
-     "played": 5,
+     "lost": 4,
+     "played": 6,
      "score_for": 26,
      "score_against": 11
     },
     {
-     "rank": 4,
+     "rank": 5,
      "model": "Kimi 3.1 Pro",
      "points": 6,
-     "rating": 1467.3,
+     "rating": 1444.4,
      "won": 2,
      "drawn": 0,
-     "lost": 3,
-     "played": 5,
-     "score_for": 14,
-     "score_against": 36
-    },
-    {
-     "rank": 5,
-     "model": "GLM 5.3 Flash",
-     "points": 3,
-     "rating": 1403.4,
-     "won": 1,
-     "drawn": 0,
      "lost": 4,
-     "played": 5,
-     "score_for": 2,
-     "score_against": 29
+     "played": 6,
+     "score_for": 14,
+     "score_against": 47
     },
     {
      "rank": 6,
-     "model": "DeepSeek V4.1 Flash",
+     "model": "GLM 5.3 Flash",
      "points": 3,
-     "rating": 1403.4,
+     "rating": 1388.2,
      "won": 1,
      "drawn": 0,
-     "lost": 4,
-     "played": 5,
+     "lost": 5,
+     "played": 6,
+     "score_for": 2,
+     "score_against": 40
+    },
+    {
+     "rank": 7,
+     "model": "DeepSeek V4.1 Flash",
+     "points": 3,
+     "rating": 1388.2,
+     "won": 1,
+     "drawn": 0,
+     "lost": 5,
+     "played": 6,
      "score_for": 11,
-     "score_against": 44
+     "score_against": 55
+    }
+   ],
+   "extra_boards": [
+    {
+     "entrant": "Claude Fable 5.2",
+     "board": "f-tabletennis-g1-arena",
+     "run": "r1110f",
+     "matches": 6
     }
    ]
   },
@@ -464,82 +524,102 @@
    "board": "rel-badminton-g1-arena",
    "rule": "points_table@1",
    "complete": true,
-   "played": 15,
-   "total": 15,
+   "played": 21,
+   "total": 21,
    "no_result": 0,
    "status": "Complete",
    "rows": [
     {
      "rank": 1,
-     "model": "GPT-6 Astra",
-     "points": 15,
-     "rating": 1667.2,
-     "won": 5,
+     "model": "Claude Fable 5.2",
+     "points": 18,
+     "rating": 1673.5,
+     "won": 6,
      "drawn": 0,
      "lost": 0,
-     "played": 5,
+     "played": 6,
      "score_for": 55,
-     "score_against": 9
+     "score_against": 6
     },
     {
      "rank": 2,
-     "model": "Claude Opus 5.5",
-     "points": 12,
-     "rating": 1596.3,
-     "won": 4,
+     "model": "GPT-6 Astra",
+     "points": 15,
+     "rating": 1611.5,
+     "won": 5,
      "drawn": 0,
      "lost": 1,
-     "played": 5,
-     "score_for": 50,
-     "score_against": 17
+     "played": 6,
+     "score_for": 59,
+     "score_against": 20
     },
     {
      "rank": 3,
-     "model": "Kimi 3.1 Pro",
-     "points": 6,
-     "rating": 1468.0,
-     "won": 2,
+     "model": "Claude Opus 5.5",
+     "points": 12,
+     "rating": 1554.4,
+     "won": 4,
      "drawn": 0,
-     "lost": 3,
-     "played": 5,
-     "score_for": 31,
-     "score_against": 37
+     "lost": 2,
+     "played": 6,
+     "score_for": 51,
+     "score_against": 28
     },
     {
      "rank": 4,
      "model": "Gemini 4 Argon",
      "points": 6,
-     "rating": 1468.0,
+     "rating": 1444.8,
      "won": 2,
      "drawn": 0,
-     "lost": 3,
-     "played": 5,
+     "lost": 4,
+     "played": 6,
      "score_for": 23,
      "score_against": 34
     },
     {
      "rank": 5,
-     "model": "DeepSeek V4.1 Flash",
+     "model": "Kimi 3.1 Pro",
      "points": 6,
-     "rating": 1468.0,
+     "rating": 1444.8,
      "won": 2,
      "drawn": 0,
-     "lost": 3,
-     "played": 5,
-     "score_for": 23,
-     "score_against": 35
+     "lost": 4,
+     "played": 6,
+     "score_for": 32,
+     "score_against": 48
     },
     {
      "rank": 6,
+     "model": "DeepSeek V4.1 Flash",
+     "points": 6,
+     "rating": 1444.8,
+     "won": 2,
+     "drawn": 0,
+     "lost": 4,
+     "played": 6,
+     "score_for": 23,
+     "score_against": 46
+    },
+    {
+     "rank": 7,
      "model": "GLM 5.3 Flash",
      "points": 0,
-     "rating": 1332.5,
+     "rating": 1326.2,
      "won": 0,
      "drawn": 0,
-     "lost": 5,
-     "played": 5,
+     "lost": 6,
+     "played": 6,
      "score_for": 5,
-     "score_against": 55
+     "score_against": 66
+    }
+   ],
+   "extra_boards": [
+    {
+     "entrant": "Claude Fable 5.2",
+     "board": "f-badminton-g1-arena",
+     "run": "r1110f",
+     "matches": 6
     }
    ]
   },
@@ -547,82 +627,102 @@
    "board": "rel-tennis-g1-arena",
    "rule": "points_table@1",
    "complete": true,
-   "played": 15,
-   "total": 15,
+   "played": 21,
+   "total": 21,
    "no_result": 0,
    "status": "Complete",
    "rows": [
     {
      "rank": 1,
      "model": "GPT-6 Astra",
-     "points": 15,
-     "rating": 1665.3,
-     "won": 5,
+     "points": 18,
+     "rating": 1672.2,
+     "won": 6,
      "drawn": 0,
      "lost": 0,
-     "played": 5,
-     "score_for": 34,
-     "score_against": 17
+     "played": 6,
+     "score_for": 44,
+     "score_against": 27
     },
     {
      "rank": 2,
-     "model": "Claude Opus 5.5",
-     "points": 9,
-     "rating": 1531.2,
-     "won": 3,
+     "model": "Claude Fable 5.2",
+     "points": 15,
+     "rating": 1610.5,
+     "won": 5,
      "drawn": 0,
-     "lost": 2,
-     "played": 5,
-     "score_for": 28,
+     "lost": 1,
+     "played": 6,
+     "score_for": 36,
      "score_against": 15
     },
     {
      "rank": 3,
-     "model": "Kimi 3.1 Pro",
+     "model": "Claude Opus 5.5",
      "points": 9,
-     "rating": 1531.2,
+     "rating": 1499.6,
      "won": 3,
      "drawn": 0,
-     "lost": 2,
-     "played": 5,
-     "score_for": 18,
-     "score_against": 18
+     "lost": 3,
+     "played": 6,
+     "score_for": 33,
+     "score_against": 22
     },
     {
      "rank": 4,
-     "model": "DeepSeek V4.1 Flash",
-     "points": 6,
-     "rating": 1468.8,
-     "won": 2,
+     "model": "Kimi 3.1 Pro",
+     "points": 9,
+     "rating": 1499.6,
+     "won": 3,
      "drawn": 0,
      "lost": 3,
-     "played": 5,
-     "score_for": 7,
-     "score_against": 13
+     "played": 6,
+     "score_for": 18,
+     "score_against": 21
     },
     {
      "rank": 5,
      "model": "Gemini 4 Argon",
      "points": 6,
-     "rating": 1468.8,
+     "rating": 1445.3,
      "won": 2,
      "drawn": 0,
-     "lost": 3,
-     "played": 5,
+     "lost": 4,
+     "played": 6,
      "score_for": 14,
-     "score_against": 23
+     "score_against": 26
     },
     {
      "rank": 6,
+     "model": "DeepSeek V4.1 Flash",
+     "points": 6,
+     "rating": 1445.3,
+     "won": 2,
+     "drawn": 0,
+     "lost": 4,
+     "played": 6,
+     "score_for": 7,
+     "score_against": 19
+    },
+    {
+     "rank": 7,
      "model": "GLM 5.3 Flash",
      "points": 0,
-     "rating": 1334.7,
+     "rating": 1327.5,
      "won": 0,
      "drawn": 0,
-     "lost": 5,
-     "played": 5,
+     "lost": 6,
+     "played": 6,
      "score_for": 1,
-     "score_against": 16
+     "score_against": 23
+    }
+   ],
+   "extra_boards": [
+    {
+     "entrant": "Claude Fable 5.2",
+     "board": "f-tennis-g1-arena",
+     "run": "r1110f",
+     "matches": 6
     }
    ]
   },
@@ -630,82 +730,102 @@
    "board": "rel-beachvolleyball-g1-arena",
    "rule": "points_table@1",
    "complete": true,
-   "played": 15,
-   "total": 15,
+   "played": 21,
+   "total": 21,
    "no_result": 0,
    "status": "Complete",
    "rows": [
     {
      "rank": 1,
      "model": "GPT-6 Astra",
-     "points": 15,
-     "rating": 1664.6,
-     "won": 5,
+     "points": 18,
+     "rating": 1671.8,
+     "won": 6,
      "drawn": 0,
      "lost": 0,
-     "played": 5,
-     "score_for": 61,
-     "score_against": 24
+     "played": 6,
+     "score_for": 77,
+     "score_against": 38
     },
     {
      "rank": 2,
-     "model": "Claude Opus 5.5",
-     "points": 12,
-     "rating": 1594.2,
-     "won": 4,
+     "model": "Claude Fable 5.2",
+     "points": 15,
+     "rating": 1609.9,
+     "won": 5,
      "drawn": 0,
      "lost": 1,
-     "played": 5,
-     "score_for": 74,
-     "score_against": 35
+     "played": 6,
+     "score_for": 75,
+     "score_against": 30
     },
     {
      "rank": 3,
-     "model": "Kimi 3.1 Pro",
-     "points": 6,
-     "rating": 1467.3,
-     "won": 2,
+     "model": "Claude Opus 5.5",
+     "points": 12,
+     "rating": 1553.2,
+     "won": 4,
      "drawn": 0,
-     "lost": 3,
-     "played": 5,
-     "score_for": 43,
-     "score_against": 60
+     "lost": 2,
+     "played": 6,
+     "score_for": 88,
+     "score_against": 51
     },
     {
      "rank": 4,
-     "model": "GLM 5.3 Flash",
+     "model": "Kimi 3.1 Pro",
      "points": 6,
-     "rating": 1467.3,
+     "rating": 1444.4,
      "won": 2,
      "drawn": 0,
-     "lost": 3,
-     "played": 5,
-     "score_for": 34,
-     "score_against": 60
+     "lost": 4,
+     "played": 6,
+     "score_for": 43,
+     "score_against": 75
     },
     {
      "rank": 5,
-     "model": "Gemini 4 Argon",
-     "points": 3,
-     "rating": 1403.4,
-     "won": 1,
+     "model": "GLM 5.3 Flash",
+     "points": 6,
+     "rating": 1444.4,
+     "won": 2,
      "drawn": 0,
      "lost": 4,
-     "played": 5,
+     "played": 6,
+     "score_for": 34,
+     "score_against": 75
+    },
+    {
+     "rank": 6,
+     "model": "Gemini 4 Argon",
+     "points": 3,
+     "rating": 1388.2,
+     "won": 1,
+     "drawn": 0,
+     "lost": 5,
+     "played": 6,
      "score_for": 27,
      "score_against": 21
     },
     {
-     "rank": 6,
+     "rank": 7,
      "model": "DeepSeek V4.1 Flash",
      "points": 3,
-     "rating": 1403.4,
+     "rating": 1388.2,
      "won": 1,
      "drawn": 0,
-     "lost": 4,
-     "played": 5,
+     "lost": 5,
+     "played": 6,
      "score_for": 36,
-     "score_against": 75
+     "score_against": 90
+    }
+   ],
+   "extra_boards": [
+    {
+     "entrant": "Claude Fable 5.2",
+     "board": "f-beachvolleyball-g1-arena",
+     "run": "r1110f",
+     "matches": 6
     }
    ]
   },
@@ -713,82 +833,102 @@
    "board": "rel-basketball-g1-arena",
    "rule": "points_table@1",
    "complete": true,
-   "played": 15,
-   "total": 15,
+   "played": 21,
+   "total": 21,
    "no_result": 0,
    "status": "Complete",
    "rows": [
     {
      "rank": 1,
      "model": "GPT-6 Astra",
-     "points": 15,
-     "rating": 1662.8,
-     "won": 5,
+     "points": 18,
+     "rating": 1669.3,
+     "won": 6,
      "drawn": 0,
      "lost": 0,
-     "played": 5,
-     "score_for": 76,
+     "played": 6,
+     "score_for": 80,
      "score_against": 4
     },
     {
      "rank": 2,
-     "model": "Claude Opus 5.5",
-     "points": 9,
-     "rating": 1529.7,
-     "won": 3,
+     "model": "Claude Fable 5.2",
+     "points": 12,
+     "rating": 1552.7,
+     "won": 4,
      "drawn": 0,
      "lost": 2,
-     "played": 5,
-     "score_for": 15,
-     "score_against": 12
+     "played": 6,
+     "score_for": 40,
+     "score_against": 8
     },
     {
      "rank": 3,
      "model": "Kimi 3.1 Pro",
-     "points": 9,
-     "rating": 1529.7,
-     "won": 3,
+     "points": 12,
+     "rating": 1552.7,
+     "won": 4,
      "drawn": 0,
      "lost": 2,
-     "played": 5,
+     "played": 6,
      "score_for": 2,
      "score_against": 22
     },
     {
      "rank": 4,
-     "model": "DeepSeek V4.1 Flash",
-     "points": 6,
-     "rating": 1468.0,
-     "won": 2,
+     "model": "Claude Opus 5.5",
+     "points": 9,
+     "rating": 1499.1,
+     "won": 3,
      "drawn": 0,
      "lost": 3,
-     "played": 5,
-     "score_for": 0,
-     "score_against": 10
+     "played": 6,
+     "score_for": 19,
+     "score_against": 28
     },
     {
      "rank": 5,
-     "model": "Gemini 4 Argon",
-     "points": 3,
-     "rating": 1404.8,
-     "won": 1,
+     "model": "DeepSeek V4.1 Flash",
+     "points": 6,
+     "rating": 1445.7,
+     "won": 2,
      "drawn": 0,
      "lost": 4,
-     "played": 5,
+     "played": 6,
+     "score_for": 0,
+     "score_against": 24
+    },
+    {
+     "rank": 6,
+     "model": "Gemini 4 Argon",
+     "points": 3,
+     "rating": 1390.2,
+     "won": 1,
+     "drawn": 0,
+     "lost": 5,
+     "played": 6,
      "score_for": 0,
      "score_against": 10
     },
     {
-     "rank": 6,
+     "rank": 7,
      "model": "GLM 5.3 Flash",
      "points": 3,
-     "rating": 1404.8,
+     "rating": 1390.2,
      "won": 1,
      "drawn": 0,
-     "lost": 4,
-     "played": 5,
+     "lost": 5,
+     "played": 6,
      "score_for": 0,
-     "score_against": 35
+     "score_against": 45
+    }
+   ],
+   "extra_boards": [
+    {
+     "entrant": "Claude Fable 5.2",
+     "board": "f-basketball-g1-arena",
+     "run": "r1110f",
+     "matches": 6
     }
    ]
   },
@@ -796,82 +936,102 @@
    "board": "rel-baseball-g1-arena",
    "rule": "points_table@1",
    "complete": true,
-   "played": 15,
-   "total": 15,
+   "played": 21,
+   "total": 21,
    "no_result": 0,
    "status": "Complete",
    "rows": [
     {
      "rank": 1,
-     "model": "GPT-6 Astra",
-     "points": 15,
-     "rating": 1669.5,
-     "won": 5,
+     "model": "Claude Fable 5.2",
+     "points": 18,
+     "rating": 1675.1,
+     "won": 6,
      "drawn": 0,
      "lost": 0,
-     "played": 5,
-     "score_for": 29,
-     "score_against": 7
+     "played": 6,
+     "score_for": 35,
+     "score_against": 3
     },
     {
      "rank": 2,
-     "model": "Claude Opus 5.5",
-     "points": 12,
-     "rating": 1598.0,
-     "won": 4,
+     "model": "GPT-6 Astra",
+     "points": 15,
+     "rating": 1612.8,
+     "won": 5,
      "drawn": 0,
      "lost": 1,
-     "played": 5,
-     "score_for": 24,
-     "score_against": 8
+     "played": 6,
+     "score_for": 29,
+     "score_against": 17
     },
     {
      "rank": 3,
-     "model": "Kimi 3.1 Pro",
-     "points": 9,
-     "rating": 1532.1,
-     "won": 3,
+     "model": "Claude Opus 5.5",
+     "points": 12,
+     "rating": 1555.3,
+     "won": 4,
      "drawn": 0,
      "lost": 2,
-     "played": 5,
-     "score_for": 25,
-     "score_against": 11
+     "played": 6,
+     "score_for": 27,
+     "score_against": 13
     },
     {
      "rank": 4,
-     "model": "GLM 5.3 Flash",
-     "points": 6,
-     "rating": 1467.9,
-     "won": 2,
+     "model": "Kimi 3.1 Pro",
+     "points": 9,
+     "rating": 1500.0,
+     "won": 3,
      "drawn": 0,
      "lost": 3,
-     "played": 5,
+     "played": 6,
+     "score_for": 25,
+     "score_against": 16
+    },
+    {
+     "rank": 5,
+     "model": "GLM 5.3 Flash",
+     "points": 6,
+     "rating": 1444.7,
+     "won": 2,
+     "drawn": 0,
+     "lost": 4,
+     "played": 6,
      "score_for": 45,
      "score_against": 61
     },
     {
-     "rank": 5,
+     "rank": 6,
      "model": "Gemini 4 Argon",
      "points": 3,
-     "rating": 1402.0,
+     "rating": 1387.2,
      "won": 1,
      "drawn": 0,
-     "lost": 4,
-     "played": 5,
+     "lost": 5,
+     "played": 6,
      "score_for": 36,
-     "score_against": 51
+     "score_against": 61
     },
     {
-     "rank": 6,
+     "rank": 7,
      "model": "DeepSeek V4.1 Flash",
      "points": 0,
-     "rating": 1330.5,
+     "rating": 1324.9,
      "won": 0,
      "drawn": 0,
-     "lost": 5,
-     "played": 5,
+     "lost": 6,
+     "played": 6,
      "score_for": 30,
-     "score_against": 51
+     "score_against": 56
+    }
+   ],
+   "extra_boards": [
+    {
+     "entrant": "Claude Fable 5.2",
+     "board": "f-baseball-g1-arena",
+     "run": "r1110f",
+     "matches": 6
     }
    ]
   },
@@ -879,82 +1039,102 @@
    "board": "rel-curling-g1-arena",
    "rule": "points_table@1",
    "complete": true,
-   "played": 15,
-   "total": 15,
+   "played": 21,
+   "total": 21,
    "no_result": 0,
    "status": "Complete",
    "rows": [
     {
      "rank": 1,
-     "model": "Claude Opus 5.5",
+     "model": "Claude Fable 5.2",
      "points": 15,
-     "rating": 1665.3,
+     "rating": 1609.8,
      "won": 5,
      "drawn": 0,
-     "lost": 0,
-     "played": 5,
+     "lost": 1,
+     "played": 6,
      "score_for": 25,
-     "score_against": 9
+     "score_against": 12
     },
     {
      "rank": 2,
-     "model": "DeepSeek V4.1 Flash",
-     "points": 9,
-     "rating": 1531.2,
-     "won": 3,
+     "model": "Claude Opus 5.5",
+     "points": 15,
+     "rating": 1609.8,
+     "won": 5,
      "drawn": 0,
-     "lost": 2,
-     "played": 5,
-     "score_for": 15,
-     "score_against": 12
+     "lost": 1,
+     "played": 6,
+     "score_for": 27,
+     "score_against": 14
     },
     {
      "rank": 3,
      "model": "GPT-6 Astra",
-     "points": 9,
-     "rating": 1531.2,
-     "won": 3,
+     "points": 12,
+     "rating": 1554.3,
+     "won": 4,
      "drawn": 0,
      "lost": 2,
-     "played": 5,
-     "score_for": 13,
-     "score_against": 12
+     "played": 6,
+     "score_for": 17,
+     "score_against": 14
     },
     {
      "rank": 4,
-     "model": "Kimi 3.1 Pro",
-     "points": 6,
-     "rating": 1468.8,
-     "won": 2,
+     "model": "DeepSeek V4.1 Flash",
+     "points": 9,
+     "rating": 1500.9,
+     "won": 3,
      "drawn": 0,
      "lost": 3,
-     "played": 5,
+     "played": 6,
      "score_for": 17,
-     "score_against": 12
+     "score_against": 16
     },
     {
      "rank": 5,
-     "model": "Gemini 4 Argon",
+     "model": "Kimi 3.1 Pro",
      "points": 6,
-     "rating": 1468.8,
+     "rating": 1447.3,
      "won": 2,
      "drawn": 0,
-     "lost": 3,
-     "played": 5,
-     "score_for": 11,
-     "score_against": 11
+     "lost": 4,
+     "played": 6,
+     "score_for": 18,
+     "score_against": 17
     },
     {
      "rank": 6,
+     "model": "Gemini 4 Argon",
+     "points": 6,
+     "rating": 1447.3,
+     "won": 2,
+     "drawn": 0,
+     "lost": 4,
+     "played": 6,
+     "score_for": 12,
+     "score_against": 16
+    },
+    {
+     "rank": 7,
      "model": "GLM 5.3 Flash",
      "points": 0,
-     "rating": 1334.7,
+     "rating": 1330.7,
      "won": 0,
      "drawn": 0,
-     "lost": 5,
-     "played": 5,
-     "score_for": 7,
-     "score_against": 32
+     "lost": 6,
+     "played": 6,
+     "score_for": 9,
+     "score_against": 36
+    }
+   ],
+   "extra_boards": [
+    {
+     "entrant": "Claude Fable 5.2",
+     "board": "f-curling-g1-arena",
+     "run": "r1110f",
+     "matches": 6
     }
    ]
   },
@@ -962,93 +1142,113 @@
    "board": "rel-billiards-g1-arena",
    "rule": "points_table@1",
    "complete": true,
-   "played": 15,
-   "total": 15,
+   "played": 21,
+   "total": 21,
    "no_result": 0,
    "status": "Complete",
    "rows": [
     {
      "rank": 1,
-     "model": "GPT-6 Astra",
-     "points": 12,
-     "rating": 1596.6,
-     "won": 4,
+     "model": "Claude Fable 5.2",
+     "points": 18,
+     "rating": 1672.5,
+     "won": 6,
      "drawn": 0,
-     "lost": 1,
-     "played": 5,
-     "score_for": 8,
-     "score_against": 26
+     "lost": 0,
+     "played": 6,
+     "score_for": 7,
+     "score_against": 33
     },
     {
      "rank": 2,
-     "model": "Claude Opus 5.5",
+     "model": "GPT-6 Astra",
      "points": 12,
-     "rating": 1596.6,
+     "rating": 1554.7,
      "won": 4,
      "drawn": 0,
-     "lost": 1,
-     "played": 5,
-     "score_for": 5,
-     "score_against": 17
+     "lost": 2,
+     "played": 6,
+     "score_for": 10,
+     "score_against": 26
     },
     {
      "rank": 3,
-     "model": "Kimi 3.1 Pro",
-     "points": 9,
-     "rating": 1532.7,
-     "won": 3,
+     "model": "Claude Opus 5.5",
+     "points": 12,
+     "rating": 1554.7,
+     "won": 4,
      "drawn": 0,
      "lost": 2,
-     "played": 5,
-     "score_for": 18,
-     "score_against": 22
+     "played": 6,
+     "score_for": 9,
+     "score_against": 17
     },
     {
      "rank": 4,
-     "model": "DeepSeek V4.1 Flash",
+     "model": "Kimi 3.1 Pro",
      "points": 9,
-     "rating": 1532.7,
+     "rating": 1500.4,
      "won": 3,
      "drawn": 0,
-     "lost": 2,
-     "played": 5,
-     "score_for": 35,
-     "score_against": 21
+     "lost": 3,
+     "played": 6,
+     "score_for": 24,
+     "score_against": 22
     },
     {
      "rank": 5,
-     "model": "Gemini 4 Argon",
-     "points": 3,
-     "rating": 1405.8,
-     "won": 1,
+     "model": "DeepSeek V4.1 Flash",
+     "points": 9,
+     "rating": 1500.4,
+     "won": 3,
      "drawn": 0,
-     "lost": 4,
-     "played": 5,
-     "score_for": 24,
-     "score_against": 28
+     "lost": 3,
+     "played": 6,
+     "score_for": 42,
+     "score_against": 21
     },
     {
      "rank": 6,
-     "model": "GLM 5.3 Flash",
-     "points": 0,
-     "rating": 1335.4,
-     "won": 0,
+     "model": "Gemini 4 Argon",
+     "points": 3,
+     "rating": 1389.5,
+     "won": 1,
      "drawn": 0,
      "lost": 5,
-     "played": 5,
-     "score_for": 34,
+     "played": 6,
+     "score_for": 31,
+     "score_against": 35
+    },
+    {
+     "rank": 7,
+     "model": "GLM 5.3 Flash",
+     "points": 0,
+     "rating": 1327.8,
+     "won": 0,
+     "drawn": 0,
+     "lost": 6,
+     "played": 6,
+     "score_for": 41,
      "score_against": 10
     }
    ],
    "score_direction": "lower",
-   "note": "Lower scores are better in this sport (balls left), so points ties are ordered by score against minus score for."
+   "note": "Lower scores are better in this sport (balls left), so points ties are ordered by score against minus score for.",
+   "extra_boards": [
+    {
+     "entrant": "Claude Fable 5.2",
+     "board": "f-billiards-g1-arena",
+     "run": "r1110f",
+     "matches": 6
+    }
+   ]
   },
   "amfootball": {
    "board": "rel-amfootball-arena",
    "rule": "points_table@1",
    "complete": true,
-   "played": 15,
-   "total": 15,
+   "played": 21,
+   "total": 21,
    "no_result": 0,
    "status": "Complete",
    "rows": [
@@ -1056,73 +1256,93 @@
      "rank": 1,
      "model": "GPT-6 Astra",
      "points": 15,
-     "rating": 1662.8,
+     "rating": 1786.9,
      "won": 5,
      "drawn": 0,
-     "lost": 0,
-     "played": 5,
+     "lost": 1,
+     "played": 6,
      "score_for": 217,
-     "score_against": 0
+     "score_against": 28
     },
     {
      "rank": 2,
-     "model": "Claude Opus 5.5",
-     "points": 9,
-     "rating": 1529.7,
-     "won": 3,
+     "model": "Claude Fable 5.2",
+     "points": 12,
+     "rating": 1638.1,
+     "won": 4,
      "drawn": 0,
      "lost": 2,
-     "played": 5,
-     "score_for": 83,
-     "score_against": 8
+     "played": 6,
+     "score_for": 497,
+     "score_against": 23
     },
     {
      "rank": 3,
-     "model": "Kimi 3.1 Pro",
-     "points": 9,
-     "rating": 1529.7,
-     "won": 3,
+     "model": "Claude Opus 5.5",
+     "points": 12,
+     "rating": 1638.1,
+     "won": 4,
      "drawn": 0,
      "lost": 2,
-     "played": 5,
-     "score_for": 70,
-     "score_against": 90
+     "played": 6,
+     "score_for": 100,
+     "score_against": 15
     },
     {
      "rank": 4,
      "model": "Gemini 4 Argon",
-     "points": 6,
-     "rating": 1468.0,
-     "won": 2,
+     "points": 9,
+     "rating": 1507.4,
+     "won": 3,
      "drawn": 0,
      "lost": 3,
-     "played": 5,
-     "score_for": 95,
+     "played": 6,
+     "score_for": 101,
      "score_against": 155
     },
     {
      "rank": 5,
-     "model": "DeepSeek V4.1 Flash",
-     "points": 3,
-     "rating": 1404.8,
-     "won": 1,
+     "model": "Kimi 3.1 Pro",
+     "points": 9,
+     "rating": 1507.4,
+     "won": 3,
      "drawn": 0,
-     "lost": 4,
-     "played": 5,
-     "score_for": 63,
-     "score_against": 113
+     "lost": 3,
+     "played": 6,
+     "score_for": 70,
+     "score_against": 258
     },
     {
      "rank": 6,
-     "model": "GLM 5.3 Flash",
+     "model": "DeepSeek V4.1 Flash",
      "points": 3,
-     "rating": 1404.8,
+     "rating": 1211.0,
      "won": 1,
      "drawn": 0,
-     "lost": 4,
-     "played": 5,
+     "lost": 5,
+     "played": 6,
+     "score_for": 63,
+     "score_against": 302
+    },
+    {
+     "rank": 7,
+     "model": "GLM 5.3 Flash",
+     "points": 3,
+     "rating": 1211.0,
+     "won": 1,
+     "drawn": 0,
+     "lost": 5,
+     "played": 6,
      "score_for": 21,
-     "score_against": 183
+     "score_against": 288
+    }
+   ],
+   "extra_boards": [
+    {
+     "entrant": "Claude Fable 5.2",
+     "board": "f-amfootball-arena",
+     "run": "r1110f",
+     "matches": 6
     }
    ]
   },
@@ -1207,6 +1427,9 @@
      "score_for": 0,
      "score_against": 26
     }
+   ],
+   "did_not_enter": [
+    "Claude Fable 5.2"
    ]
   }
  },
@@ -1226,52 +1449,60 @@
   "scopes": {
    "both": [
     {
-     "model": "GPT-6 Astra",
-     "played": 136,
-     "won": 116,
+     "model": "Claude Fable 5.2",
+     "played": 60,
+     "won": 53,
      "drawn": 0,
-     "lost": 20,
-     "pct": 85.3
+     "lost": 7,
+     "pct": 88.3
+    },
+    {
+     "model": "GPT-6 Astra",
+     "played": 147,
+     "won": 120,
+     "drawn": 0,
+     "lost": 27,
+     "pct": 81.6
     },
     {
      "model": "Claude Opus 5.5",
-     "played": 137,
-     "won": 103,
+     "played": 148,
+     "won": 104,
      "drawn": 0,
-     "lost": 34,
-     "pct": 75.2
+     "lost": 44,
+     "pct": 70.3
     },
     {
      "model": "Gemini 4 Argon",
-     "played": 126,
-     "won": 65,
+     "played": 132,
+     "won": 66,
      "drawn": 0,
-     "lost": 61,
-     "pct": 51.6
+     "lost": 66,
+     "pct": 50.0
     },
     {
      "model": "Kimi 3.1 Pro",
-     "played": 125,
-     "won": 47,
+     "played": 136,
+     "won": 48,
      "drawn": 0,
-     "lost": 78,
-     "pct": 37.6
+     "lost": 88,
+     "pct": 35.3
     },
     {
      "model": "DeepSeek V4.1 Flash",
-     "played": 118,
+     "played": 129,
      "won": 31,
      "drawn": 0,
-     "lost": 87,
-     "pct": 26.3
+     "lost": 98,
+     "pct": 24.0
     },
     {
      "model": "GLM 5.3 Flash",
-     "played": 104,
+     "played": 114,
      "won": 11,
      "drawn": 0,
-     "lost": 93,
-     "pct": 10.6
+     "lost": 103,
+     "pct": 9.6
     }
    ],
    "championship": [
@@ -1326,52 +1557,60 @@
    ],
    "arena": [
     {
-     "model": "GPT-6 Astra",
-     "played": 56,
-     "won": 49,
+     "model": "Claude Fable 5.2",
+     "played": 60,
+     "won": 53,
      "drawn": 0,
      "lost": 7,
-     "pct": 87.5
+     "pct": 88.3
+    },
+    {
+     "model": "GPT-6 Astra",
+     "played": 67,
+     "won": 53,
+     "drawn": 0,
+     "lost": 14,
+     "pct": 79.1
     },
     {
      "model": "Claude Opus 5.5",
-     "played": 55,
-     "won": 43,
+     "played": 66,
+     "won": 44,
      "drawn": 0,
-     "lost": 12,
-     "pct": 78.2
+     "lost": 22,
+     "pct": 66.7
     },
     {
      "model": "Gemini 4 Argon",
-     "played": 48,
-     "won": 24,
+     "played": 54,
+     "won": 25,
      "drawn": 0,
-     "lost": 24,
-     "pct": 50.0
+     "lost": 29,
+     "pct": 46.3
     },
     {
      "model": "Kimi 3.1 Pro",
-     "played": 55,
-     "won": 24,
+     "played": 66,
+     "won": 25,
      "drawn": 0,
-     "lost": 31,
-     "pct": 43.6
+     "lost": 41,
+     "pct": 37.9
     },
     {
      "model": "DeepSeek V4.1 Flash",
-     "played": 55,
+     "played": 66,
      "won": 13,
      "drawn": 0,
-     "lost": 42,
-     "pct": 23.6
+     "lost": 53,
+     "pct": 19.7
     },
     {
      "model": "GLM 5.3 Flash",
-     "played": 53,
+     "played": 63,
      "won": 8,
      "drawn": 0,
-     "lost": 45,
-     "pct": 15.1
+     "lost": 55,
+     "pct": 12.7
     }
    ]
   },
@@ -1389,39 +1628,11 @@
     "absent": "Kimi 3.1 Pro"
    },
    {
-    "fixture": "SSLA-F03",
-    "sport": "soccer_ssl",
-    "scope": "arena",
-    "kind": "no-show",
-    "absent": "GLM 5.3 Flash"
-   },
-   {
-    "fixture": "SSLA-F09",
-    "sport": "soccer_ssl",
-    "scope": "arena",
-    "kind": "no-show",
-    "absent": "Kimi 3.1 Pro"
-   },
-   {
     "fixture": "TTN2-F11",
     "sport": "tabletennis",
     "scope": "championship",
     "kind": "no-show",
     "absent": "GLM 5.3 Flash"
-   },
-   {
-    "fixture": "TTNA-F02",
-    "sport": "tabletennis",
-    "scope": "arena",
-    "kind": "no-show",
-    "absent": "Gemini 4 Argon"
-   },
-   {
-    "fixture": "TTNA-F10",
-    "sport": "tabletennis",
-    "scope": "arena",
-    "kind": "no-show",
-    "absent": "Gemini 4 Argon"
    },
    {
     "fixture": "TEN2-F15",
@@ -1431,51 +1642,9 @@
     "absent": "GLM 5.3 Flash"
    },
    {
-    "fixture": "BVBA-F06",
-    "sport": "beachvolleyball",
-    "scope": "arena",
-    "kind": "no-show",
-    "absent": "Gemini 4 Argon"
-   },
-   {
-    "fixture": "BVBA-F10",
-    "sport": "beachvolleyball",
-    "scope": "arena",
-    "kind": "no-show",
-    "absent": "Gemini 4 Argon"
-   },
-   {
-    "fixture": "BVBA-F12",
-    "sport": "beachvolleyball",
-    "scope": "arena",
-    "kind": "no-show",
-    "absent": "Gemini 4 Argon"
-   },
-   {
     "fixture": "BSKC-F03",
     "sport": "basketball",
     "scope": "championship",
-    "kind": "no-show",
-    "absent": "Gemini 4 Argon"
-   },
-   {
-    "fixture": "BSKA-F04",
-    "sport": "basketball",
-    "scope": "arena",
-    "kind": "no-show",
-    "absent": "DeepSeek V4.1 Flash"
-   },
-   {
-    "fixture": "BSKA-F11",
-    "sport": "basketball",
-    "scope": "arena",
-    "kind": "no-show",
-    "absent": "Gemini 4 Argon"
-   },
-   {
-    "fixture": "BSKQ-F12",
-    "sport": "basketball",
-    "scope": "arena",
     "kind": "no-show",
     "absent": "Gemini 4 Argon"
    },
@@ -1506,27 +1675,6 @@
     "scope": "championship",
     "kind": "no-show",
     "absent": "GLM 5.3 Flash"
-   },
-   {
-    "fixture": "CURA-F03",
-    "sport": "curling",
-    "scope": "arena",
-    "kind": "did not finish",
-    "absent": "GLM 5.3 Flash"
-   },
-   {
-    "fixture": "CURA-F06",
-    "sport": "curling",
-    "scope": "arena",
-    "kind": "did not finish",
-    "absent": "Gemini 4 Argon"
-   },
-   {
-    "fixture": "CURA-F11",
-    "sport": "curling",
-    "scope": "arena",
-    "kind": "did not finish",
-    "absent": "Gemini 4 Argon"
    },
    {
     "fixture": "BIL2-F02",
@@ -1571,6 +1719,146 @@
     "absent": "DeepSeek V4.1 Flash"
    },
    {
+    "fixture": "HSTC-F05",
+    "sport": "soccer_hsl_team",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "HSTC-F15",
+    "sport": "soccer_hsl_team",
+    "scope": "championship",
+    "kind": "no-show",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "SSLA-F03",
+    "sport": "soccer_ssl",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "SSLA-F09",
+    "sport": "soccer_ssl",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Kimi 3.1 Pro"
+   },
+   {
+    "fixture": "TTNA-F02",
+    "sport": "tabletennis",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "TTNA-F10",
+    "sport": "tabletennis",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "TTNF-F03",
+    "sport": "tabletennis",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BADF-F03",
+    "sport": "badminton",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BVBA-F06",
+    "sport": "beachvolleyball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BVBA-F10",
+    "sport": "beachvolleyball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BVBA-F12",
+    "sport": "beachvolleyball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BVBF-F03",
+    "sport": "beachvolleyball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BSKA-F04",
+    "sport": "basketball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "DeepSeek V4.1 Flash"
+   },
+   {
+    "fixture": "BSKA-F11",
+    "sport": "basketball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BSKQ-F12",
+    "sport": "basketball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BSKF-F03",
+    "sport": "basketball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "BSBF-F06",
+    "sport": "baseball",
+    "scope": "arena",
+    "kind": "no-show",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "CURA-F03",
+    "sport": "curling",
+    "scope": "arena",
+    "kind": "did not finish",
+    "absent": "GLM 5.3 Flash"
+   },
+   {
+    "fixture": "CURA-F06",
+    "sport": "curling",
+    "scope": "arena",
+    "kind": "did not finish",
+    "absent": "Gemini 4 Argon"
+   },
+   {
+    "fixture": "CURA-F11",
+    "sport": "curling",
+    "scope": "arena",
+    "kind": "did not finish",
+    "absent": "Gemini 4 Argon"
+   },
+   {
     "fixture": "BILA-F03",
     "sport": "billiards",
     "scope": "arena",
@@ -1613,18 +1901,11 @@
     "absent": "GLM 5.3 Flash"
    },
    {
-    "fixture": "HSTC-F05",
-    "sport": "soccer_hsl_team",
-    "scope": "championship",
+    "fixture": "BILF-F03",
+    "sport": "billiards",
+    "scope": "arena",
     "kind": "no-show",
-    "absent": "GLM 5.3 Flash"
-   },
-   {
-    "fixture": "HSTC-F15",
-    "sport": "soccer_hsl_team",
-    "scope": "championship",
-    "kind": "no-show",
-    "absent": "GLM 5.3 Flash"
+    "absent": "Gemini 4 Argon"
    }
   ],
   "running": [],
@@ -1675,6 +1956,19 @@
    "rel-amfootball-arena",
    "rel-soccer-hsl-team-champ",
    "rel-soccer-hsl-team-arena"
+  ],
+  "extra_boards": [
+   "f-amfootball-arena",
+   "f-badminton-g1-arena",
+   "f-baseball-g1-arena",
+   "f-basketball-g1-arena",
+   "f-beachvolleyball-g1-arena",
+   "f-billiards-g1-arena",
+   "f-curling-g1-arena",
+   "f-soccer-hsl-arena",
+   "f-soccer-ssl-arena",
+   "f-tabletennis-g1-arena",
+   "f-tennis-g1-arena"
   ]
  }
 }

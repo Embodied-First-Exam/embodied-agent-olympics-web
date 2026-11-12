@@ -176,7 +176,7 @@ def competitions(site: Site):
 def medal_table(site: Site) -> str:
     rows = {r["model"]: r for r in site.results.get("medal_table", [])}
     released = any(r.get("gold") is not None for r in rows.values())
-    models = list(site.models)
+    models = list(site.continual_models)
     if released:
         models.sort(key=lambda m: tuple(-(rows.get(m["name"], {}).get(k) or 0) for k in ("gold", "silver", "bronze")))
     cell = lambda v: "—" if v is None else E(str(v))  # noqa: E731

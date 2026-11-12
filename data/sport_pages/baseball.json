@@ -907,81 +907,94 @@
     "standings": [
      {
       "rank": 1,
-      "model": "GPT-6 Astra",
-      "played": 5,
-      "won": 5,
+      "model": "Claude Fable 5.2",
+      "played": 6,
+      "won": 6,
       "drawn": 0,
       "lost": 0,
-      "points": 15,
-      "for": 29,
-      "against": 7,
-      "diff": 22,
-      "note": "5-0-0, score 29:7"
+      "points": 18,
+      "for": 35,
+      "against": 3,
+      "diff": 32,
+      "note": "6-0-0, score 35:3, 1 won by forfeit"
      },
      {
       "rank": 2,
-      "model": "Claude Opus 5.5",
-      "played": 5,
-      "won": 4,
+      "model": "GPT-6 Astra",
+      "played": 6,
+      "won": 5,
       "drawn": 0,
       "lost": 1,
-      "points": 12,
-      "for": 24,
-      "against": 8,
-      "diff": 16,
-      "note": "4-0-1, score 24:8"
+      "points": 15,
+      "for": 29,
+      "against": 17,
+      "diff": 12,
+      "note": "5-0-1, score 29:17"
      },
      {
       "rank": 3,
-      "model": "Kimi 3.1 Pro",
-      "played": 5,
-      "won": 3,
+      "model": "Claude Opus 5.5",
+      "played": 6,
+      "won": 4,
       "drawn": 0,
       "lost": 2,
-      "points": 9,
-      "for": 25,
-      "against": 11,
+      "points": 12,
+      "for": 27,
+      "against": 13,
       "diff": 14,
-      "note": "3-0-2, score 25:11"
+      "note": "4-0-2, score 27:13"
      },
      {
       "rank": 4,
-      "model": "GLM 5.3 Flash",
-      "played": 5,
-      "won": 2,
+      "model": "Kimi 3.1 Pro",
+      "played": 6,
+      "won": 3,
       "drawn": 0,
       "lost": 3,
+      "points": 9,
+      "for": 25,
+      "against": 16,
+      "diff": 9,
+      "note": "3-0-3, score 25:16"
+     },
+     {
+      "rank": 5,
+      "model": "GLM 5.3 Flash",
+      "played": 6,
+      "won": 2,
+      "drawn": 0,
+      "lost": 4,
       "points": 6,
       "for": 45,
       "against": 61,
       "diff": -16,
-      "note": "2-0-3, score 45:61"
-     },
-     {
-      "rank": 5,
-      "model": "Gemini 4 Argon",
-      "played": 5,
-      "won": 1,
-      "drawn": 0,
-      "lost": 4,
-      "points": 3,
-      "for": 36,
-      "against": 51,
-      "diff": -15,
-      "note": "1-0-4, score 36:51"
+      "note": "2-0-4, score 45:61, 1 no-show"
      },
      {
       "rank": 6,
-      "model": "DeepSeek V4.1 Flash",
-      "played": 5,
-      "won": 0,
+      "model": "Gemini 4 Argon",
+      "played": 6,
+      "won": 1,
       "drawn": 0,
       "lost": 5,
+      "points": 3,
+      "for": 36,
+      "against": 61,
+      "diff": -25,
+      "note": "1-0-5, score 36:61"
+     },
+     {
+      "rank": 7,
+      "model": "DeepSeek V4.1 Flash",
+      "played": 6,
+      "won": 0,
+      "drawn": 0,
+      "lost": 6,
       "points": 0,
       "for": 30,
-      "against": 51,
-      "diff": -21,
-      "note": "0-0-5, score 30:51"
+      "against": 56,
+      "diff": -26,
+      "note": "0-0-6, score 30:56"
      }
     ],
     "matches": [
@@ -1527,51 +1540,298 @@
        "highlight": true
       },
       "status": "resolved"
+     },
+     {
+      "id": "BSBF-F01",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs opus",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 5
+       },
+       {
+        "seat": "B",
+        "entrant": "opus",
+        "model": "Claude Opus 5.5",
+        "score": 3
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 986.9,
+       "path": "replays/baseball_g1/BSBF-F01.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSBF-F01",
+       "key": "baseball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-baseball-g1-arena"
+     },
+     {
+      "id": "BSBF-F03",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs gemini",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "gemini",
+        "model": "Gemini 4 Argon",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 706.2,
+       "path": "replays/baseball_g1/BSBF-F03.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSBF-F03",
+       "key": "baseball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-baseball-g1-arena"
+     },
+     {
+      "id": "BSBF-F06",
+      "labels": {
+       "order": 1,
+       "pair": "glm-flash-sh vs fable52-cc322",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "glm-flash-sh",
+        "model": "GLM 5.3 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "forfeit",
+      "note": "Forfeit: one side did not start",
+      "shootout": null,
+      "replay": null,
+      "status": "resolved",
+      "board": "f-baseball-g1-arena"
+     },
+     {
+      "id": "BSBQ-F04",
+      "labels": {
+       "order": 1,
+       "pair": "kimi vs fable52-cc322",
+       "replaces": "BSBF-F04",
+       "replay_cause": "platform_no_result",
+       "replay_reason": "no result: run ended by the operator on slot 18 (Chi 11-10 12:08: slot 18 cannot be reset again; this seat could not finish inside 18's remaining Fable quota); replay approved per coordinator",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "kimi",
+        "model": "Kimi 3.1 Pro",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 5
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 474.0,
+       "path": "replays/baseball_g1/BSBQ-F04.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSBQ-F04",
+       "key": "baseball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-baseball-g1-arena"
+     },
+     {
+      "id": "BSBQ-F05",
+      "labels": {
+       "order": 1,
+       "pair": "deepseek-flash-sh vs fable52-cc322",
+       "replaces": "BSBF-F05",
+       "replay_cause": "platform_no_result",
+       "replay_reason": "no result: run ended by the operator on slot 18 (Chi 11-10 12:08: slot 18 cannot be reset again; this seat could not finish inside 18's remaining Fable quota); replay approved per coordinator",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "deepseek-flash-sh",
+        "model": "DeepSeek V4.1 Flash",
+        "score": 0
+       },
+       {
+        "seat": "B",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 5
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 279.6,
+       "path": "replays/baseball_g1/BSBQ-F05.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSBQ-F05",
+       "key": "baseball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-baseball-g1-arena"
+     },
+     {
+      "id": "BSBQ-F02",
+      "labels": {
+       "order": 1,
+       "pair": "fable52-cc322 vs astra-sub",
+       "replaces": "BSBF-F02",
+       "replay_cause": "platform_no_result",
+       "replay_reason": "replay on slot 7 per Chi's 11-10 card decision",
+       "seed_index": 1
+      },
+      "sides": [
+       {
+        "seat": "A",
+        "entrant": "fable52-cc322",
+        "model": "Claude Fable 5.2",
+        "score": 10
+       },
+       {
+        "seat": "B",
+        "entrant": "astra-sub",
+        "model": "GPT-6 Astra",
+        "score": 0
+       }
+      ],
+      "winner": "Claude Fable 5.2",
+      "decided_by": "runs",
+      "note": null,
+      "shootout": null,
+      "replay": {
+       "kind": "full",
+       "seconds": 789.0,
+       "path": "replays/baseball_g1/BSBQ-F02.mp4",
+       "camera": "broadcast",
+       "size": "848x480",
+       "fixture": "BSBQ-F02",
+       "key": "baseball_g1",
+       "highlight": true,
+       "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+      },
+      "status": "resolved",
+      "board": "f-baseball-g1-arena"
      }
     ],
     "rule": "Win 3, draw 1, loss 0; ties by score difference, then head to head."
    }
   ],
-  "played": 15,
+  "played": 21,
   "pending": 0,
   "knockout_planned": false,
   "ranking": [
    {
     "rank": 1,
-    "model": "GPT-6 Astra",
-    "note": "5-0-0, score 29:7"
+    "model": "Claude Fable 5.2",
+    "note": "6-0-0, score 35:3, 1 won by forfeit"
    },
    {
     "rank": 2,
-    "model": "Claude Opus 5.5",
-    "note": "4-0-1, score 24:8"
+    "model": "GPT-6 Astra",
+    "note": "5-0-1, score 29:17"
    },
    {
     "rank": 3,
-    "model": "Kimi 3.1 Pro",
-    "note": "3-0-2, score 25:11"
+    "model": "Claude Opus 5.5",
+    "note": "4-0-2, score 27:13"
    },
    {
     "rank": 4,
-    "model": "GLM 5.3 Flash",
-    "note": "2-0-3, score 45:61"
+    "model": "Kimi 3.1 Pro",
+    "note": "3-0-3, score 25:16"
    },
    {
     "rank": 5,
-    "model": "Gemini 4 Argon",
-    "note": "1-0-4, score 36:51"
+    "model": "GLM 5.3 Flash",
+    "note": "2-0-4, score 45:61, 1 no-show"
    },
    {
     "rank": 6,
+    "model": "Gemini 4 Argon",
+    "note": "1-0-5, score 36:61"
+   },
+   {
+    "rank": 7,
     "model": "DeepSeek V4.1 Flash",
-    "note": "0-0-5, score 30:51"
+    "note": "0-0-6, score 30:56"
    }
   ],
-  "notes": [],
+  "notes": [
+   "1 result(s) by forfeit (counted as a win, not played): fable52-cc322 beat glm-flash-sh by forfeit (no-show), BSBF-F06/run-1"
+  ],
   "as_of": "2026-11-08T08:48:03Z",
   "board": "rel-baseball-g1-arena",
   "complete": true,
-  "status_line": "Complete"
+  "status_line": "Complete",
+  "extra_boards": [
+   {
+    "entrant": "Claude Fable 5.2",
+    "board": "f-baseball-g1-arena",
+    "run": "r1110f"
+   }
+  ]
  },
  "agents": {
   "per_model": {

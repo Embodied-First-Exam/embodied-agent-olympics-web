@@ -45,7 +45,7 @@ from layout import ROOT, E, Site, icon, model_logo, model_name, page, slug
 
 GROUPS = [("phys", "Physical"), ("comp", "Competitive"), ("eng", "Engineering"), ("adap", "Adaptive")]
 SHORT = {"Claude Opus 5.5": "Opus", "GPT-6 Astra": "Astra", "Gemini 4 Argon": "Gemini", "Kimi 3.1 Pro": "Kimi",
-         "DeepSeek V4.1 Flash": "DeepSeek", "GLM 5.3 Flash": "GLM"}
+         "DeepSeek V4.1 Flash": "DeepSeek", "GLM 5.3 Flash": "GLM", "Claude Fable 5.2": "Fable"}
 REPLAY_KIND = {"full": "Full match replay", "compressed": "Time-compressed replay", "highlight": "Selected highlight",
                "states": "Replay"}
 
@@ -276,15 +276,88 @@ def head(n: str, title: str, lede: str = "", extra: str = "") -> str:
 
 
 # ---------------------------------------------------------------- 02 competition records
-def podium(site: Site, d: dict) -> str:
-    p = d.get("podium") or {}
-    if not any(p.values()):
-        txt = "Medals when the Championship ends" if d.get("status") == "in_progress" else "Medals at release"
-        return f'<div class="sp-pod is-empty"><span class="tag tag--pending">{txt}</span></div>'
-    cells = "".join(
-        f'<div class="sp-pd sp-pd--{k}"><span class="kicker"><i class="medal medal--{k[0]}"></i>{k}</span>{who(site, p[k], sub=True)}</div>'
-        for k in ("gold", "silver", "bronze") if p.get(k))
-    return f'<div class="sp-pod">{cells}</div>'
+PLACES = {"gold": "1st", "silver": "2nd", "bronze": "3rd"}
+
+
+def podium(site: Site, cells: list, places: bool = False, tag: str = "", note: str = "") -> str:
+    """One mode's podium strip (gold, silver, bronze) at the top of its tab. cells: [(gold|silver|bronze, [model names])]; a
+    shared medal lists every model that holds it. places=True (an exhibition sport, outside the medal tables) labels the
+    cells 1st / 2nd / 3rd with no medal."""
+    def label(k: str) -> str:
+        return PLACES[k] if places else f'<i class="medal medal--{k[0]}"></i>{k}'
+    out = "".join(
+        f'<div class="sp-pd sp-pd--{"place" if places else k}"><span class="kicker">{label(k)}</span>'
+        + "".join(who(site, n, sub=True) for n in names) + "</div>"
+        for k, names in cells if names)
+    if not out:
+        return ""
+    return (f'<div class="sp-pod">{out}</div>'
+            + (f'<p class="sp-pod-note">{tag}{E(note)}</p>' if tag or note else ""))
+
+
+def podium_wait(txt: str) -> str:
+    return f'<div class="sp-pod is-empty"><span class="tag tag--pending">{E(txt)}</span></div>'
+
+
+def champ_podium(site: Site, sid: str) -> str:
+    """Continual Learning (Olympics Championship) podium: the medals results.json by_sport gives this sport, the same
+    record the Continual medal table counts (medals.apply_exhibition). Exhibition sports: places, no medals."""
+    r = medals._row(site, sid)
+    if r.get("status") != "final" or not any(r.get(k) for k in PLACES):
+        return podium_wait("Medals when the Championship ends" if r.get("status") == "in_progress" else "Medals at release")
+    cells = [(k, [r[k]] if r.get(k) else []) for k in PLACES]
+    if sid in medals.exhibition_ids(site):
+        return podium(site, cells, places=True, tag=_exh_tag(site), note="Final places; no medals in this edition.")
+    return podium(site, cells)
+
+
+def arena_podium(site: Site, sid: str, em: dict) -> str:
+    """Episodic Learning podium: the medals medals.episodic_medals gives this sport's board (the Episodic medal table's
+    own tally: rank 1 / 2 / 3, shared ranks share the medal), with the board's tie-break where equal points decided a
+    medal place. Exhibition sports: the board's top three as places, no medals. No decided board: nothing."""
+    oa = (site.results.get("open_arena") or {}).get(sid)
+    if sid in medals.exhibition_ids(site):
+        if not (isinstance(oa, dict) and oa.get("complete") and oa.get("rows")):
+            return ""
+        cells = [(k, [r["model"] for r in oa["rows"] if r["rank"] == n]) for n, k in enumerate(PLACES, 1)]
+        rows = sorted(oa["rows"], key=lambda r: r["rank"])  # same tie-break listing as medals.episodic_medals "close"
+        close = [{"sport": sid, "ranks": [a["rank"], c["rank"]], "models": [a["model"], c["model"]], "points": a["points"],
+                  "diff": [a["score_for"] - a["score_against"], c["score_for"] - c["score_against"]]}
+                 for a, c in zip(rows, rows[1:]) if a["points"] == c["points"] and a["rank"] <= 3]
+        return podium(site, cells, places=True, tag=_exh_tag(site),
+                      note=" ".join(["Final places on this board; no medals in this edition."] + _tie_notes(site, sid, close)))
+    if sid in em["pending"]:
+        return podium_wait("Medals when the board is complete")
+    pod = em["podiums"].get(sid)
+    if not pod:
+        return ""
+    notes = _tie_notes(site, sid, em["close"])
+    dne = oa.get("did_not_enter") or [] if isinstance(oa, dict) else []
+    if dne:  # arena() says it too, in the small print the page hides
+        notes.append(f"{' and '.join(model_name(_m(site, n)) for n in dne)} did not enter this sport.")
+    return podium(site, [(k, pod.get(k) or []) for k in PLACES], note=" ".join(notes))
+
+
+def _tie_notes(site: Site, sid: str, close: list) -> list:
+    """One line per medal place decided on the board's tie-break (equal points): score difference, then head to head."""
+    notes = []
+    for c in close:
+        if c["sport"] != sid:
+            continue
+        a, b = (model_name(_m(site, n)) for n in c["models"])
+        if c["ranks"][0] == c["ranks"][1]:
+            notes.append(f"{a} and {b} are level on {c['points']} points and share the place.")
+        elif c["diff"][0] != c["diff"][1]:
+            fewer = " (fewer balls left is better)" if sid == "billiards" else ""
+            notes.append(f"{a} and {b} are level on {c['points']} points; score difference{fewer} ({c['diff'][0]:+d} to "
+                         f"{c['diff'][1]:+d}) puts {a} ahead.")
+        else:
+            notes.append(f"{a} and {b} are level on {c['points']} points and score difference; head to head puts {a} ahead.")
+    return notes
+
+
+def _exh_tag(site: Site) -> str:
+    return f'<span class="tag tag--exh">{E(medals.exhibition_label(site))}</span> '
 
 
 def _mark(m: dict) -> str:
@@ -306,9 +379,11 @@ MARK_WORDS = {"P": "won on penalties (shoot-out)", "T": "decided by coin toss or
 
 
 def cross_table(site: Site, rr: dict, anchor: str = "m") -> str:
-    """Round robin as a 6 x 6 cross table in the home page grid's order and colours. Each cell: the result from the row
-    model's view (W / D / L) and the score, row model first; a click opens the match's row in the folded list."""
-    ms = site.models
+    """Round robin as an N x N cross table in the home page grid's order and colours. Each cell: the result from the row
+    model's view (W / D / L) and the score, row model first; a click opens the match's row in the folded list. The board's
+    own entrants only (its standings): Continual Learning boards have six, Episodic boards seven where Fable entered."""
+    on = {r["model"] for r in rr.get("standings") or []}
+    ms = [m for m in site.models if m["name"] in on] if on else site.continual_models
     names = [m["name"] for m in ms]
     cell = {}
     for m in rr.get("matches", []):
@@ -492,6 +567,24 @@ def solo_champ(site: Site, ch: dict) -> str:
   <p class="cr-rule">{E(ch.get("scoring") or "")}{" A no-show (the program did not start) counts 0." if any(m.get("no_show") for r in ch["rows"] for m in r["matches"]) else ""}</p></div>"""
 
 
+def solo_arena(site: Site, ch: dict, rows: list) -> str:
+    """The solo sports' Episodic board: each model's first match of the series (fresh workspace), ranked by its score
+    (medals.solo_round1, which also holds the Episodic-only entrants' first match)."""
+    u = ch.get("unit") or ""
+    fmtv = (lambda v: f"{v:.2f}") if u in ("m/s", "m") else (lambda v: f"{v:.1f}")  # noqa: E731
+    rp = {m.get("id"): m.get("replay") for r in ch.get("rows") or [] for m in r.get("matches") or []}
+    body = "".join(
+        f'<tr><td class="st-r">{r["rank"]}</td><td>{who(site, r["model"])}</td>'
+        + (f'<td class="st-n tt is-ns" title="Did not start: counts 0">{fmtv(0)}<small>no-show</small></td>' if r["no_show"] else
+           f'<td class="st-n tt">{fmtv(r["value"])}{replay(site, rp.get(r.get("fixture")) or r.get("replay"), compact=True)}</td>')
+        + f'<td class="st-n mx-id">{E(r.get("fixture") or "")}</td></tr>' for r in rows)
+    return f"""
+<div class="cr-solo"><h3 class="cr-h">First series match <span>ranked by its score · {E(u)}</span></h3>
+  <table class="st st--tt st--solo"><thead><tr><th>#</th><th>AI agent</th><th>Match 1 ({E(u)})</th><th>Match</th></tr></thead>
+  <tbody>{body}</tbody></table>
+  <p class="cr-rule">Episodic Learning: each model's first match of the series, played from an empty workspace. Higher score first; a no-show counts 0.</p></div>"""
+
+
 def points_race_champ(site: Site, ch: dict) -> str:
     races = ch.get("series") or []
     hd = "".join(f'<th>Race {r["race"]}<span class="th-rp">{replay(site, r.get("replay"), compact=True) if not r["pending"] else "Pending"}</span></th>' for r in races)
@@ -517,12 +610,15 @@ def arena(site: Site, oa: dict) -> str:
     top = (rr.get("standings") or [{}])[0].get("model")
     note = (f"Final standings: {model_name(_m(site, top))} tops the Episodic Learning board." if oa.get("complete") and top
             else f"Standings so far ({status.lower()}).")
+    dne = oa.get("did_not_enter") or []
+    if dne:
+        note += f" {' and '.join(model_name(n) for n in dne)} did not enter this sport."
     return f"""
 <div class="cx-row">
   <div class="cx-l"><h3 class="cr-h">Round robin <span>{E(status)}</span></h3>{cross_table(site, rr, "am")}</div>
   <div class="cx-r"><h3 class="cr-h">Standings <span>win 3 · draw 1</span></h3>{standings_big(site, rr["standings"])}</div>
 </div>
-<p class="cr-rule cx-note">{E(note)} Episodic Learning: every match starts from an empty workspace. Separate from the medals.</p>"""
+<p class="cr-rule cx-note">{E(note)} Episodic Learning: every match starts from an empty workspace.</p>"""
 
 
 def records(site: Site, d: dict) -> str:
@@ -537,15 +633,21 @@ def records(site: Site, d: dict) -> str:
         champ = duel_champ(site, ch, d)
     else:
         champ = '<p class="cr-rule">Records at release.</p>'
-    status = "Final" if d.get("status") == "final" else "In progress"
+    # one status for the page: Final only when every mode shown here is final (Continual and, if present, Episodic)
+    ep_done = not oa or oa.get("complete")
+    status = "Final" if d.get("status") == "final" and ep_done else "In progress"
     prov = " · provisional" if d.get("provisional") else ""
     team_note = ""
     if any(s.get("seats") for st in ch.get("stages", []) for m in st.get("matches", []) for s in m["sides"]):
         team_note = '<p class="cr-rule cr-team">Each robot is its own agent: a side is three agents of the same model, one per seat.</p>'
     champ_sub = "Olympics Championship · medals" if d.get("format") != "solo" else "Medal series · 3 matches"
-    tabs = [("champ", medals.CONTINUOUS, champ_sub, team_note + champ)]
+    sid = d.get("sport")
+    em = medals.episodic_medals(site)
+    tabs = [("champ", medals.CONTINUOUS, champ_sub, champ_podium(site, sid) + team_note + champ)]
     if oa:
-        tabs.append(("arena", medals.EPISODIC, "Fresh workspace · always open", arena(site, oa)))
+        tabs.append(("arena", medals.EPISODIC, "Fresh workspace · always open", arena_podium(site, sid, em) + arena(site, oa)))
+    elif d.get("format") == "solo" and (s1 := medals.solo_round1(site).get(sid)):
+        tabs.append(("arena", medals.EPISODIC, "First series match · fresh workspace", arena_podium(site, sid, em) + solo_arena(site, ch, s1)))
     btns = "".join(f'<button type="button" class="tab{" is-on" if k == 0 else ""}" data-sptab="{t}" role="tab">{l}<small>{E(sub)}</small></button>'
                    for k, (t, l, sub, _) in enumerate(tabs))
     panels = "".join(f'<div class="sp-panel{" is-on" if k == 0 else ""}" data-sppanel="{t}">{body}</div>' for k, (t, _, _, body) in enumerate(tabs))
@@ -555,7 +657,6 @@ def records(site: Site, d: dict) -> str:
 <section class="band sp-block" id="records" data-snav="Records">
   <div class="wrap">
     {head("02", "Competition records.", "", f'<div class="sp-head-r"><span class="tag tag--pending">{status}{prov}</span></div>')}
-    {podium(site, d)}
     <div class="tabs sp-tabs" role="tablist" data-sptabs>{btns}</div>
     <div class="sp-panels">{panels}</div>
     <p class="rp-legend"><span class="rp rp--wait"><b>▶</b></span>{E(rp)}</p>
@@ -568,7 +669,7 @@ def capabilities(site: Site, s: dict, d: dict) -> str:
     cap = d.get("capabilities") or {}
     notes = d.get("notes") or {}
     lede = notes.get("challenge") or s.get("pitch")
-    models = [m["name"] for m in site.models]
+    models = [m["name"] for m in site.continual_models]  # skill tests read the Championship programs
     res = cap.get("results") or {}
     tested = [m for m in models if res.get(m)]
     hdr = "".join(f'<span class="sk-m" title="{E(model_name(_m(site, m)))}">{model_logo(site, _m(site, m))}'

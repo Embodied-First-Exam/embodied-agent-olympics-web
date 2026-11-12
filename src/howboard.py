@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from layout import E, Site, model_logo, model_name
+from layout import E, Site, model_logo, model_name, short_name
 
 ROOT = Path(__file__).resolve().parent.parent
 EXAMPLE_SPORT = "soccer_hsl"  # the duel / team-duel example board: a complete Open Arena round robin
@@ -59,7 +59,7 @@ def _pts_rows(site: Site, final: dict, rank: dict, fmt) -> str:
         medal = {1: " tm-pt--g", 2: " tm-pt--s", 3: " tm-pt--b"}.get(r, "")
         v = final.get(m["name"], 0)
         out += (f'<div class="tm-pt tm-pt--ep on{medal}" data-ep-row="{i}" style="--i:{i};--r:{place[i]}">'
-                f'<span><em class="ep-rk">{r}</em>{model_logo(site, m)}{E(model_name(m).split(" ")[0])}</span>'
+                f'<span><em class="ep-rk">{r}</em>{model_logo(site, m)}{E(short_name(m))}</span>'
                 f'<i style="--w:{max(4, round(100 * v / mx)) if v else 0}%"></i><b>{fmt(v)}</b></div>')
     return out
 
@@ -101,7 +101,7 @@ def _solo_panel(site: Site) -> tuple[str, dict]:
     fmt = lambda v: f"{v:.{dec}f}"  # noqa: E731
     runs = "".join(
         f'<div class="ep-run on" data-ep-c="{i}"><span class="tm-h" style="--c:{E(m["colour"])}">{model_logo(site, m)}</span>'
-        f'<span class="ep-run-l">{E(model_name(m).split(" ")[0])}</span><i class="ep-run-b">{"no-show" if ns.get(m["name"]) else "match 1"}</i></div>'
+        f'<span class="ep-run-l">{E(short_name(m))}</span><i class="ep-run-b">{"no-show" if ns.get(m["name"]) else "match 1"}</i></div>'
         for i, m in enumerate(ms))
     pod = home._podium().replace('class="tm-medal ', 'class="tm-medal on ')
     name = site.sport_by_id[EXAMPLE_SOLO]["name"] if EXAMPLE_SOLO in site.sport_by_id else EXAMPLE_SOLO

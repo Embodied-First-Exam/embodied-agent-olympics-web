@@ -4,7 +4,7 @@ from __future__ import annotations
 import json
 import re
 
-from layout import E, Site, icon, ink_on, model_logo, model_name, page
+from layout import E, Site, icon, ink_on, model_logo, model_name, page, short_name
 import medals
 
 # ---------------------------------------------------------------- helpers
@@ -624,8 +624,9 @@ def _stepper(names: list, static: bool = False) -> str:
 def tournament(site: Site, head: bool = True, home: bool = False) -> str:
     """The four formats of the edition (research page, section 03), one panel each, chosen with the buttons below.
     Head-to-head (12 sports): round robin -> semifinals -> final + bronze. Drone: time trials -> heats -> final.
-    Full-size racing: 3 races, F1 points. Solo (4 sports): 3 runs, ranked by the mean. Cells never show invented results."""
-    ms = site.models
+    Full-size racing: 3 races, F1 points. Solo (4 sports): 3 runs, ranked by the mean. Cells never show invented results.
+    The Olympics Championship's entrants only (site.continual_models)."""
+    ms = site.continual_models
     pairs = [(i, j) for i in range(len(ms)) for j in range(i + 1, len(ms))]
     order = {p: k for k, p in enumerate(sorted(pairs, key=lambda p: ((p[1] - p[0]) % 3, p)))}
     seat = lambda k, m: f'<span class="tm-h" title="{E(model_name(m))}" style="--c:{E(m["colour"])}">{model_logo(site, m)}</span>'  # noqa: E731
@@ -819,7 +820,7 @@ def medal_table_home(site: Site) -> str:
     import boards  # noqa: PLC0415
     rows = {r["model"]: r for r in site.results.get("medal_table", [])}
     released = any(r.get("gold") is not None for r in rows.values())
-    models = list(site.models)
+    models = list(site.continual_models)
     if released:
         models.sort(key=lambda m: tuple(-(rows.get(m["name"], {}).get(k) or 0) for k in ("gold", "silver", "bronze")))
     table = [{"model": m["name"], **{c: rows.get(m["name"], {}).get(c) for c in ("gold", "silver", "bronze")},
@@ -861,8 +862,8 @@ def h2h_matrix(site: Site, d: dict, order: list, mode: int, key: str) -> str:
 
     def who(m, short=False):
         return (f'<span class="hh-who" style="--c:{E(m["colour"])}"><i class="flag"></i>{model_logo(site, m)}'
-                + (f'<span>{E(model_name(m).split(" ")[0])}</span>' if short else
-                   f'<span class="hh-full">{E(model_name(m))}</span><span class="hh-short">{E(model_name(m).split(" ")[0])}</span>')
+                + (f'<span>{E(short_name(m))}</span>' if short else
+                   f'<span class="hh-full">{E(model_name(m))}</span><span class="hh-short">{E(short_name(m))}</span>')
                 + '</span>')
     head = "".join(f'<th scope="col" title="{E(model_name(ms[j]))}">{who(ms[j], True)}</th>' for j in order)
     rows = "".join(f'<tr><th scope="row">{who(ms[i])}</th>' + "".join(cell(c[i][j], i, j) for j in order) +
@@ -873,7 +874,7 @@ def h2h_matrix(site: Site, d: dict, order: list, mode: int, key: str) -> str:
     return f"""<div class="hh" data-hh-root>
       <div class="hh-ctl"><label class="hh-sel"><span>Sport</span><select data-hh-sport aria-label="Sport"><option value="-1">All {len(d["sports"])} sports</option>{sel}</select></label></div>
       <div class="hh-scroll"><table class="hh-tab"><caption class="sr">{E(name)}: win rate of each row model against each column model</caption>
-        <thead><tr><th class="hh-corner"><span>Model</span><span>v opponent</span></th>{head}<th class="hh-th-t">All opponents</th></tr></thead>
+        <thead><tr><th class="hh-corner"><span>Model</span><span>v opponent</span></th>{head}<th class="hh-th-t"><span class="hh-full">All opponents</span><span class="hh-short">All</span></th></tr></thead>
         <tbody>{rows}</tbody></table></div>
       <div class="hh-key" aria-hidden="true"><span>0%</span><i class="hh-ramp"></i><span>100%</span><em>row model&rsquo;s win %</em></div>
       <p class="rp-note hh-cap">Cell: the row model&rsquo;s win % and wins–losses (matches) against the column model. {E(medals.h2h_line(site, "arena" if mode == 0 else "championship"))}</p>
@@ -900,6 +901,8 @@ def leaderboards(site: Site) -> str:
             tot[e][1] += 1
             tot[e][0] += w == e
     order = sorted(range(n), key=lambda i: -(tot[i][0] / tot[i][1] if tot[i][1] else 0))
+    cont = {m["name"] for m in site.continual_models}
+    order_c = [i for i in order if d["models"][i] in cont]  # Continual Learning: its own entrants only
     sections = [
         ("episodic", medals.EPISODIC, medals.EPISODIC_LINE,
          [("medals", "Medals", medals.episodic_medal_block(site)),
@@ -908,7 +911,7 @@ def leaderboards(site: Site) -> str:
         ("continuous", medals.CONTINUOUS, medals.CONTINUOUS_LINE,
          [("medals", "Medals", f'<div class="mt-home">{medal_table_home(site)}</div>' + medals.flag_foot(site)),
           ("win", "Win rate", f'<div class="mt-home">{medals.mode_win_table(site, "championship")}</div>'),
-          ("h2h", "Head-to-head", h2h_matrix(site, d, order, 1, "continuous"))]),
+          ("h2h", "Head-to-head", h2h_matrix(site, d, order_c, 1, "continuous"))]),
     ]
     out = []
     for k, (key, name, line, tabs) in enumerate(sections):

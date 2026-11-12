@@ -25,6 +25,9 @@ class Site:
             m["css_key"] = k
             m["colour"] = f"var(--m-{k});--ol:var(--m-{k}-ol)"
         self.models = models
+        # the entries on each leaderboard (models.json "boards", default both): every model is on Episodic Learning;
+        # an Episodic-only entrant (Claude Fable 5.2, 11-10) stays out of every Continual Learning table and widget
+        self.continual_models = [m for m in models if "continual" in m.get("boards", ["episodic", "continual"])]
         self.media = media
         self.results = results
         self.icon_ids = set()
@@ -82,6 +85,11 @@ def model_name(m: dict | str) -> str:
     """Display name: drop the '(TODO: ...)' notes kept in the data files."""
     name = m["name"] if isinstance(m, dict) else m
     return re.sub(r"\s*\(TODO[^)]*\)", "", name).strip()
+
+
+def short_name(m: dict) -> str:
+    """One-word label for matrices and widgets: models.json "short", else the first word of the name."""
+    return m.get("short") or model_name(m).split(" ")[0]
 
 
 def todo(v) -> str | None:

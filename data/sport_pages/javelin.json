@@ -1284,5 +1284,32 @@
    "Six trials; the result is the best valid mark. The medal series is three such matches.",
    "Before the match: 2 hours of preparation with a full practice copy of the throw, a practice player and a GPU training kit (half an RTX PRO 6000)."
   ]
+ },
+ "episodic_extra": {
+  "note": "First series match of entrants that play Episodic Learning only (fresh workspace).",
+  "rows": [
+   {
+    "model": "Claude Fable 5.2",
+    "entrant": "fable52-cc322",
+    "match": 1,
+    "id": "JAVF-F0001",
+    "value": 13.89,
+    "no_show": false,
+    "pending": false,
+    "replay": {
+     "kind": "full",
+     "seconds": 30.0,
+     "path": "replays/javelin_g1/JAVF-F0001.mp4",
+     "camera": "broadcast",
+     "size": "848x480",
+     "fixture": "JAVF-F0001",
+     "key": "javelin_g1",
+     "highlight": true,
+     "source": "replay_v2 (FABLEREPLAY 11-10, RECOLOR pipeline)"
+    },
+    "board": "f-javelin-g1-arena",
+    "run": "r1110f"
+   }
+  ]
  }
 }

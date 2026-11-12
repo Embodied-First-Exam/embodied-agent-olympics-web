@@ -1,5 +1,5 @@
 {
- "_note": "The six entries of the first edition. Each entry is a whole agent system: model + harness. Colours (Chi 11-09): close to each official brand colour, adjusted for distinctness; the renderers dress each model in it. colour = both themes; outline_dark = a thin light outline on every mark in the dark theme (Kimi black on the dark ground, Chi 11-09); colour_light = the light-theme variant where the colour is too pale on white (GLM yellow -> deeper yellow #D9B800, no outline; Chi 11-09). harness / effort / entry: the official release run's entrant definitions (evalops-r1107/entries/<entrant>.json: harness.name, model.params.reasoning_effort, entry_id).",
+ "_note": "The entries of the first edition: six on both leaderboards, plus Claude Fable 5.2 on Episodic Learning only. Each entry is a whole agent system: model + harness. Colours (Chi 11-09): close to each official brand colour, adjusted for distinctness; the renderers dress each model in it. colour = both themes; outline_dark = a thin light outline on every mark in the dark theme (Kimi black on the dark ground, Chi 11-09); colour_light = the light-theme variant where the colour is too pale on white (GLM yellow -> deeper yellow #D9B800, no outline; Chi 11-09). harness / effort / entry: the official release run's entrant definitions (evalops-r1107/entries/<entrant>.json: harness.name, model.params.reasoning_effort, entry_id). short = the one-word label of matrices and widgets (default: the first word of the name; the two Claude models need their own). boards = the leaderboards an entry is on (default both): Claude Fable 5.2 entered Episodic Learning only (Chi 11-10; run evalops-r1110f, entry fable52-cc322@v1, one fresh match against each first-edition model's fresh program); colour pink after the 11-10 Fable replays, lighter in the dark theme (6.5:1 on the dark ground), #D6409F in the light theme (4.1:1 on white). episodic_note = a short note in the Episodic board's 'How this board is made' fold.",
  "models": [
   {
    "name": "Claude Opus 5.5",
@@ -7,7 +7,8 @@
    "harness": "Claude Code",
    "colour": "#D97757",
    "effort": "high",
-   "entry": "opus@v5"
+   "entry": "opus@v5",
+   "short": "Opus"
   },
   {
    "name": "GPT-6 Astra",
@@ -50,6 +51,23 @@
    "effort": "high",
    "entry": "glm-flash-sh@v2",
    "colour_light": "#D9B800"
+  },
+  {
+   "name": "Claude Fable 5.2",
+   "maker": "Anthropic",
+   "harness": "Claude Code",
+   "colour": "#EC5FB0",
+   "colour_light": "#D6409F",
+   "effort": "high",
+   "entry": "fable52-cc322@v1",
+   "short": "Fable",
+   "boards": [
+    "episodic"
+   ],
+   "episodic_note": {
+    "en": "Joined on Nov 10: one fresh match against each of the other six in 15 sports. It did not enter Humanoid Soccer · Team, drone racing or full-size racing. The start reminder Gemini had in the earlier Episodic matches was off in these matches; Gemini did not start 5 of its 11 matches against Fable, each counted as a Fable win.",
+    "zh": "11 月 10 日加入：在 15 个项目里与其余六个模型各打一场全新工作区比赛。未参加人形足球团队赛、无人机竞速和全尺寸赛车。之前 Episodic 比赛里 Gemini 有的开赛提醒在这些比赛中没有开启；Gemini 对 Fable 的 11 场里有 5 场未开赛，均记 Fable 胜。"
+   }
   }
  ]
 }
