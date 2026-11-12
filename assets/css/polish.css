@@ -33,7 +33,7 @@
 .mdb-row.is-1 .mdb-who strong{font-size:clamp(22px,1.9vw,27px)}
 .mdb-row.is-1 .mdb-who .mlogo{width:30px;height:30px}
 .mdb.is-empty .mdb-n{color:var(--fg-3)}
-@media (max-width:900px){.mdb-row,.mdb-head{grid-template-columns:36px minmax(0,1fr) 0 repeat(3,48px)}.mdb-dots{display:none}.mdb-who{padding-right:8px;white-space:normal;gap:10px}}
+@media (max-width:900px){.mdb-row,.mdb-head{grid-template-columns:36px minmax(0,1fr) 0 repeat(3,48px)}.mdb-dots{visibility:hidden;overflow:hidden;min-width:0}.mdb-who{padding-right:8px;white-space:normal;gap:10px}}
 @media (prefers-reduced-motion:reduce){.mdb-dots .mdisc{animation:none}}
 
 /* the other ranked tables on the boards (win rate): same calm rows, no sub-labels */
@@ -201,6 +201,7 @@ h3.cr-h{font:600 clamp(20px,1.7vw,24px) var(--f-sans)!important;letter-spacing:-
 .sp-pd .sp-who .mlogo{width:26px;height:26px}
 .sp-tabs{margin-bottom:clamp(28px,3vw,40px)!important}
 .cx-row{grid-template-columns:auto minmax(0,1fr)!important;gap:clamp(32px,4vw,64px)!important}
+@media (max-width:1180px){.cx-row{grid-template-columns:1fr!important}}  /* narrow screens: standings under the cross table */
 .cx-ko{margin-top:clamp(40px,5vw,64px)}
 .kb{max-width:none!important;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr)!important;align-items:stretch}
 .kb-col{grid-template-columns:1fr 1fr;gap:14px!important;align-content:stretch!important}
