@@ -1,0 +1,1007 @@
+{
+ "schema": "eo-sportcaps/0",
+ "sport": "hurdles",
+ "card": "hurdles_g1",
+ "made": "2026-11-10 11:37 CST",
+ "status": "proposal",
+ "sources": {
+  "checkpoint": "capcurve data/hurdles_g1.json (Checkpoint Evaluation, 11-10 10:38)",
+  "skill_tests": "sport page skill tests + SKILLFILL rows (not merged yet)"
+ },
+ "capabilities": [
+  {
+   "id": "run",
+   "name": "Running gait",
+   "layer": "Physical",
+   "meaning": "The Engineer builds the gait from the joints up; speed counts only if the robot stays up.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "speed",
+     "name": "Fast enough on the flat",
+     "line": "Speed p90 on the flat >= 2.15 m/s",
+     "rule": {
+      "metric": "v_p90",
+      "op": ">=",
+      "value": 2.15,
+      "games": 0.6666666666666666
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint",
+     "line_value": 2.6094,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": false
+    }
+   ],
+   "evidence": [
+    "speed",
+    "upright"
+   ],
+   "line": 2.6094,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 2,
+   "kept_by": 2
+  },
+  {
+   "id": "clear",
+   "name": "Clearing hurdles",
+   "layer": "Physical",
+   "meaning": "Find each hurdle by camera and clear it at speed.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "clear",
+     "name": "Clears the hurdles it reaches",
+     "line": ">= 80 % of hurdles reached are passed with no fall or race end within 3 m",
+     "rule": {
+      "num": "clean",
+      "den": "reached",
+      "min_n": 5,
+      "op": ">=",
+      "value": 0.8
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint",
+     "line_value": 0.9597,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": true
+    }
+   ],
+   "evidence": [
+    "clear",
+    "first_hurdle",
+    "jump"
+   ],
+   "line": 0.9597,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 3,
+   "kept_by": 3
+  },
+  {
+   "id": "lane",
+   "name": "Stay in the lane from camera",
+   "layer": "Physical",
+   "meaning": "Leaving the lane disqualifies the race; the head camera is the only guide.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "lane",
+     "name": "Stays in lane on the flat",
+     "line": "In races past 20 m, no lane DQ outside the hurdle windows",
+     "rule": {
+      "num": "lane_ok",
+      "den": "lane_exp",
+      "min_n": 3,
+      "op": ">=",
+      "value": 0.9
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": [
+    "lane"
+   ]
+  }
+ ],
+ "eval": {
+  "Claude Opus 5.5": {
+   "cp": "final:3",
+   "caps": {
+    "lane": {
+     "status": "verified",
+     "skills": {
+      "lane": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 9.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "run": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "speed": {
+       "status": "fail",
+       "value": 1.9011,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "clear": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "clear": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 90.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GPT-6 Astra": {
+   "cp": "final:3",
+   "caps": {
+    "lane": {
+     "status": "verified",
+     "skills": {
+      "lane": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 9.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "run": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "speed": {
+       "status": "pass",
+       "value": 3.9031,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "clear": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "clear": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 90.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Gemini 4 Argon": {
+   "cp": "final:3",
+   "caps": {
+    "lane": {
+     "status": "verified",
+     "skills": {
+      "lane": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 9.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "run": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "speed": {
+       "status": "pass",
+       "value": 3.1156,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "clear": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "clear": {
+       "status": "pass",
+       "value": 0.9753,
+       "n": 81.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "cp": "final:2",
+   "caps": {
+    "lane": {
+     "status": "verified",
+     "skills": {
+      "lane": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 5.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "run": {
+     "status": "not_verified",
+     "cp": "final:2",
+     "skills": {
+      "speed": {
+       "status": "fail",
+       "value": 0.9683,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "clear": {
+     "status": "not_verified",
+     "cp": "final:2",
+     "skills": {
+      "clear": {
+       "status": "fail",
+       "value": 0.4,
+       "n": 15.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "cp": "final:3",
+   "caps": {
+    "lane": {
+     "status": "insufficient",
+     "skills": {
+      "lane": {
+       "status": "not_examined",
+       "value": null,
+       "n": 1.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "run": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "speed": {
+       "status": "fail",
+       "value": 1.5898,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "clear": {
+     "status": "insufficient",
+     "cp": "final:3",
+     "skills": {
+      "clear": {
+       "status": "insufficient",
+       "value": null,
+       "n": 4.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GLM 5.3 Flash": {
+   "cp": "final:2",
+   "caps": {
+    "lane": {
+     "status": "insufficient",
+     "skills": {
+      "lane": {
+       "status": "not_examined",
+       "value": null,
+       "n": 2.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "run": {
+     "status": "not_verified",
+     "cp": "final:2",
+     "skills": {
+      "speed": {
+       "status": "fail",
+       "value": 1.6588,
+       "n": 3,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "clear": {
+     "status": "not_verified",
+     "cp": "final:2",
+     "skills": {
+      "clear": {
+       "status": "fail",
+       "value": 0.2,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  }
+ },
+ "growth": {
+  "Claude Opus 5.5": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "run": "not_verified",
+     "clear": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "run": "not_verified",
+     "clear": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "run": "not_verified",
+     "clear": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "run": "not_verified",
+     "clear": "verified"
+    }
+   }
+  ],
+  "GPT-6 Astra": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "run": "verified",
+     "clear": "verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "run": "verified",
+     "clear": "verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "run": "verified",
+     "clear": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "run": "verified",
+     "clear": "verified"
+    }
+   }
+  ],
+  "Gemini 4 Argon": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "run": "insufficient",
+     "clear": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "run": "insufficient",
+     "clear": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "run": "verified",
+     "clear": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "run": "verified",
+     "clear": "verified"
+    }
+   }
+  ],
+  "Kimi 3.1 Pro": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "run": "not_verified",
+     "clear": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "run": "not_verified",
+     "clear": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "run": "not_verified",
+     "clear": "not_verified"
+    }
+   }
+  ],
+  "DeepSeek V4.1 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "run": "insufficient",
+     "clear": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "run": "insufficient",
+     "clear": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "run": "insufficient",
+     "clear": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "run": "not_verified",
+     "clear": "insufficient"
+    }
+   }
+  ],
+  "GLM 5.3 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "run": "insufficient",
+     "clear": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "run": "insufficient",
+     "clear": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "run": "not_verified",
+     "clear": "not_verified"
+    }
+   }
+  ]
+ },
+ "claims": {
+  "Claude Opus 5.5": {
+   "run": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "clear": {
+    "text": "Claude Opus 5.5 reached Clearing hurdles at version 2: 100 % vs line reference 96 %; kept at version 3",
+    "acquired": "final:2",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "GPT-6 Astra": {
+   "run": {
+    "text": "GPT-6 Astra reached Running gait at version 0 (start): 3.6 vs line reference 2.61; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   },
+   "clear": {
+    "text": "GPT-6 Astra reached Clearing hurdles at version 0 (start): 99 % vs line reference 96 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "Gemini 4 Argon": {
+   "run": {
+    "text": "Gemini 4 Argon reached Running gait at version 2: 3.13 vs line reference 2.61; kept at version 3",
+    "acquired": "final:2",
+    "lost": null,
+    "kept": true
+   },
+   "clear": {
+    "text": "Gemini 4 Argon reached Clearing hurdles at version 2: 98 % vs line reference 96 %; kept at version 3",
+    "acquired": "final:2",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "run": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "clear": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "run": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "clear": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "GLM 5.3 Flash": {
+   "run": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "clear": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  }
+ },
+ "evidence": {
+  "upright": {
+   "name": "Runs without falling",
+   "real": "A humanoid runs on a whole-body controller it trained itself; nobody runs for it, and a fall that lasts 10 s ends the race.",
+   "measure": "As in the 100 m: among races started, the share not ended as DNF 'down for 10 s' (falls at a hurdle count too; clearing is its own skill).",
+   "line": "≥ 80 %",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 9/9✓"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 9/9✓"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 5/9✗"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 5/9✗"
+    }
+   }
+  },
+  "speed": {
+   "name": "Runs fast enough",
+   "real": "The gait must be fast as well as stable; the result is the mean of three races.",
+   "measure": "the match record: mean of 110 / time over finished races, with ≥ 2/3 finished.",
+   "line": "≥ 1.92 m/s (0.83 × the reference's 2.32)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 1.71✗"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 2.76✓"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 0/9✗"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 0/9✗"
+    }
+   }
+  },
+  "clear": {
+   "name": "Clears the hurdles it reaches",
+   "real": "The hurdles are the one difference from the 100 m: adjust the stride before a hurdle and clear it without falling. 0.08 m high (scaled to the G1), knocked over at 17.4 N.",
+   "measure": "the match record: among hurdles reached (progress ≥ 1 m before it), the share not followed by a race end (fall or DQ) inside [1 m before, 3 m past); a finished race clears all 10. Pooled (gate ≥ 5 hurdles).",
+   "line": "≥ 80 %",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 90/90✓"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 79/81✓"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 6/15✗"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 2/10✗"
+    }
+   }
+  },
+  "jump": {
+   "name": "Clears a hurdle met at speed from an unexpected place (finds it by camera)",
+   "real": "Hurdling means seeing the hurdle and adjusting the stride; a program that counts strides from the start fails when the hurdle is not where its count says.",
+   "measure": "Scenario jump: when the pelvis passes 25 m (past hurdle 2) the whole robot, with its speed and joint state, is moved forward along the lane so its pelvis is 2.2 m before hurdle 4 (hurdle 3 counts as passed); the scenario record = no fall and no DQ within 3 m past hurdle 4. Jump10 = the same move when the pelvis passes 10 m (before hurdle 1), so ablation arms that fall at the first hurdles reach it too.",
+   "line": "≥ 2/3 of the races",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "S:jump 6/6✓; S:jump10 6/6✓"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:3",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:2",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:2",
+     "src": "skillfill"
+    }
+   }
+  },
+  "first_hurdle": {
+   "name": "Clears hurdle 1",
+   "real": "The 13.72 m to hurdle 1 is the acceleration; the stride is hardest to fit there.",
+   "measure": "As 'clears', hurdle 1 only (gate ≥ 3 races reaching it).",
+   "line": "≥ 80 %",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 9/9✓"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 9/9✓"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 5/9✗"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 2/9✗"
+    }
+   }
+  },
+  "lane": {
+   "name": "Stays in lane from the camera",
+   "real": "In real athletics you can only look. The robot has only its head camera (480 × 270, 2 steps late) plus joints and IMUs, no position.",
+   "measure": "As in the 100 m (match field + scenario offset: start 0.40 m left, turned 6 deg left).",
+   "line": "Match ≥ 90 %; scenario ≥ 2/3",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 9/9✓; S:offset 6/6✓"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 7/9✗"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 4/5✗"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 1/4✗"
+    }
+   }
+  },
+  "push": {
+   "name": "Takes a sideways push: no fall, back in lane",
+   "real": "A knock while running must be absorbed by the whole-body controller, and the camera must bring the robot back to the lane centre.",
+   "measure": "Scenario push: at 36.5 m (between hurdles 3 and 4) a 0.8 m/s sideways push; read as in the 100 m.",
+   "line": "≥ 2/3 of the pushed races",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "S:push 0/6✗"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:3",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:2",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:2",
+     "src": "skillfill"
+    }
+   }
+  },
+  "rhythm": {
+   "name": "Real-time control: commands keep coming",
+   "real": "A real robot runs at x1; a slow loop cannot steer in time (card: a plan every 30 ms finishes every race, every 40 ms leaves the lane in all).",
+   "measure": "Steps of seat A's 'effect' rows (commands the world applied) in the match log: per race, the gaps between consecutive commands from the gun to the race's end, p95 (steps of 10 ms); share of races with ≥ 100 commands whose p95 ≤ 3 steps.",
+   "line": "≥ 80 % of races",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 9/9✓"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 9/9✓"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 9/9✓"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "pass",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 9/9✓"
+    }
+   }
+  },
+  "fair": {
+   "name": "No false start (rule, secondary)",
+   "real": "World Athletics TR 16: a start movement within 0.100 s of the gun is a false start.",
+   "measure": "the match record: among races with a start movement (reaction_s set), the share without TR16.8.",
+   "line": "≥ 90 %",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 9/9✓"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3",
+     "src": "skillfill",
+     "reading": "R 9/9✓"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 9/9✓"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "pass",
+     "checkpoint": "final:2",
+     "src": "skillfill",
+     "reading": "R 9/9✓"
+    }
+   }
+  }
+ },
+ "rule": "D3 (Chi 11-10): one headline per primary; pooled over 2 opponents x 2 seeds; acquired = 2 consecutive passing versions, lost = 2 consecutive failing; too few events = insufficient evidence",
+ "rules": [
+  "fair",
+  "rhythm"
+ ],
+ "health": [],
+ "not_shown": [
+  {
+   "name": "Speed versus falling",
+   "why": "No effect seen on the card."
+  }
+ ],
+ "notes_split": {}
+}

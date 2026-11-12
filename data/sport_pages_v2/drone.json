@@ -1,0 +1,1174 @@
+{
+ "schema": "eo-sportcaps/0",
+ "sport": "drone",
+ "card": "drone",
+ "made": "2026-11-10 11:37 CST",
+ "status": "proposal",
+ "sources": {
+  "checkpoint": "capcurve data/drone.json (Checkpoint Evaluation, 11-10 10:38)",
+  "skill_tests": "sport page skill tests + SKILLFILL rows (not merged yet)"
+ },
+ "capabilities": [
+  {
+   "id": "gates",
+   "name": "Finding the gates",
+   "layer": "Physical",
+   "meaning": "FPV and IMU only: map the course and localise against it.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "lap1",
+     "name": "Finds the gates for a lap",
+     "line": ">= 70 % of flights pass a lap of gates in order",
+     "rule": {
+      "num": "lap1",
+      "den": "flights",
+      "min_n": 4,
+      "op": ">=",
+      "value": 0.7
+     },
+     "line_kind": "existing",
+     "kind": "checkpoint",
+     "line_value": 0.9286,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": true
+    }
+   ],
+   "evidence": [
+    "lap1",
+    "relocalize",
+    "centred"
+   ],
+   "line": 0.9286,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 0,
+   "kept_by": 0
+  },
+  {
+   "id": "control",
+   "name": "Flight control under latency",
+   "layer": "Physical",
+   "meaning": "Stay in control through gusts at racing speed.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "gate1",
+     "name": "Takes off and passes gate 1",
+     "line": ">= 80 % of flights pass gate 1",
+     "rule": {
+      "num": "gate1",
+      "den": "flights",
+      "min_n": 4,
+      "op": ">=",
+      "value": 0.8
+     },
+     "line_kind": "existing",
+     "kind": "checkpoint",
+     "line_value": 1.0,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": true
+    }
+   ],
+   "evidence": [
+    "gate1",
+    "in_control",
+    "gust"
+   ],
+   "line": 1.0,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 5,
+   "kept_by": 5
+  },
+  {
+   "id": "shutters",
+   "name": "Timing the moving shutters",
+   "layer": "Physical",
+   "meaning": "Pass the shutters open.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "shutters",
+     "name": "Does not hit a shutter",
+     "line": ">= 80 % of flights that reach a shutter gate do not hit a shutter",
+     "rule": {
+      "num": "shutter_ok",
+      "den": "shutter_due",
+      "min_n": 4,
+      "op": ">=",
+      "value": 0.8
+     },
+     "line_kind": "existing_metric_fixed",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": [
+    "shutters"
+   ]
+  }
+ ],
+ "eval": {
+  "Claude Opus 5.5": {
+   "cp": "final:5",
+   "caps": {
+    "shutters": {
+     "status": "verified",
+     "skills": {
+      "shutters": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 8.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "gates": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "lap1": {
+       "status": "fail",
+       "value": 0.4,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "control": {
+     "status": "verified",
+     "cp": "final:5",
+     "skills": {
+      "gate1": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GPT-6 Astra": {
+   "cp": "final:5",
+   "caps": {
+    "shutters": {
+     "status": "verified",
+     "skills": {
+      "shutters": {
+       "status": "pass",
+       "value": 0.8,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "gates": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "lap1": {
+       "status": "fail",
+       "value": 0.7,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "control": {
+     "status": "verified",
+     "cp": "final:5",
+     "skills": {
+      "gate1": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Gemini 4 Argon": {
+   "cp": "final:5",
+   "caps": {
+    "shutters": {
+     "status": "verified",
+     "skills": {
+      "shutters": {
+       "status": "pass",
+       "value": 0.9,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "gates": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "lap1": {
+       "status": "fail",
+       "value": 0.9,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "control": {
+     "status": "verified",
+     "cp": "final:5",
+     "skills": {
+      "gate1": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "cp": "final:5",
+   "caps": {
+    "shutters": {
+     "status": "verified",
+     "skills": {
+      "shutters": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 4.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "gates": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "lap1": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "control": {
+     "status": "verified",
+     "cp": "final:5",
+     "skills": {
+      "gate1": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "cp": "final:4",
+   "caps": {
+    "shutters": {
+     "status": "insufficient",
+     "skills": {
+      "shutters": {
+       "status": "not_examined",
+       "value": null,
+       "n": 2.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "gates": {
+     "status": "not_verified",
+     "cp": "final:4",
+     "skills": {
+      "lap1": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "control": {
+     "status": "verified",
+     "cp": "final:4",
+     "skills": {
+      "gate1": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GLM 5.3 Flash": {
+   "cp": "final:4",
+   "caps": {
+    "shutters": {
+     "status": "not_evaluated",
+     "skills": {
+      "shutters": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "gates": {
+     "status": "not_verified",
+     "cp": "final:4",
+     "skills": {
+      "lap1": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "control": {
+     "status": "not_verified",
+     "cp": "final:4",
+     "skills": {
+      "gate1": {
+       "status": "fail",
+       "value": 0.1,
+       "n": 10.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  }
+ },
+ "growth": {
+  "Claude Opus 5.5": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   }
+  ],
+  "GPT-6 Astra": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "gates": "verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   }
+  ],
+  "Gemini 4 Argon": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   }
+  ],
+  "Kimi 3.1 Pro": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "gates": "not_verified",
+     "control": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   }
+  ],
+  "DeepSeek V4.1 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "gates": "not_evaluated",
+     "control": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "gates": "not_evaluated",
+     "control": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   }
+  ],
+  "GLM 5.3 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "gates": "not_verified",
+     "control": "verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "gates": "insufficient",
+     "control": "insufficient"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "gates": "not_verified",
+     "control": "not_verified"
+    }
+   }
+  ]
+ },
+ "claims": {
+  "Claude Opus 5.5": {
+   "gates": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "control": {
+    "text": "Claude Opus 5.5 reached Flight control under latency at version 0 (start): 100 % vs line reference 100 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "GPT-6 Astra": {
+   "gates": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "control": {
+    "text": "GPT-6 Astra reached Flight control under latency at version 0 (start): 100 % vs line reference 100 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "Gemini 4 Argon": {
+   "gates": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "control": {
+    "text": "Gemini 4 Argon reached Flight control under latency at version 0 (start): 100 % vs line reference 100 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "gates": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "control": {
+    "text": "Kimi 3.1 Pro reached Flight control under latency at version 4: 100 % vs line reference 100 %; kept at version 5",
+    "acquired": "final:4",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "gates": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "control": {
+    "text": "DeepSeek V4.1 Flash reached Flight control under latency at version 2: 100 % vs line reference 100 %; kept at version 3",
+    "acquired": "final:2",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "GLM 5.3 Flash": {
+   "gates": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "control": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  }
+ },
+ "evidence": {
+  "gate1": {
+   "name": "Takes off and passes gate 1",
+   "real": "Arm, lift off, settle and line up on the first gate. Gate 1's position is in /spec; everything after depends on it.",
+   "measure": "Checkpoint Evaluation: flights with a gate passed / all flights (pooled per checkpoint, ≥ 4 flights).",
+   "line": "≥ 80 % of flights",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "10/10"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "10/10"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "10/10"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "10/10"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill",
+     "reading": "10/10"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill",
+     "reading": "1/10"
+    }
+   }
+  },
+  "in_control": {
+   "name": "Stays in control in flight",
+   "real": "Flying on top of a Betaflight-like rate loop with latency and wind: no hit on a frame, wall or floor, no crossing of the safety line.",
+   "measure": "Checkpoint Evaluation: of the flights past gate 1, the share that end finished (or only by a shutter hit, which is the shutter skill's); a frame hit, out of bounds, the time limit or the failsafe counts as out of control.",
+   "line": "≥ 70 % of flights past gate 1 (≥ 4)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "1/10"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "8/10"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "7/10"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "0/10"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill",
+     "reading": "0/10"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill",
+     "reading": "0/1"
+    }
+   }
+  },
+  "gust": {
+   "name": "Recovers from a gust",
+   "real": "Air moves indoors too and gusts are stronger outdoors. A gust acts through the drag, the IMU feels it and the gates drift in the image: the drone must pull back onto its line quickly.",
+   "measure": "Scenario gust: the official start; 0.4 s after gate 2 the world's gust state gets 5 m/s across the drone's velocity (alternating sides, then decaying with the world's 1.2 s time constant); the round ends at gate 5. Of the gusted rounds, the share reaching gate 5.",
+   "line": "≥ 2/3 of gusted rounds (≥ 3)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill"
+    }
+   }
+  },
+  "loop": {
+   "name": "A fast control loop",
+   "real": "Research racers fly at the throttle + body-rate level with about 40 ms end to end; a slow loop falls behind in turns and gates.",
+   "measure": "Checkpoint Evaluation: 90th-percentile command latency (the step a command takes effect less the step of the state the program had seen); gate: ≥ 100 applied commands in the unit.",
+   "line": "p90 ≤ 2 steps (20 ms) in ≥ 2/3 of units",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "5/5"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "5/5"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "5/5"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "5/5"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill",
+     "reading": "5/5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill",
+     "reading": "5/5"
+    }
+   }
+  },
+  "lap1": {
+   "name": "Finds the gates for a lap",
+   "real": "Only gate 1 is given; the others are found, numbered and mapped from the 320 × 240 FPV image while gate sightings correct the IMU's drift.",
+   "measure": "Checkpoint Evaluation: flights completing lap 1 in order (progress ≥ 1/3 or finished) / all flights.",
+   "line": "≥ 70 % of flights",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "4/10"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "7/10"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "9/10"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "0/10"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill",
+     "reading": "0/10"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill",
+     "reading": "0/10"
+    }
+   }
+  },
+  "relocalize": {
+   "name": "Finds the gates ahead from a mid-course start",
+   "real": "In a real race a drifted estimate is recovered from gate sightings. Here the drone starts mid-course before the hardest section: only the camera can tell which gates lie ahead.",
+   "measure": "Scenario mid: each round the drone hovers 5 m before gate K facing it (K = the start of the shutter-free 3-gate section with the most turn + climb; the referee's count starts at K - 1, next_gate = K; the /spec start fields report this start); the round ends after K, K+1, K+2. The share of rounds completing the section.",
+   "line": "≥ 2/3 of rounds (≥ 3)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill"
+    }
+   }
+  },
+  "centred": {
+   "name": "Threads the gates near the centre",
+   "real": "With a good map and self-localization the drone passes near the opening's centre; near the edge it clips the frame.",
+   "measure": "replay: distance from the opening's centre at each pass, median per unit (≥ 3 passes).",
+   "line": "≤ 0.3 m (shown only)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill"
+    }
+   }
+  },
+  "shutters": {
+   "name": "Times the moving shutters",
+   "real": "A shutter slides sinusoidally across its gate; the camera shows only where it is now: the program infers period and phase from images and slows or waits before crossing.",
+   "measure": "Checkpoint Evaluation: of the flights past gate 2, the share through shutter gate 3 (not ended by a shutter hit). Scenario shutter: starts 5 m before the shutter gate with the shutter's phase pinned to block the gate centre 1.5 s after the start (when a drone flying straight in arrives); the share of rounds through the shutter gate and the shutter hits.",
+   "line": "Checkpoint Evaluation ≥ 80 % (≥ 4); scenario ≥ 2/3 of rounds",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "6/8"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "10/10"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "10/10"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "0/4"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill",
+     "reading": "0/2"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill",
+     "reading": "0/0"
+    }
+   }
+  },
+  "pace": {
+   "name": "Flies at pace",
+   "real": "Racing is the fastest line that still does not crash: too slow loses, too fast hits a frame.",
+   "measure": "Checkpoint Evaluation: mean speed of finished flights = 3 × lap length / finish time, per unit; ≥ 2/3 of the units with a finish.",
+   "line": "≥ 3.4 m/s",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "3.1 m/s"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "2.6 m/s"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "5.6 m/s"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill"
+    }
+   }
+  },
+  "finishes": {
+   "name": "Finishes the race (composite)",
+   "real": "Three full laps: finding gates, flight control, shutters and pace all have to work.",
+   "measure": "Checkpoint Evaluation: finished flights / all flights.",
+   "line": "≥ 60 % (composite, shown; the old ≥ 90 % fails the reference too: 0.75)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "1/10"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "6/10"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "6/10"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill",
+     "reading": "0/10"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill",
+     "reading": "0/10"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:4",
+     "src": "skillfill",
+     "reading": "0/10"
+    }
+   }
+  }
+ },
+ "rule": "D3 (Chi 11-10): one headline per primary; pooled over 2 opponents x 2 seeds; acquired = 2 consecutive passing versions, lost = 2 consecutive failing; too few events = insufficient evidence",
+ "rules": [],
+ "health": [
+  "loop"
+ ],
+ "not_shown": [
+  {
+   "name": "Racing others in one airspace",
+   "why": "The release is a time trial."
+  },
+  {
+   "name": "Thrust and battery",
+   "why": "Unverified on the card."
+  }
+ ],
+ "notes_split": {}
+}

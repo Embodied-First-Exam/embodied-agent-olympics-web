@@ -1,0 +1,1216 @@
+{
+ "schema": "eo-sportcaps/0",
+ "sport": "curling",
+ "card": "curling_g1",
+ "made": "2026-11-10 11:37 CST",
+ "status": "proposal",
+ "sources": {
+  "checkpoint": "capcurve data/curling_g1.json (Checkpoint Evaluation, 11-10 10:38)",
+  "skill_tests": "sport page skill tests + SKILLFILL rows (not merged yet)"
+ },
+ "capabilities": [
+  {
+   "id": "choice",
+   "name": "Shot choice",
+   "layer": "Competitive",
+   "meaning": "Taking shot stone back and converting the hammer.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "shot_back",
+     "name": "Takes shot stone back",
+     "line": "When they hold shot stone, our stone at rest holds it >= 50 % of the time",
+     "rule": {
+      "num": "shot_back",
+      "den": "theirs_before",
+      "min_n": 8,
+      "op": ">=",
+      "value": 0.5
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint",
+     "line_value": 0.6047,
+     "line_src": "L2",
+     "op": ">=",
+     "pooled": true
+    }
+   ],
+   "evidence": [
+    "choose",
+    "hammer"
+   ],
+   "line": 0.6047,
+   "line_src": "L2",
+   "moved_to_L1": false,
+   "reached_by": 4,
+   "kept_by": 4
+  },
+  {
+   "id": "weight",
+   "name": "Draw weight",
+   "layer": "Physical",
+   "meaning": "Stones that stop where intended win ends; the ice speed differs per match.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "draw_weight",
+     "name": "Draw-weight stones stay in play",
+     "line": "Draw-weight stones (released 1.5-2.35 m/s) that touch nothing stop in play >= 85 %",
+     "rule": {
+      "num": "free_draw_in_play",
+      "den": "free_draw",
+      "min_n": 6,
+      "op": ">=",
+      "value": 0.85
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint",
+     "line_value": 1.0,
+     "line_src": "L2",
+     "op": ">=",
+     "pooled": true
+    }
+   ],
+   "evidence": [
+    "draw",
+    "reach_play",
+    "ice"
+   ],
+   "line": 1.0,
+   "line_src": "L2",
+   "moved_to_L1": false,
+   "reached_by": 2,
+   "kept_by": 2
+  },
+  {
+   "id": "curl",
+   "name": "Shot making with curl",
+   "layer": "Physical",
+   "meaning": "Spin both ways to come around guards and hit and stay.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "spins",
+     "name": "Puts spin on the stone",
+     "line": "Legal deliveries with spin >= 90 %",
+     "rule": {
+      "num": "spun",
+      "den": "legal_throws",
+      "min_n": 10,
+      "op": ">=",
+      "value": 0.9
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint"
+    },
+    {
+     "id": "both_turns",
+     "name": "Turns both ways",
+     "line": "The less used turn >= 10 % of legal deliveries",
+     "rule": {
+      "metric": "minor_turn",
+      "op": ">=",
+      "value": 0.1,
+      "games": 0.6666666666666666
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": [
+    "spins",
+    "both_turns",
+    "around",
+    "takeout"
+   ]
+  }
+ ],
+ "eval": {
+  "Claude Opus 5.5": {
+   "cp": "final:7",
+   "caps": {
+    "curl": {
+     "status": "verified",
+     "skills": {
+      "spins": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 120.0,
+       "src": "checkpoint"
+      },
+      "both_turns": {
+       "status": "pass",
+       "value": 0.4083,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "choice": {
+     "status": "verified",
+     "cp": "final:7",
+     "skills": {
+      "shot_back": {
+       "status": "pass",
+       "value": 0.9737,
+       "n": 76.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "weight": {
+     "status": "not_verified",
+     "cp": "final:7",
+     "skills": {
+      "draw_weight": {
+       "status": "fail",
+       "value": 0.9412,
+       "n": 51.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GPT-6 Astra": {
+   "cp": "final:7",
+   "caps": {
+    "curl": {
+     "status": "verified",
+     "skills": {
+      "spins": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 175.0,
+       "src": "checkpoint"
+      },
+      "both_turns": {
+       "status": "pass",
+       "value": 0.42,
+       "n": 8,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "choice": {
+     "status": "not_verified",
+     "cp": "final:7",
+     "skills": {
+      "shot_back": {
+       "status": "fail",
+       "value": 0.5826,
+       "n": 115.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "weight": {
+     "status": "not_verified",
+     "cp": "final:7",
+     "skills": {
+      "draw_weight": {
+       "status": "fail",
+       "value": 0.0119,
+       "n": 84.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Gemini 4 Argon": {
+   "cp": "final:7",
+   "caps": {
+    "curl": {
+     "status": "verified",
+     "skills": {
+      "spins": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 125.0,
+       "src": "checkpoint"
+      },
+      "both_turns": {
+       "status": "pass",
+       "value": 0.3233,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "choice": {
+     "status": "verified",
+     "cp": "final:7",
+     "skills": {
+      "shot_back": {
+       "status": "pass",
+       "value": 0.913,
+       "n": 69.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "weight": {
+     "status": "verified",
+     "cp": "final:7",
+     "skills": {
+      "draw_weight": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 53.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "cp": "final:7",
+   "caps": {
+    "curl": {
+     "status": "verified",
+     "skills": {
+      "spins": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 165.0,
+       "src": "checkpoint"
+      },
+      "both_turns": {
+       "status": "pass",
+       "value": 0.4288,
+       "n": 8,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "choice": {
+     "status": "verified",
+     "cp": "final:7",
+     "skills": {
+      "shot_back": {
+       "status": "pass",
+       "value": 0.6098,
+       "n": 82.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "weight": {
+     "status": "verified",
+     "cp": "final:7",
+     "skills": {
+      "draw_weight": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 76.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "cp": "final:5",
+   "caps": {
+    "curl": {
+     "status": "verified",
+     "skills": {
+      "spins": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 140.0,
+       "src": "checkpoint"
+      },
+      "both_turns": {
+       "status": "pass",
+       "value": 0.2786,
+       "n": 7,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "choice": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "shot_back": {
+       "status": "fail",
+       "value": 0.567,
+       "n": 97.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "weight": {
+     "status": "verified",
+     "cp": "final:5",
+     "skills": {
+      "draw_weight": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 65.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GLM 5.3 Flash": {
+   "cp": "final:5",
+   "caps": {
+    "curl": {
+     "status": "verified",
+     "skills": {
+      "spins": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 140.0,
+       "src": "checkpoint"
+      },
+      "both_turns": {
+       "status": "pass",
+       "value": 0.3643,
+       "n": 7,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "choice": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "shot_back": {
+       "status": "fail",
+       "value": 0.5294,
+       "n": 102.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "weight": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "draw_weight": {
+       "status": "fail",
+       "value": 0.44,
+       "n": 50.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  }
+ },
+ "growth": {
+  "Claude Opus 5.5": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   }
+  ],
+  "GPT-6 Astra": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "choice": "verified",
+     "weight": "verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "not_verified"
+    }
+   }
+  ],
+  "Gemini 4 Argon": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "verified"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "verified"
+    }
+   }
+  ],
+  "Kimi 3.1 Pro": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "verified"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "verified"
+    }
+   }
+  ],
+  "DeepSeek V4.1 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "verified"
+    }
+   }
+  ],
+  "GLM 5.3 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "choice": "verified",
+     "weight": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "choice": "not_verified",
+     "weight": "not_verified"
+    }
+   }
+  ]
+ },
+ "claims": {
+  "Claude Opus 5.5": {
+   "choice": {
+    "text": "Claude Opus 5.5 reached Shot choice at version 0 (start): 100 % vs line L2 60 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   },
+   "weight": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "GPT-6 Astra": {
+   "choice": {
+    "text": "GPT-6 Astra reached Shot choice at version 2: 64 % vs line L2 60 %; kept at version 3",
+    "acquired": "final:2",
+    "lost": null,
+    "kept": true
+   },
+   "weight": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "Gemini 4 Argon": {
+   "choice": {
+    "text": "Gemini 4 Argon reached Shot choice at version 0 (start): 76 % vs line L2 60 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   },
+   "weight": {
+    "text": "Gemini 4 Argon reached Draw weight at version 1: 100 % vs line L2 100 %; kept at version 2",
+    "acquired": "final:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "choice": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "weight": {
+    "text": "Kimi 3.1 Pro reached Draw weight at version 3: 100 % vs line L2 100 %; kept at version 5",
+    "acquired": "final:3",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "choice": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "weight": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "GLM 5.3 Flash": {
+   "choice": {
+    "text": "GLM 5.3 Flash reached Shot choice at version 2: 71 % vs line L2 60 %; kept at version 3",
+    "acquired": "final:2",
+    "lost": null,
+    "kept": true
+   },
+   "weight": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  }
+ },
+ "evidence": {
+  "legal": {
+   "name": "Delivers legal stones",
+   "real": "A fall in the slide, a stone still held at the near hog line, a release that is too fast or a touch after the release all remove the stone (WCF R5, R9).",
+   "measure": "Match Checkpoint Evaluation: the match record, the of each own stone; legal = no fault. Drills: the scenario record",
+   "line": "Legal / own deliveries ≥ 90 % (≥ 10 stones)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    }
+   }
+  },
+  "spins": {
+   "name": "Puts spin on the stone",
+   "real": "Turning the handle gives the stone spin and a predictable curl; a stone without spin curls a random way.",
+   "measure": "The spin the world records at the release ( in ccw / cw: the wrist turns the handle ≥ 0.5 rad/s) / legal deliveries. The same field in Checkpoint Evaluations and drills.",
+   "line": "≥ 90 % (≥ 10 stones)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    }
+   }
+  },
+  "both_turns": {
+   "name": "Turns both ways",
+   "real": "Curling around a guard on the left or the right needs the other turn.",
+   "measure": "Match Checkpoint Evaluation: the less used turn / legal deliveries (minor_turn).",
+   "line": "≥ 10 % in 2/3 of matches",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    }
+   }
+  },
+  "reach_play": {
+   "name": "Stones reach play",
+   "real": "The release speed decides where the stone stops: a stone short of the far hog line is removed.",
+   "measure": "Match Checkpoint Evaluation: legal deliveries that stop in play or strike a stone (reached_play / delivered).",
+   "line": "≥ 80 % (≥ 10 stones)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    }
+   }
+  },
+  "draw": {
+   "name": "Draws into the house for the win (weight)",
+   "real": "Last end, tied, own hammer: one stone closer than theirs wins. A release 0.1 m/s off stops about 2 m off.",
+   "measure": "Drill draw: each of 8 ends starts with one opponent stone at the back of the 12-foot (about 1.45 m from the tee) and the program throws the last stone; ends with the scenario record = 0 / ends (seeds pooled). Side reading: the own stone's distance to the tee (own_dist).",
+   "line": "Wins ≥ 50 % of the ends (pooled, ≥ 8 ends)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    }
+   }
+  },
+  "ice": {
+   "name": "Reads the ice: learns the weight on the fastest / slowest ice",
+   "real": "Every sheet has its own speed; teams find the weight from their first stones. The ice scale kd is hidden and can only be learnt from one's own throws.",
+   "measure": "Drill ice: as draw on the ends of the documented range (seed 9101 -> kd 0.80, 9102 -> kd 1.10), the same ice for all 8 ends; reading = ends 5-8 won / ends (ends 1-4 are for learning). Side reading: rest distance in ends 1-4 against 5-8.",
+   "line": "Ends 5-8 won ≥ 50 % (pooled)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    }
+   }
+  },
+  "takeout": {
+   "name": "Hits and stays (takeout)",
+   "real": "Their stone on the button, nothing in front: only a hit that removes it and stays in the house wins. A hit needs 2.4-3.2 m/s and an accurate line.",
+   "measure": "Drill takeout: one opponent stone on the button (+-5 cm) each end, the program throws the last stone; ends won / ends. Side readings: the target left the house (target_out), the stone hit something (contact).",
+   "line": "Wins ≥ 50 % of the ends (pooled, ≥ 8 ends)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    }
+   }
+  },
+  "around": {
+   "name": "Comes around a guard",
+   "real": "A centre guard blocks the straight line; the stone has to curl around it and stop inside: what spin and a predicted path are for.",
+   "measure": "Drill guard: an opponent centre guard (about 1.4 m in front of the house) and an opponent stone 0.45 m from the tee behind it, the program throws the last stone; ends won / ends. Side reading: the guard left untouched (guard_kept).",
+   "line": "Wins ≥ 50 % of the ends (pooled, ≥ 8 ends)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    }
+   }
+  },
+  "choose": {
+   "name": "Picks the right kind of shot",
+   "real": "With their stone on the button a draw cannot win, only a hit; behind a guard a straight hit runs into the guard.",
+   "measure": "Drill takeout: ends in which the target on the button left the house / ends (target_out; an end not thrown counts as not done); drill guard: ends that left the guard untouched / ends (guard_kept). Both must pass.",
+   "line": "Both ≥ 75 %",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    }
+   }
+  },
+  "hammer": {
+   "name": "Converts the hammer",
+   "real": "An end with the hammer should score 2+ or be blanked to keep it.",
+   "measure": "Match Checkpoint Evaluation: hammer ends scoring 2+ or blanked (hammer_conv / hammer_ends).",
+   "line": "≥ 50 % (≥ 4 ends)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:5"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "reading": "No program deployed in its Championship matches: marks equal the do-nothing control"
+    }
+   }
+  }
+ },
+ "rule": "D3 (Chi 11-10): one headline per primary; pooled over 2 opponents x 2 seeds; acquired = 2 consecutive passing versions, lost = 2 consecutive failing; too few events = insufficient evidence",
+ "rules": [
+  "legal"
+ ],
+ "health": [],
+ "not_shown": [
+  {
+   "name": "Stone positions from images",
+   "why": "A program's own reports are never a criterion."
+  }
+ ],
+ "notes_split": {}
+}

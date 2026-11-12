@@ -1,0 +1,881 @@
+{
+ "schema": "eo-sportcaps/0",
+ "sport": "racing",
+ "card": "f1full",
+ "made": "2026-11-10 11:37 CST",
+ "status": "proposal",
+ "sources": {
+  "checkpoint": "capcurve data/f1full.json (Checkpoint Evaluation, 11-10 10:38)",
+  "skill_tests": "sport page skill tests"
+ },
+ "capabilities": [
+  {
+   "id": "pace",
+   "name": "Pace at the grip limit",
+   "layer": "Physical",
+   "meaning": "Lap time comes from carrying speed through corners at the tyre limit.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "pace",
+     "name": "Laps fast enough",
+     "line": "Mean ratio of the best valid lap to the reference >= 0.91",
+     "rule": {
+      "num": "pace_rel",
+      "den": "one",
+      "min_n": 3,
+      "op": ">=",
+      "value": 0.91
+     },
+     "line_kind": "existing",
+     "kind": "checkpoint",
+     "line_value": 1.0,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": true
+    }
+   ],
+   "evidence": [
+    "pace",
+    "corner_speed",
+    "tight_corner"
+   ],
+   "line": 1.0,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 4,
+   "kept_by": 4
+  },
+  {
+   "id": "clean",
+   "name": "Clean laps",
+   "layer": "Physical",
+   "meaning": "An incident costs more than any corner gains.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "no_incident",
+     "name": "No incident",
+     "line": "Of the runs that pulled away, >= 80 % with no barrier, no wrong way and no track-limit call",
+     "rule": {
+      "num": "clean_driven",
+      "den": "driven_units",
+      "min_n": 3,
+      "op": ">=",
+      "value": 0.8
+     },
+     "line_kind": "existing_metric_fixed",
+     "kind": "checkpoint",
+     "line_value": 1.0,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": true
+    }
+   ],
+   "evidence": [
+    "lap",
+    "no_incident",
+    "recovers",
+    "steady"
+   ],
+   "line": 1.0,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 4,
+   "kept_by": 4
+  }
+ ],
+ "eval": {
+  "Claude Opus 5.5": {
+   "cp": "final:3",
+   "caps": {
+    "pace": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "pace": {
+       "status": "fail",
+       "value": 0.9655,
+       "n": 3.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "clean": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "no_incident": {
+       "status": "fail",
+       "value": 0.6,
+       "n": 5.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GPT-6 Astra": {
+   "cp": "final:3",
+   "caps": {
+    "pace": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "pace": {
+       "status": "fail",
+       "value": 0.8968,
+       "n": 5.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "clean": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "no_incident": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 8.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Gemini 4 Argon": {
+   "cp": "final:3",
+   "caps": {
+    "pace": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "pace": {
+       "status": "pass",
+       "value": 1.0756,
+       "n": 3.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "clean": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "no_incident": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 6.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "cp": "final:3",
+   "caps": {
+    "pace": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "pace": {
+       "status": "fail",
+       "value": 0.8904,
+       "n": 3.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "clean": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "no_incident": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 6.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "cp": "final:3",
+   "caps": {
+    "pace": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "pace": {
+       "status": "pass",
+       "value": 1.0476,
+       "n": 3.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "clean": {
+     "status": "verified",
+     "cp": "final:3",
+     "skills": {
+      "no_incident": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 6.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GLM 5.3 Flash": {
+   "cp": "final:3",
+   "caps": {
+    "pace": {
+     "status": "not_verified",
+     "cp": "final:3",
+     "skills": {
+      "pace": {
+       "status": "fail",
+       "value": 0.2132,
+       "n": 3.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "clean": {
+     "status": "not_evaluated",
+     "cp": "final:3",
+     "skills": {
+      "no_incident": {
+       "status": "not_evaluated",
+       "value": null,
+       "n": 0.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  }
+ },
+ "growth": {
+  "Claude Opus 5.5": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "pace": "not_verified",
+     "clean": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "pace": "not_verified",
+     "clean": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "pace": "not_verified",
+     "clean": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "pace": "not_verified",
+     "clean": "not_verified"
+    }
+   },
+   {
+    "cp": "deploy:3",
+    "x": 3.0,
+    "caps": {
+     "pace": "insufficient",
+     "clean": "insufficient"
+    }
+   }
+  ],
+  "GPT-6 Astra": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "pace": "not_verified",
+     "clean": "verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "pace": "verified",
+     "clean": "verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "pace": "verified",
+     "clean": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "pace": "not_verified",
+     "clean": "verified"
+    }
+   }
+  ],
+  "Gemini 4 Argon": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "pace": "verified",
+     "clean": "verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "pace": "verified",
+     "clean": "verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "pace": "verified",
+     "clean": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "pace": "verified",
+     "clean": "verified"
+    }
+   }
+  ],
+  "Kimi 3.1 Pro": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "pace": "verified",
+     "clean": "verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "pace": "verified",
+     "clean": "verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "pace": "verified",
+     "clean": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "pace": "not_verified",
+     "clean": "verified"
+    }
+   }
+  ],
+  "DeepSeek V4.1 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "pace": "not_verified",
+     "clean": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "pace": "not_verified",
+     "clean": "verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "pace": "verified",
+     "clean": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "pace": "verified",
+     "clean": "verified"
+    }
+   }
+  ],
+  "GLM 5.3 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "pace": "not_verified",
+     "clean": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "pace": "not_verified",
+     "clean": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "pace": "not_verified",
+     "clean": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "pace": "not_verified",
+     "clean": "not_evaluated"
+    }
+   }
+  ]
+ },
+ "claims": {
+  "Claude Opus 5.5": {
+   "pace": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "clean": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "GPT-6 Astra": {
+   "pace": {
+    "text": "GPT-6 Astra reached Pace at the grip limit at version 1: 105 % vs line reference 100 %; kept at version 2",
+    "acquired": "final:1",
+    "lost": null,
+    "kept": true
+   },
+   "clean": {
+    "text": "GPT-6 Astra reached Clean laps at version 0 (start): 100 % vs line reference 100 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "Gemini 4 Argon": {
+   "pace": {
+    "text": "Gemini 4 Argon reached Pace at the grip limit at version 0 (start): 105 % vs line reference 100 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   },
+   "clean": {
+    "text": "Gemini 4 Argon reached Clean laps at version 0 (start): 100 % vs line reference 100 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "pace": {
+    "text": "Kimi 3.1 Pro reached Pace at the grip limit at version 0 (start): 102 % vs line reference 100 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   },
+   "clean": {
+    "text": "Kimi 3.1 Pro reached Clean laps at version 0 (start): 100 % vs line reference 100 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "pace": {
+    "text": "DeepSeek V4.1 Flash reached Pace at the grip limit at version 2: 105 % vs line reference 100 %; kept at version 3",
+    "acquired": "final:2",
+    "lost": null,
+    "kept": true
+   },
+   "clean": {
+    "text": "DeepSeek V4.1 Flash reached Clean laps at version 1: 100 % vs line reference 100 %; kept at version 2",
+    "acquired": "final:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "GLM 5.3 Flash": {
+   "pace": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   },
+   "clean": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  }
+ },
+ "evidence": {
+  "lap": {
+   "name": "Completes a valid lap",
+   "real": "The basic requirement of a time trial: pull away from rest and drive a full lap without all four wheels past the white line, the barrier or driving the wrong way; only then does the lap count.",
+   "measure": "Baseline scenario (the official time trial's run 1: standing start, two timed laps): runs with the match set / runs. The Checkpoint Evaluations read the same field.",
+   "line": "≥ 80 % of runs",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    }
+   }
+  },
+  "pace": {
+   "name": "Laps fast enough",
+   "real": "A2RL / IAC cars run at the grip limit; the lap time comes from how much grip is used and where the car brakes.",
+   "measure": "Baseline scenario: the match record = the platform's plan lap time / the best valid lap (the reference reads about 0.94; no valid lap scores 0.2), median over seeds.",
+   "line": "≥ 0.91",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    }
+   }
+  },
+  "corner_speed": {
+   "name": "Carries speed through tight corners",
+   "real": "Lap time is won in the slow corners: a slightly slow entry costs the whole straight after it.",
+   "measure": "Every passage of the two tightest corners in the baseline (official start) + scenario hairpin: over the corners passed cleanly, the lowest speed in the corner / the platform plan's lowest speed there (the scenario record and / v_plan_min), pooled median. Gate: ≥ 2 clean corners.",
+   "line": "≥ 0.90",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    }
+   }
+  },
+  "tight_corner": {
+   "name": "Takes a hairpin at the limit, cleanly",
+   "real": "Before a hairpin the car brakes from over 250 km/h to about 90 km/h: braking point, steering and throttle have to agree, and a little late means the barrier. Opus kickoff:1 hit the barrier at the 974 m hairpin in its Checkpoint Evaluations.",
+   "measure": "Pooled from two sources: (1) every passage of the two tightest corners in the baseline (official start, two laps): clean = no new track-limit call and no DNF up to 200 m after the exit, and the lowest corner speed ≥ 0.8 × the plan's; (2) scenario hairpin: a flying start 250 m before one of the two tightest corners at the reference plan's speed (held until the program's first act), ending 200 m after the exit; clean = reaches the end with no barrier / wrong way / track-limit call and within 1.25 × the reference's time on the same seed and corner. A unit that leaves the road before reaching the corner after the flying start gives no reading (the program lost itself; see findings).",
+   "line": "≥ 2/3 of the corners",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
+   }
+  },
+  "no_incident": {
+   "name": "No incident over a lap",
+   "real": "A2RL teams write their own traction, braking and steering control; one barrier contact is a DNF.",
+   "measure": "Baseline scenario + Checkpoint Evaluations: of the runs that pulled away (≥ 100 m), the share with no barrier, wrong way or track-limit call (, track_limits, progress_m).",
+   "line": "≥ 80 % (≥ 2 runs that pulled away)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    }
+   }
+  },
+  "recovers": {
+   "name": "Catches a slide",
+   "real": "A kerb or a bump can snap the rear out; a driver (or autonomy stack) has a few tenths of a second to counter-steer and lift to save it.",
+   "measure": "Scenario slide: the hairpin start; a third of the way round the corner the world adds 2.0 m/s of sideways velocity towards the outside and 0.25 rad/s of yaw rate into the turn; recovered = reaches the end with no barrier / wrong way / track-limit call. Gate: speed at the kick ≥ 0.8 × the reference's at the same corner (crawling does not count).",
+   "line": "≥ 2/3 of the kicked corners",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:3"
+    }
+   }
+  },
+  "steady": {
+   "name": "Steady steering",
+   "real": "Sawing at the wheel at speed upsets the tyres, costs speed and can lose the car.",
+   "measure": "Every unit of the scenarios: direction changes of the applied steering angle (0.004 rad hysteresis) per second above 20 m/s, median over baseline + hairpin. Gate: the program completes a valid lap or a clean corner.",
+   "line": "≤ 4 a second",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    }
+   }
+  },
+  "rhythm": {
+   "name": "Commands keep coming",
+   "real": "At 80 m/s 20 ms is 1.6 m; real cars command at the order of 100 Hz.",
+   "measure": "The world records the step of every applied act: the gap between consecutive acts while above 5 m/s, p95 per unit (the scenario record, in 10 ms steps), median over the scenarios.",
+   "line": "p95 ≤ 20 steps (200 ms)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "pass",
+     "checkpoint": "final:3"
+    }
+   }
+  },
+  "yellow": {
+   "name": "Keeps the double yellow",
+   "real": "A double-yellow sector has a speed limit and speeding is penalised. The official run 2 has a 250 m, 100 km/h double yellow.",
+   "measure": "Scenario yellow: the official standing start; a 250 m, 100 km/h double yellow starts 120 m after the line (announced in from the first step); the unit ends 150 m after it, two units; kept = no yellow_violation and a sector mean ≥ 80 km/h.",
+   "line": "≥ 2/3 of the units",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:3"
+    }
+   }
+  }
+ },
+ "rule": "D3 (Chi 11-10): one headline per primary; pooled over 2 opponents x 2 seeds; acquired = 2 consecutive passing versions, lost = 2 consecutive failing; too few events = insufficient evidence",
+ "rules": [
+  "yellow"
+ ],
+ "health": [
+  "rhythm"
+ ],
+ "not_shown": [
+  {
+   "name": "Onboard camera perception",
+   "why": "No other car in a time trial."
+  },
+  {
+   "name": "Race strategy",
+   "why": "Only in the multi-car race."
+  }
+ ],
+ "notes_split": {}
+}

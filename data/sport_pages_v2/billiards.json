@@ -1,0 +1,1344 @@
+{
+ "schema": "eo-sportcaps/0",
+ "sport": "billiards",
+ "card": "billiards_g1",
+ "made": "2026-11-10 11:37 CST",
+ "status": "proposal",
+ "sources": {
+  "checkpoint": "capcurve data/billiards_g1.json (Checkpoint Evaluation, 11-10 10:38)",
+  "skill_tests": "sport page skill tests + SKILLFILL rows (not merged yet)"
+ },
+ "capabilities": [
+  {
+   "id": "stroke",
+   "name": "Clean two-handed stroke",
+   "layer": "Physical",
+   "meaning": "Bridge and stroke without a fall, in time.",
+   "role": "primary",
+   "verify": [
+    {
+     "id": "clean",
+     "name": "Clean strokes",
+     "line": "Strokes without a stroke fault / own shots >= 90 %",
+     "rule": {
+      "num": "clean_strokes",
+      "den": "shots",
+      "min_n": 10,
+      "op": ">=",
+      "value": 0.9
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint",
+     "line_value": 0.9429,
+     "line_src": "reference",
+     "op": ">=",
+     "pooled": true
+    }
+   ],
+   "evidence": [
+    "clean"
+   ],
+   "line": 0.9429,
+   "line_src": "reference",
+   "moved_to_L1": false,
+   "reached_by": 1,
+   "kept_by": 1
+  },
+  {
+   "id": "pot",
+   "name": "Potting",
+   "layer": "Physical",
+   "meaning": "See the balls, aim along the call, pot it.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "aim",
+     "name": "Aims at the call",
+     "line": "Called shots aimed within 0.5 deg of the potting window's centre >= 60 %",
+     "rule": {
+      "num": "aim_ok",
+      "den": "aim_n",
+      "min_n": 5,
+      "op": ">=",
+      "value": 0.6
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint"
+    },
+    {
+     "id": "pots",
+     "name": "Pots balls",
+     "line": "Legal pots / own shots >= 30 %",
+     "rule": {
+      "num": "pots_legal",
+      "den": "shots",
+      "min_n": 10,
+      "op": ">=",
+      "value": 0.3
+     },
+     "line_kind": "existing",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": [
+    "aim",
+    "pots",
+    "cut",
+    "break"
+   ]
+  },
+  {
+   "id": "position",
+   "name": "Position play",
+   "layer": "Competitive",
+   "meaning": "Leaving a next pot turns one pot into a run.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "position",
+     "name": "Leaves a next pot",
+     "line": "After a pot that keeps the turn, a direct pot with a cut <= 45 deg is open >= 60 %",
+     "rule": {
+      "num": "pos_ok",
+      "den": "pos_n",
+      "min_n": 5,
+      "op": ">=",
+      "value": 0.6
+     },
+     "line_kind": "proposed",
+     "kind": "checkpoint"
+    },
+    {
+     "id": "runs",
+     "name": "Runs of pots",
+     "line": "At least one visit with 2 pots a match (2/3 of matches)",
+     "rule": {
+      "metric": "runs2",
+      "op": ">=",
+      "value": 1,
+      "games": 0.6666666666666666,
+      "min_matches": 2
+     },
+     "line_kind": "existing",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": [
+    "runs",
+    "place"
+   ]
+  },
+  {
+   "id": "safety",
+   "name": "Safety play",
+   "layer": "Competitive",
+   "meaning": "Leaving the opponent nothing when there is no pot.",
+   "role": "secondary",
+   "verify": [
+    {
+     "id": "legal_shot",
+     "name": "Legal shots",
+     "line": "Legal shots / own shots >= 90 %",
+     "rule": {
+      "num": "legal",
+      "den": "shots",
+      "min_n": 10,
+      "op": ">=",
+      "value": 0.9
+     },
+     "line_kind": "existing",
+     "kind": "checkpoint"
+    },
+    {
+     "id": "safety",
+     "name": "Effective safeties",
+     "line": "Legal safeties after which the opponent fouls or pots nothing >= 30 %",
+     "rule": {
+      "num": "safety_ok",
+      "den": "safeties",
+      "min_n": 3,
+      "op": ">=",
+      "value": 0.3
+     },
+     "line_kind": "existing",
+     "kind": "checkpoint"
+    }
+   ],
+   "evidence": [
+    "safety"
+   ]
+  }
+ ],
+ "eval": {
+  "Claude Opus 5.5": {
+   "cp": "final:7",
+   "caps": {
+    "pot": {
+     "status": "verified",
+     "skills": {
+      "aim": {
+       "status": "pass",
+       "value": 0.9787,
+       "n": 47.0,
+       "src": "checkpoint"
+      },
+      "pots": {
+       "status": "pass",
+       "value": 0.5169,
+       "n": 89.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "position": {
+     "status": "not_verified",
+     "skills": {
+      "position": {
+       "status": "fail",
+       "value": 0.5641,
+       "n": 39.0,
+       "src": "checkpoint"
+      },
+      "runs": {
+       "status": "pass",
+       "value": 2.3333,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "safety": {
+     "status": "verified",
+     "skills": {
+      "legal_shot": {
+       "status": "pass",
+       "value": 0.9326,
+       "n": 89.0,
+       "src": "checkpoint"
+      },
+      "safety": {
+       "status": "pass",
+       "value": 0.8649,
+       "n": 37.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "stroke": {
+     "status": "verified",
+     "cp": "final:7",
+     "skills": {
+      "clean": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 89.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GPT-6 Astra": {
+   "cp": "final:7",
+   "caps": {
+    "pot": {
+     "status": "verified",
+     "skills": {
+      "aim": {
+       "status": "pass",
+       "value": 0.6909,
+       "n": 55.0,
+       "src": "checkpoint"
+      },
+      "pots": {
+       "status": "pass",
+       "value": 0.3782,
+       "n": 119.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "position": {
+     "status": "not_verified",
+     "skills": {
+      "position": {
+       "status": "fail",
+       "value": 0.3333,
+       "n": 39.0,
+       "src": "checkpoint"
+      },
+      "runs": {
+       "status": "pass",
+       "value": 1.6667,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "safety": {
+     "status": "not_verified",
+     "skills": {
+      "legal_shot": {
+       "status": "fail",
+       "value": 0.8824,
+       "n": 119.0,
+       "src": "checkpoint"
+      },
+      "safety": {
+       "status": "pass",
+       "value": 0.9143,
+       "n": 35.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "stroke": {
+     "status": "not_verified",
+     "cp": "final:7",
+     "skills": {
+      "clean": {
+       "status": "fail",
+       "value": 0.8908,
+       "n": 119.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Gemini 4 Argon": {
+   "cp": "final:6",
+   "caps": {
+    "pot": {
+     "status": "not_evaluated",
+     "skills": {
+      "aim": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      },
+      "pots": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "position": {
+     "status": "insufficient",
+     "skills": {
+      "position": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      },
+      "runs": {
+       "status": "not_examined",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "safety": {
+     "status": "not_evaluated",
+     "skills": {
+      "legal_shot": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      },
+      "safety": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "stroke": {
+     "status": "insufficient",
+     "cp": "final:6",
+     "skills": {
+      "clean": {
+       "status": "insufficient",
+       "value": null,
+       "n": 7.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "cp": "final:5",
+   "caps": {
+    "pot": {
+     "status": "not_verified",
+     "skills": {
+      "aim": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0.0,
+       "src": "checkpoint"
+      },
+      "pots": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 264.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "position": {
+     "status": "not_verified",
+     "skills": {
+      "position": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0.0,
+       "src": "checkpoint"
+      },
+      "runs": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "safety": {
+     "status": "not_verified",
+     "skills": {
+      "legal_shot": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 264.0,
+       "src": "checkpoint"
+      },
+      "safety": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "stroke": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "clean": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 264.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "cp": "final:7",
+   "caps": {
+    "pot": {
+     "status": "not_verified",
+     "skills": {
+      "aim": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0.0,
+       "src": "checkpoint"
+      },
+      "pots": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 113.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "position": {
+     "status": "not_verified",
+     "skills": {
+      "position": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0.0,
+       "src": "checkpoint"
+      },
+      "runs": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "safety": {
+     "status": "not_verified",
+     "skills": {
+      "legal_shot": {
+       "status": "fail",
+       "value": 0.0354,
+       "n": 113.0,
+       "src": "checkpoint"
+      },
+      "safety": {
+       "status": "pass",
+       "value": 1.0,
+       "n": 4.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "stroke": {
+     "status": "not_verified",
+     "cp": "final:7",
+     "skills": {
+      "clean": {
+       "status": "fail",
+       "value": 0.1681,
+       "n": 113.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  },
+  "GLM 5.3 Flash": {
+   "cp": "final:5",
+   "caps": {
+    "pot": {
+     "status": "not_verified",
+     "skills": {
+      "aim": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0.0,
+       "src": "checkpoint"
+      },
+      "pots": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 264.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "position": {
+     "status": "not_verified",
+     "skills": {
+      "position": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0.0,
+       "src": "checkpoint"
+      },
+      "runs": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 6,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "safety": {
+     "status": "not_verified",
+     "skills": {
+      "legal_shot": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 264.0,
+       "src": "checkpoint"
+      },
+      "safety": {
+       "status": "unavailable",
+       "value": null,
+       "n": 0.0,
+       "src": "checkpoint"
+      }
+     }
+    },
+    "stroke": {
+     "status": "not_verified",
+     "cp": "final:5",
+     "skills": {
+      "clean": {
+       "status": "fail",
+       "value": 0.0,
+       "n": 264.0,
+       "src": "checkpoint"
+      }
+     }
+    }
+   }
+  }
+ },
+ "growth": {
+  "Claude Opus 5.5": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "stroke": "verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "stroke": "verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "stroke": "verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "stroke": "verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "stroke": "verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "stroke": "verified"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "stroke": "verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "stroke": "verified"
+    }
+   }
+  ],
+  "GPT-6 Astra": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   }
+  ],
+  "Gemini 4 Argon": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "stroke": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "stroke": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "stroke": "insufficient"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "stroke": "not_evaluated"
+    }
+   }
+  ],
+  "Kimi 3.1 Pro": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "stroke": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "stroke": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "stroke": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "stroke": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   }
+  ],
+  "DeepSeek V4.1 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "stroke": "not_evaluated"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:6",
+    "x": 6.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:7",
+    "x": 7.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   }
+  ],
+  "GLM 5.3 Flash": [
+   {
+    "cp": "kickoff:1",
+    "x": 0.5,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:1",
+    "x": 1.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:2",
+    "x": 2.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:3",
+    "x": 3.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:4",
+    "x": 4.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   },
+   {
+    "cp": "final:5",
+    "x": 5.0,
+    "caps": {
+     "stroke": "not_verified"
+    }
+   }
+  ]
+ },
+ "claims": {
+  "Claude Opus 5.5": {
+   "stroke": {
+    "text": "Claude Opus 5.5 reached Clean two-handed stroke at version 0 (start): 100 % vs line reference 94 %; kept at version 1",
+    "acquired": "kickoff:1",
+    "lost": null,
+    "kept": true
+   }
+  },
+  "GPT-6 Astra": {
+   "stroke": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "Gemini 4 Argon": {
+   "stroke": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "Kimi 3.1 Pro": {
+   "stroke": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "DeepSeek V4.1 Flash": {
+   "stroke": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  },
+  "GLM 5.3 Flash": {
+   "stroke": {
+    "text": "",
+    "acquired": null,
+    "lost": null,
+    "kept": false
+   }
+  }
+ },
+ "evidence": {
+  "aim": {
+   "name": "Aims at the call (seeing the balls + stroke direction)",
+   "real": "A player finds the balls by eye; the rules allow no measuring aid. One head colour camera, at most 12 views a shot; a few millimetres misread turn into tenths of a degree of aim.",
+   "measure": "Scenario pot: each stroke's direction at contact (, measured by the world) less the centre of the aims that pot the called ball in the called pocket, computed by the world (, the function L3 reads a player's error with); strokes with |error| ≤ 0.5 deg / strokes with a reading. Match Checkpoint Evaluations: aim_ok / aim_n (the same reading).",
+   "line": "≥ 60 % of strokes within 0.5 deg (seeds pooled, ≥ 5 strokes with a reading)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "pots": {
+   "name": "Pots the called ball (straight-in)",
+   "real": "Potting is the basic act of pool: see the balls, line up, stroke with the right speed and tip, and the ball drops in the called pocket.",
+   "measure": "Scenario pot, straight-in tables (even shots): the called ball is the laid one and it dropped in the called pocket / straight-in shots. Match Checkpoint Evaluations: pots_legal / shots.",
+   "line": "Straight-in ≥ 50 % made (seeds pooled, 6 shots); match Checkpoint Evaluations keep ≥ 30 %",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "cut": {
+   "name": "Pots a cut (30 deg)",
+   "real": "A cut needs the ghost-ball point and throw (friction between the balls drags the object ball off line); errors in seeing the balls grow with the cut.",
+   "measure": "Scenario pot, cut tables (odd shots, the cue ball on a 30 deg cut, alternating sides): made / cut shots.",
+   "line": "≥ 50 % made (seeds pooled, 6 shots)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "clean": {
+   "name": "Clean strokes (two-handed bridge, no fall, in time)",
+   "real": "The rules want a legal stroke: the cue on a bridge, the tip meets the cue ball, the player stays up; each shot has a time limit.",
+   "measure": "All drill shots: the tip met the cue ball and the foul text names no stroke fault (fell, no bridge, shot clock, no contact) / shots. Match Checkpoint Evaluations: clean_strokes / shots. Falls (the old 'no fall while stroking') are part of this.",
+   "line": "≥ 90 % (≥ 10 shots)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "break": {
+   "name": "Break power",
+   "real": "The break drives power into the rack: WPA 4.3 needs a ball potted or at least 4 object balls to a cushion, else it is a foul. The program breaks in half the matches.",
+   "measure": "Scenario break: the official rack ( of the drill seed), the program breaks from the kitchen; the mean number of object balls sent to a cushion per break ( = object_balls_to_cushion), with legal breaks and cue speed V0 aside. A break past the 120 s shot clock is not played and reads 0.",
+   "line": "Mean ≥ 3 balls to a cushion (seeds pooled, 4 breaks)",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "place": {
+   "name": "Places the cue ball with ball in hand",
+   "real": "After the opponent's foul the cue ball goes anywhere: a good player gives itself a short, straight pot.",
+   "measure": "Scenario hand: the cue ball off the table, ball in hand anywhere, one own ball on the table; made / shots, with the shots where the program placed the cue ball itself and the median cut angle of its chosen pot (cue_placed_at, cut_deg).",
+   "line": "≥ 50 % made (seeds pooled, 8 shots)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "pass",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "pass",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "legal": {
+   "name": "Legal shots",
+   "real": "WPA chapter 4: every shot called, own ball hit first, a cushion or a pot after it, the cue ball stays on the table.",
+   "measure": "All drill shots: no foul ( empty) / shots. Match Checkpoint Evaluations: legal / shots.",
+   "line": "≥ 90 % (≥ 10 shots)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "fail",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "fail",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "fail",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "runs": {
+   "name": "Runs of pots (position play)",
+   "real": "Position play is the core of pool: pot one, leave the cue ball where the next is easy.",
+   "measure": "Match Checkpoint Evaluations only: runs2 (at least one visit with 2 pots, 2/3 of racks). No drill (single-shot drills do not test position).",
+   "line": "A 2-pot visit in 2/3 of racks",
+   "three_checks": true,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "safety": {
+   "name": "Effective safeties",
+   "real": "With no good pot, call safety and leave the opponent a hard table.",
+   "measure": "Match Checkpoint Evaluations only: safety_ok / safeties (a legal safety after which the opponent fouls or pots nothing).",
+   "line": "≥ 30 % (≥ 3 safeties)",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  },
+  "acts": {
+   "name": "Shoots every turn in time",
+   "real": "The program must stroke within 120 s a shot and the match chess clock; no stroke loses. In Checkpoint Evaluations some programs crashed in their vision code and never acted again.",
+   "measure": "All drills: the drill finished (the scenario record, shots = cap), no shot past the shot clock ( / a 'shot clock' foul).",
+   "line": "Every drill finished, 0 late shots",
+   "three_checks": false,
+   "marks": {
+    "Claude Opus 5.5": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "GPT-6 Astra": {
+     "status": "na",
+     "checkpoint": "final:7",
+     "src": "skillfill"
+    },
+    "Gemini 4 Argon": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "Kimi 3.1 Pro": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    },
+    "DeepSeek V4.1 Flash": {
+     "status": "na",
+     "checkpoint": "final:7"
+    },
+    "GLM 5.3 Flash": {
+     "status": "na",
+     "checkpoint": "final:5",
+     "src": "skillfill"
+    }
+   }
+  }
+ },
+ "rule": "D3 (Chi 11-10): one headline per primary; pooled over 2 opponents x 2 seeds; acquired = 2 consecutive passing versions, lost = 2 consecutive failing; too few events = insufficient evidence",
+ "rules": [
+  "legal"
+ ],
+ "health": [
+  "acts"
+ ],
+ "not_shown": [
+  {
+   "name": "Walking to a new stance",
+   "why": "The robot is placed at its chosen stance."
+  },
+  {
+   "name": "Real-time reaction",
+   "why": "Pool is static between shots."
+  }
+ ],
+ "notes_split": {}
+}

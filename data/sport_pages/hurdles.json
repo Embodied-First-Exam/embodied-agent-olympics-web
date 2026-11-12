@@ -734,9 +734,9 @@
    "capability": {
     "n": 4,
     "names": [
-     "Building a running gait",
+     "Running gait",
      "Clearing hurdles",
-     "Knowing where you are from the camera",
+     "Stay in the lane from camera",
      "Real-time control"
     ],
     "ref": 4.0,
