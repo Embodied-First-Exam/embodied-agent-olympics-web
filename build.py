@@ -55,9 +55,13 @@ def icon_sprite() -> str:
 
 def build(base: str | None = None) -> int:
     importlib.reload(layout)  # pick up template edits while serving
+    import boards  # noqa: PLC0415
+    importlib.reload(boards)
     importlib.reload(medals)
     importlib.reload(howboard)
     importlib.reload(home)
+    import sport  # noqa: PLC0415
+    importlib.reload(sport)
     importlib.reload(pages)
     cfg = load("site.json")
     if base:
