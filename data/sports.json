@@ -155,21 +155,22 @@
    "still": null,
    "clips": [
     {
-     "id": "soccerssl_match",
-     "shows": "Wheeled-robot match",
-     "status": "Showcase render of an earlier 5 v 5 build; not the 11 v 11 release version",
-     "duration_s": 19.2,
+     "id": "soccer_ssl_r1107",
+     "shows": "A team move: Gemini 4 Argon's robots pass the ball up the field and score",
+     "status": "Official r1107 match, venue render (Blender Cycles) of the recorded states",
+     "duration_s": 18.0,
      "aspect": "16:9",
      "web_720p": {
-      "url": "/eo/media/soccerssl_match.mp4"
+      "url": "/eo/media/soccer_ssl_r1107.mp4"
      },
      "master_1440p": {
-      "url": "/exam-media/masters/soccerssl_match/video.mp4"
+      "url": "/exam-media/masters/soccer_ssl_r1107/video.mp4"
      },
      "poster": {
-      "url": "/eo/img/poster/soccerssl_match.jpg",
+      "url": "/eo/img/poster/soccer_ssl_r1107.jpg",
       "size": "1280x720"
-     }
+     },
+     "match": "SSL2-F14"
     }
    ],
    "track": "Engineer",
