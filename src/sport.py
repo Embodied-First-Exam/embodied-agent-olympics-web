@@ -332,7 +332,7 @@ def arena_podium(site: Site, sid: str, em: dict) -> str:
     if not pod:
         return ""
     notes = _tie_notes(site, sid, em["close"])
-    dne = oa.get("did_not_enter") or [] if isinstance(oa, dict) else []
+    dne = oa.get("did_not_enter") or [] if isinstance(oa, dict) and not medals.paper_board(site, sid) else []
     if dne:  # arena() says it too, in the small print the page hides
         notes.append(f"{' and '.join(model_name(_m(site, n)) for n in dne)} did not enter this sport.")
     return podium(site, [(k, pod.get(k) or []) for k in PLACES], note=" ".join(notes))
@@ -621,6 +621,18 @@ def arena(site: Site, oa: dict) -> str:
 <p class="cr-rule cx-note">{E(note)} Episodic Learning: every match starts from an empty workspace.</p>"""
 
 
+def paper_arena(site: Site, pb: dict) -> str:
+    """An Episodic board taken from the paper (data/paper_edition.json): standings (round robin) or places (one race)."""
+    if pb["kind"] == "points":
+        table = standings_big(site, pb["rows"])
+    else:
+        body = "".join(f'<tr><td class="st-r">{r["rank"]}</td><td>{who(site, r["model"])}</td><td class="st-n">{E(r.get("value") or "")}</td></tr>'
+                       for r in pb["rows"])
+        table = f'<table class="st st--race"><thead><tr><th>Place</th><th>AI agent</th><th></th></tr></thead><tbody>{body}</tbody></table>'
+    return (f'<div class="cr-solo"><h3 class="cr-h">{E(pb.get("head", ""))} <span>final</span></h3>{table}'
+            f'<p class="cr-rule">{E(pb.get("note", ""))} Episodic Learning: every match starts from an empty workspace.</p></div>')
+
+
 def records(site: Site, d: dict) -> str:
     ch, oa = d.get("championship") or {}, d.get("open_arena")
     if ch.get("races"):
@@ -644,7 +656,10 @@ def records(site: Site, d: dict) -> str:
     sid = d.get("sport")
     em = medals.episodic_medals(site)
     tabs = [("champ", medals.CONTINUOUS, champ_sub, champ_podium(site, sid) + team_note + champ)]
-    if oa:
+    pb = medals.paper_board(site, sid)
+    if pb:  # the paper's Episodic board (data/paper_edition.json) replaces or adds this sport's board
+        tabs.append(("arena", medals.EPISODIC, "Fresh workspace · always open", arena_podium(site, sid, em) + paper_arena(site, pb)))
+    elif oa:
         tabs.append(("arena", medals.EPISODIC, "Fresh workspace · always open", arena_podium(site, sid, em) + arena(site, oa)))
     elif d.get("format") == "solo" and (s1 := medals.solo_round1(site).get(sid)):
         tabs.append(("arena", medals.EPISODIC, "First series match · fresh workspace", arena_podium(site, sid, em) + solo_arena(site, ch, s1)))

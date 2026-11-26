@@ -80,6 +80,7 @@ def build(base: str | None = None) -> int:
     site = layout.Site(cfg, load("data/sports.json")["sports"], load("data/models.json")["models"],
                 load("data/media.json"), load("data/results.json"))
     medals.apply_exhibition(site)  # exhibition sports (data/exhibition.json) leave the medal tables and win rates
+    paper_check(site)
 
     out = [home.home(site), pages.sports_index(site), pages.match(site), pages.competitions(site),
            pages.results(site), pages.watch(site), pages.not_found(site)]
@@ -106,6 +107,16 @@ def build(base: str | None = None) -> int:
     if (ROOT / "CNAME").is_file():  # custom domain for GitHub Pages
         shutil.copy(ROOT / "CNAME", DIST / "CNAME")
     return len(out)
+
+
+def paper_check(site) -> None:
+    """Both medal tables must equal the paper's (data/paper_edition.json expect_*): stop the build otherwise."""
+    exp = medals.paper(site)
+    got_e = {r["model"]: [r["gold"], r["silver"], r["bronze"]] for r in medals.episodic_medals(site)["table"]}
+    got_c = {r["model"]: [r["gold"], r["silver"], r["bronze"]] for r in site.results.get("medal_table", [])}
+    for name, want, got in (("Episodic", exp.get("expect_episodic_medals"), got_e), ("Continual", exp.get("expect_continual_medals"), got_c)):
+        if want and want != {k: v for k, v in got.items() if k in want}:
+            raise SystemExit(f"{name} medal table differs from the paper: site {got} v paper {want}")
 
 
 def mtime() -> float:

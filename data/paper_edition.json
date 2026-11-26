@@ -1,0 +1,229 @@
+{
+  "_note": "The Episodic boards the paper counts that the site's synced results do not hold yet (completed after the 11-12 site sync: the complete seven-model Humanoid Soccer · Team round robin, the drone final DRN4-F01 and the seven-car race RACR-F01), and both medal tables as the paper gives them (overall-results figure, data in the paper's figure_scripts/F2g/data.json). episodic_boards replace or add the sport's Episodic board in the medal table, the leaderboard's Every-sport cards and the sport page; build.py stops when a medal table differs from expect_*. Read by src/medals.py.",
+  "episodic_boards": {
+    "soccer_hsl_team": {
+      "kind": "points",
+      "head": "Round robin · 7 models",
+      "note": "The complete board with all seven models, as in the paper.",
+      "rows": [
+        {
+          "rank": 1,
+          "model": "Claude Fable 5.2",
+          "points": 18,
+          "won": 6,
+          "drawn": 0,
+          "lost": 0,
+          "score_for": 49,
+          "score_against": 2,
+          "diff": 47
+        },
+        {
+          "rank": 2,
+          "model": "Claude Opus 5.5",
+          "points": 13,
+          "won": 4,
+          "drawn": 1,
+          "lost": 1,
+          "score_for": 30,
+          "score_against": 7,
+          "diff": 23
+        },
+        {
+          "rank": 3,
+          "model": "Gemini 4 Argon",
+          "points": 13,
+          "won": 4,
+          "drawn": 1,
+          "lost": 1,
+          "score_for": 31,
+          "score_against": 15,
+          "diff": 16
+        },
+        {
+          "rank": 4,
+          "model": "GPT-6 Astra",
+          "points": 9,
+          "won": 3,
+          "drawn": 0,
+          "lost": 3,
+          "score_for": 31,
+          "score_against": 13,
+          "diff": 18
+        },
+        {
+          "rank": 5,
+          "model": "GLM 5.3 Flash",
+          "points": 2,
+          "won": 0,
+          "drawn": 2,
+          "lost": 4,
+          "score_for": 0,
+          "score_against": 33,
+          "diff": -33
+        },
+        {
+          "rank": 6,
+          "model": "Kimi 3.1 Pro",
+          "points": 2,
+          "won": 0,
+          "drawn": 2,
+          "lost": 4,
+          "score_for": 0,
+          "score_against": 35,
+          "diff": -35
+        },
+        {
+          "rank": 7,
+          "model": "DeepSeek V4.1 Flash",
+          "points": 2,
+          "won": 0,
+          "drawn": 2,
+          "lost": 4,
+          "score_for": 0,
+          "score_against": 36,
+          "diff": -36
+        }
+      ]
+    },
+    "drone": {
+      "kind": "places",
+      "head": "Final of four · DRN4-F01",
+      "unit": "place",
+      "note": "Episodic drone racing: each model's first time-trial run from a fresh workspace sets the seeding; the top four fly one final race (DRN4-F01) from fresh workspaces. Kimi 3.1 Pro, DeepSeek V4.1 Flash and GLM 5.3 Flash did not reach the final.",
+      "rows": [
+        {
+          "rank": 1,
+          "model": "GPT-6 Astra",
+          "value": ""
+        },
+        {
+          "rank": 2,
+          "model": "Claude Opus 5.5",
+          "value": ""
+        },
+        {
+          "rank": 3,
+          "model": "Claude Fable 5.2",
+          "value": ""
+        },
+        {
+          "rank": 4,
+          "model": "Gemini 4 Argon",
+          "value": ""
+        }
+      ]
+    },
+    "racing": {
+      "kind": "places",
+      "head": "One seven-car race · RACR-F01",
+      "unit": "place",
+      "note": "Episodic full-size racing: one race with all seven cars, every model from a fresh workspace (RACR-F01). Claude Fable 5.2 was the only finisher; DeepSeek V4.1 Flash was disqualified.",
+      "rows": [
+        {
+          "rank": 1,
+          "model": "Claude Fable 5.2",
+          "value": "567.78 s"
+        },
+        {
+          "rank": 2,
+          "model": "Kimi 3.1 Pro",
+          "value": "4 laps"
+        },
+        {
+          "rank": 3,
+          "model": "GPT-6 Astra",
+          "value": "–"
+        },
+        {
+          "rank": 4,
+          "model": "Claude Opus 5.5",
+          "value": "–"
+        },
+        {
+          "rank": 5,
+          "model": "GLM 5.3 Flash",
+          "value": "–"
+        },
+        {
+          "rank": 6,
+          "model": "Gemini 4 Argon",
+          "value": "–"
+        },
+        {
+          "rank": 7,
+          "model": "DeepSeek V4.1 Flash",
+          "value": "DSQ"
+        }
+      ]
+    }
+  },
+  "expect_episodic_medals": {
+    "Claude Fable 5.2": [
+      12,
+      3,
+      1
+    ],
+    "GPT-6 Astra": [
+      4,
+      8,
+      2
+    ],
+    "Claude Opus 5.5": [
+      0,
+      4,
+      8
+    ],
+    "Kimi 3.1 Pro": [
+      0,
+      1,
+      2
+    ],
+    "Gemini 4 Argon": [
+      0,
+      0,
+      3
+    ],
+    "DeepSeek V4.1 Flash": [
+      0,
+      0,
+      0
+    ],
+    "GLM 5.3 Flash": [
+      0,
+      0,
+      0
+    ]
+  },
+  "expect_continual_medals": {
+    "GPT-6 Astra": [
+      9,
+      5,
+      2
+    ],
+    "Claude Opus 5.5": [
+      5,
+      4,
+      4
+    ],
+    "Gemini 4 Argon": [
+      2,
+      6,
+      5
+    ],
+    "Kimi 3.1 Pro": [
+      0,
+      1,
+      2
+    ],
+    "DeepSeek V4.1 Flash": [
+      0,
+      0,
+      2
+    ],
+    "GLM 5.3 Flash": [
+      0,
+      0,
+      1
+    ]
+  }
+}
