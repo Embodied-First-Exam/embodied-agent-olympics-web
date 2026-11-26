@@ -6,6 +6,20 @@ from __future__ import annotations
 from layout import ROOT, E, Site, model_name
 
 
+def paper(site: Site) -> dict:
+    """data/paper_edition.json: the Episodic boards the paper counts beyond the synced results (complete Humanoid Soccer ·
+    Team board, drone final, seven-car race) and the paper's two medal tables (checked at build)."""
+    if "_paper" not in site.cfg:
+        import json  # noqa: PLC0415
+        f = ROOT / "data" / "paper_edition.json"
+        site.cfg["_paper"] = json.loads(f.read_text(encoding="utf-8")) if f.is_file() else {}
+    return site.cfg["_paper"]
+
+
+def paper_board(site: Site, sid: str) -> dict | None:
+    return (paper(site).get("episodic_boards") or {}).get(sid)
+
+
 def status_line(site: Site, default: str) -> str:
     return (site.results.get("status") or {}).get("line") or default
 
@@ -66,6 +80,15 @@ def arena_panel(site: Site, fallback_boards: str) -> str:
                        if sid in exhibition_ids(site) else "")
     cards = []
     for s in site.sports:
+        pb = paper_board(site, s["id"])
+        if pb:  # the paper's board (data/paper_edition.json): standings of a round robin, or the places of one race
+            if pb["kind"] == "points":
+                rows = [(r["rank"], r["model"], r["points"], None) for r in pb["rows"]]
+                cards.append(boards.sport_card(site, s, rows, "pts", site.sport_url(s) + "#records", exh(s["id"])))
+            else:
+                rows = [(r["rank"], r["model"], None, r.get("value") or "") for r in pb["rows"]]
+                cards.append(boards.sport_card(site, s, rows, "", site.sport_url(s) + "#records", exh(s["id"])))
+            continue
         b = oa.get(s["id"])
         if not b:
             continue
@@ -250,8 +273,8 @@ def episodic_medals(site: Site) -> dict:
     Championship medal table. Boards: the 12 duel and team-duel Open Arena round robins (results.json open_arena rows,
     official order: points, score difference, head to head) and the 4 solo sports' first series match (solo_round1).
     Rank 1 / 2 / 3 -> gold / silver / bronze; a shared rank shares the medal; a board with fewer than three ranked
-    entrants gives fewer medals. Only complete boards count (an incomplete one is listed as in progress). Drone racing and
-    full-size racing have no Episodic board."""
+    entrants gives fewer medals. Only complete boards count (an incomplete one is listed as in progress). The paper's boards
+    in data/paper_edition.json (Humanoid Soccer · Team, the drone final, the seven-car race) replace or add a sport's board."""
     oa = site.results.get("open_arena") or {}
     names = [m["name"] for m in site.models]
     tally = {n: {"gold": 0, "silver": 0, "bronze": 0} for n in names}
@@ -261,7 +284,15 @@ def episodic_medals(site: Site) -> dict:
         b = oa.get(s["id"])
         if s["id"] in exhibition_ids(site):  # exhibition: board shown, no medals (data/exhibition.json)
             continue
-        if s["id"] in solo:
+        pb = paper_board(site, s["id"])
+        if pb:  # the paper's board replaces or adds this sport's Episodic board
+            rows = sorted(pb["rows"], key=lambda r: r["rank"])
+            if pb["kind"] == "points":
+                for a, c in zip(rows, rows[1:]):
+                    if a["points"] == c["points"] and a["rank"] <= 3:
+                        close.append({"sport": s["id"], "ranks": [a["rank"], c["rank"]], "models": [a["model"], c["model"]], "points": a["points"],
+                                      "diff": [a["score_for"] - a["score_against"], c["score_for"] - c["score_against"]]})
+        elif s["id"] in solo:
             rows = [{"model": r["model"], "rank": r["rank"]} for r in solo[s["id"]]]
         elif isinstance(b, dict) and b.get("rows"):
             if not b.get("complete"):
